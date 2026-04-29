@@ -1,0 +1,495 @@
+# Info 862 STJ
+
+**Status geral:** Estruturado automaticamente
+
+---
+
+## Julgado 1
+
+**Disciplina:** Direito Constitucional
+
+**Subtema:** Direitos E Garantias Fundamentais
+
+**ODS:** 16
+
+**Título do julgado:**
+
+A realização de protestos sem comunicação prévia que causem graves transtornos à coletividade configura dano moral coletivo Importante!!!
+
+**Tese / entendimento:**
+
+A realização de protestos sem comunicação prévia às autoridades e com obstrução de diversas
+vias públicas de acesso à capital do Estado por lapso temporal considerável configura dano
+moral coletivo in re ipsa.
+Caso concreto: entidades sindicais realizaram protestos sem prévia comunicação às
+autoridades, resultando no bloqueio de todas as vias de acesso à cidade, inclusive com a
+queima de pneus, gerando transtornos generalizados à população. O STJ considerou que ficou
+caracterizada grave ofensa aos interesses coletivos, o que justifica a condenação por dano
+moral coletivo.
+
+**Referência:**
+
+STJ. 2ª Turma. REsp 2.026.929-ES, Rel. Min. Marco Aurélio Bellizze, julgado em 9/9/2025 (Info 862).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 2
+
+**Disciplina:** Direito Administrativo
+
+**Subtema:** Temas Diversos
+
+**ODS:** 16
+
+**Título do julgado:**
+
+Nas ações em que o participante contesta saques em sua conta individualizada do PASEP, a quem cabe o ônus da prova?
+
+**Tese / entendimento:**
+
+Nas ações em que o participante contesta saques em sua conta individualizada do PASEP, o
+ônus de provar cabe:
+a) ao participante, quanto aos saques sob as formas de crédito em conta e de pagamento por
+Folha de Pagamento (PASEP-FOPAG), por ser fato constitutivo de seu direito, na forma do art.
+373, I, do CPC, sendo incabível a inversão (art. 6º, VIII, do CDC) ou a redistribuição (art. 373, §
+1º, do CPC) do ônus da prova;
+b) ao réu, quanto aos saques sob a forma de saque em caixa das agências do BB, por ser fato
+extintivo do direito do autor, na forma do art. 373, II, do CPC.
+
+**Referência:**
+
+STJ. 1ª Seção. REsp 2.162.222-PE, REsp 2.162.223-PE, REsp 2.162.198-PE e REsp 2.162.323-PE, Rel. Min. Maria Thereza de Assis Moura, julgados em 10/9/2025 (Recurso Repetitivo - Tema 1300) (Info 862).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 3
+
+**Disciplina:** Direito Civil
+
+**Subtema:** Contratos
+
+**ODS:** 16
+
+**Título do julgado:**
+
+A cláusula de sobre-estadia de contêineres (demurrage) tem natureza de cláusula penal e seu valor pode ser reduzido quando for manifestamente excessivo, respeitando o princípio da modicidade
+
+**Tese / entendimento:**
+
+A cobrança de sobre-estadia de contêineres (demurrage) possui natureza de cláusula penal,
+prevista contratualmente em valor prefixado, sendo aplicáveis as regras dos arts. 408 a 416
+do Código Civil.
+A cláusula penal admite a redução do valor estipulado, quando este for manifestamente
+excessivo, conforme o princípio da modicidade.
+A quantia cobrada a título de sobre-estadia deve ser limitada ao valor do próprio contêiner,
+salvo se houver comprovação efetiva de danos materiais adicionais, para evitar onerosidade
+excessiva e desequilíbrio contratual.
+
+**Referência:**
+
+STJ. 4ª Turma. REsp 1.577.138-SP, Rel. Min. Raul Araújo, julgado em 2/9/2025 (Info 862).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 4
+
+**Disciplina:** Direito Civil
+
+**Subtema:** Sucessões
+
+**ODS:** 16
+
+**Título do julgado:**
+
+O acesso a bens digitais do falecido, quando não se conhece a senha, deve ocorrer por incidente processual específico no inventário, desde que resguardados os direitos à intimidade e à privacidade
+
+**Tese / entendimento:**
+
+Caso hipotético: um empresário faleceu e deixou ativos digitais armazenados no seu iphone e
+ipad. Ocorre que os herdeiros não tinham a senha. O que fazer neste caso?
+Na hipótese de o falecido deixar bens digitais dos quais os herdeiros não tenham a senha de
+acesso, necessário se faz a instauração de incidente processual de identificação, classificação
+e avaliação de bens digitais, paralelo ao processo de inventário, a fim de que o juízo possa
+analisar e diligenciar acerca do conteúdo e da possibilidade de partilha de eventuais bens
+digitais localizados.
+Principais conclusões do STJ:
+O acesso aos bens digitais de pessoa falecida não constitui questão de alta indagação, devendo,
+portanto, tramitar no inventário (precisa de ação autônoma nas vias ordinárias do art. 612 do
+CPC).
+Nem todos os bens digitais são transmissíveis, sendo vedado o repasse de conteúdos que
+violem a intimidade ou os direitos da personalidade do falecido ou de terceiros.
+Na hipótese de bens digitais protegidos por senhas desconhecidas pelos herdeiros, deve-se
+instaurar incidente de identificação, classificação e avaliação de bens digitais, que tramita
+paralelo e apensado ao inventário.
+O juiz do inventário deve nomear um profissional com expertise digital, denominado
+inventariante digital, para acessar e catalogar os bens digitais.
+O inventariante digital elabora relatório detalhado de todo o conteúdo encontrado,
+submetendo-o ao juiz em sigilo.
+Cabe ao juiz classificar os bens digitais e decidir quais serão transmitidos aos herdeiros e
+quais serão preservados por violarem direitos de personalidade.
+Empresas provedoras de serviços digitais não devem ter acesso direto ao conteúdo dos
+dispositivos, pois isso poderia violar direitos de personalidade.
+O incidente processual representa solução transitória diante do vácuo legislativo sobre
+herança digital.
+A solução proposta baseia-se no poder do juiz de adequar o processo (art. 139 do CPC) e no
+dever de decidir mesmo em caso de lacuna legal (art. 140 do CPC).
+
+**Referência:**
+
+STJ. 3ª Turma. REsp 2.124.424-SP, Rel. Min. Nancy Andrighi, julgado em 9/9/2025 (Info 862).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 5
+
+**Disciplina:** Direito Processual Civil
+
+**Subtema:** Recursos
+
+**ODS:** 16
+
+**Título do julgado:**
+
+Comprovação posterior de feriado local deve ser admitida em agravo interno que discute a tempestividade recursal, conforme nova redação do art. 1.003, § 6º do CPC, que se aplica para casos anteriores à sua vigência
+
+**Tese / entendimento:**
+
+A Corte Especial do Superior Tribunal de Justiça, no julgamento da questão de ordem
+apresentada no AREsp 2.638.376/MG, admitiu a extensão dos efeitos da Lei n. 14.939/2024
+aos recursos apresentados antes de sua entrada em vigor, estabelecendo que a nova redação
+dada ao art. 1.003, § 6º, do Código de Processo Civil fosse observada por ocasião do julgamento
+dos agravos internos/regimentais interpostos de decisões de admissibilidade embasadas na
+falta de comprovação da suspensão de expediente forense (feriado local).
+
+**Referência:**
+
+STJ. 1ª Turma. EDcl no AgInt no AREsp 2.285.064-SP, Rel. Min. Paulo Sérgio Domingues, julgado em 18/8/2025 (Info 862).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 6
+
+**Disciplina:** Direito Processual Civil
+
+**Subtema:** Mandado De Segurança / Direito Tributário
+
+**ODS:** 16
+
+**Título do julgado:**
+
+Mandado de segurança contra lei ou ato normativo que interfira em obrigações tributárias sucessivas não está sujeito ao prazo decadencial de 120 dias
+
+**Tese / entendimento:**
+
+Situação hipotética: a Indústria Alfa passou a pagar ICMS sobre energia elétrica com alíquota
+de 25% após a edição de uma Lei Estadual, que majorou o imposto de 18% para 25%. A
+empresa considerou essa majoração inconstitucional por violar o princípio da seletividade
+tributária, segundo o qual bens essenciais, como a energia elétrica, deveriam ter tributação
+reduzida. Por isso, em janeiro de 2021, mais de cinco anos após a lei, impetrou mandado de
+segurança buscando aplicar novamente a alíquota de 18%. O Estado alegou decadência,
+sustentando que o prazo de 120 dias para impetração do mandado de segurança deveria ser
+contado desde a publicação da lei, em 2015. O STJ, no entanto, não concordou com esse
+argumento, entendendo que o prazo decadencial conta-se da ocorrência de cada ato concreto
+de cobrança, ou seja, de cada conta de luz com o ICMS majorado, e não da publicação da lei.
+Tese fixada: O prazo decadencial do art. 23 da Lei n. 12.016/2009 não se aplica ao mandado
+de segurança cuja causa de pedir seja a impugnação de lei ou ato normativo que interfira em
+obrigações tributárias sucessivas, dado o caráter preventivo da impetração decorrente da
+ameaça atual, objetiva e permanente de aplicação da norma impugnada.
+
+**Referência:**
+
+STJ. 1ª Seção. REsp 2.103.305-MG e REsp 2.109.221-MG, Rel. Min. Paulo Sérgio Domingues, julgados em 10/9/2025 (Recurso Repetitivo - Temas 1237 e 1273) (Info 862).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 7
+
+**Disciplina:** Direito Processual Civil
+
+**Subtema:** Processo Coletivo
+
+**ODS:** 16
+
+**Título do julgado:**
+
+Sucessores de servidor falecido antes do ajuizamento da ação coletiva não têm direito à execução da sentença, salvo se expressamente contemplados
+
+**Tese / entendimento:**
+
+Tese fixada: Os sucessores do servidor falecido antes da propositura da ação coletiva não são
+beneficiados pela decisão transitada em julgado que condena ao pagamento de diferenças,
+salvo se expressamente contemplados.
+Exemplo hipotético: João era servidor público federal. Ele faleceu em 1995, deixando como
+herdeiros Regina (sua esposa) e Pedro (seu filho). Em 1997, ou seja, dois anos depois da morte
+de João, o sindicato dos servidores públicos federais ajuizou uma ação coletiva contra a União,
+buscando o pagamento de uma verba que deveria ter sido seria concedida aos servidores
+públicos federais nos anos de 1993 a 1995. Vale ressaltar que, neste período, João estava
+trabalhando. O juiz julgou o pedido procedente determinando que a União pagasse as verbas
+aos servidores públicos federais. Houve o trânsito em julgado. Regina e Pedro, herdeiros de
+João, ingressaram com pedido de cumprimento de sentença, alegando que o falecido fazia
+parte da categoria beneficiada e que os valores devidos até sua morte deveriam ser pagos a
+eles (seus herdeiros). Eles não poderão executar a sentença. A morte extingue a pessoa
+natural, rompendo o vínculo com a associação ou sindicato, com a administração pública e
+com a categoria profissional. Por isso, os sucessores não possuem a qualidade de membros da
+categoria substituída e não são beneficiados automaticamente pela sentença proferida em
+ação coletiva.
+
+**Referência:**
+
+STJ. 1ª Seção. REsp 2.144.140-CE e REsp 2.147.137-CE, Rel. Min. Maria Thereza de Assis Moura, julgados em 10/9/2025 (Recurso Repetitivo - Tema 1309) (Info 862).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 8
+
+**Disciplina:** Direito Penal
+
+**Subtema:** Confissão / Lei De Drogas / Súmulas Organizadas
+
+**ODS:** 16
+
+**Título do julgado:**
+
+A confissão possibilita a atenuação da pena mesmo que não tenha sido utilizada na formação do convencimento do julgador; além disso, o réu que confessa apenas a droga para consumo próprio, tem direito à atenuação Importante!!! Mudança de entendimento
+
+**Tese / entendimento:**
+
+Redação anterior:
+Súmula 545-STJ: Quando a confissão for utilizada para a formação do convencimento do
+julgador, o réu fará jus à atenuante prevista no artigo 65, III, d, do Código Penal.
+STJ. 3ª Seção. Aprovada em 14/10/2015.
+Redação atual:
+Súmula 545-STJ: A confissão do autor possibilita a atenuação da pena prevista no art. 65, III,
+d, do Código Penal, independentemente de ser utilizada na formação do convencimento do
+julgador.
+Redação anterior:
+Súmula 630-STJ: A incidência da atenuante da confissão espontânea no crime de tráfico ilícito
+de entorpecentes exige o reconhecimento da traficância pelo acusado, não bastando a mera
+admissão da posse ou propriedade para uso próprio.
+STJ. 3ª Seção. Aprovada em 24/04/2019.
+Redação atual:
+Súmula 630-STJ: A incidência da atenuante da confissão espontânea no crime de tráfico ilícito
+de entorpecentes quando o acusado admitir a posse ou a propriedade para uso próprio,
+negando a prática do tráfico de drogas, deve ocorrer em proporção inferior à que seria devida
+no caso de confissão plena.
+Teses fixadas (Tema 1194):
+1. A atenuante genérica da confissão espontânea, prevista no art. 65, III, d, do Código Penal, é
+apta a abrandar a pena independentemente de ter sido utilizada na formação do
+convencimento do julgador e mesmo que existam outros elementos suficientes de prova,
+desde que não tenha havido retratação, exceto, neste último caso, que a confissão tenha
+servido à apuração dos fatos.
+2. A atenuação deve ser aplicada em menor proporção e não poderá ser considerada
+preponderante no concurso com agravantes quando o fato confessado for tipificado com
+menor pena ou caracterizar circunstância excludente da tipicidade, da ilicitude ou da
+culpabilidade.
+
+**Referência:**
+
+STJ. 3ª Seção. REsp 2.001.973-RS, Rel. Min. Og Fernandes, julgado em 10/09/2025, Recurso Repetitivo - Tema 1194 (Info 862).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 9
+
+**Disciplina:** Direito Penal
+
+**Subtema:** Redução À Condição Análoga À De Escravo
+
+**ODS:** 16
+
+**Título do julgado:**
+
+Submeter trabalhadores a condições degradantes é suficiente para configurar o crime de redução à condição análoga à de escravo, independentemente de restrição à liberdade de locomoção Importante!!!
+
+**Tese / entendimento:**
+
+A configuração do delito de redução à condição análoga à de escravo, previsto no art. 149 do
+Código Penal, não exige a restrição da liberdade de locomoção dos trabalhadores, sendo
+suficiente a submissão a condições degradantes de trabalho.
+Caso hipotético: João, dono de uma fazenda, contratou trabalhadores para o local. Durante
+uma fiscalização do Ministério do Trabalho foram encontradas condições extremamente
+precárias. Os empregados viviam em barracos improvisados sem piso, energia elétrica ou
+instalações sanitárias; dormiam em um ônibus velho, bebiam água armazenada em um
+caminhão-pipa enferrujado, e cozinhavam em fogões improvisados. Além disso, o local era
+sujo e não havia fornecimento de equipamentos de proteção individual.
+O MPF denunciou João pelo crime de redução à condição análoga à de escravo (art. 149 do CP).
+A defesa alegou que, embora as condições violassem direitos trabalhistas, não se configurava
+o crime, pois não havia prova de restrição da liberdade dos trabalhadores.
+O STJ não concordou.
+A configuração do delito de redução à condição análoga à de escravo, previsto no art. 149 do
+Código Penal, não exige a restrição da liberdade de locomoção dos trabalhadores, sendo
+suficiente a submissão a condições degradantes de trabalho.
+A submissão a condições degradantes de trabalho é suficiente para a tipificação do crime,
+independentemente de restrição à liberdade de locomoção.
+
+**Referência:**
+
+STJ. 6ª Turma. REsp 2.204.503-BA, Rel. Min. Sebastião Reis Júnior, julgado em 9/9/2025 (Info 862).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 10
+
+**Disciplina:** Direito Penal
+
+**Subtema:** Crimes Contra A Dignidade Sexual
+
+**ODS:** 16
+
+**Título do julgado:**
+
+O dolo no crime de estupro consiste na vontade de constranger a vítima à prática de ato libidinoso, não sendo necessária a intenção de satisfazer a lascívia Importante!!!
+
+**Tese / entendimento:**
+
+Situação hipotética: um homem era pai de uma adolescente de 15 anos. Ele homem arrastou a
+filha para uma construção nos fundos da residência e, mediante violência, apalpou seus seios
+e introduziu o dedo em sua vagina. Em juízo, a vítima tentou minimizar o fato afirmando que
+o pai teria agido apenas para verificar a virgindade, sem intenção sexual.
+A defesa do réu construiu sua tese justamente sobre esse ponto: alegou que ele agiu sem
+intenção de satisfazer a lascívia e que sua intenção era corretiva.
+Segundo a defesa, a ausência da intenção lasciva afastaria o dolo necessário para a
+configuração do crime de estupro.
+O STJ rejeitou a tese da defesa e manteve a condenação do réu.
+O dolo no crime de estupro consiste na vontade de constranger a vítima à prática de ato
+libidinoso, não sendo necessária a intenção de satisfazer a lascívia. O art. 213 do CP não exige
+a satisfação da lascívia como elemento subjetivo do tipo.
+A motivação do agente (prazer sexual, vingança, humilhação ou correção) é irrelevante para
+a configuração do crime de estupro.
+
+**Referência:**
+
+STJ. 5ª Turma. REsp 2.211.166-MG, Rel. Min. Joel Ilan Paciornik, julgado em 12/8/2025 (Info 862).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 11
+
+**Disciplina:** Direito Processual Penal
+
+**Subtema:** Ação Penal
+
+**ODS:** 16
+
+**Título do julgado:**
+
+O boletim de ocorrência, mesmo sendo eletrônico, pode ser considerado como representação válida para deflagrar a persecução penal em crimes de ação pública condicionada (como é o caso do estelionato) Importante!!!
+
+**Tese / entendimento:**
+
+Caso hipotético: Regina foi vítima de estelionato praticado por João. Antes do fim do prazo
+decadencial de 6 meses (art. 38 do CPP), ela fez um boletim de ocorrência pela internet
+relatando detalhadamente todo o golpe e qualificando João. 8 meses depois, Regina
+compareceu pessoalmente à delegacia para complementar as informações, apresentando
+documentos. A defesa argumentou que houve decadência porque o boletim de ocorrência
+eletrônico, desacompanhado de declaração formal expressa, não seria suficiente para
+configurar a representação válida exigida nos crimes de ação pública condicionada.
+O STJ não concordou com a defesa.
+A representação em crimes de ação pública condicionada prescinde de formalidades
+específicas, bastando a inequívoca demonstração da vontade da vítima.
+O boletim de ocorrência registrado dentro do prazo decadencial pode configurar a
+representação exigida para a deflagração da persecução penal.
+
+**Referência:**
+
+STJ. 6ª Turma. AgRg no HC 1.005.298-SP, Rel. Min. Otávio de Almeida Toledo (Desembargador convocado do TJSP), julgado em 3/9/2025 (Info 862).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 12
+
+**Disciplina:** Direito Previdenciário
+
+**Subtema:** Aposentadoria
+
+**ODS:** 16
+
+**Título do julgado:**
+
+Contribuinte individual não cooperado pode ter direito à aposentadoria especial se demonstrar exposição a agentes nocivos
+
+**Tese / entendimento:**
+
+a) O contribuinte individual não cooperado tem direito ao reconhecimento de tempo de
+atividade especial exercida após a Lei n. 9.032/1995, desde que comprove a exposição a
+agentes nocivos;
+b) A exigência de comprovação da atividade especial por formulário emitido por empresa não
+se aplica a contribuintes individuais, que podem utilizar outros meios de prova.
+
+**Referência:**
+
+STJ. 1ª Seção. REsp 2.163.429-RS e REsp 2.163.998-RS, Rel. Min. Gurgel de Faria, julgados em 10/9/2025 (Recurso Repetitivo - Tema 1291) (Info 862).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---

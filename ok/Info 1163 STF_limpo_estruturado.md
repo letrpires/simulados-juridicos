@@ -1,0 +1,533 @@
+# Info 1163 STF
+
+**Status geral:** Estruturado automaticamente
+
+---
+
+## Julgado 1
+
+**Disciplina:** Direito Constitucional
+
+**Subtema:** Competências Legislativas
+
+**ODS:** 16
+
+**Título do julgado:**
+
+É inconstitucional lei estadual que obriga as instituições financeiras a efetivarem a prova de vida de seus clientes, para fins de cadastramento e/ou recebimento de benefícios previdenciários Importante!!!
+
+**Tese / entendimento:**
+
+É formalmente inconstitucional legislação editada por estado-membro que atribua a
+instituições financeiras a responsabilidade pela realização de prova de vida de beneficiários
+do Regime Geral de Previdência Social, por violação do art. 22, inciso XXIII, da Constituição da
+República.
+A Constituição Federal estabelece que compete privativamente à União legislar sobre
+seguridade social.
+A Lei nº 9.078/2020 do Estado do Rio de Janeiro, ao impor às instituições financeiras a
+obrigação de efetuar a prova de vida de beneficiários do Regime Geral de Previdência Social,
+invadiu essa competência. Assim, a norma estadual foi declarada inconstitucional por violação
+ao art. 22, inciso XXIII, da Constituição Federal.
+
+**Referência:**
+
+STF. Plenário. ADI 7.010/RJ, Rel. Min. Dias Toffoli, julgado em 16/12/2024 (Info 1163).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 2
+
+**Disciplina:** Direito Constitucional
+
+**Subtema:** Tribunal De Contas
+
+**ODS:** 16
+
+**Título do julgado:**
+
+É constitucional norma estadual que preveja votação secreta para que a ALE escolha os indicados para o TCE; por outro lado, é inconstitucional a fixação de prazo para o Governador nomear os indicados Importante!!!
+
+**Tese / entendimento:**
+
+A Constituição do Estado de Sergipe, alterada por uma emenda constitucional, previu:
+1) a necessidade de aprovação por voto secreto pela Assembleia Legislativa dos Conselheiros
+do Tribunal de Contas indicados; e
+2) a fixação de prazo de 20 dias para o Governador nomear os Conselheiros após a publicação
+do ato de escolha.
+É constitucional a norma estadual que estabelece a necessidade de a Assembleia Legislativa
+aprovar, mediante voto secreto, a escolha dos conselheiros do Tribunal de Contas local por ela
+indicados. Este procedimento segue o modelo federal previsto no art. 52, III, "b", da
+Constituição Federal.
+Por outro lado, o STF declarou inconstitucional a fixação do prazo de vinte dias para o
+Governador nomear os conselheiros do Tribunal de Contas. Isso porque a Constituição Federal
+não estabelece prazo para nomeação dos indicados para o Tribunal de Contas da União, e os
+estados devem seguir esse modelo, conforme o art. 75 da Constituição, respeitando o princípio
+da simetria.
+
+**Referência:**
+
+STF. Plenário. ADI 4.964/SE, Rel. Min. Nunes Marques, julgado em 16/12/2024 (Info 1163).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 3
+
+**Disciplina:** Direito Constitucional
+
+**Subtema:** Ministério Público
+
+**ODS:** 16
+
+**Título do julgado:**
+
+É constitucional Resolução do Ministério Público estadual que disponha sobre a estrutura administrativa e as atribuições de Gaeco
+
+**Tese / entendimento:**
+
+São formalmente constitucionais — e não usurpam competência privativa da União para
+legislar sobre direito penal ou processual penal (art. 22, I, CF/88) — atos normativos dos
+Ministérios Públicos estaduais que dispõem sobre a estrutura administrativa e as atribuições
+de Grupo de Atuação Especial contra o Crime Organizado (Gaeco).
+É igualmente constitucional decreto do Poder Executivo estadual que estabelece diretrizes de
+sua cooperação institucional com o Parquet local, dentro do Gaeco.
+
+**Referência:**
+
+STF. Plenário. ADI 7.175/MG e ADI 7.176/PR, Rel. Min. Edson Fachin, julgado em 16/12/2024 (Info 1163).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 4
+
+**Disciplina:** Direito Administrativo
+
+**Subtema:** Servidores Públicos
+
+**ODS:** 16
+
+**Título do julgado:**
+
+O pagamento de prêmio por desempenho fiscal (uma espécie de gratificação) a servidores ativos é constitucional, pois se enquadra na exceção do art. 167, IV, da CF/88, mas sua extensão a aposentados e pensionistas é inconstitucional
+
+**Tese / entendimento:**
+
+Caso adaptado: o Estado do Ceará editou lei criando o Prêmio por Desempenho Fiscal (PDF)
+para servidores da arrecadação tributária. Essa gratificação seria baseada no desempenho da
+arrecadação tributária. O ponto controvertido foi que a lei estendeu esse benefício aos
+inativos e pensionistas.
+O PGR ajuizou ADI contra essa previsão. O principal argumento foi o de que a lei violava o art.
+167, IV, da Constituição, que proíbe a vinculação de receita de impostos a órgão, fundo ou
+despesa. Embora exista uma exceção para atividades da administração tributária, o PGR
+argumentou que aposentados e pensionistas não exercem mais essa função.
+O STF acolheu os argumentos do PGR, declarando constitucional o pagamento do PDF apenas
+para servidores ativos, mas inconstitucional para inativos e pensionistas.
+A decisão fundamentou-se em dois pontos:
+1) a violação ao princípio da não vinculação de receitas, já que inativos não exercem atividades
+tributárias;
+2) a ausência de contribuição previdenciária sobre a verba para incorporação aos proventos,
+o que viola os princípios previdenciários do art. 40 da Constituição.
+
+**Referência:**
+
+STF. Plenário. ADI 3.516/CE, Rel. Min. Edson Fachin, julgado em 16/12/2024 (Info 1163).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 5
+
+**Disciplina:** Direito Administrativo
+
+**Subtema:** Servidores Públicos
+
+**ODS:** 8
+
+**Título do julgado:**
+
+São inconstitucionais o conjunto de decisões judiciais que concederam estabilidade a empregados da OAB/RJ originalmente contratados sob o regime celetista
+
+**Tese / entendimento:**
+
+A estabilidade de servidores da OAB/RJ, prevista no art. 79, § 1º, da Lei nº 8.906/1994,
+somente se aplica aos empregados originariamente contratados sob o regime estatutário,
+optantes pela permanência no quadro em extinção ou pela migração para o regime
+trabalhista, no prazo de 90 dias da entrada em vigor do Regimento Interno da OAB/RJ
+atualmente em vigor (2004).
+Art. 79. Aos servidores da OAB, aplica-se o regime trabalhista.
+§ 1º Aos servidores da OAB, sujeitos ao regime da Lei nº 8.112, de 11 de dezembro de 1990, é
+concedido o direito de opção pelo regime trabalhista, no prazo de noventa dias a partir da
+vigência desta lei, sendo assegurado aos optantes o pagamento de indenização, quando da
+aposentadoria, correspondente a cinco vezes o valor da última remuneração. (...)
+O reconhecimento da estabilidade a funcionários da OAB contratados sob o regime trabalhista
+em desacordo com as normas aplicáveis viola a autonomia constitucional da OAB, a segurança
+jurídica e o art. 19 do ADCT, pois permite a criação indevida de hipótese extensiva de
+estabilidade por meio de interpretação de norma regimental local.
+
+**Referência:**
+
+STF. Plenário. ADPF 862/RJ, Rel. Min. Luiz Fux, julgado em 16/12/2024 (Info 1163).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 6
+
+**Disciplina:** Direito Administrativo
+
+**Subtema:** Servidores Públicos > Aposentadoria
+
+**ODS:** 17 1
+
+**Título do julgado:**
+
+São constitucionais os arts. 7º e 9º da Lei 9.717/98, que estabelecem sanções para os entes que descumprirem os critérios de equilíbrio atuarial dos regimes próprios de previdência social Importante !!! Mudança de entendimento
+
+**Tese / entendimento:**
+
+1. É constitucional a previsão, em lei federal, de medidas sancionatórias ao ente federativo que
+descumprir os critérios e exigências aplicáveis aos regimes próprios de previdência social.
+2. Admite-se o controle judicial das exigências feitas pela União no exercício da fiscalização
+desses regimes. Nesse caso, o ente fiscalizado deverá demonstrar, de forma técnica:
+(i) a inexistência do déficit atuarial apontado; ou,
+(ii) caso reconheça o desequilíbrio, a impertinência das medidas impostas pela União e a
+existência de plano alternativo capaz de assegurar, de maneira equivalente, a
+sustentabilidade do regime.
+
+**Referência:**
+
+STF. Plenário. RE 1.007.271/PE, Rel. Min. Edson Fachin, redator do acórdão Min. Flávio Dino, julgado em 19/12/2024 (Repercussão Geral – Tema 968) (Info 1163).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 7
+
+**Disciplina:** Direito Penal
+
+**Subtema:** Lei De Drogas
+
+**ODS:** N/I
+
+**Título do julgado:**
+
+O histórico infracional é suficiente para afastar a causa de diminuição prevista no art. 33, § 4º, da Lei 11.343/2006? O histórico infracional é suficiente para afastar a causa de diminuição prevista no art. 33, § 4º, da Lei 11.343/2006? A jurisprudência está dividida: 1ª corrente: SIM. É a posição do STJ: O histórico de ato infracional pode ser considerado para afastar a minorante do art. 33, § 4.º, da Lei nº 11.343/2006, por meio de fundamentação idônea que aponte a existência de circunstâncias excepcionais, nas quais se verifique a gravidade de atos pretéritos, devidamente documentados nos autos, bem como a razoável proximidade temporal com o crime em apuração.
+
+**Tese / entendimento:**
+
+O histórico infracional é suficiente para afastar a causa de
+diminuição prevista no art. 33, § 4º, da Lei 11.343/2006?
+O histórico infracional é suficiente para afastar a causa de diminuição prevista no art. 33, § 4º,
+da Lei 11.343/2006?
+A jurisprudência está dividida:
+1ª corrente: SIM. É a posição do STJ:
+O histórico de ato infracional pode ser considerado para afastar a minorante do art. 33, § 4.º,
+da Lei nº 11.343/2006, por meio de fundamentação idônea que aponte a existência de
+circunstâncias excepcionais, nas quais se verifique a gravidade de atos pretéritos,
+devidamente documentados nos autos, bem como a razoável proximidade temporal com o
+crime em apuração.
+
+**Referência:**
+
+STJ. 3ª Turma. EREsp 1.916.596-SP, Rel. Min. Joel Ilan Paciornik, Rel. Acd. Min. Laurita Vaz, julgado em 08/09/2021 (Info 712).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 8
+
+**Disciplina:** Direito Penal
+
+**Subtema:** 2ª Corrente: Não. É A Posição Do Stf:
+
+**ODS:** N/I
+
+**Título do julgado:**
+
+O registro pretérito de atos infracionais não constitui fundamento idôneo para afastar a causa de diminuição de pena relativa ao tráfico privilegiado de drogas (art. 33, § 4º, Lei nº 11.343/2006).
+
+**Tese / entendimento:**
+
+O registro pretérito de atos infracionais não constitui fundamento idôneo para afastar a causa
+de diminuição de pena relativa ao tráfico privilegiado de drogas (art. 33, § 4º, Lei nº
+11.343/2006).
+
+**Referência:**
+
+STF. 1ª Turma. HC 214089 AgR/SP, Rel. Min. Rosa Weber, julgado em 6/6/2022. STF. 2ª Turma. HC 249.506/SP, Rel. Min. Edson Fachin, julgado em 10/12/2024 (Info 1163).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 9
+
+**Disciplina:** Direito Processual Penal
+
+**Subtema:** Busca Pessoal
+
+**ODS:** N/I
+
+**Título do julgado:**
+
+A mudança repentina de direção ao avistar a viatura policial pode configurar fundada suspeita e justificar a busca pessoal sem ordem judicial A conduta da pessoa que, na via pública, ao avistar a aproximação de viatura policial, muda repentinamente de direção na tentativa de fugir do local, pode configurar a fundada suspeita (arts. 240 a 244, CPP) e justificar, objetivamente, a realização da busca pessoal sem ordem judicial.
+
+**Tese / entendimento:**
+
+A mudança repentina de direção ao avistar a viatura policial pode
+configurar fundada suspeita e justificar a busca pessoal sem ordem judicial
+A conduta da pessoa que, na via pública, ao avistar a aproximação de viatura policial, muda
+repentinamente de direção na tentativa de fugir do local, pode configurar a fundada suspeita
+(arts. 240 a 244, CPP) e justificar, objetivamente, a realização da busca pessoal sem ordem
+judicial.
+
+**Referência:**
+
+STF. 2ª Turma. HC 249.506/SP, Rel. Min. Edson Fachin, julgado em 10/12/2024 (Info 1163).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 10
+
+**Disciplina:** Direito Tributário
+
+**Subtema:** Icms
+
+**ODS:** 16
+
+**Título do julgado:**
+
+É inconstitucional norma estadual que estabelece critérios de cálculo do valor adicionado para fins de partilha do produto arrecadado nas operações relativas à circulação de mercadorias e nas prestações de serviços realizadas em seus territórios
+
+**Tese / entendimento:**
+
+Caso concreto: o art. 158, IV, a, da CF/88 determina que 25% da arrecadação do ICMS deve ser
+repassada aos municípios. Desses recursos, 65% são distribuídos proporcionalmente ao valor
+adicionado (VA) das operações locais, enquanto até 35% podem ser repartidos conforme
+critérios estaduais, respeitando um mínimo de 10% para indicadores educacionais. A LC
+federal 63/1990 regula o cálculo do VA, definindo-o como a diferença entre saídas e entradas
+de mercadorias, com exceção de casos simplificados, nos quais se aplica 32% da receita bruta.
+No Pará, a Lei Estadual nº 10.310/2023 alterou a forma de cálculo do VA, estendendo a regra
+dos 32% para empresas de mineração, alegando simplificação e combate à sonegação fiscal.
+O STF decidiu que essa lei estadual é formalmente inconstitucional porque usurpou
+competência da União.
+O art. 161 da CF/88 reserva à lei complementar federal essa definição. A LC 63/1990 já
+estabelece critérios para o VA e limita a aplicação do percentual de 32% a casos específicos.
+Logo, a legislação estadual inovou indevidamente.
+
+**Referência:**
+
+STF. Plenário. ADI 7.685/PA, Rel. Min. Gilmar Mendes, julgado em 16/12/2024 (Info 1163).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 11
+
+**Disciplina:** Direito Tributário
+
+**Subtema:** Itcmd
+
+**ODS:** N/I
+
+**Título do julgado:**
+
+Não incide ITCMD sobre valores de VGBL e PGBL repassados aos beneficiários em razão da morte do titular do plano Importante!!! Diante da natureza securitária e previdenciária complementar dos contratos de seguros de pessoas, é inconstitucional a cobrança do Imposto sobre Transmissão Causa Mortis e Doação - ITCMD (art. 155, I, CF/88) sobre os valores e direitos transferidos aos beneficiários dos planos Vida Gerador de Benefício Livre (VGBL) e Plano Gerador de Benefício Livre (PGBL) em caso de falecimento de seu titular. É constitucional o diferimento do pagamento do ITCMD em casos de doação com reserva de usufruto. Tese fixada pelo STF: “É inconstitucional a incidência do imposto sobre transmissão causa mortis e doação (ITCMD) sobre o repasse aos beneficiários de valores e direitos relativos ao plano vida gerador de benefício livre (VGBL) ou ao plano gerador de benefício livre (PGBL) na hipótese de morte do titular do plano.”
+
+**Tese / entendimento:**
+
+Não incide ITCMD sobre valores de VGBL e PGBL repassados
+aos beneficiários em razão da morte do titular do plano
+Importante!!!
+Diante da natureza securitária e previdenciária complementar dos contratos de seguros de
+pessoas, é inconstitucional a cobrança do Imposto sobre Transmissão Causa Mortis e Doação
+- ITCMD (art. 155, I, CF/88) sobre os valores e direitos transferidos aos beneficiários dos
+planos Vida Gerador de Benefício Livre (VGBL) e Plano Gerador de Benefício Livre (PGBL) em
+caso de falecimento de seu titular.
+É constitucional o diferimento do pagamento do ITCMD em casos de doação com reserva de
+usufruto.
+Tese fixada pelo STF:
+“É inconstitucional a incidência do imposto sobre transmissão causa mortis e doação (ITCMD)
+sobre o repasse aos beneficiários de valores e direitos relativos ao plano vida gerador de
+benefício livre (VGBL) ou ao plano gerador de benefício livre (PGBL) na hipótese de morte do
+titular do plano.”
+
+**Referência:**
+
+STF. Plenário. RE 1.363.013/RJ, Rel. Min. Dias Toffoli, julgado em 16/12/2024 (Repercussão Geral – Tema 1.214) (Info 1163).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 12
+
+**Disciplina:** Direito Tributário
+
+**Subtema:** Pis E Cofins
+
+**ODS:** 16
+
+**Título do julgado:**
+
+Incide PIS e COFINS sobre os rendimentos obtidos em aplicações financeiras das entidades fechadas de previdência complementar, excluindo-se as receitas oriundas de contribuições de participantes e patrocinadores, as quais possuem regramento específico
+
+**Tese / entendimento:**
+
+Caso hipotético: a Receita Federal cobrou PIS e COFINS sobre os rendimentos de aplicações
+financeiras da PREVI, entidade fechada de previdência complementar dos funcionários do
+Banco do Brasil.
+A PREVI impetrou mandado de segurança argumentando que não deveria pagar estes tributos
+por não ter faturamento tradicional, não ter fins lucrativos e por considerar que os
+rendimentos financeiros são apenas resultado da gestão dos recursos dos participantes.
+O STF entendeu que a cobrança é legítima.
+Os rendimentos obtidos através de aplicações financeiras são caracterizados como atividades
+empresariais típicas dessas entidades, mesmo sem fins lucrativos. A Corte destacou que estas
+aplicações são uma das principais fontes de receita das entidades de previdência
+complementar, sendo essenciais para seu desenvolvimento e cumprimento de sua atividade-
+fim, justificando assim a incidência de PIS e COFINS sobre tais receitas.
+Tese fixada pelo STF: É constitucional a incidência de PIS e COFINS em relação a rendimentos
+auferidos em aplicações financeiras das entidades fechadas de previdência complementar
+(EFPC).
+
+**Referência:**
+
+STF. Plenário. RE 722.528/RJ, Rel. Min. Dias Toffoli, redator do acórdão Min. Gilmar Mendes, julgado em 16/12/2024 (Repercussão Geral – Tema 1.280) (Info 1163).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 13
+
+**Disciplina:** Direito Previdenciário
+
+**Subtema:** Outros Temas
+
+**ODS:** 16
+
+**Título do julgado:**
+
+É inconstitucional lei estadual que obriga as instituições financeiras a efetivarem a prova de vida de seus clientes, para fins de cadastramento e/ou recebimento de benefícios previdenciários Importante!!!
+
+**Tese / entendimento:**
+
+É formalmente inconstitucional legislação editada por estado-membro que atribua a
+instituições financeiras a responsabilidade pela realização de prova de vida de beneficiários
+do Regime Geral de Previdência Social, por violação do art. 22, inciso XXIII, da Constituição da
+República.
+A Constituição Federal estabelece que compete privativamente à União legislar sobre
+seguridade social.
+A Lei nº 9.078/2020 do Estado do Rio de Janeiro, ao impor às instituições financeiras a
+obrigação de efetuar a prova de vida de beneficiários do Regime Geral de Previdência Social,
+invadiu essa competência. Assim, a norma estadual foi declarada inconstitucional por violação
+ao art. 22, inciso XXIII, da Constituição Federal.
+
+**Referência:**
+
+STF. Plenário. ADI 7.010/RJ, Rel. Min. Dias Toffoli, julgado em 16/12/2024 (Info 1163).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 14
+
+**Disciplina:** Direito Do Trabalho
+
+**Subtema:** Reforma Trabalhista
+
+**ODS:** 8, 10 E 16
+
+**Título do julgado:**
+
+São constitucionais os dispositivos da Reforma Trabalhista (Lei nº 13.467/2017) que instituíram o contrato de trabalho intermitente Importante!!!
+
+**Tese / entendimento:**
+
+A regulamentação do contrato intermitente, nos termos estabelecidos pelas normas
+questionadas, encontra fundamento de validade nos arts. 1º, IV, e 170, caput, da Constituição
+Federal, os quais consagram a livre iniciativa e o valor social do trabalho.
+A flexibilização promovida pela Reforma Trabalhista visa à ampliação do mercado de
+trabalho, sem prejuízo das garantias mínimas asseguradas pela ordem constitucional
+trabalhista.
+Uma vez que a contratação intermitente observa critérios específicos para remuneração e
+direitos trabalhistas, respeitando a autonomia privada e os limites da intervenção estatal, não
+se mostra configurada ofensa à dignidade do trabalhador ou aos princípios da isonomia e da
+proporcionalidade.
+
+**Referência:**
+
+STF. Plenário. ADI 5.826/DF, ADI 5.829/DF, ADI 6.154/DF, Rel. Min. Edson Fachin, redator do acórdão Min. Nunes Marques, julgado em 16/12/2024 (Info 1163).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---

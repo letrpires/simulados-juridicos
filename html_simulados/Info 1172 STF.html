@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Simulado - Info 1172 STF</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+:root{
+--bg:#020617;--panel:rgba(15,23,42,.88);--card:rgba(15,23,42,.96);
+--card2:rgba(30,41,59,.92);--border:rgba(148,163,184,.22);
+--text:#e5e7eb;--muted:#94a3b8;--accent:#38bdf8;--accent2:#0ea5e9;
+--green:#22c55e;--red:#ef4444;--yellow:#facc15;--purple:#a78bfa;
+}
+*{box-sizing:border-box}
+body{
+margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+background:radial-gradient(circle at top left,rgba(56,189,248,.20),transparent 28%),
+radial-gradient(circle at top right,rgba(167,139,250,.15),transparent 28%),
+linear-gradient(135deg,#020617,#0f172a 50%,#020617);
+color:var(--text);line-height:1.65;
+}
+header{padding:44px 20px 32px;text-align:center;border-bottom:1px solid var(--border)}
+header h1{margin:0 0 10px;font-size:clamp(28px,4vw,46px);letter-spacing:-.05em}
+header p{color:var(--muted);margin:0;font-size:16px}
+.container{max-width:1160px;margin:0 auto;padding:26px 16px 80px}
+.painel{
+position:sticky;top:10px;z-index:10;background:var(--panel);backdrop-filter:blur(18px);
+border:1px solid var(--border);border-radius:26px;padding:16px;margin-bottom:22px;
+box-shadow:0 22px 70px rgba(0,0,0,.35)
+}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.stat{background:var(--card2);padding:14px;border-radius:18px;text-align:center;border:1px solid rgba(148,163,184,.12)}
+.stat strong{display:block;font-size:25px;color:var(--accent);line-height:1.1}
+.stat span{font-size:12px;color:var(--muted)}
+.filtros{display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:12px;margin-top:14px}
+input,select{
+width:100%;background:rgba(2,6,23,.78);color:var(--text);border:1px solid var(--border);
+border-radius:14px;padding:13px 14px;outline:none;font-size:14px
+}
+input:focus,select:focus{border-color:var(--accent)}
+.card{
+background:var(--card);border:1px solid var(--border);border-radius:24px;padding:26px;
+margin-bottom:20px;box-shadow:0 18px 50px rgba(0,0,0,.24)
+}
+.questao{scroll-margin-top:190px}
+.questao-topo{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:18px}
+.badge{
+background:linear-gradient(135deg,var(--accent),var(--accent2));color:#00111f;font-weight:900;
+padding:7px 13px;border-radius:999px;display:inline-block
+}
+.disciplina-tag,.tipo-tag{
+display:inline-block;margin-left:8px;color:var(--muted);background:rgba(148,163,184,.10);
+border:1px solid rgba(148,163,184,.14);padding:6px 10px;border-radius:999px;font-size:12px
+}
+.tipo-tag{color:#ddd6fe;border-color:rgba(167,139,250,.25)}
+.status{color:var(--yellow);font-size:13px;white-space:nowrap}
+.enunciado{font-size:19px;margin:0 0 22px;letter-spacing:-.01em}
+.botoes{display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.btn{
+cursor:pointer;border:0;padding:12px 22px;border-radius:14px;color:white;font-weight:900;
+transition:.18s ease;letter-spacing:.02em
+}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.certo{background:rgba(34,197,94,.20);border:1px solid rgba(34,197,94,.42)}
+.btn.errado{background:rgba(239,68,68,.20);border:1px solid rgba(239,68,68,.42)}
+.btn.neutro{background:rgba(56,189,248,.16);color:var(--text);border:1px solid rgba(56,189,248,.32)}
+.feedback{
+display:none;background:rgba(2,6,23,.72);border:1px solid rgba(148,163,184,.16);
+border-left:5px solid var(--accent);padding:18px;border-radius:18px;margin-top:14px
+}
+.feedback.correto{border-left-color:var(--green)}
+.feedback.errado{border-left-color:var(--red)}
+.resultado{font-size:18px;font-weight:900;margin-top:0}
+.justificativa{margin-top:12px}
+.referencia{color:var(--muted);font-size:13px;margin-top:16px}
+.gabarito-certo{color:var(--green);font-weight:900}
+.gabarito-errado{color:var(--red);font-weight:900}
+.oculta{display:none}
+.sem-resultados{text-align:center;color:var(--muted);display:none;padding:30px}
+.grid-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
+.link-card{
+display:block;padding:20px;background:rgba(15,23,42,.95);border:1px solid rgba(148,163,184,.22);
+color:#e5e7eb;border-radius:22px;text-decoration:none;transition:.2s;box-shadow:0 14px 40px rgba(0,0,0,.22)
+}
+.link-card:hover{transform:translateY(-3px);border-color:#38bdf8}
+.link-card strong{display:block;font-size:17px;margin-bottom:8px}
+.link-card span{color:#94a3b8;font-size:13px}
+.index-tools{display:grid;grid-template-columns:1.5fr 1fr;gap:12px;margin-bottom:20px}
+@media(max-width:850px){
+.stats{grid-template-columns:repeat(2,1fr)}
+.filtros,.index-tools{grid-template-columns:1fr}
+.questao-topo{align-items:flex-start;flex-direction:column}
+.botoes{flex-direction:column}
+.enunciado{font-size:16px}
+.card{padding:20px}
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Simulado - Info 1172 STF</h1>
+<p>Informativos • Simulado interativo de CERTO ou ERRADO</p>
+</header>
+
+<div class="container">
+<div class="painel">
+<div class="stats">
+<div class="stat"><strong>7</strong><span>Total</span></div>
+<div class="stat"><strong id="visiveis">7</strong><span>Visíveis</span></div>
+<div class="stat"><strong id="respondidas">0</strong><span>Respondidas</span></div>
+<div class="stat"><strong id="acertos">0</strong><span>Acertos</span></div>
+<div class="stat"><strong id="erros">0</strong><span>Erros</span></div>
+</div>
+
+<div class="filtros">
+<input id="busca" type="search" placeholder="Buscar por palavra-chave..." oninput="filtrar()">
+<select id="disciplina" onchange="filtrar()">
+<option value="">Todas as disciplinas</option>
+<option value="Direito Civil">Direito Civil</option>
+<option value="Direito do Trabalho">Direito do Trabalho</option>
+<option value="ECA">ECA</option>
+<option value="N/I">N/I</option>
+</select>
+<select id="statusFiltro" onchange="filtrar()">
+<option value="">Todas</option>
+<option value="nao">Não respondidas</option>
+<option value="acerto">Acertos</option>
+<option value="erro">Erros</option>
+</select>
+<button class="btn neutro" onclick="reiniciar()">Reiniciar</button>
+</div>
+</div>
+
+<div id="sem-resultados" class="sem-resultados">Nenhuma questão encontrada com os filtros atuais.</div>
+
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="em visitas sociais a estabelecimentos prisionais, a realização de revista íntima com desnudamento ou exames invasivos, quando adotada de modo generalizado e sistemático para todos os visitantes, é compatível com a ordem constitucional desde que haja previsão em ato administrativo local e a medida seja executada por servidor do mesmo gênero, pois a proteção da segurança penitenciária prevalece sobre a intimidade dos visitantes. a assertiva está incorreta porque a revista íntima vexatória, consistente em desnudamento ou exames invasivos com finalidade de humilhação, é inadmissível quando aplicada de forma generalizada e sistemática aos visitantes de presídios ou estabelecimentos de segregação. a proteção da segurança prisional não autoriza, por si só, a supressão dos direitos fundamentais à dignidade da pessoa humana, à intimidade, à honra, à imagem e à vedação de tratamento desumano ou degradante.
+
+a medida somente pode ser admitida, de forma excepcional, quando demonstrada a impossibilidade ou ineficácia de mecanismos tecnológicos de segurança, como scanners corporais, esteiras de raio x e portais detectores de metais, e desde que haja indícios concretos e robustos de tentativa de ingresso com material proibido ou ilícito. além disso, a revista excepcional deve ser motivada, realizada com respeito, em local adequado, por pessoa do mesmo gênero e, nas hipóteses de desnudamento e exames invasivos, preferencialmente por profissionais de saúde, observados protocolos gerais e nacionais previamente estabelecidos.
+
+outro ponto relevante é que a prova obtida por revista íntima vexatória é ilícita, salvo decisões judiciais em cada caso concreto. também foi fixado prazo de 24 meses para aquisição e instalação dos equipamentos de segurança mencionados, o que reforça a preferência institucional por meios menos gravosos. portanto, a simples previsão em ato administrativo local e a execução por servidor do mesmo gênero não bastam para legitimar a prática generalizada da revista íntima. stf. plenário. are 959.620/rs, rel. min. edson fachin, julgado em 02/04/2025 (repercussão geral – tema 998) (info 1172).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 1</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-1">Não respondida</span>
+</div>
+
+<p class="enunciado">Em visitas sociais a estabelecimentos prisionais, a realização de revista íntima com desnudamento ou exames invasivos, quando adotada de modo generalizado e sistemático para todos os visitantes, é compatível com a ordem constitucional desde que haja previsão em ato administrativo local e a medida seja executada por servidor do mesmo gênero, pois a proteção da segurança penitenciária prevalece sobre a intimidade dos visitantes.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(1, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(1, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-1">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque a revista íntima vexatória, consistente em desnudamento ou exames invasivos com finalidade de humilhação, é inadmissível quando aplicada de forma generalizada e sistemática aos visitantes de presídios ou estabelecimentos de segregação. A proteção da segurança prisional não autoriza, por si só, a supressão dos direitos fundamentais à dignidade da pessoa humana, à intimidade, à honra, à imagem e à vedação de tratamento desumano ou degradante.<br><br>A medida somente pode ser admitida, de forma excepcional, quando demonstrada a impossibilidade ou ineficácia de mecanismos tecnológicos de segurança, como scanners corporais, esteiras de raio X e portais detectores de metais, e desde que haja indícios concretos e robustos de tentativa de ingresso com material proibido ou ilícito. Além disso, a revista excepcional deve ser motivada, realizada com respeito, em local adequado, por pessoa do mesmo gênero e, nas hipóteses de desnudamento e exames invasivos, preferencialmente por profissionais de saúde, observados protocolos gerais e nacionais previamente estabelecidos.<br><br>Outro ponto relevante é que a prova obtida por revista íntima vexatória é ilícita, salvo decisões judiciais em cada caso concreto. Também foi fixado prazo de 24 meses para aquisição e instalação dos equipamentos de segurança mencionados, o que reforça a preferência institucional por meios menos gravosos. Portanto, a simples previsão em ato administrativo local e a execução por servidor do mesmo gênero não bastam para legitimar a prática generalizada da revista íntima.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ARE 959.620/RS, Rel. Min. Edson Fachin, julgado em 02/04/2025 (Repercussão Geral – Tema 998) (Info 1172).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a adoção de medidas estruturais voltadas à redução da letalidade policial em favelas do estado do rio de janeiro, em contexto de violação massiva de direitos fundamentais, autoriza o poder judiciário a impor, de forma prévia e abstrata, limites operacionais como a vedação ao uso de helicópteros em operações policiais e a definição do armamento e do contingente a ser empregado, por se tratar de providências necessárias à tutela da vida e da integridade física. o enunciado está incorreto porque, embora tenha havido reconhecimento da gravidade da situação e a imposição de providências estruturais para enfrentamento da letalidade policial, não se admitiu que o judiciário substituísse a administração policial na definição prévia e abstrata de aspectos operacionais das ações de segurança pública.
+
+a orientação firmada foi no sentido de que o controle judicial das atividades policiais é, em regra, **posterior**, e não de gestão direta da operação. assim, não cabe ao judiciário fixar antecipadamente o armamento, o contingente ou outras escolhas táticas das forças policiais, pois a avaliação da proporcionalidade do uso da força deve ser feita, primariamente, pelos próprios órgãos de segurança, sem prejuízo de posterior controle jurisdicional.
+
+do mesmo modo, não houve proibição do uso de helicópteros como plataformas de tiro. a corte não vedou, em abstrato, essa prática; apenas deixou a análise de sua proporcionalidade para o caso concreto, sob fiscalização posterior. a decisão buscou compatibilizar a proteção de direitos fundamentais com a preservação da atuação estatal em segurança pública, sem impor substituição judicial da discricionariedade técnica operacional. stf. plenário. adpf 635/rj, rel. min. edson fachin, julgado em 03/04/2025 (info 1172).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 2</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-2">Não respondida</span>
+</div>
+
+<p class="enunciado">A adoção de medidas estruturais voltadas à redução da letalidade policial em favelas do Estado do Rio de Janeiro, em contexto de violação massiva de direitos fundamentais, autoriza o Poder Judiciário a impor, de forma prévia e abstrata, limites operacionais como a vedação ao uso de helicópteros em operações policiais e a definição do armamento e do contingente a ser empregado, por se tratar de providências necessárias à tutela da vida e da integridade física.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(2, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(2, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-2">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O enunciado está incorreto porque, embora tenha havido reconhecimento da gravidade da situação e a imposição de providências estruturais para enfrentamento da letalidade policial, não se admitiu que o Judiciário substituísse a administração policial na definição prévia e abstrata de aspectos operacionais das ações de segurança pública.<br><br>A orientação firmada foi no sentido de que o controle judicial das atividades policiais é, em regra, <strong>posterior</strong>, e não de gestão direta da operação. Assim, não cabe ao Judiciário fixar antecipadamente o armamento, o contingente ou outras escolhas táticas das forças policiais, pois a avaliação da proporcionalidade do uso da força deve ser feita, primariamente, pelos próprios órgãos de segurança, sem prejuízo de posterior controle jurisdicional.<br><br>Do mesmo modo, não houve proibição do uso de helicópteros como plataformas de tiro. A Corte não vedou, em abstrato, essa prática; apenas deixou a análise de sua proporcionalidade para o caso concreto, sob fiscalização posterior. A decisão buscou compatibilizar a proteção de direitos fundamentais com a preservação da atuação estatal em segurança pública, sem impor substituição judicial da discricionariedade técnica operacional.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADPF 635/RJ, Rel. Min. Edson Fachin, julgado em 03/04/2025 (Info 1172).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="Direito Civil"
+data-texto="é formalmente inconstitucional lei estadual que, a pretexto de disciplinar a atuação de associações de socorro mútuo, imponha a essas entidades deveres informacionais e requisitos de funcionamento, pois tal disciplina, ao incidir sobre a estrutura e o regime jurídico dessas associações, invade a competência privativa da união para legislar sobre direito civil e política de seguros, não se tratando de mera norma suplementar de interesse local. a assertiva está correta porque a norma estadual, embora apresentada como disciplina da atuação de associações de socorro mútuo, alcança matéria reservada à competência legislativa privativa da união. o ponto central do entendimento é que a imposição de obrigações informacionais e de regras de funcionamento a essas entidades não configura simples regulamentação administrativa local, mas interferência no regime jurídico de atividade que se relaciona com direito civil e política de seguros, temas expressamente submetidos ao art. 22, i e vii, da constituição.
+
+em outras palavras, o estado não pode editar lei para estruturar, condicionar ou disciplinar o modo de atuação dessas associações quando isso importar criação de deveres, limites ou requisitos típicos de disciplina normativa do setor securitário ou do direito privado. ainda que a finalidade declarada seja proteger consumidores ou dar transparência à atividade, o vício permanece, porque a competência material e legislativa sobre o tema não é estadual. trata-se, portanto, de inconstitucionalidade formal por usurpação de competência.
+
+a questão também explora um limite importante: não basta que a lei estadual tenha aparência de norma de proteção informacional para escapar da reserva de competência da união. se o conteúdo normativo incide diretamente sobre a organização, o funcionamento e os deveres jurídicos das associações de socorro mútuo, haverá invasão da esfera legislativa federal. stf. plenário. adi 7.150/al, rel. min. andré mendonça, julgado em 07/04/2025 (info 1172).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 3</span>
+    <span class="disciplina-tag">Direito Civil</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-3">Não respondida</span>
+</div>
+
+<p class="enunciado">É formalmente inconstitucional lei estadual que, a pretexto de disciplinar a atuação de associações de socorro mútuo, imponha a essas entidades deveres informacionais e requisitos de funcionamento, pois tal disciplina, ao incidir sobre a estrutura e o regime jurídico dessas associações, invade a competência privativa da União para legislar sobre direito civil e política de seguros, não se tratando de mera norma suplementar de interesse local.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(3, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(3, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-3">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque a norma estadual, embora apresentada como disciplina da atuação de associações de socorro mútuo, alcança matéria reservada à competência legislativa privativa da União. O ponto central do entendimento é que a imposição de obrigações informacionais e de regras de funcionamento a essas entidades não configura simples regulamentação administrativa local, mas interferência no regime jurídico de atividade que se relaciona com direito civil e política de seguros, temas expressamente submetidos ao art. 22, I e VII, da Constituição.<br><br>Em outras palavras, o Estado não pode editar lei para estruturar, condicionar ou disciplinar o modo de atuação dessas associações quando isso importar criação de deveres, limites ou requisitos típicos de disciplina normativa do setor securitário ou do direito privado. Ainda que a finalidade declarada seja proteger consumidores ou dar transparência à atividade, o vício permanece, porque a competência material e legislativa sobre o tema não é estadual. Trata-se, portanto, de inconstitucionalidade formal por usurpação de competência.<br><br>A questão também explora um limite importante: não basta que a lei estadual tenha aparência de norma de proteção informacional para escapar da reserva de competência da União. Se o conteúdo normativo incide diretamente sobre a organização, o funcionamento e os deveres jurídicos das associações de socorro mútuo, haverá invasão da esfera legislativa federal.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.150/AL, Rel. Min. André Mendonça, julgado em 07/04/2025 (Info 1172).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="é compatível com a constituição estadual que, para fins de convocação de suplente de deputado estadual, se estabeleça o afastamento do titular por prazo inferior a 120 dias, desde que a disciplina local seja justificada por peculiaridades do processo legislativo estadual e não suprima integralmente a participação política do parlamentar licenciado. a constituição federal, ao prever no art. 56, § 1º, que o suplente do deputado federal será convocado quando o titular se licenciar por período superior a 120 dias, fixa parâmetro que irradia para os deputados estaduais em razão do princípio da simetria. isso significa que as assembleias legislativas não dispõem de liberdade para reduzir esse prazo por norma estadual, ainda que invoquem peculiaridades locais ou pretendam modular a disciplina da convocação de suplentes.
+
+a razão do entendimento é dupla: de um lado, o poder constituinte decorrente dos estados encontra limite na constituição da república; de outro, a redução do prazo interfere na própria representação política, com reflexos nos princípios democrático, republicano e da soberania popular. a convocação de suplente antes do marco constitucional altera a composição do parlamento estadual em hipótese não autorizada pelo texto constitucional, o que não pode ser validado por justificativas de conveniência legislativa local.
+
+assim, é inconstitucional a norma estadual que estabeleça prazo inferior ao previsto na constituição federal para a convocação de suplente de deputado estadual, pois a disciplina do art. 56, § 1º, da cf deve ser observada também no âmbito das assembleias legislativas. stf. plenário. adi 7.257/sc e adi 7.251/to, rel. min. andré mendonça, julgados em 07/04/2025 (info 1172).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 4</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-4">Não respondida</span>
+</div>
+
+<p class="enunciado">É compatível com a Constituição estadual que, para fins de convocação de suplente de deputado estadual, se estabeleça o afastamento do titular por prazo inferior a 120 dias, desde que a disciplina local seja justificada por peculiaridades do processo legislativo estadual e não suprima integralmente a participação política do parlamentar licenciado.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(4, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(4, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-4">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A Constituição Federal, ao prever no art. 56, § 1º, que o suplente do Deputado Federal será convocado quando o titular se licenciar por período superior a 120 dias, fixa parâmetro que irradia para os Deputados Estaduais em razão do princípio da simetria. Isso significa que as Assembleias Legislativas não dispõem de liberdade para reduzir esse prazo por norma estadual, ainda que invoquem peculiaridades locais ou pretendam modular a disciplina da convocação de suplentes.<br><br>A razão do entendimento é dupla: de um lado, o poder constituinte decorrente dos Estados encontra limite na Constituição da República; de outro, a redução do prazo interfere na própria representação política, com reflexos nos princípios democrático, republicano e da soberania popular. A convocação de suplente antes do marco constitucional altera a composição do Parlamento estadual em hipótese não autorizada pelo texto constitucional, o que não pode ser validado por justificativas de conveniência legislativa local.<br><br>Assim, é inconstitucional a norma estadual que estabeleça prazo inferior ao previsto na Constituição Federal para a convocação de suplente de deputado estadual, pois a disciplina do art. 56, § 1º, da CF deve ser observada também no âmbito das Assembleias Legislativas.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.257/SC e ADI 7.251/TO, Rel. Min. André Mendonça, julgados em 07/04/2025 (Info 1172).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="é compatível com a constituição lei estadual que imponha, de modo indistinto, a exigência de profissional de educação física regularmente inscrito no conselho competente, inclusive com responsável técnico, bem como o registro da empresa na entidade profissional, para o funcionamento de academias, clubes e estabelecimentos congêneres, ainda que as atividades ali desenvolvidas sejam exclusivamente recreativas, lúdicas e voltadas apenas à diversão, à socialização e ao lazer, sem risco relevante à saúde ou à integridade física dos praticantes. a exigência de profissional de educação física e de registro da empresa no conselho profissional é constitucional quando dirigida a academias, clubes desportivos e estabelecimentos similares cujas atividades, por sua própria natureza, envolvam riscos à saúde, à integridade física ou à segurança dos praticantes. nessa hipótese, a disciplina encontra amparo na legislação federal pertinente, especialmente na lei nº 6.839/1980 e na lei nº 9.696/1998, que autorizam a supervisão profissional em atividades sujeitas a risco e a correspondente fiscalização pelo conselho.
+
+o erro do enunciado está em afirmar a incidência **indistinta** dessas exigências, inclusive sobre atividades **exclusivamente lúdicas ou recreativas**, sem risco relevante. o entendimento firmado afasta justamente a submissão desses estabelecimentos às imposições de registro e supervisão profissional quando a prática esportiva ou física ocorre em caráter recreativo, com finalidade de diversão, socialização e lazer, e sem riscos excepcionais à saúde e à integridade física.
+
+em outras palavras, a constitucionalidade da lei estadual não é absoluta nem irrestrita: ela subsiste apenas na medida em que a atividade desenvolvida apresente risco relevante. para os espaços voltados apenas à recreação, a interpretação conforme à constituição impede a incidência da exigência de registro e de supervisão profissional, preservando a liberdade de organização dessas atividades quando ausente o fator de risco que justifica a intervenção estatal. stf. plenário. adi 4.399/rs, rel. min. nunes marques, redator do acórdão min. flávio dino, julgado em 07/04/2025 (info 1172).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 5</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-5">Não respondida</span>
+</div>
+
+<p class="enunciado">É compatível com a Constituição lei estadual que imponha, de modo indistinto, a exigência de profissional de educação física regularmente inscrito no conselho competente, inclusive com responsável técnico, bem como o registro da empresa na entidade profissional, para o funcionamento de academias, clubes e estabelecimentos congêneres, ainda que as atividades ali desenvolvidas sejam exclusivamente recreativas, lúdicas e voltadas apenas à diversão, à socialização e ao lazer, sem risco relevante à saúde ou à integridade física dos praticantes.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(5, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(5, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-5">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A exigência de profissional de educação física e de registro da empresa no conselho profissional é constitucional quando dirigida a academias, clubes desportivos e estabelecimentos similares cujas atividades, por sua própria natureza, envolvam riscos à saúde, à integridade física ou à segurança dos praticantes. Nessa hipótese, a disciplina encontra amparo na legislação federal pertinente, especialmente na Lei nº 6.839/1980 e na Lei nº 9.696/1998, que autorizam a supervisão profissional em atividades sujeitas a risco e a correspondente fiscalização pelo conselho.<br><br>O erro do enunciado está em afirmar a incidência <strong>indistinta</strong> dessas exigências, inclusive sobre atividades <strong>exclusivamente lúdicas ou recreativas</strong>, sem risco relevante. O entendimento firmado afasta justamente a submissão desses estabelecimentos às imposições de registro e supervisão profissional quando a prática esportiva ou física ocorre em caráter recreativo, com finalidade de diversão, socialização e lazer, e sem riscos excepcionais à saúde e à integridade física.<br><br>Em outras palavras, a constitucionalidade da lei estadual não é absoluta nem irrestrita: ela subsiste apenas na medida em que a atividade desenvolvida apresente risco relevante. Para os espaços voltados apenas à recreação, a interpretação conforme à Constituição impede a incidência da exigência de registro e de supervisão profissional, preservando a liberdade de organização dessas atividades quando ausente o fator de risco que justifica a intervenção estatal.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 4.399/RS, Rel. Min. Nunes Marques, redator do acórdão Min. Flávio Dino, julgado em 07/04/2025 (Info 1172).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="Direito do Trabalho"
+data-texto="a competência suplementar dos estados para dispor sobre educação e ensino autoriza a edição de normas gerais sobre diretrizes e bases da educação nacional, inclusive com imposição de deveres trabalhistas aos docentes da rede privada e com extensão do princípio da gestão democrática aos estabelecimentos particulares, desde que a disciplina local seja apresentada como adequação às peculiaridades regionais. a assertiva está incorreta porque confunde a extensão da competência legislativa estadual em matéria educacional com a edição de normas gerais, o que não é admitido. em educação, a constituição reserva à união a disciplina das diretrizes e bases da educação nacional, ao passo que aos estados cabe competência concorrente/suplementar, limitada à edição de normas específicas voltadas às suas peculiaridades locais, sem invadir o campo das normas gerais federais.
+
+além disso, a imposição de deveres trabalhistas aos professores da rede privada — como jornada extraclasse, piso salarial e duração da hora-aula — extrapola a matéria educacional e ingressa na esfera de direito do trabalho, cuja competência legislativa é privativa da união. por isso, tais exigências não podem ser criadas por legislação estadual sob o pretexto de suplementação.
+
+também é incorreta a extensão automática do princípio da gestão democrática aos estabelecimentos particulares. a gestão democrática, no desenho constitucional e legal analisado, foi admitida apenas em relação ao ensino público, não se projetando sobre a rede privada. assim, a legislação estadual não pode impor, indistintamente, esse regime às escolas particulares.
+
+em síntese, o entendimento firmado distingue: (i) a possibilidade de o estado editar normas suplementares específicas em educação; (ii) a impossibilidade de criar normas gerais sobre diretrizes e bases; (iii) a vedação de inovar em direito do trabalho; e (iv) a limitação da gestão democrática ao ensino público. stf. plenário. adi 2.965/go, rel. min. luiz fux, julgado em 02/04/2025 (info 1172).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 6</span>
+    <span class="disciplina-tag">Direito do Trabalho</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-6">Não respondida</span>
+</div>
+
+<p class="enunciado">A competência suplementar dos Estados para dispor sobre educação e ensino autoriza a edição de normas gerais sobre diretrizes e bases da educação nacional, inclusive com imposição de deveres trabalhistas aos docentes da rede privada e com extensão do princípio da gestão democrática aos estabelecimentos particulares, desde que a disciplina local seja apresentada como adequação às peculiaridades regionais.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(6, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(6, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-6">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque confunde a extensão da competência legislativa estadual em matéria educacional com a edição de normas gerais, o que não é admitido. Em educação, a Constituição reserva à União a disciplina das diretrizes e bases da educação nacional, ao passo que aos Estados cabe competência concorrente/suplementar, limitada à edição de normas específicas voltadas às suas peculiaridades locais, sem invadir o campo das normas gerais federais.<br><br>Além disso, a imposição de deveres trabalhistas aos professores da rede privada — como jornada extraclasse, piso salarial e duração da hora-aula — extrapola a matéria educacional e ingressa na esfera de direito do trabalho, cuja competência legislativa é privativa da União. Por isso, tais exigências não podem ser criadas por legislação estadual sob o pretexto de suplementação.<br><br>Também é incorreta a extensão automática do princípio da gestão democrática aos estabelecimentos particulares. A gestão democrática, no desenho constitucional e legal analisado, foi admitida apenas em relação ao ensino público, não se projetando sobre a rede privada. Assim, a legislação estadual não pode impor, indistintamente, esse regime às escolas particulares.<br><br>Em síntese, o entendimento firmado distingue: (i) a possibilidade de o Estado editar normas suplementares específicas em educação; (ii) a impossibilidade de criar normas gerais sobre diretrizes e bases; (iii) a vedação de inovar em direito do trabalho; e (iv) a limitação da gestão democrática ao ensino público.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 2.965/GO, Rel. Min. Luiz Fux, julgado em 02/04/2025 (Info 1172).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="é constitucional norma estadual que, ao instituir procedimento simplificado de licenciamento ambiental, autoriza sua adoção de maneira ampla e indistinta para atividades potencialmente poluidoras, sem individualizar quais empreendimentos podem se submeter a esse rito, bem como permite, de forma genérica, a contratação de pessoas físicas ou jurídicas e a celebração de convênios para auxiliar a administração na análise do licenciamento, desde que preservada a decisão final do órgão ambiental competente. a assertiva está incorreta porque a validade constitucional de regras estaduais sobre licenciamento ambiental depende de disciplina normativa minimamente determinada e compatível com a repartição de competências em matéria ambiental. não se admite que a lei estadual flexibilize o licenciamento de modo genérico, sem discriminar as atividades ou empreendimentos que podem ser submetidos ao procedimento simplificado, pois isso esvazia o controle ambiental e compromete a exigência de critérios objetivos para a dispensa ou simplificação do licenciamento.
+
+além disso, também é inconstitucional a previsão ampla e indeterminada de contratação de pessoas físicas ou jurídicas e de celebração de convênios para “auxiliar” o licenciamento ambiental, quando a norma não estabelece limites claros, hipóteses específicas e parâmetros de atuação. a mera preservação formal da decisão final do órgão ambiental não convalida a abertura genérica para terceirização ou delegação difusa de atividades sensíveis do procedimento de licenciamento.
+
+o entendimento também rechaça outras flexibilizações indevidas, como a isenção de licenciamento por simples cadastro florestal para empreendimentos de silvicultura de pequeno porte e a postergação da análise de questões relativas ao reassentamento de populações para a fase da licença de operação, por incompatibilidade com a lógica preventiva do licenciamento ambiental. stf. plenário. adi 6.618/rs, rel. min. cristiano zanin, julgado em 07/04/2025 (info 1172).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 7</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-7">Não respondida</span>
+</div>
+
+<p class="enunciado">É constitucional norma estadual que, ao instituir procedimento simplificado de licenciamento ambiental, autoriza sua adoção de maneira ampla e indistinta para atividades potencialmente poluidoras, sem individualizar quais empreendimentos podem se submeter a esse rito, bem como permite, de forma genérica, a contratação de pessoas físicas ou jurídicas e a celebração de convênios para auxiliar a Administração na análise do licenciamento, desde que preservada a decisão final do órgão ambiental competente.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(7, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(7, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-7">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque a validade constitucional de regras estaduais sobre licenciamento ambiental depende de disciplina normativa minimamente determinada e compatível com a repartição de competências em matéria ambiental. Não se admite que a lei estadual flexibilize o licenciamento de modo genérico, sem discriminar as atividades ou empreendimentos que podem ser submetidos ao procedimento simplificado, pois isso esvazia o controle ambiental e compromete a exigência de critérios objetivos para a dispensa ou simplificação do licenciamento.<br><br>Além disso, também é inconstitucional a previsão ampla e indeterminada de contratação de pessoas físicas ou jurídicas e de celebração de convênios para “auxiliar” o licenciamento ambiental, quando a norma não estabelece limites claros, hipóteses específicas e parâmetros de atuação. A mera preservação formal da decisão final do órgão ambiental não convalida a abertura genérica para terceirização ou delegação difusa de atividades sensíveis do procedimento de licenciamento.<br><br>O entendimento também rechaça outras flexibilizações indevidas, como a isenção de licenciamento por simples cadastro florestal para empreendimentos de silvicultura de pequeno porte e a postergação da análise de questões relativas ao reassentamento de populações para a fase da Licença de Operação, por incompatibilidade com a lógica preventiva do licenciamento ambiental.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 6.618/RS, Rel. Min. Cristiano Zanin, julgado em 07/04/2025 (Info 1172).</p>
+</div>
+</section>
+
+</div>
+
+<script>
+const storageKey = location.pathname + "_respostas";
+let respostas = JSON.parse(localStorage.getItem(storageKey) || "{}");
+
+function destacar(t){
+ if(t==="CERTO") return '<span class="gabarito-certo">CERTO</span>';
+ if(t==="ERRADO") return '<span class="gabarito-errado">ERRADO</span>';
+ return t;
+}
+
+function responder(numero, resposta){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const gabarito=card.dataset.gabarito;
+ const correto=resposta===gabarito;
+ respostas[numero]={resposta,correto};
+ localStorage.setItem(storageKey, JSON.stringify(respostas));
+ mostrarFeedback(numero);
+ atualizarPainel();
+ filtrar();
+}
+
+function mostrarFeedback(numero){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const feedback=document.getElementById("feedback-"+numero);
+ const status=document.getElementById("status-"+numero);
+ const resultado=feedback.querySelector(".resultado");
+ const gabarito=card.dataset.gabarito;
+ const dados=respostas[numero];
+ if(!dados) return;
+ feedback.style.display="block";
+ feedback.classList.remove("correto","errado");
+ if(dados.correto){
+   feedback.classList.add("correto");
+   resultado.innerHTML="Você acertou. A resposta é "+destacar(gabarito)+".";
+   status.textContent="Respondida — acerto";
+   status.style.color="var(--green)";
+ } else {
+   feedback.classList.add("errado");
+   resultado.innerHTML="Você errou. O gabarito é "+destacar(gabarito)+".";
+   status.textContent="Respondida — erro";
+   status.style.color="var(--red)";
+ }
+}
+
+function atualizarPainel(){
+ let respondidas=0, acertos=0, erros=0;
+ for(const k in respostas){
+   respondidas++;
+   if(respostas[k].correto) acertos++; else erros++;
+ }
+ document.getElementById("respondidas").textContent=respondidas;
+ document.getElementById("acertos").textContent=acertos;
+ document.getElementById("erros").textContent=erros;
+ document.getElementById("visiveis").textContent=document.querySelectorAll(".questao:not(.oculta)").length;
+}
+
+function filtrar(){
+ const busca=document.getElementById("busca").value.trim().toLowerCase();
+ const disciplina=document.getElementById("disciplina").value;
+ const statusFiltro=document.getElementById("statusFiltro").value;
+ const cards=Array.from(document.querySelectorAll(".questao"));
+ let vis=0;
+ cards.forEach((card,idx)=>{
+   const n=idx+1;
+   const texto=card.dataset.texto||"";
+   const disc=card.dataset.disciplina||"";
+   const r=respostas[n];
+   let passaStatus=true;
+   if(statusFiltro==="nao") passaStatus=!r;
+   if(statusFiltro==="acerto") passaStatus=r && r.correto;
+   if(statusFiltro==="erro") passaStatus=r && !r.correto;
+   const ok=(!busca||texto.includes(busca)) && (!disciplina||disc===disciplina) && passaStatus;
+   card.classList.toggle("oculta", !ok);
+   if(ok) vis++;
+ });
+ document.getElementById("sem-resultados").style.display=vis===0?"block":"none";
+ atualizarPainel();
+}
+
+function reiniciar(){
+ if(!confirm("Deseja reiniciar este simulado?")) return;
+ localStorage.removeItem(storageKey);
+ location.reload();
+}
+
+function restaurar(){
+ for(const k in respostas) mostrarFeedback(Number(k));
+ filtrar();
+ atualizarPainel();
+}
+
+restaurar();
+</script>
+</body>
+</html>

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Simulado - Info 1190 STF</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+:root{
+--bg:#020617;--panel:rgba(15,23,42,.88);--card:rgba(15,23,42,.96);
+--card2:rgba(30,41,59,.92);--border:rgba(148,163,184,.22);
+--text:#e5e7eb;--muted:#94a3b8;--accent:#38bdf8;--accent2:#0ea5e9;
+--green:#22c55e;--red:#ef4444;--yellow:#facc15;--purple:#a78bfa;
+}
+*{box-sizing:border-box}
+body{
+margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+background:radial-gradient(circle at top left,rgba(56,189,248,.20),transparent 28%),
+radial-gradient(circle at top right,rgba(167,139,250,.15),transparent 28%),
+linear-gradient(135deg,#020617,#0f172a 50%,#020617);
+color:var(--text);line-height:1.65;
+}
+header{padding:44px 20px 32px;text-align:center;border-bottom:1px solid var(--border)}
+header h1{margin:0 0 10px;font-size:clamp(28px,4vw,46px);letter-spacing:-.05em}
+header p{color:var(--muted);margin:0;font-size:16px}
+.container{max-width:1160px;margin:0 auto;padding:26px 16px 80px}
+.painel{
+position:sticky;top:10px;z-index:10;background:var(--panel);backdrop-filter:blur(18px);
+border:1px solid var(--border);border-radius:26px;padding:16px;margin-bottom:22px;
+box-shadow:0 22px 70px rgba(0,0,0,.35)
+}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.stat{background:var(--card2);padding:14px;border-radius:18px;text-align:center;border:1px solid rgba(148,163,184,.12)}
+.stat strong{display:block;font-size:25px;color:var(--accent);line-height:1.1}
+.stat span{font-size:12px;color:var(--muted)}
+.filtros{display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:12px;margin-top:14px}
+input,select{
+width:100%;background:rgba(2,6,23,.78);color:var(--text);border:1px solid var(--border);
+border-radius:14px;padding:13px 14px;outline:none;font-size:14px
+}
+input:focus,select:focus{border-color:var(--accent)}
+.card{
+background:var(--card);border:1px solid var(--border);border-radius:24px;padding:26px;
+margin-bottom:20px;box-shadow:0 18px 50px rgba(0,0,0,.24)
+}
+.questao{scroll-margin-top:190px}
+.questao-topo{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:18px}
+.badge{
+background:linear-gradient(135deg,var(--accent),var(--accent2));color:#00111f;font-weight:900;
+padding:7px 13px;border-radius:999px;display:inline-block
+}
+.disciplina-tag,.tipo-tag{
+display:inline-block;margin-left:8px;color:var(--muted);background:rgba(148,163,184,.10);
+border:1px solid rgba(148,163,184,.14);padding:6px 10px;border-radius:999px;font-size:12px
+}
+.tipo-tag{color:#ddd6fe;border-color:rgba(167,139,250,.25)}
+.status{color:var(--yellow);font-size:13px;white-space:nowrap}
+.enunciado{font-size:19px;margin:0 0 22px;letter-spacing:-.01em}
+.botoes{display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.btn{
+cursor:pointer;border:0;padding:12px 22px;border-radius:14px;color:white;font-weight:900;
+transition:.18s ease;letter-spacing:.02em
+}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.certo{background:rgba(34,197,94,.20);border:1px solid rgba(34,197,94,.42)}
+.btn.errado{background:rgba(239,68,68,.20);border:1px solid rgba(239,68,68,.42)}
+.btn.neutro{background:rgba(56,189,248,.16);color:var(--text);border:1px solid rgba(56,189,248,.32)}
+.feedback{
+display:none;background:rgba(2,6,23,.72);border:1px solid rgba(148,163,184,.16);
+border-left:5px solid var(--accent);padding:18px;border-radius:18px;margin-top:14px
+}
+.feedback.correto{border-left-color:var(--green)}
+.feedback.errado{border-left-color:var(--red)}
+.resultado{font-size:18px;font-weight:900;margin-top:0}
+.justificativa{margin-top:12px}
+.referencia{color:var(--muted);font-size:13px;margin-top:16px}
+.gabarito-certo{color:var(--green);font-weight:900}
+.gabarito-errado{color:var(--red);font-weight:900}
+.oculta{display:none}
+.sem-resultados{text-align:center;color:var(--muted);display:none;padding:30px}
+.grid-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
+.link-card{
+display:block;padding:20px;background:rgba(15,23,42,.95);border:1px solid rgba(148,163,184,.22);
+color:#e5e7eb;border-radius:22px;text-decoration:none;transition:.2s;box-shadow:0 14px 40px rgba(0,0,0,.22)
+}
+.link-card:hover{transform:translateY(-3px);border-color:#38bdf8}
+.link-card strong{display:block;font-size:17px;margin-bottom:8px}
+.link-card span{color:#94a3b8;font-size:13px}
+.index-tools{display:grid;grid-template-columns:1.5fr 1fr;gap:12px;margin-bottom:20px}
+@media(max-width:850px){
+.stats{grid-template-columns:repeat(2,1fr)}
+.filtros,.index-tools{grid-template-columns:1fr}
+.questao-topo{align-items:flex-start;flex-direction:column}
+.botoes{flex-direction:column}
+.enunciado{font-size:16px}
+.card{padding:20px}
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Simulado - Info 1190 STF</h1>
+<p>Informativos • Simulado interativo de CERTO ou ERRADO</p>
+</header>
+
+<div class="container">
+<div class="painel">
+<div class="stats">
+<div class="stat"><strong>5</strong><span>Total</span></div>
+<div class="stat"><strong id="visiveis">5</strong><span>Visíveis</span></div>
+<div class="stat"><strong id="respondidas">0</strong><span>Respondidas</span></div>
+<div class="stat"><strong id="acertos">0</strong><span>Acertos</span></div>
+<div class="stat"><strong id="erros">0</strong><span>Erros</span></div>
+</div>
+
+<div class="filtros">
+<input id="busca" type="search" placeholder="Buscar por palavra-chave..." oninput="filtrar()">
+<select id="disciplina" onchange="filtrar()">
+<option value="">Todas as disciplinas</option>
+<option value="Direito Penal">Direito Penal</option>
+<option value="ECA">ECA</option>
+<option value="N/I">N/I</option>
+</select>
+<select id="statusFiltro" onchange="filtrar()">
+<option value="">Todas</option>
+<option value="nao">Não respondidas</option>
+<option value="acerto">Acertos</option>
+<option value="erro">Erros</option>
+</select>
+<button class="btn neutro" onclick="reiniciar()">Reiniciar</button>
+</div>
+</div>
+
+<div id="sem-resultados" class="sem-resultados">Nenhuma questão encontrada com os filtros atuais.</div>
+
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a revogação parcial, por lei ordinária superveniente, de vantagem pecuniária prevista em lei complementar municipal é juridicamente válida quando a disciplina veiculada pela lei complementar não estiver reservada, pela constituição, ao veículo normativo complementar, hipótese em que prevalece a análise material da matéria sobre a forma adotada no diploma anterior, sem que isso implique ofensa automática ao princípio da simetria. a assertiva está correta porque o ponto central do entendimento é a distinção entre **lei complementar formalmente editada** e **matéria materialmente reservada à lei complementar**. se a constituição não exige lei complementar para disciplinar determinado tema — como, em regra, ocorre com o regime jurídico de servidores públicos, salvo hipóteses expressamente previstas —, a norma complementar que trate desse assunto possui **status material de lei ordinária**.
+
+nessa situação, o fato de o diploma originário ter sido aprovado sob a forma de lei complementar não o torna imune à alteração ou revogação por lei ordinária posterior. o critério decisivo é o **conteúdo normativo** da disciplina, e não apenas a roupagem formal do ato legislativo. assim, a superveniência de lei ordinária pode validamente restringir ou modificar benefício instituído em lei complementar municipal, desde que a matéria não esteja constitucionalmente reservada à lei complementar.
+
+o entendimento também afasta a ideia de que a mera forma complementar gere hierarquia normativa absoluta em relação à lei ordinária. não há, nesse contexto, violação automática ao princípio da simetria, pois a simetria deve ser observada apenas nos limites em que a própria constituição imponha reserva de veículo normativo ou estrutura legislativa específica. stf. plenário. are 1.521.802/mg, rel. min. edson fachin, julgado em 15/09/2025 (repercussão geral – tema 1.352) (info 1190).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 1</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-1">Não respondida</span>
+</div>
+
+<p class="enunciado">A revogação parcial, por lei ordinária superveniente, de vantagem pecuniária prevista em lei complementar municipal é juridicamente válida quando a disciplina veiculada pela lei complementar não estiver reservada, pela Constituição, ao veículo normativo complementar, hipótese em que prevalece a análise material da matéria sobre a forma adotada no diploma anterior, sem que isso implique ofensa automática ao princípio da simetria.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(1, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(1, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-1">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque o ponto central do entendimento é a distinção entre <strong>lei complementar formalmente editada</strong> e <strong>matéria materialmente reservada à lei complementar</strong>. Se a Constituição não exige lei complementar para disciplinar determinado tema — como, em regra, ocorre com o regime jurídico de servidores públicos, salvo hipóteses expressamente previstas —, a norma complementar que trate desse assunto possui <strong>status material de lei ordinária</strong>.<br><br>Nessa situação, o fato de o diploma originário ter sido aprovado sob a forma de lei complementar não o torna imune à alteração ou revogação por lei ordinária posterior. O critério decisivo é o <strong>conteúdo normativo</strong> da disciplina, e não apenas a roupagem formal do ato legislativo. Assim, a superveniência de lei ordinária pode validamente restringir ou modificar benefício instituído em lei complementar municipal, desde que a matéria não esteja constitucionalmente reservada à lei complementar.<br><br>O entendimento também afasta a ideia de que a mera forma complementar gere hierarquia normativa absoluta em relação à lei ordinária. Não há, nesse contexto, violação automática ao princípio da simetria, pois a simetria deve ser observada apenas nos limites em que a própria Constituição imponha reserva de veículo normativo ou estrutura legislativa específica.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ARE 1.521.802/MG, Rel. Min. Edson Fachin, julgado em 15/09/2025 (Repercussão Geral – Tema 1.352) (Info 1190).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="é constitucional lei estadual que, ao disciplinar o ingresso na polícia militar, fixe requisito de altura mínima superior ao parâmetro adotado para o exército, desde que a exigência seja justificada por peculiaridades da atividade policial militar e prevista em norma formal editada pelo ente federado competente. a exigência de altura mínima para ingresso em cargo integrante do sistema único de segurança pública não pode ser livremente majorada por lei estadual acima dos parâmetros estabelecidos para a carreira do exército. o entendimento firmado é no sentido de que essa restrição ao acesso ao cargo público somente é legítima quando houver previsão legal e quando forem observados os limites fixados para a carreira militar federal, tomados como parâmetro objetivo de constitucionalidade.
+
+assim, ainda que a polícia militar possua peculiaridades funcionais e que a matéria seja disciplinada por lei estadual, não é admissível estabelecer critério mais gravoso do que o previsto na lei federal nº 12.705/2012, que estabelece 1,60m para homens e 1,55m para mulheres. a inconstitucionalidade decorre justamente do excesso normativo: a lei estadual não pode ampliar a restrição para além desses parâmetros, sob pena de violação aos princípios da razoabilidade, da isonomia e do acesso a cargos públicos em condições compatíveis com a constituição.
+
+em síntese, a exigência de altura mínima é possível, mas apenas dentro de dois limites cumulativos: (i) deve haver lei prevendo o requisito; e (ii) o parâmetro não pode superar o adotado para o exército. a assertiva erra ao admitir a validade de exigência estadual superior, ainda que formalmente prevista e supostamente justificada pela natureza da função. stf. plenário. re 1.469.887/al, rel. min. luís roberto barroso, julgado em 15/09/2025 (repercussão geral – tema 1.424) (info 1190).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 2</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-2">Não respondida</span>
+</div>
+
+<p class="enunciado">É constitucional lei estadual que, ao disciplinar o ingresso na Polícia Militar, fixe requisito de altura mínima superior ao parâmetro adotado para o Exército, desde que a exigência seja justificada por peculiaridades da atividade policial militar e prevista em norma formal editada pelo ente federado competente.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(2, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(2, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-2">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A exigência de altura mínima para ingresso em cargo integrante do Sistema Único de Segurança Pública não pode ser livremente majorada por lei estadual acima dos parâmetros estabelecidos para a carreira do Exército. O entendimento firmado é no sentido de que essa restrição ao acesso ao cargo público somente é legítima quando houver previsão legal e quando forem observados os limites fixados para a carreira militar federal, tomados como parâmetro objetivo de constitucionalidade.<br><br>Assim, ainda que a Polícia Militar possua peculiaridades funcionais e que a matéria seja disciplinada por lei estadual, não é admissível estabelecer critério mais gravoso do que o previsto na Lei federal nº 12.705/2012, que estabelece 1,60m para homens e 1,55m para mulheres. A inconstitucionalidade decorre justamente do excesso normativo: a lei estadual não pode ampliar a restrição para além desses parâmetros, sob pena de violação aos princípios da razoabilidade, da isonomia e do acesso a cargos públicos em condições compatíveis com a Constituição.<br><br>Em síntese, a exigência de altura mínima é possível, mas apenas dentro de dois limites cumulativos: (i) deve haver lei prevendo o requisito; e (ii) o parâmetro não pode superar o adotado para o Exército. A assertiva erra ao admitir a validade de exigência estadual superior, ainda que formalmente prevista e supostamente justificada pela natureza da função.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. RE 1.469.887/AL, Rel. Min. Luís Roberto Barroso, julgado em 15/09/2025 (Repercussão Geral – Tema 1.424) (Info 1190).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="é constitucional lei federal que, ao disciplinar a exploração de loterias estaduais, vede que um mesmo grupo econômico obtenha mais de uma concessão em unidades federativas distintas e, adicionalmente, restrinja a publicidade desses serviços ao território do estado concedente, por se tratar de medida voltada à uniformização regulatória nacional e à preservação da concorrência. a assertiva está incorreta porque a disciplina federal que impõe tais restrições extrapola os limites da competência normativa da união e interfere indevidamente na autonomia dos estados para estruturar e explorar seus serviços lotéricos. a vedação de que um mesmo grupo econômico ou pessoa jurídica participe de concessões em mais de um estado restringe, sem justificativa constitucional suficiente, a livre concorrência e a livre iniciativa, além de comprometer o potencial arrecadatório dos entes estaduais. trata-se de limitação desproporcional, pois não se demonstrou necessidade de impedir a atuação interestadual de grupos econômicos para resguardar qualquer interesse público superior.
+
+do mesmo modo, a proibição de publicidade das loterias estaduais fora dos limites territoriais do estado concedente também é inválida. se a própria comercialização do serviço já é vedada a pessoas localizadas em outras unidades da federação, a restrição adicional à publicidade não se mostra necessária nem adequada, configurando intervenção excessiva na esfera de competência material dos estados. em síntese, as normas federais impugnadas violam a autonomia federativa, a proporcionalidade, a livre concorrência e a livre iniciativa, razão pela qual foram reputadas inconstitucionais. stf. plenário. adi 7.640/sp, rel. min. luiz fux, julgado em 15/09/2025 (info 1190).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 3</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-3">Não respondida</span>
+</div>
+
+<p class="enunciado">É constitucional lei federal que, ao disciplinar a exploração de loterias estaduais, vede que um mesmo grupo econômico obtenha mais de uma concessão em unidades federativas distintas e, adicionalmente, restrinja a publicidade desses serviços ao território do Estado concedente, por se tratar de medida voltada à uniformização regulatória nacional e à preservação da concorrência.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(3, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(3, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-3">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque a disciplina federal que impõe tais restrições extrapola os limites da competência normativa da União e interfere indevidamente na autonomia dos Estados para estruturar e explorar seus serviços lotéricos. A vedação de que um mesmo grupo econômico ou pessoa jurídica participe de concessões em mais de um Estado restringe, sem justificativa constitucional suficiente, a livre concorrência e a livre iniciativa, além de comprometer o potencial arrecadatório dos entes estaduais. Trata-se de limitação desproporcional, pois não se demonstrou necessidade de impedir a atuação interestadual de grupos econômicos para resguardar qualquer interesse público superior.<br><br>Do mesmo modo, a proibição de publicidade das loterias estaduais fora dos limites territoriais do Estado concedente também é inválida. Se a própria comercialização do serviço já é vedada a pessoas localizadas em outras unidades da federação, a restrição adicional à publicidade não se mostra necessária nem adequada, configurando intervenção excessiva na esfera de competência material dos Estados. Em síntese, as normas federais impugnadas violam a autonomia federativa, a proporcionalidade, a livre concorrência e a livre iniciativa, razão pela qual foram reputadas inconstitucionais.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.640/SP, Rel. Min. Luiz Fux, julgado em 15/09/2025 (Info 1190).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="Direito Penal"
+data-texto="a previsão do código penal militar que, em hipóteses de estupro de vulnerável praticado por militar no exercício da função, em decorrência dela ou em local sujeito à administração militar, admitia tratamento sancionatório menos gravoso do que o previsto no código penal comum — inclusive com possibilidade de afastamento da tipicidade mediante alegação de desconhecimento da idade da vítima ou de sua condição de deficiência — é compatível com a constituição, pois a disciplina castrense pode estabelecer regime penal próprio e mais brando em razão da hierarquia e da disciplina. a assertiva está incorreta porque o entendimento firmado foi exatamente o oposto: reputou-se inconstitucional a disciplina do código penal militar que, para o estupro de vulnerável praticado por militar nas circunstâncias descritas, conferia resposta penal menos severa do que a prevista no código penal comum. o ponto central foi a vedação a proteção deficiente de bens jurídicos de máxima relevância constitucional, especialmente a dignidade humana, a proteção integral de crianças e adolescentes e a tutela reforçada da pessoa com deficiência.
+
+além disso, foi afastada a possibilidade de o agente militar se beneficiar de presunção relativa de violência ou de alegação de desconhecimento da idade da vítima ou de sua condição de vulnerabilidade para excluir a responsabilização. nessa matéria, a proteção conferida pelo art. 217-a do código penal comum deve incidir integralmente, inclusive quanto às qualificadoras e à presunção absoluta de violência, quando presentes os pressupostos fáticos reconhecidos no julgado.
+
+também não procede a ideia de que a especialidade da legislação castrense autorize, por si só, regime mais brando. o fundamento da decisão foi justamente o contrário: quando a lei militar reduz indevidamente a tutela penal de vulneráveis em comparação com o direito penal comum, há retrocesso social e afronta à constituição. por fim, a decisão teve modulação de efeitos para produzir eficácia apenas a partir da publicação da ata de julgamento, preservando os atos e decisões anteriores. stf. plenário. adi 7.555/df, rel. min. cármen lúcia, julgado em 15/09/2025 (info 1190).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 4</span>
+    <span class="disciplina-tag">Direito Penal</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-4">Não respondida</span>
+</div>
+
+<p class="enunciado">A previsão do Código Penal Militar que, em hipóteses de estupro de vulnerável praticado por militar no exercício da função, em decorrência dela ou em local sujeito à administração militar, admitia tratamento sancionatório menos gravoso do que o previsto no Código Penal comum — inclusive com possibilidade de afastamento da tipicidade mediante alegação de desconhecimento da idade da vítima ou de sua condição de deficiência — é compatível com a Constituição, pois a disciplina castrense pode estabelecer regime penal próprio e mais brando em razão da hierarquia e da disciplina.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(4, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(4, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-4">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque o entendimento firmado foi exatamente o oposto: reputou-se inconstitucional a disciplina do Código Penal Militar que, para o estupro de vulnerável praticado por militar nas circunstâncias descritas, conferia resposta penal menos severa do que a prevista no Código Penal comum. O ponto central foi a vedação a proteção deficiente de bens jurídicos de máxima relevância constitucional, especialmente a dignidade humana, a proteção integral de crianças e adolescentes e a tutela reforçada da pessoa com deficiência.<br><br>Além disso, foi afastada a possibilidade de o agente militar se beneficiar de presunção relativa de violência ou de alegação de desconhecimento da idade da vítima ou de sua condição de vulnerabilidade para excluir a responsabilização. Nessa matéria, a proteção conferida pelo art. 217-A do Código Penal comum deve incidir integralmente, inclusive quanto às qualificadoras e à presunção absoluta de violência, quando presentes os pressupostos fáticos reconhecidos no julgado.<br><br>Também não procede a ideia de que a especialidade da legislação castrense autorize, por si só, regime mais brando. O fundamento da decisão foi justamente o contrário: quando a lei militar reduz indevidamente a tutela penal de vulneráveis em comparação com o direito penal comum, há retrocesso social e afronta à Constituição. Por fim, a decisão teve modulação de efeitos para produzir eficácia apenas a partir da publicação da ata de julgamento, preservando os atos e decisões anteriores.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.555/DF, Rel. Min. Cármen Lúcia, julgado em 15/09/2025 (Info 1190).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a fixação, no ato de concessão do auxílio por incapacidade temporária, de data estimada para cessação do benefício, com interrupção automática do pagamento ao término do prazo sem necessidade de nova perícia, é incompatível com a constituição federal por importar supressão do contraditório administrativo e por inovar em matéria reservada à lei complementar, razão pela qual a disciplina introduzida nos §§ 8º e 9º do art. 60 da lei nº 8.213/1991 padeceria de inconstitucionalidade formal e material. a assertiva está incorreta porque o entendimento firmado foi exatamente o oposto: reconheceu-se a constitucionalidade da chamada alta programada no âmbito do auxílio por incapacidade temporária. o instituto consiste na fixação, pelo perito, de uma data de cessação do benefício (dcb), com base em estimativa técnica do tempo necessário à recuperação da capacidade laboral, de modo que o benefício se encerra automaticamente ao final do prazo previsto, sem necessidade de nova perícia prévia.
+
+o ponto central do julgamento foi afastar a alegação de violação aos arts. 62, caput e § 1º, e 246 da constituição federal. também não prevaleceu a tese de que haveria inconstitucionalidade formal por suposta reserva de lei complementar. a disciplina foi introduzida por medida provisória posteriormente convertida em lei, e o tribunal assentou que a estipulação de prazo estimado para duração do benefício é compatível com a constituição.
+
+além disso, o modelo não elimina a proteção do segurado em caso de persistência da incapacidade: se o beneficiário ainda estiver incapacitado próximo à dcb, deve requerer a prorrogação antes do término do prazo, hipótese em que a cessação automática fica suspensa até nova avaliação pericial. assim, o sistema não suprime integralmente o controle administrativo nem impede a revisão da situação fática, apenas organiza a cessação do benefício com base em prognóstico médico-pericial. stf. plenário. re 1.347.526/se, rel. min. cristiano zanin, julgado em 15/09/2025 (repercussão geral – tema 1.196) (info 1190).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 5</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-5">Não respondida</span>
+</div>
+
+<p class="enunciado">A fixação, no ato de concessão do auxílio por incapacidade temporária, de data estimada para cessação do benefício, com interrupção automática do pagamento ao término do prazo sem necessidade de nova perícia, é incompatível com a Constituição Federal por importar supressão do contraditório administrativo e por inovar em matéria reservada à lei complementar, razão pela qual a disciplina introduzida nos §§ 8º e 9º do art. 60 da Lei nº 8.213/1991 padeceria de inconstitucionalidade formal e material.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(5, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(5, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-5">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque o entendimento firmado foi exatamente o oposto: reconheceu-se a constitucionalidade da chamada alta programada no âmbito do auxílio por incapacidade temporária. O instituto consiste na fixação, pelo perito, de uma Data de Cessação do Benefício (DCB), com base em estimativa técnica do tempo necessário à recuperação da capacidade laboral, de modo que o benefício se encerra automaticamente ao final do prazo previsto, sem necessidade de nova perícia prévia.<br><br>O ponto central do julgamento foi afastar a alegação de violação aos arts. 62, caput e § 1º, e 246 da Constituição Federal. Também não prevaleceu a tese de que haveria inconstitucionalidade formal por suposta reserva de lei complementar. A disciplina foi introduzida por medida provisória posteriormente convertida em lei, e o Tribunal assentou que a estipulação de prazo estimado para duração do benefício é compatível com a Constituição.<br><br>Além disso, o modelo não elimina a proteção do segurado em caso de persistência da incapacidade: se o beneficiário ainda estiver incapacitado próximo à DCB, deve requerer a prorrogação antes do término do prazo, hipótese em que a cessação automática fica suspensa até nova avaliação pericial. Assim, o sistema não suprime integralmente o controle administrativo nem impede a revisão da situação fática, apenas organiza a cessação do benefício com base em prognóstico médico-pericial.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. RE 1.347.526/SE, Rel. Min. Cristiano Zanin, julgado em 15/09/2025 (Repercussão Geral – Tema 1.196) (Info 1190).</p>
+</div>
+</section>
+
+</div>
+
+<script>
+const storageKey = location.pathname + "_respostas";
+let respostas = JSON.parse(localStorage.getItem(storageKey) || "{}");
+
+function destacar(t){
+ if(t==="CERTO") return '<span class="gabarito-certo">CERTO</span>';
+ if(t==="ERRADO") return '<span class="gabarito-errado">ERRADO</span>';
+ return t;
+}
+
+function responder(numero, resposta){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const gabarito=card.dataset.gabarito;
+ const correto=resposta===gabarito;
+ respostas[numero]={resposta,correto};
+ localStorage.setItem(storageKey, JSON.stringify(respostas));
+ mostrarFeedback(numero);
+ atualizarPainel();
+ filtrar();
+}
+
+function mostrarFeedback(numero){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const feedback=document.getElementById("feedback-"+numero);
+ const status=document.getElementById("status-"+numero);
+ const resultado=feedback.querySelector(".resultado");
+ const gabarito=card.dataset.gabarito;
+ const dados=respostas[numero];
+ if(!dados) return;
+ feedback.style.display="block";
+ feedback.classList.remove("correto","errado");
+ if(dados.correto){
+   feedback.classList.add("correto");
+   resultado.innerHTML="Você acertou. A resposta é "+destacar(gabarito)+".";
+   status.textContent="Respondida — acerto";
+   status.style.color="var(--green)";
+ } else {
+   feedback.classList.add("errado");
+   resultado.innerHTML="Você errou. O gabarito é "+destacar(gabarito)+".";
+   status.textContent="Respondida — erro";
+   status.style.color="var(--red)";
+ }
+}
+
+function atualizarPainel(){
+ let respondidas=0, acertos=0, erros=0;
+ for(const k in respostas){
+   respondidas++;
+   if(respostas[k].correto) acertos++; else erros++;
+ }
+ document.getElementById("respondidas").textContent=respondidas;
+ document.getElementById("acertos").textContent=acertos;
+ document.getElementById("erros").textContent=erros;
+ document.getElementById("visiveis").textContent=document.querySelectorAll(".questao:not(.oculta)").length;
+}
+
+function filtrar(){
+ const busca=document.getElementById("busca").value.trim().toLowerCase();
+ const disciplina=document.getElementById("disciplina").value;
+ const statusFiltro=document.getElementById("statusFiltro").value;
+ const cards=Array.from(document.querySelectorAll(".questao"));
+ let vis=0;
+ cards.forEach((card,idx)=>{
+   const n=idx+1;
+   const texto=card.dataset.texto||"";
+   const disc=card.dataset.disciplina||"";
+   const r=respostas[n];
+   let passaStatus=true;
+   if(statusFiltro==="nao") passaStatus=!r;
+   if(statusFiltro==="acerto") passaStatus=r && r.correto;
+   if(statusFiltro==="erro") passaStatus=r && !r.correto;
+   const ok=(!busca||texto.includes(busca)) && (!disciplina||disc===disciplina) && passaStatus;
+   card.classList.toggle("oculta", !ok);
+   if(ok) vis++;
+ });
+ document.getElementById("sem-resultados").style.display=vis===0?"block":"none";
+ atualizarPainel();
+}
+
+function reiniciar(){
+ if(!confirm("Deseja reiniciar este simulado?")) return;
+ localStorage.removeItem(storageKey);
+ location.reload();
+}
+
+function restaurar(){
+ for(const k in respostas) mostrarFeedback(Number(k));
+ filtrar();
+ atualizarPainel();
+}
+
+restaurar();
+</script>
+</body>
+</html>

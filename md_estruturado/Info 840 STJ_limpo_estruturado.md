@@ -1,0 +1,470 @@
+# Info 840 STJ
+
+**Status geral:** Estruturado automaticamente
+
+---
+
+## Julgado 1
+
+**Disciplina:** Direito Administrativo
+
+**Subtema:** Servidores Públicos
+
+**ODS:** 16
+
+**Título do julgado:**
+
+Reconhecimento de Saberes e Competências (RSC) é extensível a servidores aposentados antes da Lei 12.772/2012, desde que tenham direito à paridade remuneratória constitucional
+
+**Tese / entendimento:**
+
+O Reconhecimento de Saberes e Competências (RSC), modo especial de cálculo da Retribuição
+por Titulação (RT), é extensível ao servidor do Magistério Federal Básico, Técnico e
+Tecnológico aposentado antes da Lei 12.772/2012 e que tenha direito à paridade
+remuneratória constitucional.
+
+**Referência:**
+
+STJ. 1ª Seção. REsps 2.129.995-AL, 2.129.996-AL e 2.129.997-AL, Rel. Min. Paulo Sérgio Domingues, julgado em 6/2/2025 (Recurso Repetitivo - Tema 1292) (Info 840).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 2
+
+**Disciplina:** Direito Administrativo
+
+**Subtema:** Improbidade Administrativa
+
+**ODS:** 16
+
+**Título do julgado:**
+
+O regime de indisponibilidade de bens previsto na Lei 8.429/92 foi alterado pela Lei 14.230/2021; essas alterações podem ser aplicadas ao processos em curso Importante!!!
+
+**Tese / entendimento:**
+
+A Lei nº 14.230/2021 promoveu diversas alterações na Lei nº 8.429/1992 (Lei de
+Improbidade Administrativa).
+Para o deferimento da indisponibilidade de bens a Lei passou a exigir “a demonstração no caso
+concreto de perigo de dano irreparável ou de risco ao resultado útil do processo" (art. 16, §
+3º). Além disso, a Lei estabeleceu que não incidirá “sobre os valores a serem eventualmente
+aplicados a título de multa civil ou sobre acréscimo patrimonial decorrente de atividade lícita”
+(art. 16, § 10).
+A tutela provisória de indisponibilidade de bens é uma medida que pode ser, a qualquer
+tempo, revogada ou modificada. Logo, as novas regras da Lei nº 14.230/2021 podem ser
+aplicadas aos processos em curso, tanto em pedidos de revisão de medidas já deferidas como
+nos recursos ainda pendentes de julgamento.
+Tese jurídica firmada: As disposições da Lei 14.230/2021 são aplicáveis aos processos em
+curso, para regular o procedimento da tutela provisória de indisponibilidade de bens, de
+modo que as medidas já deferidas poderão ser reapreciadas para fins de adequação à atual
+redação dada à Lei 8.429/1992.
+
+**Referência:**
+
+STJ. 1ª Seção. REsps 2.074.601-MG, 2.089.767-MG, 2.076.137-MG, 2.076.911-SP e 2.078.360-MG, Rel. Min. Afrânio Vilela, julgado em 6/2/2025 (Recurso Repetitivo - Tema 1257) (Info 840).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 3
+
+**Disciplina:** Direito Administrativo
+
+**Subtema:** Direito Administrativo Militar
+
+**ODS:** 3 E 16 1
+
+**Título do julgado:**
+
+Não há direito adquirido a regime jurídico relativo à Assistência Médico-Hospitalar própria das Forças Armadas
+
+**Tese / entendimento:**
+
+1. Não há direito adquirido a regime jurídico relativo à Assistência Médico-Hospitalar própria
+das Forças Armadas - benefício condicional, de natureza não previdenciária, diverso da
+pensão por morte e não vinculado a esta -, aos pensionistas ou dependentes de militares
+falecidos antes ou depois da vigência da Lei 13.954/2019;
+2. A definição legal de "rendimentos do trabalho assalariado", referida no § 4º do art. 50 da Lei
+6880/1980, na sua redação original, inclui as "pensões, civis ou militares de qualquer
+natureza", conforme expressamente estabelecido no art. 16, XI, da Lei 4506/1964;
+3. A Administração Militar tem o poder-dever de realizar a fiscalização e verificação periódica
+da manutenção dos requisitos à Assistência Médico-Hospitalar, nos termos da legislação e do
+regulamento, respeitado o devido processo legal, não se aplicando o prazo decadencial do
+artigo 54 da Lei 9784/1999, ante a contrariedade à lei e afronta direta aos princípios da
+legalidade, moralidade e eficiência, previstos no art. 37, caput, bem como o princípio da
+probidade administrativa previsto no § 4º, além do art. 5º, II, da Constituição da República;
+4. Para aferição da dependência econômica, em aplicação analógica do art. 198 do Estatuto dos
+Servidores Públicos (Lei 8.112/1990): não se configura a dependência econômica para fins de
+Assistência Médico-Hospitalar, quando o pretenso usuário perceber rendimento do trabalho
+ou de qualquer outra fonte, inclusive pensão ou provento da aposentadoria, em valor igual ou
+superior ao salário-mínimo.
+
+**Referência:**
+
+STJ. 1ª Seção. REsp 1.880.238-RJ, REsp 1.880.241-RJ, REsp 1.880.246-RJ e REsp 1.871.942-PE, Rel. Min. Afrânio Vilela, julgados em 6/2/2025 (Recurso Repetitivo - Tema 1080) (Info 840).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 4
+
+**Disciplina:** Direito Civil
+
+**Subtema:** Bem De Família
+
+**ODS:** 16
+
+**Título do julgado:**
+
+É possível o reconhecimento da manutenção da proteção do bem de família que, apesar de ter sido doado em fraude à execução aos seus filhos, ainda é utilizado pela família como moradia Importante!!!
+
+**Tese / entendimento:**
+
+Caso hipotético: João e Regina, casados e com um filho de 5 anos, doaram sua casa ao filho após
+serem citados em uma execução proposta pelo banco cobrando R$ 500 mil. Vale ressaltar que
+o imóvel era bem de família e a dívida executada não se enquadra nas exceções do art. 3º da
+Lei nº 8.009/1990. Em outras palavras, o imóvel era impenhorável e não havia motivo para
+eles terem feito essa doação já que não perderiam o bem.
+O banco alegou que houve fraude à execução e, com base nisso, pediu a penhora do imóvel.
+Não é possível que o imóvel seja penhorado neste caso.
+A fraude à execução torna a alienação ineficaz em relação ao exequente, mas não afasta
+necessariamente a impenhorabilidade do bem de família.
+A casa já era protegida antes da doação, a dívida não se enquadrava nas exceções da Lei nº
+8.009/1990 e, mesmo após a alienação, o imóvel continuou sendo a residência da família.
+Como todas essas condições foram atendidas, deve-se manter a proteção do bem de família.
+Esse entendimento evita que fraudes prejudiquem credores, mas também impede que a
+aplicação excessiva da regra de fraude à execução resulte na perda da moradia da entidade
+familiar. Assim, mesmo que a alienação seja ineficaz perante o banco, o imóvel continua
+protegido, garantindo o direito à moradia e à dignidade dos devedores e seus familiares.
+STJ. 2ª Seção. EAREsp 2.141.032-GO, Rel. Min. Nancy Andrighi, julgado em 6/2/2025 (Info 840).
+DIREITO EMPRESARIAL
+FALÊNCIA
+Os créditos decorrentes da emissão das letras de crédito imobiliário
+devem ser classificados na classe dos créditos quirografários
+A letra de crédito imobiliário (LCI) precisa estar lastreada por créditos imobiliários
+garantidos por hipoteca ou alienação fiduciária de imóvel, conforme exige o art. 12 da Lei nº
+10.931/2004. Porém, quem tem direito real sobre esses bens é a instituição financeira que
+concedeu o financiamento, e não quem possui a letra de crédito imobiliário.
+Por isso, não se pode equiparar o lastro ao direito real de garantia, pois não há vínculo direto
+entre o bem dado em garantia e a relação jurídica da emissão da letra de crédito imobiliário.
+Além disso, os direitos reais de garantia são taxativos e precisam estar previstos em lei.
+O princípio par conditio creditorum garante igualdade de tratamento aos credores de uma
+mesma classe, evitando que alguns sejam favorecidos em prejuízo dos demais. A equiparação
+indevida dos créditos das letras de crédito imobiliário a créditos com garantia real
+prejudicaria os credores subordinados na ordem de pagamento.
+
+**Referência:**
+
+STJ. 4ª Turma. REsp 1.773.522-SP, Rel. Min. Antonio Carlos Ferreira, julgado em 4/2/2025 (Info 840).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 5
+
+**Disciplina:** Direito Processual Civil
+
+**Subtema:** Recursos
+
+**ODS:** 16
+
+**Título do julgado:**
+
+Não é possível o conhecimento do recurso na hipótese em que o advogado titular do certificado digital utilizado para assinar a transmissão eletrônica da petição não possui procuração nos autos, pois o recurso é considerado inexistente
+
+**Tese / entendimento:**
+
+Caso hipotético: o advogado Marcelo, responsável pela defesa de Regina, redigiu um agravo
+em recurso especial a ser interposto no STJ. Ocorre que, no último dia do prazo, ele enfrentou
+problemas técnicos com seu certificado digital e solicitou que o advogado Eduardo, sem
+procuração nos autos, assinasse e transmitisse eletronicamente a petição ao STJ.
+O Ministro identificou que Eduardo não tinha procuração nos autos e concedeu prazo
+apresentar procuração ou substabelecimento. Isso, contudo, não foi feito.
+Como consequência, o recurso foi considerado inexistente com base na Súmula 115 do STJ: Na
+instância especial é inexistente recurso interposto por advogado sem procuração nos autos.
+A defesa interpôs agravo regimental, mas a Turma manteve a decisão.
+No sistema de peticionamento eletrônico, o advogado cujo certificado digital chancela a
+petição deve estar regularmente constituído nos autos. A jurisprudência prevê exceções, como
+documentos assinados eletronicamente por advogado com poderes ou petições digitalizadas
+assinadas manualmente pelo advogado constituído, mas nenhuma delas se aplicava ao caso.
+
+**Referência:**
+
+STJ. 6ª Turma. AgRg no AREsp 2.730.926-SP, Rel. Min. Sebastião Reis Júnior, julgado em 11/2/2025 (Info 840).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 6
+
+**Disciplina:** Direito Processual Civil
+
+**Subtema:** Ação Rescisória
+
+**ODS:** 16
+
+**Título do julgado:**
+
+Para efeitos de aplicação da Súmula 343/STF, deve-se verificar se o entendimento jurisprudencial acerca da questão controvertida já estava pacificado no momento em que proferido o acórdão rescindendo, e não na data de seu trânsito em julgado Importante!!!
+
+**Tese / entendimento:**
+
+Caso hipotético: João, ex-funcionário do Banco do Brasil, ajuizou ação contra a PREVI em 2006
+para que o auxílio cesta-alimentação fosse incluído em sua aposentadoria, argumentando que
+a verba tinha caráter remuneratório.
+Em 2011, o TJRS prolatou acórdão confirmando a sentença de procedência.
+A PREVI interpôs recurso especial, seu recurso não foi admitido (não teve o mérito conhecido),
+e a decisão transitou em julgado em janeiro de 2013.
+Após o trânsito em julgado, a PREVI ajuizou ação rescisória alegando que, em 2012, portanto,
+antes do trânsito em julgado, o STJ já havia pacificado o entendimento contrário à
+incorporação do auxílio (Tema 540).
+Logo, a decisão do TJRS teria violado literal disposição de lei, devendo ser rescindida.
+O TJRS, contudo, rejeitou a ação rescisória com base na Súmula 343 do STF: Não cabe ação
+rescisória por ofensa a literal dispositivo de lei, quando a decisão rescindenda se tiver
+baseado em texto legal de interpretação controvertida nos tribunais.
+No entanto, o STJ manteve a decisão do TJRS, afirmando que o marco temporal relevante para
+a aplicação da súmula é a data da prolação do acórdão rescindendo (2011), e não a do trânsito
+em julgado (2013). Assim, mesmo que a jurisprudência tenha se pacificado em 2012, a decisão
+não poderia ser rescindida porque quando ela foi prolatada havia divergência.
+Em suma: o momento a ser considerado como de pacificação jurisprudencial, para efeito de
+incidência da Súmula n. 343 do STF, é o da publicação da decisão rescindenda, não o de seu
+trânsito em julgado.
+
+**Referência:**
+
+STJ. 2ª Seção. EREsp 1.711.942-RS, Rel. Min. João Otávio de Noronha, julgado em 12/2/2025 (Info 840).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 7
+
+**Disciplina:** Direito Penal
+
+**Subtema:** Crimes No Eca
+
+**ODS:** 16
+
+**Título do julgado:**
+
+A tipificação de condutas de pornografia infantil deve considerar a finalidade sexual evidente das imagens, abrangendo obscenidades e indecências Importante!!!
+
+**Tese / entendimento:**
+
+O crime do art. 240 do ECA possui a seguinte redação:
+Art. 240. Produzir, reproduzir, dirigir, fotografar, filmar ou registrar, por qualquer meio, cena
+de sexo explícito ou pornográfica, envolvendo criança ou adolescente: Pena – reclusão, de 4
+(quatro) a 8 (oito) anos, e multa.
+O art. 241-E do ECA esclarece o que seja pornográfica:
+Art. 241-E. Para efeito dos crimes previstos nesta Lei, a expressão “cena de sexo explícito ou
+pornográfica” compreende qualquer situação que envolva criança ou adolescente em
+atividades sexuais explícitas, reais ou simuladas, ou exibição dos órgãos genitais de uma
+criança ou adolescente para fins primordialmente sexuais.
+No caso concreto, o STJ considerou que se enquadrava no conceito de pornográfica infantil a
+filmagem da criança vítima no banheiro, fazendo uso do vaso sanitário, tendo ficado
+demonstrado que isso foi para satisfazer desejos sexuais do réu.
+
+**Referência:**
+
+STJ. 5ª Turma. AgRg no AREsp 2.747.512-SC, Rel. Min. Joel Ilan Paciornik, julgado em 4/2/2025 (Info 840).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 8
+
+**Disciplina:** Direito Penal
+
+**Subtema:** Lei Maria Da Penha
+
+**ODS:** 16 1
+
+**Título do julgado:**
+
+A idade da vítima é irrelevante para afastar a competência da vara especializada em violência doméstica e familiar contra a mulher e as normas protetivas da Lei Maria da Penha Importante!!!
+
+**Tese / entendimento:**
+
+1. A condição de gênero feminino é suficiente para atrair a aplicabilidade da Lei Maria da
+Penha em casos de violência doméstica e familiar, prevalecendo sobre a questão etária.
+2. A Lei Maria da Penha prevalece quando suas disposições conflitarem com as de estatutos
+específicos, como o da Criança e do Adolescente.
+
+**Referência:**
+
+STJ. 3ª Seção. REsp 2.015.598-PA, Rel. Min. Ribeiro Dantas, julgado em 6/2/2025 (Recurso Repetitivo - Tema 1186) (Info 840).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 9
+
+**Disciplina:** Direito Processual Penal
+
+**Subtema:** Execução Penal
+
+**ODS:** 16
+
+**Título do julgado:**
+
+É possível usar o tempo da prisão provisória para conceder indulto e comutação da pena Pacificou Importante!!!
+
+**Tese / entendimento:**
+
+É possível, conforme o artigo 42 do Código Penal, o cômputo do período de prisão provisória
+na análise dos requisitos para a concessão do indulto e da comutação previstos nos
+respectivos decretos.
+
+**Referência:**
+
+STJ. 3ª Seção. REsp 2.069.773-MG, Rel. Min. Otávio de Almeida Toledo (Desembargador convocado do TJSP), julgado em 6/2/2025 (Recurso Repetitivo - Tema 1.277) (Info 840).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 10
+
+**Disciplina:** Direito Processual Penal
+
+**Subtema:** Execução Penal
+
+**ODS:** 16
+
+**Título do julgado:**
+
+Direito de visitação à pessoa presa não pode ser genericamente negado ao visitante que cumpre pena em regime aberto ou livramento condicional
+
+**Tese / entendimento:**
+
+O fato de o visitante cumprir pena privativa de liberdade em regime aberto ou em livramento
+condicional não impede, por si só, o direito à visita em estabelecimento prisional.
+
+**Referência:**
+
+STJ. 3ª Seção. REsp 2.119.556-DF e REsp 2.109.337-DF, Rel. Min. Otávio de Almeida Toledo (Desembargador convocado do TJSP), julgados em 12/2/2025 (Recurso Repetitivo - Tema 1274) (Info 840).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 11
+
+**Disciplina:** Direito Previdenciário
+
+**Subtema:** Salário-Maternidade
+
+**ODS:** 8 E 16
+
+**Título do julgado:**
+
+Valores pagos a gestantes afastadas durante a pandemia de COVID-19 têm natureza de remuneração regular e não de salário-maternidade, não sendo passíveis de compensação com contribuições previdenciárias
+
+**Tese / entendimento:**
+
+a) Nas ações em que empregadores buscam recuperar valores pagos a empregadas gestantes
+afastadas do trabalho durante a pandemia de COVID-19, a legitimidade passiva ad
+causam recai sobre a Fazenda Nacional, e não sobre o INSS;
+b) Os valores pagos às empregadas gestantes afastadas, inclusive às que não puderam
+trabalhar remotamente, durante a emergência de saúde pública da pandemia de COVID-19,
+possuem natureza jurídica de remuneração regular, a cargo do empregador, não se
+configurando como salário-maternidade para fins de compensação.
+
+**Referência:**
+
+STJ. 1ª Seção. REsp 2.160.674-RS e REsp 2.153.347-PR, Rel. Min. Gurgel de Faria, julgado em 6/2/2025 (Recurso Repetitivo - Tema 1290) (Info 840).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 12
+
+**Disciplina:** Direito Previdenciário
+
+**Subtema:** Aviso Prévio Indenizado
+
+**ODS:** 16
+
+**Título do julgado:**
+
+Não é possível o cômputo do período de aviso prévio indenizado como tempo de serviço para fins previdenciários
+
+**Tese / entendimento:**
+
+A partir da interpretação dada pelo STJ no Tema 478, não há fundamento para reconhecer o
+aviso prévio indenizado como tempo de contribuição, visto que ele possui natureza
+indenizatória, ou seja, constitui verba reparatória, sobre a qual não incide contribuição
+previdenciária. Como também inexiste prestação de serviço durante esse período, não é
+possível o cômputo deste para efeito de contribuição.
+O fato gerador da contribuição previdenciária é o exercício de atividade laborativa e, na
+ausência desta, não há salário nem recolhimento de contribuição, o que impossibilita a
+contagem do período de aviso prévio como tempo de contribuição, por falta do
+correspondente custeio.
+Tese fixada: Não é possível o cômputo do período de aviso prévio indenizado como tempo de
+serviço para fins previdenciários.
+
+**Referência:**
+
+STJ. 1ª Seção. REsp 2.068.311-RS, REsp 2.070.015-RS e REsp 2.069.623-SC, Rel. Min. Mauro Campbell Marques, Rel. para acórdão Min. Gurgel de Faria, julgado em 6/2/2025 (Recurso Repetitivo - Tema 1238) (Info 840).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---

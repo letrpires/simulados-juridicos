@@ -1,0 +1,711 @@
+# Info 872 STJ
+
+**Status geral:** Estruturado automaticamente
+
+---
+
+## Julgado 1
+
+**Disciplina:** Direito Administrativo
+
+**Subtema:** Intervenção Do Estado Na Propriedade Privada
+
+**ODS:** 16
+
+**Título do julgado:**
+
+É possível a desconstituição da decisão transitada em julgado que condenou o poder público a pagar juros compensatórios em desapropriação para reforma agrária sem avaliação do grau de produtividade do imóvel ou da perda efetiva da renda pelo expropriado Importante!!!
+
+**Tese / entendimento:**
+
+Caso hipotético: João teve seu imóvel rural desapropriado para fins de reforma agrária porque
+a fazenda era totalmente improdutiva. Os §§ 1º e 2º do art. 15-A do DL 3.365/1941 preveem
+que os juros compensatórios só são devidos quando há perda de renda comprovada, o que não
+ocorria no caso de João já que o imóvel era totalmente improdutivo. Assim, ele não teria
+direito aos juros compensatórios. Ocorre que esses dispositivos estavam com eficácia
+suspensa por uma liminar do STF na ADI 2.332/DF desde 2001. O STF, na época, entendeu que
+os juros eram devidos mesmo em imóveis improdutivos porque indenizariam a expectativa
+de renda. Com base nessa decisão, as instâncias ordinárias e o STJ condenaram o INCRA a
+pagar juros compensatórios, e a decisão transitou em julgado em 2016.
+Em 2018, porém, o STF julgou o mérito da ADI 2.332/DF e mudou o entendimento: declarou
+constitucionais os §§ 1º e 2º do art. 15-A, afirmando que os juros compensatórios só são
+devidos quando há perda de renda comprovada, inexistindo quando o imóvel é improdutivo
+(GUT e GEE iguais a zero). Com essa decisão, a tese anterior (que permitia juros mesmo sem
+produtividade) foi superada.
+Diante disso, o INCRA ajuizou ação rescisória pedindo a desconstituição do capítulo do
+acórdão que condenou ao pagamento dos juros compensatórios.
+O STJ julgou procedente o pedido da ação rescisória.
+Tratando-se de desapropriação para reforma agrária, nos termos do art. 184 da CF/1988, em
+que se permitiu a incidência de juros compensatórios independentemente da avaliação acerca
+do grau de produtividade do imóvel ou da perda efetiva da renda pelo expropriado, impõe-se,
+em juízo rescindente, a desconstituição parcial do decisum rescindendo, no que tange à
+aplicação desses juros, porque contrário ao entendimento consolidado na ADI n. 2.332/DF
+pelo STF.
+STJ. 1ª Seção. AR 7.096-PA, Rel. Min. Gurgel de Faria, julgado em 2/10/2025 (Info 872).
+TEMAS DIVERSOS
+Municípios que possuem estações de compressão (ECOMP) ou estações de regulagem de
+pressão (ERP) em seu território não têm direito a royalties de petróleo ou gás natural, pois essas
+instalações não se equiparam a pontos de entrega (city gates)
+Caso adaptado: o município de Itajuípe (BA) ajuizou ação contra a ANP alegando ter direito a
+receber royalties porque, em seu território, existe uma estação de compressão de gás natural
+(ECOMP), responsável por ajustar a pressão do gás que circula pelos gasodutos. O Município
+tentou equiparar essa estação a um ponto de entrega (city gate), instalação que, por lei, pode
+gerar pagamento de royalties. O Município argumentou que a função de regular e reduzir a
+pressão seria suficiente para enquadrá-la como uma estrutura de embarque e desembarque.
+O STJ não concordou com o argumento.
+As estações de compressão (ECOMP) ou estações de regulagem de pressão (ERP), conquanto
+integrem o conceito de gasoduto de transporte, não autorizam a percepção de royalties.
+Para fins de pagamento de royalties, somente pode ser considerado ponto de entrega (city
+gate) o equipamento situado em gasoduto de transporte que possibilita a efetiva transferência
+do gás natural do transportador ao carregador.
+Estações de compressão (ECOMP) e estações de regulagem de pressão (ERP), embora
+componham os gasodutos de transporte, não operam a transferência do gás entre
+transportador e carregador e, portanto, não geram direito ao recebimento de royalties pelos
+municípios onde se localizam.
+
+**Referência:**
+
+STJ. 1ª Turma. REsp 2.210.010-DF, Rel. Min. Regina Helena Costa, julgado em 11/11/2025 (Info 872).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 2
+
+**Disciplina:** Direito Eleitoral
+
+**Subtema:** Partidos Políticos
+
+**ODS:** 16
+
+**Título do julgado:**
+
+Diretórios partidários de diferentes esferas não respondem solidariamente por obrigações, e a alteração do polo passivo não pode ocorrer após sentença de mérito
+
+**Tese / entendimento:**
+
+Caso hipotético: a Gráfica Alfa Ltda. celebrou contrato e prestou serviços ao Diretório
+Municipal do Partido X em Campinas nas eleições de 2012. O Diretório Municipal não pagou
+pelos serviços. A gráfica ajuizou ação de cobrança, não contra o Diretório Municipal, mas sim
+contra o Diretório Estadual, acreditando existir solidariedade entre diretórios partidários. O
+Diretório Estadual foi revel e condenado pelo juiz. O Diretório Estadual interpôs apelação na
+qual suscitou a sua ilegitimidade passiva, sustentando que o art. 15-A da Lei dos Partidos
+Políticos impede a solidariedade entre órgãos partidários. O Tribunal de Justiça acolheu o
+argumento e extinguiu o processo sem resolução de mérito, por entender que somente o
+diretório que contraiu a obrigação poderia ser responsabilizado.
+A gráfica recorreu ao STJ, sustentando: 1) a solidariedade; 2) a necessidade de emenda da
+inicial (art. 338 do CPC); 3) a condenação do réu por não indicar o verdadeiro responsável (art.
+339 do CPC).
+O STJ rejeitou todos os argumentos e fixou as seguintes teses de julgamento:
+1. A responsabilidade por obrigações partidárias é exclusiva do órgão que deu causa ao
+descumprimento, não havendo solidariedade entre os diretórios de diferentes esferas.
+2. A alteração do polo passivo não é admitida após a prolação de sentença de mérito, pois
+estabilizada a demanda e encerrada a atividade jurisdicional de primeiro grau.
+3. A responsabilidade civil do réu por ausência de indicação do legitimado passivo em
+contestação (art. 339 do CPC) é subjetiva e somente se configura quando demonstrado erro
+escusável do autor, devendo os prejuízos serem apurados em ação própria.
+
+**Referência:**
+
+STJ. 4ª Turma. REsp 2.236.487-SP, Rel. Min. Marco Buzzi, julgado em 18/11/2025 (Info 872).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 3
+
+**Disciplina:** Direito Ambiental
+
+**Subtema:** Área De Preservação Permanente
+
+**ODS:** 13, 15 E 16
+
+**Título do julgado:**
+
+As restingas devem ser protegidas como APP em duas hipóteses: 1) na faixa de 300 metros da linha de preamar máxima ou 2) quando a vegetação exercer função fixadora de dunas ou estabilizadora de mangues
+
+**Tese / entendimento:**
+
+Considera-se como área de preservação permanente a restinga:
+(a) em faixa mínima de 300 metros, medidos a partir da linha de preamar máxima; e
+(b) em qualquer localização ou extensão, quando recoberta por vegetação com função
+fixadora de dunas ou estabilizadora de mangues.
+
+**Referência:**
+
+STJ. 2ª Turma. REsp 1.827.303-SC, Rel. Min. Maria Thereza de Assis Moura, julgado em 11/11/2025 (Info 872).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 4
+
+**Disciplina:** Eca
+
+**Subtema:** Aspectos Processuais
+
+**ODS:** 16
+
+**Título do julgado:**
+
+Ações de modificação de guarda devem ser processadas no foro do domicílio atual da criança, especialmente quando há indícios de violência doméstica; a Súmula 383/STJ pode ser mitigada em atenção ao melhor interesse do menor e ao princípio do juízo imediato
+
+**Tese / entendimento:**
+
+A ação que decreta a guarda de criança e adolescente faz coisa julgada in rebus sic stantibus,
+podendo ser modificada sempre que alterada a situação fática originária.
+As particularidades da situação concreta autorizam a mitigação da norma prevista na Súmula
+383/STJ, sempre em atenção ao princípio do melhor interesse da criança e do adolescente.
+Com fundamento nos princípios da proteção integral e do juízo imediato, é do melhor
+interesse da criança o processamento da ação que busca modificar sua guarda o foro em que
+exerce, com regularidade, seu direito à convivência familiar e comunitária, especialmente
+diante de indícios de violência doméstica e familiar perpetrados contra sua genitora e,
+possivelmente, contra si.
+
+**Referência:**
+
+STJ. 2ª Seção. CC 214.860-SP, Rel. Min. Nancy Andrighi, julgado em 12/11/2025 (Info 872).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 5
+
+**Disciplina:** Direito Processual Civil
+
+**Subtema:** Recursos
+
+**ODS:** 16
+
+**Título do julgado:**
+
+A representação processual nos Tribunais Superiores exige procuração ou substabelecimento com data anterior à data de interposição do recurso, salvo houve alguma urgência justificada para praticar o ato sem procuração ou substabelecimento
+
+**Tese / entendimento:**
+
+Caso hipotético: João, representado pelo advogado Pedro, interpôs recurso especial, que foi
+desprovido. João contratou outro advogado (Rafael) para interpor embargos de divergência
+contra esse acórdão. Os embargos foram manejados, mas Rafael não juntou procuração nem
+substabelecimento. Diante disso, o Ministro intimou o advogado para regularizar a
+representação. O advogado Rafael juntou um substabelecimento, mas a data desse
+substabelecimento era posterior à data de interposição dos embargos. Em razão disso, o STJ
+afirmou que não houve regularização válida.
+A representação processual em Tribunal Superior deve ser comprovada mediante
+instrumento de mandato constituído em data anterior ao da interposição do respectivo
+recurso, salvo comprovação de situações urgentes para evitar preclusão, decadência ou
+prescrição, ou para praticar ato considerado urgente, sob pena de não ser conhecido.
+
+**Referência:**
+
+STJ. Corte Especial. AgInt no EAREsp 1.742.202-SP, Rel. Min. Luis Felipe Salomão, julgado em 5/11/2025 (Info 872).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 6
+
+**Disciplina:** Direito Processual Civil
+
+**Subtema:** Execução
+
+**ODS:** 16
+
+**Título do julgado:**
+
+É possível o uso do sistema SNIPER em execuções cíveis para localização e constrição de bens, independentemente de decisão que determine quebra de sigilo bancário, desde que o pedido esteja fundamentado e observadas as garantias legais e o sigilo das informações sensíveis Importante!!!
+
+**Tese / entendimento:**
+
+Caso hipotético: um colégio particular ajuizou execução contra Regina cobrando valores
+atrasados de mensalidade escolar. O credor realizou buscas patrimoniais pelos sistemas
+tradicionais do Judiciário (SISBAJUD, RENAJUD e ARISP), todas infrutíferas. Posteriormente,
+descobriu que Regina era titular de empresa individual e, suspeitando de eventual ocultação
+de bens, pediu ao juiz a utilização do sistema SNIPER para ampliar a investigação patrimonial.
+O SNIPER é uma ferramenta criada pelo CNJ para agilizar a localização de bens, cruzando
+diversas bases de dados e exibindo visualmente vínculos entre pessoas físicas e jurídicas. Ele
+facilita a identificação de bens e de possíveis grupos econômicos, substituindo buscas manuais
+e contribuindo para a recuperação de ativos sem, por si só, implicar quebra de sigilo bancário.
+O juiz e o Tribunal de Justiça negaram o uso do SNIPER, entendendo que dependeria de
+autorização para quebra de sigilo bancário, medida reservada a situações excepcionais e
+suspeitas de ilícitos. O colégio recorreu ao STJ, que decidiu ser possível utilizar o SNIPER nas
+execuções cíveis sem necessidade de suspeita de crime e sem que isso configure
+automaticamente quebra de sigilo bancário, reconhecendo a legitimidade da ferramenta para
+dar efetividade à execução.
+É legal a utilização do Sistema Nacional de Investigação Patrimonial e Recuperação de Ativos
+no âmbito cível, por não importar em necessária quebra do sigilo bancário do pesquisado,
+devendo o magistrado avaliar:
+(i) a necessidade de consulta à luz das circunstâncias do caso concreto, tendo em vista
+eventuais medidas executivas já implementadas, com a especificação dos sistemas
+deflagrados e informações requeridas; e
+(ii) a exigência de classificar como sigilosas parte ou a integralidade das informações
+fornecidas pelo SNIPER.
+
+**Referência:**
+
+STJ. 4ª Turma. REsp 2.163.244-SP, Rel. Min. João Otávio de Noronha, Rel. para acórdão Min. Marco Buzzi, julgado em 18/11/2025 (Info 872).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 7
+
+**Disciplina:** Direito Processual Civil
+
+**Subtema:** Execução
+
+**ODS:** 16
+
+**Título do julgado:**
+
+A partir da entrada em vigor da Lei 14.195/2021, a promoção de diligências infrutíferas não interrompe a prescrição intercorrente, que passa a correr automaticamente, independentemente de inércia do credor Importante!!!
+
+**Tese / entendimento:**
+
+Caso hipotético: em 2017, o banco ajuizou ação de execução de título extrajudicial contra uma
+empresa e suas sócias cobrando R$ 150.000,00. A execução tramitou por alguns anos sem que
+fossem localizados bens suficientes para satisfazer o crédito. Em junho de 2021, ou seja, antes
+da Lei nº 14.195/2021 (DOU 27/08/2021), o juízo conseguiu bloquear R$ 327,45 nas contas
+das executadas por meio do sistema SISBAJUD. Em 2024, as executadas apresentaram petição
+pedindo o reconhecimento da prescrição intercorrente. O juiz rejeitou o pedido
+argumentando que a penhora do valor interrompeu o prazo prescricional. As executadas
+recorreram alegando que uma penhora de valor irrisório não caracteriza efetiva constrição
+patrimonial capaz de interromper a prescrição.
+A penhora de valor irrisório realizada é suficiente para interromper a prescrição
+intercorrente na execução de título extrajudicial?
+• Antes da Lei nº 14.195/2021: SIM. A penhora, ainda que de valor irrisório, era considerada
+suficiente para interromper a prescrição intercorrente, porque o critério era a diligência do
+credor. Se o credor demonstrasse atuação efetiva no processo, mesmo que o resultado fosse
+pequeno, afastava-se a prescrição.
+• Depois da Lei nº 14.195/2021: NÃO. Após a lei, a prescrição intercorrente passou a correr
+automaticamente, e a mera realização de diligências infrutíferas, como penhoras de valores
+mínimos, não interrompe mais o prazo.
+
+**Referência:**
+
+STJ. 3ª Turma. REsp 2.166.788-RJ, Rel. Min. Nancy Andrighi, julgado em 11/11/2025 (Info 872).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 8
+
+**Disciplina:** Direito Processual Civil
+
+**Subtema:** Processo Coletivo
+
+**ODS:** 16
+
+**Título do julgado:**
+
+Réu vencido em ação civil pública ajuizada por associação ou fundação privada deve ser condenado ao pagamento de honorários advocatícios, não se aplicando a isenção do art. 18 da Lei 7.347/85 Importante!!!
+
+**Tese / entendimento:**
+
+Caso hipotético: uma associação de defesa do consumidor ajuizou ação civil pública contra
+uma instituição financeira pedindo a declaração de nulidade de determinadas cláusulas
+contratuais adotadas como padrão em seus serviços. A sentença foi favorável à associação e,
+além da declaração de nulidade das cláusulas, condenou também a instituição financeira a
+pagar honorários advocatícios em favor do advogado da associação. A instituição financeira
+interpôs uma série de recursos, até que o caso chegou ao STJ. A ré alegou que não seriam
+devidos os honorários por ser aplicável o art. 18 da Lei 7.347/85, por simetria. O STJ, contudo,
+não concordou com a instituição financeira.
+Quando a ação civil pública é ajuizada pelo Ministério Público ou por ente público, pelo
+princípio da simetria, é descabida a condenação da parte ré em honorários advocatícios, salvo
+comprovada má-fé, conforme o art. 18 da Lei 7.347/85.
+O afastamento da condenação do réu ao pagamento de honorários advocatícios, previsto no
+art. 18 da Lei 7.347/85, não se aplica quando associações ou fundações privadas figurarem no
+polo ativo da ação civil pública, em razão da necessidade de se garantir maior acessibilidade
+à Justiça para a sociedade civil organizada, bem como pela impropriedade de se equiparar
+organizações não governamentais a grandes grupos econômicos e instituições de Estado.
+Cabe condenação da parte ré em honorários advocatícios quando a ação civil pública for
+ajuizada por associação ou fundação privada.
+
+**Referência:**
+
+STJ. Corte Especial. EREsp 1.304.939-RS, Rel. Min. Sebastião Reis Júnior, Rel. para acórdão Min. Nancy Andrighi, julgado em 20/8/2025 (Info 872).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 9
+
+**Disciplina:** Direito Processual Penal
+
+**Subtema:** Provas
+
+**ODS:** 16
+
+**Título do julgado:**
+
+Reconhecimento irregular de pessoas torna inválida a prova e impede condenação se não houver elementos autônomos que confirmem a autoria
+
+**Tese / entendimento:**
+
+O reconhecimento de pessoas, presencial ou por fotografia, deve observar o procedimento
+previsto no art. 226 do CPP, cujas formalidades constituem garantia mínima para quem se
+encontra na condição de suspeito da prática de um crime.
+A inobservância do procedimento descrito no art. 226 do CPP torna inválido o reconhecimento
+da pessoa suspeita, de modo que tal elemento não poderá fundamentar eventual condenação
+ou decretação de prisão cautelar, mesmo se refeito e confirmado o reconhecimento em juízo.
+Se declarada a irregularidade do ato, eventual condenação já proferida poderá ser mantida,
+se fundamentada em provas independentes e não contaminadas.
+O reconhecimento de pessoas é prova irrepetível, na medida em que um reconhecimento
+inicialmente falho ou viciado tem o potencial de contaminar a memória do reconhecedor,
+esvaziando de certeza o procedimento realizado posteriormente com o intuito de demonstrar
+a autoria delitiva, ainda que o novo procedimento atenda aos ditames do art. 226 do CPP.
+Mesmo se realizado em conformidade com o modelo legal, o reconhecimento pessoal, embora
+seja válido, não tem força probante absoluta, de sorte que não pode induzir, por si só, à certeza
+da autoria delitiva, em razão de sua fragilidade epistêmica. Se, porém, realizado em desacordo
+com o rito previsto no art. 226 do CPP, o ato é totalmente inválido e não pode ser usado nem
+mesmo de forma suplementar, nem para lastrear decisões de menor rigor quanto ao standard
+probatório exigido, tais como a decretação de prisão preventiva, o recebimento de denúncia e
+a pronúncia.
+Poderá o magistrado se convencer da autoria delitiva a partir do exame de provas ou
+evidências independentes que não guardem relação de causa e efeito com o ato viciado de
+reconhecimento.
+
+**Referência:**
+
+STJ. 1ª Turma. REsp 2.204.950-RJ, Rel. Min. Rogerio Schietti Cruz, julgado em 11/11/2025 (Info 872).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 10
+
+**Disciplina:** Direito Processual Penal
+
+**Subtema:** Provas
+
+**ODS:** 16
+
+**Título do julgado:**
+
+São nulos a inquirição de testemunhas e o interrogatório protagonizados por magistrado que adota postura inquisitorial, em lugar da atuação residual e complementar necessária para preservar a imparcialidade e o contraditório
+
+**Tese / entendimento:**
+
+Caso hipotético: João foi denunciado pela prática de crimes. Durante a audiência de instrução,
+a juíza assumiu postura extremamente ativa. Na oitiva das testemunhas de acusação, em vez
+de aguardar que as partes formulassem suas perguntas e apenas complementar eventuais
+pontos obscuros, a juíza conduziu diretamente a inquirição, formulando perguntas extensas
+e, por vezes, induzindo respostas. O mesmo ocorreu no interrogatório do réu. A magistrada
+fez inúmeras perguntas de cunho investigativo, buscando elementos incriminadores, em vez
+de limitar-se a esclarecer pontos duvidosos. Ao final, João foi condenado. O réu recorreu
+alegando nulidade absoluta por violação ao sistema acusatório, sustentando que a magistrada
+ultrapassou os limites do art. 212 do CPP e comprometeu sua imparcialidade ao assumir papel
+de protagonista na produção da prova. O STJ concordou com a defesa.
+O art. 212 do CPP prevê o modelo de inquirição direta (cross-examination), no qual as
+perguntas são formuladas prioritariamente pelas partes. A atuação do magistrado é de
+natureza complementar, destinada a sanar pontos não esclarecidos, e não de substituição aos
+sujeitos processuais.
+Quando o juiz assume papel ativo na produção da prova, atuando como protagonista na
+inquirição de testemunhas, há violação ao sistema acusatório e comprometimento da
+imparcialidade do julgador. O prejuízo é evidente quando a prova que embasou a condenação
+foi produzida em ato processual no qual imperou o protagonismo do juiz. A iniciativa
+probatória do magistrado que transcende o esclarecimento e se revela investigativa e
+acusatória, substituindo o ônus processual do Ministério Público, viola a isonomia processual.
+Nesses casos, deve-se declarar a nulidade dos atos judiciais praticados a partir da audiência
+de instrução, com o desentranhamento das provas colhidas e a renovação do ato com estrita
+observância ao art. 212 do CPP.
+
+**Referência:**
+
+STJ. 6ª Turma. REsp 2.214.638-SC, Rel. Min. Sebastião Reis Júnior, julgado em 4/11/2025 (Info 872).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 11
+
+**Disciplina:** Direito Processual Penal
+
+**Subtema:** Execução Penal > Progressão De Regime
+
+**ODS:** 16
+
+**Título do julgado:**
+
+A data-base para concessão de benefícios na execução penal é a da última prisão efetiva, quando o apenado esteve em liberdade provisória após prisão preventiva
+
+**Tese / entendimento:**
+
+Caso hipotético: João foi preso preventivamente em maio de 2021, permaneceu encarcerado
+por mais de um ano e, posteriormente, recebeu liberdade provisória até ser novamente preso
+em fevereiro de 2025 para iniciar o cumprimento da pena definitiva de oito anos. Na execução
+penal, o juiz considerou como data-base (marco inicial para contagem de benefícios como
+progressão de regime) apenas a data da segunda prisão, em 2025. A defesa pediu que a data-
+base fosse fixada em maio de 2021, argumentando que todo o período de prisão cautelar
+deveria contar não só para detração da pena, mas também para o cálculo dos requisitos
+temporais de benefícios. Isso adiantaria significativamente o momento em que João poderia
+progredir de regime, pois grande parte do tempo já teria sido cumprido antes mesmo do
+trânsito em julgado. O STJ não aceitou a tese da defesa.
+A data-base para concessão de benefícios na execução penal é a da última prisão efetiva,
+quando o apenado esteve em liberdade provisória após prisão preventiva.
+Considerar a data da prisão preventiva como termo inicial para benefícios executórios, em
+casos de soltura durante o curso do processo, implicaria considerar como pena cumprida o
+período em que o réu esteve em liberdade provisória.
+O tempo de prisão provisória interrompido por liberdade provisória deve ser considerado
+apenas para fins de detração penal, sem influenciar o cálculo de benefícios da execução penal.
+
+**Referência:**
+
+STJ. 5ª Turma. AgRg no HC 1.026.000-BA, Rel. Min. Ribeiro Dantas, julgado em 15/10/2025 (Info 872).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 12
+
+**Disciplina:** Direito Processual Penal
+
+**Subtema:** Execução Penal > Progressão De Regime
+
+**ODS:** 16
+
+**Título do julgado:**
+
+O juízo da execução pode determinar a regressão cautelar de regime prisional sem prévia oitiva do apenado, exigindo-se esta apenas para a regressão definitiva Importante!!!
+
+**Tese / entendimento:**
+
+A regressão cautelar de regime prisional é medida de caráter provisório e está autorizada pelo
+poder geral de cautela do juízo da execução, podendo ser aplicada, mediante fundamentação
+idônea, até a apuração definitiva da falta.
+
+**Referência:**
+
+STJ. 3ª Seção. REsp 2.166.900-SP, REsp 2.153.215-RJ e REsp 2.167.128-RJ, Rel. Min. Og Fernandes, julgados em 12/11/2025 (Recurso Repetitivo - Tema 1347) (Info 872).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 13
+
+**Disciplina:** Direito Processual Penal
+
+**Subtema:** Execução Penal > Progressão Especial De Regime
+
+**ODS:** 16
+
+**Título do julgado:**
+
+A vedação da progressão especial de regime do art. 112, § 3º, V, da LEP abrange apenas o tipo penal do art. 2º da Lei 12.850/2013 Importante!!!
+
+**Tese / entendimento:**
+
+A mulher não tem direito à progressão especial de regime de 1/8 (art. 112, § 3º da LEP), se ela
+tiver integrado organização criminosa.
+A expressão “organização criminosa” restringe-se ao crime do art. 2º da Lei nº 12.850/2013
+ou deve ser ampla para abranger também os delitos de associação criminosa (art. 288 do CP)
+e associação para o tráfico de drogas (art. 35 da Lei 11.343/2006)?
+Prevalece que a interpretação deve ser restritiva. Ter integrado organização criminosa (inciso
+V) significa: ter sido condenada pelo crime do art. 2º da Lei nº 12.850/2013.
+A vedação da progressão especial de regime, prevista no inciso V do § 3º do art. 112 da Lei de
+Execução Penal, restringe-se às condenações por organização criminosa (Lei n. 12.850/2013),
+não alcançando os delitos de associação criminosa (art. 288 do CP) ou associação para o tráfico
+de drogas (art. 35 da Lei n. 11.343/2006), sob pena de analogia in malam partem.
+
+**Referência:**
+
+STJ. 5ª Turma. AgRg no REsp 2.225.788-RS, Rel. Min. Reynaldo Soares da Fonseca, julgado em 4/11/2025 (Info 872).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 14
+
+**Disciplina:** Direito Processual Penal
+
+**Subtema:** Stj. 6ª Turma. Hc 990.281/Sp, Rel. Min. Sebastião Reis Júnior, Julgado Em 12/8/2025.
+
+**ODS:** 16
+
+**Título do julgado:**
+
+STF. 2ª Turma. HC 210667 AgR, Rel. Min. André Mendonça, julgado em 05/12/2022. Em sentido contrário: STF. 1ª Turma. HC 262188 AgR, Rel. Min. Cármen Lúcia, julgado em 27/10/2025. INDULTO NATALINO Presume-se a incapacidade econômica para fins de indulto quando o condenado é assistido pela Defensoria Pública, dispensando-se a comprovação de reparação do dano nos crimes patrimoniais sem violência
+
+**Tese / entendimento:**
+
+Nos crimes contra o patrimônio cometidos sem violência ou grave ameaça, o Decreto n.
+12.338/2024 exige, em regra, a comprovação da reparação do dano, mas excepciona tal
+exigência nas hipóteses do art. 12, § 2º.
+Entre essas hipóteses, presume-se a incapacidade econômica do condenado quando este é
+representado pela Defensoria Pública ou teve o valor do dia-multa fixado no mínimo legal,
+sendo desnecessária a comprovação da reparação do dano.
+Assim, conforme expressa previsão do art. 12, § 2º, I, do Decreto nº 12.338/2024, a assistência
+do condenado pela Defensoria Pública atrai a presunção legal de hipossuficiência econômica
+e dispensa a regra de comprovação da reparação do dano como condição para a concessão do
+indulto, nos crimes contra o patrimônio praticados sem violência ou grave ameaça.
+
+**Referência:**
+
+STJ. 5ª Turma. AgRg no HC 1.044.589-SP, Rel. Min. Reynaldo Soares da Fonseca, julgado em 11/11/2025 (Info 872).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 15
+
+**Disciplina:** Direito Tributário
+
+**Subtema:** Taxas
+
+**ODS:** 16
+
+**Título do julgado:**
+
+A Lei de Liberdade Econômica não dispensou o exercício do poder de fiscalização do Munícipio, de modo que é legítima a exigência da Taxa de Licença para Localização e Funcionamento cobrada de escritórios de advocacia, em razão do exercício do poder de polícia Importante!!!
+
+**Tese / entendimento:**
+
+Caso hipotético: o município cobrou Taxa de Licença para Localização e Funcionamento (TLL)
+dos escritórios de advocacia. A OAB/SC impetrou mandado de segurança coletivo alegando
+que, após a Lei de Liberdade Econômica (Lei nº 13.874/2019), a advocacia passou a ser
+considerada atividade de baixo risco (art. 3º, I) e, portanto, dispensada de alvará de
+funcionamento. Assim, segundo a entidade, não haveria fato gerador para a TLL, já que não
+seria necessário qualquer ato público de liberação para o exercício da atividade. O STJ não
+concordou com a OAB.
+A Lei 13.874/2019 (Lei de Liberdade Econômica) estabelece o direito de desenvolver
+atividade econômica de baixo risco sem a necessidade de atos públicos de liberação, como
+alvarás e licenças. Contudo, tal previsão não se estende ao direito tributário, conforme
+expressamente dispõe o § 3º do art. 1º do mesmo diploma legal.
+A cobrança de taxas constitui prerrogativa dos municípios, fundada na competência para
+instituir tributos destinados a viabilizar o exercício regular do poder de polícia
+administrativa, nos termos dos arts. 77 e 78 do Código Tributário Nacional.
+É prescindível a comprovação pelo ente tributante do efetivo exercício do poder de polícia
+para legitimar a cobrança de taxa.
+É legítima a cobrança pelo município de taxa de fiscalização, localização e funcionamento de
+escritórios de advocacia.
+
+**Referência:**
+
+STJ. 2ª Turma. REsp 2.215.532-SC, Rel. Min. Francisco Falcão, julgado em 11/11/2025 (Info 872).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 16
+
+**Disciplina:** Direito Tributário
+
+**Subtema:** Simples Nacional
+
+**ODS:** 16
+
+**Título do julgado:**
+
+O prazo prescricional dos tributos do Simples Nacional deve ser contado a partir da declaração mensal (DAS), e não da declaração anual (DEFIS), que constitui mera obrigação acessória
+
+**Tese / entendimento:**
+
+Caso hipotético: determinada empresa, optante pelo Simples Nacional, tinha duas obrigações
+principais: a declaração mensal pelo PGDAS-D, que gera o DAS para pagamento dos tributos, e
+a declaração anual DEFIS, que consolida dados econômicos e fiscais. Em março de 2017, a
+empresa deixou de pagar o DAS referente a fevereiro daquele ano, embora a declaração
+mensal tivesse sido transmitida. A DEFIS relativa a 2017 só foi entregue em março de 2018, e
+a Fazenda Nacional apenas ajuizou execução fiscal em fevereiro de 2023.
+Na execução, a empresa alegou prescrição, afirmando que o prazo de cinco anos deveria ser
+contado desde março de 2017, momento da declaração e do vencimento do débito. Segundo
+essa lógica, a prescrição teria ocorrido em março de 2022. A Fazenda Nacional, porém,
+argumentou que o prazo deveria começar com a entrega da DEFIS, em março de 2018, pois
+essa declaração também caracterizaria confissão de dívida, prolongando assim o prazo
+prescricional até março de 2023.
+O STJ decidiu em favor da empresa executada, entendendo que o crédito já estava constituído
+com a declaração mensal apresentada em 2017, e não com a entrega posterior da DEFIS.
+Para tributos sujeitos a lançamento por homologação, o prazo de prescrição inicia-se no dia
+seguinte ao vencimento da obrigação tributária ou no dia seguinte à data em que o tributo for
+declarado e não pago, o que ocorrer por último. Esse entendimento é aplicável ao Simples
+Nacional, pois nesse regime tributário simplificado há o lançamento por homologação dos
+tributos devidos nos termos do art. 150 do CTN.
+O documento de arrecadação do Simples Nacional (DAS), contendo as informações prestadas
+mensalmente pelo contribuinte, é o instrumento declaratório que deve ser considerado para
+fins de apuração do termo inicial do prazo prescricional, em relação aos tributos submetidos
+ao Simples Nacional.
+
+**Referência:**
+
+STJ. 1ª Turma. REsp 1.876.175-RS, Rel. Min. Paulo Sérgio Domingues, julgado em 11/11/2025 (Info 872).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---

@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Simulado - RG - Consumidor</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+:root{
+--bg:#020617;--panel:rgba(15,23,42,.88);--card:rgba(15,23,42,.96);
+--card2:rgba(30,41,59,.92);--border:rgba(148,163,184,.22);
+--text:#e5e7eb;--muted:#94a3b8;--accent:#38bdf8;--accent2:#0ea5e9;
+--green:#22c55e;--red:#ef4444;--yellow:#facc15;--purple:#a78bfa;
+}
+*{box-sizing:border-box}
+body{
+margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+background:radial-gradient(circle at top left,rgba(56,189,248,.20),transparent 28%),
+radial-gradient(circle at top right,rgba(167,139,250,.15),transparent 28%),
+linear-gradient(135deg,#020617,#0f172a 50%,#020617);
+color:var(--text);line-height:1.65;
+}
+header{padding:44px 20px 32px;text-align:center;border-bottom:1px solid var(--border)}
+header h1{margin:0 0 10px;font-size:clamp(28px,4vw,46px);letter-spacing:-.05em}
+header p{color:var(--muted);margin:0;font-size:16px}
+.container{max-width:1160px;margin:0 auto;padding:26px 16px 80px}
+.painel{
+position:sticky;top:10px;z-index:10;background:var(--panel);backdrop-filter:blur(18px);
+border:1px solid var(--border);border-radius:26px;padding:16px;margin-bottom:22px;
+box-shadow:0 22px 70px rgba(0,0,0,.35)
+}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.stat{background:var(--card2);padding:14px;border-radius:18px;text-align:center;border:1px solid rgba(148,163,184,.12)}
+.stat strong{display:block;font-size:25px;color:var(--accent);line-height:1.1}
+.stat span{font-size:12px;color:var(--muted)}
+.filtros{display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:12px;margin-top:14px}
+input,select{
+width:100%;background:rgba(2,6,23,.78);color:var(--text);border:1px solid var(--border);
+border-radius:14px;padding:13px 14px;outline:none;font-size:14px
+}
+input:focus,select:focus{border-color:var(--accent)}
+.card{
+background:var(--card);border:1px solid var(--border);border-radius:24px;padding:26px;
+margin-bottom:20px;box-shadow:0 18px 50px rgba(0,0,0,.24)
+}
+.questao{scroll-margin-top:190px}
+.questao-topo{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:18px}
+.badge{
+background:linear-gradient(135deg,var(--accent),var(--accent2));color:#00111f;font-weight:900;
+padding:7px 13px;border-radius:999px;display:inline-block
+}
+.disciplina-tag,.tipo-tag{
+display:inline-block;margin-left:8px;color:var(--muted);background:rgba(148,163,184,.10);
+border:1px solid rgba(148,163,184,.14);padding:6px 10px;border-radius:999px;font-size:12px
+}
+.tipo-tag{color:#ddd6fe;border-color:rgba(167,139,250,.25)}
+.status{color:var(--yellow);font-size:13px;white-space:nowrap}
+.enunciado{font-size:19px;margin:0 0 22px;letter-spacing:-.01em}
+.botoes{display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.btn{
+cursor:pointer;border:0;padding:12px 22px;border-radius:14px;color:white;font-weight:900;
+transition:.18s ease;letter-spacing:.02em
+}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.certo{background:rgba(34,197,94,.20);border:1px solid rgba(34,197,94,.42)}
+.btn.errado{background:rgba(239,68,68,.20);border:1px solid rgba(239,68,68,.42)}
+.btn.neutro{background:rgba(56,189,248,.16);color:var(--text);border:1px solid rgba(56,189,248,.32)}
+.feedback{
+display:none;background:rgba(2,6,23,.72);border:1px solid rgba(148,163,184,.16);
+border-left:5px solid var(--accent);padding:18px;border-radius:18px;margin-top:14px
+}
+.feedback.correto{border-left-color:var(--green)}
+.feedback.errado{border-left-color:var(--red)}
+.resultado{font-size:18px;font-weight:900;margin-top:0}
+.justificativa{margin-top:12px}
+.referencia{color:var(--muted);font-size:13px;margin-top:16px}
+.gabarito-certo{color:var(--green);font-weight:900}
+.gabarito-errado{color:var(--red);font-weight:900}
+.oculta{display:none}
+.sem-resultados{text-align:center;color:var(--muted);display:none;padding:30px}
+.grid-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
+.link-card{
+display:block;padding:20px;background:rgba(15,23,42,.95);border:1px solid rgba(148,163,184,.22);
+color:#e5e7eb;border-radius:22px;text-decoration:none;transition:.2s;box-shadow:0 14px 40px rgba(0,0,0,.22)
+}
+.link-card:hover{transform:translateY(-3px);border-color:#38bdf8}
+.link-card strong{display:block;font-size:17px;margin-bottom:8px}
+.link-card span{color:#94a3b8;font-size:13px}
+.index-tools{display:grid;grid-template-columns:1.5fr 1fr;gap:12px;margin-bottom:20px}
+@media(max-width:850px){
+.stats{grid-template-columns:repeat(2,1fr)}
+.filtros,.index-tools{grid-template-columns:1fr}
+.questao-topo{align-items:flex-start;flex-direction:column}
+.botoes{flex-direction:column}
+.enunciado{font-size:16px}
+.card{padding:20px}
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Simulado - RG - Consumidor</h1>
+<p>Repercussão Geral • Simulado interativo de CERTO ou ERRADO</p>
+</header>
+
+<div class="container">
+<div class="painel">
+<div class="stats">
+<div class="stat"><strong>14</strong><span>Total</span></div>
+<div class="stat"><strong id="visiveis">14</strong><span>Visíveis</span></div>
+<div class="stat"><strong id="respondidas">0</strong><span>Respondidas</span></div>
+<div class="stat"><strong id="acertos">0</strong><span>Acertos</span></div>
+<div class="stat"><strong id="erros">0</strong><span>Erros</span></div>
+</div>
+
+<div class="filtros">
+<input id="busca" type="search" placeholder="Buscar por palavra-chave..." oninput="filtrar()">
+<select id="disciplina" onchange="filtrar()">
+<option value="">Todas as disciplinas</option>
+<option value="ECA">ECA</option>
+<option value="N/I">N/I</option>
+</select>
+<select id="statusFiltro" onchange="filtrar()">
+<option value="">Todas</option>
+<option value="nao">Não respondidas</option>
+<option value="acerto">Acertos</option>
+<option value="erro">Erros</option>
+</select>
+<button class="btn neutro" onclick="reiniciar()">Reiniciar</button>
+</div>
+</div>
+
+<div id="sem-resultados" class="sem-resultados">Nenhuma questão encontrada com os filtros atuais.</div>
+
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="nos litígios em que figurem como partes consumidor e concessionária de serviços de telefonia, é competência da justiça estadual processar e julgar a demanda sempre que a agência nacional de telecomunicações (anatel) não figure como litisconsorte passiva necessária, assistente ou opoente, ainda que haja controvérsia envolvendo normas regulatórias federais aplicáveis ao serviço. o entendimento sedimentado no tema 17 do stf delimita a competência para apreciação de demandas consumeristas contra concessionárias de telefonia pela justiça estadual quando a anatel não integre a relação processual em qualquer das modalidades indicadas (litisconsorte necessária, assistente ou opoente). a existência de matéria regulatória federal, isoladamente, não desloca a competência federal se a pessoa administrativa não for parte essencial à lide; a regra acolhe os princípios da conexão funcional e da indispensabilidade da pessoa jurídica federal para legitimidade da jurisdição federal. logo, a assertiva está em conformidade com a tese fixada. tema 17 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 1</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-1">Não respondida</span>
+</div>
+
+<p class="enunciado">Nos litígios em que figurem como partes consumidor e concessionária de serviços de telefonia, é competência da Justiça estadual processar e julgar a demanda sempre que a Agência Nacional de Telecomunicações (ANATEL) não figure como litisconsorte passiva necessária, assistente ou opoente, ainda que haja controvérsia envolvendo normas regulatórias federais aplicáveis ao serviço.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(1, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(1, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-1">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O entendimento sedimentado no Tema 17 do STF delimita a competência para apreciação de demandas consumeristas contra concessionárias de telefonia pela Justiça estadual quando a ANATEL não integre a relação processual em qualquer das modalidades indicadas (litisconsorte necessária, assistente ou opoente). A existência de matéria regulatória federal, isoladamente, não desloca a competência federal se a pessoa administrativa não for parte essencial à lide; a regra acolhe os princípios da conexão funcional e da indispensabilidade da pessoa jurídica federal para legitimidade da jurisdição federal. Logo, a assertiva está em conformidade com a tese fixada.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 17 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="à luz do princípio da irretroatividade das normas previsto no art. 5º, inciso xxxvi, da constituição federal, a lei nº 9.656/1998 só produz efeitos sobre contratos de planos de saúde celebrados após sua vigência ou sobre contratos anteriores que tenham sido adaptados ao novo regime, não alcançando titulares que, por opção autônoma, mantiveram inalterados os planos antigos. a tese do tema 123 do stf aplica o princípio constitucional da irretroatividade em matéria de contratos de planos de saúde, reconhecendo que as disposições da lei 9.656/1998 não se aplicam automaticamente a contratos anteriores, salvo quando estes foram expressa e concordemente adaptados ao novo regime. a decisão resguarda a autonomia privada dos beneficiários que optaram pela manutenção das condições contratuais anteriores, evitando a aplicação retroativa de normas que alterariam expectativas contratuais adquiridas. tema 123 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 2</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-2">Não respondida</span>
+</div>
+
+<p class="enunciado">À luz do princípio da irretroatividade das normas previsto no art. 5º, inciso XXXVI, da Constituição Federal, a Lei nº 9.656/1998 só produz efeitos sobre contratos de planos de saúde celebrados após sua vigência ou sobre contratos anteriores que tenham sido adaptados ao novo regime, não alcançando titulares que, por opção autônoma, mantiveram inalterados os planos antigos.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(2, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(2, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-2">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A tese do Tema 123 do STF aplica o princípio constitucional da irretroatividade em matéria de contratos de planos de saúde, reconhecendo que as disposições da Lei 9.656/1998 não se aplicam automaticamente a contratos anteriores, salvo quando estes foram expressa e concordemente adaptados ao novo regime. A decisão resguarda a autonomia privada dos beneficiários que optaram pela manutenção das condições contratuais anteriores, evitando a aplicação retroativa de normas que alterariam expectativas contratuais adquiridas.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 123 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="as convenções de varsóvia e de montreal, enquanto instrumentos internacionais que disciplinam a limitação de responsabilidade das transportadoras aéreas de passageiros, prevalecem sobre as disposições do código de defesa do consumidor quanto aos limites indenizatórios, sendo that prevalência inaplicável às hipóteses de danos extrapatrimoniais. o tema 210 do stf, fundado no art. 178 da constituição, reconhece a primazia das convenções internacionais sobre normas de direito interno que imponham limites à responsabilidade civil das companhias aéreas em transporte internacional de passageiros, excepcionando, contudo, a matéria relativa aos danos extrapatrimoniais, que não se encontram disciplinados pelas referidas convenções ou não podem ser acapsulados por limites convencionais. assim, a afirmação reflete fielmente a delimitação traçada pela corte. tema 210 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 3</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-3">Não respondida</span>
+</div>
+
+<p class="enunciado">As Convenções de Varsóvia e de Montreal, enquanto instrumentos internacionais que disciplinam a limitação de responsabilidade das transportadoras aéreas de passageiros, prevalecem sobre as disposições do Código de Defesa do Consumidor quanto aos limites indenizatórios, sendo that prevalência inaplicável às hipóteses de danos extrapatrimoniais.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(3, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(3, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-3">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 210 do STF, fundado no art. 178 da Constituição, reconhece a primazia das convenções internacionais sobre normas de direito interno que imponham limites à responsabilidade civil das companhias aéreas em transporte internacional de passageiros, excepcionando, contudo, a matéria relativa aos danos extrapatrimoniais, que não se encontram disciplinados pelas referidas convenções ou não podem ser acapsulados por limites convencionais. Assim, a afirmação reflete fielmente a delimitação traçada pela Corte.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 210 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="em razão da declaração de constitucionalidade do plano collor i na adpf 165, o direito às diferenças de correção monetária de depósitos em cadernetas de poupança por alegados expurgos inflacionários é plenamente exigível independentemente de adesão a qualquer acordo coletivo homologado na adpf 165, e é admissível propositura de ação rescisória ou arguição de inexigibilidade do título baseada nessa constitucionalidade, mesmo em processos já transitados em julgado. a assertiva contradiz a tese consolidada no tema 284: após a declaração de constitucionalidade do plano collor i, o reconhecimento do direito às diferenças depende de adesão ao acordo coletivo e seus aditamentos homologados no âmbito da adpf 165, dentro do prazo de 24 meses da publicação da ata de julgamento; além disso, com vistas à segurança jurídica, não é admitida ação rescisória nem arguição de inexigibilidade do título com fundamento na constitucionalidade dos planos econômicos em execuções já transitadas em julgado. a proposição, portanto, afirma justamente o inverso do decidido. tema 284 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 4</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-4">Não respondida</span>
+</div>
+
+<p class="enunciado">Em razão da declaração de constitucionalidade do Plano Collor I na ADPF 165, o direito às diferenças de correção monetária de depósitos em cadernetas de poupança por alegados expurgos inflacionários é plenamente exigível independentemente de adesão a qualquer acordo coletivo homologado na ADPF 165, e é admissível propositura de ação rescisória ou arguição de inexigibilidade do título baseada nessa constitucionalidade, mesmo em processos já transitados em julgado.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(4, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(4, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-4">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva contradiz a tese consolidada no Tema 284: após a declaração de constitucionalidade do Plano Collor I, o reconhecimento do direito às diferenças depende de adesão ao acordo coletivo e seus aditamentos homologados no âmbito da ADPF 165, dentro do prazo de 24 meses da publicação da ata de julgamento; além disso, com vistas à segurança jurídica, não é admitida ação rescisória nem arguição de inexigibilidade do título com fundamento na constitucionalidade dos planos econômicos em execuções já transitadas em julgado. A proposição, portanto, afirma justamente o inverso do decidido.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 284 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="considerando a declaração de constitucionalidade do plano collor ii na adpf 165, o reconhecimento das diferenças de correção monetária de depósitos em cadernetas de poupança (não bloqueados pelo bacen) decorrentes de alegados expurgos inflacionários está condicionado à adesão ao acordo coletivo homologado no âmbito da adpf 165 dentro do prazo de 24 meses da publicação da ata de julgamento, sendo incabíveis ações rescisórias ou arguições de inexigibilidade do título com fundamento na constitucionalidade dos planos econômicos já transitados em julgado. o tema 285 reproduz a mesma lógica aplicada ao plano collor ii: o direito às diferenças somente será reconhecido mediante adesão ao acordo coletivo e seus aditamentos homologados na adpf 165 no prazo estipulado, e há vedação à rediscussão por meio de ação rescisória ou arguição de inexigibilidade do título com base na constitucionalidade dos planos econômicos que já transitaram em julgado, em razão da tutela da segurança jurídica. tema 285 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 5</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-5">Não respondida</span>
+</div>
+
+<p class="enunciado">Considerando a declaração de constitucionalidade do Plano Collor II na ADPF 165, o reconhecimento das diferenças de correção monetária de depósitos em cadernetas de poupança (não bloqueados pelo Bacen) decorrentes de alegados expurgos inflacionários está condicionado à adesão ao acordo coletivo homologado no âmbito da ADPF 165 dentro do prazo de 24 meses da publicação da ata de julgamento, sendo incabíveis ações rescisórias ou arguições de inexigibilidade do título com fundamento na constitucionalidade dos Planos Econômicos já transitados em julgado.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(5, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(5, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-5">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 285 reproduz a mesma lógica aplicada ao Plano Collor II: o direito às diferenças somente será reconhecido mediante adesão ao acordo coletivo e seus aditamentos homologados na ADPF 165 no prazo estipulado, e há vedação à rediscussão por meio de ação rescisória ou arguição de inexigibilidade do título com base na constitucionalidade dos Planos Econômicos que já transitaram em julgado, em razão da tutela da segurança jurídica.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 285 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="diante do atual estado do conhecimento científico, que não demonstrou, de forma inequívoca, efeitos nocivos à saúde humana pela exposição a campos elétricos, magnéticos e eletromagnéticos provenientes de sistemas de energia elétrica, não há, em princípio, óbice jurídico à adoção, no ordenamento infraconstitucional, dos parâmetros de exposição recomendados pela organização mundial da saúde, conforme previsto na lei nº 11.934/2009. o tema 479 do stf reconhece a incerteza científica quanto a potenciais efeitos nocivos desses campos e, por essa razão, autoriza, sem impedimento jurídico atual, a adoção dos parâmetros propostos pela oms, tal como disciplinado na lei nº 11.934/2009. a decisão observa o estado da ciência e a necessidade de parâmetros tutelares, sem, contudo converter hipótese de risco em proibição normativa automática. tema 479 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 6</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-6">Não respondida</span>
+</div>
+
+<p class="enunciado">Diante do atual estado do conhecimento científico, que não demonstrou, de forma inequívoca, efeitos nocivos à saúde humana pela exposição a campos elétricos, magnéticos e eletromagnéticos provenientes de sistemas de energia elétrica, não há, em princípio, óbice jurídico à adoção, no ordenamento infraconstitucional, dos parâmetros de exposição recomendados pela Organização Mundial da Saúde, conforme previsto na Lei nº 11.934/2009.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(6, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(6, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-6">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 479 do STF reconhece a incerteza científica quanto a potenciais efeitos nocivos desses campos e, por essa razão, autoriza, sem impedimento jurídico atual, a adoção dos parâmetros propostos pela OMS, tal como disciplinado na Lei nº 11.934/2009. A decisão observa o estado da ciência e a necessidade de parâmetros tutelares, sem, contudo converter hipótese de risco em proibição normativa automática.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 479 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="é facultado aos estados-membros e ao distrito federal editar normas que disponham sobre regras de postagem de boletos para pagamento de serviços prestados por entidades públicas e privadas, por se tratar de matéria de interesse regional que não invade competência exclusiva da união. o tema 491 do stf reconhece a competência legislativa dos entes estaduais e do distrito federal para regulamentar regras atinentes à postagem de boletos relativos ao pagamento de serviços, entendendo ser matéria de âmbito local/regional que não conflita com competência legislativa privativa da união. a construção é compatível com a distribuição de competências prevista na constituição, observados os limites do federalismo. tema 491 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 7</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-7">Não respondida</span>
+</div>
+
+<p class="enunciado">É facultado aos Estados-Membros e ao Distrito Federal editar normas que disponham sobre regras de postagem de boletos para pagamento de serviços prestados por entidades públicas e privadas, por se tratar de matéria de interesse regional que não invade competência exclusiva da União.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(7, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(7, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-7">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 491 do STF reconhece a competência legislativa dos entes estaduais e do Distrito Federal para regulamentar regras atinentes à postagem de boletos relativos ao pagamento de serviços, entendendo ser matéria de âmbito local/regional que não conflita com competência legislativa privativa da União. A construção é compatível com a distribuição de competências prevista na Constituição, observados os limites do federalismo.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 491 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a interpretação do supremo tribunal federal reconheceu a parcial inconstitucionalidade do art. 19 do marco civil da internet (lei nº 12.965/2014), determinando, entre outros efeitos, que provedores de aplicações de internet podem ser responsabilizados civilmente por conteúdo de terceiros em hipóteses de crime ou atos ilícitos, com presunção de responsabilidade em anúncios pagos e redes artificiais, sem que isso importe, em qualquer caso, na adoção da responsabilidade objetiva e com modulação prospectiva dos efeitos da decisão. o tema 533 sintetiza a posição do stf: declaração parcial de inconstitucionalidade do art. 19, instruindo sua interpretação de modo a permitir responsabilização dos provedores de aplicação em hipóteses específicas (crimes/atos ilícitos), estabelecendo presunção de responsabilidade para anúncios/impulsionamentos pagos e redes artificiais (sujeita a excludentes mediante demonstração de diligência), firmando que não se tratou de adoção de responsabilidade objetiva e modulando os efeitos da decisão prospectivamente. a assertiva condensa essas balizas. tema 533 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 8</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-8">Não respondida</span>
+</div>
+
+<p class="enunciado">A interpretação do Supremo Tribunal Federal reconheceu a parcial inconstitucionalidade do art. 19 do Marco Civil da Internet (Lei nº 12.965/2014), determinando, entre outros efeitos, que provedores de aplicações de internet podem ser responsabilizados civilmente por conteúdo de terceiros em hipóteses de crime ou atos ilícitos, com presunção de responsabilidade em anúncios pagos e redes artificiais, sem que isso importe, em qualquer caso, na adoção da responsabilidade objetiva e com modulação prospectiva dos efeitos da decisão.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(8, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(8, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-8">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 533 sintetiza a posição do STF: declaração parcial de inconstitucionalidade do art. 19, instruindo sua interpretação de modo a permitir responsabilização dos provedores de aplicação em hipóteses específicas (crimes/atos ilícitos), estabelecendo presunção de responsabilidade para anúncios/impulsionamentos pagos e redes artificiais (sujeita a excludentes mediante demonstração de diligência), firmando que não se tratou de adoção de responsabilidade objetiva e modulando os efeitos da decisão prospectivamente. A assertiva condensa essas balizas.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 533 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="é constitucional e recomendável que a liberação de veículo apreendido em razão de infração administrativa no serviço público de transporte coletivo seja condicionada ao prévio pagamento das multas, preços públicos e demais encargos decorrentes da infração, como medida administrativa coercitiva para prevenção de fraudes no serviço. o tema 546 do stf reconheceu a existência de previsão normativa local para coibir fraudes no âmbito do serviço público de transporte coletivo, mas declarou ser inconstitucional condicionar a liberação de veículo apreendido ao pagamento de multas, preços públicos e demais encargos decorrentes da infração. a vedação funda-se na proteção de direitos fundamentais e na ilegalidade de transformar medida de natureza administrativa em mecanismo de efetiva penalização pecuniária prévia para reaver o bem, quando tal condicionamento afronta princípios constitucionais ou excede competência. tema 546 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 9</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-9">Não respondida</span>
+</div>
+
+<p class="enunciado">É constitucional e recomendável que a liberação de veículo apreendido em razão de infração administrativa no serviço público de transporte coletivo seja condicionada ao prévio pagamento das multas, preços públicos e demais encargos decorrentes da infração, como medida administrativa coercitiva para prevenção de fraudes no serviço.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(9, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(9, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-9">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 546 do STF reconheceu a existência de previsão normativa local para coibir fraudes no âmbito do serviço público de transporte coletivo, mas declarou ser inconstitucional condicionar a liberação de veículo apreendido ao pagamento de multas, preços públicos e demais encargos decorrentes da infração. A vedação funda-se na proteção de direitos fundamentais e na ilegalidade de transformar medida de natureza administrativa em mecanismo de efetiva penalização pecuniária prévia para reaver o bem, quando tal condicionamento afronta princípios constitucionais ou excede competência.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 546 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a utilização do valor do salário mínimo como parâmetro para correção monetária do período anterior à edição da lei nº 4.357/1964 configura questão de repercussão geral reconhecida pelo supremo tribunal federal, em razão de sua potencial relevância econômica e social que transcende os interesses subjetivos das partes. o tema 681 do stf concluiu que a matéria relativa ao emprego do salário mínimo como indexador para correção monetária no período prévio à lei nº 4.357/1964 não ostenta repercussão geral, por faltar-lhe relevância econômica, política, social ou jurídica que exceda o interesse das partes litigantes. assim, a afirmação que declara reconhecida repercussão geral é contrária ao posicionamento da corte. tema 681 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 10</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-10">Não respondida</span>
+</div>
+
+<p class="enunciado">A utilização do valor do salário mínimo como parâmetro para correção monetária do período anterior à edição da Lei nº 4.357/1964 configura questão de repercussão geral reconhecida pelo Supremo Tribunal Federal, em razão de sua potencial relevância econômica e social que transcende os interesses subjetivos das partes.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(10, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(10, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-10">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 681 do STF concluiu que a matéria relativa ao emprego do salário mínimo como indexador para correção monetária no período prévio à Lei nº 4.357/1964 não ostenta repercussão geral, por faltar-lhe relevância econômica, política, social ou jurídica que exceda o interesse das partes litigantes. Assim, a afirmação que declara reconhecida repercussão geral é contrária ao posicionamento da Corte.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 681 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="para fins de admissibilidade de recurso extraordinário oriundo de causas processadas nos juizados especiais cíveis (lei nº 9.099/1995), exige-se que o recorrente demonstre, de forma específica e objetiva, o prequestionamento da matéria constitucional no acórdão recorrido e apresente fundamentação concreta acerca da relevância da questão, de modo a afastar a presunção de inexistência de repercussão geral das lides daquele ramo jurisdicional. o tema 798 (unificado com os temas 797 e 800) estabeleceu dois requisitos adicionais de admissibilidade para os re interpostos de decisões dos juizados especiais: (a) demonstração específica e objetiva do prequestionamento constitucional na decisão recorrida; e (b) fundamentação quanto à relevância calcada em elementos concretos que revertam a presunção de ausência de repercussão geral. a exigência visa filtrar recursos que não atendam aos requisitos do stf, em respeito à finalidade dos juizados e à sistemática recursal. tema 798 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 11</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-11">Não respondida</span>
+</div>
+
+<p class="enunciado">Para fins de admissibilidade de recurso extraordinário oriundo de causas processadas nos Juizados Especiais Cíveis (Lei nº 9.099/1995), exige-se que o recorrente demonstre, de forma específica e objetiva, o prequestionamento da matéria constitucional no acórdão recorrido e apresente fundamentação concreta acerca da relevância da questão, de modo a afastar a presunção de inexistência de repercussão geral das lides daquele ramo jurisdicional.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(11, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(11, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-11">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 798 (unificado com os Temas 797 e 800) estabeleceu dois requisitos adicionais de admissibilidade para os RE interpostos de decisões dos Juizados Especiais: (a) demonstração específica e objetiva do prequestionamento constitucional na decisão recorrida; e (b) fundamentação quanto à relevância calcada em elementos concretos que revertam a presunção de ausência de repercussão geral. A exigência visa filtrar recursos que não atendam aos requisitos do STF, em respeito à finalidade dos Juizados e à sistemática recursal.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 798 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="compete aos municípios, por força do princípio da autonomia local e do domínio do interesse comunitário imediato, legislar sobre a obrigatoriedade da instalação de hidrômetros individuais em edifícios e condomínios, sendo matéria de competência local e não exclusiva da união ou dos estados. o tema 849 do stf reconhece a competência municipal para disciplinar a obrigatoriedade de hidrômetros individuais em condomínios e edifícios, por se tratar de tema de preponderante interesse local (gestão de saneamento e fornecimento de água, cobrança individualizada). essa alocação de competência harmoniza-se com a cf/88 que reserva aos municípios legislar sobre assuntos de interesse local. tema 849 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 12</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-12">Não respondida</span>
+</div>
+
+<p class="enunciado">Compete aos municípios, por força do princípio da autonomia local e do domínio do interesse comunitário imediato, legislar sobre a obrigatoriedade da instalação de hidrômetros individuais em edifícios e condomínios, sendo matéria de competência local e não exclusiva da União ou dos Estados.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(12, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(12, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-12">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 849 do STF reconhece a competência municipal para disciplinar a obrigatoriedade de hidrômetros individuais em condomínios e edifícios, por se tratar de tema de preponderante interesse local (gestão de saneamento e fornecimento de água, cobrança individualizada). Essa alocação de competência harmoniza-se com a CF/88 que reserva aos municípios legislar sobre assuntos de interesse local.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 849 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="as convenções internacionais de varsóvia e de montreal aplicam-se integralmente às hipóteses de dano extrapatrimonial decorrentes de contrato de transporte aéreo internacional, prevalecendo sobre normas internas, inclusive quando a pretensão trata exclusivamente de reparação moral. o tema 1240 do stf assevera o entendimento de que as convenções de varsóvia e de montreal não se aplicam às hipóteses de danos extrapatrimoniais (dano moral) no transporte aéreo internacional; as convenções tratam essencialmente de responsabilidade patrimonial e limites indenizatórios específicos, não comportando, na interpretação do stf, a exclusão automática da tutela indenizatória extrapatrimonial prevista no direito interno. assim, a afirmação de aplicação integral às verbas extrapatrimoniais é incorreta. tema 1240 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 13</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-13">Não respondida</span>
+</div>
+
+<p class="enunciado">As Convenções Internacionais de Varsóvia e de Montreal aplicam-se integralmente às hipóteses de dano extrapatrimonial decorrentes de contrato de transporte aéreo internacional, prevalecendo sobre normas internas, inclusive quando a pretensão trata exclusivamente de reparação moral.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(13, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(13, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-13">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 1240 do STF assevera o entendimento de que as Convenções de Varsóvia e de Montreal não se aplicam às hipóteses de danos extrapatrimoniais (dano moral) no transporte aéreo internacional; as convenções tratam essencialmente de responsabilidade patrimonial e limites indenizatórios específicos, não comportando, na interpretação do STF, a exclusão automática da tutela indenizatória extrapatrimonial prevista no direito interno. Assim, a afirmação de aplicação integral às verbas extrapatrimoniais é incorreta.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1240 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="o regime jurídico remuneratório dos contratos temporários da administração pública é distinto do dos servidores estatutários efetivos, de modo que é vedada a extensão, por decisão judicial, de parcelas remuneratórias e vantagens de qualquer natureza destinadas a servidores efetivos a esses contratados temporários, observadas as exceções e limitações previstas no tema 551/rg. o tema 1344 do stf reafirma que o regime da contratação temporária é diverso do regime dos servidores efetivos e impede a equiparação remuneratória por extensão judicial de parcelas pertencentes ao regime estatutário. a vedação tem por objetivo preservar a natureza excepcional e temporária dessa modalidade de contratação, coibindo o efeito expansivo de decisões judiciais que resultem em criação de efeitos permanentes ou repercussões orçamentárias não previstas legalmente; as restrições são temperadas pelas orientações constantes de outros temas, como o tema 551/rg. tema 1344 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 14</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-14">Não respondida</span>
+</div>
+
+<p class="enunciado">O regime jurídico remuneratório dos contratos temporários da administração pública é distinto do dos servidores estatutários efetivos, de modo que é vedada a extensão, por decisão judicial, de parcelas remuneratórias e vantagens de qualquer natureza destinadas a servidores efetivos a esses contratados temporários, observadas as exceções e limitações previstas no Tema 551/RG.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(14, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(14, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-14">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 1344 do STF reafirma que o regime da contratação temporária é diverso do regime dos servidores efetivos e impede a equiparação remuneratória por extensão judicial de parcelas pertencentes ao regime estatutário. A vedação tem por objetivo preservar a natureza excepcional e temporária dessa modalidade de contratação, coibindo o efeito expansivo de decisões judiciais que resultem em criação de efeitos permanentes ou repercussões orçamentárias não previstas legalmente; as restrições são temperadas pelas orientações constantes de outros temas, como o Tema 551/RG.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1344 STF</p>
+</div>
+</section>
+
+</div>
+
+<script>
+const storageKey = location.pathname + "_respostas";
+let respostas = JSON.parse(localStorage.getItem(storageKey) || "{}");
+
+function destacar(t){
+ if(t==="CERTO") return '<span class="gabarito-certo">CERTO</span>';
+ if(t==="ERRADO") return '<span class="gabarito-errado">ERRADO</span>';
+ return t;
+}
+
+function responder(numero, resposta){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const gabarito=card.dataset.gabarito;
+ const correto=resposta===gabarito;
+ respostas[numero]={resposta,correto};
+ localStorage.setItem(storageKey, JSON.stringify(respostas));
+ mostrarFeedback(numero);
+ atualizarPainel();
+ filtrar();
+}
+
+function mostrarFeedback(numero){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const feedback=document.getElementById("feedback-"+numero);
+ const status=document.getElementById("status-"+numero);
+ const resultado=feedback.querySelector(".resultado");
+ const gabarito=card.dataset.gabarito;
+ const dados=respostas[numero];
+ if(!dados) return;
+ feedback.style.display="block";
+ feedback.classList.remove("correto","errado");
+ if(dados.correto){
+   feedback.classList.add("correto");
+   resultado.innerHTML="Você acertou. A resposta é "+destacar(gabarito)+".";
+   status.textContent="Respondida — acerto";
+   status.style.color="var(--green)";
+ } else {
+   feedback.classList.add("errado");
+   resultado.innerHTML="Você errou. O gabarito é "+destacar(gabarito)+".";
+   status.textContent="Respondida — erro";
+   status.style.color="var(--red)";
+ }
+}
+
+function atualizarPainel(){
+ let respondidas=0, acertos=0, erros=0;
+ for(const k in respostas){
+   respondidas++;
+   if(respostas[k].correto) acertos++; else erros++;
+ }
+ document.getElementById("respondidas").textContent=respondidas;
+ document.getElementById("acertos").textContent=acertos;
+ document.getElementById("erros").textContent=erros;
+ document.getElementById("visiveis").textContent=document.querySelectorAll(".questao:not(.oculta)").length;
+}
+
+function filtrar(){
+ const busca=document.getElementById("busca").value.trim().toLowerCase();
+ const disciplina=document.getElementById("disciplina").value;
+ const statusFiltro=document.getElementById("statusFiltro").value;
+ const cards=Array.from(document.querySelectorAll(".questao"));
+ let vis=0;
+ cards.forEach((card,idx)=>{
+   const n=idx+1;
+   const texto=card.dataset.texto||"";
+   const disc=card.dataset.disciplina||"";
+   const r=respostas[n];
+   let passaStatus=true;
+   if(statusFiltro==="nao") passaStatus=!r;
+   if(statusFiltro==="acerto") passaStatus=r && r.correto;
+   if(statusFiltro==="erro") passaStatus=r && !r.correto;
+   const ok=(!busca||texto.includes(busca)) && (!disciplina||disc===disciplina) && passaStatus;
+   card.classList.toggle("oculta", !ok);
+   if(ok) vis++;
+ });
+ document.getElementById("sem-resultados").style.display=vis===0?"block":"none";
+ atualizarPainel();
+}
+
+function reiniciar(){
+ if(!confirm("Deseja reiniciar este simulado?")) return;
+ localStorage.removeItem(storageKey);
+ location.reload();
+}
+
+function restaurar(){
+ for(const k in respostas) mostrarFeedback(Number(k));
+ filtrar();
+ atualizarPainel();
+}
+
+restaurar();
+</script>
+</body>
+</html>

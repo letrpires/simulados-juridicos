@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Simulado - Info 844 STJ</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+    --bg: #0f172a;
+    --card: #111827;
+    --card2: #1f2937;
+    --text: #e5e7eb;
+    --muted: #9ca3af;
+    --accent: #38bdf8;
+    --green: #22c55e;
+    --red: #ef4444;
+    --yellow: #facc15;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #020617, #111827);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+header {
+    padding: 32px 20px;
+    text-align: center;
+    border-bottom: 1px solid #334155;
+}
+
+header h1 {
+    margin: 0 0 10px;
+    font-size: 28px;
+}
+
+header p {
+    color: var(--muted);
+    margin: 0;
+}
+
+.container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 24px 16px 80px;
+}
+
+.painel {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(8px);
+    border: 1px solid #334155;
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 24px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.stat {
+    background: var(--card2);
+    padding: 12px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.stat strong {
+    display: block;
+    font-size: 22px;
+    color: var(--accent);
+}
+
+.card {
+    background: rgba(17, 24, 39, 0.96);
+    border: 1px solid #334155;
+    border-radius: 18px;
+    padding: 22px;
+    margin-bottom: 20px;
+    box-shadow: 0 12px 30px rgba(0,0,0,.25);
+}
+
+.questao-topo {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.badge {
+    background: #0ea5e9;
+    color: #00111f;
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 999px;
+}
+
+.status {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.enunciado {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.botoes {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+button {
+    cursor: pointer;
+    border: 0;
+    padding: 12px 22px;
+    border-radius: 12px;
+    background: #334155;
+    color: white;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+button:hover {
+    transform: translateY(-1px);
+    background: #475569;
+}
+
+.feedback {
+    display: none;
+    background: #020617;
+    border-left: 4px solid var(--accent);
+    padding: 16px;
+    border-radius: 12px;
+    margin-top: 12px;
+}
+
+.feedback.correto {
+    border-left-color: var(--green);
+}
+
+.feedback.errado {
+    border-left-color: var(--red);
+}
+
+.resultado {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.referencia {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.acoes {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.acoes button {
+    background: #0ea5e9;
+    color: #00111f;
+}
+
+@media (max-width: 700px) {
+    .painel {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .botoes {
+        flex-direction: column;
+    }
+
+    header h1 {
+        font-size: 22px;
+    }
+
+    .enunciado {
+        font-size: 16px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Simulado - Info 844 STJ</h1>
+    <p>Simulado interativo de CERTO ou ERRADO</p>
+</header>
+
+<div class="container">
+
+    <div class="painel">
+        <div class="stat">
+            <strong id="total">20</strong>
+            Total
+        </div>
+        <div class="stat">
+            <strong id="respondidas">0</strong>
+            Respondidas
+        </div>
+        <div class="stat">
+            <strong id="acertos">0</strong>
+            Acertos
+        </div>
+        <div class="stat">
+            <strong id="erros">0</strong>
+            Erros
+        </div>
+    </div>
+
+    <div class="acoes">
+        <button onclick="reiniciar()">Reiniciar simulado</button>
+    </div>
+
+    
+        <section class="card questao" data-gabarito="CERTO">
+            <div class="questao-topo">
+                <span class="badge">Questão 1</span>
+                <span class="status" id="status-1">Não respondida</span>
+            </div>
+
+            <p class="enunciado">Em ação judicial proposta em favor de criança incapaz para assegurar o fornecimento contínuo de medicamento indispensável ao tratamento de transtorno neuropsiquiátrico, a utilização, pela genitora, de valores depositados pelo Estado para aquisição, em caráter emergencial, de outros fármacos igualmente destinados ao mesmo menor não autoriza a suspensão temporária do medicamento originalmente assegurado, pois a medida sancionatória recairia sobre o paciente vulnerável, e não sobre eventual conduta irregular da representante legal.</p>
+
+            <div class="botoes">
+                <button onclick="responder(1, 'CERTO')">CERTO</button>
+                <button onclick="responder(1, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-1">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> CERTO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está correta porque a interrupção do fornecimento do medicamento, nessas circunstâncias, revela-se medida desproporcional e desarrazoada. O ponto central do entendimento é que a criança menor e incapaz, titular do direito fundamental à saúde, não pode suportar as consequências de eventual desvio de finalidade praticado por sua representante legal, sobretudo quando os valores foram empregados na compra de outros medicamentos também voltados ao atendimento urgente do próprio paciente.<br><br>A solução sancionatória adotada na origem — suspensão do fornecimento por um mês como forma de compensação — desloca indevidamente para o doente vulnerável o ônus de uma controvérsia patrimonial ou de eventual irregularidade na gestão dos recursos pela genitora. Isso afronta a proteção constitucional à saúde e à dignidade da pessoa humana, além de se aproximar de uma punição incompatível com a vedação de penas cruéis, na medida em que priva a criança de tratamento essencial como mecanismo de coerção.<br><br>O entendimento também evidencia que, em demandas de saúde envolvendo menor incapaz, a resposta estatal deve preservar prioritariamente o interesse do paciente, sem prejuízo de eventual apuração e cobrança em face da responsável legal, se cabível. O que não se admite é converter o próprio tratamento em instrumento de sanção, porque isso agrava a situação do vulnerável e compromete o núcleo do direito fundamental tutelado.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 2ª Turma. AgInt no REsp 1.930.966/PR, Rel. Min. Afrânio Vilela, julgado em 18/3/2025 (Info 844).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="CERTO">
+            <div class="questao-topo">
+                <span class="badge">Questão 2</span>
+                <span class="status" id="status-2">Não respondida</span>
+            </div>
+
+            <p class="enunciado">Em ação indenizatória proposta por paciente contra ente federativo, fundada em alegado erro médico ocorrido em parto realizado em maternidade integrante da rede pública, a incidência do Código de Defesa do Consumidor deve ser afastada, por se tratar de serviço público de saúde prestado pelo SUS, de natureza universal e indivisível; isso não impede, contudo, que o magistrado redistribua dinamicamente o ônus da prova em favor da parte hipossuficiente tecnicamente, especialmente quando o poder público detiver maior aptidão para a produção dos elementos probatórios pertinentes.</p>
+
+            <div class="botoes">
+                <button onclick="responder(2, 'CERTO')">CERTO</button>
+                <button onclick="responder(2, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-2">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> CERTO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está correta porque distingue adequadamente duas premissas que não se confundem.<br><br>Primeiro, os serviços de saúde prestados diretamente pelo SUS não se submetem ao regime consumerista. A razão é que se trata de serviço público prestado pelo Estado em regime administrativo, com caráter universal e indivisível, enquadrado como prestação “uti universi”, o que afasta a relação de consumo e, por consequência, a incidência do CDC.<br><br>Segundo, o afastamento do CDC não elimina a possibilidade de flexibilização probatória no processo. A redistribuição do ônus da prova pode ser adotada com base na lógica da distribuição dinâmica prevista no Código de Processo Civil, desde que haja justificativa concreta, como a hipossuficiência técnica do paciente e a maior facilidade do ente público para acessar documentos e informações relevantes, a exemplo de prontuários médicos e registros hospitalares.<br><br>O ponto central é que a inversão do ônus da prova, quando fundada exclusivamente no CDC, não se sustenta nesses casos; porém, a redistribuição probatória pode ser legitimamente determinada por fundamento processual autônomo, desde que observados os critérios de adequação e a maior aptidão para a prova. Assim, a tese harmoniza o regime jurídico administrativo dos serviços públicos de saúde com a tutela processual da parte em desvantagem técnica.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 2ª Turma. REsp 2.161.702-AM, Rel. Min. Marco Aurélio Bellizze, julgado em 18/3/2025 (Info 844).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="CERTO">
+            <div class="questao-topo">
+                <span class="badge">Questão 3</span>
+                <span class="status" id="status-3">Não respondida</span>
+            </div>
+
+            <p class="enunciado">O ex-militar temporário das Forças Armadas, licenciado do serviço ativo antes da entrada em vigor da Lei n. 13.954/2019, que alegue incapacidade decorrente de acidente em serviço, tem eventual pretensão à reintegração e à reforma militar submetida à disciplina jurídica vigente à época do licenciamento, sendo inadequada a incidência retroativa das alterações introduzidas pela Lei n. 13.954/2019 para ampliar ou restringir tal direito.</p>
+
+            <div class="botoes">
+                <button onclick="responder(3, 'CERTO')">CERTO</button>
+                <button onclick="responder(3, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-3">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> CERTO</p>
+                <p><strong>Justificativa:</strong><br>A controvérsia envolve a definição da norma aplicável à situação jurídica de militar temporário licenciado antes da vigência da Lei n. 13.954/2019. O ponto central é que o exame do eventual direito à reintegração e à reforma deve observar a legislação em vigor no momento do licenciamento, e não a disciplina posterior.<br><br>Isso significa que, para ex-militar licenciado antes da alteração legislativa, a análise deve ser feita à luz da Lei n. 6.880/1980, que rege o Estatuto dos Militares. A superveniência da Lei n. 13.954/2019 não autoriza, por si só, a incidência retroativa de suas disposições para modificar a situação jurídica já consolidada no passado, seja para ampliar, seja para restringir direitos.<br><br>Em matéria de direito administrativo militar, a aferição da incapacidade, da origem do evento danoso e das consequências funcionais — como reintegração e reforma — depende do regime jurídico aplicável ao tempo do afastamento do serviço ativo. Assim, se o licenciamento ocorreu antes da nova lei, a pretensão deve ser apreciada conforme as regras então vigentes, especialmente as da Lei n. 6.880/1980, sem deslocamento automático para o regime posterior.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Turma. REsp 2.175.376-PE, Rel. Min. Sérgio Kukina, julgado em 18/3/2025 (Info 844).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="CERTO">
+            <div class="questao-topo">
+                <span class="badge">Questão 4</span>
+                <span class="status" id="status-4">Não respondida</span>
+            </div>
+
+            <p class="enunciado">Na hipótese de divulgação de conteúdo ofensivo por meio de e-mail anônimo, a requisição judicial de registros ao provedor de conexão pode ser satisfeita com a indicação do endereço IP e de intervalo temporal razoável, sendo desnecessário exigir, como condição prévia, a informação da porta lógica junto ao provedor de aplicação, pois também incumbe ao provedor de conexão armazenar os elementos técnicos aptos à identificação do usuário responsável pelo acesso.</p>
+
+            <div class="botoes">
+                <button onclick="responder(4, 'CERTO')">CERTO</button>
+                <button onclick="responder(4, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-4">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> CERTO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está correta porque o entendimento firmado reconhece que a identificação do usuário não depende, necessariamente, de prévia obtenção da porta lógica junto ao provedor de aplicação. Em situações em que se busca a responsabilização civil por conteúdo ilícito veiculado na internet, a indicação do IP, acompanhada de recorte temporal suficiente, pode ser bastante para viabilizar a identificação do usuário pelos registros mantidos pelo provedor de conexão.<br><br>O ponto central do julgado é a distribuição dos deveres de guarda e fornecimento de registros no âmbito do Marco Civil da Internet. Tanto o provedor de aplicação quanto o provedor de conexão possuem obrigações de armazenamento de informações técnicas relacionadas ao acesso, inclusive dados que permitam a individualização do usuário. Por isso, não se pode transferir integralmente ao titular da pretensão a carga de obter, previamente, a porta lógica junto ao provedor de aplicação para só então acionar o provedor de conexão.<br><br>Além disso, a decisão afasta a exigência de minutagem exata do ilícito para fins de requisição judicial de registros prevista no art. 10, §1º, do Marco Civil da Internet. A identificação pode ser viabilizada com base em IP e intervalo temporal delimitado, sem que isso represente violação à proteção de dados ou imposição desproporcional ao provedor.<br><br>Em síntese, o julgado prestigia a efetividade da tutela jurisdicional e a cooperação técnica dos provedores na preservação e fornecimento de registros, sem criar um ônus probatório excessivo para a vítima do ilícito digital.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.170.872-SP, Rel. Min. Nancy Andrighi, julgado em 18/3/2025 (Info 844).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="ERRADO">
+            <div class="questao-topo">
+                <span class="badge">Questão 5</span>
+                <span class="status" id="status-5">Não respondida</span>
+            </div>
+
+            <p class="enunciado">Na alienação fiduciária em garantia de veículo automotor, a realização do leilão extrajudicial do bem apreendido prescinde de intimação pessoal do devedor acerca da data e do local da hasta, bastando a regular consolidação da posse e da propriedade em favor do credor fiduciário para viabilizar a cobrança do saldo remanescente por via monitória.</p>
+
+            <div class="botoes">
+                <button onclick="responder(5, 'CERTO')">CERTO</button>
+                <button onclick="responder(5, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-5">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> ERRADO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque, no procedimento de excussão extrajudicial do bem alienado fiduciariamente, a intimação prévia do devedor acerca da realização do leilão é exigência relevante para a validade do ato de alienação e para a preservação do contraditório substancial no âmbito da execução extrajudicial da garantia. Não basta a mera apreensão do bem ou a consolidação da propriedade em favor do credor fiduciário: é necessário que o devedor seja cientificado da data e do local do leilão, a fim de que possa acompanhar o procedimento e adotar providências para resguardar seus interesses, inclusive quanto à eventual satisfação da dívida ou à fiscalização da regularidade da alienação.<br><br>A ausência dessa comunicação compromete a higidez do leilão extrajudicial e impede que se trate a venda como regularmente realizada para fins de apuração de eventual saldo devedor. Em outras palavras, a cobrança do remanescente não pode se apoiar em alienação levada a efeito sem a observância dessa formalidade essencial. O fundamento está na disciplina do Decreto-Lei 911/1969, especialmente na interpretação conferida ao art. 2º, que exige a prévia intimação do devedor sobre a hasta extrajudicial.<br><br>Assim, a tese de que a intimação pessoal seria dispensável, bastando a consolidação da propriedade e da posse em favor do credor, contraria o entendimento firmado, pois esvazia a garantia mínima de ciência do devedor e a possibilidade de controle do procedimento de venda.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 4ª Turma. AgInt no REsp 2.076.261-AP, Rel. Min. Antonio Carlos Ferreira, julgado em 11/3/2025 (Info 844).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="CERTO">
+            <div class="questao-topo">
+                <span class="badge">Questão 6</span>
+                <span class="status" id="status-6">Não respondida</span>
+            </div>
+
+            <p class="enunciado">Em ação indenizatória proposta por paciente contra ente público, por suposto erro médico ocorrido em parto realizado em maternidade integrante da rede do SUS, é juridicamente possível afastar a incidência do Código de Defesa do Consumidor, por se tratar de serviço público de saúde prestado de forma universal e indivisível, sem prejuízo de o magistrado redistribuir o ônus da prova com base no Código de Processo Civil, desde que reconhecida a hipossuficiência técnica da parte autora e a maior aptidão probatória da Administração para produzir elementos como prontuários e registros assistenciais.</p>
+
+            <div class="botoes">
+                <button onclick="responder(6, 'CERTO')">CERTO</button>
+                <button onclick="responder(6, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-6">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> CERTO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está correta porque distingue adequadamente duas questões que não se confundem: a inaplicabilidade do regime consumerista aos serviços prestados pelo SUS e a possibilidade de redistribuição dinâmica do ônus da prova no processo civil.<br><br>No tocante ao primeiro ponto, os serviços de saúde prestados diretamente pelo Estado no âmbito do SUS não se submetem ao Código de Defesa do Consumidor, pois não configuram relação de consumo. Trata-se de serviço público prestado em regime jurídico administrativo, com natureza universal e indivisível, o que afasta a lógica contratual e a disciplina típica das relações consumeristas.<br><br>Isso, porém, não impede a adoção de técnica processual voltada à adequada distribuição do encargo probatório. A redistribuição do ônus da prova pode ser admitida quando houver hipossuficiência técnica da parte autora e quando a parte ré — especialmente o ente público — estiver em melhor posição para produzir a prova relevante ao esclarecimento dos fatos. Em hipóteses de alegado erro médico em ambiente hospitalar público, é comum que a Administração detenha prontuários, registros de atendimento e demais documentos essenciais à reconstrução do evento, o que justifica a flexibilização da regra estática do ônus probatório.<br><br>Assim, a decisão judicial pode afastar o CDC e, ainda assim, manter a redistribuição do ônus da prova com fundamento na lógica da distribuição dinâmica prevista no CPC, desde que a medida seja concretamente justificada pela desigualdade técnica entre as partes e pela maior aptidão probatória do Estado.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 2ª Turma. REsp 2.161.702-AM, Rel. Min. Marco Aurélio Bellizze, julgado em 18/3/2025 (Info 844).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="CERTO">
+            <div class="questao-topo">
+                <span class="badge">Questão 7</span>
+                <span class="status" id="status-7">Não respondida</span>
+            </div>
+
+            <p class="enunciado">A recusa injustificada dos pais em submeter criança ou adolescente à vacinação contra a COVID-19, quando a imunização é recomendada por autoridades sanitárias e após advertência expressa do Conselho Tutelar e do Ministério Público acerca dos riscos da omissão, configura descumprimento dos deveres inerentes ao poder familiar e autoriza a imposição da multa prevista no art. 249 do ECA, ainda que não haja prévia determinação judicial específica.</p>
+
+            <div class="botoes">
+                <button onclick="responder(7, 'CERTO')">CERTO</button>
+                <button onclick="responder(7, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-7">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> CERTO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está correta porque a proteção integral da criança e do adolescente impõe aos pais o dever jurídico de adotar medidas de cuidado compatíveis com a preservação da saúde dos filhos, inclusive quando a vacinação é recomendada pelas autoridades sanitárias competentes. Nessa hipótese, a recusa injustificada não se enquadra como exercício legítimo da autonomia familiar, mas como omissão relevante no cumprimento dos deveres decorrentes do poder familiar.<br><br>O ponto central do entendimento é que a sanção do art. 249 do ECA não depende, necessariamente, de prévia ordem judicial individualizada. O tipo administrativo também alcança o descumprimento de deveres inerentes ao poder familiar e de determinações emanadas do Conselho Tutelar. Assim, uma vez advertidos pelos órgãos de proteção e persistindo a recusa sem justificativa idônea, a conduta dos pais pode ser sancionada com multa.<br><br>No caso examinado, a vacinação infantil contra a COVID-19 foi tratada como obrigatória quando recomendada por autoridades sanitárias, e a resistência dos genitores, mesmo após orientação do Conselho Tutelar Municipal e do Ministério Público Estadual acerca dos riscos da omissão, foi considerada suficiente para caracterizar a infração administrativa. A ratio decidendi, portanto, não está em punir a mera divergência subjetiva dos pais, mas a recusa injustificada diante de recomendação sanitária e de advertência formal dos órgãos de proteção.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.138.801-PR, Rel. Min. Nancy Andrighi, julgado em 18/3/2025 (Info 844).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="CERTO">
+            <div class="questao-topo">
+                <span class="badge">Questão 8</span>
+                <span class="status" id="status-8">Não respondida</span>
+            </div>
+
+            <p class="enunciado">A existência de indícios concretos de litigância abusiva autoriza o magistrado, mediante decisão devidamente fundamentada e em observância à razoabilidade do caso concreto, a determinar a emenda da petição inicial para que a parte autora demonstre o interesse de agir e a autenticidade da postulação, sem que isso implique inversão automática do ônus da prova ou dispensa das regras processuais pertinentes à sua distribuição.</p>
+
+            <div class="botoes">
+                <button onclick="responder(8, 'CERTO')">CERTO</button>
+                <button onclick="responder(8, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-8">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> CERTO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva reproduz a lógica central do entendimento firmado: diante de sinais objetivos de litigância abusiva, o juiz não fica impedido de adotar providências de saneamento e controle da regularidade da demanda, inclusive exigindo a emenda da inicial para que a parte esclareça e comprove elementos mínimos relacionados ao interesse de agir e à verossimilhança/autenticidade da postulação.<br><br>Esse poder, contudo, não é irrestrito. A medida deve ser:<br>- <strong>fundamentada</strong>, com indicação concreta dos indícios que justificam a providência;<br>- <strong>razoável</strong>, isto é, compatível com as peculiaridades do caso;<br>- <strong>sem violar as regras de distribuição do ônus da prova</strong>, que permanecem hígidas.<br><br>O ponto sensível do julgado é justamente evitar que a atuação judicial se converta em exigência genérica ou arbitrária de prova prévia, mas, ao mesmo tempo, permitir reação processual proporcional quando houver sinais de uso abusivo do processo. Assim, não se trata de uma autorização ampla para impor à parte, em qualquer ação, prova antecipada de toda a sua pretensão; a providência é excepcional e condicionada à existência de indícios de abuso.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. Corte Especial. REsp 2.021.665-MS, Rel. Min. Moura Ribeiro, julgado em 13/3/2025 (Recurso Repetitivo - Tema 1198) (Info 844).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="CERTO">
+            <div class="questao-topo">
+                <span class="badge">Questão 9</span>
+                <span class="status" id="status-9">Não respondida</span>
+            </div>
+
+            <p class="enunciado">Em julgamento colegiado, a declaração de suspeição fundada em fato superveniente não produz efeitos retroativos, mas isso não impede que o magistrado que já tenha proferido voto requeira seu cancelamento antes da proclamação do resultado, pois a modificação do voto é admitida até esse momento, ressalvada apenas a hipótese de voto já proferido por juiz afastado ou substituído.</p>
+
+            <div class="botoes">
+                <button onclick="responder(9, 'CERTO')">CERTO</button>
+                <button onclick="responder(9, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-9">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> CERTO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a lógica do art. 941, § 1º, do CPC, que disciplina a possibilidade de alteração do voto em julgamento colegiado até a proclamação do resultado pelo presidente. A norma estabelece uma limitação temporal objetiva: enquanto não proclamado o resultado, o voto ainda pode ser modificado. Além disso, há uma limitação subjetiva específica: não se admite a alteração do voto já proferido por juiz afastado ou substituído.<br><br>No caso de suspeição por fato superveniente, não há efeito retroativo automático sobre os atos já praticados pelo magistrado, justamente porque o fato que enseja a suspeição surgiu posteriormente. Ainda assim, isso não impede que o próprio prolator do voto, ao se declarar suspeito, peça o cancelamento do voto anteriormente lançado, desde que o julgamento ainda não tenha sido concluído com a proclamação do resultado. A solução preserva a disciplina legal do procedimento colegiado e evita a indevida ampliação dos efeitos da suspeição superveniente para alcançar automaticamente voto já proferido, sem prejuízo da faculdade processual de sua retirada antes do encerramento do julgamento.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 4ª Turma. REsp 2.072.667-PE, Rel. Min. João Otávio de Noronha, julgado em 11/3/2025 (Info 844).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="ERRADO">
+            <div class="questao-topo">
+                <span class="badge">Questão 10</span>
+                <span class="status" id="status-10">Não respondida</span>
+            </div>
+
+            <p class="enunciado">Em apelação julgada unanimemente, a oposição de embargos de declaração, ainda que rejeitados por maioria, não atrai a técnica de ampliação do colegiado prevista no art. 942 do CPC, pois essa sistemática somente incide quando o julgamento originário do recurso principal já tiver sido não unânime, sendo irrelevante a aptidão do voto vencido dos aclaratórios para modificar o resultado anteriormente proclamado.</p>
+
+            <div class="botoes">
+                <button onclick="responder(10, 'CERTO')">CERTO</button>
+                <button onclick="responder(10, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-10">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> ERRADO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque restringe indevidamente a incidência da técnica de julgamento ampliado ao momento do julgamento originário da apelação, desconsiderando a hipótese em que os embargos de declaração opostos contra acórdão unânime são julgados por maioria e o voto vencido possui aptidão para alterar o resultado do apelo.<br><br>Nessa situação, embora o acórdão embargado tenha sido unânime, o julgamento dos embargos declaratórios, ao não ser unânime, pode repercutir diretamente no conteúdo do julgamento da apelação. Se o voto vencido nos embargos for capaz de inverter a conclusão inicialmente adotada no recurso principal, impõe-se a aplicação do art. 942 do CPC, com a ampliação do colegiado.<br><br>A lógica da técnica de ampliação é assegurar maior colegialidade e aprofundamento do debate quando houver divergência apta a modificar o desfecho do julgamento. Assim, não importa apenas a unanimidade ou não do julgamento originário, mas também a existência de divergência relevante em fase subsequente que tenha potencial de alterar o resultado do mérito recursal.<br><br>Portanto, é juridicamente incorreto afirmar que a técnica do art. 942 só incide quando a apelação, desde logo, tiver sido julgada por maioria, sendo irrelevante a divergência surgida nos embargos declaratórios. O ponto decisivo é a aptidão do voto vencido dos embargos para modificar o resultado da apelação.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Turma. REsp 2.072.052-RJ, Rel. Min. Sérgio Kukina, julgado em 11/3/2025 (Info 844).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="CERTO">
+            <div class="questao-topo">
+                <span class="badge">Questão 11</span>
+                <span class="status" id="status-11">Não respondida</span>
+            </div>
+
+            <p class="enunciado">A técnica de ampliação do colegiado prevista no art. 942 do CPC/2015 incide no julgamento não unânime de agravo de instrumento interposto na fase de liquidação de sentença, quando o acórdão, ao reformar a decisão de primeiro grau, valida os cálculos apresentados pelo credor e, assim, fixa o quantum debeatur, ainda que a controvérsia não envolva propriamente a existência do direito reconhecido no título executivo.</p>
+
+            <div class="botoes">
+                <button onclick="responder(11, 'CERTO')">CERTO</button>
+                <button onclick="responder(11, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-11">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> CERTO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está correta porque a fase de liquidação, embora instrumental ao cumprimento do título, possui conteúdo cognitivo relevante quando destinada a definir o valor exato da condenação. Nessa hipótese, o pronunciamento judicial não se limita a mero impulso processual ou a providência de caráter acessório: ele resolve controvérsia de mérito relativa ao quantum debeatur.<br><br>Por isso, quando o agravo de instrumento é julgado por maioria não unânime e o acórdão, em liquidação, acolhe os cálculos da parte credora, há incidência da técnica de julgamento ampliado do art. 942 do CPC/2015. O ponto decisivo é que a decisão colegiada, nesse contexto, possui natureza de julgamento de mérito quanto à definição do montante devido, o que atrai a regra de ampliação do colegiado.<br><br>A tese afasta a tentativa de restringir o art. 942 apenas a hipóteses em que se discute a própria existência do direito material. Mesmo sem controvérsia sobre o direito ao expurgo inflacionário já reconhecido no título, a definição do valor devido na liquidação é suficiente para caracterizar a hipótese de cabimento da técnica.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 4ª Turma. REsp 2.072.667-PE, Rel. Min. João Otávio de Noronha, julgado em 11/3/2025 (Info 844).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="CERTO">
+            <div class="questao-topo">
+                <span class="badge">Questão 12</span>
+                <span class="status" id="status-12">Não respondida</span>
+            </div>
+
+            <p class="enunciado">A alegação de nulidade decorrente de vício transrescisório, ainda que a decisão já tenha transitado em julgado e tenha se escoado o prazo para ação rescisória, pode ser deduzida incidentalmente em qualquer processo em que a matéria seja relevante, sem imposição de forma processual específica ou de ajuizamento de ação autônoma declaratória, por se tratar de pretensão voltada à tutela da instrumentalidade das formas, da celeridade e da efetividade processual.</p>
+
+            <div class="botoes">
+                <button onclick="responder(12, 'CERTO')">CERTO</button>
+                <button onclick="responder(12, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-12">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> CERTO</p>
+                <p><strong>Justificativa:</strong><br>O enunciado está correto porque o vício transrescisório é uma nulidade de gravidade excepcional, incompatível com a estabilização de uma decisão judicial, mesmo após o trânsito em julgado e o decurso do prazo decadencial da ação rescisória. A hipótese paradigmática é a falta de citação válida, que compromete a própria formação da relação processual e impede a eficácia plena da coisa julgada em relação ao sujeito não validamente chamado ao processo.<br><br>A orientação firmada é no sentido de que a querela nullitatis insanabilis não deve ser tratada rigidamente como uma ação autônoma com forma única e obrigatória. No âmbito da jurisprudência do STJ, ela é compreendida como verdadeira pretensão de invalidação, e não como procedimento estanque. Por isso, admite-se sua veiculação por diversos meios processuais, inclusive de forma incidental, quando a nulidade for relevante para a solução da controvérsia.<br><br>Isso significa que a arguição do vício transrescisório pode aparecer como questão prejudicial ou principal, em ações declaratórias, em peças defensivas, no cumprimento de sentença, em ação civil pública e até em mandado de segurança, desde que a via eleita seja adequada ao contexto e respeite a utilidade da tutela jurisdicional. O ponto central é que não se exige, como condição de admissibilidade, a propositura de uma ação declaratória autônoma específica.<br><br>A solução prestigia a instrumentalidade das formas, a economia processual, a celeridade e a efetividade, sem enfraquecer a proteção contra nulidades absolutas que atingem o núcleo de validade do processo. Assim, a existência de coisa julgada formal ou material não impede o reconhecimento do vício transrescisório quando presente a hipótese de nulidade insanável.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.095.463-PR, Rel. Min. Nancy Andrighi, julgado em 18/3/2025 (Info 844).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="CERTO">
+            <div class="questao-topo">
+                <span class="badge">Questão 13</span>
+                <span class="status" id="status-13">Não respondida</span>
+            </div>
+
+            <p class="enunciado">Na execução, a paralisação do feito por inércia do exequente, sem apresentação de justificativa idônea para a não prática dos atos indispensáveis ao seu regular prosseguimento, autoriza o reconhecimento da prescrição intercorrente, desde que transcorrido o prazo prescricional aplicável à pretensão executiva, medida compatível com a segurança jurídica e com a efetividade do processo.</p>
+
+            <div class="botoes">
+                <button onclick="responder(13, 'CERTO')">CERTO</button>
+                <button onclick="responder(13, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-13">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> CERTO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a lógica central do entendimento firmado: a prescrição intercorrente incide quando o credor, sem justificativa válida, deixa de impulsionar a execução e permanece inerte pelo prazo prescricional previsto em lei. Nessa hipótese, não se admite a perpetuação indefinida de processos executivos sem movimentação útil, pois isso compromete a estabilidade das relações jurídicas e esvazia a efetividade da tutela jurisdicional.<br><br>O ponto decisivo é que não basta a simples paralisação do processo; é necessário que a inércia seja atribuível ao exequente e que tenha transcorrido o prazo prescricional correspondente à pretensão executiva. Assim, a prescrição intercorrente funciona como mecanismo de contenção da inatividade processual injustificada, preservando a segurança jurídica e evitando que a execução se torne indefinidamente pendente.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 4ª Turma. EDcl no REsp 1.918.602-SP, Rel. Min. João Otávio de Noronha, julgado em 17/2/2025 (Info 844).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="ERRADO">
+            <div class="questao-topo">
+                <span class="badge">Questão 14</span>
+                <span class="status" id="status-14">Não respondida</span>
+            </div>
+
+            <p class="enunciado">A medida de segurança aplicada em sentença absolutória imprópria, por ter natureza penal e decorrer de juízo de periculosidade, submete-se ao teto correspondente à pena máxima abstratamente cominada ao delito, de modo que sua manutenção após esse limite configuraria constrangimento ilegal, ainda que não haja prova inequívoca de cessação da periculosidade do agente.</p>
+
+            <div class="botoes">
+                <button onclick="responder(14, 'CERTO')">CERTO</button>
+                <button onclick="responder(14, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-14">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> ERRADO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque confunde duas hipóteses juridicamente distintas de incidência da medida de segurança.<br><br>Quando a medida de segurança funciona como substituição da pena privativa de liberdade no curso da execução penal, após condenação de agente que desenvolve doença mental grave, aplica-se a limitação temporal da pena abstratamente cominada ao delito, em linha com a Súmula 527 do STJ e com a disciplina do art. 183 da LEP.<br><br>Diversamente, na sentença absolutória imprópria, o réu é reconhecido como inimputável ao tempo do fato, sendo absolvido, mas submetido a medida de segurança em razão da periculosidade. Nessa hipótese, não há pena privativa de liberdade a ser substituída nem se aplica o teto da pena abstrata do tipo penal. A duração da medida é condicionada à persistência da periculosidade, aferida por avaliação pericial, podendo perdurar enquanto não houver demonstração segura e inequívoca de sua cessação.<br><br>Assim, não é correto afirmar que a manutenção da medida após o limite da pena abstrata, por si só, configure constrangimento ilegal na sentença absolutória imprópria. Ao contrário, a permanência da medida é juridicamente admissível enquanto subsistir a periculosidade, prevalecendo, em caso de dúvida, a proteção da sociedade.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 6ª Turma. HC 894.787-SP, Rel. Min. Sebastião Reis Júnior, julgado em 26/2/2025 (Info 844).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="ERRADO">
+            <div class="questao-topo">
+                <span class="badge">Questão 15</span>
+                <span class="status" id="status-15">Não respondida</span>
+            </div>
+
+            <p class="enunciado">A medida de segurança imposta em sentença absolutória imprópria não se submete ao limite máximo da pena abstratamente cominada ao delito, podendo perdurar enquanto não cessada a periculosidade do agente, pois a Súmula 527 do STJ restringe-se às hipóteses em que a medida de segurança substitui pena privativa de liberdade previamente fixada na sentença condenatória.</p>
+
+            <div class="botoes">
+                <button onclick="responder(15, 'CERTO')">CERTO</button>
+                <button onclick="responder(15, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-15">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> ERRADO</p>
+                <p><strong>Justificativa:</strong><br>O enunciado está incorreto porque a orientação firmada passou a afastar justamente a distinção antes admitida entre a medida de segurança aplicada em substituição à pena privativa de liberdade e aquela imposta em sentença absolutória imprópria. A compreensão consolidada é a de que o limite temporal previsto na Súmula 527 do STJ incide também sobre a medida de segurança decorrente de absolvição imprópria.<br><br>Assim, não se admite que a medida de segurança perdure indefinidamente com base exclusiva na persistência da periculosidade do agente. O tempo de duração da medida deve respeitar o máximo da pena abstratamente cominada ao delito praticado. Em outras palavras, a lógica de contenção temporal não fica restrita às hipóteses de substituição de pena, alcançando igualmente a sentença absolutória imprópria.<br><br>A razão de ser do entendimento é evitar que a medida de segurança, embora formalmente vinculada à tutela da saúde mental e da periculosidade, se converta em sanção sem limite temporal definido, incompatível com a orientação sumulada. Por isso, a tese de que a medida poderia subsistir enquanto não cessada a periculosidade do agente, sem observância do teto abstrato do tipo penal, não prevalece.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 6ª Turma. EDcl no HC 894.787/SP, Rel. Min. Sebastião Reis Júnior, julgado em 6/5/2025.</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="ERRADO">
+            <div class="questao-topo">
+                <span class="badge">Questão 16</span>
+                <span class="status" id="status-16">Não respondida</span>
+            </div>
+
+            <p class="enunciado">A entrada forçada em domicílio, sem mandado judicial, pode ser reputada legítima com base exclusiva em depoimentos policiais padronizados e harmônicos entre si, ainda que desacompanhados de qualquer elemento externo de corroboração e mesmo quando a narrativa apresentada se mostre pouco verossímil à luz das demais circunstâncias do caso, pois a palavra dos agentes públicos goza de presunção de veracidade suficiente para suprir a exigência de fundadas razões.</p>
+
+            <div class="botoes">
+                <button onclick="responder(16, 'CERTO')">CERTO</button>
+                <button onclick="responder(16, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-16">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> ERRADO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva contraria a exigência constitucional de inviolabilidade do domicílio e a exceção admitida para ingresso forçado sem mandado judicial. A entrada em casa alheia, nessa hipótese, somente é legítima quando amparada por <strong>fundadas razões</strong>, devidamente justificadas pelas circunstâncias concretas do caso, em linha com a interpretação conferida ao art. 5º, XI, da Constituição.<br><br>O ponto central do entendimento é que <strong>depoimentos policiais não possuem valor probatório automático ou blindado</strong> para justificar a medida invasiva. Ao contrário, deve haver <strong>especial escrutínio</strong> sobre a narrativa dos agentes, especialmente quando ela for:<br>- incoerente internamente;<br>- inverossímil;<br>- contraditada por outros elementos dos autos; ou<br>- não corroborada por provas independentes.<br><br>A mera harmonia formal entre relatos policiais não basta, se eles não forem acompanhados de elementos externos minimamente confiáveis, como registros audiovisuais, apreensões prévias, denúncias consistentes ou outros dados objetivos que sustentem a suspeita. A jurisprudência enfatiza a necessidade de análise crítica para evitar a prática de “arredondar a ocorrência”, isto é, ajustar a narrativa para legitimar uma diligência potencialmente ilegal.<br><br>Além disso, o julgado afasta a ideia de que a simples submissão à presença ou à força policial configure consentimento livre e voluntário para ingresso no imóvel. Portanto, não se pode presumir licitude da invasão domiciliar com base apenas na palavra dos policiais, sobretudo quando ausente corroboração idônea e quando a narrativa não resiste a um exame rigoroso de coerência e verossimilhança.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 6ª Turma. HC 768.440-SP, Rel. Min. Rogerio Schietti Cruz, julgado em 20/8/2024 (Info 844).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="CERTO">
+            <div class="questao-topo">
+                <span class="badge">Questão 17</span>
+                <span class="status" id="status-17">Não respondida</span>
+            </div>
+
+            <p class="enunciado">No procedimento do Tribunal do Júri, é lícito ao magistrado indeferir requerimento defensivo de acesso aos antecedentes criminais da vítima, formulado com a finalidade de sustentar tese de possível autoria por terceiros e de desqualificar a credibilidade do depoimento da ofendida, quando a providência se revelar impertinente e apta a produzir revitimização secundária, não sendo a plenitude de defesa suficiente para afastar a vedação legal a práticas que perpetuem violência institucional.</p>
+
+            <div class="botoes">
+                <button onclick="responder(17, 'CERTO')">CERTO</button>
+                <button onclick="responder(17, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-17">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> CERTO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está correta porque, no âmbito do Tribunal do Júri, a plenitude de defesa não possui caráter absoluto e deve conviver com limites legais e constitucionais de proteção à dignidade da vítima e à regularidade da instrução probatória. O magistrado pode indeferir diligências ou provas que considere irrelevantes, impertinentes ou protelatórias, nos termos do art. 400, § 1º, do CPP.<br><br>No caso examinado, a defesa pretendia acessar registros criminais da vítima para sustentar, de forma indireta, a tese de que terceiros poderiam ter sido os autores do homicídio e, ao mesmo tempo, desqualificar a credibilidade da ofendida. O indeferimento foi reputado legítimo porque tal providência extrapola a utilidade probatória concreta e importa exposição indevida da vítima a estigmatização, com potencial de revitimização secundária.<br><br>Além disso, o art. 474-A do CPP veda práticas que impliquem constrangimento, humilhação ou exposição desnecessária da vítima e de seus familiares, especialmente quando a diligência não se mostra necessária à elucidação dos fatos. A invocação genérica da plenitude de defesa não autoriza a adoção de medidas que perpetuem violência institucional, também incompatíveis com a disciplina protetiva da Lei n. 13.869/2019, em especial o art. 15-A.<br><br>Assim, é juridicamente possível o indeferimento do pedido defensivo quando a prova pretendida não se mostra pertinente à apuração dos fatos e, ao contrário, revela potencial de revitimização secundária.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 5ª Turma. AgRg no HC 953.647-SP, Rel. Min. Ribeiro Dantas, julgado em 26/2/2025 (Info 844).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="ERRADO">
+            <div class="questao-topo">
+                <span class="badge">Questão 18</span>
+                <span class="status" id="status-18">Não respondida</span>
+            </div>
+
+            <p class="enunciado">Em processo submetido ao Tribunal do Júri, a condenação fundada predominantemente em depoimentos indiretos — colhidos de pessoas que apenas reproduzem o que terceiros lhes teriam relatado — é juridicamente admissível quando, em contexto de criminalidade organizada ligada ao tráfico de drogas, restar demonstrado que o medo generalizado da comunidade inviabilizou a oitiva de testemunhas presenciais, desde que tais relatos sejam considerados suficientes para indicar a dinâmica delitiva e a autoria, ainda que não haja prova direta produzida em juízo.</p>
+
+            <div class="botoes">
+                <button onclick="responder(18, 'CERTO')">CERTO</button>
+                <button onclick="responder(18, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-18">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> ERRADO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está errada porque, como regra, o testemunho indireto não possui aptidão para comprovar a ocorrência de elemento do crime nem para, isoladamente, sustentar decreto condenatório. Sua função processual é restrita: servir como ponto de partida para a identificação de testemunhas referidas, que deverão ser ouvidas em juízo, preservando-se o contraditório e a ampla defesa.<br><br>No âmbito do Tribunal do Júri, a soberania dos veredictos não é absoluta. A revisão da decisão condenatória somente se legitima em hipóteses excepcionais, quando o veredicto se mostrar manifestamente dissociado do conjunto probatório. Isso não autoriza, porém, converter hearsay em prova plena por mera conveniência acusatória.<br><br>O julgado reconhece apenas uma relativização excepcional da inadmissibilidade do testemunho indireto em situações muito específicas, como quando o medo generalizado da comunidade, decorrente da atuação habitual dos acusados no tráfico, impede a oitiva de testemunhas oculares, havendo relatos de ameaças, agressões e intimidações a possíveis informantes. Ainda assim, a excepcionalidade não transforma o depoimento de “ouvir dizer” em prova autônoma e suficiente, mas apenas permite um distinguishing diante do contexto concreto, sem afastar a exigência de lastro probatório idôneo.<br><br>Assim, é incorreto afirmar que a condenação pode ser fundada predominantemente em depoimentos indiretos apenas porque o ambiente comunitário é de intimidação. A regra permanece a inadequação do hearsay para comprovar autoria ou materialidade, e a exceção não autoriza sua utilização como único ou principal suporte condenatório.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 5ª Turma. AgRg no REsp 2.192.889-MG, Rel. Min. Reynaldo Soares da Fonseca, julgado em 18/3/2025 (Info 844).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="CERTO">
+            <div class="questao-topo">
+                <span class="badge">Questão 19</span>
+                <span class="status" id="status-19">Não respondida</span>
+            </div>
+
+            <p class="enunciado">Em processo penal eletrônico, a decisão judicial que autoriza medida cautelar invasiva, embora não traga o nome do magistrado no corpo do texto, não é nula por ausência de autenticidade quando estiver regularmente assinada de forma digital no próprio sistema, pois a Lei nº 11.419/2006 confere validade à assinatura eletrônica como meio idôneo de identificação e integridade do ato judicial.</p>
+
+            <div class="botoes">
+                <button onclick="responder(19, 'CERTO')">CERTO</button>
+                <button onclick="responder(19, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-19">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> CERTO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está correta porque, em ambiente de processo eletrônico, a autenticidade e a autoria do ato judicial não dependem necessariamente da indicação nominal do magistrado no corpo da decisão. A assinatura digital, aposta nos termos da Lei nº 11.419/2006, é suficiente para identificar o subscritor, assegurar a integridade do documento e conferir validade ao pronunciamento judicial.<br><br>No caso examinado, a defesa sustentava nulidade da decisão que autorizara interceptação telefônica sob o argumento de que o texto não continha, de forma expressa, o nome do juiz. Esse raciocínio foi afastado porque, em processo eletrônico, a formalidade relevante é a assinatura digital válida, não a repetição do nome do magistrado no corpo da decisão. Assim, não há vício de autenticidade nem ofensa ao devido processo legal apenas por essa omissão formal.<br><br>A conclusão também se harmoniza com a lógica do processo eletrônico: a identificação do signatário decorre do mecanismo de certificação digital e do registro no sistema, o que substitui a necessidade de assinatura manuscrita ou de menção textual expressa ao nome do julgador. Logo, a ausência do nome no corpo da decisão, por si só, não gera nulidade.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 6ª Turma. AgRg no RHC 177.305-SE, Rel. Min. Sebastião Reis Júnior, julgado em 5/3/2025 (Info 844).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="CERTO">
+            <div class="questao-topo">
+                <span class="badge">Questão 20</span>
+                <span class="status" id="status-20">Não respondida</span>
+            </div>
+
+            <p class="enunciado">A remuneração paga ao menor aprendiz integra a base de cálculo da contribuição previdenciária patronal, da contribuição ao RAT e das contribuições destinadas a terceiros, não sendo possível estender a ele a isenção prevista para os menores assistidos do art. 4º, § 4º, do Decreto-Lei n. 2.318/1986, por se tratar de hipótese de interpretação restritiva de norma de exclusão tributária.</p>
+
+            <div class="botoes">
+                <button onclick="responder(20, 'CERTO')">CERTO</button>
+                <button onclick="responder(20, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-20">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> CERTO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está correta. O ponto central do entendimento é a distinção entre o menor assistido mencionado no art. 4º, § 4º, do Decreto-Lei n. 2.318/1986 e o menor aprendiz. A norma legal invocada prevê, para os gastos efetuados com os menores assistidos, a inexistência de encargos previdenciários de qualquer natureza, inclusive FUNRURAL, além de recolhimentos ao FGTS.  <br><br>Contudo, essa disciplina excepcional não pode ser ampliada para alcançar a remuneração paga ao menor aprendiz, porque se trata de hipótese de isenção/exclusão tributária, cuja interpretação deve ser restritiva, nos termos do art. 111 do CTN. Não se admite, portanto, analogia ampliativa para beneficiar situação não expressamente contemplada pelo texto legal.<br><br>Além disso, o menor aprendiz não se confunde com o menor assistido: ele exerce atividade laboral remunerada, pessoal, contínua e subordinada, enquadrando-se como segurado obrigatório do RGPS. Por essa razão, sua remuneração integra a base de cálculo das contribuições previdenciárias patronais previstas no art. 22, I, da Lei n. 8.212/1991, bem como das contribuições ao RAT e às destinadas a terceiros, na medida em que incidem sobre a folha de salários e demais rendimentos do trabalho.<br><br>Em síntese, a tese reafirma que a proteção fiscal conferida ao menor assistido não se estende ao aprendiz, pois a exceção legal é específica e não comporta ampliação interpretativa.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 2ª Turma. AgInt no AREsp 2.520.394-RS, Rel. Min. Afrânio Vilela, julgado em 12/2/2025 (Info 844).</p>
+            </div>
+        </section>
+        
+
+</div>
+
+<script>
+const totalQuestoes = 20;
+let respostas = JSON.parse(localStorage.getItem(location.pathname + "_respostas") || "{}");
+
+function atualizarPainel() {
+    const respondidas = Object.keys(respostas).length;
+    let acertos = 0;
+    let erros = 0;
+
+    for (const key in respostas) {
+        if (respostas[key].correto) acertos++;
+        else erros++;
+    }
+
+    document.getElementById("respondidas").textContent = respondidas;
+    document.getElementById("acertos").textContent = acertos;
+    document.getElementById("erros").textContent = erros;
+}
+
+function responder(numero, resposta) {
+    const card = document.querySelectorAll(".questao")[numero - 1];
+    const gabarito = card.dataset.gabarito;
+    const correto = resposta === gabarito;
+
+    respostas[numero] = {
+        resposta,
+        correto
+    };
+
+    localStorage.setItem(location.pathname + "_respostas", JSON.stringify(respostas));
+
+    mostrarFeedback(numero);
+    atualizarPainel();
+}
+
+function mostrarFeedback(numero) {
+    const card = document.querySelectorAll(".questao")[numero - 1];
+    const feedback = document.getElementById("feedback-" + numero);
+    const status = document.getElementById("status-" + numero);
+    const resultado = feedback.querySelector(".resultado");
+
+    const dados = respostas[numero];
+
+    if (!dados) return;
+
+    feedback.style.display = "block";
+    feedback.classList.remove("correto", "errado");
+
+    if (dados.correto) {
+        feedback.classList.add("correto");
+        resultado.textContent = "Você acertou. A resposta é " + card.dataset.gabarito + ".";
+        status.textContent = "Respondida — acerto";
+        status.style.color = "var(--green)";
+    } else {
+        feedback.classList.add("errado");
+        resultado.textContent = "Você errou. O gabarito é " + card.dataset.gabarito + ".";
+        status.textContent = "Respondida — erro";
+        status.style.color = "var(--red)";
+    }
+}
+
+function restaurar() {
+    for (const key in respostas) {
+        mostrarFeedback(Number(key));
+    }
+    atualizarPainel();
+}
+
+function reiniciar() {
+    if (!confirm("Deseja reiniciar este simulado?")) return;
+    localStorage.removeItem(location.pathname + "_respostas");
+    location.reload();
+}
+
+restaurar();
+</script>
+
+</body>
+</html>

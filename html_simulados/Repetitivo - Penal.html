@@ -1,0 +1,2291 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Simulado - Repetitivo - Penal</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+:root{
+--bg:#020617;--panel:rgba(15,23,42,.88);--card:rgba(15,23,42,.96);
+--card2:rgba(30,41,59,.92);--border:rgba(148,163,184,.22);
+--text:#e5e7eb;--muted:#94a3b8;--accent:#38bdf8;--accent2:#0ea5e9;
+--green:#22c55e;--red:#ef4444;--yellow:#facc15;--purple:#a78bfa;
+}
+*{box-sizing:border-box}
+body{
+margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+background:radial-gradient(circle at top left,rgba(56,189,248,.20),transparent 28%),
+radial-gradient(circle at top right,rgba(167,139,250,.15),transparent 28%),
+linear-gradient(135deg,#020617,#0f172a 50%,#020617);
+color:var(--text);line-height:1.65;
+}
+header{padding:44px 20px 32px;text-align:center;border-bottom:1px solid var(--border)}
+header h1{margin:0 0 10px;font-size:clamp(28px,4vw,46px);letter-spacing:-.05em}
+header p{color:var(--muted);margin:0;font-size:16px}
+.container{max-width:1160px;margin:0 auto;padding:26px 16px 80px}
+.painel{
+position:sticky;top:10px;z-index:10;background:var(--panel);backdrop-filter:blur(18px);
+border:1px solid var(--border);border-radius:26px;padding:16px;margin-bottom:22px;
+box-shadow:0 22px 70px rgba(0,0,0,.35)
+}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.stat{background:var(--card2);padding:14px;border-radius:18px;text-align:center;border:1px solid rgba(148,163,184,.12)}
+.stat strong{display:block;font-size:25px;color:var(--accent);line-height:1.1}
+.stat span{font-size:12px;color:var(--muted)}
+.filtros{display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:12px;margin-top:14px}
+input,select{
+width:100%;background:rgba(2,6,23,.78);color:var(--text);border:1px solid var(--border);
+border-radius:14px;padding:13px 14px;outline:none;font-size:14px
+}
+input:focus,select:focus{border-color:var(--accent)}
+.card{
+background:var(--card);border:1px solid var(--border);border-radius:24px;padding:26px;
+margin-bottom:20px;box-shadow:0 18px 50px rgba(0,0,0,.24)
+}
+.questao{scroll-margin-top:190px}
+.questao-topo{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:18px}
+.badge{
+background:linear-gradient(135deg,var(--accent),var(--accent2));color:#00111f;font-weight:900;
+padding:7px 13px;border-radius:999px;display:inline-block
+}
+.disciplina-tag,.tipo-tag{
+display:inline-block;margin-left:8px;color:var(--muted);background:rgba(148,163,184,.10);
+border:1px solid rgba(148,163,184,.14);padding:6px 10px;border-radius:999px;font-size:12px
+}
+.tipo-tag{color:#ddd6fe;border-color:rgba(167,139,250,.25)}
+.status{color:var(--yellow);font-size:13px;white-space:nowrap}
+.enunciado{font-size:19px;margin:0 0 22px;letter-spacing:-.01em}
+.botoes{display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.btn{
+cursor:pointer;border:0;padding:12px 22px;border-radius:14px;color:white;font-weight:900;
+transition:.18s ease;letter-spacing:.02em
+}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.certo{background:rgba(34,197,94,.20);border:1px solid rgba(34,197,94,.42)}
+.btn.errado{background:rgba(239,68,68,.20);border:1px solid rgba(239,68,68,.42)}
+.btn.neutro{background:rgba(56,189,248,.16);color:var(--text);border:1px solid rgba(56,189,248,.32)}
+.feedback{
+display:none;background:rgba(2,6,23,.72);border:1px solid rgba(148,163,184,.16);
+border-left:5px solid var(--accent);padding:18px;border-radius:18px;margin-top:14px
+}
+.feedback.correto{border-left-color:var(--green)}
+.feedback.errado{border-left-color:var(--red)}
+.resultado{font-size:18px;font-weight:900;margin-top:0}
+.justificativa{margin-top:12px}
+.referencia{color:var(--muted);font-size:13px;margin-top:16px}
+.gabarito-certo{color:var(--green);font-weight:900}
+.gabarito-errado{color:var(--red);font-weight:900}
+.oculta{display:none}
+.sem-resultados{text-align:center;color:var(--muted);display:none;padding:30px}
+.grid-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
+.link-card{
+display:block;padding:20px;background:rgba(15,23,42,.95);border:1px solid rgba(148,163,184,.22);
+color:#e5e7eb;border-radius:22px;text-decoration:none;transition:.2s;box-shadow:0 14px 40px rgba(0,0,0,.22)
+}
+.link-card:hover{transform:translateY(-3px);border-color:#38bdf8}
+.link-card strong{display:block;font-size:17px;margin-bottom:8px}
+.link-card span{color:#94a3b8;font-size:13px}
+.index-tools{display:grid;grid-template-columns:1.5fr 1fr;gap:12px;margin-bottom:20px}
+@media(max-width:850px){
+.stats{grid-template-columns:repeat(2,1fr)}
+.filtros,.index-tools{grid-template-columns:1fr}
+.questao-topo{align-items:flex-start;flex-direction:column}
+.botoes{flex-direction:column}
+.enunciado{font-size:16px}
+.card{padding:20px}
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Simulado - Repetitivo - Penal</h1>
+<p>Repetitivos • Simulado interativo de CERTO ou ERRADO</p>
+</header>
+
+<div class="container">
+<div class="painel">
+<div class="stats">
+<div class="stat"><strong>71</strong><span>Total</span></div>
+<div class="stat"><strong id="visiveis">71</strong><span>Visíveis</span></div>
+<div class="stat"><strong id="respondidas">0</strong><span>Respondidas</span></div>
+<div class="stat"><strong id="acertos">0</strong><span>Acertos</span></div>
+<div class="stat"><strong id="erros">0</strong><span>Erros</span></div>
+</div>
+
+<div class="filtros">
+<input id="busca" type="search" placeholder="Buscar por palavra-chave..." oninput="filtrar()">
+<select id="disciplina" onchange="filtrar()">
+<option value="">Todas as disciplinas</option>
+<option value="Direito Penal">Direito Penal</option>
+<option value="ECA">ECA</option>
+<option value="N/I">N/I</option>
+</select>
+<select id="statusFiltro" onchange="filtrar()">
+<option value="">Todas</option>
+<option value="nao">Não respondidas</option>
+<option value="acerto">Acertos</option>
+<option value="erro">Erros</option>
+</select>
+<button class="btn neutro" onclick="reiniciar()">Reiniciar</button>
+</div>
+</div>
+
+<div id="sem-resultados" class="sem-resultados">Nenhuma questão encontrada com os filtros atuais.</div>
+
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a imposição, como condição especial para o regime aberto, de pena substitutiva prevista no art. 44 do código penal é compatível com o ordenamento, de modo que o magistrado pode condicioná-la expressamente para autorizar o regime mais brando. a jurisprudência consolidada do superior tribunal de justiça entende ser vedada a fixação de pena substitutiva (art. 44 cp) como condição especial para a concessão do regime aberto. a imposição de medida substitutiva não pode ser utilizada como requisito para o início ou fruição de regime prisional, sob pena de se criar condicionamento que ultrapassa as hipóteses legais previstas para a substituição da pena. tema 20">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 1</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-1">Não respondida</span>
+</div>
+
+<p class="enunciado">A imposição, como condição especial para o regime aberto, de pena substitutiva prevista no art. 44 do Código Penal é compatível com o ordenamento, de modo que o magistrado pode condicioná-la expressamente para autorizar o regime mais brando.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(1, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(1, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-1">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A jurisprudência consolidada do Superior Tribunal de Justiça entende ser vedada a fixação de pena substitutiva (art. 44 CP) como condição especial para a concessão do regime aberto. A imposição de medida substitutiva não pode ser utilizada como requisito para o início ou fruição de regime prisional, sob pena de se criar condicionamento que ultrapassa as hipóteses legais previstas para a substituição da pena.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 20</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="nos delitos tributários federais e no crime de descaminho, a aplicação do princípio da insignificância deve ser admitida quando o débito tributário apurado não exceder o montante de r$ 20.000,00, em conformidade com o art. 20 da lei n. 10.522/2002 e suas atualizações regulamentares. o stj firmou entendimento segundo o qual o limite objetivo de r$ 20.000,00, previsto no art. 20 da lei n. 10.522/2002 e atualizado por portarias ministeriais, autoriza a avaliação favorável do princípio da insignificância nas hipóteses de pequeno débito tributário em crimes tributários federais e em descaminho, levando-se em conta a reduzida ofensividade e a mínima lesão ao bem jurídico tutelado. tema 157">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 2</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-2">Não respondida</span>
+</div>
+
+<p class="enunciado">Nos delitos tributários federais e no crime de descaminho, a aplicação do princípio da insignificância deve ser admitida quando o débito tributário apurado não exceder o montante de R$ 20.000,00, em conformidade com o art. 20 da Lei n. 10.522/2002 e suas atualizações regulamentares.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(2, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(2, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-2">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STJ firmou entendimento segundo o qual o limite objetivo de R$ 20.000,00, previsto no art. 20 da Lei n. 10.522/2002 e atualizado por Portarias ministeriais, autoriza a avaliação favorável do princípio da insignificância nas hipóteses de pequeno débito tributário em crimes tributários federais e em descaminho, levando-se em conta a reduzida ofensividade e a mínima lesão ao bem jurídico tutelado.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 157</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="no procedimento trifásico de dosimetria previsto no art. 68 do código penal, o magistrado dispõe de margem para ultrapassar os limites mínimos e máximos abstratos previstos na norma penal, desde que justifique a adequação da pena às peculiaridades do caso concreto. o critério trifásico (fixação da pena-base, aplicação de agravantes/atenuantes e circunstanças judiciais) deve respeitar os limites mínimo e máximo abstratamente cominados pelo tipo penal. a jurisprudência veda que o julgador extrapole tais marcos legais na fase de individualização, sob pena de violação ao princípio da legalidade e da reserva legal penal. tema 190">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 3</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-3">Não respondida</span>
+</div>
+
+<p class="enunciado">No procedimento trifásico de dosimetria previsto no art. 68 do Código Penal, o magistrado dispõe de margem para ultrapassar os limites mínimos e máximos abstratos previstos na norma penal, desde que justifique a adequação da pena às peculiaridades do caso concreto.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(3, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(3, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-3">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O critério trifásico (fixação da pena-base, aplicação de agravantes/atenuantes e circunstanças judiciais) deve respeitar os limites mínimo e máximo abstratamente cominados pelo tipo penal. A jurisprudência veda que o julgador extrapole tais marcos legais na fase de individualização, sob pena de violação ao princípio da legalidade e da reserva legal penal.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 190</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a lei nº 11.343/2006 pode ser aplicada retroativamente desde que sua incidência, em sua integralidade, resulte em situação mais benéfica ao réu em comparação com a aplicação da lei nº 6.368/76, vedando-se a combinação das normas para fins de obtenção de vantagem. o entendimento firmado reconhece a retroatividade in mellius da nova norma quando, aplicada de forma integral, for mais favorável ao réu que a legislação anterior. é vedada a &quot;mistura&quot; de dispositivos das duas leis; a comparação deve ser global, aplicando-se a lei mais benigna sem combinação de institutos. tema 191">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 4</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-4">Não respondida</span>
+</div>
+
+<p class="enunciado">A Lei nº 11.343/2006 pode ser aplicada retroativamente desde que sua incidência, em sua integralidade, resulte em situação mais benéfica ao réu em comparação com a aplicação da Lei nº 6.368/76, vedando-se a combinação das normas para fins de obtenção de vantagem.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(4, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(4, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-4">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O entendimento firmado reconhece a retroatividade in mellius da nova norma quando, aplicada de forma integral, for mais favorável ao réu que a legislação anterior. É vedada a &quot;mistura&quot; de dispositivos das duas leis; a comparação deve ser global, aplicando-se a lei mais benigna sem combinação de institutos.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 191</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="para a configuração do delito tipificado no art. 244‑b do estatuto da criança e do adolescente exige‑se, como elemento essencial, a prova de que o menor foi efetivamente corrupção, porquanto se trata de crime material. o delito do art. 244‑b do eca foi qualificado pelo stj como crime formal, cuja consumação independe da demonstração de efetiva corrupção do menor. basta a realização da conduta prevista no tipo para a configuração do crime, sem exigência de resultado material. tema 221">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 5</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-5">Não respondida</span>
+</div>
+
+<p class="enunciado">Para a configuração do delito tipificado no art. 244‑B do Estatuto da Criança e do Adolescente exige‑se, como elemento essencial, a prova de que o menor foi efetivamente corrupção, porquanto se trata de crime material.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(5, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(5, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-5">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O delito do art. 244‑B do ECA foi qualificado pelo STJ como crime formal, cuja consumação independe da demonstração de efetiva corrupção do menor. Basta a realização da conduta prevista no tipo para a configuração do crime, sem exigência de resultado material.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 221</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="o tipo penal do art. 306 do código de trânsito brasileiro incorpora elemento objetivo e de natureza precisa — o índice de 6 decigramas de álcool por litro de sangue — de modo a afastar a tipicidade com concentrações inferiores, e o regulamento indicou como meios probatórios aptos apenas o exame de sangue e o etilômetro homologados. o stj reconhece a objetividade do patamar legal de 6 decigramas/litro de sangue como elementar do tipo penal do art. 306 ctb, não admitindo interpretação subjetiva para abarcar concentrações inferiores como equivalentes típicos. ademais, o decreto regulamentador indicou os meios técnicos (sangue e etilômetro homologado) como aptos à comprovação, reforçando a natureza objetiva da elementar. tema 447">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 6</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-6">Não respondida</span>
+</div>
+
+<p class="enunciado">O tipo penal do art. 306 do Código de Trânsito Brasileiro incorpora elemento objetivo e de natureza precisa — o índice de 6 decigramas de álcool por litro de sangue — de modo a afastar a tipicidade com concentrações inferiores, e o regulamento indicou como meios probatórios aptos apenas o exame de sangue e o etilômetro homologados.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(6, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(6, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-6">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STJ reconhece a objetividade do patamar legal de 6 decigramas/litro de sangue como elementar do tipo penal do art. 306 CTB, não admitindo interpretação subjetiva para abarcar concentrações inferiores como equivalentes típicos. Ademais, o decreto regulamentador indicou os meios técnicos (sangue e etilômetro homologado) como aptos à comprovação, reforçando a natureza objetiva da elementar.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 447</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="Direito Penal"
+data-texto="a aplicação do privilégio do § 2º do art. 155 do código penal é absolutamente indisponível no furto qualificado (art. 155, § 4º), mesmo havendo qualificadora objetiva, primariedade do agente e pequeno valor da coisa subtraída. o superior tribunal de justiça reconheceu a possibilidade, em casos concretos que preencham requisitos (qualificadora objetiva não impeditiva, primariedade e pequeno valor da res furtiva), da aplicação do privilégio do § 2º do art. 155, inclusive em hipóteses em que o furto é qualificado, desde que observados os limites legais e a técnica do direito penal. tema 561">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 7</span>
+    <span class="disciplina-tag">Direito Penal</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-7">Não respondida</span>
+</div>
+
+<p class="enunciado">A aplicação do privilégio do § 2º do art. 155 do Código Penal é absolutamente indisponível no furto qualificado (art. 155, § 4º), mesmo havendo qualificadora objetiva, primariedade do agente e pequeno valor da coisa subtraída.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(7, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(7, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-7">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Superior Tribunal de Justiça reconheceu a possibilidade, em casos concretos que preencham requisitos (qualificadora objetiva não impeditiva, primariedade e pequeno valor da res furtiva), da aplicação do privilégio do § 2º do art. 155, inclusive em hipóteses em que o furto é qualificado, desde que observados os limites legais e a técnica do Direito Penal.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 561</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="os delitos de estupro e de atentado violento ao pudor praticados antes da vigência da lei nº 12.015/2009, inclusive em sua forma simples, são considerados, pela jurisprudência consolidada, crimes hediondos. o stj firmou entendimento de que, no período anterior à lei nº 12.015/2009, tanto o estupro quanto o atentado violento ao pudor, ainda que em suas formas simples, integravam a lista de crimes hediondos, em razão do teor das normas aplicáveis na época dos fatos. tema 581">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 8</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-8">Não respondida</span>
+</div>
+
+<p class="enunciado">Os delitos de estupro e de atentado violento ao pudor praticados antes da vigência da Lei nº 12.015/2009, inclusive em sua forma simples, são considerados, pela jurisprudência consolidada, crimes hediondos.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(8, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(8, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-8">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STJ firmou entendimento de que, no período anterior à Lei nº 12.015/2009, tanto o estupro quanto o atentado violento ao pudor, ainda que em suas formas simples, integravam a lista de crimes hediondos, em razão do teor das normas aplicáveis na época dos fatos.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 581</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="na segunda fase da dosimetria, a atenuante da confissão espontânea pode sempre ser integralmente compensada pela agravante da reincidência, inclusive nos casos de multirreincidência, sem que se exija qualquer prévia ponderação proporcional. embora admita‑se a compensação integral entre atenuante da confissão espontânea e agravante da reincidência em regra, o stj exige que, nos casos de multirreincidência, se reconheça a preponderância da agravante (art. 61, i, cp), admitindo apenas compensação proporcional e devidamente fundamentada, em observância à individualização e proporcionalidade da pena. tema 585">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 9</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-9">Não respondida</span>
+</div>
+
+<p class="enunciado">Na segunda fase da dosimetria, a atenuante da confissão espontânea pode sempre ser integralmente compensada pela agravante da reincidência, inclusive nos casos de multirreincidência, sem que se exija qualquer prévia ponderação proporcional.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(9, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(9, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-9">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Embora admita‑se a compensação integral entre atenuante da confissão espontânea e agravante da reincidência em regra, o STJ exige que, nos casos de multirreincidência, se reconheça a preponderância da agravante (art. 61, I, CP), admitindo apenas compensação proporcional e devidamente fundamentada, em observância à individualização e proporcionalidade da pena.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 585</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a conduta de expor à venda cds e dvds falsificados encontra-se tipificada, nos termos do art. 184, § 2º, do código penal, como comportamento típico, afastando‑se a aplicação do princípio da adequação social para excluí‑la da tipicidade. o entendimento jurisprudencial considera a conduta de comercialização de cópias piratas como típica, formal e materialmente, não admitindo a exclusão por adequação social, porquanto a ação atinge o bem jurídico protegido e se amolda às previsões do art. 184, § 2º. tema 593">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 10</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-10">Não respondida</span>
+</div>
+
+<p class="enunciado">A conduta de expor à venda CDs e DVDs falsificados encontra-se tipificada, nos termos do art. 184, § 2º, do Código Penal, como comportamento típico, afastando‑se a aplicação do princípio da adequação social para excluí‑la da tipicidade.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(10, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(10, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-10">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O entendimento jurisprudencial considera a conduta de comercialização de cópias piratas como típica, formal e materialmente, não admitindo a exclusão por adequação social, porquanto a ação atinge o bem jurídico protegido e se amolda às previsões do art. 184, § 2º.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 593</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a posse de arma de fogo de uso permitido com numeração ou sinal identificador suprimido, adulterado ou raspado, praticada após 23/10/2005, é típica, em razão do término da abolitio criminis temporária prevista originalmente na lei n. 10.826/2003. o stj reconheceu que, finda a extensão temporal da abolitio criminis prevista nas redações originais dos arts. 30 e 32 da lei nº 10.826/2003 em 23/10/2005, passou a ser típica a posse de armas com identificação suprimida ou adulterada quando ocorrida após essa data. tema 596">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 11</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-11">Não respondida</span>
+</div>
+
+<p class="enunciado">A posse de arma de fogo de uso permitido com numeração ou sinal identificador suprimido, adulterado ou raspado, praticada após 23/10/2005, é típica, em razão do término da abolitio criminis temporária prevista originalmente na Lei n. 10.826/2003.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(11, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(11, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-11">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STJ reconheceu que, finda a extensão temporal da abolitio criminis prevista nas redações originais dos arts. 30 e 32 da Lei nº 10.826/2003 em 23/10/2005, passou a ser típica a posse de armas com identificação suprimida ou adulterada quando ocorrida após essa data.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 596</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a forma privilegiada do tráfico de drogas (art. 33, § 4º, lei 11.343/2006) é equiparada, para todos os efeitos penais, à condição de crime hediondo, sujeitando‑se às mesmas consequências legais. a jurisprudência do stj consolidou que o tráfico privilegiado não se equipara ao rol dos crimes hediondos; trata‑se de regime penal mais brando, sem os efeitos e regimes especiais aplicáveis aos crimes hediondos. tema 600">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 12</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-12">Não respondida</span>
+</div>
+
+<p class="enunciado">A forma privilegiada do tráfico de drogas (art. 33, § 4º, Lei 11.343/2006) é equiparada, para todos os efeitos penais, à condição de crime hediondo, sujeitando‑se às mesmas consequências legais.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(12, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(12, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-12">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A jurisprudência do STJ consolidou que o tráfico privilegiado não se equipara ao rol dos crimes hediondos; trata‑se de regime penal mais brando, sem os efeitos e regimes especiais aplicáveis aos crimes hediondos.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 600</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a atribuição de falsa identidade perante autoridade policial configura o crime previsto no art. 307 do código penal, mesmo se a conduta for justificada por alegada necessidade de autodefesa. o stj entende que a conduta de dar falsa identidade a autoridade constitui crime formal do art. 307 cp, sendo irrelevante para sua consumação a justificativa subjetiva do agente, como a alegação de autodefesa, salvo se comprovada excludente de ilicitude ou culpabilidade. tema 646">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 13</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-13">Não respondida</span>
+</div>
+
+<p class="enunciado">A atribuição de falsa identidade perante autoridade policial configura o crime previsto no art. 307 do Código Penal, mesmo se a conduta for justificada por alegada necessidade de autodefesa.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(13, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(13, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-13">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STJ entende que a conduta de dar falsa identidade a autoridade constitui crime formal do art. 307 CP, sendo irrelevante para sua consumação a justificativa subjetiva do agente, como a alegação de autodefesa, salvo se comprovada excludente de ilicitude ou culpabilidade.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 646</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="o crime do art. 310 do código de trânsito brasileiro é de perigo abstrato, logo exige‑se, para sua consumação, a demonstração de perigo concreto ou efetiva lesão decorrente da ação de entregar a direção a pessoa não habilitada ou em condições incapacitantes. o stj qualificou o art. 310 como crime de perigo abstrato, isto é, consumado com a conduta tipificada independentemente da ocorrência de perigo concreto ou dano efetivo; a tipicidade se aperfeiçoa com a conduta de permitir a direção a quem não esteja habilitado ou em condições incapacitantes. tema 901">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 14</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-14">Não respondida</span>
+</div>
+
+<p class="enunciado">O crime do art. 310 do Código de Trânsito Brasileiro é de perigo abstrato, logo exige‑se, para sua consumação, a demonstração de perigo concreto ou efetiva lesão decorrente da ação de entregar a direção a pessoa não habilitada ou em condições incapacitantes.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(14, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(14, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-14">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STJ qualificou o art. 310 como crime de perigo abstrato, isto é, consumado com a conduta tipificada independentemente da ocorrência de perigo concreto ou dano efetivo; a tipicidade se aperfeiçoa com a conduta de permitir a direção a quem não esteja habilitado ou em condições incapacitantes.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 901</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a consumação do crime de roubo exige, necessariamente, a posse mansa, pacífica ou desvigiada da coisa subtraída; se a inversão da posse ocorrer por tempo breve seguida de imediata recuperação pela vítima, não se configura a consumação. o stj firmou o entendimento de que o roubo se consuma com a inversão da posse mediante violência ou grave ameaça, mesmo que a posse do agente seja breve e haja posterior perseguição e recuperação pelo ofendido; a posse mansa e pacífica não é requisito para a consumação. tema 916">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 15</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-15">Não respondida</span>
+</div>
+
+<p class="enunciado">A consumação do crime de roubo exige, necessariamente, a posse mansa, pacífica ou desvigiada da coisa subtraída; se a inversão da posse ocorrer por tempo breve seguida de imediata recuperação pela vítima, não se configura a consumação.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(15, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(15, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-15">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STJ firmou o entendimento de que o roubo se consuma com a inversão da posse mediante violência ou grave ameaça, mesmo que a posse do agente seja breve e haja posterior perseguição e recuperação pelo ofendido; a posse mansa e pacífica não é requisito para a consumação.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 916</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="no crime previsto no art. 217‑a, caput (estupro de vulnerável), o eventual consentimento da vítima menor de 14 anos, sua experiência sexual pregressa ou relação amorosa com o agente afastam a tipicidade do delito. a norma protege a vulnerabilidade absoluta do menor de 14 anos; por isso, para o crime do art. 217‑a, o consentimento, a experiência anterior ou eventual vínculo afetivo são irrelevantes e não afastam a tipicidade, conforme entendimento consolidado. tema 918">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 16</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-16">Não respondida</span>
+</div>
+
+<p class="enunciado">No crime previsto no art. 217‑A, caput (estupro de vulnerável), o eventual consentimento da vítima menor de 14 anos, sua experiência sexual pregressa ou relação amorosa com o agente afastam a tipicidade do delito.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(16, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(16, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-16">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A norma protege a vulnerabilidade absoluta do menor de 14 anos; por isso, para o crime do art. 217‑A, o consentimento, a experiência anterior ou eventual vínculo afetivo são irrelevantes e não afastam a tipicidade, conforme entendimento consolidado.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 918</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a presença de câmeras de vigilância ou sistema de segurança em estabelecimento comercial torna, por si só, impossível a ocorrência de furto no seu interior, afastando a tipicidade. o stj reconhece que a existência de sistema de segurança não torna impossível, automaticamente, a prática de furto no interior de estabelecimento; a presença de vigilância é circunstância fática que pode influenciar prova, mas não elimina a possibilidade do delito. tema 924">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 17</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-17">Não respondida</span>
+</div>
+
+<p class="enunciado">A presença de câmeras de vigilância ou sistema de segurança em estabelecimento comercial torna, por si só, impossível a ocorrência de furto no seu interior, afastando a tipicidade.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(17, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(17, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-17">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STJ reconhece que a existência de sistema de segurança não torna impossível, automaticamente, a prática de furto no interior de estabelecimento; a presença de vigilância é circunstância fática que pode influenciar prova, mas não elimina a possibilidade do delito.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 924</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="para comprovar a materialidade do delito de violação de direitos autorais previsto no art. 184, § 2º, do código penal, é suficiente perícia por amostragem sobre os aspectos externos das mídias apreendidas, dispensando‑se, em regra, a identificação dos titulares dos direitos autorais ou de seus representantes. o entendimento do stj admite a prova pericial por amostragem sobre aspectos externos dos materiais apreendidos como suficiente para demonstrar a materialidade do crime de pirataria, não exigindo a identificação nominal dos titulares dos direitos para fins de comprovação material, salvo situações específicas que peçam demonstração diversa. tema 926">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 18</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-18">Não respondida</span>
+</div>
+
+<p class="enunciado">Para comprovar a materialidade do delito de violação de direitos autorais previsto no art. 184, § 2º, do Código Penal, é suficiente perícia por amostragem sobre os aspectos externos das mídias apreendidas, dispensando‑se, em regra, a identificação dos titulares dos direitos autorais ou de seus representantes.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(18, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(18, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-18">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O entendimento do STJ admite a prova pericial por amostragem sobre aspectos externos dos materiais apreendidos como suficiente para demonstrar a materialidade do crime de pirataria, não exigindo a identificação nominal dos titulares dos direitos para fins de comprovação material, salvo situações específicas que peçam demonstração diversa.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 926</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="o inadimplemento da pena de multa, ocorrido após o cumprimento da pena privativa de liberdade ou de medida restritiva de direitos, impede automaticamente a extinção da punibilidade por alegada hipossuficiência do condenado, de modo que o juiz não pode reconhecer a extinção salvo se houver prova inequívoca de insolvência. a tese firmada permite a extinção da punibilidade por hipossuficiência quando comprovada, apesar do inadimplemento da multa após cumprimento da pena, salvo quando o juiz, com motivação concreta, entender possível o pagamento da sanção pecuniária. não há vedação absoluta à extinção nessas hipóteses. tema 931">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 19</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-19">Não respondida</span>
+</div>
+
+<p class="enunciado">O inadimplemento da pena de multa, ocorrido após o cumprimento da pena privativa de liberdade ou de medida restritiva de direitos, impede automaticamente a extinção da punibilidade por alegada hipossuficiência do condenado, de modo que o juiz não pode reconhecer a extinção salvo se houver prova inequívoca de insolvência.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(19, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(19, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-19">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A tese firmada permite a extinção da punibilidade por hipossuficiência quando comprovada, apesar do inadimplemento da multa após cumprimento da pena, salvo quando o juiz, com motivação concreta, entender possível o pagamento da sanção pecuniária. Não há vedação absoluta à extinção nessas hipóteses.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 931</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="quando o falso se exaure no descaminho, sem potencialidade lesiva autônoma, o crime de falso é absorvido pelo descaminho, a despeito de a pena deste último ser inferior. o stj reconhece que, quando a falsidade documental se circunscreve ao objeto do descaminho e não tem potencialidade lesiva própria, ocorre absorção pelo crime-fim (descaminho), prevalecendo a norma mais adequada à descrição fática, independentemente da gradação penal comparativa. tema 933">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 20</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-20">Não respondida</span>
+</div>
+
+<p class="enunciado">Quando o falso se exaure no descaminho, sem potencialidade lesiva autônoma, o crime de falso é absorvido pelo descaminho, a despeito de a pena deste último ser inferior.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(20, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(20, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-20">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STJ reconhece que, quando a falsidade documental se circunscreve ao objeto do descaminho e não tem potencialidade lesiva própria, ocorre absorção pelo crime-fim (descaminho), prevalecendo a norma mais adequada à descrição fática, independentemente da gradação penal comparativa.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 933</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="o furto somente se consuma se o agente mantém posse prolongada e não molestada da res furtiva; a posse de fato transitória, ainda que seguida de perseguição ao agente, não admite consumação do furto. consoante o precedente do stj, a consumação do furto dá‑se com a posse de fato da coisa subtraída, mesmo que por breve espaço de tempo e ainda que ocorra, na sequência, perseguição e recuperação; não é requisito a posse mansa, pacífica ou desvigiada. tema 934">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 21</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-21">Não respondida</span>
+</div>
+
+<p class="enunciado">O furto somente se consuma se o agente mantém posse prolongada e não molestada da res furtiva; a posse de fato transitória, ainda que seguida de perseguição ao agente, não admite consumação do furto.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(21, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(21, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-21">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Consoante o precedente do STJ, a consumação do furto dá‑se com a posse de fato da coisa subtraída, mesmo que por breve espaço de tempo e ainda que ocorra, na sequência, perseguição e recuperação; não é requisito a posse mansa, pacífica ou desvigiada.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 934</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="em casos de violência doméstica e familiar contra a mulher, é vedada a fixação judicial de valor mínimo a título de dano moral quando não houver pedido expresso da acusação ou da ofendida. o stj assentou que é possível a fixação de valor mínimo indenizatório por dano moral em crimes de violência doméstica praticados no âmbito familiar, desde que haja pedido expresso da acusação ou da ofendida (mesmo que não especificando a quantia), independentemente de instrução probatória detalhada. a ausência de pedido expressa impede a fixação. tema 983">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 22</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-22">Não respondida</span>
+</div>
+
+<p class="enunciado">Em casos de violência doméstica e familiar contra a mulher, é vedada a fixação judicial de valor mínimo a título de dano moral quando não houver pedido expresso da acusação ou da ofendida.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(22, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(22, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-22">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STJ assentou que é possível a fixação de valor mínimo indenizatório por dano moral em crimes de violência doméstica praticados no âmbito familiar, desde que haja pedido expresso da acusação ou da ofendida (mesmo que não especificando a quantia), independentemente de instrução probatória detalhada. A ausência de pedido expressa impede a fixação.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 983</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a superveniência da maioridade penal exclui automaticamente a apuração do ato infracional e a aplicação de medida socioeducativa em curso, inclusive na modalidade liberdade assistida, mesmo antes do réu completar 21 anos. o entendimento da corte é no sentido de que a superveniência da maioridade não interfere na apuração do ato infracional nem na execução de medida socioeducativa em curso até que a pessoa atinja a idade de 21 anos; logo, a maioridade não determina, automaticamente, suspensão do procedimento socioeducativo. tema 992">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 23</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-23">Não respondida</span>
+</div>
+
+<p class="enunciado">A superveniência da maioridade penal exclui automaticamente a apuração do ato infracional e a aplicação de medida socioeducativa em curso, inclusive na modalidade liberdade assistida, mesmo antes do réu completar 21 anos.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(23, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(23, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-23">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O entendimento da Corte é no sentido de que a superveniência da maioridade não interfere na apuração do ato infracional nem na execução de medida socioeducativa em curso até que a pessoa atinja a idade de 21 anos; logo, a maioridade não determina, automaticamente, suspensão do procedimento socioeducativo.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 992</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a unificação de penas, por ela só, modifica a data‑base para a concessão de benefícios execuórios posteriores, alterando o marco temporal para aquisição de novos direitos. a tese consolidada dispõe que a unificação de penas não acarreta alteração da data‑base utilizada para aferição da aquisição de novos benefícios executórios; a data‑base permanece a originária, não se operando mudança automática por mera unificação. tema 1006">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 24</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-24">Não respondida</span>
+</div>
+
+<p class="enunciado">A unificação de penas, por ela só, modifica a data‑base para a concessão de benefícios execuórios posteriores, alterando o marco temporal para aquisição de novos direitos.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(24, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(24, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-24">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A tese consolidada dispõe que a unificação de penas não acarreta alteração da data‑base utilizada para aferição da aquisição de novos benefícios executórios; a data‑base permanece a originária, não se operando mudança automática por mera unificação.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1006</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="para fins de incidência da causa de aumento do art. 40, vi, da lei de drogas, ou para a tipificação no art. 244‑b do eca, é suficiente que a qualificação do menor no boletim de ocorrência se limite a apontar a condição de menor, sem a necessidade de indicação de elemento documental. o stj exige que a qualificação do menor constante em boletim de ocorrência traga dados indicativos de consulta a documento hábil (número do documento de identidade, cpf, certidão de nascimento, etc.), de modo a permitir a identificação efetiva, como requisito objetivo para aplicação da majorante ou da tipificação específica. tema 1052">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 25</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-25">Não respondida</span>
+</div>
+
+<p class="enunciado">Para fins de incidência da causa de aumento do art. 40, VI, da Lei de Drogas, ou para a tipificação no art. 244‑B do ECA, é suficiente que a qualificação do menor no boletim de ocorrência se limite a apontar a condição de menor, sem a necessidade de indicação de elemento documental.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(25, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(25, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-25">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STJ exige que a qualificação do menor constante em boletim de ocorrência traga dados indicativos de consulta a documento hábil (número do documento de identidade, CPF, certidão de nascimento, etc.), de modo a permitir a identificação efetiva, como requisito objetivo para aplicação da majorante ou da tipificação específica.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1052</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a conduta de não obedecer à ordem de parada de veículo emitida por policial que atua em atividade ostensiva de segurança pública configura o crime de desobediência. o entendimento firmado reconhece que a ordem de parada de veículo, quando emanada por policial no exercício de atividade ostensiva de segurança pública, integra legítima ordem para fins do crime de desobediência, sendo típica a recusa injustificada em cumprir tal determinação. tema 1060">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 26</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-26">Não respondida</span>
+</div>
+
+<p class="enunciado">A conduta de não obedecer à ordem de parada de veículo emitida por policial que atua em atividade ostensiva de segurança pública configura o crime de desobediência.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(26, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(26, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-26">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O entendimento firmado reconhece que a ordem de parada de veículo, quando emanada por policial no exercício de atividade ostensiva de segurança pública, integra legítima ordem para fins do crime de desobediência, sendo típica a recusa injustificada em cumprir tal determinação.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1060</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="condenações penais já transitadas em julgado, que não servem para caracterizar reincidência, podem ser utilizadas livremente na primeira fase da dosimetria como fundamento para desabonamento da personalidade ou da conduta social do agente. o stj estabelece que condenações transitadas em julgado, não computáveis para reincidência, somente podem ser consideradas como antecedentes criminais na primeira fase da dosimetria; não é admissível que sirvam para desabonar a personalidade ou a conduta social do agente como fundamento isolado para agravar de forma subjetiva a pena-base. tema 1077">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 27</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-27">Não respondida</span>
+</div>
+
+<p class="enunciado">Condenações penais já transitadas em julgado, que não servem para caracterizar reincidência, podem ser utilizadas livremente na primeira fase da dosimetria como fundamento para desabonamento da personalidade ou da conduta social do agente.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(27, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(27, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-27">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STJ estabelece que condenações transitadas em julgado, não computáveis para reincidência, somente podem ser consideradas como antecedentes criminais na primeira fase da dosimetria; não é admissível que sirvam para desabonar a personalidade ou a conduta social do agente como fundamento isolado para agravar de forma subjetiva a pena-base.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1077</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a majorante prevista no § 1º do art. 155 do código penal (furto praticado durante o repouso noturno) é aplicável cumulativamente ao furto qualificado previsto no § 4º do mesmo artigo. a tese consolidada determina que a majorante do repouso noturno não incide sobre a modalidade qualificada do furto prevista no § 4º do art. 155, por inadequação normativa e pela técnica de gradação legislativa entre as figuras previstas. tema 1087">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 28</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-28">Não respondida</span>
+</div>
+
+<p class="enunciado">A majorante prevista no § 1º do art. 155 do Código Penal (furto praticado durante o repouso noturno) é aplicável cumulativamente ao furto qualificado previsto no § 4º do mesmo artigo.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(28, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(28, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-28">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A tese consolidada determina que a majorante do repouso noturno não incide sobre a modalidade qualificada do furto prevista no § 4º do art. 155, por inadequação normativa e pela técnica de gradação legislativa entre as figuras previstas.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1087</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="o acórdão condenatório referido no inciso iv do art. 117 do código penal interrompe a prescrição apenas quando impõe nova pena mais gravosa; decisões confirmadoras que mantenham ou reduzam a pena não produzem efeito interruptivo da prescrição. o stj firmou jurisprudência no sentido de que o acórdão condenatório mencionado no art. 117, iv, interrompe a prescrição independentemente de resultar em aumento, manutenção ou redução da pena anteriormente imposta, pois o efeito interruptivo decorre da condenação colegiada em si. tema 1100">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 29</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-29">Não respondida</span>
+</div>
+
+<p class="enunciado">O acórdão condenatório referido no inciso IV do art. 117 do Código Penal interrompe a prescrição apenas quando impõe nova pena mais gravosa; decisões confirmadoras que mantenham ou reduzam a pena não produzem efeito interruptivo da prescrição.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(29, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(29, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-29">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STJ firmou jurisprudência no sentido de que o acórdão condenatório mencionado no art. 117, IV, interrompe a prescrição independentemente de resultar em aumento, manutenção ou redução da pena anteriormente imposta, pois o efeito interruptivo decorre da condenação colegiada em si.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1100</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="enquanto o tema 1107 permanece sem julgamento definitivo, as teses por ele suscitadas não constituem orientação jurisprudencial vinculante para a corte superior. a expressão &quot;aguardando julgamento de mérito&quot; indica a ausência de decisão colegiada definitiva; nessa situação, não há precedente vinculante emanado do tribunal e a matéria permanece sem caráter vinculante até apreciação e eventual enunciação. tema 1107">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 30</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-30">Não respondida</span>
+</div>
+
+<p class="enunciado">Enquanto o Tema 1107 permanece sem julgamento definitivo, as teses por ele suscitadas não constituem orientação jurisprudencial vinculante para a Corte Superior.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(30, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(30, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-30">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A expressão &quot;aguardando julgamento de mérito&quot; indica a ausência de decisão colegiada definitiva; nessa situação, não há precedente vinculante emanado do Tribunal e a matéria permanece sem caráter vinculante até apreciação e eventual enunciação.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1107</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="em razão da novatio legis in mellius introduzida pela lei n. 13.654/2018, o emprego de arma branca deixou de configurar causa legal de aumento do crime de roubo, sem prejuízo de poder ser utilizado, quando as circunstâncias o justificarem, para agravar a pena‑base, devendo o julgador fundamentar a majoração nos termos do art. 387, ii e iii, do cpp, não cabendo ao stj transpor tal valoração para a primeira fase da dosimetria. o stj consolidou que a alteração legislativa suprimiu a causa de aumento específica, mas que o uso de arma branca pode influenciar a individualização da pena‑base quando a gravidade concreta o justificar; exige‑se fundamentação do magistrado, e a corte não pode impor transposição valorativa obrigatória para a primeira fase, dada a discricionariedade judicial. tema 1110">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 31</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-31">Não respondida</span>
+</div>
+
+<p class="enunciado">Em razão da novatio legis in mellius introduzida pela Lei n. 13.654/2018, o emprego de arma branca deixou de configurar causa legal de aumento do crime de roubo, sem prejuízo de poder ser utilizado, quando as circunstâncias o justificarem, para agravar a pena‑base, devendo o julgador fundamentar a majoração nos termos do art. 387, II e III, do CPP, não cabendo ao STJ transpor tal valoração para a primeira fase da dosimetria.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(31, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(31, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-31">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STJ consolidou que a alteração legislativa suprimiu a causa de aumento específica, mas que o uso de arma branca pode influenciar a individualização da pena‑base quando a gravidade concreta o justificar; exige‑se fundamentação do magistrado, e a Corte não pode impor transposição valorativa obrigatória para a primeira fase, dada a discricionariedade judicial.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1110</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="quando presente o dolo específico de satisfazer à lascívia, a prática de ato libidinoso com menor de 14 anos pode ser desclassificada para importunação sexual (art. 215‑a), caso a conduta seja de pequena intensidade. o stj determinou que, havendo o dolo específico de satisfazer à lascívia em relação a menor de 14 anos, a conduta subsume‑se ao art. 217‑a (estupro de vulnerável) independentemente da ligeireza da ação, não sendo admissível a desclassificação para importunação sexual. tema 1121">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 32</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-32">Não respondida</span>
+</div>
+
+<p class="enunciado">Quando presente o dolo específico de satisfazer à lascívia, a prática de ato libidinoso com menor de 14 anos pode ser desclassificada para importunação sexual (art. 215‑A), caso a conduta seja de pequena intensidade.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(32, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(32, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-32">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STJ determinou que, havendo o dolo específico de satisfazer à lascívia em relação a menor de 14 anos, a conduta subsume‑se ao art. 217‑A (estupro de vulnerável) independentemente da ligeireza da ação, não sendo admissível a desclassificação para importunação sexual.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1121</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a existência de inquéritos policiais ou ações penais já em curso pode ser oposta como óbice legítimo para afastar a aplicação do beneficio previsto no art. 33, § 4º, da lei n. 11.343/2006 (tráfico privilegiado). o stj vedou a utilização de inquéritos e/ou ações penais em andamento como fundamento para obstaculizar a aplicação do art. 33, § 4º; a pendência de procedimento não impede, por si só, a incidência do regime privilegiado quando presentes seus requisitos objetivos e subjetivos. tema 1139">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 33</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-33">Não respondida</span>
+</div>
+
+<p class="enunciado">A existência de inquéritos policiais ou ações penais já em curso pode ser oposta como óbice legítimo para afastar a aplicação do beneficio previsto no art. 33, § 4º, da Lei n. 11.343/2006 (tráfico privilegiado).</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(33, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(33, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-33">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STJ vedou a utilização de inquéritos e/ou ações penais em andamento como fundamento para obstaculizar a aplicação do art. 33, § 4º; a pendência de procedimento não impede, por si só, a incidência do regime privilegiado quando presentes seus requisitos objetivos e subjetivos.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1139</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a tese que admite o princípio da insignificância para o contrabando de cigarros quando a apreensão não ultrapassa 1.000 maços tem aplicação imediata e retroativa irrestrita, alcançando inclusive processos já transitados em julgado. embora o stj tenha admitido a insignificância para contrabando de até 1.000 maços, modulou os efeitos: a tese aplica‑se apenas aos feitos ainda em curso na data do julgamento, não sendo estendida a processos com coisa julgada, em razão da impossibilidade de rescisão por simples mudança de orientação jurisprudencial. tema 1143">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 34</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-34">Não respondida</span>
+</div>
+
+<p class="enunciado">A tese que admite o princípio da insignificância para o contrabando de cigarros quando a apreensão não ultrapassa 1.000 maços tem aplicação imediata e retroativa irrestrita, alcançando inclusive processos já transitados em julgado.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(34, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(34, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-34">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Embora o STJ tenha admitido a insignificância para contrabando de até 1.000 maços, modulou os efeitos: a tese aplica‑se apenas aos feitos ainda em curso na data do julgamento, não sendo estendida a processos com coisa julgada, em razão da impossibilidade de rescisão por simples mudança de orientação jurisprudencial.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1143</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="para a incidência da majorante do repouso noturno no crime de furto (art. 155, §1º), basta que o delito ocorra no período noturno, independentemente de que exista situação efetiva de sossego ou diminuição de vigilância que caracterize repouso. a aplicação da majorante exige não só a ocorrência no período noturno, mas também que o contexto configure situação de repouso — entendida como sossego ou tranquilidade do período da noite que favoreça a consumação do crime (diminuição de vigilância, menor resistência da vítima etc.). não é suficiente apenas o elemento temporal. tema 1144">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 35</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-35">Não respondida</span>
+</div>
+
+<p class="enunciado">Para a incidência da majorante do repouso noturno no crime de furto (art. 155, §1º), basta que o delito ocorra no período noturno, independentemente de que exista situação efetiva de sossego ou diminuição de vigilância que caracterize repouso.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(35, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(35, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-35">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A aplicação da majorante exige não só a ocorrência no período noturno, mas também que o contexto configure situação de repouso — entendida como sossego ou tranquilidade do período da noite que favoreça a consumação do crime (diminuição de vigilância, menor resistência da vítima etc.). Não é suficiente apenas o elemento temporal.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1144</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a permanência do tema 1154 sem julgamento definitivo impede que o enunciado correspondente produza qualquer orientação jurisprudencial vinculante perante os tribunais superiores. a assertiva é incorreta porque o tema permanece pendente; nesse contexto, não há enunciado consolidado e, portanto, não se pode atribuir-lhe caráter vinculante. a negativa da questão, no formado apresentado, incorre em erro lógico: afirmar que a pendência impede vinculação é verdadeiro; mas a questão pedida foi formulada negativamente. (observação: o tema encontra‑se sem julgamento.) tema 1154">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 36</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-36">Não respondida</span>
+</div>
+
+<p class="enunciado">A permanência do Tema 1154 sem julgamento definitivo impede que o enunciado correspondente produza qualquer orientação jurisprudencial vinculante perante os Tribunais Superiores.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(36, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(36, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-36">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva é incorreta porque o tema permanece pendente; nesse contexto, não há enunciado consolidado e, portanto, não se pode atribuir-lhe caráter vinculante. A negativa da questão, no formado apresentado, incorre em erro lógico: afirmar que a pendência impede vinculação é verdadeiro; mas a questão pedida foi formulada negativamente. (Observação: o tema encontra‑se sem julgamento.)</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1154</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="o período de recolhimento obrigatório noturno e nos dias de folga imposto ao acusado, por atingir o status libertatis, deve ser reconhecido como tempo a ser detraído da pena privativa de liberdade ou da medida de segurança, independentemente da existência de monitoramento eletrônico, e convertido em dias para fins de detração, desprezando‑se frações inferiores a 24 horas. a tese do stj, contudo, estabelece que o período de recolhimento noturno e nos dias de folga deve ser detraído da pena e da medida de segurança, e que o monitoramento eletrônico não é condição necessária para tal detração; entretanto, para a conversão em dias há regra de desprezo da fração remanescente menor que 24 horas. a assertiva incorre em erro porque afirma a obrigatoriedade da detração &quot;independentemente&quot; do que foi vinculado à atribuição do estado — exceto nos casos em que a infraestrutura não exista; assim, a redação absoluta é imprecisa. (resposta tecnicamente qualificada: a tese reconhece a detração e conversão, com as ressalvas indicadas.) tema 1155">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 37</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-37">Não respondida</span>
+</div>
+
+<p class="enunciado">O período de recolhimento obrigatório noturno e nos dias de folga imposto ao acusado, por atingir o status libertatis, deve ser reconhecido como tempo a ser detraído da pena privativa de liberdade ou da medida de segurança, independentemente da existência de monitoramento eletrônico, e convertido em dias para fins de detração, desprezando‑se frações inferiores a 24 horas.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(37, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(37, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-37">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A tese do STJ, contudo, estabelece que o período de recolhimento noturno e nos dias de folga deve ser detraído da pena e da medida de segurança, e que o monitoramento eletrônico não é condição necessária para tal detração; entretanto, para a conversão em dias há regra de desprezo da fração remanescente menor que 24 horas. A assertiva incorre em erro porque afirma a obrigatoriedade da detração &quot;independentemente&quot; do que foi vinculado à atribuição do Estado — exceto nos casos em que a infraestrutura não exista; assim, a redação absoluta é imprecisa. (Resposta tecnicamente qualificada: a tese reconhece a detração e conversão, com as ressalvas indicadas.)</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1155</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="ECA"
+data-texto="os tipos penais previstos nos arts. 241‑a e 241‑b do eca são autônomos, descrevendo condutas distintas, de modo que o crime do art. 241‑b não constitui fase normal nem mero meio de execução do art. 241‑a, possibilitando o reconhecimento de concurso material entre ambos. o stj considerou as duas figuras como autônomas, com verbos e estruturas normativas diversas, afastando a ideia de que uma seria fase ou meio de execução da outra; essa autonomia permite a aplicação do concurso material quando configuradas ambas as condutas. tema 1168">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 38</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-38">Não respondida</span>
+</div>
+
+<p class="enunciado">Os tipos penais previstos nos arts. 241‑A e 241‑B do ECA são autônomos, descrevendo condutas distintas, de modo que o crime do art. 241‑B não constitui fase normal nem mero meio de execução do art. 241‑A, possibilitando o reconhecimento de concurso material entre ambos.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(38, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(38, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-38">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STJ considerou as duas figuras como autônomas, com verbos e estruturas normativas diversas, afastando a ideia de que uma seria fase ou meio de execução da outra; essa autonomia permite a aplicação do concurso material quando configuradas ambas as condutas.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1168</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a utilização de simulacro de arma no delito de roubo configura elementar de grave ameaça prevista no tipo penal, de modo a enquadrar a conduta na hipótese legal que impede a substituição da pena. a corte assentou que o simulacro de arma materializa a grave ameaça exigida pelo tipo penal do roubo, subsumindo‑se à hipótese normativa que veda a substituição da pena, dada a gravidade e perigo inerentes ao emprego do engodo. tema 1171">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 39</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-39">Não respondida</span>
+</div>
+
+<p class="enunciado">A utilização de simulacro de arma no delito de roubo configura elementar de grave ameaça prevista no tipo penal, de modo a enquadrar a conduta na hipótese legal que impede a substituição da pena.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(39, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(39, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-39">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A Corte assentou que o simulacro de arma materializa a grave ameaça exigida pelo tipo penal do roubo, subsumindo‑se à hipótese normativa que veda a substituição da pena, dada a gravidade e perigo inerentes ao emprego do engodo.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1171</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a reincidência específica, considerada isoladamente, autoriza o magistrado a majorar a pena‑base em fração superior a 1/6 sem necessidade de fundamentação específica e dados concretos que lastreiem tal decisão. segundo o entendimento consolidado, a reincidência específica como fundamento único para agravar além de 1/6 apenas se admite em hipóteses excepcionais e exige fundamentação pormenorizada e baseada em dados concretos acerca do caso, sob pena de violação dos princípios da individualização e da motivação. tema 1172">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 40</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-40">Não respondida</span>
+</div>
+
+<p class="enunciado">A reincidência específica, considerada isoladamente, autoriza o magistrado a majorar a pena‑base em fração superior a 1/6 sem necessidade de fundamentação específica e dados concretos que lastreiem tal decisão.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(40, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(40, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-40">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Segundo o entendimento consolidado, a reincidência específica como fundamento único para agravar além de 1/6 apenas se admite em hipóteses excepcionais e exige fundamentação pormenorizada e baseada em dados concretos acerca do caso, sob pena de violação dos princípios da individualização e da motivação.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1172</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="aguardando julgamento de mérito, o tema 1185 não ostenta atualmente conteúdo consolidado que vincule o entendimento da corte sobre a matéria nele tratada. a expressão &quot;aguardando julgamento de mérito&quot; indica ausência de decisão colegiada definitiva; enquanto não houver julgamento, não existe tese vinculante extraída daquele tema. tema 1185">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 41</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-41">Não respondida</span>
+</div>
+
+<p class="enunciado">Aguardando julgamento de mérito, o Tema 1185 não ostenta atualmente conteúdo consolidado que vincule o entendimento da Corte sobre a matéria nele tratada.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(41, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(41, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-41">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A expressão &quot;aguardando julgamento de mérito&quot; indica ausência de decisão colegiada definitiva; enquanto não houver julgamento, não existe tese vinculante extraída daquele tema.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1185</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="quando delitos de roubo são perpetrados por meio de uma única conduta sem desígnios autônomos contra bens pertencentes a vítimas distintas (inclusive membros de mesma família), configura‑se concurso formal de crimes, na forma do art. 70 do código penal. a corte firmou entendimento de que, na hipótese de uma única ação lesiva atingir diversos bens de vítimas distintas sem desígnios autônomos, incide o concurso formal (art. 70), e não múltiplas infrações autônomas derivadas de atos distintos. tema 1192">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 42</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-42">Não respondida</span>
+</div>
+
+<p class="enunciado">Quando delitos de roubo são perpetrados por meio de uma única conduta sem desígnios autônomos contra bens pertencentes a vítimas distintas (inclusive membros de mesma família), configura‑se concurso formal de crimes, na forma do art. 70 do Código Penal.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(42, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(42, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-42">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A Corte firmou entendimento de que, na hipótese de uma única ação lesiva atingir diversos bens de vítimas distintas sem desígnios autônomos, incide o concurso formal (art. 70), e não múltiplas infrações autônomas derivadas de atos distintos.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1192</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a atenuante genérica da confissão espontânea (art. 65, iii, d, cp) somente é aplicável se ela tiver sido elemento determinante no convencimento do julgador, não podendo ser reconhecida quando existam outros elementos probatórios suficientes. o stj entendeu que a atenuante da confissão espontânea é apta a minorar a pena independentemente de ter sido decisiva para a formação do convencimento judicial e mesmo havendo outros elementos de prova, desde que não haja retratação; entretanto, a atenuação deve ser aplicada em menor proporção e não pode ser preponderante quando o fato confessado tem pena menor ou configura excludente. tema 1194">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 43</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-43">Não respondida</span>
+</div>
+
+<p class="enunciado">A atenuante genérica da confissão espontânea (art. 65, III, d, CP) somente é aplicável se ela tiver sido elemento determinante no convencimento do julgador, não podendo ser reconhecida quando existam outros elementos probatórios suficientes.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(43, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(43, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-43">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STJ entendeu que a atenuante da confissão espontânea é apta a minorar a pena independentemente de ter sido decisiva para a formação do convencimento judicial e mesmo havendo outros elementos de prova, desde que não haja retratação; entretanto, a atenuação deve ser aplicada em menor proporção e não pode ser preponderante quando o fato confessado tem pena menor ou configura excludente.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1194</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a aplicação concomitante da agravante do art. 61, ii, &quot;f&quot;, do código penal com as disposições da lei maria da penha constitui bis in idem e, por isso, é vedada, salvo disposição expressa em contrário. o stj consolidou que a aplicação conjunta da agravante genérica (art. 61, ii, &quot;f&quot;) com as sanções previstas na lei n. 11.340/2006 não configura bis in idem, por serem instrumentos normativos que incidem sobre aspectos distintos da reprovabilidade; o bis in idem só é configurado em hipóteses específicas de identidade de núcleo fático-normativo. tema 1197">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 44</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-44">Não respondida</span>
+</div>
+
+<p class="enunciado">A aplicação concomitante da agravante do art. 61, II, &quot;f&quot;, do Código Penal com as disposições da Lei Maria da Penha constitui bis in idem e, por isso, é vedada, salvo disposição expressa em contrário.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(44, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(44, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-44">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STJ consolidou que a aplicação conjunta da agravante genérica (art. 61, II, &quot;f&quot;) com as sanções previstas na Lei n. 11.340/2006 não configura bis in idem, por serem instrumentos normativos que incidem sobre aspectos distintos da reprovabilidade; o bis in idem só é configurado em hipóteses específicas de identidade de núcleo fático-normativo.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1197</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="no crime de estupro de vulnerável, a aplicação da fração máxima de majoração prevista no art. 71, caput, apenas é possível quando houver contagem exata e documental do número de atos sexuais praticados; indícios de longa duração e repetição não bastam para admitir a fração máxima. o stj tem admitido, para fins de aplicação da fração máxima de majoração, a possibilidade de conclusão fundada em indícios de longa duração e recorrência das condutas que permitam inferir a existência de sete ou mais repetições, mesmo sem delimitação numérica precisa, desde que a prova permita tal conclusão com segurança. tema 1202">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 45</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-45">Não respondida</span>
+</div>
+
+<p class="enunciado">No crime de estupro de vulnerável, a aplicação da fração máxima de majoração prevista no art. 71, caput, apenas é possível quando houver contagem exata e documental do número de atos sexuais praticados; indícios de longa duração e repetição não bastam para admitir a fração máxima.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(45, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(45, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-45">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STJ tem admitido, para fins de aplicação da fração máxima de majoração, a possibilidade de conclusão fundada em indícios de longa duração e recorrência das condutas que permitam inferir a existência de sete ou mais repetições, mesmo sem delimitação numérica precisa, desde que a prova permita tal conclusão com segurança.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1202</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="nos crimes contra a dignidade sexual, a aplicação conjunta da agravante genérica do art. 61, ii, &quot;f&quot;, e da majorante específica do art. 226, ii, do código penal caracteriza sempre bis in idem; logo, na presença de autoridade sobre a vítima deve‑se empregar apenas uma das causas. a tese firmada reconhece, em regra, a compatibilidade da aplicação simultânea da agravante genérica e da majorante específica, não havendo bis in idem, salvo quando a única circunstância existente for a relação de autoridade, caso em que apenas a causa de aumento específica deverá incidir. tema 1215">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 46</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-46">Não respondida</span>
+</div>
+
+<p class="enunciado">Nos crimes contra a dignidade sexual, a aplicação conjunta da agravante genérica do art. 61, II, &quot;f&quot;, e da majorante específica do art. 226, II, do Código Penal caracteriza sempre bis in idem; logo, na presença de autoridade sobre a vítima deve‑se empregar apenas uma das causas.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(46, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(46, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-46">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A tese firmada reconhece, em regra, a compatibilidade da aplicação simultânea da agravante genérica e da majorante específica, não havendo bis in idem, salvo quando a única circunstância existente for a relação de autoridade, caso em que apenas a causa de aumento específica deverá incidir.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1215</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="é admissível o reconhecimento da consunção quando a conduta de conduzir veículo sem habilitação (art. 309 do ctb) estiver completamente absorvida pela prática do crime de embriaguez ao volante (art. 306 do ctb), de modo a configurar causa de exclusão de um dos delitos. o stj admitiu a possibilidade de reconhecimento da consunção quando a conduta de dirigir sem habilitação estiver inserida na mesma ação típica constituída pela embriaguez ao volante, com o delito mais grave englobando o ato de dirigir sem habilitação, justificando a absorção por consunção. tema 1216">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 47</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-47">Não respondida</span>
+</div>
+
+<p class="enunciado">É admissível o reconhecimento da consunção quando a conduta de conduzir veículo sem habilitação (art. 309 do CTB) estiver completamente absorvida pela prática do crime de embriaguez ao volante (art. 306 do CTB), de modo a configurar causa de exclusão de um dos delitos.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(47, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(47, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-47">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STJ admitiu a possibilidade de reconhecimento da consunção quando a conduta de dirigir sem habilitação estiver inserida na mesma ação típica constituída pela embriaguez ao volante, com o delito mais grave englobando o ato de dirigir sem habilitação, justificando a absorção por consunção.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1216</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a reiteração da prática delitiva sempre obsta a aplicação do princípio da insignificância ao crime de descaminho, independentemente do valor do tributo não recolhido ou da análise concreta das circunstâncias, não havendo espaço para avaliação caso a caso. embora o stj determine que a reiteração é obstativa à aplicação da insignificância no descaminho, tal entendimento não tem caráter absoluto: admite‑se que, na avaliação concreta, o juiz possa concluir pela aplicabilidade do princípio quando a medida for socialmente recomendável. ademais, a reiteração pode ser aferida por procedimentos pendentes, e o julgador deve ponderar proporcionalidade e razoabilidade. tema 1218">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 48</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-48">Não respondida</span>
+</div>
+
+<p class="enunciado">A reiteração da prática delitiva sempre obsta a aplicação do princípio da insignificância ao crime de descaminho, independentemente do valor do tributo não recolhido ou da análise concreta das circunstâncias, não havendo espaço para avaliação caso a caso.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(48, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(48, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-48">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Embora o STJ determine que a reiteração é obstativa à aplicação da insignificância no descaminho, tal entendimento não tem caráter absoluto: admite‑se que, na avaliação concreta, o juiz possa concluir pela aplicabilidade do princípio quando a medida for socialmente recomendável. Ademais, a reiteração pode ser aferida por procedimentos pendentes, e o julgador deve ponderar proporcionalidade e razoabilidade.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1218</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="é admissível a aplicação do princípio da fungibilidade recursal quando a parte interpõe recurso impróprio (apelação em lugar de recurso em sentido estrito ou vice‑versa), desde que haja tempestividade e preenchimento dos pressupostos de admissibilidade do recurso cabível, na forma do art. 579 do cpp. o stj reconhece a fungibilidade recursal em sede penal, autorizando a sua aplicação quando o recurso interposto inadequadamente cumprir os requisitos de tempestividade e demais pressupostos do recurso correto, em consonância com o art. 579, caput e parágrafo único, do cpp. tema 1219">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 49</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-49">Não respondida</span>
+</div>
+
+<p class="enunciado">É admissível a aplicação do princípio da fungibilidade recursal quando a parte interpõe recurso impróprio (apelação em lugar de recurso em sentido estrito ou vice‑versa), desde que haja tempestividade e preenchimento dos pressupostos de admissibilidade do recurso cabível, na forma do art. 579 do CPP.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(49, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(49, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-49">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STJ reconhece a fungibilidade recursal em sede penal, autorizando a sua aplicação quando o recurso interposto inadequadamente cumprir os requisitos de tempestividade e demais pressupostos do recurso correto, em consonância com o art. 579, caput e parágrafo único, do CPP.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1219</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="agentes da polícia federal possuem, livremente e sem necessidade de supervisão judicial, atribuição para criar e operar sites ou fóruns online como expediente investigativo para identificar e localizar pessoas que compartilhem arquivos de pornografia infantil. a matéria encontra‑se em análise pelo tema 1222; a mera sugestão de possibilidade investigativa não autoriza conclusão absoluta sobre a licitude sem observar limites legais, garantia de direitos fundamentais e, quando aplicável, controle judicial prévio. a atuação da pf em meios online exige observância dos marcos legais e das garantias constitucionais. tema 1222">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 50</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-50">Não respondida</span>
+</div>
+
+<p class="enunciado">Agentes da Polícia Federal possuem, livremente e sem necessidade de supervisão judicial, atribuição para criar e operar sites ou fóruns online como expediente investigativo para identificar e localizar pessoas que compartilhem arquivos de pornografia infantil.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(50, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(50, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-50">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A matéria encontra‑se em análise pelo Tema 1222; a mera sugestão de possibilidade investigativa não autoriza conclusão absoluta sobre a licitude sem observar limites legais, garantia de direitos fundamentais e, quando aplicável, controle judicial prévio. A atuação da PF em meios online exige observância dos marcos legais e das garantias constitucionais.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1222</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="quanto à tipificação do roubo, ainda carece de definição vinculante se a violência exigida pelo tipo deve ser necessariamente dirigida à pessoa da vítima, ou se abrange também a violência exercida contra um objeto com o propósito de facilitar a subtração; por ora, a matéria não possui solução jurisprudencial definitiva. o tema 1227 está formulado para definir ponto controvertido sobre a direção da violência no roubo e indica temática ainda sujeita à apreciação da corte. enquanto não houver decisão colegiada consolidada, não existe entendimento vinculante sobre se a violência contra objetos é suficiente, isoladamente, para configurar o tipo do roubo. tema 1227">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 51</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-51">Não respondida</span>
+</div>
+
+<p class="enunciado">Quanto à tipificação do roubo, ainda carece de definição vinculante se a violência exigida pelo tipo deve ser necessariamente dirigida à pessoa da vítima, ou se abrange também a violência exercida contra um objeto com o propósito de facilitar a subtração; por ora, a matéria não possui solução jurisprudencial definitiva.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(51, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(51, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-51">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 1227 está formulado para definir ponto controvertido sobre a direção da violência no roubo e indica temática ainda sujeita à apreciação da Corte. Enquanto não houver decisão colegiada consolidada, não existe entendimento vinculante sobre se a violência contra objetos é suficiente, isoladamente, para configurar o tipo do roubo.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1227</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a remição de pena em razão de estudo a distância (ead) exige, além do credenciamento da instituição no mec, a prévia integração dessa instituição ao projeto político‑pedagógico (ppp) da unidade prisional ou do sistema, bem como comprovação de frequência e realização das atividades determinadas; o mero credenciamento é insuficiente. a assertiva como enunciada pretende negar a necessidade de integração ao ppp; na realidade, o stj exige a prévia integração da instituição ao ppp da unidade prisional para que a remição por ead seja válida, não bastando apenas o credenciamento junto ao mec, devendo ainda ser comprovada a frequência e realização das atividades. assim, a frase negativa torna‑se equivocada — o correto é que a integração é exigida. tema 1236">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 52</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-52">Não respondida</span>
+</div>
+
+<p class="enunciado">A remição de pena em razão de estudo a distância (EAD) exige, além do credenciamento da instituição no MEC, a prévia integração dessa instituição ao Projeto Político‑Pedagógico (PPP) da unidade prisional ou do sistema, bem como comprovação de frequência e realização das atividades determinadas; o mero credenciamento é insuficiente.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(52, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(52, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-52">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva como enunciada pretende negar a necessidade de integração ao PPP; na realidade, o STJ exige a prévia integração da instituição ao PPP da unidade prisional para que a remição por EAD seja válida, não bastando apenas o credenciamento junto ao MEC, devendo ainda ser comprovada a frequência e realização das atividades. Assim, a frase negativa torna‑se equivocada — o correto é que a integração é exigida.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1236</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="o tema 1241 encontra‑se pendente de julgamento de mérito, de modo que não há, por enquanto, orientação consolidada pela corte sobre a matéria por ele suscitada. a expressão &quot;aguardando julgamento de mérito&quot; indica ausência de julgamento final; logo, não existe tese consolidada capaz de nortear decisões dos tribunais como precedente vinculante. tema 1241">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 53</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-53">Não respondida</span>
+</div>
+
+<p class="enunciado">O Tema 1241 encontra‑se pendente de julgamento de mérito, de modo que não há, por enquanto, orientação consolidada pela Corte sobre a matéria por ele suscitada.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(53, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(53, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-53">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A expressão &quot;aguardando julgamento de mérito&quot; indica ausência de julgamento final; logo, não existe tese consolidada capaz de nortear decisões dos tribunais como precedente vinculante.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1241</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="o delito de falsa identidade é crime formal, consumando‑se com a mera prestação consciente de dados inexatos acerca da real identidade do agente, de modo que não se exige a ocorrência de resultado naturalístico para sua consumação. a corte reconhece o crime de falsa identidade como formal: consuma‑se com a conduta de fornecer, voluntária e conscientemente, informações falsas sobre a identidade, independentemente da produção de resultado concreto, nos termos do art. 307 do cp. tema 1255">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 54</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-54">Não respondida</span>
+</div>
+
+<p class="enunciado">O delito de falsa identidade é crime formal, consumando‑se com a mera prestação consciente de dados inexatos acerca da real identidade do agente, de modo que não se exige a ocorrência de resultado naturalístico para sua consumação.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(54, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(54, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-54">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A Corte reconhece o crime de falsa identidade como formal: consuma‑se com a conduta de fornecer, voluntária e conscientemente, informações falsas sobre a identidade, independentemente da produção de resultado concreto, nos termos do art. 307 do CP.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1255</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a majorante prevista no art. 40, inciso iv, da lei n. 11.343/2006 incide sempre que o agente estiver na posse de arma, independentemente de qualquer nexo finalístico entre o emprego da arma e a atividade de tráfico, determinando a absorção do crime do estatuto do desarmamento. a aplicação da majorante do art. 40, iv, demanda a presença de nexo finalístico entre o uso da arma e a prática do tráfico (arma utilizada para garantir a atividade criminosa). se tal nexo não existir, o delito do estatuto do desarmamento permanece autônomo, em concurso material com o tráfico, não havendo absorção automática. tema 1259">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 55</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-55">Não respondida</span>
+</div>
+
+<p class="enunciado">A majorante prevista no art. 40, inciso IV, da Lei n. 11.343/2006 incide sempre que o agente estiver na posse de arma, independentemente de qualquer nexo finalístico entre o emprego da arma e a atividade de tráfico, determinando a absorção do crime do Estatuto do Desarmamento.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(55, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(55, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-55">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A aplicação da majorante do art. 40, IV, demanda a presença de nexo finalístico entre o uso da arma e a prática do tráfico (arma utilizada para garantir a atividade criminosa). Se tal nexo não existir, o delito do Estatuto do Desarmamento permanece autônomo, em concurso material com o tráfico, não havendo absorção automática.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1259</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="na valoração das vetoriais relativas à natureza e à quantidade da substância entorpecente (art. 42, lei n. 11.343/2006), revela‑se desproporcional a majoração da pena‑base quando a droga apreendida for de ínfima quantidade, independentemente de sua natureza. o stj entendeu que a majoração da pena‑base com fundamento nas vetoriais do art. 42 pode ser desproporcional quando a quantidade apreendida for ínfima, devendo o julgador considerar a mínima dosimetria em face da efetiva quantidade, sem automatismos que agravem sem razoabilidade. tema 1262">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 56</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-56">Não respondida</span>
+</div>
+
+<p class="enunciado">Na valoração das vetoriais relativas à natureza e à quantidade da substância entorpecente (art. 42, Lei n. 11.343/2006), revela‑se desproporcional a majoração da pena‑base quando a droga apreendida for de ínfima quantidade, independentemente de sua natureza.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(56, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(56, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-56">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STJ entendeu que a majoração da pena‑base com fundamento nas vetoriais do art. 42 pode ser desproporcional quando a quantidade apreendida for ínfima, devendo o julgador considerar a mínima dosimetria em face da efetiva quantidade, sem automatismos que agravem sem razoabilidade.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1262</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a confissão prestada pelo investigado na fase de inquérito policial constitui requisito imprescindível para a celebração do acordo de não persecução penal (anpp), de modo que sua ausência inviabiliza a proposta ministerial. o stj afirmou que a confissão na fase inquisitorial não é exigência do art. 28‑a do cpp para o anpp; a formalização da confissão pode ocorrer no momento da assinatura do acordo perante o órgão ministerial, diante da natureza negocial do instituto, desde que haja assistência técnica. tema 1303">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 57</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-57">Não respondida</span>
+</div>
+
+<p class="enunciado">A confissão prestada pelo investigado na fase de inquérito policial constitui requisito imprescindível para a celebração do Acordo de Não Persecução Penal (ANPP), de modo que sua ausência inviabiliza a proposta ministerial.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(57, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(57, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-57">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STJ afirmou que a confissão na fase inquisitorial não é exigência do art. 28‑A do CPP para o ANPP; a formalização da confissão pode ocorrer no momento da assinatura do acordo perante o órgão ministerial, diante da natureza negocial do instituto, desde que haja assistência técnica.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1303</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a premeditação, quando presente, autoriza automaticamente a valoração negativa da culpabilidade na fixação da pena‑base (art. 59 cp), não admitindo qualquer ponderação ou exigência probatória adicional pelo julgador. embora a premeditação possa fundamentar valoração negativa da culpabilidade, tal exasperação da pena‑base não é automática; exige fundamentação específica acerca da maior reprovabilidade no caso concreto e não pode ser aplicada quando constituir elementar do tipo ou pressuposto de qualificadora. tema 1318">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 58</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-58">Não respondida</span>
+</div>
+
+<p class="enunciado">A premeditação, quando presente, autoriza automaticamente a valoração negativa da culpabilidade na fixação da pena‑base (art. 59 CP), não admitindo qualquer ponderação ou exigência probatória adicional pelo julgador.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(58, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(58, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-58">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Embora a premeditação possa fundamentar valoração negativa da culpabilidade, tal exasperação da pena‑base não é automática; exige fundamentação específica acerca da maior reprovabilidade no caso concreto e não pode ser aplicada quando constituir elementar do tipo ou pressuposto de qualificadora.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1318</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="o enunciado do tema 1331 indica admissibilidade da pretensão recursal na via ordinária, com a observação de que eventual provimento não defere a suspensão automática dos efeitos do ato recorrido. a formulação sucinta do tema 1331 sugere que se admite a medida (admissibilidade normal) com a ressalva de que não acarreta suspensão automática (não suspensão), o que corresponde à prática processual de controlar admissibilidade sem deferir efeito suspensivo de ofício. tema 1331">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 59</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-59">Não respondida</span>
+</div>
+
+<p class="enunciado">O enunciado do Tema 1331 indica admissibilidade da pretensão recursal na via ordinária, com a observação de que eventual provimento não defere a suspensão automática dos efeitos do ato recorrido.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(59, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(59, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-59">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A formulação sucinta do Tema 1331 sugere que se admite a medida (admissibilidade normal) com a ressalva de que não acarreta suspensão automática (não suspensão), o que corresponde à prática processual de controlar admissibilidade sem deferir efeito suspensivo de ofício.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1331</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a agravante do art. 61, ii, &quot;f&quot;, do código penal é inaplicável a todas as contravenções penais praticadas no contexto de violência doméstica contra a mulher, em razão dos princípios da especialidade e da tutela das contravenções pelo respectivo diploma legal. o stj admitiu a aplicação da agravante do art. 61, ii, &quot;f&quot;, às contravenções praticadas no contexto de violência doméstica contra a mulher, salvo quando a própria lei das contravenções estabelecer regime diverso (princípio da especialidade) — por exemplo, para a contravenção de vias de fato nos termos do § 2º incluído pela lei n. 14.994/2024, em que a aplicação pode ser vedada. tema 1333">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 60</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-60">Não respondida</span>
+</div>
+
+<p class="enunciado">A agravante do art. 61, II, &quot;f&quot;, do Código Penal é inaplicável a todas as contravenções penais praticadas no contexto de violência doméstica contra a mulher, em razão dos princípios da especialidade e da tutela das contravenções pelo respectivo diploma legal.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(60, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(60, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-60">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STJ admitiu a aplicação da agravante do art. 61, II, &quot;f&quot;, às contravenções praticadas no contexto de violência doméstica contra a mulher, salvo quando a própria lei das contravenções estabelecer regime diverso (princípio da especialidade) — por exemplo, para a contravenção de vias de fato nos termos do § 2º incluído pela Lei n. 14.994/2024, em que a aplicação pode ser vedada.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1333</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="o tema 1336 sustenta a aplicabilidade do art. 1.040 do código de processo civil como parâmetro para uniformização de questões recursais em âmbito cível, sendo esse dispositivo indicado para aplicação analógica em determinados recursos penais. o enunciado sucinto indica a intenção de aplicar o art. 1.040 do cpc, que trata da repercussão geral no âmbito civil, como parâmetro para questões de admissibilidade recursal, autorizando interpretação convergente ao tratamento recursal em espécie, consoante o conteúdo do tema. tema 1336">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 61</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-61">Não respondida</span>
+</div>
+
+<p class="enunciado">O Tema 1336 sustenta a aplicabilidade do art. 1.040 do Código de Processo Civil como parâmetro para uniformização de questões recursais em âmbito cível, sendo esse dispositivo indicado para aplicação analógica em determinados recursos penais.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(61, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(61, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-61">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O enunciado sucinto indica a intenção de aplicar o art. 1.040 do CPC, que trata da repercussão geral no âmbito civil, como parâmetro para questões de admissibilidade recursal, autorizando interpretação convergente ao tratamento recursal em espécie, consoante o conteúdo do tema.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1336</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="o tema 1337 encontra‑se pendente de julgamento de mérito, pelo que ainda não existe enunciado definitivo apto a orientar de forma vinculante a jurisprudência sobre a matéria. a designação &quot;aguardando julgamento de mérito&quot; significa ausência de decisão colegiada final sobre o tema, de modo que não há posição consolidada do tribunal superior a ser aplicada como precedente obrigatório. tema 1337">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 62</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-62">Não respondida</span>
+</div>
+
+<p class="enunciado">O Tema 1337 encontra‑se pendente de julgamento de mérito, pelo que ainda não existe enunciado definitivo apto a orientar de forma vinculante a jurisprudência sobre a matéria.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(62, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(62, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-62">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A designação &quot;aguardando julgamento de mérito&quot; significa ausência de decisão colegiada final sobre o tema, de modo que não há posição consolidada do Tribunal Superior a ser aplicada como precedente obrigatório.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1337</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="o tema 1351 permanece sem decisão de mérito, razão pela qual qualquer afirmação de caráter vinculante decorrente daquele tema ainda seria precipitada. a pendência de julgamento impede a extração de tese vinculante; até a conclusão do julgamento colegiado, não se pode atribuir força normativa ao tema. tema 1351">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 63</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-63">Não respondida</span>
+</div>
+
+<p class="enunciado">O Tema 1351 permanece sem decisão de mérito, razão pela qual qualquer afirmação de caráter vinculante decorrente daquele tema ainda seria precipitada.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(63, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(63, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-63">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A pendência de julgamento impede a extração de tese vinculante; até a conclusão do julgamento colegiado, não se pode atribuir força normativa ao tema.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1351</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="o tema 1361 ainda não foi decidido em órgão colegiado, de forma que não há enunciado consolidado extraído dele com eficácia vinculante. tratando‑se de tema pendente, não existe decisão definitiva a produzir efeitos de uniformização jurisprudencial, razão pela qual se mantém a ausência de orientação vinculante. tema 1361">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 64</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-64">Não respondida</span>
+</div>
+
+<p class="enunciado">O Tema 1361 ainda não foi decidido em órgão colegiado, de forma que não há enunciado consolidado extraído dele com eficácia vinculante.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(64, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(64, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-64">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tratando‑se de tema pendente, não existe decisão definitiva a produzir efeitos de uniformização jurisprudencial, razão pela qual se mantém a ausência de orientação vinculante.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1361</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="o tema 1374 aguarda julgamento de mérito, de modo que não se pode afirmar que já haja conclusão jurisprudencial do stj sobre o ponto por ele suscitados. a indicação de &quot;aguardando julgamento de mérito&quot; impede a pretensão de vinculação até que o tribunal profira decisão colegiada e enuncie tese. tema 1374">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 65</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-65">Não respondida</span>
+</div>
+
+<p class="enunciado">O Tema 1374 aguarda julgamento de mérito, de modo que não se pode afirmar que já haja conclusão jurisprudencial do STJ sobre o ponto por ele suscitados.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(65, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(65, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-65">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A indicação de &quot;aguardando julgamento de mérito&quot; impede a pretensão de vinculação até que o Tribunal profira decisão colegiada e enuncie tese.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1374</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="o tema 1376 não possui ainda decisão de mérito consolidada no âmbito do stj, inexistindo, por ora, enunciado vinculante sobre a matéria. a pendência de julgamento implica ausência de tese consolidada, impedindo o uso do tema como norma interpretativa obrigatória. tema 1376">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 66</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-66">Não respondida</span>
+</div>
+
+<p class="enunciado">O Tema 1376 não possui ainda decisão de mérito consolidada no âmbito do STJ, inexistindo, por ora, enunciado vinculante sobre a matéria.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(66, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(66, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-66">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A pendência de julgamento implica ausência de tese consolidada, impedindo o uso do tema como norma interpretativa obrigatória.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1376</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="o tipo previsto na primeira parte do caput do art. 54 da lei n. 9.605/1998 tem natureza formal, bastando a potencialidade de dano à saúde humana para sua configuração, não exigindo a efetiva ocorrência do dano nem perícia técnica obrigatória para a demonstração. a corte entendeu que a conduta descrita no começo do art. 54 é formal: a potencialidade do risco à saúde humana é suficiente para a tipicidade, dispensando‑se, em regra, a necessidade de comprovação do dano efetivo por perícia técnica quando outros meios de prova idôneos demonstrem a potencialidade lesiva. tema 1377">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 67</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-67">Não respondida</span>
+</div>
+
+<p class="enunciado">O tipo previsto na primeira parte do caput do art. 54 da Lei n. 9.605/1998 tem natureza formal, bastando a potencialidade de dano à saúde humana para sua configuração, não exigindo a efetiva ocorrência do dano nem perícia técnica obrigatória para a demonstração.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(67, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(67, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-67">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A Corte entendeu que a conduta descrita no começo do art. 54 é formal: a potencialidade do risco à saúde humana é suficiente para a tipicidade, dispensando‑se, em regra, a necessidade de comprovação do dano efetivo por perícia técnica quando outros meios de prova idôneos demonstrem a potencialidade lesiva.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1377</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="o tema 1381 ainda não foi julgado em mérito pelo tribunal, razão pela qual as questões submetidas a ele carecem de enunciado jurisprudencial vinculante. a afirmação decorre do caráter pendente do tema; enquanto não houver decisão colegiada, não há tese consolidada aplicável como precedente. tema 1381">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 68</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-68">Não respondida</span>
+</div>
+
+<p class="enunciado">O Tema 1381 ainda não foi julgado em mérito pelo Tribunal, razão pela qual as questões submetidas a ele carecem de enunciado jurisprudencial vinculante.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(68, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(68, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-68">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A afirmação decorre do caráter pendente do tema; enquanto não houver decisão colegiada, não há tese consolidada aplicável como precedente.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1381</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="o tema 1389 encontra‑se pendente de julgamento de mérito, pelo que não se pode extrair dele orientação pacífica do stj. a indicação de aguardo de julgamento evidencia inexistência de decisão colegiada definitiva, impedindo a extração de enunciado vinculante. tema 1389">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 69</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-69">Não respondida</span>
+</div>
+
+<p class="enunciado">O Tema 1389 encontra‑se pendente de julgamento de mérito, pelo que não se pode extrair dele orientação pacífica do STJ.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(69, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(69, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-69">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A indicação de aguardo de julgamento evidencia inexistência de decisão colegiada definitiva, impedindo a extração de enunciado vinculante.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1389</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="o tema 1394 permanece sem deliberação final; assim, não existe, até o momento, consolidação jurisprudencial do stj referente ao seu objeto. tema ainda pendente de julgamento não produz tese consolidada; só após apreciação colegiada é que suas conclusões podem vincular a doutrina jurisprudencial. tema 1394">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 70</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-70">Não respondida</span>
+</div>
+
+<p class="enunciado">O Tema 1394 permanece sem deliberação final; assim, não existe, até o momento, consolidação jurisprudencial do STJ referente ao seu objeto.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(70, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(70, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-70">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema ainda pendente de julgamento não produz tese consolidada; só após apreciação colegiada é que suas conclusões podem vincular a doutrina jurisprudencial.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1394</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="o tema 1407 ainda não recebeu julgamento de mérito pelo tribunal, de forma que não se pode afirmar a existência de enunciado vinculante decorrente daquele tema. a indicação de que o tema aguarda julgamento demonstra que não há decisão colegiada concluída; portanto, nenhuma orientação vinculante dele advém até eventual deliberação. tema 1407">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 71</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-71">Não respondida</span>
+</div>
+
+<p class="enunciado">O Tema 1407 ainda não recebeu julgamento de mérito pelo Tribunal, de forma que não se pode afirmar a existência de enunciado vinculante decorrente daquele tema.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(71, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(71, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-71">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A indicação de que o tema aguarda julgamento demonstra que não há decisão colegiada concluída; portanto, nenhuma orientação vinculante dele advém até eventual deliberação.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1407</p>
+</div>
+</section>
+
+</div>
+
+<script>
+const storageKey = location.pathname + "_respostas";
+let respostas = JSON.parse(localStorage.getItem(storageKey) || "{}");
+
+function destacar(t){
+ if(t==="CERTO") return '<span class="gabarito-certo">CERTO</span>';
+ if(t==="ERRADO") return '<span class="gabarito-errado">ERRADO</span>';
+ return t;
+}
+
+function responder(numero, resposta){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const gabarito=card.dataset.gabarito;
+ const correto=resposta===gabarito;
+ respostas[numero]={resposta,correto};
+ localStorage.setItem(storageKey, JSON.stringify(respostas));
+ mostrarFeedback(numero);
+ atualizarPainel();
+ filtrar();
+}
+
+function mostrarFeedback(numero){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const feedback=document.getElementById("feedback-"+numero);
+ const status=document.getElementById("status-"+numero);
+ const resultado=feedback.querySelector(".resultado");
+ const gabarito=card.dataset.gabarito;
+ const dados=respostas[numero];
+ if(!dados) return;
+ feedback.style.display="block";
+ feedback.classList.remove("correto","errado");
+ if(dados.correto){
+   feedback.classList.add("correto");
+   resultado.innerHTML="Você acertou. A resposta é "+destacar(gabarito)+".";
+   status.textContent="Respondida — acerto";
+   status.style.color="var(--green)";
+ } else {
+   feedback.classList.add("errado");
+   resultado.innerHTML="Você errou. O gabarito é "+destacar(gabarito)+".";
+   status.textContent="Respondida — erro";
+   status.style.color="var(--red)";
+ }
+}
+
+function atualizarPainel(){
+ let respondidas=0, acertos=0, erros=0;
+ for(const k in respostas){
+   respondidas++;
+   if(respostas[k].correto) acertos++; else erros++;
+ }
+ document.getElementById("respondidas").textContent=respondidas;
+ document.getElementById("acertos").textContent=acertos;
+ document.getElementById("erros").textContent=erros;
+ document.getElementById("visiveis").textContent=document.querySelectorAll(".questao:not(.oculta)").length;
+}
+
+function filtrar(){
+ const busca=document.getElementById("busca").value.trim().toLowerCase();
+ const disciplina=document.getElementById("disciplina").value;
+ const statusFiltro=document.getElementById("statusFiltro").value;
+ const cards=Array.from(document.querySelectorAll(".questao"));
+ let vis=0;
+ cards.forEach((card,idx)=>{
+   const n=idx+1;
+   const texto=card.dataset.texto||"";
+   const disc=card.dataset.disciplina||"";
+   const r=respostas[n];
+   let passaStatus=true;
+   if(statusFiltro==="nao") passaStatus=!r;
+   if(statusFiltro==="acerto") passaStatus=r && r.correto;
+   if(statusFiltro==="erro") passaStatus=r && !r.correto;
+   const ok=(!busca||texto.includes(busca)) && (!disciplina||disc===disciplina) && passaStatus;
+   card.classList.toggle("oculta", !ok);
+   if(ok) vis++;
+ });
+ document.getElementById("sem-resultados").style.display=vis===0?"block":"none";
+ atualizarPainel();
+}
+
+function reiniciar(){
+ if(!confirm("Deseja reiniciar este simulado?")) return;
+ localStorage.removeItem(storageKey);
+ location.reload();
+}
+
+function restaurar(){
+ for(const k in respostas) mostrarFeedback(Number(k));
+ filtrar();
+ atualizarPainel();
+}
+
+restaurar();
+</script>
+</body>
+</html>

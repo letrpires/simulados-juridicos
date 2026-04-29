@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Simulado - Info 1181 STF</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+    --bg: #0f172a;
+    --card: #111827;
+    --card2: #1f2937;
+    --text: #e5e7eb;
+    --muted: #9ca3af;
+    --accent: #38bdf8;
+    --green: #22c55e;
+    --red: #ef4444;
+    --yellow: #facc15;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #020617, #111827);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+header {
+    padding: 32px 20px;
+    text-align: center;
+    border-bottom: 1px solid #334155;
+}
+
+header h1 {
+    margin: 0 0 10px;
+    font-size: 28px;
+}
+
+header p {
+    color: var(--muted);
+    margin: 0;
+}
+
+.container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 24px 16px 80px;
+}
+
+.painel {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(8px);
+    border: 1px solid #334155;
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 24px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.stat {
+    background: var(--card2);
+    padding: 12px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.stat strong {
+    display: block;
+    font-size: 22px;
+    color: var(--accent);
+}
+
+.card {
+    background: rgba(17, 24, 39, 0.96);
+    border: 1px solid #334155;
+    border-radius: 18px;
+    padding: 22px;
+    margin-bottom: 20px;
+    box-shadow: 0 12px 30px rgba(0,0,0,.25);
+}
+
+.questao-topo {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.badge {
+    background: #0ea5e9;
+    color: #00111f;
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 999px;
+}
+
+.status {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.enunciado {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.botoes {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+button {
+    cursor: pointer;
+    border: 0;
+    padding: 12px 22px;
+    border-radius: 12px;
+    background: #334155;
+    color: white;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+button:hover {
+    transform: translateY(-1px);
+    background: #475569;
+}
+
+.feedback {
+    display: none;
+    background: #020617;
+    border-left: 4px solid var(--accent);
+    padding: 16px;
+    border-radius: 12px;
+    margin-top: 12px;
+}
+
+.feedback.correto {
+    border-left-color: var(--green);
+}
+
+.feedback.errado {
+    border-left-color: var(--red);
+}
+
+.resultado {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.referencia {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.acoes {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.acoes button {
+    background: #0ea5e9;
+    color: #00111f;
+}
+
+@media (max-width: 700px) {
+    .painel {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .botoes {
+        flex-direction: column;
+    }
+
+    header h1 {
+        font-size: 22px;
+    }
+
+    .enunciado {
+        font-size: 16px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Simulado - Info 1181 STF</h1>
+    <p>Simulado interativo de CERTO ou ERRADO</p>
+</header>
+
+<div class="container">
+
+    <div class="painel">
+        <div class="stat">
+            <strong id="total">2</strong>
+            Total
+        </div>
+        <div class="stat">
+            <strong id="respondidas">0</strong>
+            Respondidas
+        </div>
+        <div class="stat">
+            <strong id="acertos">0</strong>
+            Acertos
+        </div>
+        <div class="stat">
+            <strong id="erros">0</strong>
+            Erros
+        </div>
+    </div>
+
+    <div class="acoes">
+        <button onclick="reiniciar()">Reiniciar simulado</button>
+    </div>
+
+    
+        <section class="card questao" data-gabarito="ERRADO">
+            <div class="questao-topo">
+                <span class="badge">Questão 1</span>
+                <span class="status" id="status-1">Não respondida</span>
+            </div>
+
+            <p class="enunciado">É constitucional lei estadual que, ao impor a hipermercados, supermercados e estabelecimentos congêneres a disponibilização de percentual mínimo de carrinhos de compras adaptados com assentos para crianças com deficiência ou mobilidade reduzida, disciplina matéria reservada exclusivamente à União, por versar sobre normas gerais de consumo e sobre a organização da atividade econômica, de modo que eventual invocação da proteção à pessoa com deficiência não afasta a invasão da competência legislativa privativa federal.</p>
+
+            <div class="botoes">
+                <button onclick="responder(1, 'CERTO')">CERTO</button>
+                <button onclick="responder(1, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-1">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> ERRADO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque a validade da lei estadual decorre precisamente da existência de competência legislativa concorrente dos estados para tratar de proteção e integração social das pessoas com deficiência, além de matérias correlatas de defesa da saúde e do consumo. Não se trata de disciplina reservada exclusivamente à União.<br><br>O ponto central do entendimento é que a norma estadual não extrapola a repartição constitucional de competências ao impor obrigação de acessibilidade em estabelecimentos comerciais, pois a medida se insere em campo normativo em que os estados podem atuar de forma suplementar e concreta, especialmente para promover inclusão e igualdade material de pessoas com deficiência.<br><br>Também não procede a alegação de violação à livre iniciativa. A intervenção estatal foi reputada legítima porque a exigência é proporcional: limita-se a percentual reduzido de carrinhos adaptados, com finalidade específica de assegurar acessibilidade, dignidade e integração social, sem impor ônus desarrazoado à atividade empresarial. Assim, a livre iniciativa não funciona como obstáculo absoluto a medidas regulatórias voltadas à proteção de grupos vulneráveis, desde que a restrição seja adequada, necessária e razoável.<br><br>Em suma, a lei estadual foi considerada compatível com a Constituição justamente por harmonizar competência concorrente, proteção da pessoa com deficiência e proporcionalidade, afastando a tese de invasão de competência privativa da União.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. RE 1.198.269/SP, Rel. min. Gilmar Mendes, julgado em 09/06/2025 (Repercussão Geral – Tema 1.286) (Info 1181).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="ERRADO">
+            <div class="questao-topo">
+                <span class="badge">Questão 2</span>
+                <span class="status" id="status-2">Não respondida</span>
+            </div>
+
+            <p class="enunciado">É constitucional lei estadual que atribua aos órgãos de controle interno de cada Poder a obrigação de realizar auditorias “por determinação” do Tribunal de Contas local, pois a Constituição prevê atuação cooperativa entre os sistemas de controle interno e externo, admitindo que o controle externo imponha, de modo vinculante, a execução de auditorias pelos órgãos internos, desde que preservada a remessa dos relatórios ao Tribunal.</p>
+
+            <div class="botoes">
+                <button onclick="responder(2, 'CERTO')">CERTO</button>
+                <button onclick="responder(2, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-2">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> ERRADO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque a relação constitucional entre o sistema de controle externo e o sistema de controle interno não é de subordinação, mas de colaboração. Os arts. 70 a 74 da Constituição estruturam competências complementares entre Tribunal de Contas e órgãos de controle interno, preservando a autonomia funcional de cada um.<br><br>No caso examinado, a norma estadual foi reputada inconstitucional apenas na parte em que autorizava que os órgãos de controle interno realizassem auditorias “por determinação do Tribunal de Contas do Estado”. Essa expressão foi expurgada por nulidade parcial com redução de texto, justamente porque conferia ao controle externo poder de comando sobre a atividade do controle interno, o que viola a separação de poderes e o sistema de freios e contrapesos.<br><br>A remessa de relatórios ao Tribunal de Contas é compatível com o modelo constitucional de fiscalização, mas isso não legitima a imposição, pelo controle externo, de ordens vinculantes para que o controle interno execute auditorias. A autonomia dos órgãos internos impede que suas atividades sejam subordinadas a determinações do Tribunal de Contas, ainda que se trate de mecanismo voltado ao aperfeiçoamento da fiscalização.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.096/DF, Rel. Min. Gilmar Mendes, julgado em 09/06/2025 (Info 1181).</p>
+            </div>
+        </section>
+        
+
+</div>
+
+<script>
+const totalQuestoes = 2;
+let respostas = JSON.parse(localStorage.getItem(location.pathname + "_respostas") || "{}");
+
+function atualizarPainel() {
+    const respondidas = Object.keys(respostas).length;
+    let acertos = 0;
+    let erros = 0;
+
+    for (const key in respostas) {
+        if (respostas[key].correto) acertos++;
+        else erros++;
+    }
+
+    document.getElementById("respondidas").textContent = respondidas;
+    document.getElementById("acertos").textContent = acertos;
+    document.getElementById("erros").textContent = erros;
+}
+
+function responder(numero, resposta) {
+    const card = document.querySelectorAll(".questao")[numero - 1];
+    const gabarito = card.dataset.gabarito;
+    const correto = resposta === gabarito;
+
+    respostas[numero] = {
+        resposta,
+        correto
+    };
+
+    localStorage.setItem(location.pathname + "_respostas", JSON.stringify(respostas));
+
+    mostrarFeedback(numero);
+    atualizarPainel();
+}
+
+function mostrarFeedback(numero) {
+    const card = document.querySelectorAll(".questao")[numero - 1];
+    const feedback = document.getElementById("feedback-" + numero);
+    const status = document.getElementById("status-" + numero);
+    const resultado = feedback.querySelector(".resultado");
+
+    const dados = respostas[numero];
+
+    if (!dados) return;
+
+    feedback.style.display = "block";
+    feedback.classList.remove("correto", "errado");
+
+    if (dados.correto) {
+        feedback.classList.add("correto");
+        resultado.textContent = "Você acertou. A resposta é " + card.dataset.gabarito + ".";
+        status.textContent = "Respondida — acerto";
+        status.style.color = "var(--green)";
+    } else {
+        feedback.classList.add("errado");
+        resultado.textContent = "Você errou. O gabarito é " + card.dataset.gabarito + ".";
+        status.textContent = "Respondida — erro";
+        status.style.color = "var(--red)";
+    }
+}
+
+function restaurar() {
+    for (const key in respostas) {
+        mostrarFeedback(Number(key));
+    }
+    atualizarPainel();
+}
+
+function reiniciar() {
+    if (!confirm("Deseja reiniciar este simulado?")) return;
+    localStorage.removeItem(location.pathname + "_respostas");
+    location.reload();
+}
+
+restaurar();
+</script>
+
+</body>
+</html>

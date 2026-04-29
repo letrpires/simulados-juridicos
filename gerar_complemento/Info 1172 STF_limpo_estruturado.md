@@ -1,0 +1,352 @@
+# Info 1172 STF
+
+**Status geral:** Estruturado automaticamente
+
+---
+
+## Julgado 1
+
+**Disciplina:** N/I
+
+**Subtema:** Errata: Na Adi 2.965/Go, Depois Que O Acórdão Foi
+
+**ODS:** 16
+
+**Título do julgado:**
+
+Publicado (após a divulgação do Informativo), percebi que o Relator ficou vencido em um ponto específico: o STF deu interpretação conforme a Constituição ao art. 83 da Lei estadual para excluir a exigência de formação superior para os profissionais da educação infantil. Os comentários foram atualizados para refletir esse entendimento. : DIREITO CONSTITUCIONAL DIREITOS E GARANTIAS FUNDAMENTAIS A revista íntima em presídios, em regra, é inadmissível, sendo permitida excepcionalmente apenas quando dispositivos tecnológicos forem ineficazes e houver indícios concretos de porte de material proibido, devendo ser realizada de forma respeitosa Importante!!!
+
+**Tese / entendimento:**
+
+É inadmissível — e viola o princípio da dignidade da pessoa humana, os direitos à intimidade,
+à honra e à imagem, bem como o direito a não ser submetido a tortura ou a tratamento
+desumano ou degradante (arts. 1º, III; 5º, caput, III e X, CF/88) — a realização de revista íntima
+vexatória com atos de desnudamento ou com exames invasivos, com fins de humilhação, de
+forma generalizada e sistemática, para o ingresso de visitantes em estabelecimentos
+prisionais.
+Admite-se, excepcionalmente, a revista íntima, se impossível ou ineficaz a utilização de
+dispositivos tecnológicos de segurança, desde que ela seja realizada de forma respeitosa e
+conforme os critérios previamente estabelecidos, bem como embasada em elementos
+concretos indicativos da tentativa de ingresso com material proibido ou cujo porte seja ilícito.
+Tese fixada pelo STF:
+1. Em visitas sociais nos presídios ou estabelecimentos de segregação é inadmissível a revista
+íntima vexatória com o desnudamento de visitantes ou exames invasivos com finalidade de
+causar humilhação. A prova obtida por esse tipo de revista é ilícita, salvo decisões judiciais em
+cada caso concreto. A presente decisão tem efeitos prospectivos a partir da publicação da ata
+do julgamento.
+2. A autoridade administrativa, de forma fundamentada e por escrito, tem o poder de não
+permitir a visita diante da presença de indício robusto de ser a pessoa visitante portadora de
+qualquer item corporal oculto ou sonegado, especialmente de material proibido, como
+produtos ilegais, drogas ou objetos perigosos. São considerados robustos indícios embasados
+em elementos tangíveis e verificáveis, como informações prévias de inteligência, denúncias, e
+comportamentos suspeitos.
+3. Confere-se o prazo de 24 meses, a contar da data deste julgamento, para aquisição e
+instalação de equipamentos como scanners corporais, esteiras de raio X e portais detectores
+de metais em todos os estabelecimentos penais.
+4. Fica determinado ao Ministério da Justiça e da Segurança Pública e aos Estados que, por
+meio dos recursos do Fundo Penitenciário Nacional e do Fundo Nacional de Segurança Pública,
+promovam a aquisição ou locação, e distribuição de scanners corporais para as unidades
+prisionais, em conformidade com sua atribuição de coordenação nacional da política
+penitenciária, assegurando a proteção dos servidores, a integridade dos detentos e a
+dignidade dos visitantes, prevenindo práticas abusivas e ilícitas, sem interferir na autonomia
+dos entes federativos, e garantindo a aplicação uniforme das diretrizes de segurança
+penitenciária no país.
+5. Devem os entes federados, no âmbito de suas atribuições, garantir que a aquisição ou
+locação de scanners corporais para as unidades prisionais esteja contemplada no respectivo
+planejamento administrativo e orçamento, com total prioridade na aplicação dos recursos.
+6. Excepcionalmente, na impossibilidade ou inefetividade de utilização do scanner corporal,
+esteira de raio-x, portais detectores de metais, a revista íntima para ingresso em
+estabelecimentos prisionais, diante de indícios robustos de suspeitas, tangíveis e verificáveis,
+deverá ser motivada para cada caso específico e dependerá da plena concordância do
+visitante, vedada, em qualquer circunstância, a execução da revista como forma de
+humilhação e de exposição vexatória; deve ser realizada em local adequado, exclusivo para tal
+verificação, e apenas em pessoas maiores e que possam emitir consentimento válido por si ou
+por meio de seu representante legal, de acordo com protocolos gerais e nacionais
+preestabelecidos e por pessoas do mesmo gênero do visitante, preferencialmente por
+profissionais de saúde, nas hipóteses de desnudamento e exames invasivos.
+(i) O excesso ou o abuso da realização da revista íntima acarretarão responsabilidade do
+agente público ou do profissional de saúde habilitado e ilicitude de eventual prova obtida.
+(ii) Caso não haja concordância do visitante, a autoridade administrativa poderá, de forma
+fundamentada e por escrito, impedir a realização da visita.
+(iii) O procedimento de revista em criança, adolescente ou pessoa com deficiência intelectual
+que não possa emitir consentimento válido será substituído pela revista invertida,
+direcionada à pessoa a ser visitada.
+
+**Referência:**
+
+STF. Plenário. ARE 959.620/RS, Rel. Min. Edson Fachin, julgado em 02/04/2025 (Repercussão Geral – Tema 998) (Info 1172).
+
+**Status:** Revisão leve
+
+**Observações de saneamento:**
+
+Verificar: disciplina.
+
+---
+
+## Julgado 2
+
+**Disciplina:** N/I
+
+**Subtema:** Direitos Fundamentais
+
+**ODS:** 3, 4 E 16
+
+**Título do julgado:**
+
+Determinações feitas pelo STF na ADPF das Favelas Importante!!!
+
+**Tese / entendimento:**
+
+A situação de violação generalizada de direitos humanos, causada pela falha na política de
+segurança pública nas favelas do Estado do Rio de Janeiro, bem como a omissão estrutural do
+cumprimento de deveres constitucionais pelo poder público demandam uma solução
+complexa, com a participação de todos os Poderes, na adoção de medidas para a redução da
+letalidade policial naquela unidade federativa.
+Principais determinações:
+• A decisão do STF teve por objetivo principal garantir o cumprimento de decisões da Corte
+Interamericana de Direitos Humanos, especialmente do caso Favela Nova Brasília,
+promovendo a elaboração de plano para redução da letalidade policial no Rio de Janeiro,
+compatível com a Constituição e tratados internacionais.
+• O STF não reconheceu estado de coisas inconstitucional, entendendo que o Estado do Rio de
+Janeiro já está comprometido com a cessação das violações e adoção de medidas estruturais.
+• O controle judicial das atividades policiais é posterior. O Judiciário não pode definir
+previamente armamento ou contingente das operações; cabe às forças policiais avaliar a
+proporcionalidade do uso da força.
+• O STF não proibiu o uso de helicópteros como plataformas de tiro, deixando a avaliação sobre
+sua proporcionalidade às forças policiais, com controle judicial posterior.
+• Em casos de suspeita de crime doloso contra a vida por agentes de segurança, a investigação
+será do Ministério Público, que deve ser imediatamente comunicado e manter plantão
+permanente para esses casos.
+• Foi determinada, no prazo de 180 dias, a instalação de câmeras em viaturas da Polícia Militar
+e Civil e nos uniformes de agentes da Polícia Civil durante operações ostensivas. A
+obrigatoriedade não se aplica a atividades sigilosas.
+• Não há restrições territoriais à ação policial perto de escolas, creches e hospitais. Contudo,
+deve haver rigor na proporcionalidade do uso da força, com justificação formal quando a
+operação ocorrer em horários de entrada ou saída escolar.
+• Deve ser elaborado e executado um plano de reocupação territorial.
+• A Polícia Federal deve instaurar inquéritos sobre crimes de repercussão interestadual ou
+internacional relacionados a organizações criminosas no Rio de Janeiro, com garantia de
+reforço orçamentário pela União.
+
+**Referência:**
+
+STF. Plenário. ADPF 635/RJ, Rel. Min. Edson Fachin, julgado em 03/04/2025 (Info 1172).
+
+**Status:** Revisão leve
+
+**Observações de saneamento:**
+
+Verificar: disciplina.
+
+---
+
+## Julgado 3
+
+**Disciplina:** N/I
+
+**Subtema:** Competências Legislativas
+
+**ODS:** 16
+
+**Título do julgado:**
+
+É inconstitucional lei estadual que regulamenta a atuação de associações de socorro mútuo
+
+**Tese / entendimento:**
+
+A competência para legislar sobre direito civil e política de seguros é privativa da União (art.
+22, I e VII, CF/88), sendo vedado aos Estados editar normas que regulamentem tais matérias.
+A lei estadual que impõe obrigações informacionais às associações de socorro mútuo
+caracteriza invasão da competência legislativa da União, configurando inconstitucionalidade
+formal.
+
+**Referência:**
+
+STF. Plenário. ADI 7.150/AL, Rel. Min. André Mendonça, julgado em 07/04/2025 (Info 1172).
+
+**Status:** Revisão leve
+
+**Observações de saneamento:**
+
+Verificar: disciplina.
+
+---
+
+## Julgado 4
+
+**Disciplina:** N/I
+
+**Subtema:** Poder Legislativo
+
+**ODS:** 16
+
+**Título do julgado:**
+
+É inconstitucional norma estadual que estabelece, para fins de convocação de suplente, prazo de afastamento ou licença de deputado distinto do previsto na Constituição Federal
+
+**Tese / entendimento:**
+
+O art. 56, § 1º da CF/88 afirma que o suplente do Deputado Federal será convocado se o titular
+estiver de licença superior a 120 dias. Essa regra também se aplica para os Deputados
+Estaduais.
+Assim, a norma estadual que prevê prazo inferior ao estabelecido na Constituição Federal
+para a convocação de suplente de deputado estadual viola o princípio da simetria, bem como
+os princípios democrático, republicano e da soberania popular.
+O poder constituinte dos Estados está juridicamente limitado pela Constituição da República,
+sendo obrigatória a observância do prazo previsto no art. 56, § 1º, da CF, também pelas
+Assembleias Legislativas estaduais.
+
+**Referência:**
+
+STF. Plenário. ADI 7.257/SC e ADI 7.251/TO, Rel. Min. André Mendonça, julgados em 07/04/2025 (Info 1172).
+
+**Status:** Revisão leve
+
+**Observações de saneamento:**
+
+Verificar: disciplina.
+
+---
+
+## Julgado 5
+
+**Disciplina:** N/I
+
+**Subtema:** Temas Diversos
+
+**ODS:** 16
+
+**Título do julgado:**
+
+É constitucional lei estadual que exige profissional de educação física e o registro da empresa no CREF para academias e clubes cujas atividades envolvam riscos à saúde, mas essa exigência não se aplica a atividades exclusivamente lúdicas ou recreativas, sem risco relevante Importante!!!
+
+**Tese / entendimento:**
+
+É constitucional lei estadual que exige a presença integral de profissionais de educação física
+registrados no respectivo conselho, incluindo um responsável técnico, além do registro da
+empresa na entidade profissional, para o funcionamento regular de academias, clubes e
+estabelecimentos similares, cujas atividades ofereçam riscos à saúde ou segurança dos
+praticantes.
+Tais exigências já estão previstas na legislação federal (Lei nº 6.839/1980 e Lei nº
+9.696/1998).
+Vale ressaltar, contudo, que a supervisão profissional imposta pela legislação federal destina-
+se apenas às academias, clubes desportivos e estabelecimentos congêneres, cujas atividades
+envolvam, por sua própria natureza, riscos à saúde, à integridade física ou à segurança pessoal
+dos praticantes.
+Assim, não se submetem a tais exigências os estabelecimentos destinados à prática de
+atividades de natureza exclusivamente lúdica ou recreativa, realizadas individualmente ou
+em grupo, cuja prática, voltada à diversão, socialização e ao lazer, não oferece riscos
+excepcionais à saúde.
+Por isso, o STF deu interpretação conforme à Constituição à Lei estadual, para afastar a
+exigência de registro e supervisão profissional em relação aos estabelecimentos nos quais as
+práticas desportivas e a atividade física sejam praticadas em caráter recreativo, visando à
+diversão, à socialização e ao lazer, sem riscos excepcionais à saúde e à integridade física.
+
+**Referência:**
+
+STF. Plenário. ADI 4.399/RS, Rel. Min. Nunes Marques, redator do acórdão Min. Flávio Dino, julgado em 07/04/2025 (Info 1172).
+
+**Status:** Revisão leve
+
+**Observações de saneamento:**
+
+Verificar: disciplina.
+
+---
+
+## Julgado 6
+
+**Disciplina:** Direito Administrativo
+
+**Subtema:** Direito Educacional
+
+**ODS:** 4 E 16
+
+**Título do julgado:**
+
+A competência suplementar dos Estados para legislar sobre educação e ensino restringe-se à edição de normas específicas para atender às suas peculiaridades e não pode ser usada para elaborar normas gerais sobre educação ou outra matéria de competência da União
+
+**Tese / entendimento:**
+
+O STF julgou parcialmente procedente o pedido formulado em ADI, reconhecendo a
+inconstitucionalidade apenas de alguns dispositivos da Lei Complementar 26/1998, do Estado
+de Goiás, que estabeleceu diretrizes e bases para o sistema educativo estadual.
+Principais conclusões:
+• Competência legislativa concorrente: a União possui competência privativa para legislar
+sobre as diretrizes e bases da educação nacional (art. 22, XXIV, da CF/88), enquanto os Estados
+possuem competência concorrente para legislar sobre educação, limitada a normas
+suplementares específicas para atender às suas peculiaridades locais.
+• Fiscalização constitucional: é válida/constitucional a fiscalização de escolas privadas pelo
+Poder Público estadual (incluindo inspeção e aprovação de calendário), pois as instituições
+particulares integram o sistema de ensino e devem observar tanto as normas gerais federais
+quanto as disposições estaduais suplementares.
+• Gestão democrática e regimentos: o STF declarou a constitucionalidade das normas que
+permitem ao Estado regulamentar os regimentos internos (art. 14, V) e elaborar normas de
+gestão democrática (art. 14, XV). No entanto, deu interpretação conforme a Constituição ao
+art. 14, XV, para limitar a aplicação do princípio da gestão democrática somente ao ensino
+público, pois a Constituição e a LDB não a estendem à rede privada.
+• Normas trabalhistas: o STF declarou inconstitucionais as exigências trabalhistas impostas
+aos professores da rede privada (como jornada extraclasse, piso salarial e duração da hora-
+aula), por invasão da competência privativa da União para legislar sobre direito do trabalho.
+• Número de alunos por sala: o STF julgou constitucional a fixação estadual do limite máximo
+de alunos, inclusive para escolas particulares, por não se tratar de norma geral, mas de
+regulamentação dependente das peculiaridades locais de cada ente federativo.
+• Exigência de nível superior: o STF declarou inconstitucional a expressão “a ser realizada
+preferencialmente, em universidades e centros universitários” (art. 83). Além disso, deu
+interpretação conforme a Constituição ao art. 83 para excluir a exigência de formação
+superior para os profissionais da educação infantil, alinhando-se à LDB (que admite formação
+em nível médio, modalidade normal, para essa etapa).
+• Formação mínima: o STF declarou inconstitucionalidade parcial, com redução de texto, do
+art. 84, parágrafo único, suprimindo as expressões que limitavam a formação de nível médio,
+modalidade normal, a apenas “quatro” primeiras séries e o seu caráter “precário”. Por sua vez,
+a exigência de formação mínima para o magistério na educação infantil (art. 84, I) foi
+considerada constitucional, mas apenas para os estabelecimentos de ensino públicos.
+
+**Referência:**
+
+STF. Plenário. ADI 2.965/GO, Rel. Min. Luiz Fux, julgado em 02/04/2025 (Info 1172).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 7
+
+**Disciplina:** Direito Ambiental
+
+**Subtema:** Licenciamento Ambiental
+
+**ODS:** 15 E 16
+
+**Título do julgado:**
+
+Análise do Código Estadual do Meio Ambiente do Estado do Rio Grande do Sul
+
+**Tese / entendimento:**
+
+São inconstitucionais as normas estaduais que:
+• flexibilizam a concessão de licenciamento ambiental sem discriminar as atividades que
+poderão ter o processo simplificado;
+• permitem, de forma genérica, a contratação de pessoas físicas ou jurídicas e a celebração de
+convênios para auxiliar no licenciamento ambiental;
+• preveem a isenção de licenciamento mediante cadastro florestal para empreendimentos de
+silvicultura de pequeno porte; e
+• transferem a análise das questões relativas ao reassentamento de populações para a fase da
+Licença de Operação (LO).
+
+**Referência:**
+
+STF. Plenário. ADI 6.618/RS, Rel. Min. Cristiano Zanin, julgado em 07/04/2025 (Info 1172).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---

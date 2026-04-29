@@ -1,0 +1,400 @@
+# Simulado - Info 875 STJ
+
+**Arquivo de origem:** Info 875 STJ_limpo_estruturado.md
+**Total de julgados:** 24
+
+---
+
+## Questão 1
+
+Em concurso público federal estruturado em múltiplas especialidades autônomas, cada qual com requisitos próprios e, em regra, com apenas uma vaga, a reserva legal de 20% destinada a candidatos negros pode ser operacionalizada por sorteio entre as especialidades, de modo a concentrar integralmente a única vaga de determinada área em regime de cotas, ainda que isso elimine por completo a ampla concorrência naquela especialidade, desde que o percentual global de reserva seja preservado no certame.
+
+**Gabarito:** ERRADO
+
+**Justificativa (robusta):**
+A assertiva está incorreta porque a política de reserva de vagas não autoriza a Administração a fracionar artificialmente o concurso por especialidades para, por sorteio, transformar a única vaga de uma área específica em vaga reservada, suprimindo integralmente a disputa pela ampla concorrência naquela especialidade.
+
+O ponto central do entendimento é que a incidência da reserva deve observar o universo juridicamente adequado de vagas, sem manipulação da estrutura do certame para viabilizar cotas em hipóteses em que a própria disciplina legal não comporta sua aplicação. A Lei nº 12.990/2014, vigente à época, exigia mínimo de 3 vagas para incidência da reserva, além de pressupor a observância de alternância e proporcionalidade. Em especialidades com vaga única e requisitos próprios, a reserva não pode ser deslocada para aquela unidade isolada, pois isso equivaleria a aplicar a ação afirmativa sobre base incompatível com o modelo legal.
+
+Além disso, o sorteio não legitima resultado que, na prática, elimina a ampla concorrência de uma especialidade inteira, porque a reserva de vagas não pode ser instrumentalizada para produzir preterição sem respaldo normativo. O entendimento reafirma que o quantitativo reservado deve incidir sobre o total de vagas do cargo, vedado o fracionamento por áreas de especialização para contornar a disciplina legal das cotas.
+
+**Referência:**
+STJ. 1ª Seção. MS 31.562-DF, Rel. Min. Benedito Gonçalves, julgado em 4/12/2025 (Info 875).
+
+## Questão 2
+
+Em ação de improbidade administrativa, se o Ministério Público interpõe apelação contra sentença que reconheceu apenas violação a princípios da Administração Pública e requer, expressamente, a incidência da sanção de perda dos valores ilicitamente acrescidos ao patrimônio do agente, o tribunal pode recapitular a conduta para a hipótese de enriquecimento ilícito e aplicar a sanção correspondente sem que isso configure reformatio in pejus, pois tal providência decorre da própria lógica do pedido recursal e dos limites da devolutividade.
+
+**Gabarito:** CERTO
+
+**Justificativa (robusta):**
+A assertiva está correta. A sanção de perda dos valores ilicitamente acrescidos ao patrimônio do agente é cominação típica e exclusiva da hipótese de enriquecimento ilícito, prevista no art. 12, I, da Lei de Improbidade Administrativa, e não se aplica à mera violação de princípios do art. 11. Assim, quando o Ministério Público recorre pedindo exatamente essa sanção, ainda que a sentença tenha enquadrado a conduta apenas no art. 11, o pedido recursal já contém, de forma necessária e implícita, a pretensão de reconhecimento do enriquecimento ilícito, pois não é juridicamente possível postular a sanção sem o respectivo suporte fático-jurídico.
+
+Nessa perspectiva, a recapitulação da conduta pelo tribunal para o art. 9º não representa agravamento indevido da situação dos réus fora dos limites do recurso, mas sim o exame do que efetivamente foi devolvido à instância revisora. Não há reformatio in pejus porque o órgão julgador não extrapola a devolutividade nem impõe consequência não abrangida pela insurgência ministerial; ao contrário, apenas explicita o enquadramento jurídico necessário para viabilizar a sanção postulada. Em outras palavras, o pedido de aplicação da perda dos valores ilicitamente acrescidos pressupõe, logicamente, o reconhecimento do enriquecimento ilícito, de modo que a alteração da capitulação não constitui inovação prejudicial, mas adequação jurídica compatível com o recurso interposto.
+
+**Referência:**
+STJ. 1ª Turma. AgInt no AREsp 1.661.447-SP, Rel. Min. Paulo Sérgio Domingues, julgado em 17/11/2025 (Info 875).
+
+## Questão 3
+
+A autonomia institucional do Ministério Público não afasta a incidência de prazo legal peremptório para a conclusão do inquérito civil instaurado para apuração de ato de improbidade administrativa, de modo que, após a Lei 14.230/2021, a prorrogação desse procedimento somente é válida se formalizada antes do término do prazo originário, por ato devidamente motivado e limitada a uma única renovação por igual período; ultrapassado esse marco temporal, a continuidade da investigação é inválida, ainda que a apuração seja complexa.
+
+**Gabarito:** CERTO
+
+**Justificativa (robusta):**
+O enunciado está de acordo com o entendimento firmado no julgamento: a autonomia do Ministério Público, prevista no art. 127 da Constituição, não significa ausência de limites temporais impostos em lei ao exercício da atividade investigativa. Com a redação dada pela Lei 14.230/2021 ao art. 23, § 2º, da Lei 8.429/1992, o inquérito civil voltado à apuração de improbidade passou a ter prazo de 365 dias, admitida apenas uma única prorrogação por igual período.
+
+Além disso, a prorrogação não pode ser feita de forma extemporânea: trata-se de prazo com natureza peremptória, de modo que o ato prorrogatório deve ser expedido antes do término do prazo original, sob pena de invalidade. Também é indispensável motivação específica, em conformidade com o art. 50 da Lei 9.784/1999, não bastando justificativas genéricas, como mera referência à complexidade da investigação ou ao simples escoamento do prazo.
+
+O ponto central do julgado é justamente a rejeição da tese de que a complexidade do caso autorizaria flexibilização do limite legal. Ao contrário, a complexidade não legitima o descumprimento do prazo fixado em lei. Por isso, a extrapolação do prazo ou a prorrogação irregular invalida a continuidade do inquérito, com as consequências processuais previstas no art. 23, § 3º, da Lei 8.429/1992.
+
+**Referência:**
+STJ. 1ª Turma. REsp 2.181.090-DF, Rel. Min. Gurgel de Faria, julgado em 11/11/2025 (Info 875).
+
+## Questão 4
+
+Em contrato administrativo de concessão para instalação e manutenção de abrigos de ônibus, cuja remuneração decorre da exploração publicitária dos espaços, a cláusula que veda anúncios de serviços “concorrentes” ao transporte coletivo não autoriza, por si só, a retirada de publicidade de aplicativo de transporte individual, pois a relação entre esse serviço e o transporte público coletivo é de complementaridade, inexistindo concorrência direta apta a justificar restrição à veiculação, sob pena de ofensa à liberdade econômica e de impedimento à adoção de novas tecnologias.
+
+**Gabarito:** CERTO
+
+**Justificativa (robusta):**
+A assertiva está correta porque reproduz a lógica central do entendimento firmado: a Administração não pode, com base em cláusula contratual genérica que proíba publicidade de serviços concorrentes ao transporte coletivo, impedir a divulgação de aplicativo de transporte individual por meio de pontos de ônibus.
+
+O ponto decisivo é que o transporte urbano coletivo público e o transporte urbano individual privado por aplicativo não se enquadram, para esse fim, como serviços concorrentes em sentido estrito. A relação entre eles é de complementaridade, com distinções relevantes quanto à forma de prestação e à estrutura de preços. Assim, a interpretação da cláusula contratual deve ser compatibilizada com a Lei de Liberdade Econômica, especialmente com a diretriz de não se criar restrições indevidas à atividade econômica nem obstaculizar a difusão de novas tecnologias e modelos de negócio.
+
+Além disso, a execução do contrato administrativo não pode ser utilizada como fundamento para impor vedação ampla à publicidade de serviços de transporte por aplicativo em abrigos de ônibus, pois isso configuraria restrição desproporcional e incompatível com o art. 4º da Lei nº 13.874/2019. Em outras palavras, a Administração até pode disciplinar a exploração publicitária do espaço público, mas não pode ampliar a cláusula de vedação para alcançar, sem base suficiente, serviço que não se confunde com concorrência direta ao transporte coletivo.
+
+**Referência:**
+STJ. 2ª Turma. AgInt no AREsp 2.049.321-MG, Rel. Min. Francisco Falcão, Rel. para acórdão Min. Afrânio Vilela, julgado em 5/8/2025 (Info 875).
+
+## Questão 5
+
+A inércia da Administração por período superior a seis anos na apreciação de recurso administrativo interposto contra o indeferimento de pedido de concessão de CEBAS, ainda que não haja demonstração de prejuízo material imediato ao administrado, caracteriza mora administrativa injustificável, por violar o direito subjetivo à decisão em prazo razoável e os princípios da eficiência e da duração razoável do processo.
+
+**Gabarito:** CERTO
+
+**Justificativa (robusta):**
+A assertiva está correta porque o núcleo do entendimento é justamente a vedação à postergação indefinida da conclusão de processos administrativos. A Administração Pública não pode manter o administrado em estado de indefinição por lapso temporal excessivo, especialmente quando já houve provocação formal e recurso pendente de julgamento por autoridade competente.
+
+No caso examinado, o recurso administrativo foi interposto contra o indeferimento do pedido de concessão do CEBAS, e transcorreram mais de seis anos sem decisão do Ministro de Estado da Educação. Esse atraso foi considerado incompatível com o dever de decidir em tempo razoável, extraído dos arts. 5º, LXXVIII, e 37 da Constituição Federal, bem como dos arts. 48 e 49 da Lei 9.784/1999, que impõem à Administração o dever de emitir decisão expressa e em prazo razoável.
+
+A configuração da mora administrativa, nesse contexto, não depende da prova de prejuízo material imediato, pois a lesão decorre da própria violação ao direito de obter resposta tempestiva da Administração. Em matéria de processo administrativo, a demora excessiva por si só compromete a eficiência administrativa e a duração razoável do processo, tornando ilegítima a omissão estatal.
+
+**Referência:**
+STJ. 1ª Seção. MS 31.431-DF, Rel. Min. Afrânio Vilela, julgado em 6/11/2025 (Info 875).
+
+## Questão 6
+
+A superveniência do novo Código Florestal, ao instituir o Cadastro Ambiental Rural como mecanismo eletrônico de registro e controle das informações ambientais do imóvel rural, torna inexigível a cláusula de TAC firmada sob a égide da disciplina anterior que imponha, como única forma de regularização da reserva legal, a averbação da respectiva área na matrícula do imóvel, desde que o imóvel tenha sido efetivamente inscrito no CAR e a finalidade de regularização ambiental tenha sido alcançada.
+
+**Gabarito:** CERTO
+
+**Justificativa (robusta):**
+A assertiva está correta porque o entendimento firmado foi no sentido de que a obrigação de averbar a reserva legal no cartório de registro de imóveis, embora válida quando pactuada em TAC sob a legislação anterior, perde exigibilidade quando a nova disciplina legal passa a admitir meio equivalente e mais eficiente de regularização ambiental, qual seja, a inscrição do imóvel rural no CAR.
+
+O ponto central não é a simples alteração formal do regime jurídico, mas a verificação de que a finalidade ambiental do ajuste foi atingida. O CAR, por ser registro público eletrônico de âmbito nacional, acessível pela internet e apto a concentrar informações ambientais relevantes da propriedade rural, atende de modo mais adequado aos objetivos de controle, monitoramento e planejamento ambiental do que a averbação cartorária isolada. Assim, uma vez efetivada a inscrição no CAR, não subsiste interesse jurídico em exigir, como obrigação autônoma e exclusiva, a averbação da reserva legal na matrícula do imóvel, especialmente quando o TAC foi celebrado antes da entrada em vigor do novo Código Florestal.
+
+A consequência prática é a inexigibilidade da multa por descumprimento dessa específica obrigação, porque não há inadimplemento material quando a finalidade regulatória foi alcançada por meio admitido pela legislação superveniente. O julgado, portanto, prestigia a efetividade da regularização ambiental e evita a imposição de formalismo incompatível com o novo sistema normativo.
+
+**Referência:**
+STJ. 2ª Turma. REsp 1.829.707-MG, Rel. Min. Francisco Falcão, Rel. para acórdão Min. Afrânio Vilela, julgado em 5/11/2024, DJEN 9/9/2025. (Info 875).
+
+## Questão 7
+
+A utilização, em documentário televisivo sobre crime de grande repercussão, de trecho de reportagem anterior no qual terceiro aparece de forma meramente incidental, por curto lapso temporal e sem qualquer exposição de dados ou atributos pessoais a seu respeito, não configura, por si só, violação indenizável ao direito de imagem, ainda que não tenha havido autorização específica do titular da imagem, sobretudo quando ausente exploração degradante ou desvio do conteúdo para finalidade predominantemente econômica.
+
+**Gabarito:** CERTO
+
+**Justificativa (robusta):**
+A assertiva está correta porque reproduz a lógica central do entendimento firmado: a proteção à imagem não é absoluta a ponto de gerar indenização automática em qualquer hipótese de captação ou reaproveitamento não autorizado. Embora a Súmula 403 do STJ preveja, em regra, indenização independentemente de prova do prejuízo quando há publicação não autorizada de imagem com fins econômicos ou comerciais, essa orientação não se aplica de modo mecânico e irrestrito.
+
+No caso examinado, o ponto decisivo foi a forma de inserção da imagem: a pessoa apareceu apenas de modo acidental ou coadjuvante, por cerca de dois segundos, em contexto documental voltado à narrativa de fato histórico de grande repercussão social. Além disso, não houve divulgação de informações pessoais, atributos identificadores ou conteúdo degradante relacionado ao indivíduo retratado. Nessas circunstâncias, o uso da imagem foi considerado insuficiente para caracterizar lesão autônoma ao direito de personalidade.
+
+A conclusão também se harmoniza com a distinção entre uso meramente informativo e exploração abusiva da imagem. Em obras documentais, especialmente as que tratam de eventos históricos ou criminais amplamente conhecidos, a presença incidental de terceiros pode ser consequência natural da reconstituição do contexto narrativo. Nessa hipótese, a responsabilização civil exige algo mais do que a simples ausência de autorização: é necessário demonstrar que houve efetiva ofensa à esfera personalíssima, como exposição vexatória, descontextualização lesiva ou aproveitamento indevido com carga degradante.
+
+Assim, a mera aparição episódica e periférica, sem destaque individualizado e sem conteúdo ofensivo, não basta para gerar dever de indenizar.
+
+**Referência:**
+STJ. 3ª Turma. REsp 2.214.287-MG, Rel. Min. Nancy Andrighi, julgado em 9/12/2025 (Info 875).
+
+## Questão 8
+
+A constituição de hipoteca sobre imóvel residencial por pessoa solteira e sem filhos impede, em qualquer hipótese, o posterior reconhecimento de sua impenhorabilidade como bem de família, ainda que, antes da constrição judicial, o devedor tenha constituído união estável, tido filho e passado a residir no bem com a entidade familiar.
+
+**Gabarito:** ERRADO
+
+**Justificativa (robusta):**
+A assertiva está incorreta porque a proteção conferida ao bem de família legal não se esgota no momento da constituição da hipoteca nem fica automaticamente afastada pela anterior oferta do imóvel em garantia real. O ponto decisivo é a destinação atual do bem: se ele passou a servir de residência da entidade familiar, pode ser reconhecida a impenhorabilidade, mesmo que a hipoteca tenha sido constituída quando o garantidor era solteiro e sem filhos.
+
+No caso julgado, o imóvel foi dado em hipoteca em contexto anterior à formação da família, mas, posteriormente, o proprietário constituiu união estável, teve filho e passou a residir no apartamento com a família. Nessa situação, a proteção legal voltada à moradia e à dignidade da pessoa humana prevaleceu, afastando a penhora promovida na execução.
+
+Também não procede a ideia de que a superveniência da entidade familiar seria irrelevante por ter ocorrido após a garantia ou após a penhora. O entendimento adotado admite o reconhecimento posterior da condição de bem de família, desde que comprovado o uso residencial do imóvel pela família. Assim, a existência de hipoteca anterior não gera, por si só, renúncia absoluta e irrevogável à proteção legal, especialmente quando a situação fática posterior revela a função de moradia do bem.
+
+**Referência:**
+STJ. 3ª Turma. REsp 2.011.981-SP, Rel. Min. Ricardo Villas Bôas Cueva, julgado em 9/12/2025 (Info 875).
+
+## Questão 9
+
+A proteção conferida à pequena propriedade rural explorada pela família, por se tratar de garantia de índole constitucional e de ordem pública voltada à preservação da subsistência do núcleo familiar, impede não apenas a penhora judicial, mas também a consolidação extrajudicial da propriedade em favor do credor fiduciário, ainda que o imóvel tenha sido voluntariamente oferecido em alienação fiduciária pelo proprietário.
+
+**Gabarito:** CERTO
+
+**Justificativa (robusta):**
+A assertiva está correta porque a impenhorabilidade da pequena propriedade rural explorada pela família não se limita ao âmbito da execução judicial tradicional. O núcleo da proteção é a preservação do bem essencial à subsistência familiar, razão pela qual se trata de garantia de natureza constitucional e de ordem pública, indisponível pela vontade das partes.
+
+No caso, embora o imóvel tenha sido dado em alienação fiduciária, isso não afasta a incidência da proteção. A lógica adotada é a de que, se a jurisprudência já admite a prevalência da impenhorabilidade mesmo quando o bem é oferecido em hipoteca, com maior razão essa proteção deve subsistir na alienação fiduciária, cuja estrutura pode conduzir a efeitos ainda mais gravosos ao devedor, inclusive pela via extrajudicial.
+
+Além disso, não há distinção relevante, para fins de tutela da pequena propriedade rural, entre expropriação judicial e consolidação extrajudicial da propriedade. O ponto decisivo não é a forma do procedimento, mas o resultado prático: a perda de bem juridicamente protegido. Assim, a cláusula de garantia fiduciária não prevalece sobre a impenhorabilidade quando presentes os requisitos constitucionais e legais da pequena propriedade rural explorada pela família, isto é, área de até quatro módulos fiscais e exploração familiar.
+
+Em síntese, a proteção alcança tanto a penhora quanto a consolidação extrajudicial, e a autonomia privada não tem força para afastar essa salvaguarda.
+
+**Referência:**
+STJ. 3ª Turma. REsp 2.233.886-RS, Rel. Min. Nancy Andrighi, julgado em 9/12/2025 (Info 875).
+
+## Questão 10
+
+Em ação de alimentos proposta em favor de criança de três anos, a inércia absoluta da genitora, após a fixação de alimentos provisórios e sua intimação pessoal, autoriza a extinção do processo sem resolução do mérito por abandono da causa, sem necessidade de prévia análise de eventual conflito de interesses entre a representante legal e a alimentanda, pois a regra processual do art. 485, III, do CPC prevalece integralmente sobre a tutela do melhor interesse da criança.
+
+**Gabarito:** ERRADO
+
+**Justificativa (robusta):**
+A assertiva está incorreta porque, em demandas de alimentos ajuizadas em favor de criança ou adolescente, o abandono da ação pelo representante legal não pode ser tratado como mera hipótese ordinária de extinção por abandono da causa. Nessa situação, a omissão da genitora pode revelar conflito de interesses entre a representante e a menor, já que os alimentos possuem natureza de direito fundamental, personalíssimo e indisponível, diretamente ligado à subsistência e ao desenvolvimento da criança.
+
+O art. 72, I, do CPC e o art. 142, parágrafo único, do ECA impõem a nomeação de curador especial quando houver colisão entre os interesses do incapaz e os de seu representante legal. Assim, se a representante abandona completamente a ação de alimentos, especialmente após a fixação de alimentos provisórios e mesmo intimada pessoalmente, não se pode aplicar automaticamente o art. 485, III, do CPC para extinguir o feito. Antes, o magistrado deve examinar as circunstâncias concretas à luz do princípio do melhor interesse da criança, verificando se a inércia da representante não está, na prática, frustrando o próprio direito alimentar do incapaz.
+
+Nessa hipótese, a Defensoria Pública pode ser nomeada como curadora especial do alimentando, justamente para assegurar a adequada tutela judicial do direito material da criança. Portanto, a extinção automática do processo, sem essa análise prévia e sem a proteção processual cabível, contraria a orientação firmada no julgado.
+
+**Referência:**
+STJ. 3ª Turma. REsp 2.190.079-RJ, Rel. Min. Nancy Andrighi, julgado em 7/10/2025 (Info 875).
+
+## Questão 11
+
+A redução unilateral do limite de cartão de crédito, sem comunicação prévia ao consumidor, caracteriza falha na prestação do serviço e pode ensejar responsabilização administrativa e judicial do fornecedor; contudo, a mera inobservância do dever de informação não basta, por si só, para configurar dano moral presumido, sendo indispensável a demonstração de efetiva lesão a direito da personalidade, não se admitindo a automática presunção de abalo extrapatrimonial apenas porque o consumidor foi surpreendido ao tentar utilizar o crédito.
+
+**Gabarito:** CERTO
+
+**Justificativa (robusta):**
+A assertiva está correta porque reproduz a distinção central firmada no julgado entre, de um lado, a existência de falha na prestação do serviço e, de outro, a configuração de dano moral indenizável.
+
+No caso examinado, a instituição financeira reduziu o limite do cartão de crédito sem aviso prévio ao consumidor. Essa conduta foi reconhecida como violadora do dever de informação e, portanto, como falha na prestação do serviço, à luz do art. 14 do CDC e das normas regulatórias aplicáveis ao setor bancário. Isso significa que a conduta pode, em tese, ser objeto de controle administrativo e judicial.
+
+Todavia, a conclusão relevante para a responsabilidade civil é que a simples redução do limite, desacompanhada de circunstâncias excepcionais, não gera dano moral in re ipsa. Não basta a mera surpresa ou frustração do consumidor ao descobrir a limitação do crédito em uma operação específica. Para haver indenização por dano moral, é necessária a comprovação de efetiva ofensa a direitos da personalidade, como honra, imagem ou dignidade, o que não se presume automaticamente nessa hipótese.
+
+O entendimento também ressalta que a instituição financeira possui autonomia para rever limites de crédito com base em critérios objetivos de risco, desde que observe os deveres regulatórios e informacionais. Assim, embora a falta de comunicação prévia seja ilícita sob a ótica do serviço prestado, ela não se converte, automaticamente, em lesão extrapatrimonial indenizável.
+
+Em síntese: há falha do serviço, mas não há dano moral presumido apenas pela redução unilateral e não comunicada do limite do cartão.
+
+**Referência:**
+STJ. 3ª Turma. REsp 2.215.427-SP, Rel. Min. Nancy Andrighi, julgado em 7/10/2025 (Info 875).
+
+## Questão 12
+
+A imposição judicial, em ação civil pública, de prazo geral e obrigatório de “degustação” para contratos de serviços de telecomunicações, com possibilidade de desistência sem multa, não encontra amparo no art. 49 do CDC quando a contratação é realizada presencialmente em loja física, pois o direito de arrependimento nele previsto se limita às contratações fora do estabelecimento comercial; eventual deficiência informacional do consumidor deve ser enfrentada por outros mecanismos de tutela previstos na legislação consumerista, sem que o Poder Judiciário substitua a disciplina regulatória atribuída à agência competente.
+
+**Gabarito:** CERTO
+
+**Justificativa (robusta):**
+O enunciado está correto porque reproduz a lógica central do entendimento firmado: o art. 49 do CDC institui um direito de arrependimento excepcional, vinculado às contratações realizadas fora do estabelecimento comercial, em situações nas quais o consumidor não teve contato direto e pleno com o produto ou serviço no momento da contratação. Por isso, não se admite interpretação extensiva para alcançar negócios celebrados presencialmente em loja física, ainda que o consumidor alegue insuficiência de informação ou discrepância entre a propaganda e a realidade do serviço.
+
+A eventual falha informacional não autoriza a criação judicial de um regime geral de “degustação” para todo o setor. Nessas hipóteses, a tutela do consumidor deve ser buscada pelos instrumentos próprios do CDC, especialmente os arts. 18, 20 e 35, que tratam de vício, inadequação do serviço e descumprimento da oferta. Ou seja, a proteção existe, mas por via distinta da desistência imotivada do art. 49.
+
+Além disso, a imposição, por decisão judicial, de uma obrigação uniforme e abstrata de disponibilizar período de teste para todas as operadoras de telefonia extrapola a função jurisdicional, porque interfere em matéria regulatória atribuída ao órgão competente do setor, em afronta ao desenho normativo da Lei nº 9.472/1997. Em síntese, o Judiciário pode controlar ilegalidades e assegurar direitos concretos, mas não criar, por analogia ampliativa, um novo regime geral de contratação para telecomunicações.
+
+**Referência:**
+STJ. 3ª Turma. REsp 2.114.283-RJ, Rel. Min. Moura Ribeiro, julgado em 3/11/2025 (Info 875).
+
+## Questão 13
+
+A operadora de plano de saúde pode recusar a cobertura de terapia multidisciplinar pelo método TREINI, prescrita para criança diagnosticada com paralisia cerebral e graves limitações motoras e neurológicas, ao fundamento de que a técnica não integra o rol da ANS e de que inexistiriam evidências científicas suficientes, ainda que o tratamento se mostre necessário para atender a necessidades fundamentais de saúde do beneficiário.
+
+**Gabarito:** ERRADO
+
+**Justificativa (robusta):**  
+A negativa é abusiva. Em hipóteses de beneficiário com paralisia cerebral e indicação médica de terapia multidisciplinar pelo método TREINI, o custeio do tratamento é obrigatório pela operadora, pois a recusa baseada exclusivamente na ausência de previsão expressa no rol da ANS e na alegada insuficiência de evidências científicas não se sustenta quando o procedimento é indicado para atender necessidades fundamentais de saúde do paciente.  
+
+O entendimento firmado reconhece que tratamentos multidisciplinares, como o método TREINI, devem ser cobertos pelos planos de saúde aos beneficiários diagnosticados com transtornos globais do desenvolvimento e paralisia cerebral, inclusive por profissional integrante da rede credenciada. Se não houver profissional disponível na rede, a operadora deve viabilizar o reembolso diretamente ao prestador do serviço.  
+
+Assim, a tese da operadora de que a ausência de inclusão no rol autorizaria, por si só, a recusa de cobertura não prevalece diante da abusividade da negativa em contexto de tratamento essencial e prescrito para reabilitação neurológica intensiva.
+
+**Referência:**  
+STJ. 3ª Turma. REsp 2.221.399-SP, Rel. Min. Nancy Andrighi, julgado em 24/11/2025 (Info 875).
+
+## Questão 14
+
+A condenação de advogado ao pagamento de custas e honorários, no próprio processo em que atuou, é admissível quando se reconhece que ele deu causa ao ajuizamento de demanda temerária mediante uso de procuração falsificada, pois o princípio da causalidade autoriza a imposição de ônus sucumbenciais a quem provocou a instauração indevida do processo, ainda que a apuração de eventual responsabilidade civil possa ocorrer em ação autônoma.
+
+**Gabarito:** ERRADO
+
+**Justificativa (robusta):**
+Embora a atuação profissional do advogado possa, em tese, ensejar responsabilização, não é juridicamente possível impor-lhe, no próprio processo em que patrocinou a demanda, pena processual consistente em custas e honorários sucumbenciais em razão de sua conduta profissional. O entendimento firmado é no sentido de que os advogados não se submetem à aplicação de pena processual por sua atuação técnica, incidindo a regra do art. 77, § 6º, do CPC, que afasta a sanção processual direta ao patrono.
+
+No caso de lide temerária ou de atuação fraudulenta do advogado, a responsabilização deve ser apurada em ação própria, nos termos do art. 32, parágrafo único, da Lei 8.906/1994 (Estatuto da OAB). Assim, ainda que tenha havido ajuizamento de ação sem autorização do suposto cliente, com uso de procuração falsificada e extinção do processo sem resolução de mérito, não se admite a condenação do advogado ao pagamento de custas e honorários no bojo da própria demanda, sob fundamento de causalidade.
+
+A lógica do julgado é justamente distinguir a responsabilidade processual imediata, que não pode recair sobre o advogado pela sua atuação profissional, da eventual responsabilidade civil ou disciplinar, que depende de apuração em via própria. Portanto, a assertiva está errada ao afirmar a admissibilidade da condenação sucumbencial direta do patrono no mesmo processo.
+
+**Referência:**
+STJ. 3ª Turma. REsp 2.197.464-SP, Rel. Min. Nancy Andrighi, Rel. para acórdão Min. Moura Ribeiro, julgado em 9/12/2025 (Info 875).
+
+## Questão 15
+
+Em ação em que a sentença contenha capítulos autônomos de naturezas distintas — um declaratório, que reconheça a inexistência de débito e gere proveito econômico mensurável, e outro condenatório, que imponha pagamento de danos morais —, é juridicamente admissível fixar os honorários sucumbenciais mediante a soma do valor da condenação com o proveito econômico obtido, pois o art. 85, § 2º, do CPC não estabelece hierarquia excludente entre essas duas bases de cálculo, reservando-se o valor da causa apenas para a hipótese subsidiária de impossibilidade de mensuração das demais.
+
+**Gabarito:** CERTO
+
+**Justificativa (robusta):**
+A assertiva está correta porque reproduz a orientação de que, havendo capítulos autônomos na sentença com conteúdos patrimoniais distintos e mensuráveis, não há impedimento para que a base de cálculo dos honorários sucumbenciais considere cumulativamente o valor da condenação e o proveito econômico obtido.
+
+O ponto central é a interpretação do art. 85, § 2º, do CPC. Esse dispositivo prevê critérios sucessivos para a fixação dos honorários: primeiro, o valor da condenação; depois, o proveito econômico obtido; e, apenas subsidiariamente, o valor atualizado da causa. A leitura sistemática adotada no julgado afasta a ideia de que essas bases sejam mutuamente excludentes em qualquer hipótese. Ao contrário, quando a sentença contém capítulos autônomos e independentes, cada qual produzindo resultado econômico próprio, é possível somá-los sem configurar bis in idem.
+
+No caso paradigmático, a declaração de inexistência do débito de R$ 45.000,00 representou proveito econômico concreto para a parte autora, enquanto a condenação em danos morais de R$ 10.000,00 constituiu valor de condenação autônomo. Assim, a base de cálculo dos honorários não deveria se limitar apenas ao capítulo condenatório, mas abranger ambos os resultados econômicos, totalizando R$ 55.000,00.
+
+A tese também esclarece que o valor da causa não ocupa posição concorrente com as demais bases, mas subsidiária, sendo utilizado apenas quando não for possível mensurar o valor da condenação ou o proveito econômico. Portanto, a fixação dos honorários exclusivamente sobre um dos capítulos, quando ambos são economicamente quantificáveis, contraria a lógica do art. 85, § 2º, do CPC e reduz indevidamente a remuneração do advogado.
+
+**Referência:**
+STJ. 3ª Turma. REsp 2.168.312-PR, Rel. Min. Humberto Martins, julgado em 3/11/2025 (Info 875).
+
+## Questão 16
+
+É cabível o ajuizamento de reclamação perante o STJ, após o esgotamento dos recursos internos, para impugnar acórdão proferido por uma de suas Turmas sob o argumento de que o órgão fracionário teria desrespeitado tese firmada em julgamento repetitivo, pois a reclamação também se presta a uniformizar a jurisprudência interna do próprio Tribunal Superior.
+
+**Gabarito:** ERRADO
+
+**Justificativa (robusta):**
+A assertiva está incorreta porque a reclamação constitucional, no âmbito do STJ, tem finalidade estrita: preservar a competência da Corte e garantir a autoridade de suas decisões, em regra, diante de atos praticados por órgãos ou juízos submetidos à sua jurisdição, especialmente instâncias inferiores. Ela não se presta a funcionar como sucedâneo recursal nem como instrumento de revisão de acórdão proferido por órgão julgador do próprio STJ.
+
+No caso de decisão emanada de Turma do próprio Tribunal, ainda que a parte sustente afronta a precedente qualificado, como tese firmada em recurso repetitivo, não cabe reclamação ao STJ para rediscutir o conteúdo do julgado. A via adequada é a utilização dos recursos cabíveis no próprio processo, e, uma vez exauridos, não se admite a transformação da reclamação em mecanismo de controle interno de legalidade ou de uniformização jurisprudencial da própria Corte.
+
+O ponto central do entendimento é a limitação objetiva da reclamação: ela protege a autoridade das decisões e a competência do Tribunal em face de atos externos à própria estrutura decisória do STJ. Permitir reclamação contra acórdão de Turma do STJ implicaria ampliar indevidamente sua função constitucional e criar uma espécie de “recurso” contra decisão do próprio Tribunal, o que não encontra amparo no sistema processual.
+
+**Referência:**
+STJ. Corte Especial. AgInt na Rcl 49.398-DF, Rel. Min. Maria Thereza de Assis Moura, julgado em 11/11/2025 (Info 875).
+
+## Questão 17
+
+No cumprimento de sentença, a constatação de que a executada foi esvaziada patrimonialmente e de que terceira pessoa jurídica passou a explorar, no mesmo endereço, com os mesmos empregados, equipamentos e atividade econômica, a mesma unidade produtiva pode autorizar o redirecionamento da execução por sucessão empresarial fraudulenta, independentemente da instauração de incidente de desconsideração da personalidade jurídica, sendo suficiente a análise desses elementos pelo próprio juízo da execução, ainda que não haja prova formal da transferência de bens, direitos e obrigações.
+
+**Gabarito:** CERTO
+
+**Justificativa (robusta):**
+A assertiva está correta porque, no âmbito do cumprimento de sentença, o juízo pode examinar diretamente a existência de indícios de sucessão empresarial fraudulenta e, reconhecida essa situação, redirecionar a execução à sociedade que teria absorvido a atividade econômica, sem necessidade de instaurar incidente de desconsideração da personalidade jurídica.
+
+O ponto central é distinguir sucessão empresarial fraudulenta de desconsideração da personalidade jurídica. O IDPJ é instrumento voltado, em regra, à superação da autonomia patrimonial da pessoa jurídica para alcançar sócios ou administradores, quando presentes os pressupostos legais. Já a sucessão empresarial fraudulenta diz respeito à continuidade da exploração da atividade econômica por outra sociedade, em contexto de esvaziamento da devedora e de operação escusa, hipótese em que a responsabilização decorre da própria dinâmica sucessória e não da técnica da desconsideração.
+
+Além disso, a caracterização dessa sucessão não exige prova documental formal da transferência de bens, direitos e obrigações. Admite-se a presunção da fraude quando os elementos concretos do caso revelarem, por exemplo, o prosseguimento da mesma atividade econômica, no mesmo endereço, com o mesmo objeto social, equipamentos e funcionários, especialmente se a executada originária estiver sem bens ou sem atividade. Assim, o juízo da execução pode valorar esses indícios e concluir pela sucessão empresarial fraudulenta sem instaurar incidente apartado.
+
+**Referência:**
+STJ. 3ª Turma. REsp 2.230.998-SP, Rel. Min. Ricardo Villas Bôas Cueva, julgado em 11/11/2025 (Info 875).
+
+## Questão 18
+
+No cumprimento definitivo de sentença, a exigência de caução ou fiança bancária para autorizar o levantamento de quantia incontroversa pelo exequente somente se legitima nas hipóteses expressamente previstas em lei, não podendo ser imposta com fundamento genérico no poder geral de cautela do juízo nem na mera pendência de ação rescisória sem decisão que suspenda a eficácia executiva do título.
+
+**Gabarito:** CERTO
+
+**Justificativa (robusta):**
+A assertiva está correta porque, no cumprimento definitivo de sentença, a regra não é a imposição de caução ao exequente para levantamento de valores já reconhecidos como devidos. A caução é instituto típico do cumprimento provisório, em que o legislador, por razões de reversibilidade e risco de reforma da decisão, condiciona certos atos executivos à prestação de garantia, nos termos do art. 520, IV, do CPC.
+
+No cumprimento definitivo, a exigência de caução não pode ser ampliada por interpretação judicial baseada apenas em prudência, no poder geral de cautela ou na magnitude do valor executado. O CPC prevê hipóteses específicas em que a garantia pode ser exigida, como quando atribuído efeito suspensivo à impugnação ao cumprimento de sentença, nos termos do art. 525, §§ 6º e 10, do CPC. Fora dessas situações legalmente delimitadas, inexiste base normativa para impor ao credor a apresentação de fiança bancária como condição para levantar o valor incontroverso.
+
+Também não basta a simples existência de ação rescisória em curso para justificar a restrição. Enquanto não houver decisão que suspenda a eficácia executiva do título, a rescisória não impede, por si só, o prosseguimento do cumprimento definitivo nem autoriza a criação de obstáculo não previsto em lei. Assim, a exigência de garantia, nesse contexto, configura restrição indevida ao direito do exequente de satisfazer o crédito já reconhecido por título judicial definitivo.
+
+**Referência:**
+STJ. 3ª Turma. REsp 2.167.952-PE, Rel. Min. Nancy Andrighi, julgado em 14/10/2025 (Info 875).
+
+## Questão 19
+
+Na fase de cumprimento de sentença promovido contra a Fazenda Pública, a decisão que rejeita a impugnação, homologa os cálculos apresentados e determina a expedição de precatório ou RPV, ainda que não contenha dispositivo expresso de extinção da execução, possui natureza terminativa por implicar inequívoco reconhecimento da obrigação de pagar, de modo que o recurso cabível é a apelação, e não o agravo de instrumento.
+
+**Gabarito:** CERTO
+
+**Justificativa (robusta):**
+A assertiva está correta porque, no cumprimento de sentença contra a Fazenda Pública, a decisão que acolhe ou rejeita a impugnação e, ao final, homologa os cálculos com determinação de expedição de precatório ou RPV não se limita a um mero pronunciamento interlocutório sobre questões incidentais. Quando a impugnação é rejeitada e o juízo homologa o quantum devido, há reconhecimento definitivo da obrigação de pagar, com encerramento da atividade cognitiva na fase executiva.
+
+O ponto central do entendimento é que, embora a decisão possa não declarar expressamente a extinção do feito executório, esse efeito é inerente ao próprio conteúdo do pronunciamento judicial. Em outras palavras, a ausência de fórmula literal de extinção não afasta a sua natureza terminativa, pois a homologação dos cálculos e a determinação de expedição de precatório ou RPV esgotam a atuação jurisdicional naquela fase, tornando cabível a apelação.
+
+Esse raciocínio também se aplica à hipótese em que a impugnação é acolhida e a execução é extinta: nesse caso, o pronunciamento é inequivocamente terminativo, igualmente impugnável por apelação. Assim, a escolha do recurso não depende apenas da nomenclatura usada pelo magistrado, mas da substância do ato judicial e de seus efeitos processuais.
+
+A pegadinha típica em concursos é confundir essa hipótese com decisão interlocutória recorrível por agravo de instrumento. Contudo, aqui não se trata de simples deliberação incidental no curso da execução, mas de pronunciamento que encerra a fase executiva em relação ao crédito reconhecido, razão pela qual o recurso adequado é a apelação.
+
+**Referência:**
+STJ. 2ª Turma. REsp 2.202.015-DF, Rel. Min. Afrânio Vilela, julgado em 9/9/2025 (Info 875).
+
+## Questão 20
+
+Na execução fiscal, a extinção dos embargos opostos pelo executado, em razão de desistência ou renúncia ao direito material ou processual manifestada exclusivamente para viabilizar a adesão a programa de recuperação fiscal que já contemple, na composição do débito, verba honorária relativa à cobrança da dívida pública, não autoriza a imposição de nova condenação em honorários advocatícios, ainda que a Fazenda Pública sustente a autonomia da sucumbência nos embargos em relação ao crédito principal.
+
+**Gabarito:** CERTO
+
+**Justificativa (robusta):**
+A assertiva está correta porque o entendimento firmado é no sentido de que, quando o contribuinte desiste dos embargos à execução fiscal ou renuncia ao direito neles deduzido para aderir a programa de recuperação fiscal que já inclua, expressamente, a verba honorária vinculada à cobrança do débito, não há base para nova condenação em honorários advocatícios na extinção dos embargos.
+
+O ponto central é evitar duplicidade de condenação: se o programa de parcelamento ou recuperação fiscal já embute a remuneração advocatícia relativa à cobrança da dívida pública, a imposição de nova verba honorária no processo de embargos implicaria bis in idem. A extinção do incidente, nessas circunstâncias, decorre de opção do devedor voltada à regularização fiscal, mas isso não autoriza a Fazenda Pública a exigir outra condenação autônoma a título de honorários, porque a verba já foi contemplada no próprio regime jurídico do programa.
+
+A tese não afirma que toda desistência ou renúncia em embargos afasta honorários em qualquer hipótese. O limite do entendimento está justamente na existência de programa de recuperação fiscal que já contenha a verba honorária. Fora dessa moldura, a solução pode ser diversa, a depender do regime aplicável ao caso concreto. Assim, o elemento decisivo é a inserção prévia da verba honorária na composição do débito objeto da adesão, e não apenas a simples extinção dos embargos por desistência.
+
+**Referência:**
+STJ. 1ª Seção. REsp 2.158.358-MG e REsp 2.158.602-MG, Rel. Min. Gurgel de Faria, julgados em 12/11/2025 (Recurso Repetitivo - Tema 1317) (Info 875).
+
+## Questão 21
+
+A redução do prazo prescricional prevista no art. 115 do Código Penal somente incide se o agente já contar mais de 70 anos na data da primeira decisão condenatória, de modo que, ainda que o acórdão de apelação reforme substancialmente a sentença, com agravamento da pena, alteração do regime inicial e revogação de substituição por penas restritivas de direitos, a superveniência da idade de 70 anos antes do julgamento colegiado não autoriza a incidência do benefício.
+
+**Gabarito:** ERRADO
+
+**Justificativa (robusta):**
+A assertiva está incorreta porque o marco temporal do art. 115 do Código Penal não se limita, de forma absoluta, à idade do réu na primeira decisão condenatória. A regra geral é que a redução do prazo prescricional exige que o agente tenha mais de 70 anos na data da sentença condenatória, entendida como a primeira decisão condenatória, seja ela proferida por juiz singular ou por tribunal. Assim, se a condenação é apenas confirmada em apelação, sem modificação substancial do conteúdo condenatório, não há falar em incidência do benefício quando a idade é alcançada apenas depois da sentença.
+
+Contudo, há uma exceção relevante: quando o acórdão recursal não se limita a manter a condenação, mas altera substancialmente a sentença condenatória — por exemplo, aumentando a pena, modificando o regime inicial e revogando a substituição por penas restritivas de direitos — esse acórdão passa a assumir relevância como marco temporal para a análise do art. 115. Nessa hipótese, se o réu já tiver mais de 70 anos na data do acórdão que efetivamente redefine a condenação, aplica-se a redução do prazo prescricional.
+
+Portanto, a tese não é de que o benefício depende exclusivamente da idade na primeira sentença, mas sim de que, excepcionalmente, o acórdão que altera substancialmente a condenação pode ser considerado para fins do art. 115 do CP.
+
+**Referência:**
+STJ. 6ª Turma. RHC 219.766-SP, Rel. Min. Sebastião Reis Júnior, julgado em 16/12/2025 (Info 875).
+
+## Questão 22
+
+A controvérsia instaurada entre juízo criminal e juízo cível acerca da via adequada para a execução, na forma de cumprimento de sentença, da obrigação de reparar o dano assumida pelo investigado em acordo de não persecução penal deve ser solucionada por órgão fracionário com competência em matéria penal, ainda que a pretensão executiva seja deduzida pela vítima perante a jurisdição cível, pois a origem da obrigação está diretamente vinculada a ajuste homologado no âmbito da persecução penal.
+
+**Gabarito:** CERTO
+
+**Justificativa (robusta):**
+A obrigação de reparar o dano prevista em acordo de não persecução penal, embora possa ser posteriormente perseguida pela vítima em sede executiva cível, nasce de um negócio jurídico processual celebrado no contexto da persecução penal e homologado por juízo criminal. Por isso, o conflito negativo de competência instaurado entre juízo cível e juízo criminal, a respeito da execução dessa obrigação, é matéria afeta à Terceira Seção do STJ, e não à Segunda Seção.
+
+O ponto central é que a definição da competência, nesse tipo de incidente, não depende apenas da natureza formal da ação executiva proposta pela vítima, mas da origem e da vinculação jurídica da obrigação executada. Como a prestação reparatória foi estipulada como condição do ANPP e homologada no âmbito criminal, a controvérsia permanece inserida no campo penal-processual, atraindo a competência do órgão fracionário criminal.
+
+Assim, ainda que o cumprimento de sentença tenha sido ajuizado na Justiça Estadual cível e haja discussão sobre a possibilidade de execução perante a Justiça Federal ou Estadual, o conflito de competência entre os juízos deve ser apreciado pela Terceira Seção, por se tratar de matéria criminal relacionada à execução de obrigação assumida em acordo de não persecução penal.
+
+**Referência:**
+STJ. Corte Especial. CC 210.253-DF, Rel. Min. Antonio Carlos Ferreira, Rel. para acórdão Min. Maria Thereza de Assis Moura, julgado em 5/11/2025 (Info 875).
+
+## Questão 23
+
+Na execução penal, a vedação à comutação de pena prevista em decreto de indulto, quando condicionada à inexistência de falta grave nos 12 meses anteriores à sua publicação, deve ser aferida pela data da prática da infração disciplinar, e não pela data da homologação judicial da sanção, desde que já instaurado o procedimento administrativo disciplinar, sendo irrelevante que o reconhecimento judicial da falta ocorra apenas após a edição do ato presidencial.
+
+**Gabarito:** CERTO
+
+**Justificativa (robusta):**
+A assertiva reproduz a orientação firmada no julgamento repetitivo: o critério temporal relevante para verificar o impedimento à comutação é a ocorrência, ou não, de falta grave no período de 12 meses anterior ao decreto, e não a data em que a sanção disciplinar é homologada judicialmente. A razão é que o decreto presidencial condiciona o benefício à inexistência de falta grave no lapso indicado, o que se refere ao fato material praticado pelo apenado, e não ao momento posterior de sua formalização judicial.
+
+Além disso, a tese fixada ressalva expressamente a necessidade de já ter sido instaurado o processo administrativo disciplinar, o que afasta eventual alegação de surpresa ou de utilização de apuração meramente futura para restringir o benefício. Assim, uma vez praticada a falta grave dentro do período vedado e já instaurado o procedimento administrativo, a posterior homologação judicial não tem o condão de alterar o marco temporal para fins de comutação.
+
+Em síntese, a interpretação prestigia a natureza objetiva da condição negativa prevista no decreto e impede que a demora na homologação judicial produza efeito ampliativo indevido ao sentenciado.
+
+**Referência:**
+STJ. 3ª Seção. REsp 2.011.706-MG, Rel. Min. Og Fernandes, julgado em 10/12/2025 (Recurso Repetitivo - Tema 1195) (Info 875).
+
+## Questão 24
+
+A homologação de sentença estrangeira pode ser requerida por terceiro que, embora não tenha integrado a relação processual formada no Estado de origem, demonstre interesse jurídico direto e legítimo no reconhecimento do provimento, sendo irrelevante, para a aferição da legitimidade ativa, a circunstância de o requerente não ter sido parte na demanda estrangeira.
+
+**Gabarito:** CERTO
+
+**Justificativa (robusta):**
+A assertiva está correta porque a legitimidade para requerer homologação de decisão estrangeira não se restringe às partes do processo que tramitou no exterior. O ponto central é a demonstração de **interesse jurídico direto e legítimo** no reconhecimento da eficácia da decisão no Brasil.
+
+No caso examinado, a requerente não figurou como parte no divórcio estrangeiro, mas precisava da homologação para afastar óbice administrativo à regularização de sua situação civil no Brasil, inclusive para reconhecimento do casamento e efeitos documentais correlatos. Isso evidencia interesse próprio, atual e juridicamente qualificado, suficiente para legitimar o pedido.
+
+A tese é relevante porque impede leitura excessivamente formalista da legitimidade ativa: o procedimento de homologação não serve apenas aos litigantes originários, mas a qualquer sujeito cuja esfera jurídica dependa da eficácia interna da decisão estrangeira. Assim, a ausência de participação no processo alienígena não é, por si só, causa de ilegitimidade.
+
+**Referência:**
+STJ. Corte Especial. AgInt na CR 21.916-EX, Rel. Min. Herman Benjamin, julgado em 23/9/2025 (Info 875).

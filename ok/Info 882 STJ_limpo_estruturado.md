@@ -1,0 +1,463 @@
+# Info 882 STJ
+
+**Status geral:** Estruturado automaticamente
+
+---
+
+## Julgado 1
+
+**Disciplina:** Direito Administrativo
+
+**Subtema:** Processo Administrativo
+
+**ODS:** 16
+
+**Título do julgado:**
+
+A prorrogação do prazo para apresentação de defesa administrativa estende-se automaticamente ao prazo para formulação de pedido de acordo escrito com redução de multa
+
+**Tese / entendimento:**
+
+Caso hipotético: João foi autuado pelo Instituto Brasília Ambiental (IBRAM) por ocupação
+irregular de uma chácara no Distrito Federal, tendo sido multado com penalidade gravíssima.
+A Lei Distrital nº 41/1989 prevê prazo de 10 dias para apresentação de defesa. A Instrução
+Normativa nº 35/2020 do IBRAM, por sua vez, permite que o autuado, nesse mesmo prazo,
+requeira a celebração de um Acordo Escrito de saneamento do dano, que pode resultar na
+redução de até 90% da multa. Dentro dos 10 dias, João pediu a prorrogação do prazo de defesa,
+que foi deferida pela administração. Dentro do prazo prorrogado, apresentou o pedido de
+Acordo Escrito. O IBRAM, porém, considerou o pedido intempestivo, sob o argumento de que
+a prorrogação valia apenas para a defesa, e não para o acordo, pois seriam pedidos distintos e
+independentes. João impetrou mandado de segurança, que foi denegado pelo TJDFT. Interpôs,
+então, recurso ordinário ao STJ. O STJ deu provimento ao recurso.
+A partir de uma interpretação conjunta dos dispositivos da Instrução Normativa 35/2020 do
+IBRAM e da Lei Distrital 41/1989, o pedido de Acordo Escrito de saneamento do dano deve ser
+apresentado no mesmo prazo da defesa administrativa. Assim, a prorrogação do prazo para a
+apresentação de defesa se estende ao pedido de Acordo Escrito, de modo que a declaração de
+intempestividade desse pedido ofende o princípio da proteção da confiança.
+Ao deferir a prorrogação do prazo de defesa, a administração pública cria no autuado uma
+expectativa legítima de que o pedido de Acordo Escrito também terá seu prazo prorrogado.
+Considerar intempestivo o pedido formulado dentro do prazo prorrogado constitui violação à
+proteção da confiança.
+
+**Referência:**
+
+STJ. 1ª Turma. RMS 75.112-DF, Rel. Min. Paulo Sérgio Domingues, julgado em 3/3/2026 (Info 882).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 2
+
+**Disciplina:** Direito Civil
+
+**Subtema:** Menor Relevância Para Concursos. É Importante Ler O Julgado, Mas Como Foi Baseado Em Lei Distrital, É Menos Provável De Ser Cobrado
+
+**ODS:** 16
+
+**Título do julgado:**
+
+Em outros concursos que não sejam do Distrito Federal. DIREITO CIVIL DIREITOS REAIS > USUCAPIÃO O recibo de compra e venda do imóvel é suficiente para configurar justo título na usucapião ordinária (art. 1.242 do CC)
+
+**Tese / entendimento:**
+
+Caso hipotético: Regina comprou um imóvel, de modo informal, pagando o valor à vista e
+recebendo apenas um recibo de compra e venda da vendedora. Não houve lavratura de
+escritura pública nem registro em cartório. Desde a aquisição, Regina passou a morar no
+imóvel com sua família, exercendo posse mansa e pacífica por mais de dez anos. Regina ajuizou
+ação de usucapião ordinária (art. 1.242 do CC), apresentando o recibo como justo título. O
+pedido foi julgado improcedente em primeira e segunda instância, sob o fundamento de que o
+mero recibo de compra e venda não se enquadra no conceito de justo título. O STJ reformou
+essa decisão e reconheceu a usucapião ordinária.
+O reconhecimento da usucapião ordinária exige os seguintes requisitos: exercício de posse
+mansa e pacífica por mais de dez anos, existência de justo título e boa-fé, nos termos do art.
+1.242, caput, do CC. O prazo é reduzido para cinco anos se, cumulativamente, houver o
+preenchimento dos requisitos previstos no parágrafo único do referido artigo.
+A previsão legal relativa ao requisito do justo título deve ser objeto de interpretação
+extensiva, de modo a abranger elementos que, embora desprovidos de regularidade formal,
+permitam concluir que houve a intenção de transferência da propriedade. Isso está em
+consonância com a própria finalidade do instituto da usucapião ordinária enquanto
+concretização da função social da propriedade e do direito fundamental social à moradia.
+O recibo de compra e venda do imóvel é suficiente para o preenchimento do requisito do justo
+título na usucapião ordinária. Se o justo título se limitasse à documentação formalmente
+regular da transferência de propriedade, a usucapião ordinária converter-se-ia em instituto
+supérfluo, uma vez que a parte poderia regularizar a situação do imóvel por outros meios,
+como a adjudicação compulsória.
+
+**Referência:**
+
+STJ. 3ª Turma. REsp 2.215.421-SE, Rel. Min. Nancy Andrighi, julgado em 10/3/2026 (Info 882).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 3
+
+**Disciplina:** Direito Civil
+
+**Subtema:** Alta Relevância: Magistratura Estadual, Mpe, Dpe, Pge, Pgm, Cartório, Tribunais
+
+**ODS:** 16
+
+**Título do julgado:**
+
+Média relevância: Magistratura federal, DPU, Advocacia Pública Federal, Delegado MARCO CIVIL DA INTERNET O provedor de aplicação de internet (ex: YouTube) pode, por iniciativa própria e independentemente de ordem judicial, remover conteúdos que violem seus termos de serviço ou direitos autorais, no exercício legítimo de compliance interno
+
+**Tese / entendimento:**
+
+Caso hipotético: o YouTube removeu o canal de um usuário que publicava vídeos com trechos
+de partidas de futebol sem autorização dos titulares dos direitos autorais. O usuário havia
+recebido três avisos (strikes) por infração e, mesmo assim, continuou publicando conteúdos
+semelhantes, o que levou ao encerramento definitivo do canal.
+O criador do canal ajuizou ação contra o Google alegando que a remoção sem ordem judicial
+violava o art. 19 do Marco Civil da Internet. Para ele, o provedor de aplicação somente poderia
+remover conteúdos após determinação judicial específica, salvo na hipótese do art. 21 da
+mesma lei (conteúdos de nudez ou atos sexuais divulgados sem autorização).
+O Google, por sua vez, sustentava que a plataforma tem autonomia para moderar conteúdos
+com base em seus Termos de Serviço e na legislação de direitos autorais (Lei nº 9.610/1998),
+sendo a remoção voluntária um exercício regular de direito e uma atividade legítima de
+compliance interno.
+O STJ acolheu os argumentos do Google.
+O art. 19 do Marco Civil da Internet não impede a remoção voluntária de conteúdos por
+provedores de aplicação de internet, por iniciativa própria e com fundamento na violação dos
+termos de serviço da plataforma. Esse procedimento constitui autêntica atividade de
+compliance interno, não podendo ser tipificado nem caracterizado como abuso ou violação a
+direito.
+As plataformas digitais possuem o dever de zelar pela legalidade dos conteúdos hospedados,
+especialmente diante de ilícitos previstos em legislação especial, como a Lei de Direitos
+Autorais (Lei n. 9.610/1998). A remoção de conteúdos que gerem violação direta de direitos
+autorais, como a reprodução não autorizada de trechos de transmissões esportivas, é
+perfeitamente legítima, ainda que realizada sem prévia ordem judicial.
+Em suma: é legítima a remoção de conteúdos por provedores de aplicação de internet, por
+iniciativa própria e com fundamento na violação dos termos de serviço, no exercício de
+atividade de compliance interno, desde que não haja abuso ou violação de direito.
+
+**Referência:**
+
+STJ. 4ª Turma. AREsp 2.294.622-SP, Rel. Min. Raul Araújo, julgado em 17/3/2026 (Info 882).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 4
+
+**Disciplina:** Direito Do Consumidor
+
+**Subtema:** Alta Relevância: Magistratura Estadual, Magistratura Federal, Mpe, Mpf, Dpe, Dpu, Pge, Pgm, Advocacia Pública Federal, Cartório
+
+**ODS:** 16
+
+**Título do julgado:**
+
+Média relevância: Delegado, Tribunais DIREITO DO CONSUMIDOR PLANO DE SAÚDE Os planos de saúde não podem limitar o número de sessões de terapia multidisciplinar prescritas a pacientes com Transtorno do Espectro Autista (TEA)
+
+**Tese / entendimento:**
+
+Caso hipotético: Fábio, criança de 5 anos diagnosticada com TEA, necessita de tratamento
+multidisciplinar composto por sessões de psicologia, fonoaudiologia, fisioterapia e terapia
+ocupacional. O plano de saúde recusou-se a custear todas as sessões prescritas pelo médico,
+alegando que o contrato previa um número máximo de atendimentos por ano. A mãe de Fábio
+ajuizou ação pedindo a cobertura integral, sem limitação quantitativa. O STJ concordou com a
+mãe de Fábio.
+A previsão contratual ou regulatória que estabeleça limitação do número de sessões de
+terapias multidisciplinares é ilegal, por contrariar o disposto no art. 1º, I, da Lei n. 9.656/1998,
+com redação dada pela MP n. 2.177-44/2001. Esse dispositivo veda a imposição de "limite
+financeiro" às coberturas dos planos de saúde, e a fixação de um número restrito de sessões
+constitui forma indireta de limitar o desembolso financeiro das operadoras.
+A própria ANS, ao longo dos anos, foi eliminando as restrições quantitativas de sessões em sua
+regulamentação. Em 2022, a RN nº 541 eliminou o limite de forma geral para sessões de
+psicologia, fonoaudiologia, fisioterapia e terapia ocupacional.
+Tese fixada: É abusiva a limitação do número de sessões de terapia multidisciplinar -
+psicologia, fonoaudiologia, fisioterapia e terapia ocupacional - prescritas ao paciente com
+Transtorno do Espectro Autista - TEA.
+
+**Referência:**
+
+STJ. 2ª Seção. REsp 2.167.050-SP e REsp 2.153.672-SP, Rel. Min. Antonio Carlos Ferreira, julgados em 11/3/2026 (Recurso Repetitivo - Tema 1295) (Info 882).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 5
+
+**Disciplina:** Eca
+
+**Subtema:** Recurso Repetitivo — Tema 1295
+
+**ODS:** 16
+
+**Título do julgado:**
+
+Julgado IMPORTANTE Alta relevância: Magistratura estadual, MPE, DPE Média relevância: Cartório, Tribunais ECA MEDIDAS SOCIOEDUCATIVAS A execução de medidas socioeducativas admite a unificação de medidas de espécies distintas, inclusive liberdade assistida e internação, cabendo à internação absorver as demais medidas
+
+**Tese / entendimento:**
+
+Caso hipotético: Lucas, adolescente, cumpria medida socioeducativa de liberdade assistida
+quando lhe foi aplicada, em outro processo, medida de internação. Diante da coexistência das
+duas medidas, o Juízo da execução procedeu à unificação, determinando que Lucas cumprisse
+apenas a internação, que absorveria a liberdade assistida. O Ministério Público recorreu, e o
+Tribunal de Justiça afastou a unificação, sob o fundamento de que não seria possível unificar
+medidas de espécies distintas. Determinou, então, a suspensão da execução da liberdade
+assistida até o cumprimento ou a substituição da internação. A Defensoria Pública impetrou
+habeas corpus no STJ. O STJ concordou com a Defensoria Pública.
+A execução das medidas socioeducativas, diferentemente da execução penal, não se orienta
+pela soma de sanções, mas pela unificação, em razão de sua finalidade pedagógica. O art. 45, §
+2º, da Lei nº 12.594/2012 prevê que os atos infracionais anteriores são absorvidos pela
+medida de internação. Além disso, o § 3º do art. 42 da mesma Lei reconhece que a internação
+é a medida mais grave, possuindo caráter mais abrangente, apto a englobar os fins
+pedagógicos das demais medidas.
+A lei não estabelece vedação à unificação de medidas de espécies distintas. Ao criar esse
+impedimento sem base legal, o Tribunal de Justiça inovou na ordem jurídica em prejuízo do
+adolescente, em desacordo com o direito sancionador e com o princípio do melhor interesse.
+Tese de julgamento:
+A execução de medidas socioeducativas admite a unificação de medidas de espécies distintas,
+inclusive liberdade assistida e internação, cabendo à internação, por sua abrangência
+pedagógica, absorver as demais medidas e os atos infracionais anteriores, nos termos da Lei
+n. 12.594/2012.
+É ilegal a suspensão da execução de medida socioeducativa de meio aberto, sem previsão legal,
+para aguardar o cumprimento da internação, quando possível a unificação das medidas em
+atenção ao melhor interesse do adolescente.
+
+**Referência:**
+
+STJ. 5ª Turma. HC 1.049.276-SC, Rel. Min. Messod Azulay Neto, julgado em 3/3/2026 (Info 882).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 6
+
+**Disciplina:** Direito Processual Civil
+
+**Subtema:** Favorável À Defesa
+
+**ODS:** 4 E 16
+
+**Título do julgado:**
+
+Alta relevância: Magistratura estadual, DPE, MPE DIREITO PROCESSUAL CIVIL PROCESSO COLETIVO A oferta irregular de cursos superiores e a terceirização ilícita de atividades acadêmicas configuram dano moral coletivo in re ipsa, admitindo-se, além da indenização pecuniária, a reparação in natura por meio da divulgação da sentença condenatória
+
+**Tese / entendimento:**
+
+Caso hipotético: a Faculdade Regional do Agreste (FARAGRE), credenciada pelo MEC apenas
+para oferecer quatro cursos de graduação presenciais em sua sede, passou a firmar contratos
+com empresas privadas espalhadas pelo interior de Pernambuco para que estas oferecessem
+cursos em seu nome, sem qualquer credenciamento junto ao MEC. Os cursos eram divulgados
+como “graduação reconhecida pelo MEC” ou como “cursos de extensão com acesso à
+graduação”, dando a entender que os alunos obteriam diploma universitário ao final. Na
+realidade, a Lei de Diretrizes e Bases da Educação (Lei nº 9.394/1996) não permite essa
+conversão, e o que os alunos frequentavam eram meros cursos livres. Centenas de estudantes
+pagaram mensalidades acreditando investir em formação superior legítima e, ao final, ficaram
+sem diploma. O MPF ajuizou ação civil pública pedindo, entre outras medidas, a condenação
+por danos morais coletivos e a publicação da sentença em jornais de grande circulação. O juízo
+de primeiro grau condenou as rés ao pagamento de R$ 500.000,00 a título de danos morais
+coletivos e determinou a publicação em jornais. O TRF5, porém, excluiu ambas as
+condenações, entendendo que o ilícito repercutiu apenas na esfera individual dos alunos. O
+MPF recorreu ao STJ, que deu parcial provimento ao recurso e firmou as seguintes teses de
+julgamento:
+1. A oferta irregular de cursos superiores e a terceirização ilícita de atividades acadêmicas,
+que comprometem a confiança da sociedade na integridade do sistema educacional e na
+eficácia da regulação estatal, configuram danos morais coletivos.
+2. O dano moral coletivo configura-se in re ipsa, dispensando a comprovação de prejuízos
+concretos ou efetivo abalo moral, desde que haja violação injusta e intolerável a direitos de
+conteúdo extrapatrimonial da coletividade.
+3. É possível, ao menos em tese, a condenação à publicação da sentença condenatória em
+jornais de grande circulação para fins de reparação integral do dano.
+
+**Referência:**
+
+STJ. 2ª Turma. REsp 2.078.628-PE, Rel. Min. Marco Aurélio Bellizze, julgado em 16/12/2025 (Info 882).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 7
+
+**Disciplina:** Direito Penal
+
+**Subtema:** Alta Relevância: Magistratura Estadual, Magistratura Federal, Mpe, Mpf, Dpe, Dpu, Pge, Pgm, Advocacia Pública Federal
+
+**ODS:** 16
+
+**Título do julgado:**
+
+Média relevância: Delegado (conferir o edital do seu concurso), Cartório, Tribunais DIREITO PENAL DOSIMETRIA DA PENA No concurso de causas de aumento previstas na parte especial do CP, o juiz pode limitar-se a um só aumento, prevalecendo, todavia, a causa que mais aumente a pena
+
+**Tese / entendimento:**
+
+Caso hipotético: João, Carlos e Lucas praticaram roubo contra Roberto, em concurso de
+agentes, com restrição da liberdade da vítima e emprego de arma de fogo. O juiz aplicou as
+três majorantes cumulativamente, fixando a pena em 11 anos de reclusão. A defesa recorreu
+ao STJ alegando que essa cumulação das três majorantes ocorreu sem fundamentação
+concreta e que, deveria ser aplicada uma só majorante (a mais benéfica ao réu).
+O STJ concordou em parte com a defesa: afirmou que não é possível cumular todas as causas
+de aumento sem justificativa concreta, de modo que, no caso, a aplicação conjunta foi afastada
+por falta de fundamentação. Contudo, rejeitou a tese de que deveria incidir a majorante mais
+favorável ao réu, esclarecendo que, se o juiz optar por aplicar apenas uma, deve prevalecer a
+causa de aumento que mais eleva a pena.
+Quando há mais de uma causa de aumento da parte especial incidindo sobre o mesmo crime,
+o parágrafo único do art. 68 do CP oferece ao julgador duas alternativas:
+1) aplicar todas as majorantes cumulativamente. Porém, essa escolha exige motivação
+concreta, extraída do contexto dos autos, e fundamentação específica que evidencie o maior
+grau de reprovação do delito e, consequentemente, a necessidade de uma sanção mais
+rigorosa.
+2) aplicar apenas uma causa de aumento. Neste caso, o juiz deve escolher a causa que mais
+aumente a pena (a mais gravosa).
+Tese de julgamento: No concurso de causas de aumento previstas na parte especial do Código
+Penal, o juiz pode limitar-se a um só aumento, prevalecendo, todavia, a causa que mais
+aumente a pena.
+
+**Referência:**
+
+STJ. 3ª Seção. EREsp 2.206.873-SP, Rel. Min. Joel Ilan Paciornik, julgado em 11/3/2026 (Info 882).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 8
+
+**Disciplina:** Direito Penal
+
+**Subtema:** Favorável À Acusação
+
+**ODS:** 16 1
+
+**Título do julgado:**
+
+Julgado IMPORTANTE Alta relevância: Magistratura estadual, Magistratura federal, MPE, MPF, DPE, DPU, Delegado, Tribunais LEI DE DROGAS O crime de fabricação de maquinário destinado ao tráfico de drogas (art. 34 da Lei 11.343/2006) não tem natureza hedionda, devendo a progressão de regime observar as regras aplicáveis aos crimes comuns
+
+**Tese / entendimento:**
+
+1. O crime previsto no art. 34 da Lei n. 11.343/2006 não possui natureza de crime hediondo,
+pois não está elencado no rol taxativo do art. 2º da Lei n. 8.072/1990.
+2. Para fins de progressão de regime prisional, o crime do art. 34 da Lei n. 11.343/2006 deve
+ser tratado como crime comum, aplicando-se as regras gerais previstas na Lei de Execução
+Penal.
+3. O livramento condicional para o crime previsto no art. 34 da Lei n. 11.343/2006 deve
+observar a regra específica do art. 44, parágrafo único, da mesma lei, que exige o cumprimento
+de dois terços da pena, vedada sua concessão ao reincidente específico.
+
+**Referência:**
+
+STJ. 5ª Turma. HC 1.005.146-SP, Rel. Min. Ribeiro Dantas, julgado em 3/3/2026 (Info 882).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 9
+
+**Disciplina:** Direito Processual Penal
+
+**Subtema:** Favorável À Defesa
+
+**ODS:** 16
+
+**Título do julgado:**
+
+Julgado IMPORTANTE Alta relevância: Magistratura estadual, Magistratura federal, MPE, MPF, DPE, DPU, Delegado, Tribunais DIREITO PROCESSUAL PENAL PROVAS / COLABORAÇÃO PREMIADA A OAB não tem legitimidade para impetrar MS em defesa individual de advogado investigado; a inviolabilidade do escritório de advocacia não é absoluta; a colaboração premiada firmada por advogado é válida quando versa sobre crimes dos quais ele participou como agente
+
+**Tese / entendimento:**
+
+Caso hipotético: Carlos é advogado. Silvério, também advogado, havia sido contratado por
+Carlos para prestar serviços jurídicos em questões societárias. Tempos depois, Silvério firmou
+colaboração premiada com o MPF, relatando que Carlos estaria envolvido em esquema de
+corrupção, tráfico de influência e lavagem de dinheiro, usando seu escritório como fachada
+para intermediar pagamentos ilícitos. O que Silvério revelou não dizia respeito aos serviços
+para os quais fora contratado. Eram crimes dos quais ele próprio havia participado ao lado de
+Carlos. Com base nesses relatos e em outros elementos já reunidos na investigação, a Juíza
+Federal deferiu busca e apreensão na residência e no escritório de Carlos, restringindo
+temporariamente o acesso em tempo real ao material apreendido. A OAB-SP impetrou
+mandado de segurança alegando violação de prerrogativas da advocacia. O TRF3 denegou a
+segurança, reconhecendo a ilegitimidade da OAB. No STJ, o recurso ordinário foi desprovido.
+Tese de julgamento:
+1. A Ordem dos Advogados do Brasil não possui legitimidade para impetrar mandado de
+segurança em defesa individual de advogado investigado, salvo quando demonstrado
+interesse da categoria de forma geral.
+2. A inviolabilidade do escritório de advocacia não é absoluta e pode ser afastada quando o
+advogado é alvo de investigação, desde que observadas as cautelas legais.
+3. A colaboração premiada firmada por advogado investigado é válida quando versa sobre
+fatos criminosos nos quais ele esteve envolvido como agente, e não sobre informações obtidas
+no exercício de seu múnus profissional.
+
+**Referência:**
+
+STJ. 6ª Turma. AgRg no RMS 73.012-SP, Rel. Min. Antonio Saldanha Palheiro, julgado em 17/3/2026 (Info 882).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 10
+
+**Disciplina:** Direito Previdenciário
+
+**Subtema:** Julgado Importante
+
+**ODS:** 16
+
+**Título do julgado:**
+
+Alta relevância: Magistratura estadual, Magistratura federal, MPE, MPF, DPE, DPU, Delegado DIREITO PREVIDENCIÁRIO CONTRIBUIÇÃO PREVIDENCIÁRIA STJ realiza juízo de retração para se adequar ao entendimento do STF no sentido de que é ilegítima a incidência de contribuição previdenciária a cargo do empregador sobre o salário- maternidade
+
+**Tese / entendimento:**
+
+É inconstitucional a incidência da contribuição previdenciária a cargo do empregador sobre o
+salário-maternidade, conforme tese fixada pelo STF no julgamento do RE 576.967/PR, sob o
+regime da repercussão geral (Tema 72/STF).
+Em casos como este, o STJ passou a adotar a tese fixada pelo STF, em juízo de retratação, nos
+termos do art. 1.040, II, do CPC/2015, afastando a contribuição sobre o salário-maternidade.
+
+**Referência:**
+
+STJ. 2ª Turma. AgRg no Ag 1.428.915-DF, Rel. Min. Afrânio Vilela, julgado em 4/3/2026 (Info 882).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---

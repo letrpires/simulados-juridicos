@@ -1,0 +1,556 @@
+# Simulado - Info 842 STJ
+
+**Arquivo de origem:** Info 842 STJ_limpo_estruturado.md
+**Total de julgados:** 33
+
+---
+
+## Questão 1
+
+Em ação de improbidade administrativa, a ausência, na petição inicial, de prova cabal e pré-constituída do dolo específico do agente e do efetivo prejuízo ao erário autoriza, por si só, a rejeição liminar da demanda, ainda que a peça inaugural descreva fatos aptos a indicar, em tese, a prática de ato ímprobo.
+
+**Gabarito:** ERRADO
+
+**Justificativa (robusta):**  
+A assertiva contraria o entendimento firmado para a fase de admissibilidade da ação de improbidade. A rejeição da petição inicial somente é cabível quando inexistirem indícios mínimos da prática de ato de improbidade administrativa. Havendo suporte indiciário suficiente na narrativa fática e nos elementos que a acompanham, a inicial deve ser recebida, com a abertura da instrução probatória.
+
+Nessa etapa inicial, não se exige prova plena nem juízo definitivo sobre elementos subjetivos e patrimoniais do ilícito. A aferição da existência de conduta dolosa e da ocorrência de dano efetivo ao erário é reservada ao momento da sentença, após a dilação probatória. Assim, não é juridicamente adequado exigir, como condição para o recebimento da inicial, demonstração cabal e pré-constituída do dolo específico e do prejuízo, pois isso esvaziaria a própria fase instrutória.
+
+Em síntese: a falta de prova robusta do dolo e do dano não autoriza automaticamente a rejeição da ação; o que importa, para o recebimento, é a presença de indícios mínimos do ato ímprobo. Ausentes esses indícios, aí sim a inicial pode ser rejeitada.
+
+**Referência:**  
+STJ. 2ª Turma. REsp 2.175.480-SP, Rel. Min. Teodoro Silva Santos, julgado em 18/2/2025 (Info 842).
+
+## Questão 2
+
+Em procedimento administrativo destinado à revisão de ato concessivo de anistia política, a participação de assessor especial do Ministério competente e de Grupo de Trabalho Interministerial, ainda que precedida de análise técnica do caso, supre a ausência de manifestação da Comissão de Anistia, desde que haja decisão final devidamente motivada pela autoridade superior, por se tratar de controle interno de legalidade do ato administrativo.
+
+**Gabarito:** ERRADO
+
+**Justificativa (robusta):**
+A assertiva está incorreta porque, nos processos de revisão de anistia política, a atuação da Comissão de Anistia não é meramente acessória nem substituível por outros órgãos ou agentes administrativos. O entendimento firmado é no sentido de que compete **exclusivamente** à Comissão de Anistia examinar os requerimentos de anistia política e também suas revisões, de modo que a **ausência de participação desse órgão essencial** contamina o procedimento com nulidade.
+
+Assim, ainda que assessor especial, Grupo de Trabalho Interministerial ou outra instância administrativa tenham produzido estudos, pareceres ou propostas de decisão, isso **não supre** a exigência legal de manifestação da Comissão de Anistia. A lógica do julgado é de preservação da competência legalmente atribuída ao órgão especializado, cuja intervenção integra a própria validade do procedimento. Portanto, a existência de decisão final motivada por autoridade superior não convalida a falta de atuação da Comissão, pois o vício não é apenas de fundamentação, mas de **inobservância da competência procedimentalmente reservada**.
+
+Em termos de prova, o ponto central é distinguir entre apoio técnico-administrativo e competência decisória/legalmente exigida: a primeira pode existir, mas não substitui a segunda. A omissão da Comissão de Anistia, por si só, é causa de nulidade do procedimento de revisão de anistia política.
+
+**Referência:**
+STJ. 1ª Seção. MS 19.183-DF, Rel. Min. Benedito Gonçalves, julgado em 12/2/2025 (Info 842).
+
+## Questão 3
+
+A ação popular é cabível para impugnar declarações públicas de agente político que, embora desprovidas de efeitos jurídicos vinculantes e sem conteúdo decisório, possam, em tese, afetar a moralidade administrativa e a confiança institucional, pois a tutela desse remédio constitucional alcança também manifestações estatais meramente opinativas quando potencialmente lesivas aos bens jurídicos protegidos.
+
+**Gabarito:** ERRADO
+
+**Justificativa (robusta):**
+A assertiva está incorreta porque a ação popular não se presta ao controle abstrato de discursos, opiniões ou manifestações públicas de agentes políticos quando ausente ato administrativo ou ato a ele equiparável, dotado de efeitos concretos e potencial lesivo aos bens jurídicos tutelados. O remédio constitucional tem natureza essencialmente desconstitutiva e pressupõe a existência de um ato ilegal e lesivo ao patrimônio público, à moralidade administrativa, ao meio ambiente ou ao patrimônio histórico e cultural.
+
+No caso examinado, a controvérsia foi proposta contra declarações públicas do então Presidente da República acerca de suposta fraude eleitoral, sem que tais manifestações produzissem efeitos jurídicos vinculantes ou configurassem comando estatal apto a alterar a esfera jurídica de terceiros. Nessas condições, a via eleita é inadequada, pois a mera opinião, ainda que proferida por autoridade máxima do Executivo, não se converte em ato impugnável por ação popular se não houver conteúdo decisório, eficácia jurídica concreta ou lesividade juridicamente relevante.
+
+A exigência de ato com efeitos concretos funciona como limite objetivo de admissibilidade da ação popular. Assim, ainda que se alegue ofensa à moralidade administrativa, não basta a reprovabilidade política, ética ou institucional da fala: é indispensável que a manifestação esteja inserida em um ato administrativo ou equivalente, com aptidão para produzir efeitos jurídicos e lesar, de forma concreta, os bens protegidos pela ação popular. Sem isso, a pretensão deve ser rejeitada por inadequação da via processual.
+
+**Referência:**
+STJ. 1ª Turma. REsp 2.141.693-MG, Rel. Min. Gurgel de Faria, julgado em 11/2/2025 (Info 842).
+
+## Questão 4
+
+Na fase de cumprimento de sentença, inexistindo no título judicial determinação expressa de índice diverso, a Taxa Selic deve ser adotada como critério de juros moratórios, sendo incompatível sua cumulação com qualquer outro índice de atualização monetária; ademais, se não houver cumulação de encargos, a Selic incidirá no período correspondente aos juros de mora com dedução do IPCA, ainda que a obrigação tenha sido constituída antes da alteração legislativa que passou a disciplinar a matéria.
+
+**Gabarito:** CERTO
+
+**Justificativa (robusta):**
+O enunciado reproduz a orientação firmada para a fase executiva quando o título judicial é omisso quanto ao índice aplicável aos juros moratórios. Nessa hipótese, a Taxa Selic é utilizada como parâmetro de mora, justamente por reunir, em sua composição, parcela destinada à remuneração do capital e parcela relacionada à recomposição inflacionária, o que impede sua cumulação com outro índice de correção monetária, sob pena de bis in idem.
+
+Além disso, o entendimento ressalta que, quando não houver cumulação de encargos, a Selic deve ser aplicada no período de incidência dos juros de mora com dedução do IPCA, para evitar duplicidade de atualização. A solução também alcança obrigações constituídas antes da alteração legislativa mencionada no julgado, pois a diretriz foi afirmada para a forma de cálculo a ser observada na execução, sem limitação temporal ao momento de constituição da dívida.
+
+Em síntese, a regra extraída é: ausência de índice específico no título judicial autoriza a incidência da Selic como juros moratórios; é vedada sua cumulação com correção monetária; e, inexistindo cumulação de encargos, deve-se deduzir o IPCA no período correspondente.
+
+**Referência:**
+STJ. 4ª Turma. AgInt no AREsp 2.059.743-RJ, Rel. Min. Antonio Carlos Ferreira, julgado em 11/2/2025 (Info 842).
+
+## Questão 5
+
+Em contrato de seguro de vida, o vazamento de dados pessoais sensíveis fornecidos pelo proponente para a formação da avença, ainda que não haja prova de efetiva utilização indevida dessas informações por terceiros, atrai a responsabilidade objetiva da seguradora e autoriza a presunção do dano moral, incumbindo ao fornecedor demonstrar que adotou medidas aptas a resguardar a segurança dos dados, nos termos da disciplina consumerista e da proteção legal conferida aos dados pessoais sensíveis.
+
+**Gabarito:** CERTO
+
+**Justificativa (robusta):**
+A assertiva está correta porque reproduz a lógica central do entendimento firmado: em se tratando de seguro de vida, a seguradora, ao coletar dados pessoais sensíveis do consumidor, assume dever qualificado de proteção dessas informações. O vazamento, por si só, já é apto a expor o titular a riscos relevantes à honra, imagem, intimidade, patrimônio, integridade física e segurança pessoal, o que justifica a responsabilização objetiva do fornecedor.
+
+O ponto decisivo é que não se exige prova de dano concreto adicional, como fraude consumada, uso indevido efetivo dos dados ou demonstração específica de abalo psíquico individualizado. O próprio vazamento de dados sensíveis, dada a sua natureza e a finalidade contratual em seguro de vida, é suficiente para caracterizar a lesão extrapatrimonial, razão pela qual o dano moral é presumido.
+
+Além disso, o ônus argumentativo e probatório recai sobre a seguradora quanto ao cumprimento do dever de segurança e proteção dos dados, especialmente porque a relação é de consumo e incidem os deveres de boa-fé, segurança e proteção informacional previstos no CDC e na LGPD. Assim, não basta alegar genericamente ausência de culpa, pois a responsabilidade é objetiva e a discussão se desloca para a demonstração de que foram adotadas medidas adequadas de proteção.
+
+**Referência:**
+STJ. 3ª Turma. REsp 2.121.904-SP, Rel. Min. Nancy Andrighi, julgado em 11/2/2025 (Info 842).
+
+## Questão 6
+
+Em ação indenizatória decorrente de evento adverso grave ocorrido em ensaio clínico com medicamento experimental, a existência de laudo pericial inconclusivo quanto ao nexo causal não impede o reconhecimento da responsabilidade do patrocinador quando o conjunto probatório remanescente — especialmente a proximidade temporal entre a administração do fármaco e o surgimento da doença, a ausência de histórico prévio da moléstia e a plausibilidade técnica de reação idiossincrática — tornar mais verossímil a narrativa da autora; nessa hipótese, é juridicamente admissível a distribuição do ônus probatório à parte que, em tese, detém melhores condições de demonstrar a inexistência do nexo causal.
+
+**Gabarito:** CERTO
+
+**Justificativa (robusta):**
+A assertiva está correta porque reproduz a lógica decisória adotada no caso: a prova pericial, embora relevante, não foi conclusiva quanto à origem da doença, mas tampouco afastou a possibilidade de relação causal entre o medicamento e o quadro clínico desenvolvido. Diante desse cenário de incerteza técnica, o julgador pode valorar o conjunto probatório de forma global e atribuir maior peso à versão que se mostre mais plausível à luz das circunstâncias do caso concreto.
+
+O ponto central do entendimento é a compatibilidade da teoria da verossimilhança preponderante com o sistema processual brasileiro. Essa técnica não substitui a prova, mas funciona como critério racional de superação da dúvida judicial quando uma das versões se apresenta mais consistente do que a outra. Em situações como essa, em que a parte autora demonstra elementos indiciários relevantes — como a cronologia dos fatos, a inexistência de doença anterior e a admissão pericial de possível reação idiossincrática —, é legítimo deslocar o ônus probatório para quem está em melhor posição de demonstrar a inexistência do nexo causal.
+
+Esse raciocínio se harmoniza com a dimensão objetiva do ônus da prova, especialmente quando a prova negativa é excessivamente difícil para a vítima e a parte adversa detém melhores condições técnicas e informacionais para esclarecer o evento. No contexto de pesquisa clínica, ainda, a responsabilização do patrocinador encontra respaldo nas normas sanitárias e éticas aplicáveis, que impõem dever de assistência e reparação por eventos adversos graves.
+
+Assim, não se exige prova pericial categórica e absoluta do nexo causal para a procedência do pedido, bastando que o conjunto probatório torne a versão da autora mais verossímil e autorize a imputação do risco ao patrocinador do ensaio.
+
+**Referência:**
+STJ. 3ª Turma. REsp 2.145.132-GO, Rel. Min. Nancy Andrighi, julgado em 18/2/2025 (Info 842).
+
+## Questão 7
+
+Em condomínio atípico instituído por loteamento, a cobrança de taxa de manutenção é juridicamente exigível quando houver contrato-padrão regularmente depositado no registro imobiliário prevendo expressamente o encargo e restar demonstrada a anuência do adquirente por instrumento formal, ainda que não tenha havido adesão específica a estatuto associativo, pois a obrigação decorre da manifestação de vontade validamente exteriorizada e não se confunde com imposição compulsória de associação.
+
+**Gabarito:** CERTO
+
+**Justificativa (robusta):**
+A assertiva está correta porque o entendimento firmado admite a exigibilidade da taxa condominial em condomínios atípicos quando presentes dois elementos centrais: (i) a existência de contrato-padrão com cláusula de cobrança devidamente levado a registro imobiliário; e (ii) a anuência do adquirente, que pode ser demonstrada por contrato, escritura pública ou outro instrumento formal. Nessa hipótese, a cobrança não decorre de mera vinculação associativa imposta unilateralmente, mas de obrigação assumida pelo próprio adquirente ao aderir ao negócio jurídico com ciência do encargo.
+
+O ponto sensível do julgado está justamente em diferenciar a cobrança fundada em adesão contratual válida da hipótese de compulsoriedade associativa vedada pela liberdade de associação. Assim, não basta a simples existência de entidade administradora ou de associação de moradores; é necessário que haja base negocial formalmente constituída e anuência do titular do imóvel. Uma vez comprovada essa concordância, a ausência de adesão formal a estatuto associativo não afasta a obrigação de pagar a taxa.
+
+Em termos práticos, o precedente prestigia a força obrigacional do contrato-padrão registrado e a oponibilidade do encargo ao adquirente que anuiu expressamente, afastando a tese de que a cobrança seria sempre indevida por se tratar de condomínio atípico. O elemento decisivo é a prova da concordância do proprietário com a cobrança, e não a mera filiação associativa.
+
+**Referência:**
+STJ. 4ª Turma. AgInt no AgInt no REsp 1.975.502-SP, Rel. Min. João Otávio de Noronha, julgado em 10/2/2025 (Info 842).
+
+## Questão 8
+
+A pretensão de reconhecimento judicial de filiação socioafetiva post mortem é juridicamente inviável, por se tratar de modalidade de parentesco que se equipara à adoção e, por isso, depende de procedimento formal e solene instaurado em vida do pretenso pai ou mãe, sendo irrelevante, para esse fim, a demonstração de posse do estado de filho ou de vínculo afetivo público, contínuo e duradouro.
+
+**Gabarito:** ERRADO
+
+**Justificativa (robusta):**
+A assertiva está incorreta porque a filiação socioafetiva não se confunde com adoção. Enquanto a adoção exige procedimento judicial próprio, com formalidades e solenidades específicas, a filiação socioafetiva pode ser reconhecida judicialmente a partir da comprovação de uma relação afetiva preexistente, construída no plano fático e juridicamente relevante.
+
+O ponto central do entendimento é que o ordenamento admite o reconhecimento da parentalidade fundada no afeto, nos termos do art. 1.593 do Código Civil, que contempla o parentesco natural ou civil, “conforme resulte de consanguinidade ou outra origem”, expressão que comporta a origem socioafetiva. Assim, não há exigência de que o vínculo tenha sido formalizado em vida pelos pais socioafetivos para que possa ser declarado judicialmente após o óbito.
+
+Além disso, a morte do pai ou da mãe socioafetivos não impede o reconhecimento da filiação, desde que haja prova da posse do estado de filho e da existência de vínculo afetivo público, contínuo e duradouro. A circunstância de a convivência ter se alterado na fase adulta também não descaracteriza, por si só, a relação construída durante a infância e a juventude, se o conjunto probatório demonstrar a persistência da condição filial no plano social e afetivo.
+
+Outro aspecto relevante é que a filiação socioafetiva pode coexistir com outros vínculos de parentesco, admitindo-se múltiplas parentalidades, o que reforça sua autonomia em relação à adoção e afasta a ideia de exclusividade típica de alguns modelos tradicionais de filiação.
+
+**Referência:**
+STJ. 3ª Turma. REsp 2.075.230-RJ, Rel. Min. Nancy Andrighi, julgado em 11/2/2025 (Info 842).
+
+## Questão 9
+
+A ausência de convivência afetiva entre pai registral e filho maior de idade, por si só, não autoriza a desconstituição do vínculo de filiação; entretanto, demonstrada a inexistência de socioafetividade, em conjunto com o abandono material e afetivo e com a quebra dos deveres de cuidado inerentes à paternidade responsável, admite-se, à luz de interpretação sistemática do Código Civil e do Estatuto da Criança e do Adolescente, o rompimento do vínculo biológico e registral, ainda que a filiação tenha sido formalmente constituída no registro civil.
+
+**Gabarito:** CERTO
+
+**Justificativa (robusta):**
+O enunciado está de acordo com o entendimento firmado no julgado. A premissa central é que a socioafetividade constitui elemento apto a caracterizar a filiação quando presente a posse do estado de filho, isto é, quando há desfrute público e contínuo da condição de filho. A partir dessa lógica, a ausência de socioafetividade, por si só, não opera automaticamente a desconstituição do vínculo, pois a análise depende das circunstâncias concretas.
+
+No caso examinado, a desconstituição da paternidade foi admitida porque, além da inexistência de relação socioafetiva, ficou evidenciado o abandono material e afetivo do filho, com descumprimento dos deveres de cuidado inerentes à paternidade. O fundamento decisivo foi a paternidade responsável, compreendida como vetor de proteção da personalidade em desenvolvimento e que autoriza, diante da violação dos deveres parentais, o rompimento do vínculo paterno-filial.
+
+Assim, não se trata de afirmar que toda ausência de afeto gera automaticamente a ruptura do parentesco, mas sim que, em situação concreta de inexistência de socioafetividade somada ao abandono afetivo e material, é possível a desconstituição da paternidade registral.
+
+**Referência:**
+STJ. 3ª Turma. REsp 2.117.287-PR, Rel. Min. Nancy Andrighi, julgado em 18/2/2025 (Info 842).
+
+## Questão 10
+
+Em contrato de intermediação de viagem, a agência de turismo que se limita à comercialização de passagens não se submete ao dever de informação quanto às condições de utilização do serviço ofertado, de modo que eventual falha na comunicação do horário-limite de check-in para embarque em cruzeiro afasta sua responsabilidade, a qual recairia exclusivamente sobre a empresa transportadora.
+
+**Gabarito:** ERRADO
+
+**Justificativa (robusta):**
+A assertiva contraria a lógica da responsabilidade por fato do serviço no âmbito das relações de consumo. O dever de informação é direito básico do consumidor e alcança todos os fornecedores que participam da cadeia de consumo, especialmente quando a atividade exercida contribui para a oferta do serviço ao público. Não basta a agência alegar que sua atuação se restringe à venda de passagens: ao integrar a cadeia de fornecimento, ela também deve prestar informações adequadas e claras sobre a forma de fruição do serviço comercializado, inclusive sobre requisitos operacionais relevantes para o embarque.
+
+No caso examinado, a falha informacional foi determinante para o prejuízo do consumidor, que compareceu antes da partida do navio, mas após o encerramento do check-in, porque não foi devidamente advertido de que o prazo se encerrava duas horas antes do embarque. Nessa hipótese, a responsabilidade não é exclusiva da empresa de cruzeiro, pois há solidariedade entre os fornecedores que concorrem para o defeito do serviço, especialmente quando ambos deixam de cumprir o dever de informar adequadamente o consumidor.
+
+A tese também evidencia que a responsabilidade decorre do próprio defeito na prestação do serviço, e não de uma atuação material direta no embarque. Assim, a limitação contratual ou comercial da agência não a exonera do dever de informação nem rompe a solidariedade perante o consumidor lesado.
+
+**Referência:**
+STJ. 3ª Turma. REsp 2.166.023-PR, Rel. Min. Nancy Andrighi, julgado em 4/2/2025 (Info 842).
+
+## Questão 11
+
+Em ação anulatória de registros imobiliários em que a União sustenta ter adquirido, por escritura pública antiga não levada a registro, área cuja descrição histórica revela possível divergência entre a extensão efetivamente transmitida e a área posteriormente inserida em cadeia dominial privada, a pretensão de reconhecimento da nulidade dos assentos pode ser julgada sem prova técnica, bastando a presunção de propriedade pública extraída do título aquisitivo e a alegação de imprescritibilidade do bem, ainda que a controvérsia envolva a identificação física do imóvel, a sobreposição de títulos e a reconstrução de sucessivas transmissões ao longo de décadas.
+
+**Gabarito:** ERRADO
+
+**Justificativa (robusta):**
+A assertiva está incorreta porque, em hipóteses nas quais há relevante questão histórica e registral sobre a própria individualização do imóvel, não basta invocar genericamente a existência de escritura pública antiga nem a imprescritibilidade dos bens públicos para dispensar a instrução probatória adequada.
+
+O ponto central do entendimento é que a escritura pública lavrada há mais de um século pode até constituir indício relevante da alegada propriedade pública, mas isso não elimina a necessidade de apurar, com precisão técnica, se o bem efetivamente corresponde à área descrita no título e se houve ou não alienação a non domino em cadeia dominial posterior. Quando a controvérsia depende da localização, extensão, confrontações, sobreposição de áreas e exame de registros sucessivos, a prova pericial reconstitutiva torna-se necessária.
+
+Além disso, o magistrado é o destinatário da prova e, por isso, cabe a ele avaliar a suficiência dos elementos documentais já existentes e a necessidade de produção de prova pericial complexa. Em casos assim, a simples presunção derivada do título histórico não autoriza o julgamento antecipado do mérito, sobretudo quando a solução da lide exige reconstrução técnica da cadeia dominial e dos limites físicos do imóvel.
+
+Em suma, a tese firmada prestigia a necessidade de instrução probatória aprofundada quando a controvérsia registral é complexa e histórica, e não a dispensa da perícia com base apenas na alegação de domínio público e imprescritibilidade.
+
+**Referência:**
+STJ. 3ª Turma. REsp 2.025.013-RJ, Rel. Min. Carlos Cini Marchionatti (Desembargador convocado do TJRS), julgado em 11/2/2025 (Info 842).
+
+## Questão 12
+
+Em demanda de obrigação de fazer proposta pelo importador para compelir a liberação da via original do conhecimento de embarque necessária à retirada da mercadoria, o agente marítimo da transportadora estrangeira sem representação direta no Brasil não pode integrar validamente o polo passivo, por se tratar de mero intermediário operacional destituído de legitimidade para cumprir deveres vinculados ao contrato de transporte, ainda que atue como representante da armadora no país.
+
+**Gabarito:** ERRADO
+
+**Justificativa (robusta):**
+A assertiva está incorreta porque o agente marítimo, embora não se confunda com a transportadora estrangeira e não seja, em regra, o responsável final por eventual indenização decorrente do contrato de transporte, possui legitimidade para figurar no polo passivo de ação de obrigação de fazer voltada à obtenção da via original do conhecimento de embarque.
+
+O ponto central é que, quando a armadora não possui representação direta no Brasil, o agente marítimo atua como seu representante no país para a prática de atos necessários à execução do transporte internacional, inclusive para receber notificações, intimações e adotar providências administrativas relacionadas à entrega de documentos indispensáveis à liberação da carga. Assim, não se trata de mero intermediário sem pertinência subjetiva com a lide, mas de sujeito apto a ser demandado para o cumprimento da obrigação de fazer consistente na disponibilização do conhecimento de embarque.
+
+A legitimidade reconhecida é específica e funcional: ela não implica afirmar que o agente marítimo seja o devedor material de todas as obrigações indenizatórias do contrato, mas apenas que pode responder judicialmente pela providência necessária à efetivação do direito do importador, especialmente quando a pretensão é instrumental e voltada à retirada da mercadoria. Em outras palavras, a discussão não é de responsabilidade civil ampla, e sim de adequação do polo passivo para viabilizar a tutela específica.
+
+**Referência:**
+STJ. 4ª Turma. AgInt no REsp 1.552.981-SP, Rel. Min. Raul Araújo, julgado em 12/2/2025 (Info 842).
+
+## Questão 13
+
+Na sociedade limitada, a exclusão extrajudicial de sócio por falta grave é nula se o contrato social originário não contiver cláusula expressa autorizando essa medida, ainda que todos os sócios, posteriormente, tenham subscrito instrumento particular com regras internas de governança e hipóteses de justa causa para afastamento de sócio, pois a ausência de arquivamento desse ajuste na Junta Comercial impede que ele produza efeitos jurídicos entre os sócios.
+
+**Gabarito:** ERRADO
+
+**Justificativa (robusta):**
+A assertiva está incorreta porque confunde a eficácia perante terceiros com a eficácia interna entre os sócios e, além disso, atribui ao registro um efeito impeditivo que não foi reconhecido no caso.
+
+No entendimento aplicado, a exclusão extrajudicial de sócio não é automaticamente inválida pela simples ausência de previsão no contrato social originário, desde que exista instrumento posterior subscrito por todos os sócios, apto a complementar ou alterar o pacto social e a disciplinar a hipótese de exclusão por justa causa. Esse documento, embora não levado a registro, pode produzir efeitos entre os sócios, especialmente quando revela consenso unânime sobre a disciplina interna da sociedade.
+
+O ponto decisivo é que a falta de arquivamento da alteração contratual não impede, em regra, sua eficácia inter partes. Assim, o registro na Junta Comercial não é requisito absoluto de validade para a produção de efeitos internos do ajuste, sobretudo quando o documento foi assinado por todos os sócios e contém disciplina suficiente para autorizar a exclusão extrajudicial.
+
+Em síntese: a ausência de cláusula no contrato social originário não torna nula a exclusão se houver aditamento posterior unânime com previsão da medida; e a falta de registro desse aditamento não obsta, por si só, sua eficácia entre os sócios.
+
+**Referência:**
+STJ. 3ª Turma. REsp 2.170.665-DF, Rel. Min. Ricardo Villas Bôas Cueva, julgado em 4/2/2025 (Info 842).
+
+## Questão 14
+
+Em sociedade empresária limitada, é juridicamente inválida a deliberação contratual que, por maioria, substitui o critério de rateio dos lucros proporcional à quota social por outro baseado nos dias efetivamente trabalhados por cada sócio, ainda que todos permaneçam formalmente participando dos resultados e das perdas, pois a disciplina legal impõe, como regra inderrogável, a distribuição de dividendos na exata proporção da participação no capital social.
+
+**Gabarito:** ERRADO
+
+**Justificativa (robusta):**
+A assertiva está errada porque a disciplina das sociedades limitadas não torna absoluta a vinculação entre participação no capital social e distribuição de lucros. Embora a regra geral seja a repartição dos resultados conforme a participação de cada sócio no capital, admite-se estipulação contratual em sentido diverso, desde que não haja exclusão de sócio da participação nos lucros e nas perdas.
+
+No caso apreciado, foi considerada válida a alteração contratual que passou a adotar, como critério de distribuição dos dividendos, os dias efetivamente trabalhados por cada sócio. O ponto central é que a autonomia privada societária permite modular a forma de partilha dos resultados, especialmente quando a finalidade é refletir a contribuição efetiva de trabalho dos sócios, sem suprimir o direito de qualquer deles aos resultados sociais.
+
+A invalidade surgiria se a cláusula implicasse exclusão total de um sócio da participação nos lucros ou nas perdas, hipótese incompatível com a estrutura essencial do tipo societário. Mas não é isso que ocorre quando se substitui o critério de rateio pelo tempo efetivamente dedicado à atividade empresarial, preservando-se a participação de todos no resultado, ainda que em proporções distintas da quota de capital.
+
+**Referência:**
+STJ. 4ª Turma. REsp 2.053.655-SP, Rel. Min. Raul Araújo, julgado em 11/2/2025 (Info 842).
+
+## Questão 15
+
+Em ação de despejo fundada em contrato de arrendamento rural, a existência de recuperação judicial do arrendatário impede, por si só, o prosseguimento da demanda perante o juízo cível, ainda que o imóvel objeto da retomada não integre o patrimônio da recuperanda e não haja determinação de constrição sobre ativos financeiros, pois a competência do juízo universal atrairia toda e qualquer medida capaz de afetar a continuidade da atividade empresarial.
+
+**Gabarito:** ERRADO
+
+**Justificativa (robusta):**
+A assertiva está incorreta porque a recuperação judicial não tem o efeito de deslocar automaticamente para o juízo universal toda e qualquer controvérsia envolvendo a empresa recuperanda. No caso de ação de despejo relativa a imóvel que não integra o patrimônio da recuperanda, prevalece o direito de propriedade do titular do bem, que não se submete aos efeitos da recuperação judicial. Assim, a demanda possessória/desconstitutiva pode prosseguir no juízo competente, sem necessidade de submissão ao juízo recuperacional.
+
+O ponto decisivo é que a competência universal da recuperação judicial não alcança, indistintamente, pretensões que recaiam sobre bem de terceiro. Se o imóvel não pertence à recuperanda, não há razão para atrair a lide ao juízo da recuperação apenas porque a empresa está em soerguimento. Além disso, a continuidade da ação é admitida desde que não haja medida constritiva sobre ativos financeiros da recuperanda, hipótese em que poderia haver interferência indevida no regime concursal e na preservação da empresa.
+
+Em suma, a recuperação judicial não impede o prosseguimento da ação de despejo quando ausente constrição patrimonial sobre os ativos financeiros da devedora e quando o bem objeto da retomada não integra seu patrimônio.
+
+**Referência:**
+STJ. 4ª Turma. AgInt no AREsp 2.726.147-SP, Rel. Min. João Otávio de Noronha, julgado em 10/2/2025 (Info 842).
+
+## Questão 16
+
+Na recuperação judicial e na falência, os valores de FGTS decorrentes da rescisão do contrato de trabalho, por ostentarem natureza de direito social dos trabalhadores e se vincularem ao fruto civil do labor, devem ser enquadrados como crédito prioritário trabalhista, não se submetendo à classificação quirografária nem à condição de crédito meramente acessório.
+
+**Gabarito:** CERTO
+
+**Justificativa (robusta):**
+A assertiva está correta porque o entendimento firmado reconhece que o FGTS, embora possua disciplina própria e seja recolhido em conta vinculada, não perde sua vinculação material com a relação de emprego. Trata-se de direito social dos trabalhadores urbanos e rurais, com inequívoca origem na prestação laboral, razão pela qual os valores devidos em razão da rescisão do contrato de trabalho, especificamente quanto ao FGTS, ostentam natureza trabalhista.
+
+No contexto da Lei nº 11.101/2005, essa qualificação repercute diretamente na ordem de classificação dos créditos na recuperação judicial e na falência, devendo tais valores ser tratados como crédito prioritário trabalhista. A consequência prática é afastar o enquadramento como crédito quirografário, que seria incompatível com a natureza reconhecida pelo julgado, bem como impedir sua redução a mera obrigação acessória sem conteúdo trabalhista próprio.
+
+A formulação da questão explora justamente um ponto sensível: embora o FGTS tenha regime legal específico e, em certas discussões, possa ser tratado de forma distinta de verbas salariais típicas, o entendimento consolidado no julgado foi no sentido de prestigiar sua natureza trabalhista para fins concursais, especialmente quando relacionado à rescisão contratual. Assim, na recuperação judicial e na falência, a classificação deve observar essa natureza prioritária.
+
+**Referência:**
+STJ. 4ª Turma. AgInt no AREsp 2.621.635-MT, Rel. Min. Raul Araújo, julgado em 10/2/2025 (Info 842).
+
+## Questão 17
+
+A ampliação de pequena metragem realizada por particular em área de preservação permanente, ainda que situada em zona urbana já antropizada e mesmo após autuação e notificação administrativa para paralisação da obra, pode ser mantida judicialmente com base na teoria do fato consumado, desde que a intervenção seja de reduzida extensão e não haja prova de agravamento ambiental significativo.
+
+**Gabarito:** ERRADO
+
+**Justificativa (robusta):**
+A assertiva está incorreta porque, em matéria ambiental, a ilicitude da intervenção em área de preservação permanente não se convalida pelo decurso do tempo, pela pequena dimensão da obra ou pela circunstância de a área já estar antropizada. A construção irregular em APP configura dano ambiental presumido, o que autoriza a adoção de providências reparatórias, inclusive a demolição da edificação ilícita.
+
+Além disso, a teoria do fato consumado é inaplicável ao direito ambiental quando utilizada para legitimar situação criada por conduta contrária à ordem jurídica, especialmente se o particular prossegue na obra mesmo após notificação do poder público para cessá-la. Nessa hipótese, a continuidade da intervenção revela comportamento flagrantemente ofensivo ao meio ambiente, incompatível com a proteção constitucional conferida ao bem ambiental.
+
+Também não há direito adquirido a poluir, de modo que a alegação de reduzida extensão da área atingida não impede a recomposição integral do dano. A antropização da área tampouco afasta a tutela ambiental quando se trata de degradador individualizado, pois o fato de o local já sofrer alterações humanas não autoriza nova agressão nem impede a responsabilização civil.
+
+Em síntese, a manutenção da obra irregular não encontra amparo jurídico: a pequena dimensão da construção, a localização em área urbana antropizada e a invocação do fato consumado não afastam o dever de reparação, sendo legítima a demolição da obra ilícita.
+
+**Referência:**
+STJ. 2ª Turma. REsp 1.714.536-RJ, Rel. Min. Afrânio Vilela, julgado em 4/2/2025 (Info 842).
+
+## Questão 18
+
+A alteração promovida pela Lei n.º 14.879/2024 no art. 63 do CPC, ao restringir a eficácia da cláusula de eleição de foro à existência de pertinência com o domicílio ou a residência de uma das partes ou com o local da obrigação — ressalvada a pactuação consumerista favorável ao consumidor —, incide imediatamente sobre todos os processos em curso, inclusive aqueles em que a petição inicial foi protocolada antes de 4/6/2024, autorizando, nesses casos, a declinação de competência de ofício quando constatado foro aleatório.
+
+**Gabarito:** ERRADO
+
+**Justificativa (robusta):**
+A assertiva erra ao atribuir aplicação imediata e irrestrita da nova disciplina legal a processos já em curso. A modificação introduzida pela Lei 14.879/2024 no art. 63, §§ 1º e 5º, do CPC não alcança ações ajuizadas antes de sua vigência. O entendimento fixado é no sentido de que a nova regra sobre eleição de foro somente se aplica aos processos cuja petição inicial tenha sido apresentada após 4/6/2024, data de início da vigência da lei.
+
+Além disso, embora a nova redação tenha reforçado a vedação ao chamado foro aleatório — isto é, a escolha de juízo sem vínculo com o domicílio ou residência das partes ou com o negócio jurídico discutido — e tenha admitido a declinação de competência de ofício em hipóteses abusivas, essa consequência processual não pode ser projetada retroativamente para atingir demandas já distribuídas sob a disciplina anterior. Em matéria processual, a incidência imediata da norma nova encontra limite na preservação dos atos processuais já praticados e na regra de direito intertemporal aplicável ao caso.
+
+Portanto, a nova disciplina do art. 63 do CPC só incide sobre ações ajuizadas após 4/6/2024, não sendo possível utilizá-la para rediscutir, de ofício, a competência em processos protocolados antes dessa data com base exclusiva na alteração legislativa.
+
+**Referência:**
+STJ. 2ª Seção. CC 206.933-SP, Rel. Min. Nancy Andrighi, julgado em 6/2/2025 (Info 842).
+
+## Questão 19
+
+Em ação revisional de contrato em que o autor requer expressamente a designação de audiência de conciliação, a juntada, pelo advogado do réu, de procuração com poderes para receber citação, antes de qualquer pronunciamento judicial sobre o recebimento da petição inicial e sobre a realização da audiência, não faz nascer, por si só, o prazo de 15 dias para contestar, pois a contagem da resposta do réu permanece subordinada às regras do art. 335 do CPC, que pressupõem a adequada integração do demandado à relação processual.
+
+**Gabarito:** CERTO
+
+**Justificativa (robusta):**
+A assertiva está correta porque o comparecimento espontâneo do réu, em momento anterior à decisão judicial que aprecia a inicial e define a audiência de conciliação/mediação, não equivale automaticamente à citação nem deflagra, de imediato, o prazo para contestação. No regime do CPC/2015, a citação não serve apenas para cientificar o réu da demanda, mas também para integrá-lo formalmente à relação processual, em contexto em que a autocomposição é prestigiada desde o início do procedimento.
+
+Quando o autor formula pedido de audiência de conciliação, a lógica do sistema é a de que a contestação venha após essa etapa, salvo hipóteses em que a audiência seja manifestamente inútil ou inaplicável. Por isso, a simples atuação do réu nos autos, antes de o juízo decidir sobre o recebimento da petição inicial e sobre a designação da audiência, não autoriza presumir o início do prazo de defesa. A contagem da contestação deve observar as hipóteses legais do art. 335 do CPC/2015, e não um marco automático extraído do comparecimento espontâneo prematuro.
+
+Em suma, a revelia não pode ser decretada apenas porque o réu, antes da citação formal e antes da organização da fase inicial do processo, juntou procuração com poderes para receber citação. Nessa situação, não há deflagração automática do prazo de 15 dias para contestar.
+
+**Referência:**
+STJ. 3ª Turma. REsp 1.909.271-PR, Rel. Min. Ricardo Villas Bôas Cueva, julgado em 11/2/2025 (Info 842).
+
+## Questão 20
+
+Em incidente de sucessão processual decorrente de cessão do crédito litigioso, a parte adversa, regularmente intimada para se manifestar sobre o pedido de substituição, deixa transcorrer in albis o prazo legal; nessa hipótese, opera-se a preclusão do direito de impugnar a sucessão, sendo juridicamente admissível que o silêncio, diante de dever processual de manifestação, seja interpretado como anuência tácita à substituição processual.
+
+**Gabarito:** CERTO
+
+**Justificativa (robusta):**
+A assertiva está correta porque, uma vez aberta à parte contrária a oportunidade processual de se manifestar sobre o pedido de sucessão, o silêncio injustificado no prazo assinalado não permanece neutro do ponto de vista processual. O entendimento firmado é no sentido de que, havendo intimação regular e ônus de manifestação, a omissão faz operar a preclusão do direito de impugnar a sucessão processual.
+
+Isso decorre da compreensão de que o ato processual não se resume a condutas expressas e afirmativas; em determinadas situações, a inércia também produz efeitos jurídicos, especialmente quando a lei impõe à parte um dever de se pronunciar. Nessa hipótese, o silêncio deixa de ser mero não agir e passa a ser comportamento processualmente relevante, apto a ser interpretado como declaração de vontade para fins de estabilização da relação processual.
+
+No contexto da sucessão processual por cessão do crédito, o art. 109, § 1º, do CPC condiciona a substituição ao consentimento da parte contrária. Todavia, esse consentimento não precisa ser necessariamente expresso quando a parte, devidamente intimada para se manifestar, permanece inerte. O ponto central é que, uma vez estabelecido o ônus de impugnar, a omissão atrai a consequência da preclusão, impedindo posterior resistência ao pedido de sucessão.
+
+Assim, não há violação ao devido processo legal: ao contrário, prestigia-se a boa-fé processual, a cooperação e a estabilidade procedimental, evitando que a parte se beneficie da própria inércia após ter sido regularmente chamada a se pronunciar.
+
+**Referência:**
+STJ. 3ª Turma. REsp 2.169.410-PR, Rel. Min. Nancy Andrighi, Rel. para acórdão Min. Moura Ribeiro, julgado em 18/2/2025 (Info 842).
+
+## Questão 21
+
+Na hipótese de revogação unilateral do mandato antes da conclusão do inventário, a cláusula contratual que prevê o pagamento integral dos honorários advocatícios originalmente ajustados, bem como multa específica para a hipótese de ruptura imotivada da relação profissional, é válida e exigível de forma automática, ainda que o serviço não tenha sido integralmente prestado e que a base de cálculo dos honorários permaneça sujeita a alteração no curso do processo.
+
+**Gabarito:** ERRADO
+
+**Justificativa (robusta):**
+A assertiva está incorreta porque, em caso de revogação do mandato antes da conclusão do serviço contratado, não se admite a cobrança integral dos honorários como se houvesse prestação completa da atividade profissional. A remuneração deve observar a proporcionalidade em relação ao trabalho efetivamente realizado, sob pena de enriquecimento sem causa e de descompasso com a própria lógica da contraprestação contratual.
+
+Além disso, a estipulação de multa contratual para a hipótese de revogação ou renúncia unilateral do mandato não pode prevalecer de modo absoluto, pois a ruptura da relação entre cliente e advogado, por si só, não autoriza penalidade automática desvinculada da efetiva prestação do serviço e dos limites da contratação. O direito do advogado, nessa situação, restringe-se aos honorários proporcionais ao serviço prestado.
+
+Também não é possível afirmar a exigibilidade automática do valor integral quando a base de cálculo depende de elemento ainda não consolidado no processo de inventário. Enquanto não houver trânsito em julgado, o quinhão hereditário pode sofrer alterações, o que compromete a certeza do crédito e impede a cobrança plena nos moldes pretendidos. Ademais, se a condição contratualmente prevista para o pagamento não se implementou, os honorários não se tornam exigíveis na extensão integral pactuada.
+
+Em síntese, a revogação antecipada do mandato não elimina o direito do advogado à remuneração, mas limita esse direito aos honorários proporcionais ao trabalho efetivamente desempenhado, afastando a cobrança integral e a multa automática prevista para a hipótese de ruptura contratual.
+
+**Referência:**
+STJ. 3ª Turma. REsp 2.163.930-PR, Rel. Min. Ricardo Villas Bôas Cueva, julgado em 4/2/2025 (Info 842).
+
+## Questão 22
+
+Na execução, a imposição de multa por ato atentatório à dignidade da justiça ao executado que, após regularmente intimado, deixa de indicar ao juízo os bens penhoráveis, seus respectivos valores e a localização desses bens independe de intimação pessoal, bastando a comunicação eletrônica, e não se condiciona a advertência prévia específica acerca da possibilidade de aplicação da penalidade, cuja formulação permanece na esfera de discricionariedade do magistrado.
+
+**Gabarito:** CERTO
+
+**Justificativa (robusta):**
+O art. 774, V, do CPC tipifica como ato atentatório à dignidade da justiça a conduta do executado que, após devidamente intimado, não informa ao juízo quais são e onde estão os bens sujeitos à penhora, nem seus respectivos valores. O parágrafo único do mesmo dispositivo autoriza a aplicação de multa nessa hipótese.
+
+O ponto central do entendimento é que a sanção processual não exige intimação pessoal do executado: a intimação por meio eletrônico é suficiente para caracterizar a ciência válida da ordem judicial e viabilizar a incidência da multa, desde que observadas as regras gerais de comunicação dos atos processuais. Também não há exigência legal de advertência prévia específica sobre a possibilidade de multa como condição de validade da penalidade. Essa advertência pode ser feita, mas não constitui requisito obrigatório; trata-se de faculdade do magistrado, e não de pressuposto indispensável para a aplicação da sanção.
+
+Assim, a tese afasta a criação de requisito não previsto no CPC, preservando a efetividade da execução e a cooperação processual do executado na indicação de bens expropriáveis.
+
+**Referência:**
+STJ. 4ª Turma. REsp 1.947.791-GO, Rel. Min. Antonio Carlos Ferreira, julgado em 12/2/2025 (Info 842).
+
+## Questão 23
+
+Em processo em autos físicos, a redução do horário de funcionamento do fórum por ato administrativo infralegal, ainda que anterior ao termo final do prazo e ainda que não haja prejuízo demonstrado à parte, não tem o condão de antecipar o vencimento do prazo processual, pois a disciplina do expediente forense somente pode ser validamente alterada por lei de organização judiciária estadual, sendo insuficiente, para esse fim, resolução, portaria ou outro ato normativo de hierarquia inferior, inclusive lei ordinária estadual estranha à organização judiciária.
+
+**Gabarito:** CERTO
+
+**Justificativa (robusta):**
+O enunciado está correto porque a disciplina do horário de funcionamento do fórum, quando isso repercute na possibilidade de protocolo de petição em autos não eletrônicos, não pode ser modificada por simples ato administrativo ou norma infralegal. O art. 212 do CPC fixa a regra geral de prática dos atos processuais em dias úteis, das 6 às 20 horas, e, para petições em autos físicos, condiciona o protocolo ao horário de funcionamento do fórum ou tribunal.
+
+A questão central é que esse horário de funcionamento deve estar previsto na lei de organização judiciária local, e não em resolução, portaria ou outro ato administrativo. Isso decorre de dois fundamentos: (i) a matéria processual é de competência legislativa privativa da União, nos termos do art. 22, I, da Constituição; e (ii) a própria Constituição, no art. 125, § 1º, remete à lei de organização judiciária a disciplina pertinente à estrutura e funcionamento do Judiciário local.
+
+Por isso, somente a Lei de Organização Judiciária estadual pode estabelecer exceção ao horário normal previsto no CPC. Nem mesmo outra lei ordinária estadual, se não for a lei específica de organização judiciária, pode regular validamente essa matéria. Em consequência, a redução do expediente por ato infralegal não pode prejudicar a parte nem antecipar o termo final do prazo processual, devendo o prazo ser preservado até o próximo dia útil, se a prática do ato tiver sido inviabilizada por norma inválida.
+
+A assertiva explora justamente o limite da autonomia administrativa local: há espaço para disciplina do expediente, mas apenas pela via legislativa adequada e específica, não por ato normativo inferior.
+
+**Referência:**
+STJ. Corte Especial. AgInt nos EREsp 1.745.855-PI, Rel. Min. Raul Araújo, julgado em 19/2/2025 (Info 842).
+
+## Questão 24
+
+Em agravo interno interposto contra decisão monocrática que, ao dar parcial provimento a recurso especial, reconhece cerceamento de defesa e determina o retorno dos autos à origem para realização de prova pericial, é inadmissível suscitar, pela primeira vez, a alegação de que a parte teria renunciado à prova na audiência de instrução, pois a arguição de preclusão, não submetida ao crivo das instâncias ordinárias nem deduzida nas contrarrazões ao recurso especial, configura inovação recursal.
+
+**Gabarito:** CERTO
+
+**Justificativa (robusta):**
+A assertiva está correta porque reproduz a lógica processual aplicada ao caso: a parte agravante não pode introduzir, em agravo interno, fundamento novo apto a infirmar a decisão monocrática se tal matéria não foi objeto de debate e exame nas instâncias ordinárias, nem foi oportunamente apresentada nas contrarrazões ao recurso especial.
+
+No caso, a controvérsia originária girava em torno de suposto cerceamento de defesa pela não realização da perícia, tendo a decisão monocrática reconhecido a nulidade e determinado o retorno dos autos para a produção da prova técnica. Ao manejar agravo interno, a parte adversa tentou sustentar que teria havido renúncia à perícia em audiência de instrução, o que implicaria preclusão. Ocorre que esse argumento não integrava o quadro decisório previamente formado no processo, nem havia sido submetido ao contraditório nas fases anteriores do julgamento do recurso especial.
+
+Em sede recursal, especialmente no agravo interno, não se admite inovação recursal consistente na introdução de fundamento fático-jurídico novo, quando isso demandaria reabertura indevida da controvérsia e supressão de instância. A preclusão alegada, por depender de circunstâncias processuais específicas e de exame prévio pelas instâncias ordinárias, não pode ser criada apenas no momento do agravo interno para afastar decisão já proferida no recurso especial.
+
+Assim, a tese firmada é a de que a alegação de preclusão quanto à produção da prova pericial, quando não apreciada nas instâncias ordinárias e tampouco suscitada nas contrarrazões ao recurso especial, configura inovação recursal e não pode ser conhecida no agravo interno.
+
+**Referência:**
+STJ. 4ª Turma. REsp 1.882.559-MA, Rel. Min. Antonio Carlos Ferreira, julgado em 18/2/2025 (Info 842).
+
+## Questão 25
+
+Em ação rescisória fundada em violação manifesta de norma jurídica, a ausência de resistência da parte ré ao pedido desconstitutivo, somada ao reconhecimento de que o vício rescindendo decorreu de equívoco imputável ao próprio órgão julgador na formação do título judicial, afasta a causalidade necessária à imposição de honorários advocatícios sucumbenciais, ainda que a ré figure formalmente no polo passivo da demanda.
+
+**Gabarito:** CERTO
+
+**Justificativa (robusta):**
+A assertiva está correta. Em ação rescisória, a condenação em honorários não decorre automaticamente da mera posição formal da parte no polo passivo; é indispensável examinar quem efetivamente deu causa à instauração e ao desenvolvimento da demanda, à luz do princípio da causalidade. No caso julgado, a rescisória foi proposta porque a decisão rescindenda continha erro do próprio Poder Judiciário, consistente na admissão e no provimento de recurso adesivo que deveria ter sido inadmitido em razão da inadmissibilidade do recurso principal, em afronta à disciplina processual aplicável.
+
+Além disso, a parte ré na rescisória não ofereceu resistência ao pedido, reconhecendo a existência do equívoco judicial. Nessas circunstâncias, o STJ concluiu que não havia fundamento para transferir ao réu o ônus dos honorários advocatícios, pois ele não foi o causador da necessidade da ação rescisória nem se opôs à pretensão autoral. A causalidade, portanto, foi atribuída ao erro judicial que contaminou a decisão rescindenda, e não à conduta processual da parte ré.
+
+A conclusão é relevante porque afasta uma leitura meramente formal da sucumbência: mesmo sendo tecnicamente ré na rescisória, a parte não deve ser automaticamente condenada em honorários quando não há resistência e quando o processo foi desencadeado por falha do próprio Judiciário. Trata-se de aplicação concreta do critério causal em detrimento de uma imputação mecânica baseada apenas na posição processual.
+
+**Referência:**
+STJ. 4ª Turma. REsp 2.171.572-PR, Rel. Min. Antonio Carlos Ferreira, julgado em 18/2/2025 (Info 842).
+
+## Questão 26
+
+A modificação deliberada, após a obtenção do habite-se, de empreendimento aprovado como habitação de mercado popular para elevar o padrão das unidades e afastar o público de baixa renda originalmente tutelado pela política habitacional, ainda que tenha havido prévia fruição de incentivos urbanísticos e redução de encargos, pode caracterizar dano moral coletivo, por representar desvio da finalidade social do projeto e lesão a valores transindividuais protegidos pela ordem urbanística.
+
+**Gabarito:** CERTO
+
+**Justificativa (robusta):**
+A assertiva está correta porque o núcleo da controvérsia não reside apenas na alteração física do projeto, mas na frustração consciente da finalidade pública que justificou a concessão de benefícios urbanísticos. Quando a incorporadora aprova o empreendimento como habitação de mercado popular, obtém vantagens regulatórias e econômicas vinculadas a uma destinação social específica e, depois, altera premeditadamente o projeto para elevar o padrão das unidades, ela rompe o vínculo entre o benefício recebido e o interesse coletivo que o legitimava.
+
+Nesse contexto, a conduta ultrapassa o mero inadimplemento contratual ou a irregularidade administrativa pontual. Há violação da função social do empreendimento e da ordem urbanística, com impacto difuso sobre a coletividade, especialmente sobre a população de baixa renda que deveria ser destinatária da política habitacional. O dano moral coletivo, nesse cenário, não depende de demonstração de sofrimento psíquico individualizado, mas da ofensa relevante a valores metaindividuais, como a confiança social na efetividade das políticas urbanísticas e a integridade da finalidade pública do programa habitacional.
+
+A condenação, portanto, cumpre dupla função: compensatória, na medida em que reconhece a lesão a bens jurídicos coletivos, e pedagógico-preventiva, ao desestimular a repetição de condutas semelhantes por agentes econômicos que se valem de incentivos públicos para depois desvirtuar o empreendimento. A premissa decisiva é que a alteração foi premeditada e produziu exclusão do público-alvo, o que reforça a gravidade da ofensa e a legitimidade da reparação coletiva.
+
+**Referência:**
+STJ. 4ª Turma. REsp 2.182.775-SP, Rel. Min. Antonio Carlos Ferreira, julgado em 12/2/2025 (Info 842).
+
+## Questão 27
+
+Em ação coletiva proposta por associação para tutela de direitos de seus associados, a eficácia subjetiva do título judicial formado em primeiro grau e confirmada em apelação não se limita aos filiados domiciliados na circunscrição territorial do juízo prolator da sentença, alcançando todos os associados residentes na área de jurisdição do tribunal de segundo grau, ainda que domiciliados fora da subseção judiciária de origem, desde que presentes os demais requisitos de representação adequada e pertinência subjetiva da demanda.
+
+**Gabarito:** CERTO
+
+**Justificativa (robusta):**
+A assertiva está correta porque o entendimento firmado foi no sentido de que a expressão “competência territorial do órgão prolator”, utilizada para delimitar os efeitos da sentença coletiva em ações propostas por associação, não deve ser lida de forma restritiva ao território da vara ou subseção judiciária que proferiu a decisão de primeiro grau. Quando a sentença é confirmada pelo tribunal em grau recursal, a abrangência territorial relevante passa a ser a da jurisdição do respectivo tribunal de segundo grau.
+
+No caso concreto, a associação ajuizou ação coletiva em favor de produtores rurais associados, buscando afastar a cobrança de salário-educação e obter restituição de valores pagos. Embora o juízo de origem estivesse situado em Concórdia/SC, o associado que pretendia executar o título era domiciliado em Chapecó/SC, fora da subseção de origem, mas dentro da área de jurisdição do TRF da 4ª Região. O STJ afastou a leitura restritiva inspirada no Tema 499 do STF, que havia sido invocada para limitar a eficácia da sentença aos domiciliados na jurisdição do juízo de primeiro grau.
+
+A ratio decidendi foi a de que, em se tratando de ação coletiva proposta por associação e havendo confirmação da sentença pelo tribunal competente, a delimitação territorial deve considerar a jurisdição do órgão de segundo grau que apreciou a causa, e não apenas a circunscrição do juízo singular. Assim, o título judicial alcança os associados residentes no âmbito da jurisdição do tribunal, preservados os demais pressupostos de legitimidade e de vinculação associativa.
+
+**Referência:**
+STJ. 1ª Turma. REsp 2.021.777-SC, Rel. Min. Paulo Sérgio Domingues, julgado em 11/2/2025 (Info 842).
+
+## Questão 28
+
+Em cumprimento individual de sentença formada em mandado de segurança coletivo que reconheceu, em abstrato, o direito de determinada categoria à percepção de vantagem pecuniária prevista em lei, é admissível que a parte executada suscite, na impugnação, a incompatibilidade da verba com outras gratificações percebidas pelo exequente, quando a aferição dessa cumulação depender de circunstâncias pessoais não examinadas — nem cognoscíveis — na fase de conhecimento, sem que isso implique violação à coisa julgada.
+
+**Gabarito:** CERTO
+
+**Justificativa (robusta):**
+A assertiva está correta porque a coisa julgada formada na ação coletiva de conhecimento, especialmente em mandado de segurança coletivo, delimita o reconhecimento do direito em termos gerais, mas não impede a discussão, na fase de cumprimento individual, de questões fáticas ou jurídicas individualizadas que não foram submetidas ao contraditório na ação originária e que dependem da situação concreta de cada beneficiário.
+
+No caso julgado, a sentença coletiva reconheceu o direito dos militares do antigo Distrito Federal à Vantagem Pecuniária Especial (VPE). Contudo, no cumprimento individual promovido por militar reformado, a União alegou que a VPE seria incompatível com outras gratificações já incorporadas aos proventos do exequente, como a GEFM e a GEF. O ponto central é que a análise da possibilidade de cumulação não era uniforme para todos os substituídos, pois exigia exame das peculiaridades remuneratórias de cada beneficiário. Por isso, a matéria não foi considerada coberta pela coisa julgada do mandado de segurança coletivo.
+
+Em termos processuais, a discussão na execução não representa rediscussão do mérito já decidido, mas sim verificação dos limites objetivos do título executivo em face da situação individual do credor. Assim, não há preclusão nem afronta à autoridade da coisa julgada quando a controvérsia depende de elementos específicos do exequente e não poderia ter sido adequadamente resolvida na fase cognitiva coletiva.
+
+A lógica do precedente é compatibilizar a eficácia da tutela coletiva com a necessidade de individualização na execução, sobretudo quando o título judicial reconhece um direito em tese, mas sua implementação concreta pode variar conforme a composição remuneratória de cada substituído.
+
+**Referência:**
+STJ. 1ª Turma. REsp 2.167.080-RJ, Rel. Min. Sérgio Kukina, julgado em 11/2/2025 (Info 842).
+
+## Questão 29
+
+Para a incidência da causa de aumento prevista no art. 157, § 2º, VII, do Código Penal, exige-se que o objeto empregado no roubo seja originariamente fabricado como arma, sendo insuficiente o uso de instrumento improvisado ou de uso ordinário — a exemplo de cabo de vassoura — ainda que, pelas circunstâncias concretas, tenha sido empregado de modo apto a ofender a integridade física da vítima; além disso, a configuração da majorante depende de prévia perícia que ateste o potencial lesivo do artefato.
+
+**Gabarito:** ERRADO
+
+**Justificativa (robusta):**
+A assertiva está incorreta porque restringe indevidamente o conceito de arma branca e cria requisito probatório que não é exigido para a incidência da majorante.
+
+O entendimento firmado é no sentido de que o conceito de arma branca não se limita a instrumentos fabricados especificamente para agredir ou ferir. Também abrange objetos que, embora tenham destinação ordinária diversa, possam ser utilizados como meio apto a causar dano à integridade física, caracterizando a chamada arma branca imprópria. Assim, um cabo de vassoura de alumínio, quando empregado para golpear o pescoço das vítimas, pode assumir essa natureza para fins de aumento de pena.
+
+Além disso, não é indispensável a realização de perícia para comprovar o potencial lesivo do objeto. A prova pode ser formada por outros elementos idôneos, inclusive os depoimentos das vítimas, desde que suficientemente seguros para demonstrar o emprego do instrumento como meio ofensivo. No caso examinado, justamente os relatos das vítimas confirmaram o uso do cabo de vassoura contra seus pescoços, o que bastou para justificar a incidência da causa de aumento do art. 157, § 2º, VII, do CP.
+
+Em síntese, a majorante não depende de arma “própria” nem de laudo pericial obrigatório; basta a comprovação, por prova válida, de que o objeto foi utilizado como instrumento capaz de lesionar a integridade física.
+
+**Referência:**
+STJ. 5ª Turma. AREsp 2.589.697-DF, Rel. Min. Daniela Teixeira, julgado em 11/2/2025 (Info 842).
+
+## Questão 30
+
+A instauração e o prosseguimento de inquérito policial destinado à apuração de crime contra a ordem tributária podem ser obstados pela simples existência de ação anulatória do lançamento fiscal ainda em curso, pois a controvérsia judicial sobre a exigibilidade do crédito tributário, por si só, afasta a justa causa para a persecução penal até o desfecho definitivo da demanda cível ou tributária.
+
+**Gabarito:** ERRADO
+
+**Justificativa (robusta):**
+A assertiva está incorreta porque a mera propositura ou pendência de ação judicial discutindo a validade do lançamento tributário não impede, automaticamente, o andamento do inquérito policial. Em matéria de crimes contra a ordem tributária, vigora o princípio da independência das instâncias, de modo que a persecução penal não fica, em regra, condicionada ao resultado de discussão judicial paralela sobre o crédito tributário.
+
+O trancamento de inquérito policial é providência excepcional, somente admitida quando demonstradas, de plano, hipóteses como atipicidade da conduta, extinção da punibilidade ou manifesta ausência de justa causa. No caso examinado, havia notícia de constituição definitiva do crédito tributário após o procedimento administrativo fiscal, e não houve decisão judicial ou administrativa que anulasse o auto de infração ou o lançamento definitivo. Assim, a existência de ação anulatória em curso não bastou para impedir a investigação criminal.
+
+Também não altera essa conclusão o fato de a execução fiscal ter sido extinta sem resolução do mérito, pois isso não equivale à desconstituição do lançamento nem à invalidação do crédito tributário. Da mesma forma, a extinção formal da pessoa jurídica não conduz, por si só, ao trancamento do inquérito, especialmente quando ainda se apura a responsabilidade penal por fatos pretéritos praticados em tese pelos sócios ou administradores.
+
+Em síntese: a discussão judicial sobre o lançamento pode coexistir com a investigação penal, salvo se houver decisão que efetivamente afaste o crédito tributário ou outra causa concreta que elimine a justa causa da persecução.
+
+**Referência:**
+STJ. 5ª Turma. AgRg no RHC 199.649-SP, Rel. Min. Ribeiro Dantas, julgado em 19/2/2025 (Info 842).
+
+## Questão 31
+
+A concessão de salvo-conduto para o cultivo doméstico de *Cannabis sativa* com finalidade exclusivamente medicinal pode ser deferida mesmo quando o paciente já possua autorização da ANVISA para importação do fármaco, sendo juridicamente irrelevante, para esse fim, a demonstração de incapacidade financeira de arcar com o produto importado, desde que haja prescrição médica e documentação técnica idônea que evidencie a necessidade terapêutica.
+
+**Gabarito:** CERTO
+
+**Justificativa (robusta):**
+A assertiva está correta porque o entendimento firmado afasta a exigência de prova da impossibilidade econômica de aquisição do medicamento importado como condição para o deferimento do salvo-conduto voltado ao plantio de *Cannabis sativa* para uso medicinal. A lógica adotada é a de que o custo elevado do produto importado, por si só, já representa obstáculo relevante ao acesso ao tratamento, de modo que condicionar a tutela jurisdicional à comprovação formal de hipossuficiência financeira imporia restrição indevida ao direito à saúde e à dignidade da pessoa humana.
+
+No caso examinado, havia elementos médicos e técnicos demonstrando a necessidade do tratamento e a aptidão do paciente para o manejo terapêutico, além de autorização da ANVISA para importação. Ainda assim, o Tribunal afastou a tese de que o cultivo doméstico seria medida excepcional apenas subsidiária e dependente da prova de insuficiência econômica. Assim, a autorização para o plantio, em contexto medicinal, não fica subordinada a esse requisito adicional, desde que presentes os pressupostos fáticos e documentais pertinentes ao caso concreto.
+
+**Referência:**
+STJ. 6ª Turma. AgRg no HC 913.386-SP, Rel. Min. Antonio Saldanha Palheiro, julgado em 19/2/2025 (Info 842).
+
+## Questão 32
+
+No procedimento do Tribunal do Júri, é juridicamente inválida a absolvição fundada no quesito genérico quando os jurados, embora reconheçam a materialidade e a autoria de tentativa de homicídio, afastam a condenação sem indicar expressamente tese defensiva específica, pois a soberania dos veredictos não autoriza decisão absolutória dissociada do acervo probatório, cabendo ao tribunal anular o julgamento por manifesta contrariedade à prova dos autos.
+
+**Gabarito:** ERRADO
+
+**Justificativa (robusta):**
+A assertiva está incorreta porque, no rito do Tribunal do Júri, a absolvição pelo quesito genérico previsto no art. 483, III, do CPP é juridicamente válida mesmo quando os jurados reconhecem a materialidade e a autoria, e ainda que a decisão absolutória não explicite a razão concreta do convencimento. Isso decorre da lógica constitucional do júri, especialmente da soberania dos veredictos e da plenitude de defesa, que conferem aos jurados liberdade para absolver por clemência, razões humanitárias ou íntima convicção.
+
+O ponto central é que o quesito genérico permite ao Conselho de Sentença absolver o acusado sem necessidade de motivação explícita, de modo que não se exige a indicação de tese defensiva específica para a validade do veredicto. Assim, a simples circunstância de a absolvição parecer incompatível com a prova produzida não autoriza, por si só, a anulação do julgamento. A intervenção judicial é excepcional e não pode substituir a opção soberana dos jurados por uma nova valoração do conjunto probatório.
+
+No caso paradigmático, o tribunal local havia determinado novo julgamento por entender que a absolvição contrariava as provas dos autos, mas essa conclusão foi afastada porque a absolvição genérica, em si, não configura nulidade nem contrariedade manifesta à prova, justamente por ser expressão legítima da íntima convicção dos jurados. Em outras palavras, a soberania dos veredictos protege também a absolvição fundada no quesito genérico, ainda que o Conselho de Sentença tenha reconhecido a prática do fato típico.
+
+**Referência:**
+STJ. 5ª Turma. AgRg no REsp 2.175.339-MA, Rel. Min. Daniela Teixeira, julgado em 19/2/2025 (Info 842).
+
+## Questão 33
+
+A imunidade tributária relativa às operações de exportação, embora expressamente contemplada para o serviço de transporte interestadual de mercadorias destinadas ao exterior, não alcança o transporte intermunicipal realizado em etapa anterior à efetiva saída da mercadoria do território nacional, por se tratar de hipótese não abrangida pela literalidade do art. 3º, II, da LC 87/1996.
+
+**Gabarito:** ERRADO
+
+**Justificativa (robusta):**
+O item está incorreto porque restringe indevidamente o alcance da não incidência do ICMS sobre a cadeia de exportação. A orientação firmada é no sentido de que a proteção conferida às operações destinadas ao exterior não se limita ao transporte interestadual, alcançando também o transporte intermunicipal de mercadorias vinculadas à exportação.
+
+A razão jurídica central é teleológica e sistemática: a disciplina do art. 3º, II, da LC 87/1996 busca desonerar a exportação em toda a sua cadeia logística, evitando que a incidência do ICMS onere o produto nacional e comprometa sua competitividade no mercado internacional. Por isso, ainda que o transporte intermunicipal ocorra em momento anterior à saída da mercadoria do país, ele permanece abrangido pela não incidência quando integrado ao fluxo de exportação.
+
+Em termos práticos, não se admite interpretação restritiva que fragmente artificialmente a operação logística e exclua da desoneração etapas internas indispensáveis ao envio da mercadoria ao exterior. Assim, a distinção entre transporte interestadual e intermunicipal não afasta, por si só, a incidência da regra de não tributação quando a prestação estiver vinculada à exportação.
+
+**Referência:**
+STJ. 2ª Turma. AREsp 2.607.634-SP, Rel. Min. Francisco Falcão, julgado em 18/2/2025 (Info 842).

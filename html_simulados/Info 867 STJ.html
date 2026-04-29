@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Simulado - Info 867 STJ</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+:root{
+--bg:#020617;--panel:rgba(15,23,42,.88);--card:rgba(15,23,42,.96);
+--card2:rgba(30,41,59,.92);--border:rgba(148,163,184,.22);
+--text:#e5e7eb;--muted:#94a3b8;--accent:#38bdf8;--accent2:#0ea5e9;
+--green:#22c55e;--red:#ef4444;--yellow:#facc15;--purple:#a78bfa;
+}
+*{box-sizing:border-box}
+body{
+margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+background:radial-gradient(circle at top left,rgba(56,189,248,.20),transparent 28%),
+radial-gradient(circle at top right,rgba(167,139,250,.15),transparent 28%),
+linear-gradient(135deg,#020617,#0f172a 50%,#020617);
+color:var(--text);line-height:1.65;
+}
+header{padding:44px 20px 32px;text-align:center;border-bottom:1px solid var(--border)}
+header h1{margin:0 0 10px;font-size:clamp(28px,4vw,46px);letter-spacing:-.05em}
+header p{color:var(--muted);margin:0;font-size:16px}
+.container{max-width:1160px;margin:0 auto;padding:26px 16px 80px}
+.painel{
+position:sticky;top:10px;z-index:10;background:var(--panel);backdrop-filter:blur(18px);
+border:1px solid var(--border);border-radius:26px;padding:16px;margin-bottom:22px;
+box-shadow:0 22px 70px rgba(0,0,0,.35)
+}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.stat{background:var(--card2);padding:14px;border-radius:18px;text-align:center;border:1px solid rgba(148,163,184,.12)}
+.stat strong{display:block;font-size:25px;color:var(--accent);line-height:1.1}
+.stat span{font-size:12px;color:var(--muted)}
+.filtros{display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:12px;margin-top:14px}
+input,select{
+width:100%;background:rgba(2,6,23,.78);color:var(--text);border:1px solid var(--border);
+border-radius:14px;padding:13px 14px;outline:none;font-size:14px
+}
+input:focus,select:focus{border-color:var(--accent)}
+.card{
+background:var(--card);border:1px solid var(--border);border-radius:24px;padding:26px;
+margin-bottom:20px;box-shadow:0 18px 50px rgba(0,0,0,.24)
+}
+.questao{scroll-margin-top:190px}
+.questao-topo{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:18px}
+.badge{
+background:linear-gradient(135deg,var(--accent),var(--accent2));color:#00111f;font-weight:900;
+padding:7px 13px;border-radius:999px;display:inline-block
+}
+.disciplina-tag,.tipo-tag{
+display:inline-block;margin-left:8px;color:var(--muted);background:rgba(148,163,184,.10);
+border:1px solid rgba(148,163,184,.14);padding:6px 10px;border-radius:999px;font-size:12px
+}
+.tipo-tag{color:#ddd6fe;border-color:rgba(167,139,250,.25)}
+.status{color:var(--yellow);font-size:13px;white-space:nowrap}
+.enunciado{font-size:19px;margin:0 0 22px;letter-spacing:-.01em}
+.botoes{display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.btn{
+cursor:pointer;border:0;padding:12px 22px;border-radius:14px;color:white;font-weight:900;
+transition:.18s ease;letter-spacing:.02em
+}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.certo{background:rgba(34,197,94,.20);border:1px solid rgba(34,197,94,.42)}
+.btn.errado{background:rgba(239,68,68,.20);border:1px solid rgba(239,68,68,.42)}
+.btn.neutro{background:rgba(56,189,248,.16);color:var(--text);border:1px solid rgba(56,189,248,.32)}
+.feedback{
+display:none;background:rgba(2,6,23,.72);border:1px solid rgba(148,163,184,.16);
+border-left:5px solid var(--accent);padding:18px;border-radius:18px;margin-top:14px
+}
+.feedback.correto{border-left-color:var(--green)}
+.feedback.errado{border-left-color:var(--red)}
+.resultado{font-size:18px;font-weight:900;margin-top:0}
+.justificativa{margin-top:12px}
+.referencia{color:var(--muted);font-size:13px;margin-top:16px}
+.gabarito-certo{color:var(--green);font-weight:900}
+.gabarito-errado{color:var(--red);font-weight:900}
+.oculta{display:none}
+.sem-resultados{text-align:center;color:var(--muted);display:none;padding:30px}
+.grid-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
+.link-card{
+display:block;padding:20px;background:rgba(15,23,42,.95);border:1px solid rgba(148,163,184,.22);
+color:#e5e7eb;border-radius:22px;text-decoration:none;transition:.2s;box-shadow:0 14px 40px rgba(0,0,0,.22)
+}
+.link-card:hover{transform:translateY(-3px);border-color:#38bdf8}
+.link-card strong{display:block;font-size:17px;margin-bottom:8px}
+.link-card span{color:#94a3b8;font-size:13px}
+.index-tools{display:grid;grid-template-columns:1.5fr 1fr;gap:12px;margin-bottom:20px}
+@media(max-width:850px){
+.stats{grid-template-columns:repeat(2,1fr)}
+.filtros,.index-tools{grid-template-columns:1fr}
+.questao-topo{align-items:flex-start;flex-direction:column}
+.botoes{flex-direction:column}
+.enunciado{font-size:16px}
+.card{padding:20px}
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Simulado - Info 867 STJ</h1>
+<p>Informativos • Simulado interativo de CERTO ou ERRADO</p>
+</header>
+
+<div class="container">
+<div class="painel">
+<div class="stats">
+<div class="stat"><strong>13</strong><span>Total</span></div>
+<div class="stat"><strong id="visiveis">13</strong><span>Visíveis</span></div>
+<div class="stat"><strong id="respondidas">0</strong><span>Respondidas</span></div>
+<div class="stat"><strong id="acertos">0</strong><span>Acertos</span></div>
+<div class="stat"><strong id="erros">0</strong><span>Erros</span></div>
+</div>
+
+<div class="filtros">
+<input id="busca" type="search" placeholder="Buscar por palavra-chave..." oninput="filtrar()">
+<select id="disciplina" onchange="filtrar()">
+<option value="">Todas as disciplinas</option>
+<option value="ECA">ECA</option>
+<option value="N/I">N/I</option>
+</select>
+<select id="statusFiltro" onchange="filtrar()">
+<option value="">Todas</option>
+<option value="nao">Não respondidas</option>
+<option value="acerto">Acertos</option>
+<option value="erro">Erros</option>
+</select>
+<button class="btn neutro" onclick="reiniciar()">Reiniciar</button>
+</div>
+</div>
+
+<div id="sem-resultados" class="sem-resultados">Nenhuma questão encontrada com os filtros atuais.</div>
+
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="nas dívidas de natureza civil regidas pelo código civil de 2002, o art. 406, antes da entrada em vigor da lei n.º 14.905/2024, deve ser interpretado de modo a afastar a incidência da taxa selic, por não se tratar de índice legalmente previsto para a mora civil, razão pela qual os juros moratórios deveriam observar taxa diversa, fixada judicialmente com base em critérios de equidade. o entendimento fixado é precisamente o oposto: antes da vigência da lei n.º 14.905/2024, o art. 406 do código civil de 2002 deve ser interpretado no sentido de que a taxa aplicável aos juros de mora nas dívidas de natureza civil é a selic. a razão central é que o dispositivo remete à taxa em vigor para a atualização monetária e a mora no pagamento de impostos devidos à fazenda nacional, e essa taxa é a selic. assim, não se admite afastá-la sob o argumento de ausência de previsão expressa para a mora civil, nem substituí-la por taxa arbitrada judicialmente com base em equidade. o julgado consolidou essa compreensão em sede repetitiva, conferindo uniformidade à aplicação do art. 406 do cc no período anterior à lei n.º 14.905/2024. stj. corte especial. resp 2.199.164-pr e resp 2.070.882-rs, rel. min. ricardo villas bôas cueva, julgados em 15/10/2025 (recurso repetitivo - tema 1368) (info 867).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 1</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-1">Não respondida</span>
+</div>
+
+<p class="enunciado">Nas dívidas de natureza civil regidas pelo Código Civil de 2002, o art. 406, antes da entrada em vigor da Lei n.º 14.905/2024, deve ser interpretado de modo a afastar a incidência da taxa SELIC, por não se tratar de índice legalmente previsto para a mora civil, razão pela qual os juros moratórios deveriam observar taxa diversa, fixada judicialmente com base em critérios de equidade.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(1, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(1, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-1">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O entendimento fixado é precisamente o oposto: antes da vigência da Lei n.º 14.905/2024, o art. 406 do Código Civil de 2002 deve ser interpretado no sentido de que a taxa aplicável aos juros de mora nas dívidas de natureza civil é a SELIC. A razão central é que o dispositivo remete à taxa em vigor para a atualização monetária e a mora no pagamento de impostos devidos à Fazenda Nacional, e essa taxa é a SELIC. Assim, não se admite afastá-la sob o argumento de ausência de previsão expressa para a mora civil, nem substituí-la por taxa arbitrada judicialmente com base em equidade. O julgado consolidou essa compreensão em sede repetitiva, conferindo uniformidade à aplicação do art. 406 do CC no período anterior à Lei n.º 14.905/2024.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. Corte Especial. REsp 2.199.164-PR e REsp 2.070.882-RS, Rel. Min. Ricardo Villas Bôas Cueva, julgados em 15/10/2025 (Recurso Repetitivo - Tema 1368) (Info 867).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="em promessa de compra e venda de lote não edificado celebrada após a vigência da lei n.º 13.786/2018, é juridicamente admissível a previsão contratual de retenção de até 10% do valor do contrato e de cobrança de taxa de fruição limitada a 0,75% ao mês sobre o valor atualizado do ajuste, ainda que o adquirente alegue inexistência de edificação e ausência de uso efetivo do imóvel, desde que tenha sido previamente cientificado das consequências do distrato. a assertiva está correta porque, nos contratos de compra e venda de lote não edificado firmados após a entrada em vigor da lei n.º 13.786/2018, a disciplina legal passou a admitir a estipulação de consequências patrimoniais específicas para a resolução por iniciativa do adquirente, desde que observados os requisitos legais de transparência e informação prévia. nesse contexto, a retenção de até 10% do valor do contrato é compatível com os arts. 26-a e 32-a da lei n.º 6.766/1979, quando o comprador foi adequadamente informado acerca das penalidades e efeitos do distrato.
+
+além disso, a taxa de fruição não depende da efetiva utilização econômica do lote nem da existência de edificação. o fundamento da cobrança está na disponibilização da posse e na possibilidade jurídica de fruição do bem pelo adquirente, e não no uso concreto que ele tenha feito do imóvel. por isso, a ausência de construção ou de ocupação material não afasta, por si só, a incidência da taxa, desde que haja previsão contratual expressa e que o percentual observado respeite o limite legal de 0,75% ao mês sobre o valor atualizado do contrato.
+
+a tese, portanto, não acolhe a ideia de que a inexistência de edificação impediria automaticamente a cobrança da fruição, nem de que a retenção contratual seria abusiva em qualquer hipótese. o ponto decisivo é a incidência do regime legal posterior à lei do distrato e o cumprimento dos requisitos de informação e limitação quantitativa previstos na legislação. stj. 4ª turma. resp 2.104.086-sp, rel. min. maria isabel gallotti, julgado em 7/10/2025 (info 867).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 2</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-2">Não respondida</span>
+</div>
+
+<p class="enunciado">Em promessa de compra e venda de lote não edificado celebrada após a vigência da Lei n.º 13.786/2018, é juridicamente admissível a previsão contratual de retenção de até 10% do valor do contrato e de cobrança de taxa de fruição limitada a 0,75% ao mês sobre o valor atualizado do ajuste, ainda que o adquirente alegue inexistência de edificação e ausência de uso efetivo do imóvel, desde que tenha sido previamente cientificado das consequências do distrato.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(2, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(2, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-2">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque, nos contratos de compra e venda de lote não edificado firmados após a entrada em vigor da Lei n.º 13.786/2018, a disciplina legal passou a admitir a estipulação de consequências patrimoniais específicas para a resolução por iniciativa do adquirente, desde que observados os requisitos legais de transparência e informação prévia. Nesse contexto, a retenção de até 10% do valor do contrato é compatível com os arts. 26-A e 32-A da Lei n.º 6.766/1979, quando o comprador foi adequadamente informado acerca das penalidades e efeitos do distrato.<br><br>Além disso, a taxa de fruição não depende da efetiva utilização econômica do lote nem da existência de edificação. O fundamento da cobrança está na disponibilização da posse e na possibilidade jurídica de fruição do bem pelo adquirente, e não no uso concreto que ele tenha feito do imóvel. Por isso, a ausência de construção ou de ocupação material não afasta, por si só, a incidência da taxa, desde que haja previsão contratual expressa e que o percentual observado respeite o limite legal de 0,75% ao mês sobre o valor atualizado do contrato.<br><br>A tese, portanto, não acolhe a ideia de que a inexistência de edificação impediria automaticamente a cobrança da fruição, nem de que a retenção contratual seria abusiva em qualquer hipótese. O ponto decisivo é a incidência do regime legal posterior à Lei do Distrato e o cumprimento dos requisitos de informação e limitação quantitativa previstos na legislação.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 4ª Turma. REsp 2.104.086-SP, Rel. Min. Maria Isabel Gallotti, julgado em 7/10/2025 (Info 867).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="em ação de cobrança de indenização securitária fundada em seguro de vida em grupo, a ausência de comprovação de prévio requerimento administrativo à seguradora não conduz, por si só, à extinção do processo sem resolução do mérito quando a própria seguradora comparece em juízo e impugna o pedido no mérito, hipótese em que se presume configurado o interesse de agir; diversamente, se a seguradora suscitar expressamente a falta de solicitação administrativa anterior, a carência de interesse processual poderá ser reconhecida. a assertiva reproduz a lógica central do entendimento firmado: o prévio requerimento administrativo é elemento relevante para a aferição do interesse de agir na ação de cobrança de seguro, mas sua ausência não gera automaticamente extinção do feito em qualquer hipótese. o ponto decisivo é a postura processual da seguradora.
+
+quando a seguradora comparece aos autos e se opõe ao mérito da pretensão indenizatória, evidencia-se a resistência à pretensão deduzida em juízo, o que afasta a ideia de inexistência de lide e torna presente o interesse processual, ainda que não haja prova de pedido administrativo anterior. nessa situação, a discussão passa a ser de mérito, e não de admissibilidade da ação.
+
+por outro lado, a exceção é expressa: se a seguradora invocar a falta de prévia solicitação administrativa, a ausência de requerimento prévio pode justificar a extinção do processo sem resolução do mérito, por ausência de interesse de agir. assim, o julgado não adotou uma exigência absoluta e indistinta de exaurimento administrativo, mas uma regra condicionada ao comportamento processual da ré.
+
+a formulação também é compatível com a técnica processual de aferição do interesse de agir a partir da utilidade e necessidade da tutela jurisdicional, evitando transformar o processo em instrumento prematuro quando não houve sequer tentativa de solução extrajudicial, salvo quando a própria resistência da seguradora em juízo supre a demonstração dessa necessidade. stj. 4ª turma. agint no resp 2.091.602-ms, rel. min. antonio carlos ferreira, julgado em 15/9/2025 (info 867).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 3</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-3">Não respondida</span>
+</div>
+
+<p class="enunciado">Em ação de cobrança de indenização securitária fundada em seguro de vida em grupo, a ausência de comprovação de prévio requerimento administrativo à seguradora não conduz, por si só, à extinção do processo sem resolução do mérito quando a própria seguradora comparece em juízo e impugna o pedido no mérito, hipótese em que se presume configurado o interesse de agir; diversamente, se a seguradora suscitar expressamente a falta de solicitação administrativa anterior, a carência de interesse processual poderá ser reconhecida.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(3, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(3, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-3">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva reproduz a lógica central do entendimento firmado: o prévio requerimento administrativo é elemento relevante para a aferição do interesse de agir na ação de cobrança de seguro, mas sua ausência não gera automaticamente extinção do feito em qualquer hipótese. O ponto decisivo é a postura processual da seguradora.<br><br>Quando a seguradora comparece aos autos e se opõe ao mérito da pretensão indenizatória, evidencia-se a resistência à pretensão deduzida em juízo, o que afasta a ideia de inexistência de lide e torna presente o interesse processual, ainda que não haja prova de pedido administrativo anterior. Nessa situação, a discussão passa a ser de mérito, e não de admissibilidade da ação.<br><br>Por outro lado, a exceção é expressa: se a seguradora invocar a falta de prévia solicitação administrativa, a ausência de requerimento prévio pode justificar a extinção do processo sem resolução do mérito, por ausência de interesse de agir. Assim, o julgado não adotou uma exigência absoluta e indistinta de exaurimento administrativo, mas uma regra condicionada ao comportamento processual da ré.<br><br>A formulação também é compatível com a técnica processual de aferição do interesse de agir a partir da utilidade e necessidade da tutela jurisdicional, evitando transformar o processo em instrumento prematuro quando não houve sequer tentativa de solução extrajudicial, salvo quando a própria resistência da seguradora em juízo supre a demonstração dessa necessidade.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 4ª Turma. AgInt no REsp 2.091.602-MS, Rel. Min. Antonio Carlos Ferreira, julgado em 15/9/2025 (Info 867).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a pretensão dos herdeiros de exigir, em ação proposta após notificação extrajudicial, a restituição integral e retroativa dos aluguéis percebidos por ascendente que, por mais de duas décadas, administrou imóveis de propriedade do de cujus com ciência, anuência e ausência de oposição dos titulares originários, não se sustenta quando a conduta prolongada e tolerada tiver consolidado legítima expectativa de continuidade da administração, hipótese em que a boa-fé objetiva e a supressio obstam a cobrança dos frutos anteriores à interpelação. a assertiva está correta porque reproduz a lógica decisória firmada no caso: a longa e ininterrupta administração dos imóveis pelo ascendente, com recebimento dos frutos e realização da manutenção, ocorreu com pleno conhecimento e aquiescência do proprietário originário e, depois, dos sucessores, sem qualquer impugnação por período extremamente prolongado. nessa situação, o ordenamento não prestigia uma pretensão de restituição retroativa dos aluguéis já percebidos antes da notificação extrajudicial, pois a conduta reiterada e tolerada consolidou uma situação jurídica protegida pela boa-fé objetiva.
+
+o ponto central é a incidência da supressio, figura ligada à vedação ao comportamento contraditório e à tutela da confiança: a inércia qualificada e prolongada do titular do direito faz nascer no outro polo a legítima expectativa de que a situação permanecerá como estava, tornando abusivo o exercício tardio da pretensão de cobrança retroativa. assim, a notificação extrajudicial pode marcar o início de eventual oposição válida para o futuro, mas não desfaz automaticamente os efeitos pretéritos de uma relação consolidada por décadas de tolerância.
+
+além disso, a situação jurídica formada em vida pelo de cujus transmite-se aos herdeiros pelo princípio da saisine, de modo que os sucessores não ingressam em posição mais favorável do que aquela ocupada pelo autor da herança. se o titular originário tolerou a administração e o recebimento dos frutos por longo período, os herdeiros não podem, em regra, reabrir retroativamente a discussão para exigir devolução dos valores anteriores à interpelação, sobretudo quando inexistente oposição tempestiva.
+
+a tese, portanto, não nega que a partir da notificação possa haver alteração do quadro fático-jurídico; apenas impede a cobrança retroativa dos frutos já auferidos em contexto de longa tolerância e confiança legítima. stj. 4ª turma. resp 2.214.957-pr, rel. min. antonio carlos ferreira, julgado em 7/10/2025 (info 867).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 4</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-4">Não respondida</span>
+</div>
+
+<p class="enunciado">A pretensão dos herdeiros de exigir, em ação proposta após notificação extrajudicial, a restituição integral e retroativa dos aluguéis percebidos por ascendente que, por mais de duas décadas, administrou imóveis de propriedade do de cujus com ciência, anuência e ausência de oposição dos titulares originários, não se sustenta quando a conduta prolongada e tolerada tiver consolidado legítima expectativa de continuidade da administração, hipótese em que a boa-fé objetiva e a supressio obstam a cobrança dos frutos anteriores à interpelação.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(4, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(4, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-4">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a lógica decisória firmada no caso: a longa e ininterrupta administração dos imóveis pelo ascendente, com recebimento dos frutos e realização da manutenção, ocorreu com pleno conhecimento e aquiescência do proprietário originário e, depois, dos sucessores, sem qualquer impugnação por período extremamente prolongado. Nessa situação, o ordenamento não prestigia uma pretensão de restituição retroativa dos aluguéis já percebidos antes da notificação extrajudicial, pois a conduta reiterada e tolerada consolidou uma situação jurídica protegida pela boa-fé objetiva.<br><br>O ponto central é a incidência da supressio, figura ligada à vedação ao comportamento contraditório e à tutela da confiança: a inércia qualificada e prolongada do titular do direito faz nascer no outro polo a legítima expectativa de que a situação permanecerá como estava, tornando abusivo o exercício tardio da pretensão de cobrança retroativa. Assim, a notificação extrajudicial pode marcar o início de eventual oposição válida para o futuro, mas não desfaz automaticamente os efeitos pretéritos de uma relação consolidada por décadas de tolerância.<br><br>Além disso, a situação jurídica formada em vida pelo de cujus transmite-se aos herdeiros pelo princípio da saisine, de modo que os sucessores não ingressam em posição mais favorável do que aquela ocupada pelo autor da herança. Se o titular originário tolerou a administração e o recebimento dos frutos por longo período, os herdeiros não podem, em regra, reabrir retroativamente a discussão para exigir devolução dos valores anteriores à interpelação, sobretudo quando inexistente oposição tempestiva.<br><br>A tese, portanto, não nega que a partir da notificação possa haver alteração do quadro fático-jurídico; apenas impede a cobrança retroativa dos frutos já auferidos em contexto de longa tolerância e confiança legítima.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 4ª Turma. REsp 2.214.957-PR, Rel. Min. Antonio Carlos Ferreira, julgado em 7/10/2025 (Info 867).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a conversão da obrigação de entregar sacas de soja, assumida em cédula de produto rural vinculada a operação de barter, em pagamento por quantia certa, em razão da impossibilidade superveniente de entrega do produto agrícola, tem o condão de submeter o crédito aos efeitos da recuperação judicial do emitente, por se tratar, nessa hipótese, de obrigação pecuniária quirografária, ainda que o inadimplemento não tenha decorrido de caso fortuito ou força maior. a assertiva está incorreta porque a natureza extraconcursal do crédito não se altera pela mera conversão da execução de obrigação de entregar coisa em execução por quantia certa quando se está diante de cédula de produto rural representativa de operação de barter. o ponto central do entendimento é que, com as alterações introduzidas pela lei nº 14.112/2020 na lei nº 8.929/1994, determinados créditos lastreados em cpr ficam excluídos dos efeitos da recuperação judicial, especialmente quando a cpr tiver liquidação física ou representar operação de barter, desde que o inadimplemento não decorra de caso fortuito ou força maior.
+
+no caso, a impossibilidade de entrega da soja não descaracteriza a origem do crédito nem o regime jurídico especial do título. a conversão da obrigação em perdas e danos ou em quantia certa é consequência processual do inadimplemento, mas não tem o efeito de transmudar a natureza do crédito para submetê-lo ao concurso recuperacional. em outras palavras, a tutela conferida ao credor da cpr de liquidação física ou de barter não pode ser esvaziada por uma mera alteração da forma de satisfação judicial do crédito.
+
+além disso, a lei nova possui aplicação imediata aos processos pendentes, inclusive para a classificação de créditos em recuperação judicial, ressalvadas apenas as hipóteses expressamente excepcionadas no § 1º do art. 5º da lei nº 14.112/2020. assim, ainda que o pedido de recuperação judicial tenha sido formulado após a entrada em vigor da nova disciplina, o crédito permanece fora dos efeitos da recuperação, desde que presentes os requisitos legais. stj. 3ª turma. resp 2.178.558-mt, rel. min. ricardo villas bôas cueva, julgado em 9/9/2025 (info 867).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 5</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-5">Não respondida</span>
+</div>
+
+<p class="enunciado">A conversão da obrigação de entregar sacas de soja, assumida em Cédula de Produto Rural vinculada a operação de barter, em pagamento por quantia certa, em razão da impossibilidade superveniente de entrega do produto agrícola, tem o condão de submeter o crédito aos efeitos da recuperação judicial do emitente, por se tratar, nessa hipótese, de obrigação pecuniária quirografária, ainda que o inadimplemento não tenha decorrido de caso fortuito ou força maior.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(5, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(5, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-5">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque a natureza extraconcursal do crédito não se altera pela mera conversão da execução de obrigação de entregar coisa em execução por quantia certa quando se está diante de Cédula de Produto Rural representativa de operação de barter. O ponto central do entendimento é que, com as alterações introduzidas pela Lei nº 14.112/2020 na Lei nº 8.929/1994, determinados créditos lastreados em CPR ficam excluídos dos efeitos da recuperação judicial, especialmente quando a CPR tiver liquidação física ou representar operação de barter, desde que o inadimplemento não decorra de caso fortuito ou força maior.<br><br>No caso, a impossibilidade de entrega da soja não descaracteriza a origem do crédito nem o regime jurídico especial do título. A conversão da obrigação em perdas e danos ou em quantia certa é consequência processual do inadimplemento, mas não tem o efeito de transmudar a natureza do crédito para submetê-lo ao concurso recuperacional. Em outras palavras, a tutela conferida ao credor da CPR de liquidação física ou de barter não pode ser esvaziada por uma mera alteração da forma de satisfação judicial do crédito.<br><br>Além disso, a lei nova possui aplicação imediata aos processos pendentes, inclusive para a classificação de créditos em recuperação judicial, ressalvadas apenas as hipóteses expressamente excepcionadas no § 1º do art. 5º da Lei nº 14.112/2020. Assim, ainda que o pedido de recuperação judicial tenha sido formulado após a entrada em vigor da nova disciplina, o crédito permanece fora dos efeitos da recuperação, desde que presentes os requisitos legais.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.178.558-MT, Rel. Min. Ricardo Villas Bôas Cueva, julgado em 9/9/2025 (Info 867).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a concessão do parcelamento das custas judiciais e das taxas judiciárias, com fundamento no art. 98, § 6º, do cpc, pressupõe a demonstração de hipossuficiência absoluta da parte e depende de prévia autorização específica em lei estadual, não sendo suficiente a mera comprovação de dificuldade financeira parcial para justificar o fracionamento do adiantamento das despesas processuais. o enunciado contraria a interpretação conferida ao art. 98, § 6º, do cpc. esse dispositivo autoriza expressamente que o juiz conceda o parcelamento das despesas processuais que devam ser adiantadas no curso do procedimento, o que inclui custas judiciais e taxas judiciárias, por integrarem o conceito de despesas processuais.
+
+a lógica do instituto não se limita à gratuidade integral. o parcelamento funciona como medida intermediária e menos gravosa, apta a concretizar o direito fundamental de acesso à justiça quando a parte não reúne condições de suportar o pagamento integral e imediato, mas também não faz jus, necessariamente, à isenção total. assim, a hipótese contemplada é justamente a de dificuldade financeira parcial, e não a de hipossuficiência absoluta.
+
+além disso, o poder conferido ao magistrado para autorizar o fracionamento do pagamento não fica condicionado à existência de previsão expressa em lei estadual. a norma processual federal é suficiente para embasar a medida, afastando a exigência de autorização local específica como requisito de validade do parcelamento.
+
+em síntese, o parcelamento das custas e taxas judiciais é admitido como alternativa legítima à gratuidade total, desde que demonstrada a dificuldade econômica da parte, independentemente de lei estadual autorizadora. stj. 4ª turma. resp 2.208.615-sp, rel. min. antonio carlos ferreira, julgado em 7/10/2025 (info 867).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 6</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-6">Não respondida</span>
+</div>
+
+<p class="enunciado">A concessão do parcelamento das custas judiciais e das taxas judiciárias, com fundamento no art. 98, § 6º, do CPC, pressupõe a demonstração de hipossuficiência absoluta da parte e depende de prévia autorização específica em lei estadual, não sendo suficiente a mera comprovação de dificuldade financeira parcial para justificar o fracionamento do adiantamento das despesas processuais.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(6, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(6, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-6">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O enunciado contraria a interpretação conferida ao art. 98, § 6º, do CPC. Esse dispositivo autoriza expressamente que o juiz conceda o parcelamento das despesas processuais que devam ser adiantadas no curso do procedimento, o que inclui custas judiciais e taxas judiciárias, por integrarem o conceito de despesas processuais.<br><br>A lógica do instituto não se limita à gratuidade integral. O parcelamento funciona como medida intermediária e menos gravosa, apta a concretizar o direito fundamental de acesso à Justiça quando a parte não reúne condições de suportar o pagamento integral e imediato, mas também não faz jus, necessariamente, à isenção total. Assim, a hipótese contemplada é justamente a de dificuldade financeira parcial, e não a de hipossuficiência absoluta.<br><br>Além disso, o poder conferido ao magistrado para autorizar o fracionamento do pagamento não fica condicionado à existência de previsão expressa em lei estadual. A norma processual federal é suficiente para embasar a medida, afastando a exigência de autorização local específica como requisito de validade do parcelamento.<br><br>Em síntese, o parcelamento das custas e taxas judiciais é admitido como alternativa legítima à gratuidade total, desde que demonstrada a dificuldade econômica da parte, independentemente de lei estadual autorizadora.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 4ª Turma. REsp 2.208.615-SP, Rel. Min. Antonio Carlos Ferreira, julgado em 7/10/2025 (Info 867).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="em ação julgada liminarmente improcedente, sem citação da ré, a posterior intimação dessa parte apenas para apresentar contrarrazões à apelação do autor constitui sua primeira oportunidade processual útil de manifestação, de modo que a impugnação ao valor da causa deduzida nesse momento não se sujeita à preclusão temporal nem pode ser rejeitada sob o fundamento de que deveria ter sido apresentada em contestação. a assertiva está correta porque parte de uma premissa processual relevante: se a ré não foi citada nem teve ciência da demanda em primeiro grau, não houve oportunidade efetiva para apresentar contestação e, por consequência, para impugnar o valor atribuído à causa na forma ordinária prevista no cpc. nessa hipótese, a intimação para contrarrazões à apelação, determinada após a manutenção da sentença de improcedência liminar, passa a ser o primeiro momento útil de manifestação da parte no processo.
+
+o ponto central é a inexistência de preclusão quando a parte não pôde exercer anteriormente a faculdade processual. a impugnação ao valor da causa, embora normalmente deva ser feita na contestação, não pode ser considerada intempestiva se a parte somente ingressa validamente no feito na fase recursal, por determinação judicial decorrente da própria dinâmica do art. 332 do cpc. assim, não é juridicamente adequado exigir da ré uma contestação que jamais lhe foi oportunizada.
+
+a solução prestigia o contraditório e a ampla defesa, evitando que a parte seja onerada por uma omissão processual impossível de ser praticada. em outras palavras, a regra de concentração da impugnação na contestação não é absoluta: ela pressupõe a existência de citação e de oportunidade real de defesa em primeiro grau. ausente essa oportunidade, a manifestação em contrarrazões é admissível e eficaz para suscitar a correção do valor da causa. stj. 3ª turma. resp 2.113.605-ce, rel. min. moura ribeiro, julgado em 16/9/2025 (info 867).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 7</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-7">Não respondida</span>
+</div>
+
+<p class="enunciado">Em ação julgada liminarmente improcedente, sem citação da ré, a posterior intimação dessa parte apenas para apresentar contrarrazões à apelação do autor constitui sua primeira oportunidade processual útil de manifestação, de modo que a impugnação ao valor da causa deduzida nesse momento não se sujeita à preclusão temporal nem pode ser rejeitada sob o fundamento de que deveria ter sido apresentada em contestação.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(7, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(7, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-7">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque parte de uma premissa processual relevante: se a ré não foi citada nem teve ciência da demanda em primeiro grau, não houve oportunidade efetiva para apresentar contestação e, por consequência, para impugnar o valor atribuído à causa na forma ordinária prevista no CPC. Nessa hipótese, a intimação para contrarrazões à apelação, determinada após a manutenção da sentença de improcedência liminar, passa a ser o primeiro momento útil de manifestação da parte no processo.<br><br>O ponto central é a inexistência de preclusão quando a parte não pôde exercer anteriormente a faculdade processual. A impugnação ao valor da causa, embora normalmente deva ser feita na contestação, não pode ser considerada intempestiva se a parte somente ingressa validamente no feito na fase recursal, por determinação judicial decorrente da própria dinâmica do art. 332 do CPC. Assim, não é juridicamente adequado exigir da ré uma contestação que jamais lhe foi oportunizada.<br><br>A solução prestigia o contraditório e a ampla defesa, evitando que a parte seja onerada por uma omissão processual impossível de ser praticada. Em outras palavras, a regra de concentração da impugnação na contestação não é absoluta: ela pressupõe a existência de citação e de oportunidade real de defesa em primeiro grau. Ausente essa oportunidade, a manifestação em contrarrazões é admissível e eficaz para suscitar a correção do valor da causa.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.113.605-CE, Rel. Min. Moura Ribeiro, julgado em 16/9/2025 (Info 867).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="ECA"
+data-texto="na execução por quantia certa em que recai penhora sobre bem indivisível pertencente em copropriedade ao executado e a terceiro estranho à relação obrigacional, o exercício do direito de preferência na arrematação pelo coproprietário não autoriza a dedução de sua meação com base no preço efetivo do leilão; ao contrário, a quota-parte do coproprietário alheio à execução deve ser preservada e calculada sobre o valor da avaliação do bem, ainda que a arrematação ocorra por montante inferior ao da avaliação. a assertiva está correta porque, na hipótese de penhora de bem indivisível, o coproprietário ou cônjuge que não integra a execução não pode ter sua fração patrimonial reduzida em razão do preço obtido na alienação judicial. o ponto central do entendimento é a proteção da meação/ quota-parte do terceiro estranho à execução: ela deve ser apurada sobre o valor de avaliação do bem, e não sobre o valor da arrematação.
+
+isso significa que, mesmo quando o coproprietário exerce o direito de preferência para adquirir a integralidade do imóvel, sua posição jurídica não se confunde com a do executado. o direito de preferência serve para permitir que ele adquira o bem em igualdade de condições com terceiros, evitando a perda da coisa comum, mas não para rebaixar o valor correspondente à parcela que já lhe pertence. assim, a preferência não altera a base de cálculo da quota-parte do coproprietário alheio à execução.
+
+a solução também evita que a execução transfira ao terceiro prejuízo decorrente de eventual deságio do leilão, o que seria incompatível com a tutela do patrimônio de quem não responde pela dívida. por isso, a quota-parte deve ser calculada sobre a avaliação judicial do bem, preservando-se integralmente o patrimônio do coproprietário estranho à execução. stj. 3ª turma. resp 2.180.611-df, rel. min. nancy andrighi, julgado em 16/9/2025 (info 867).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 8</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-8">Não respondida</span>
+</div>
+
+<p class="enunciado">Na execução por quantia certa em que recai penhora sobre bem indivisível pertencente em copropriedade ao executado e a terceiro estranho à relação obrigacional, o exercício do direito de preferência na arrematação pelo coproprietário não autoriza a dedução de sua meação com base no preço efetivo do leilão; ao contrário, a quota-parte do coproprietário alheio à execução deve ser preservada e calculada sobre o valor da avaliação do bem, ainda que a arrematação ocorra por montante inferior ao da avaliação.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(8, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(8, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-8">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque, na hipótese de penhora de bem indivisível, o coproprietário ou cônjuge que não integra a execução não pode ter sua fração patrimonial reduzida em razão do preço obtido na alienação judicial. O ponto central do entendimento é a proteção da meação/ quota-parte do terceiro estranho à execução: ela deve ser apurada sobre o valor de avaliação do bem, e não sobre o valor da arrematação.<br><br>Isso significa que, mesmo quando o coproprietário exerce o direito de preferência para adquirir a integralidade do imóvel, sua posição jurídica não se confunde com a do executado. O direito de preferência serve para permitir que ele adquira o bem em igualdade de condições com terceiros, evitando a perda da coisa comum, mas não para rebaixar o valor correspondente à parcela que já lhe pertence. Assim, a preferência não altera a base de cálculo da quota-parte do coproprietário alheio à execução.<br><br>A solução também evita que a execução transfira ao terceiro prejuízo decorrente de eventual deságio do leilão, o que seria incompatível com a tutela do patrimônio de quem não responde pela dívida. Por isso, a quota-parte deve ser calculada sobre a avaliação judicial do bem, preservando-se integralmente o patrimônio do coproprietário estranho à execução.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.180.611-DF, Rel. Min. Nancy Andrighi, julgado em 16/9/2025 (Info 867).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="em procedimento de execução extrajudicial de imóvel alienado fiduciariamente, a descrição constante do edital de leilão deve refletir a situação fática atual do bem, de modo que a manutenção de referência meramente formal ao estado originário do contrato, quando já existente construção ou benfeitoria relevante incorporada ao imóvel, pode comprometer a higidez do certame; além disso, a alienação por valor inferior a 50% da avaliação caracteriza preço vil e autoriza a anulação da arrematação, ainda que se trate de segundo leilão. a assertiva está correta porque reúne dois pontos centrais do entendimento firmado no caso: (i) a necessidade de o edital de leilão extrajudicial descrever o imóvel conforme sua realidade atual, e não apenas segundo a descrição originária do contrato de alienação fiduciária; e (ii) a configuração de preço vil quando a arrematação ocorre por valor inferior à metade da avaliação, hipótese apta a ensejar a nulidade da arrematação.
+
+no caso examinado, o imóvel foi contratado e descrito inicialmente como “terreno”, mas, ao tempo do leilão, já havia casa construída, com expressiva valorização do bem. a manutenção da descrição antiga no edital reduziu artificialmente a atratividade do imóvel, afetando a competitividade do certame e a própria finalidade da alienação extrajudicial. por isso, a descrição do bem no edital deve acompanhar a situação fática existente no momento da alienação, em respeito à efetividade da execução e à menor onerosidade ao devedor, sem prejuízo da transparência do procedimento.
+
+quanto ao preço, a arrematação por 23% do valor de mercado foi reputada vil, pois o parâmetro adotado foi o de inferioridade a 50% da avaliação. nessa hipótese, a alienação não se convalida pelo simples fato de ter ocorrido em segundo leilão, já que a regra de proteção contra alienações manifestamente desvantajosas continua incidindo para preservar a regularidade do procedimento executivo e evitar expropriação por valor incompatível com o bem.
+
+em suma, a assertiva reproduz adequadamente a lógica do julgado: o edital deve retratar o estado real do imóvel e a alienação por menos da metade da avaliação é juridicamente inválida por preço vil. stj. 3ª turma. resp 2.167.979-pb, rel. min. nancy andrighi, julgado em 9/9/2025 (info 867).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 9</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-9">Não respondida</span>
+</div>
+
+<p class="enunciado">Em procedimento de execução extrajudicial de imóvel alienado fiduciariamente, a descrição constante do edital de leilão deve refletir a situação fática atual do bem, de modo que a manutenção de referência meramente formal ao estado originário do contrato, quando já existente construção ou benfeitoria relevante incorporada ao imóvel, pode comprometer a higidez do certame; além disso, a alienação por valor inferior a 50% da avaliação caracteriza preço vil e autoriza a anulação da arrematação, ainda que se trate de segundo leilão.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(9, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(9, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-9">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque reúne dois pontos centrais do entendimento firmado no caso: (i) a necessidade de o edital de leilão extrajudicial descrever o imóvel conforme sua realidade atual, e não apenas segundo a descrição originária do contrato de alienação fiduciária; e (ii) a configuração de preço vil quando a arrematação ocorre por valor inferior à metade da avaliação, hipótese apta a ensejar a nulidade da arrematação.<br><br>No caso examinado, o imóvel foi contratado e descrito inicialmente como “terreno”, mas, ao tempo do leilão, já havia casa construída, com expressiva valorização do bem. A manutenção da descrição antiga no edital reduziu artificialmente a atratividade do imóvel, afetando a competitividade do certame e a própria finalidade da alienação extrajudicial. Por isso, a descrição do bem no edital deve acompanhar a situação fática existente no momento da alienação, em respeito à efetividade da execução e à menor onerosidade ao devedor, sem prejuízo da transparência do procedimento.<br><br>Quanto ao preço, a arrematação por 23% do valor de mercado foi reputada vil, pois o parâmetro adotado foi o de inferioridade a 50% da avaliação. Nessa hipótese, a alienação não se convalida pelo simples fato de ter ocorrido em segundo leilão, já que a regra de proteção contra alienações manifestamente desvantajosas continua incidindo para preservar a regularidade do procedimento executivo e evitar expropriação por valor incompatível com o bem.<br><br>Em suma, a assertiva reproduz adequadamente a lógica do julgado: o edital deve retratar o estado real do imóvel e a alienação por menos da metade da avaliação é juridicamente inválida por preço vil.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.167.979-PB, Rel. Min. Nancy Andrighi, julgado em 9/9/2025 (Info 867).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="em execução fiscal destinada à cobrança de contribuições previdenciárias incidentes sobre a folha de pagamento, é ilegítima a inclusão do consórcio de empresas no polo passivo, por ausência de personalidade jurídica, ainda que ele tenha contratado trabalhadores e prestadores de serviço em nome próprio e possua cnpj próprio, hipótese em que a responsabilidade tributária recairia exclusivamente sobre as consorciadas, sem solidariedade entre elas. a assertiva está incorreta porque confunde personalidade jurídica com personalidade judiciária e desconsidera a disciplina específica aplicável ao consórcio que atua em nome próprio. embora o consórcio de empresas não possua personalidade jurídica, isso não impede sua capacidade de estar em juízo e de figurar validamente no polo passivo de execução fiscal, especialmente quando a própria atuação negocial e tributária foi desenvolvida em nome do consórcio, com contratação de pessoal e terceiros sob seu cnpj.
+
+nessa hipótese, a legislação de regência reforça a legitimidade passiva do consórcio: o art. 1º, § 1º, da lei nº 12.402/2011 prevê que o consórcio que contratar, em nome próprio, pessoas físicas ou jurídicas pode responder pela retenção e pelo recolhimento dos tributos correspondentes, bem como pelo cumprimento das obrigações acessórias. além disso, o dispositivo expressamente estabelece a responsabilidade solidária das empresas consorciadas, afastando a tese de que cada consorciada responderia apenas por obrigações individualmente assumidas.
+
+assim, se o consórcio assumiu a contratação em nome próprio e deixou de recolher contribuições previdenciárias incidentes sobre a folha, é juridicamente possível sua inclusão no polo passivo da execução fiscal, sem prejuízo da responsabilidade solidária das consorciadas. a ausência de personalidade jurídica, portanto, não elimina a legitimidade processual do consórcio nem impede sua sujeição à cobrança tributária. stj. 2ª turma. resp 1.647.368-pe, rel. min. marco aurélio bellizze, julgado em 7/10/2025 (info 867).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 10</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-10">Não respondida</span>
+</div>
+
+<p class="enunciado">Em execução fiscal destinada à cobrança de contribuições previdenciárias incidentes sobre a folha de pagamento, é ilegítima a inclusão do consórcio de empresas no polo passivo, por ausência de personalidade jurídica, ainda que ele tenha contratado trabalhadores e prestadores de serviço em nome próprio e possua CNPJ próprio, hipótese em que a responsabilidade tributária recairia exclusivamente sobre as consorciadas, sem solidariedade entre elas.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(10, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(10, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-10">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque confunde personalidade jurídica com personalidade judiciária e desconsidera a disciplina específica aplicável ao consórcio que atua em nome próprio. Embora o consórcio de empresas não possua personalidade jurídica, isso não impede sua capacidade de estar em juízo e de figurar validamente no polo passivo de execução fiscal, especialmente quando a própria atuação negocial e tributária foi desenvolvida em nome do consórcio, com contratação de pessoal e terceiros sob seu CNPJ.<br><br>Nessa hipótese, a legislação de regência reforça a legitimidade passiva do consórcio: o art. 1º, § 1º, da Lei nº 12.402/2011 prevê que o consórcio que contratar, em nome próprio, pessoas físicas ou jurídicas pode responder pela retenção e pelo recolhimento dos tributos correspondentes, bem como pelo cumprimento das obrigações acessórias. Além disso, o dispositivo expressamente estabelece a responsabilidade solidária das empresas consorciadas, afastando a tese de que cada consorciada responderia apenas por obrigações individualmente assumidas.<br><br>Assim, se o consórcio assumiu a contratação em nome próprio e deixou de recolher contribuições previdenciárias incidentes sobre a folha, é juridicamente possível sua inclusão no polo passivo da execução fiscal, sem prejuízo da responsabilidade solidária das consorciadas. A ausência de personalidade jurídica, portanto, não elimina a legitimidade processual do consórcio nem impede sua sujeição à cobrança tributária.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 2ª Turma. REsp 1.647.368-PE, Rel. Min. Marco Aurélio Bellizze, julgado em 7/10/2025 (Info 867).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="para fins de aferição da possibilidade de प्रस्ताव de acordo de não persecução penal, a existência de causa de aumento ou de diminuição na figura típica exige a projeção de uma pena provável ou hipotética a ser futuramente aplicada, de modo que, se a continuidade delitiva puder elevar a reprimenda para patamar superior a 4 anos, o benefício deve ser desde logo afastado, ainda que a pena mínima em abstrato, considerada a fração mínima das majorantes e a máxima das atenuantes, permaneça inferior ao limite legal. a assertiva contraria o critério objetivo adotado para a análise da elegibilidade ao anpp. o parâmetro legal é a **pena mínima cominada ao delito**, e, havendo causas de aumento ou de diminuição, o exame deve ser feito com base na **menor fração possível das majorantes** e na **maior fração possível das minorantes**, justamente para se apurar a menor pena em abstrato compatível com o tipo penal.  
+
+não se admite afastar o acordo com fundamento em **pena hipotética, provável ou futura**, construída a partir de prognose sobre a dosimetria que eventualmente será fixada na sentença. essa forma de raciocínio é incompatível com a lógica objetiva do art. 28-a do cpp e se aproxima de juízo prospectivo semelhante ao que se veda na prescrição em perspectiva.  
+
+além disso, a **continuidade delitiva não constitui óbice automático** ao anpp. o que importa é verificar se, após a incidência da fração mínima de aumento correspondente, a pena mínima resultante **permanece inferior a 4 anos**. se isso ocorrer, o acordo pode ser cabível, não sendo legítimo afastá-lo apenas por conjectura de que a pena final possa ultrapassar o limite legal em eventual condenação. stj. 5ª turma. resp 2.135.834-pr, rel. min. joel ilan paciornik, rel. para acórdão min. ribeiro dantas, julgado em 7/10/2025 (info 867).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 11</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-11">Não respondida</span>
+</div>
+
+<p class="enunciado">Para fins de aferição da possibilidade de प्रस्ताव de acordo de não persecução penal, a existência de causa de aumento ou de diminuição na figura típica exige a projeção de uma pena provável ou hipotética a ser futuramente aplicada, de modo que, se a continuidade delitiva puder elevar a reprimenda para patamar superior a 4 anos, o benefício deve ser desde logo afastado, ainda que a pena mínima em abstrato, considerada a fração mínima das majorantes e a máxima das atenuantes, permaneça inferior ao limite legal.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(11, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(11, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-11">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva contraria o critério objetivo adotado para a análise da elegibilidade ao ANPP. O parâmetro legal é a <strong>pena mínima cominada ao delito</strong>, e, havendo causas de aumento ou de diminuição, o exame deve ser feito com base na <strong>menor fração possível das majorantes</strong> e na <strong>maior fração possível das minorantes</strong>, justamente para se apurar a menor pena em abstrato compatível com o tipo penal.  <br><br>Não se admite afastar o acordo com fundamento em <strong>pena hipotética, provável ou futura</strong>, construída a partir de prognose sobre a dosimetria que eventualmente será fixada na sentença. Essa forma de raciocínio é incompatível com a lógica objetiva do art. 28-A do CPP e se aproxima de juízo prospectivo semelhante ao que se veda na prescrição em perspectiva.  <br><br>Além disso, a <strong>continuidade delitiva não constitui óbice automático</strong> ao ANPP. O que importa é verificar se, após a incidência da fração mínima de aumento correspondente, a pena mínima resultante <strong>permanece inferior a 4 anos</strong>. Se isso ocorrer, o acordo pode ser cabível, não sendo legítimo afastá-lo apenas por conjectura de que a pena final possa ultrapassar o limite legal em eventual condenação.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 5ª Turma. REsp 2.135.834-PR, Rel. Min. Joel Ilan Paciornik, Rel. para acórdão Min. Ribeiro Dantas, julgado em 7/10/2025 (Info 867).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="em processo submetido ao tribunal do júri, a decisão de pronúncia e eventual condenação podem ser validamente amparadas, de forma exclusiva, em confissão extrajudicial colhida na fase inquisitorial, ainda que inexistam outros elementos de informação produzidos sob contraditório judicial, por se tratar de juízo de admissibilidade da acusação e de crime doloso contra a vida, em que prevalece a soberania dos veredictos. a assertiva contraria frontalmente o entendimento firmado no julgado. em matéria de tribunal do júri, embora a pronúncia tenha natureza de juízo de admissibilidade da acusação e não exija prova plena de autoria e materialidade, ela não pode ser lastreada exclusivamente em elementos colhidos na fase extrajudicial. é indispensável que haja suporte probatório produzido sob contraditório judicial, em respeito ao devido processo legal e à presunção de inocência.
+
+o mesmo raciocínio vale, com maior razão, para a condenação: não se admite decreto condenatório fundado apenas em elementos informativos do inquérito policial ou em confissão extrajudicial isolada. a confissão prestada fora do contraditório, desacompanhada de outros elementos idôneos judicializados, não basta nem para deflagrar validamente a ação penal, nem para sustentar a pronúncia, nem para embasar a condenação.
+
+a soberania dos veredictos do júri não afasta as garantias constitucionais do acusado. o veredicto popular continua submetido ao devido processo legal e não autoriza condenação baseada exclusivamente em prova inquisitorial. o ponto central do entendimento é justamente impedir que elementos extrajudiciais, sem confirmação em juízo, sejam tratados como suporte único para decisões de mérito ou de admissibilidade da acusação. stj. 6ª turma. resp 2.232.036-df, rel. min. sebastião reis júnior, julgado em 14/10/2025 (info 867).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 12</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-12">Não respondida</span>
+</div>
+
+<p class="enunciado">Em processo submetido ao Tribunal do Júri, a decisão de pronúncia e eventual condenação podem ser validamente amparadas, de forma exclusiva, em confissão extrajudicial colhida na fase inquisitorial, ainda que inexistam outros elementos de informação produzidos sob contraditório judicial, por se tratar de juízo de admissibilidade da acusação e de crime doloso contra a vida, em que prevalece a soberania dos veredictos.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(12, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(12, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-12">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva contraria frontalmente o entendimento firmado no julgado. Em matéria de Tribunal do Júri, embora a pronúncia tenha natureza de juízo de admissibilidade da acusação e não exija prova plena de autoria e materialidade, ela não pode ser lastreada exclusivamente em elementos colhidos na fase extrajudicial. É indispensável que haja suporte probatório produzido sob contraditório judicial, em respeito ao devido processo legal e à presunção de inocência.<br><br>O mesmo raciocínio vale, com maior razão, para a condenação: não se admite decreto condenatório fundado apenas em elementos informativos do inquérito policial ou em confissão extrajudicial isolada. A confissão prestada fora do contraditório, desacompanhada de outros elementos idôneos judicializados, não basta nem para deflagrar validamente a ação penal, nem para sustentar a pronúncia, nem para embasar a condenação.<br><br>A soberania dos veredictos do Júri não afasta as garantias constitucionais do acusado. O veredicto popular continua submetido ao devido processo legal e não autoriza condenação baseada exclusivamente em prova inquisitorial. O ponto central do entendimento é justamente impedir que elementos extrajudiciais, sem confirmação em juízo, sejam tratados como suporte único para decisões de mérito ou de admissibilidade da acusação.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 6ª Turma. REsp 2.232.036-DF, Rel. Min. Sebastião Reis Júnior, julgado em 14/10/2025 (Info 867).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a quitação, por pessoa jurídica estranha ao acordo de colaboração premiada, de multa pessoalmente imposta ao colaborador, ainda que amparada em ajuste privado que a qualifique como indenização por supostos prejuízos decorrentes da atuação do agente em favor da empresa, não afasta a incidência do imposto de renda sobre o valor pago, por configurar acréscimo patrimonial indireto decorrente da liberação de despesa que seria suportada pelo contribuinte. o ponto central é que, para fins de imposto de renda, não se exige necessariamente ingresso físico de numerário no patrimônio do contribuinte. também pode haver acréscimo patrimonial quando terceiro assume obrigação que caberia ao próprio sujeito passivo, liberando-o de despesa certa e pessoal. nessa hipótese, o benefício econômico é real e mensurável: o contribuinte enriquece indiretamente ao deixar de desembolsar valor que lhe competia.
+
+no caso examinado, a multa foi imposta pessoalmente ao colaborador no âmbito de acordo de colaboração premiada, cuja natureza é de negócio jurídico processual personalíssimo. isso significa que os efeitos obrigacionais do ajuste se projetam apenas sobre o colaborador e os órgãos de persecução penal, não alcançando terceiros estranhos ao pacto. assim, eventual compromisso assumido pela empresa para reembolsar ou quitar a multa não transfere ao fisco a qualificação privada dada pelas partes, nem descaracteriza o fato de que houve liberação patrimonial em favor do colaborador.
+
+além disso, o ajuste particular entre colaborador e empresa, rotulando o pagamento como indenização por serviços prestados ou por prejuízos suportados, não é oponível à fazenda pública. o art. 123 do ctn impede que convenções particulares modifiquem a definição legal do sujeito passivo ou alterem os efeitos tributários perante o fisco. em outras palavras, a forma contratual escolhida pelas partes não prevalece sobre a substância econômica do fato gerador.
+
+por isso, a quitação da multa por terceiro configura acréscimo patrimonial indireto tributável pelo imposto de renda, ainda que o dinheiro não tenha transitado formalmente pela conta do contribuinte. stj. 1ª turma. resp 2.052.858-rj, rel. min. regina helena costa, julgado em 7/10/2025 (info 867).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 13</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-13">Não respondida</span>
+</div>
+
+<p class="enunciado">A quitação, por pessoa jurídica estranha ao acordo de colaboração premiada, de multa pessoalmente imposta ao colaborador, ainda que amparada em ajuste privado que a qualifique como indenização por supostos prejuízos decorrentes da atuação do agente em favor da empresa, não afasta a incidência do imposto de renda sobre o valor pago, por configurar acréscimo patrimonial indireto decorrente da liberação de despesa que seria suportada pelo contribuinte.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(13, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(13, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-13">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O ponto central é que, para fins de imposto de renda, não se exige necessariamente ingresso físico de numerário no patrimônio do contribuinte. Também pode haver acréscimo patrimonial quando terceiro assume obrigação que caberia ao próprio sujeito passivo, liberando-o de despesa certa e pessoal. Nessa hipótese, o benefício econômico é real e mensurável: o contribuinte enriquece indiretamente ao deixar de desembolsar valor que lhe competia.<br><br>No caso examinado, a multa foi imposta pessoalmente ao colaborador no âmbito de acordo de colaboração premiada, cuja natureza é de negócio jurídico processual personalíssimo. Isso significa que os efeitos obrigacionais do ajuste se projetam apenas sobre o colaborador e os órgãos de persecução penal, não alcançando terceiros estranhos ao pacto. Assim, eventual compromisso assumido pela empresa para reembolsar ou quitar a multa não transfere ao Fisco a qualificação privada dada pelas partes, nem descaracteriza o fato de que houve liberação patrimonial em favor do colaborador.<br><br>Além disso, o ajuste particular entre colaborador e empresa, rotulando o pagamento como indenização por serviços prestados ou por prejuízos suportados, não é oponível à Fazenda Pública. O art. 123 do CTN impede que convenções particulares modifiquem a definição legal do sujeito passivo ou alterem os efeitos tributários perante o Fisco. Em outras palavras, a forma contratual escolhida pelas partes não prevalece sobre a substância econômica do fato gerador.<br><br>Por isso, a quitação da multa por terceiro configura acréscimo patrimonial indireto tributável pelo imposto de renda, ainda que o dinheiro não tenha transitado formalmente pela conta do contribuinte.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Turma. REsp 2.052.858-RJ, Rel. Min. Regina Helena Costa, julgado em 7/10/2025 (Info 867).</p>
+</div>
+</section>
+
+</div>
+
+<script>
+const storageKey = location.pathname + "_respostas";
+let respostas = JSON.parse(localStorage.getItem(storageKey) || "{}");
+
+function destacar(t){
+ if(t==="CERTO") return '<span class="gabarito-certo">CERTO</span>';
+ if(t==="ERRADO") return '<span class="gabarito-errado">ERRADO</span>';
+ return t;
+}
+
+function responder(numero, resposta){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const gabarito=card.dataset.gabarito;
+ const correto=resposta===gabarito;
+ respostas[numero]={resposta,correto};
+ localStorage.setItem(storageKey, JSON.stringify(respostas));
+ mostrarFeedback(numero);
+ atualizarPainel();
+ filtrar();
+}
+
+function mostrarFeedback(numero){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const feedback=document.getElementById("feedback-"+numero);
+ const status=document.getElementById("status-"+numero);
+ const resultado=feedback.querySelector(".resultado");
+ const gabarito=card.dataset.gabarito;
+ const dados=respostas[numero];
+ if(!dados) return;
+ feedback.style.display="block";
+ feedback.classList.remove("correto","errado");
+ if(dados.correto){
+   feedback.classList.add("correto");
+   resultado.innerHTML="Você acertou. A resposta é "+destacar(gabarito)+".";
+   status.textContent="Respondida — acerto";
+   status.style.color="var(--green)";
+ } else {
+   feedback.classList.add("errado");
+   resultado.innerHTML="Você errou. O gabarito é "+destacar(gabarito)+".";
+   status.textContent="Respondida — erro";
+   status.style.color="var(--red)";
+ }
+}
+
+function atualizarPainel(){
+ let respondidas=0, acertos=0, erros=0;
+ for(const k in respostas){
+   respondidas++;
+   if(respostas[k].correto) acertos++; else erros++;
+ }
+ document.getElementById("respondidas").textContent=respondidas;
+ document.getElementById("acertos").textContent=acertos;
+ document.getElementById("erros").textContent=erros;
+ document.getElementById("visiveis").textContent=document.querySelectorAll(".questao:not(.oculta)").length;
+}
+
+function filtrar(){
+ const busca=document.getElementById("busca").value.trim().toLowerCase();
+ const disciplina=document.getElementById("disciplina").value;
+ const statusFiltro=document.getElementById("statusFiltro").value;
+ const cards=Array.from(document.querySelectorAll(".questao"));
+ let vis=0;
+ cards.forEach((card,idx)=>{
+   const n=idx+1;
+   const texto=card.dataset.texto||"";
+   const disc=card.dataset.disciplina||"";
+   const r=respostas[n];
+   let passaStatus=true;
+   if(statusFiltro==="nao") passaStatus=!r;
+   if(statusFiltro==="acerto") passaStatus=r && r.correto;
+   if(statusFiltro==="erro") passaStatus=r && !r.correto;
+   const ok=(!busca||texto.includes(busca)) && (!disciplina||disc===disciplina) && passaStatus;
+   card.classList.toggle("oculta", !ok);
+   if(ok) vis++;
+ });
+ document.getElementById("sem-resultados").style.display=vis===0?"block":"none";
+ atualizarPainel();
+}
+
+function reiniciar(){
+ if(!confirm("Deseja reiniciar este simulado?")) return;
+ localStorage.removeItem(storageKey);
+ location.reload();
+}
+
+function restaurar(){
+ for(const k in respostas) mostrarFeedback(Number(k));
+ filtrar();
+ atualizarPainel();
+}
+
+restaurar();
+</script>
+</body>
+</html>

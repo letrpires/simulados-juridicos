@@ -1,0 +1,2667 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Simulado - RG - Processo Civil</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+:root{
+--bg:#020617;--panel:rgba(15,23,42,.88);--card:rgba(15,23,42,.96);
+--card2:rgba(30,41,59,.92);--border:rgba(148,163,184,.22);
+--text:#e5e7eb;--muted:#94a3b8;--accent:#38bdf8;--accent2:#0ea5e9;
+--green:#22c55e;--red:#ef4444;--yellow:#facc15;--purple:#a78bfa;
+}
+*{box-sizing:border-box}
+body{
+margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+background:radial-gradient(circle at top left,rgba(56,189,248,.20),transparent 28%),
+radial-gradient(circle at top right,rgba(167,139,250,.15),transparent 28%),
+linear-gradient(135deg,#020617,#0f172a 50%,#020617);
+color:var(--text);line-height:1.65;
+}
+header{padding:44px 20px 32px;text-align:center;border-bottom:1px solid var(--border)}
+header h1{margin:0 0 10px;font-size:clamp(28px,4vw,46px);letter-spacing:-.05em}
+header p{color:var(--muted);margin:0;font-size:16px}
+.container{max-width:1160px;margin:0 auto;padding:26px 16px 80px}
+.painel{
+position:sticky;top:10px;z-index:10;background:var(--panel);backdrop-filter:blur(18px);
+border:1px solid var(--border);border-radius:26px;padding:16px;margin-bottom:22px;
+box-shadow:0 22px 70px rgba(0,0,0,.35)
+}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.stat{background:var(--card2);padding:14px;border-radius:18px;text-align:center;border:1px solid rgba(148,163,184,.12)}
+.stat strong{display:block;font-size:25px;color:var(--accent);line-height:1.1}
+.stat span{font-size:12px;color:var(--muted)}
+.filtros{display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:12px;margin-top:14px}
+input,select{
+width:100%;background:rgba(2,6,23,.78);color:var(--text);border:1px solid var(--border);
+border-radius:14px;padding:13px 14px;outline:none;font-size:14px
+}
+input:focus,select:focus{border-color:var(--accent)}
+.card{
+background:var(--card);border:1px solid var(--border);border-radius:24px;padding:26px;
+margin-bottom:20px;box-shadow:0 18px 50px rgba(0,0,0,.24)
+}
+.questao{scroll-margin-top:190px}
+.questao-topo{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:18px}
+.badge{
+background:linear-gradient(135deg,var(--accent),var(--accent2));color:#00111f;font-weight:900;
+padding:7px 13px;border-radius:999px;display:inline-block
+}
+.disciplina-tag,.tipo-tag{
+display:inline-block;margin-left:8px;color:var(--muted);background:rgba(148,163,184,.10);
+border:1px solid rgba(148,163,184,.14);padding:6px 10px;border-radius:999px;font-size:12px
+}
+.tipo-tag{color:#ddd6fe;border-color:rgba(167,139,250,.25)}
+.status{color:var(--yellow);font-size:13px;white-space:nowrap}
+.enunciado{font-size:19px;margin:0 0 22px;letter-spacing:-.01em}
+.botoes{display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.btn{
+cursor:pointer;border:0;padding:12px 22px;border-radius:14px;color:white;font-weight:900;
+transition:.18s ease;letter-spacing:.02em
+}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.certo{background:rgba(34,197,94,.20);border:1px solid rgba(34,197,94,.42)}
+.btn.errado{background:rgba(239,68,68,.20);border:1px solid rgba(239,68,68,.42)}
+.btn.neutro{background:rgba(56,189,248,.16);color:var(--text);border:1px solid rgba(56,189,248,.32)}
+.feedback{
+display:none;background:rgba(2,6,23,.72);border:1px solid rgba(148,163,184,.16);
+border-left:5px solid var(--accent);padding:18px;border-radius:18px;margin-top:14px
+}
+.feedback.correto{border-left-color:var(--green)}
+.feedback.errado{border-left-color:var(--red)}
+.resultado{font-size:18px;font-weight:900;margin-top:0}
+.justificativa{margin-top:12px}
+.referencia{color:var(--muted);font-size:13px;margin-top:16px}
+.gabarito-certo{color:var(--green);font-weight:900}
+.gabarito-errado{color:var(--red);font-weight:900}
+.oculta{display:none}
+.sem-resultados{text-align:center;color:var(--muted);display:none;padding:30px}
+.grid-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
+.link-card{
+display:block;padding:20px;background:rgba(15,23,42,.95);border:1px solid rgba(148,163,184,.22);
+color:#e5e7eb;border-radius:22px;text-decoration:none;transition:.2s;box-shadow:0 14px 40px rgba(0,0,0,.22)
+}
+.link-card:hover{transform:translateY(-3px);border-color:#38bdf8}
+.link-card strong{display:block;font-size:17px;margin-bottom:8px}
+.link-card span{color:#94a3b8;font-size:13px}
+.index-tools{display:grid;grid-template-columns:1.5fr 1fr;gap:12px;margin-bottom:20px}
+@media(max-width:850px){
+.stats{grid-template-columns:repeat(2,1fr)}
+.filtros,.index-tools{grid-template-columns:1fr}
+.questao-topo{align-items:flex-start;flex-direction:column}
+.botoes{flex-direction:column}
+.enunciado{font-size:16px}
+.card{padding:20px}
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Simulado - RG - Processo Civil</h1>
+<p>Repercussão Geral • Simulado interativo de CERTO ou ERRADO</p>
+</header>
+
+<div class="container">
+<div class="painel">
+<div class="stats">
+<div class="stat"><strong>84</strong><span>Total</span></div>
+<div class="stat"><strong id="visiveis">84</strong><span>Visíveis</span></div>
+<div class="stat"><strong id="respondidas">0</strong><span>Respondidas</span></div>
+<div class="stat"><strong id="acertos">0</strong><span>Acertos</span></div>
+<div class="stat"><strong id="erros">0</strong><span>Erros</span></div>
+</div>
+
+<div class="filtros">
+<input id="busca" type="search" placeholder="Buscar por palavra-chave..." oninput="filtrar()">
+<select id="disciplina" onchange="filtrar()">
+<option value="">Todas as disciplinas</option>
+<option value="ECA">ECA</option>
+<option value="N/I">N/I</option>
+</select>
+<select id="statusFiltro" onchange="filtrar()">
+<option value="">Todas</option>
+<option value="nao">Não respondidas</option>
+<option value="acerto">Acertos</option>
+<option value="erro">Erros</option>
+</select>
+<button class="btn neutro" onclick="reiniciar()">Reiniciar</button>
+</div>
+</div>
+
+<div id="sem-resultados" class="sem-resultados">Nenhuma questão encontrada com os filtros atuais.</div>
+
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="é correto afirmar que o supremo tribunal federal reconheceu repercussão geral acerca da possibilidade de o magistrado reduzir, de ofício, a multa cominatória imposta em sentença por descumprimento de obrigação de fazer ou não fazer (art. 461, §6º/cpc antigo; atual art. 537, §1º), por envolver matéria de relevância jurídica que transcende o interesse das partes? o tema 7 do stf firmou a tese de que a questão referente à possibilidade de redução judicial, de ofício, da multa cominatória não possui repercussão geral, por ausentar relevância econômica, política, social ou jurídica que transcenda ao interesse das partes. assim, não houve reconhecimento de repercussão geral para o tema, o que afasta sua discussão em recurso extraordinário com fundamento em repercussão geral. tema 7 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 1</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-1">Não respondida</span>
+</div>
+
+<p class="enunciado">É correto afirmar que o Supremo Tribunal Federal reconheceu repercussão geral acerca da possibilidade de o magistrado reduzir, de ofício, a multa cominatória imposta em sentença por descumprimento de obrigação de fazer ou não fazer (art. 461, §6º/CPC antigo; atual art. 537, §1º), por envolver matéria de relevância jurídica que transcende o interesse das partes?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(1, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(1, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-1">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 7 do STF firmou a tese de que a questão referente à possibilidade de redução judicial, de ofício, da multa cominatória não possui repercussão geral, por ausentar relevância econômica, política, social ou jurídica que transcenda ao interesse das partes. Assim, não houve reconhecimento de repercussão geral para o tema, o que afasta sua discussão em recurso extraordinário com fundamento em repercussão geral.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 7 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="ECA"
+data-texto="considerando a natureza jurídica dos honorários advocatícios incluídos em condenação contra ente público, é correto afirmar que tais honorários têm natureza alimentícia e devem ser satisfeitos mediante expedição de precatório ou requisição de pequeno valor, obedecida ordem especial relativa a créditos alimentares? o tema 18 reconheceu que os honorários advocatícios constantes na condenação ou destacados do montante devido ao credor revestem-se de natureza alimentar, de modo que sua satisfação se submete ao regime de precatório ou de requisição de pequeno valor, observada ordem especial restrita a créditos dessa natureza, nos termos do entendimento consolidado pelo stf. tema 18 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 2</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-2">Não respondida</span>
+</div>
+
+<p class="enunciado">Considerando a natureza jurídica dos honorários advocatícios incluídos em condenação contra ente público, é correto afirmar que tais honorários têm natureza alimentícia e devem ser satisfeitos mediante expedição de precatório ou requisição de pequeno valor, obedecida ordem especial relativa a créditos alimentares?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(2, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(2, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-2">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 18 reconheceu que os honorários advocatícios constantes na condenação ou destacados do montante devido ao credor revestem-se de natureza alimentar, de modo que sua satisfação se submete ao regime de precatório ou de requisição de pequeno valor, observada ordem especial restrita a créditos dessa natureza, nos termos do entendimento consolidado pelo STF.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 18 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="no âmbito de execução contra o poder público, é incorreto afirmar que é possível expedir precatório ou rpv apenas relativamente à parcela incontroversa e autônoma do título judicial transitado em julgado, devendo o pagamento sempre considerar a importância total executada para fins de qualificação como pequeno valor? o tema 28 firmou a tese de que há compatibilidade constitucional para a expedição de precatório ou requisição de pequeno valor para pagamento da parte incontroversa e autônoma do pronunciamento judicial transitado em julgado, observada, para fins de enquadramento no regime de pequeno valor, a importância total executada. portanto, é possível a expedição de precatório/rpv para a parcela incontroversa, com a observância do critério de dimensionamento previsto. tema 28 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 3</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-3">Não respondida</span>
+</div>
+
+<p class="enunciado">No âmbito de execução contra o Poder Público, é incorreto afirmar que é possível expedir precatório ou RPV apenas relativamente à parcela incontroversa e autônoma do título judicial transitado em julgado, devendo o pagamento sempre considerar a importância total executada para fins de qualificação como pequeno valor?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(3, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(3, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-3">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 28 firmou a tese de que há compatibilidade constitucional para a expedição de precatório ou requisição de pequeno valor para pagamento da parte incontroversa e autônoma do pronunciamento judicial transitado em julgado, observada, para fins de enquadramento no regime de pequeno valor, a importância total executada. Portanto, é possível a expedição de precatório/RPV para a parcela incontroversa, com a observância do critério de dimensionamento previsto.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 28 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="em conflito envolvendo consumidor e concessionária de serviço de telefonia sobre a cobrança da assinatura básica mensal, estando ausente intervenção da anatel nos autos, é correto afirmar que compete à justiça estadual processar e julgar a demanda, inclusive na via dos juizados especiais, visto que a controvérsia é de natureza predominantemente fática e complexa? o tema 35 estipula: (i) compete à justiça estadual processar e julgar causas entre consumidor e concessionária de telefonia quando a anatel não atue nos autos; (ii) não viola o art. 98, i, da constituição o processamento em juizado especial, por se tratar de matéria exclusivamente de direito que não apresenta complexidade; (iii) a resolução do mérito depende da interpretação de legislação infraconstitucional. assim, a afirmação que descreve a matéria como predominantemente fática e complexa é contrária ao tema. tema 35 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 4</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-4">Não respondida</span>
+</div>
+
+<p class="enunciado">Em conflito envolvendo consumidor e concessionária de serviço de telefonia sobre a cobrança da assinatura básica mensal, estando ausente intervenção da ANATEL nos autos, é correto afirmar que compete à Justiça estadual processar e julgar a demanda, inclusive na via dos Juizados Especiais, visto que a controvérsia é de natureza predominantemente fática e complexa?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(4, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(4, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-4">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 35 estipula: (I) compete à Justiça estadual processar e julgar causas entre consumidor e concessionária de telefonia quando a ANATEL não atue nos autos; (II) não viola o art. 98, I, da Constituição o processamento em juizado especial, por se tratar de matéria exclusivamente de direito que não apresenta complexidade; (III) a resolução do mérito depende da interpretação de legislação infraconstitucional. Assim, a afirmação que descreve a matéria como predominantemente fática e complexa é contrária ao tema.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 35 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a respeito da competência para processar e julgar ações entre o poder público e seus servidores submetidos a regime especial disciplinado por lei local anterior à constituição de 1988, é correto afirmar que, nos termos da jurisprudência, tais demandas competem à justiça estadual, com fundamento na redação do artigo 106 da constituição de 1967 dada pela emenda constitucional 1/1969? o tema 43 reconhece a competência da justiça comum (estadual) para processar e julgar causas entre o poder público e servidores submetidos a regime especial instituído por lei local editada antes da cf/88, com fundamento no artigo 106 da constituição de 1967 na redação dada pela ec 1/1969. o entendimento vincula-se ao regime jurídico anterior à cf/88. tema 43 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 5</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-5">Não respondida</span>
+</div>
+
+<p class="enunciado">A respeito da competência para processar e julgar ações entre o Poder Público e seus servidores submetidos a regime especial disciplinado por lei local anterior à Constituição de 1988, é correto afirmar que, nos termos da jurisprudência, tais demandas competem à Justiça estadual, com fundamento na redação do artigo 106 da Constituição de 1967 dada pela Emenda Constitucional 1/1969?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(5, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(5, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-5">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 43 reconhece a competência da Justiça comum (estadual) para processar e julgar causas entre o Poder Público e servidores submetidos a regime especial instituído por lei local editada antes da CF/88, com fundamento no artigo 106 da Constituição de 1967 na redação dada pela EC 1/1969. O entendimento vincula-se ao regime jurídico anterior à CF/88.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 43 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="é correto afirmar que a execução provisória de obrigação de fazer contra a fazenda pública atrai automaticamente o regime dos precatórios e, portanto, exige prévia inscrição em orçamento como obrigação dessa natureza? o tema 45 firmou a tese de que a execução provisória de obrigação de fazer em face da fazenda pública não atrai o regime constitucional dos precatórios. logo, a execução provisória não se submete automaticamente ao sistema de precatórios previsto no art. 100 da constituição. tema 45 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 6</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-6">Não respondida</span>
+</div>
+
+<p class="enunciado">É correto afirmar que a execução provisória de obrigação de fazer contra a Fazenda Pública atrai automaticamente o regime dos precatórios e, portanto, exige prévia inscrição em orçamento como obrigação dessa natureza?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(6, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(6, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-6">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 45 firmou a tese de que a execução provisória de obrigação de fazer em face da Fazenda Pública não atrai o regime constitucional dos precatórios. Logo, a execução provisória não se submete automaticamente ao sistema de precatórios previsto no art. 100 da Constituição.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 45 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="no âmbito do controle da moralidade administrativa e tutela do erário, é correto sustentar que o ministério público tem legitimidade para propor ação civil pública visando à anulação de termo de acordo de regime especial (tare) celebrado entre o poder público e contribuinte, na esfera da defesa do patrimônio público? o tema 56 reconhece a legitimidade do ministério público para ajuizar ação civil pública visando anular tares, em face da legitimação ad causam conferida constitucionalmente ao mp para proteção do patrimônio público e defesa do erário. tema 56 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 7</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-7">Não respondida</span>
+</div>
+
+<p class="enunciado">No âmbito do controle da moralidade administrativa e tutela do erário, é correto sustentar que o Ministério Público tem legitimidade para propor ação civil pública visando à anulação de Termo de Acordo de Regime Especial (TARE) celebrado entre o poder público e contribuinte, na esfera da defesa do patrimônio público?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(7, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(7, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-7">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 56 reconhece a legitimidade do Ministério Público para ajuizar ação civil pública visando anular TAREs, em face da legitimação ad causam conferida constitucionalmente ao MP para proteção do patrimônio público e defesa do erário.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 56 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="é admissível, segundo o entendimento do stf, fracionar o valor do precatório em execução de sentença com o propósito de efetuar o pagamento das custas processuais por meio de requisição de pequeno valor (rpv)? o tema 58 dispõe expressamente que é vedado o fracionamento do valor de precatório com o objetivo de realizar o pagamento das custas processuais por rpv. a técnica de fracionamento para burlar o regime de precatórios foi vedada pelo tribunal. tema 58 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 8</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-8">Não respondida</span>
+</div>
+
+<p class="enunciado">É admissível, segundo o entendimento do STF, fracionar o valor do precatório em execução de sentença com o propósito de efetuar o pagamento das custas processuais por meio de requisição de pequeno valor (RPV)?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(8, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(8, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-8">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 58 dispõe expressamente que é vedado o fracionamento do valor de precatório com o objetivo de realizar o pagamento das custas processuais por RPV. A técnica de fracionamento para burlar o regime de precatórios foi vedada pelo Tribunal.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 58 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="no contexto de greves que acarretam interdição de agências bancárias, é correto afirmar que compete à justiça do trabalho processar e julgar interditos proibitórios destinados a assegurar o livre acesso de funcionários e clientes às agências interditadas em virtude de movimento grevista? o tema 74 estabeleceu a competência da justiça do trabalho para julgar ações de interdito proibitório voltadas a garantir o livre acesso a agências bancárias interditadas por greve, por envolver relações de trabalho e efetividade de direitos fundamentais dos empregados, sendo esse entendimento consolidado pelo stf. tema 74 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 9</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-9">Não respondida</span>
+</div>
+
+<p class="enunciado">No contexto de greves que acarretam interdição de agências bancárias, é correto afirmar que compete à Justiça do Trabalho processar e julgar interditos proibitórios destinados a assegurar o livre acesso de funcionários e clientes às agências interditadas em virtude de movimento grevista?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(9, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(9, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-9">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 74 estabeleceu a competência da Justiça do Trabalho para julgar ações de interdito proibitório voltadas a garantir o livre acesso a agências bancárias interditadas por greve, por envolver relações de trabalho e efetividade de direitos fundamentais dos empregados, sendo esse entendimento consolidado pelo STF.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 74 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="quanto ao mandado de segurança no âmbito dos juizados especiais, é correto afirmar que cabe a impetração contra decisões interlocutórias proferidas em processos submetidos ao rito da lei 9.099/1995, ante a natureza imediata de proteção do direito líquido e certo? o tema 77 firmou a tese de que não cabe mandado de segurança contra decisões interlocutórias proferidas nos processos submetidos ao rito da lei 9.099/1995. a vedação decorre da disciplina recursal própria dos juizados especiais e do caráter sumário do procedimento. tema 77 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 10</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-10">Não respondida</span>
+</div>
+
+<p class="enunciado">Quanto ao mandado de segurança no âmbito dos Juizados Especiais, é correto afirmar que cabe a impetração contra decisões interlocutórias proferidas em processos submetidos ao rito da Lei 9.099/1995, ante a natureza imediata de proteção do direito líquido e certo?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(10, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(10, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-10">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 77 firmou a tese de que não cabe mandado de segurança contra decisões interlocutórias proferidas nos processos submetidos ao rito da Lei 9.099/1995. A vedação decorre da disciplina recursal própria dos Juizados Especiais e do caráter sumário do procedimento.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 77 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="no que concerne à legitimação de associações para agir em juízo em defesa de direitos dos filiados, é correto afirmar que uma previsão estatutária genérica autoriza, por si só, a atuação judicial, dispensando autorização expressa dos associados e assembleia, sem limitação da execução aos associados nominativamente indicados na inicial? o tema 82 decidiu que previsão estatutária genérica não basta para legitimar a atuação em juízo de associações na defesa dos direitos dos filiados; é indispensável autorização expressa (mesmo que deliberada em assembleia) conforme art. 5º, xxi, da cf. além disso, as balizas subjetivas do título judicial são definidas pela representação na ação de conhecimento, e a execução fica limitada aos associados indicados na inicial. tema 82 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 11</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-11">Não respondida</span>
+</div>
+
+<p class="enunciado">No que concerne à legitimação de associações para agir em juízo em defesa de direitos dos filiados, é correto afirmar que uma previsão estatutária genérica autoriza, por si só, a atuação judicial, dispensando autorização expressa dos associados e assembleia, sem limitação da execução aos associados nominativamente indicados na inicial?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(11, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(11, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-11">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 82 decidiu que previsão estatutária genérica não basta para legitimar a atuação em juízo de associações na defesa dos direitos dos filiados; é indispensável autorização expressa (mesmo que deliberada em assembleia) conforme art. 5º, XXI, da CF. Além disso, as balizas subjetivas do título judicial são definidas pela representação na ação de conhecimento, e a execução fica limitada aos associados indicados na inicial.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 82 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="é correto afirmar que, no processo de recuperação judicial de empresa, a execução de créditos trabalhistas deve ser processada e julgada pelo juízo falimentar da justiça comum estadual competente para falência, e não pela justiça do trabalho? o tema 90 prevê que compete ao juízo comum falimentar processar e julgar a execução dos créditos trabalhistas no caso de empresa em recuperação judicial, observando-se o juízo competente para a recuperação/falência e a natureza da execução nesse contexto processual específico. tema 90 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 12</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-12">Não respondida</span>
+</div>
+
+<p class="enunciado">É correto afirmar que, no processo de recuperação judicial de empresa, a execução de créditos trabalhistas deve ser processada e julgada pelo juízo falimentar da Justiça comum estadual competente para falência, e não pela Justiça do Trabalho?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(12, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(12, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-12">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 90 prevê que compete ao juízo comum falimentar processar e julgar a execução dos créditos trabalhistas no caso de empresa em recuperação judicial, observando-se o juízo competente para a recuperação/falência e a natureza da execução nesse contexto processual específico.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 90 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a decisão de órgão fracionário de tribunal que afasta a incidência de norma, no todo ou em parte, sem declarar expressamente sua inconstitucionalidade, não ofende a cláusula da reserva de plenário (art. 97 da cf), segundo o entendimento consolidado pelo stf? o tema 93 firmou que viola a cláusula de reserva de plenário a decisão de órgão fracionário que, sem declarar expressamente a inconstitucionalidade, afasta a incidência de lei ou ato normativo. a cláusula exige observância do procedimento adequado para o reconhecimento de inconstitucionalidade, submetendo a matéria ao órgão competente. tema 93 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 13</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-13">Não respondida</span>
+</div>
+
+<p class="enunciado">A decisão de órgão fracionário de Tribunal que afasta a incidência de norma, no todo ou em parte, sem declarar expressamente sua inconstitucionalidade, não ofende a cláusula da reserva de plenário (art. 97 da CF), segundo o entendimento consolidado pelo STF?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(13, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(13, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-13">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 93 firmou que viola a cláusula de reserva de plenário a decisão de órgão fracionário que, sem declarar expressamente a inconstitucionalidade, afasta a incidência de lei ou ato normativo. A cláusula exige observância do procedimento adequado para o reconhecimento de inconstitucionalidade, submetendo a matéria ao órgão competente.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 93 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="ECA"
+data-texto="nos precatórios, incidência de juros de mora entre a data da elaboração dos cálculos e a data de requisição ou expedição do precatório é reconhecida pelo stf como devida? o tema 96 consolidou o entendimento de que incidem juros de mora no período compreendido entre a data da realização dos cálculos e a data da requisição ou do precatório, cabendo a atualização nessa fase preparatória do pagamento. tema 96 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 14</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-14">Não respondida</span>
+</div>
+
+<p class="enunciado">Nos precatórios, incidência de juros de mora entre a data da elaboração dos cálculos e a data de requisição ou expedição do precatório é reconhecida pelo STF como devida?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(14, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(14, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-14">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 96 consolidou o entendimento de que incidem juros de mora no período compreendido entre a data da realização dos cálculos e a data da requisição ou do precatório, cabendo a atualização nessa fase preparatória do pagamento.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 96 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="uma lei estadual que autorize a não inscrição em dívida ativa e o não ajuizamento de execuções fiscais de débitos de pequeno valor pode ser aplicada por municípios para extinguir execuções fiscais municipais, pois compete ao estado dispor sobre procedimentos fiscais locais? o tema 109 estabeleceu que lei estadual que autorize não inscrição em dívida ativa e o não ajuizamento de débitos de pequeno valor é insuscetível de aplicação a municípios, não servindo de fundamento para extinção das execuções fiscais municipais, sob pena de violação da competência tributária municipal. tema 109 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 15</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-15">Não respondida</span>
+</div>
+
+<p class="enunciado">Uma lei estadual que autorize a não inscrição em dívida ativa e o não ajuizamento de execuções fiscais de débitos de pequeno valor pode ser aplicada por Municípios para extinguir execuções fiscais municipais, pois compete ao Estado dispor sobre procedimentos fiscais locais?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(15, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(15, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-15">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 109 estabeleceu que lei estadual que autorize não inscrição em dívida ativa e o não ajuizamento de débitos de pequeno valor é insuscetível de aplicação a Municípios, não servindo de fundamento para extinção das execuções fiscais municipais, sob pena de violação da competência tributária municipal.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 109 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="ECA"
+data-texto="é harmônica com a constituição a previsão do art. 86 do adct, na redação dada pela ec 32/2002, de regime de transição para tratamento de precatórios reputados de pequeno valor expedidos antes da promulgação dessa emenda? o tema 112 assentou que a previsão do art. 86 do adct, conforme redação da ec 32/2002, é harmônica com a constituição e institui regime de transição aplicável aos precatórios reputados de pequeno valor expedidos antes da promulgação da emenda, legitimando sua aplicação. tema 112 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 16</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-16">Não respondida</span>
+</div>
+
+<p class="enunciado">É harmônica com a Constituição a previsão do art. 86 do ADCT, na redação dada pela EC 32/2002, de regime de transição para tratamento de precatórios reputados de pequeno valor expedidos antes da promulgação dessa emenda?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(16, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(16, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-16">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 112 assentou que a previsão do art. 86 do ADCT, conforme redação da EC 32/2002, é harmônica com a Constituição e institui regime de transição aplicável aos precatórios reputados de pequeno valor expedidos antes da promulgação da emenda, legitimando sua aplicação.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 112 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="uma vez calculado o precatório pelo valor real do débito acrescido de juros legais, segundo o entendimento do stf, ainda incidem automaticamente juros nas parcelas anuais iguais e sucessivas em que o precatório for fracionado, mesmo se adimplidas tempestivamente e corrigidas monetariamente? o tema 132 interpreta o art. 78 do adct em consonância com o art. 33, concluindo que, uma vez calculado o precatório pelo valor real do débito acrescido de juros legais, não há falar em incidência desses juros nas parcelas anuais sucessivas em que o pagamento é fracionado, desde que as parcelas sejam adimplidas a tempo e corrigidas monetariamente. tema 132 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 17</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-17">Não respondida</span>
+</div>
+
+<p class="enunciado">Uma vez calculado o precatório pelo valor real do débito acrescido de juros legais, segundo o entendimento do STF, ainda incidem automaticamente juros nas parcelas anuais iguais e sucessivas em que o precatório for fracionado, mesmo se adimplidas tempestivamente e corrigidas monetariamente?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(17, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(17, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-17">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 132 interpreta o art. 78 do ADCT em consonância com o art. 33, concluindo que, uma vez calculado o precatório pelo valor real do débito acrescido de juros legais, não há falar em incidência desses juros nas parcelas anuais sucessivas em que o pagamento é fracionado, desde que as parcelas sejam adimplidas a tempo e corrigidas monetariamente.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 132 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a respeito da defensoria pública receber honorários sucumbenciais quando representa vencedores de demandas contra o ente federativo ao qual está vinculada, é correto afirmar que a questão possui repercussão geral reconhecida pelo stf por envolver relevantes consequências sociais? o tema 134 declarou que a questão da defensoria pública, representando vencedor da demanda, receber honorários sucumbenciais nas causas contra o ente ao qual está vinculada não tem repercussão geral, por ausente relevância econômica, política, social ou jurídica que transcenda ao interesse das partes. tema 134 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 18</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-18">Não respondida</span>
+</div>
+
+<p class="enunciado">A respeito da Defensoria Pública receber honorários sucumbenciais quando representa vencedores de demandas contra o ente federativo ao qual está vinculada, é correto afirmar que a questão possui repercussão geral reconhecida pelo STF por envolver relevantes consequências sociais?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(18, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(18, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-18">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 134 declarou que a questão da Defensoria Pública, representando vencedor da demanda, receber honorários sucumbenciais nas causas contra o ente ao qual está vinculada não tem repercussão geral, por ausente relevância econômica, política, social ou jurídica que transcenda ao interesse das partes.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 134 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="é compatível com a constituição a extensão do prazo de 15 para 30 dias para oposição de embargos à execução pela fazenda pública, conforme entendimento do stf? o tema 137 firmou a compatibilidade constitucional da ampliação para 30 dias do prazo de oposição de embargos à execução pela fazenda pública, admitindo a especialidade procedimental para a fazenda diante de sua condição e natureza jurídica. tema 137 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 19</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-19">Não respondida</span>
+</div>
+
+<p class="enunciado">É compatível com a Constituição a extensão do prazo de 15 para 30 dias para oposição de embargos à execução pela Fazenda Pública, conforme entendimento do STF?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(19, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(19, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-19">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 137 firmou a compatibilidade constitucional da ampliação para 30 dias do prazo de oposição de embargos à execução pela Fazenda Pública, admitindo a especialidade procedimental para a Fazenda diante de sua condição e natureza jurídica.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 137 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="no período previsto no §1º do art. 100 da constituição (redação original e da ec 30/2000), incidem juros de mora sobre os precatórios pagos nesse interregno, de modo que credores devem receber juros pela mora estatal? o tema 147 assentou que, durante o período previsto no §1º do art. 100 (na redação original e da ec 30/2000), não incidem juros de mora sobre os precatórios pagos nesse intervalo. assim, o entendimento é de ausência de juros moratórios naquele período específico. tema 147 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 20</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-20">Não respondida</span>
+</div>
+
+<p class="enunciado">No período previsto no §1º do art. 100 da Constituição (redação original e da EC 30/2000), incidem juros de mora sobre os precatórios pagos nesse interregno, de modo que credores devem receber juros pela mora estatal?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(20, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(20, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-20">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 147 assentou que, durante o período previsto no §1º do art. 100 (na redação original e da EC 30/2000), não incidem juros de mora sobre os precatórios pagos nesse intervalo. Assim, o entendimento é de ausência de juros moratórios naquele período específico.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 147 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="ECA"
+data-texto="quanto ao §4º do art. 100 da constituição (atual §8º), é correto afirmar que permite, em caso de litisconsórcio facultativo, o pagamento dos débitos em execução por meio de precatório, admitindo-se a adaptação do processamento quando a execução envolve múltiplos devedores? o tema 148 interpretou o dispositivo (hoje §8º do art. 100) como permitindo o pagamento dos débitos em execução nos casos de litisconsórcio facultativo, reconhecendo a possibilidade de adequação do procedimento executivo quando há pluralidade de devedores, desde que compatíveis com as regras constitucionais e processuais. tema 148 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 21</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-21">Não respondida</span>
+</div>
+
+<p class="enunciado">Quanto ao §4º do art. 100 da Constituição (atual §8º), é correto afirmar que permite, em caso de litisconsórcio facultativo, o pagamento dos débitos em execução por meio de precatório, admitindo-se a adaptação do processamento quando a execução envolve múltiplos devedores?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(21, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(21, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-21">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 148 interpretou o dispositivo (hoje §8º do art. 100) como permitindo o pagamento dos débitos em execução nos casos de litisconsórcio facultativo, reconhecendo a possibilidade de adequação do procedimento executivo quando há pluralidade de devedores, desde que compatíveis com as regras constitucionais e processuais.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 148 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="em conflito sobre competência entre a justiça federal e a justiça comum para julgar questões sobre incidência de contribuição previdenciária que constitua complementação de proventos, é competência originária da justiça federal, segundo a jurisprudência do stf? o tema 149 definiu que compete à justiça comum o julgamento de conflito que envolva a incidência de contribuição previdenciária entendida como complementação de proventos, não sendo em regra da justiça federal, por derivar de relação jurídico-administrativa de interesse local/residual. tema 149 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 22</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-22">Não respondida</span>
+</div>
+
+<p class="enunciado">Em conflito sobre competência entre a Justiça Federal e a Justiça comum para julgar questões sobre incidência de contribuição previdenciária que constitua complementação de proventos, é competência originária da Justiça Federal, segundo a jurisprudência do STF?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(22, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(22, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-22">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 149 definiu que compete à Justiça comum o julgamento de conflito que envolva a incidência de contribuição previdenciária entendida como complementação de proventos, não sendo em regra da Justiça Federal, por derivar de relação jurídico-administrativa de interesse local/residual.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 149 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="no caso de execução de complementação de aposentadoria promovida contra entidade privada de previdência, compete à justiça comum processar e julgar a ação, salvo se houver sentença de mérito proferida até 20/2/2013, quando a competência se manteve na justiça federal do trabalho até trânsito em julgado e execução? o enunciado mistura temas; o tema 190 tratou de ações ajuizadas contra entidades privadas de previdência para complementação de aposentadoria, afirmando que compete à justiça comum processar e julgar essas demandas, mas manteve-se na justiça federal do trabalho, até o trânsito em julgado e correspondente execução, todas as causas dessa espécie em que houver sentença de mérito proferida até 20/2/2013. a afirmação incorreta final (referindo-se a competência federal) introduziu confusão; a parte correta é que a competência é da justiça comum, com exceção processual temporária para os casos definidos. tema 190 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 23</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-23">Não respondida</span>
+</div>
+
+<p class="enunciado">No caso de execução de complementação de aposentadoria promovida contra entidade privada de previdência, compete à Justiça comum processar e julgar a ação, salvo se houver sentença de mérito proferida até 20/2/2013, quando a competência se manteve na Justiça Federal do Trabalho até trânsito em julgado e execução?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(23, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(23, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-23">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O enunciado mistura temas; o Tema 190 tratou de ações ajuizadas contra entidades privadas de previdência para complementação de aposentadoria, afirmando que compete à Justiça comum processar e julgar essas demandas, mas manteve-se na Justiça Federal do Trabalho, até o trânsito em julgado e correspondente execução, todas as causas dessa espécie em que houver sentença de mérito proferida até 20/2/2013. A afirmação incorreta final (referindo-se a competência federal) introduziu confusão; a parte correta é que a competência é da Justiça comum, com exceção processual temporária para os casos definidos.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 190 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="ECA"
+data-texto="na hipótese de entes federativos inadimplentes quanto ao regime especial de pagamento de precatórios previsto no §4º do art. 78 do adct, é constitucionalmente admissível o sequestro de verbas públicas pela autoridade judicial competente para assegurar o cumprimento da obrigação? o tema 231 reconheceu a constitucionalidade do sequestro de verbas públicas nas hipóteses previstas no §4º do art. 78 do adct, como medida coercitiva excepcional para fazer cumprir o regime especial de pagamento de precatórios pelos entes federativos inadimplentes, observados os limites constitucionais. tema 231 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 24</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-24">Não respondida</span>
+</div>
+
+<p class="enunciado">Na hipótese de entes federativos inadimplentes quanto ao regime especial de pagamento de precatórios previsto no §4º do art. 78 do ADCT, é constitucionalmente admissível o sequestro de verbas públicas pela autoridade judicial competente para assegurar o cumprimento da obrigação?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(24, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(24, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-24">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 231 reconheceu a constitucionalidade do sequestro de verbas públicas nas hipóteses previstas no §4º do art. 78 do ADCT, como medida coercitiva excepcional para fazer cumprir o regime especial de pagamento de precatórios pelos entes federativos inadimplentes, observados os limites constitucionais.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 231 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="em matéria de acidentes de trabalho, é correto afirmar que compete à justiça comum processar e julgar ações de indenização por danos morais e patrimoniais propostas por empregado contra empregador, inclusive as propostas por sucessores, salvo quando a sentença de mérito for anterior à ec 45/2004, hipótese em que a competência permanecerá na justiça comum até trânsito em julgado? o tema 242 determinou que compete à justiça do trabalho processar e julgar ações de indenização por danos decorrentes de acidentes de trabalho propostas por empregado contra empregador, inclusive por sucessores, salvo quando a sentença de mérito for anterior à ec 45/2004 — nesse caso, até o trânsito em julgado e a execução, a competência permanece na justiça comum. a formulação da questão foi adaptada para destacar a regra e a exceção temporal. tema 242 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 25</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-25">Não respondida</span>
+</div>
+
+<p class="enunciado">Em matéria de acidentes de trabalho, é correto afirmar que compete à Justiça Comum processar e julgar ações de indenização por danos morais e patrimoniais propostas por empregado contra empregador, inclusive as propostas por sucessores, salvo quando a sentença de mérito for anterior à EC 45/2004, hipótese em que a competência permanecerá na Justiça Comum até trânsito em julgado?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(25, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(25, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-25">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 242 determinou que compete à Justiça do Trabalho processar e julgar ações de indenização por danos decorrentes de acidentes de trabalho propostas por empregado contra empregador, inclusive por sucessores, salvo quando a sentença de mérito for anterior à EC 45/2004 — nesse caso, até o trânsito em julgado e a execução, a competência permanece na Justiça Comum. A formulação da questão foi adaptada para destacar a regra e a exceção temporal.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 242 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="o ministério público é legitimado para ajuizar ação civil pública com o objetivo de compelir entes federados a fornecer medicamentos a portadores de determinadas doenças, com fundamento na proteção da saúde coletiva? o tema 262 assentou a legitimidade do ministério público para propor ação civil pública que vise compelir entes federados à entrega de medicamentos a portadores de determinadas doenças, em razão de sua função institucional de defesa de interesses difusos e coletivos, notadamente à saúde pública. tema 262 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 26</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-26">Não respondida</span>
+</div>
+
+<p class="enunciado">O Ministério Público é legitimado para ajuizar ação civil pública com o objetivo de compelir entes federados a fornecer medicamentos a portadores de determinadas doenças, com fundamento na proteção da saúde coletiva?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(26, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(26, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-26">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 262 assentou a legitimidade do Ministério Público para propor ação civil pública que vise compelir entes federados à entrega de medicamentos a portadores de determinadas doenças, em razão de sua função institucional de defesa de interesses difusos e coletivos, notadamente à saúde pública.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 262 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="no que tange à expedição de precatório complementar, o stf firmou entendimento de que é dispensável a citação da fazenda pública para sua expedição, afastando a necessidade de ratificação da jurisprudência, sem reconhecimento de repercussão geral? o tema 266 tratou da expedição de precatório complementar, reafirmando a necessidade de citação da fazenda pública para sua expedição e ratificando a jurisprudência da corte, havendo reconhecimento de repercussão geral. logo, a afirmação que nega a necessidade de citação e a repercussão é contrária ao entendimento do stf. tema 266 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 27</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-27">Não respondida</span>
+</div>
+
+<p class="enunciado">No que tange à expedição de precatório complementar, o STF firmou entendimento de que é dispensável a citação da Fazenda Pública para sua expedição, afastando a necessidade de ratificação da jurisprudência, sem reconhecimento de repercussão geral?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(27, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(27, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-27">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 266 tratou da expedição de precatório complementar, reafirmando a necessidade de citação da Fazenda Pública para sua expedição e ratificando a jurisprudência da Corte, havendo reconhecimento de repercussão geral. Logo, a afirmação que nega a necessidade de citação e a repercussão é contrária ao entendimento do STF.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 266 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="no âmbito dos juizados especiais, é admissível o julgamento monocrático, desde que exista a possibilidade de revisão posterior pelo órgão colegiado competente, conforme entendimento consolidado pelo stf? o tema 294 declarou que cabe julgamento monocrático no âmbito dos juizados especiais, contanto que seja possível sua revisão pelo órgão colegiado, preservando-se o duplo grau de jurisdição e o direito de reexame. tema 294 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 28</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-28">Não respondida</span>
+</div>
+
+<p class="enunciado">No âmbito dos Juizados Especiais, é admissível o julgamento monocrático, desde que exista a possibilidade de revisão posterior pelo órgão colegiado competente, conforme entendimento consolidado pelo STF?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(28, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(28, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-28">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 294 declarou que cabe julgamento monocrático no âmbito dos Juizados Especiais, contanto que seja possível sua revisão pelo órgão colegiado, preservando-se o duplo grau de jurisdição e o direito de reexame.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 294 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="as execuções de honorários arbitrados em favor de advogado dativo, decorrentes de atuação em ações cíveis e criminais, devem ser processadas e julgadas pela justiça federal quando a parte vencida for ente público federal; caso contrário, compete à justiça comum estadual, segundo entendimento do stf? o tema 305 definiu que compete à justiça comum estadual processar e julgar as ações de cobrança ou executivas de honorários arbitrados a advogado dativo em ações cíveis e criminais. a competência se pauta pelo juízo comum local, salvo vínculo com a justiça federal quando a parte envolver ente federal na seara correspondente. tema 305 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 29</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-29">Não respondida</span>
+</div>
+
+<p class="enunciado">As execuções de honorários arbitrados em favor de advogado dativo, decorrentes de atuação em ações cíveis e criminais, devem ser processadas e julgadas pela Justiça Federal quando a parte vencida for ente público federal; caso contrário, compete à Justiça Comum estadual, segundo entendimento do STF?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(29, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(29, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-29">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 305 definiu que compete à Justiça comum estadual processar e julgar as ações de cobrança ou executivas de honorários arbitrados a advogado dativo em ações cíveis e criminais. A competência se pauta pelo juízo comum local, salvo vínculo com a Justiça Federal quando a parte envolver ente federal na seara correspondente.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 305 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a validade de regulamento judicial estadual que determina a convolação de ação individual em incidente de liquidação no bojo da execução de sentença coletiva proferida em juízo diverso é matéria de repercussão geral reconhecida pelo stf, segundo o tema correspondente? o tema 321 declarou a inexistência de repercussão geral na controvérsia que questiona a validade do regulamento estadual judiciário que determina tal convolação, razão pela qual o stf não reconheceu repercussão geral para a matéria. tema 321 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 30</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-30">Não respondida</span>
+</div>
+
+<p class="enunciado">A validade de regulamento judicial estadual que determina a convolação de ação individual em incidente de liquidação no bojo da execução de sentença coletiva proferida em juízo diverso é matéria de repercussão geral reconhecida pelo STF, segundo o tema correspondente?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(30, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(30, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-30">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 321 declarou a inexistência de repercussão geral na controvérsia que questiona a validade do regulamento estadual judiciário que determina tal convolação, razão pela qual o STF não reconheceu repercussão geral para a matéria.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 321 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="se ocorrem penhoras sobre bens de pessoa jurídica de direito privado antes de sua sucessão pela união, a execução continuará tramitando sob a forma de precatório, porque a penhora anterior se converte automaticamente em obrigação conciliada com o regime de precatórios? o tema 355 firmou que é válida a penhora em bens de pessoa jurídica de direito privado realizada anteriormente à sucessão pela união, não devendo, necessariamente, a execução prosseguir mediante precatório. a penhora válida anterior afasta a exigência de prosseguimento via precatório contra a união. tema 355 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 31</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-31">Não respondida</span>
+</div>
+
+<p class="enunciado">Se ocorrem penhoras sobre bens de pessoa jurídica de direito privado antes de sua sucessão pela União, a execução continuará tramitando sob a forma de precatório, porque a penhora anterior se converte automaticamente em obrigação conciliada com o regime de precatórios?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(31, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(31, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-31">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 355 firmou que é válida a penhora em bens de pessoa jurídica de direito privado realizada anteriormente à sucessão pela União, não devendo, necessariamente, a execução prosseguir mediante precatório. A penhora válida anterior afasta a exigência de prosseguimento via precatório contra a União.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 355 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="ECA"
+data-texto="o stf reconheceu a constitucionalidade de dispositivos do cpc (parágrafo único do art. 741, §1º do art. 475-l, art. 525, §1º, iii e §§12 e 14, art. 535, §5º do cpc/15 etc.) que preveem mecanismo com eficácia rescisória para sentenças com vício de inconstitucionalidade qualificado, permitindo revisão das sentenças exequendas quando o stf houver alterado entendimento antes do trânsito em julgado? o tema 360 assentou que são constitucionais tais dispositivos processuais que estabelecem mecanismo rescisório excepcional para sentenças revestidas de vício de inconstitucionalidade qualificado, aplicável quando o reconhecimento da (in)constitucionalidade decorreu de julgamento do stf anterior ao trânsito em julgado da sentença exequenda. tema 360 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 32</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-32">Não respondida</span>
+</div>
+
+<p class="enunciado">O STF reconheceu a constitucionalidade de dispositivos do CPC (parágrafo único do art. 741, §1º do art. 475-L, art. 525, §1º, III e §§12 e 14, art. 535, §5º do CPC/15 etc.) que preveem mecanismo com eficácia rescisória para sentenças com vício de inconstitucionalidade qualificado, permitindo revisão das sentenças exequendas quando o STF houver alterado entendimento antes do trânsito em julgado?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(32, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(32, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-32">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 360 assentou que são constitucionais tais dispositivos processuais que estabelecem mecanismo rescisório excepcional para sentenças revestidas de vício de inconstitucionalidade qualificado, aplicável quando o reconhecimento da (in)constitucionalidade decorreu de julgamento do STF anterior ao trânsito em julgado da sentença exequenda.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 360 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a cessão de crédito alimentício, por sua própria natureza, transforma o crédito cedido em crédito comum não alimentar, alterando sua qualificação nos regimes de preferência e nas formas de satisfação? o tema 361 fixou que a cessão de crédito alimentício não implica alteração de sua natureza alimentar. assim, a cessão não descaracteriza a natureza do crédito para fins de regime de preferência ou de requisitos processuais atinentes a créditos alimentares. tema 361 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 33</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-33">Não respondida</span>
+</div>
+
+<p class="enunciado">A cessão de crédito alimentício, por sua própria natureza, transforma o crédito cedido em crédito comum não alimentar, alterando sua qualificação nos regimes de preferência e nas formas de satisfação?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(33, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(33, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-33">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 361 fixou que a cessão de crédito alimentício não implica alteração de sua natureza alimentar. Assim, a cessão não descaracteriza a natureza do crédito para fins de regime de preferência ou de requisitos processuais atinentes a créditos alimentares.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 361 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="é compatível com a constituição, segundo o stf, o art. 34 da lei 6.830/1980 que torna incabível apelação em execução fiscal cujo valor seja inferior a 50 ortn, tendo em vista a adequação do instituto ao princípio da celeridade? o tema 408 declarou a compatibilidade constitucional do art. 34 da lei 6.830/1980 que veda apelação nas execuções fiscais de pequeno valor (inferior a 50 ortn), por coerência com a finalidade da legislação e o princípio da razoável duração do processo, dentro dos parâmetros constitucionais. tema 408 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 34</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-34">Não respondida</span>
+</div>
+
+<p class="enunciado">É compatível com a Constituição, segundo o STF, o art. 34 da Lei 6.830/1980 que torna incabível apelação em execução fiscal cujo valor seja inferior a 50 ORTN, tendo em vista a adequação do instituto ao princípio da celeridade?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(34, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(34, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-34">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 408 declarou a compatibilidade constitucional do art. 34 da Lei 6.830/1980 que veda apelação nas execuções fiscais de pequeno valor (inferior a 50 ORTN), por coerência com a finalidade da legislação e o princípio da razoável duração do processo, dentro dos parâmetros constitucionais.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 408 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="as ações acidentárias movidas pelo segurado contra o inss, visando prestação de benefícios relativos a acidente de trabalho, devem ser processadas e julgadas pela justiça do trabalho, em atenção à natureza social da lide? o tema 414 definiu que compete à justiça comum estadual julgar ações acidentárias propostas pelo segurado contra o inss quando a pretensão vise à prestação de benefícios relativos a acidentes de trabalho, distinguiendo-se a competência da justiça do trabalho para questões trabalhistas. tema 414 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 35</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-35">Não respondida</span>
+</div>
+
+<p class="enunciado">As ações acidentárias movidas pelo segurado contra o INSS, visando prestação de benefícios relativos a acidente de trabalho, devem ser processadas e julgadas pela Justiça do Trabalho, em atenção à natureza social da lide?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(35, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(35, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-35">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 414 definiu que compete à Justiça Comum Estadual julgar ações acidentárias propostas pelo segurado contra o INSS quando a pretensão vise à prestação de benefícios relativos a acidentes de trabalho, distinguiendo-se a competência da Justiça do Trabalho para questões trabalhistas.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 414 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="quanto à aplicação imediata do art. 1º-f da lei 9.494/97 (alterado pela mp 2.180-35/2001), é correto afirmar que o stf entendeu ser constitucional sua aplicação imediata, inclusive em relação a ações ajuizadas antes de sua vigência? o tema 435 assentou a compatibilidade constitucional da aplicabilidade imediata do art. 1º-f da lei 9.494/97 (com as alterações), mesmo em relação a ações ajuizadas antes da sua entrada em vigor, admitindo-se a sua aplicação aos casos concretos conforme as balizas fixadas pelo stf. tema 435 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 36</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-36">Não respondida</span>
+</div>
+
+<p class="enunciado">Quanto à aplicação imediata do art. 1º-F da Lei 9.494/97 (alterado pela MP 2.180-35/2001), é correto afirmar que o STF entendeu ser constitucional sua aplicação imediata, inclusive em relação a ações ajuizadas antes de sua vigência?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(36, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(36, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-36">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 435 assentou a compatibilidade constitucional da aplicabilidade imediata do art. 1º-F da Lei 9.494/97 (com as alterações), mesmo em relação a ações ajuizadas antes da sua entrada em vigor, admitindo-se a sua aplicação aos casos concretos conforme as balizas fixadas pelo STF.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 435 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="é devido correção monetária sobre o período entre a elaboração do cálculo da rpv e a sua expedição para pagamento, conforme o entendimento consolidado pelo supremo tribunal federal? o tema 450 consolidou que é devida correção monetária no período entre a elaboração do cálculo da requisição de pequeno valor e a sua expedição para pagamento, para preservar o valor real do crédito do credor. tema 450 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 37</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-37">Não respondida</span>
+</div>
+
+<p class="enunciado">É devido correção monetária sobre o período entre a elaboração do cálculo da RPV e a sua expedição para pagamento, conforme o entendimento consolidado pelo Supremo Tribunal Federal?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(37, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(37, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-37">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 450 consolidou que é devida correção monetária no período entre a elaboração do cálculo da requisição de pequeno valor e a sua expedição para pagamento, para preservar o valor real do crédito do credor.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 450 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="o ministério público, com fundamento no art. 127 da constituição, não tem legitimidade para promover tutela coletiva de direitos individuais homogêneos mesmo quando a violação desses direitos, em conjunto, ultrapassa a esfera de interesses individuais e compromete relevantes interesses sociais? o tema 471 estabeleceu que o ministério público tem legitimidade, com fundamento no art. 127 da cf, para promover tutela coletiva de direitos individuais homogêneos, inclusive quando a lesão, vista coletivamente, transcende interesses particulares e compromete relevantes interesses sociais. tema 471 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 38</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-38">Não respondida</span>
+</div>
+
+<p class="enunciado">O Ministério Público, com fundamento no art. 127 da Constituição, não tem legitimidade para promover tutela coletiva de direitos individuais homogêneos mesmo quando a violação desses direitos, em conjunto, ultrapassa a esfera de interesses individuais e compromete relevantes interesses sociais?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(38, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(38, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-38">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 471 estabeleceu que o Ministério Público tem legitimidade, com fundamento no art. 127 da CF, para promover tutela coletiva de direitos individuais homogêneos, inclusive quando a lesão, vista coletivamente, transcende interesses particulares e compromete relevantes interesses sociais.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 471 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="quando uma sentença reconhece ao trabalhador ou servidor direito a percentual de acréscimo remuneratório, esse efeito deixa de produzir eficácia a partir da data em que o mesmo percentual for incorporado definitivamente aos seus ganhos, não sendo mais aplicável a decisão superveniente sobre a mesma matéria? o tema 494 estipulou que a sentença que reconhece percentual de acréscimo remuneratório perde eficácia a partir da superveniente incorporação definitiva desse percentual nos ganhos do trabalhador/servidor, modulando a eficácia quando ocorre incorporação consolidada. tema 494 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 39</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-39">Não respondida</span>
+</div>
+
+<p class="enunciado">Quando uma sentença reconhece ao trabalhador ou servidor direito a percentual de acréscimo remuneratório, esse efeito deixa de produzir eficácia a partir da data em que o mesmo percentual for incorporado definitivamente aos seus ganhos, não sendo mais aplicável a decisão superveniente sobre a mesma matéria?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(39, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(39, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-39">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 494 estipulou que a sentença que reconhece percentual de acréscimo remuneratório perde eficácia a partir da superveniente incorporação definitiva desse percentual nos ganhos do trabalhador/servidor, modulando a eficácia quando ocorre incorporação consolidada.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 494 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a eficácia subjetiva da coisa julgada decorrente de ação coletiva ordinária proposta por associação civil na defesa de interesses de associados estende-se a todos os residentes no país, independentemente de filiação e da jurisdição do órgão julgador, desde que anteriores à propositura? o tema 499 assentou que a eficácia subjetiva da coisa julgada formada em ação coletiva ordinária ajuizada por associação atinge apenas os filiados residentes no âmbito da jurisdição do órgão julgador e que o eram em momento anterior ou até a data da propositura da demanda, comprovados na relação juntada à inicial. não atinge terceiros fora desse âmbito. tema 499 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 40</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-40">Não respondida</span>
+</div>
+
+<p class="enunciado">A eficácia subjetiva da coisa julgada decorrente de ação coletiva ordinária proposta por associação civil na defesa de interesses de associados estende-se a todos os residentes no país, independentemente de filiação e da jurisdição do órgão julgador, desde que anteriores à propositura?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(40, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(40, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-40">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 499 assentou que a eficácia subjetiva da coisa julgada formada em ação coletiva ordinária ajuizada por associação atinge apenas os filiados residentes no âmbito da jurisdição do órgão julgador e que o eram em momento anterior ou até a data da propositura da demanda, comprovados na relação juntada à inicial. Não atinge terceiros fora desse âmbito.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 499 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="no regime geral de previdência social (rgps), é admissível que benefícios e vantagens previdenciárias sejam criados por ato administrativo, sem necessidade de lei, sendo, por isso, constitucional a possibilidade de &#x27;desaposentação&#x27; prevista na jurisprudência? o tema 503 firmou que, no rgps, somente lei pode criar benefícios e vantagens previdenciárias, não havendo previsão legal para &#x27;desaposentação&#x27; ou &#x27;reaposentação&#x27;, sendo constitucional a regra do art. 18, §2º, da lei 8.213/91 que disciplina conteúdos do benefício. tema 503 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 41</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-41">Não respondida</span>
+</div>
+
+<p class="enunciado">No Regime Geral de Previdência Social (RGPS), é admissível que benefícios e vantagens previdenciárias sejam criados por ato administrativo, sem necessidade de lei, sendo, por isso, constitucional a possibilidade de &#x27;desaposentação&#x27; prevista na jurisprudência?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(41, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(41, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-41">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 503 firmou que, no RGPS, somente lei pode criar benefícios e vantagens previdenciárias, não havendo previsão legal para &#x27;desaposentação&#x27; ou &#x27;reaposentação&#x27;, sendo constitucional a regra do art. 18, §2º, da Lei 8.213/91 que disciplina conteúdos do benefício.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 503 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="ECA"
+data-texto="a compensação unilateral de débitos em favor exclusivo da fazenda pública, ainda que os valores envolvidos sejam requisições de pequeno valor (rpv) e não precatórios, é vedada constitucionalmente pelo supremo tribunal federal? o tema 511 consignou a vedação constitucional à compensação unilateral de débitos em proveito exclusivo da fazenda pública, mesmo quando os valores estejam sujeitos ao regime de rpv, pois tal prática afronta princípios constitucionais e o devido processo legal. tema 511 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 42</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-42">Não respondida</span>
+</div>
+
+<p class="enunciado">A compensação unilateral de débitos em favor exclusivo da Fazenda Pública, ainda que os valores envolvidos sejam requisições de pequeno valor (RPV) e não precatórios, é vedada constitucionalmente pelo Supremo Tribunal Federal?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(42, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(42, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-42">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 511 consignou a vedação constitucional à compensação unilateral de débitos em proveito exclusivo da Fazenda Pública, mesmo quando os valores estejam sujeitos ao regime de RPV, pois tal prática afronta princípios constitucionais e o devido processo legal.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 511 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="a emenda constitucional nº 62/2009, que instituiu regime especial de precatórios, aplica-se aos precatórios expedidos anteriormente à sua promulgação, sem qualquer limitação ou necessidade de declaração de inconstitucionalidade parcial? o tema 519 esclareceu que o regime especial de precatórios trazido pela ec 62/2009 aplica-se aos precatórios expedidos anteriormente à sua promulgação observando-se as declarações de inconstitucionalidade parcial eventualmente proferidas (por exemplo, na adi 4425) e os efeitos prospectivos do julgado, não sendo aplicação irrestrita. tema 519 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 43</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-43">Não respondida</span>
+</div>
+
+<p class="enunciado">A Emenda Constitucional nº 62/2009, que instituiu regime especial de precatórios, aplica-se aos precatórios expedidos anteriormente à sua promulgação, sem qualquer limitação ou necessidade de declaração de inconstitucionalidade parcial?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(43, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(43, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-43">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 519 esclareceu que o regime especial de precatórios trazido pela EC 62/2009 aplica-se aos precatórios expedidos anteriormente à sua promulgação observando-se as declarações de inconstitucionalidade parcial eventualmente proferidas (por exemplo, na ADI 4425) e os efeitos prospectivos do julgado, não sendo aplicação irrestrita.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 519 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="ECA"
+data-texto="quanto ao pagamento parcelado de créditos não alimentares na forma do art. 78 do adct, é correto afirmar que tal parcelamento não configura preterição indevida de precatórios alimentares desde que os critérios cronológicos e de precedência entre créditos alimentares e não alimentares por exercício sejam observados? o tema 521 afirmou que o pagamento parcelado de créditos não alimentares, conforme art. 78 do adct, não constitui preterição indevida de precatórios alimentares, desde que observado o esquema de organização por exercício, precedência dos créditos alimentares sobre os não alimentares do mesmo ano e demais diretrizes constitucionais. tema 521 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 44</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-44">Não respondida</span>
+</div>
+
+<p class="enunciado">Quanto ao pagamento parcelado de créditos não alimentares na forma do art. 78 do ADCT, é correto afirmar que tal parcelamento não configura preterição indevida de precatórios alimentares desde que os critérios cronológicos e de precedência entre créditos alimentares e não alimentares por exercício sejam observados?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(44, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(44, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-44">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 521 afirmou que o pagamento parcelado de créditos não alimentares, conforme art. 78 do ADCT, não constitui preterição indevida de precatórios alimentares, desde que observado o esquema de organização por exercício, precedência dos créditos alimentares sobre os não alimentares do mesmo ano e demais diretrizes constitucionais.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 521 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="no mandado de segurança, a desistência pelo impetrante após a prolação de sentença de mérito, sem aquiescência da parte contrária, é automaticamente impeditiva de qualquer efeito processual, inclusive quando a sentença foi favorável ao impetrante? o tema 530 refere-se à possibilidade e às consequências da desistência em mandado de segurança sem aquiescência da parte contrária após sentença de mérito, mas a matéria contém nuances: a desistência pode não ser automaticamente eficaz para obstar efeitos da sentença, dependendo do momento processual e de eventuais garantias das partes. a tese do tema não é tão absoluta quanto a afirmativa. tema 530 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 45</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-45">Não respondida</span>
+</div>
+
+<p class="enunciado">No mandado de segurança, a desistência pelo impetrante após a prolação de sentença de mérito, sem aquiescência da parte contrária, é automaticamente impeditiva de qualquer efeito processual, inclusive quando a sentença foi favorável ao impetrante?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(45, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(45, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-45">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 530 refere-se à possibilidade e às consequências da desistência em mandado de segurança sem aquiescência da parte contrária após sentença de mérito, mas a matéria contém nuances: a desistência pode não ser automaticamente eficaz para obstar efeitos da sentença, dependendo do momento processual e de eventuais garantias das partes. A tese do Tema não é tão absoluta quanto a afirmativa.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 530 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="quando preenchidos os requisitos da lei 4.886/65, a relação jurídica entre representante comercial e representada, por ser de natureza civil e não laboral, submete-se ao juízo da justiça comum para solução de eventuais conflitos, e não ao juízo laboral? o tema 550 consignou que, preenchidos os requisitos da lei 4.886/65, compete à justiça comum o processamento e julgamento de litígios entre representante e representada comerciais, por inexistir relação de trabalho típica entre as partes, de sorte que a demanda não é da justiça do trabalho. tema 550 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 46</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-46">Não respondida</span>
+</div>
+
+<p class="enunciado">Quando preenchidos os requisitos da Lei 4.886/65, a relação jurídica entre representante comercial e representada, por ser de natureza civil e não laboral, submete-se ao juízo da Justiça Comum para solução de eventuais conflitos, e não ao juízo laboral?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(46, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(46, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-46">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 550 consignou que, preenchidos os requisitos da Lei 4.886/65, compete à Justiça Comum o processamento e julgamento de litígios entre representante e representada comerciais, por inexistir relação de trabalho típica entre as partes, de sorte que a demanda não é da Justiça do Trabalho.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 550 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="é constitucional, segundo o stf, a compensação de débitos inscritos em precatórios prevista nos §§9º e 10 do art. 100 da cf/88 (ec 62/2009), não havendo violação aos princípios da efetividade da jurisdição, da coisa julgada, da separação de poderes ou da isonomia entre estado e particular? o tema 558 sustentou que a compensação prevista nos §§9º e 10 do art. 100 (inseridos pela ec 62/2009) viola frontalmente a constituição, por obstar a efetividade da jurisdição, desrespeitar a coisa julgada material, vulnerar a separação dos poderes e ofender a isonomia entre o poder público e o particular. tema 558 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 47</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-47">Não respondida</span>
+</div>
+
+<p class="enunciado">É constitucional, segundo o STF, a compensação de débitos inscritos em precatórios prevista nos §§9º e 10 do art. 100 da CF/88 (EC 62/2009), não havendo violação aos princípios da efetividade da jurisdição, da coisa julgada, da separação de poderes ou da isonomia entre Estado e particular?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(47, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(47, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-47">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 558 sustentou que a compensação prevista nos §§9º e 10 do art. 100 (inseridos pela EC 62/2009) viola frontalmente a Constituição, por obstar a efetividade da jurisdição, desrespeitar a coisa julgada material, vulnerar a separação dos poderes e ofender a isonomia entre o Poder Público e o particular.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 558 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="o ministério público tem legitimidade ativa para ajuizar ação coletiva destinada a anular ato administrativo de aposentadoria que importe em lesão ao patrimônio público, com base em sua função institucional de defesa do erário? o tema 561 consolidou a legitimidade do ministério público para ingressar com ação coletiva visando anular ato administrativo de aposentadoria que acarrete lesão ao patrimônio público, em conformidade com suas atribuições constitucionais de defesa do patrimônio público. tema 561 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 48</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-48">Não respondida</span>
+</div>
+
+<p class="enunciado">O Ministério Público tem legitimidade ativa para ajuizar ação coletiva destinada a anular ato administrativo de aposentadoria que importe em lesão ao patrimônio público, com base em sua função institucional de defesa do erário?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(48, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(48, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-48">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 561 consolidou a legitimidade do Ministério Público para ingressar com ação coletiva visando anular ato administrativo de aposentadoria que acarrete lesão ao patrimônio público, em conformidade com suas atribuições constitucionais de defesa do patrimônio público.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 561 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="compete à justiça comum estadual processar e julgar lides referentes à parcela do imposto de renda retido na fonte que pertença ao estado-membro, mesmo se houver interesse direto da união na cobrança, pois trata-se de disputa tributária entre entes federados? o tema 572 estabeleceu que compete à justiça comum estadual processar e julgar causas relativas à parcela do imposto de renda retido na fonte pertencente ao estado-membro, por ausentar interesse da união, cabendo à justiça estadual a apreciação de tais demandas. tema 572 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 49</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-49">Não respondida</span>
+</div>
+
+<p class="enunciado">Compete à Justiça Comum Estadual processar e julgar lides referentes à parcela do imposto de renda retido na fonte que pertença ao Estado-membro, mesmo se houver interesse direto da União na cobrança, pois trata-se de disputa tributária entre entes federados?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(49, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(49, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-49">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 572 estabeleceu que compete à Justiça comum estadual processar e julgar causas relativas à parcela do imposto de renda retido na fonte pertencente ao Estado-membro, por ausentar interesse da União, cabendo à Justiça estadual a apreciação de tais demandas.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 572 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="quanto ao sequestro de rendas públicas destinado ao pagamento de precatório, é correto afirmar que o deferimento dessa medida pode ocorrer em qualquer hipótese de inadimplemento por parte do ente público, sem limitação constitucional? o tema 598 determinou que o sequestro de rendas públicas para pagamento de precatório deve se restringir às hipóteses taxativamente enumeradas na constituição (por exemplo, adct/arts. relacionados e demais normas constitucionais), não podendo ser decretado de forma indefinida ou fora desses limites. tema 598 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 50</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-50">Não respondida</span>
+</div>
+
+<p class="enunciado">Quanto ao sequestro de rendas públicas destinado ao pagamento de precatório, é correto afirmar que o deferimento dessa medida pode ocorrer em qualquer hipótese de inadimplemento por parte do ente público, sem limitação constitucional?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(50, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(50, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-50">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 598 determinou que o sequestro de rendas públicas para pagamento de precatório deve se restringir às hipóteses taxativamente enumeradas na Constituição (por exemplo, ADCT/arts. relacionados e demais normas constitucionais), não podendo ser decretado de forma indefinida ou fora desses limites.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 598 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a defensoria pública ostenta legitimidade para propor ação civil pública visando a tutela judicial de direitos difusos ou coletivos de pessoas necessitadas, em tese titulares desses direitos? o tema 607 reconheceu a legitimidade da defensoria pública para propor ação civil pública na defesa de direitos difusos ou coletivos cujos titulares, em tese, sejam pessoas necessitadas, em consonância com suas funções institucionais de promoção do acesso à justiça. tema 607 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 51</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-51">Não respondida</span>
+</div>
+
+<p class="enunciado">A Defensoria Pública ostenta legitimidade para propor ação civil pública visando a tutela judicial de direitos difusos ou coletivos de pessoas necessitadas, em tese titulares desses direitos?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(51, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(51, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-51">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 607 reconheceu a legitimidade da Defensoria Pública para propor ação civil pública na defesa de direitos difusos ou coletivos cujos titulares, em tese, sejam pessoas necessitadas, em consonância com suas funções institucionais de promoção do acesso à justiça.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 607 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="é constitucionalmente admissível que o ministério público ajuíze ação civil pública para discutir, em defesa de contribuintes, pretensão de natureza tributária que vise à declaração de inconstitucionalidade ou ilegalidade de tributo, configurando legitimação ativa ad causam do mp neste campo? o tema 645 firmou que o ministério público não possui legitimidade ativa ad causam para, em ação civil pública, deduzir pretensão de natureza tributária em defesa de contribuintes para questionar a constitucionalidade/legalidade de tributos; tal legitimidade não se estende à defesa de interesses tributários individuais dos contribuintes. tema 645 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 52</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-52">Não respondida</span>
+</div>
+
+<p class="enunciado">É constitucionalmente admissível que o Ministério Público ajuíze ação civil pública para discutir, em defesa de contribuintes, pretensão de natureza tributária que vise à declaração de inconstitucionalidade ou ilegalidade de tributo, configurando legitimação ativa ad causam do MP neste campo?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(52, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(52, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-52">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 645 firmou que o Ministério Público não possui legitimidade ativa ad causam para, em ação civil pública, deduzir pretensão de natureza tributária em defesa de contribuintes para questionar a constitucionalidade/legalidade de tributos; tal legitimidade não se estende à defesa de interesses tributários individuais dos contribuintes.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 645 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a reestruturação de quadro funcional por aglutinação de cargos distintos em uma única carreira, quando afastada a exigência de concurso público e quando a nova carreira implicar atribuições e responsabilidades diversas das originais, foi considerada inconstitucional pelo stf por violar o princípio do concurso público? o tema 667 reconheceu a inconstitucionalidade de reestruturação de quadro funcional por meio de aglutinação sem concurso público quando a nova carreira conferir atribuições e responsabilidades diferentes dos cargos originais, porque tal medida dispensa o concurso público exigido pela constituição e afronta princípios do estado democrático de direito. tema 667 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 53</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-53">Não respondida</span>
+</div>
+
+<p class="enunciado">A reestruturação de quadro funcional por aglutinação de cargos distintos em uma única carreira, quando afastada a exigência de concurso público e quando a nova carreira implicar atribuições e responsabilidades diversas das originais, foi considerada inconstitucional pelo STF por violar o princípio do concurso público?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(53, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(53, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-53">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 667 reconheceu a inconstitucionalidade de reestruturação de quadro funcional por meio de aglutinação sem concurso público quando a nova carreira conferir atribuições e responsabilidades diferentes dos cargos originais, porque tal medida dispensa o concurso público exigido pela Constituição e afronta princípios do Estado Democrático de Direito.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 667 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="quando a autoridade apontada como coatora em mandado de segurança for autoridade federal — incluindo dirigentes de pessoa jurídica de direito privado investidos de delegação da união — é cabível o processamento do mandado de segurança na justiça estadual comum, e não na justiça federal? o tema 722 fixou que compete à justiça federal comum processar e julgar mandado de segurança quando a autoridade coatora for federal, considerando-se como tal também dirigentes de pessoa jurídica de direito privado investidos de delegação pela união. dessa forma, a competência é federal, não estadual. tema 722 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 54</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-54">Não respondida</span>
+</div>
+
+<p class="enunciado">Quando a autoridade apontada como coatora em mandado de segurança for autoridade federal — incluindo dirigentes de pessoa jurídica de direito privado investidos de delegação da União — é cabível o processamento do mandado de segurança na Justiça Estadual comum, e não na Justiça Federal?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(54, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(54, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-54">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 722 fixou que compete à Justiça Federal comum processar e julgar mandado de segurança quando a autoridade coatora for federal, considerando-se como tal também dirigentes de pessoa jurídica de direito privado investidos de delegação pela União. Dessa forma, a competência é federal, não estadual.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 722 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="compete ao supremo tribunal federal o julgamento de mandado de injunção relativo à omissão na edição de lei complementar prevista no art. 40, §4º, da constituição, por se tratar de violação direta de norma constitucional federal? o tema 727 reconheceu a competência do stf para julgar mandado de injunção referente à omissão quanto à edição da lei complementar prevista no art. 40, §4º, cf/88, por se tratar de omissão federal cujo suprimento compete ao tribunal constitucional. tema 727 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 55</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-55">Não respondida</span>
+</div>
+
+<p class="enunciado">Compete ao Supremo Tribunal Federal o julgamento de mandado de injunção relativo à omissão na edição de lei complementar prevista no art. 40, §4º, da Constituição, por se tratar de violação direta de norma constitucional federal?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(55, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(55, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-55">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 727 reconheceu a competência do STF para julgar mandado de injunção referente à omissão quanto à edição da lei complementar prevista no art. 40, §4º, CF/88, por se tratar de omissão federal cujo suprimento compete ao Tribunal Constitucional.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 727 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="é correto afirmar que sentença transitada em julgado fundada em norma posteriormente declarada inconstitucional pelo stf mantém eficácia retroativa plena em relação a terceiros e quanto ao tempo, sem qualquer modulação, conforme entendimento consolidado pelo tema correspondente? o tema 733 aborda a eficácia temporal de sentença transitada em julgado fundada em norma supervenientemente declarada inconstitucional, o que admite discussão sobre modulação dos efeitos e alcance temporal; o stf não adotou posição de aplicação automática e irrestrita da inconstitucionalidade sem considerar efeitos e segurança jurídica. tema 733 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 56</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-56">Não respondida</span>
+</div>
+
+<p class="enunciado">É correto afirmar que sentença transitada em julgado fundada em norma posteriormente declarada inconstitucional pelo STF mantém eficácia retroativa plena em relação a terceiros e quanto ao tempo, sem qualquer modulação, conforme entendimento consolidado pelo Tema correspondente?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(56, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(56, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-56">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 733 aborda a eficácia temporal de sentença transitada em julgado fundada em norma supervenientemente declarada inconstitucional, o que admite discussão sobre modulação dos efeitos e alcance temporal; o STF não adotou posição de aplicação automática e irrestrita da inconstitucionalidade sem considerar efeitos e segurança jurídica.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 733 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="é permitido o fracionamento da execução pecuniária contra a fazenda pública de modo que parte do pagamento ocorra antes do trânsito em julgado mediante complemento positivo e a outra após o trânsito mediante precatório ou rpv, sem ofensa ao ordenamento jurídico? o tema 755 firmou que é vedado fracionar a execução pecuniária contra a fazenda pública de tal modo que uma parcela seja paga antes do trânsito em julgado por complemento positivo e a outra depois por precatório ou rpv, vedando-se manobras que importem em parcelamento incompatível com as regras constitucionais. tema 755 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 57</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-57">Não respondida</span>
+</div>
+
+<p class="enunciado">É permitido o fracionamento da execução pecuniária contra a Fazenda Pública de modo que parte do pagamento ocorra antes do trânsito em julgado mediante Complemento Positivo e a outra após o trânsito mediante Precatório ou RPV, sem ofensa ao ordenamento jurídico?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(57, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(57, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-57">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 755 firmou que é vedado fracionar a execução pecuniária contra a Fazenda Pública de tal modo que uma parcela seja paga antes do trânsito em julgado por Complemento Positivo e a outra depois por Precatório ou RPV, vedando-se manobras que importem em parcelamento incompatível com as regras constitucionais.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 755 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="quando a união propõe ação rescisória contra sentença transitada em julgado proferida por juiz estadual e que afeta interesses de órgão federal, é competente para processá-la e julgá-la o tribunal regional federal, conforme entendimento firmado pelo stf? o tema 775 estabeleceu a competência do tribunal regional federal para processar ação rescisória proposta pela união visando desconstituir sentença transitada em julgado proferida por juiz estadual quando a demanda afeta interesses de órgão federal, por se tratar de interesse federal relevante. tema 775 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 58</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-58">Não respondida</span>
+</div>
+
+<p class="enunciado">Quando a União propõe ação rescisória contra sentença transitada em julgado proferida por juiz estadual e que afeta interesses de órgão federal, é competente para processá-la e julgá-la o Tribunal Regional Federal, conforme entendimento firmado pelo STF?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(58, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(58, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-58">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 775 estabeleceu a competência do Tribunal Regional Federal para processar ação rescisória proposta pela União visando desconstituir sentença transitada em julgado proferida por juiz estadual quando a demanda afeta interesses de órgão federal, por se tratar de interesse federal relevante.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 775 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="no âmbito da execução fiscal, a incompetência do juízo não pode ser reconhecida de ofício quando houver inobservância do art. 578 do cpc, de modo que somente a parte pode suscitar a incompetência nessa hipótese? o tema 780 confirmou a legitimidade do conhecimento de ofício da incompetência para o julgamento de execução fiscal na hipótese de inobservância do art. 578 do cpc (atual dispositivo afeto à regra de distribuição e competência), autorizando o juízo a reconhecer a incompetência ex officio diante de irregularidade processual relevante. tema 780 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 59</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-59">Não respondida</span>
+</div>
+
+<p class="enunciado">No âmbito da execução fiscal, a incompetência do juízo não pode ser reconhecida de ofício quando houver inobservância do art. 578 do CPC, de modo que somente a parte pode suscitar a incompetência nessa hipótese?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(59, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(59, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-59">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 780 confirmou a legitimidade do conhecimento de ofício da incompetência para o julgamento de execução fiscal na hipótese de inobservância do art. 578 do CPC (atual dispositivo afeto à regra de distribuição e competência), autorizando o juízo a reconhecer a incompetência ex officio diante de irregularidade processual relevante.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 780 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="a lei que disciplina a submissão de crédito ao sistema de precatório possui natureza exclusivamente processual, de modo que sua aplicação retroage para abranger situações jurídicas constituídas anteriormente à sua vigência? o tema 792 firmou que a lei disciplinadora da submissão de crédito ao sistema de execução via precatório tem natureza material e processual, sendo inaplicável a situação jurídica constituída em data que a antecede, o que impede a retroatividade para alterar situações já consolidadas. tema 792 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 60</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-60">Não respondida</span>
+</div>
+
+<p class="enunciado">A lei que disciplina a submissão de crédito ao sistema de precatório possui natureza exclusivamente processual, de modo que sua aplicação retroage para abranger situações jurídicas constituídas anteriormente à sua vigência?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(60, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(60, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-60">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 792 firmou que a lei disciplinadora da submissão de crédito ao sistema de execução via precatório tem natureza material e processual, sendo inaplicável a situação jurídica constituída em data que a antecede, o que impede a retroatividade para alterar situações já consolidadas.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 792 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a admissão de recurso extraordinário em causas processadas nos juizados especiais cíveis da lei 9.099/1995 exige do recorrente a demonstração específica e objetiva do prequestionamento e a indicação de elementos concretos de repercussão geral que revertam a presunção de inexistência de repercussão, conforme tese unificada do stf? o tema 797 (unificado com 798 e 800) estabeleceu requisitos adicionais para admissibilidade de recurso extraordinário nas causas dos juizados especiais cíveis: (a) demonstração específica do prequestionamento com indicação clara do trecho do acórdão; (b) fundamentação acerca da relevância com dados concretos que afastem a presunção de inexistência de repercussão geral. assim, a afirmação está correta. tema 797 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 61</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-61">Não respondida</span>
+</div>
+
+<p class="enunciado">A admissão de recurso extraordinário em causas processadas nos Juizados Especiais Cíveis da Lei 9.099/1995 exige do recorrente a demonstração específica e objetiva do prequestionamento e a indicação de elementos concretos de repercussão geral que revertam a presunção de inexistência de repercussão, conforme tese unificada do STF?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(61, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(61, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-61">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 797 (unificado com 798 e 800) estabeleceu requisitos adicionais para admissibilidade de recurso extraordinário nas causas dos Juizados Especiais Cíveis: (a) demonstração específica do prequestionamento com indicação clara do trecho do acórdão; (b) fundamentação acerca da relevância com dados concretos que afastem a presunção de inexistência de repercussão geral. Assim, a afirmação está correta.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 797 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="para que a competência da justiça federal prevista no §3º do art. 109 da cf se configure, basta que o segurado seja domiciliado em comarca onde exista vara federal, independentemente de existência de vara federal destinada à matéria previdenciária? o tema 820 determinou que a competência prevista no §3º do art. 109 da cf exige a inexistência de vara federal na comarca do domicílio do segurado — ou seja, a competência federal pressupõe que não exista vara federal local. portanto, a simples existência de vara federal em comarca do segurado descaracteriza a aplicação dessa competência especial. tema 820 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 62</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-62">Não respondida</span>
+</div>
+
+<p class="enunciado">Para que a competência da Justiça Federal prevista no §3º do art. 109 da CF se configure, basta que o segurado seja domiciliado em comarca onde exista Vara Federal, independentemente de existência de Vara Federal destinada à matéria previdenciária?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(62, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(62, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-62">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 820 determinou que a competência prevista no §3º do art. 109 da CF exige a inexistência de Vara Federal na comarca do domicílio do segurado — ou seja, a competência federal pressupõe que não exista Vara Federal local. Portanto, a simples existência de Vara Federal em comarca do segurado descaracteriza a aplicação dessa competência especial.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 820 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="os sindicatos têm legitimidade ampla e extraordinária para defender judicialmente direitos coletivos e individuais dos integrantes da categoria, inclusive em liquidações e execuções de sentença, independentemente de autorização expressa dos substituídos, segundo o entendimento do stf? o tema 823 afirmou que os sindicatos possuem ampla legitimidade extraordinária para defender em juízo direitos coletivos e individuais dos representados, inclusive nas fases de liquidação e execução, sem necessidade de autorização específica dos substituídos, em razão de sua função representativa plena. tema 823 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 63</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-63">Não respondida</span>
+</div>
+
+<p class="enunciado">Os sindicatos têm legitimidade ampla e extraordinária para defender judicialmente direitos coletivos e individuais dos integrantes da categoria, inclusive em liquidações e execuções de sentença, independentemente de autorização expressa dos substituídos, segundo o entendimento do STF?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(63, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(63, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-63">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 823 afirmou que os sindicatos possuem ampla legitimidade extraordinária para defender em juízo direitos coletivos e individuais dos representados, inclusive nas fases de liquidação e execução, sem necessidade de autorização específica dos substituídos, em razão de sua função representativa plena.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 823 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="para o cabimento da ação popular é condição necessária demonstrar prejuízo material aos cofres públicos, conforme interpretação restritiva do art. 5º, lxxiii, da constituição? o tema 836 definiu que não é condição para o cabimento da ação popular a demonstração prévia de prejuízo material aos cofres públicos, pois o art. 5º, lxxiii, cf/88 atribui a qualquer cidadão legitimidade para impugnar ato lesivo ao patrimônio material, moral, cultural ou histórico, independentemente da comprovação inicial de dano material. tema 836 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 64</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-64">Não respondida</span>
+</div>
+
+<p class="enunciado">Para o cabimento da ação popular é condição necessária demonstrar prejuízo material aos cofres públicos, conforme interpretação restritiva do art. 5º, LXXIII, da Constituição?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(64, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(64, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-64">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 836 definiu que não é condição para o cabimento da ação popular a demonstração prévia de prejuízo material aos cofres públicos, pois o art. 5º, LXXIII, CF/88 atribui a qualquer cidadão legitimidade para impugnar ato lesivo ao patrimônio material, moral, cultural ou histórico, independentemente da comprovação inicial de dano material.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 836 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a insolvência civil integra as exceções previstas na parte final do art. 109, i, da constituição federal para fins de definição da competência da justiça federal, segundo jurisprudência do stf? o tema 859 reconheceu que a insolvência civil figura entre as exceções da parte final do art. 109, i, da cf para definição da competência da justiça federal, configurando-se como hipótese em que a competência federal se estende. tema 859 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 65</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-65">Não respondida</span>
+</div>
+
+<p class="enunciado">A insolvência civil integra as exceções previstas na parte final do art. 109, I, da Constituição Federal para fins de definição da competência da Justiça Federal, segundo jurisprudência do STF?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(65, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(65, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-65">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 859 reconheceu que a insolvência civil figura entre as exceções da parte final do art. 109, I, da CF para definição da competência da Justiça Federal, configurando-se como hipótese em que a competência federal se estende.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 859 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a execução individual de sentença condenatória genérica proferida contra a fazenda pública em ação coletiva que visa tutela de direitos individuais homogêneos viola o §8º do art. 100 da cf, impondo vedação automática ao desmembramento? o tema 873 assentou que não viola o art. 100, §8º, cf a execução individual de sentença condenatória genérica proferida contra a fazenda pública em ação coletiva que busca tutela de direitos individuais homogêneos, admitindo-se a desagregação das execuções individuais conforme as regras constitucionais e processuais aplicáveis. tema 873 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 66</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-66">Não respondida</span>
+</div>
+
+<p class="enunciado">A execução individual de sentença condenatória genérica proferida contra a Fazenda Pública em ação coletiva que visa tutela de direitos individuais homogêneos viola o §8º do art. 100 da CF, impondo vedação automática ao desmembramento?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(66, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(66, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-66">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 873 assentou que não viola o art. 100, §8º, CF a execução individual de sentença condenatória genérica proferida contra a Fazenda Pública em ação coletiva que busca tutela de direitos individuais homogêneos, admitindo-se a desagregação das execuções individuais conforme as regras constitucionais e processuais aplicáveis.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 873 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="no caso de servidor que, após período de regime celetista, foi transposto para regime estatutário, compete à justiça do trabalho processar e julgar ações relativas às verbas trabalhistas referentes ao período em que mantinha vínculo celetista? o tema 928 firmou que compete à justiça do trabalho processar e julgar ações relativas às verbas trabalhistas referentes ao período em que o servidor mantinha vínculo celetista com a administração, inclusive após transposição para regime estatutário, em razão da origem celetista das verbas pleiteadas. tema 928 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 67</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-67">Não respondida</span>
+</div>
+
+<p class="enunciado">No caso de servidor que, após período de regime celetista, foi transposto para regime estatutário, compete à Justiça do Trabalho processar e julgar ações relativas às verbas trabalhistas referentes ao período em que mantinha vínculo celetista?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(67, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(67, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-67">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 928 firmou que compete à Justiça do Trabalho processar e julgar ações relativas às verbas trabalhistas referentes ao período em que o servidor mantinha vínculo celetista com a Administração, inclusive após transposição para regime estatutário, em razão da origem celetista das verbas pleiteadas.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 928 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="é da competência exclusiva dos tribunais regionais federais processar e julgar controvérsias relativas à fase pré-contratual de seleção e admissão de pessoal celetista na administração pública direta e indireta, excluindo totalmente a justiça comum estadual? o tema 992 determinou que compete à justiça comum processar e julgar controvérsias relacionadas à fase pré-contratual de seleção e admissão de pessoal e eventual nulidade do certame na administração pública quando adotado regime celetista. não há exclusão absoluta da justiça comum; a competência é esta, e não dos trfs de forma geral. tema 992 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 68</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-68">Não respondida</span>
+</div>
+
+<p class="enunciado">É da competência exclusiva dos Tribunais Regionais Federais processar e julgar controvérsias relativas à fase pré-contratual de seleção e admissão de pessoal celetista na Administração Pública direta e indireta, excluindo totalmente a Justiça comum estadual?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(68, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(68, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-68">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 992 determinou que compete à Justiça comum processar e julgar controvérsias relacionadas à fase pré-contratual de seleção e admissão de pessoal e eventual nulidade do certame na Administração Pública quando adotado regime celetista. Não há exclusão absoluta da Justiça comum; a competência é esta, e não dos TRFs de forma geral.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 992 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="demandas que discutem o recolhimento e o repasse da contribuição sindical de servidores públicos regidos pelo regime estatutário devem ser processadas e julgadas pela justiça do trabalho, por se tratarem de matérias atinentes à representação sindical? o tema 994 estabeleceu que compete à justiça comum processar e julgar demandas sobre recolhimento e repasse de contribuição sindical de servidores públicos regidos pelo regime estatutário, reputando-se a matéria como administrativa/tributária e não como questão trabalhista típica, salvo hipóteses específicas. tema 994 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 69</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-69">Não respondida</span>
+</div>
+
+<p class="enunciado">Demandas que discutem o recolhimento e o repasse da contribuição sindical de servidores públicos regidos pelo regime estatutário devem ser processadas e julgadas pela Justiça do Trabalho, por se tratarem de matérias atinentes à representação sindical?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(69, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(69, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-69">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 994 estabeleceu que compete à Justiça comum processar e julgar demandas sobre recolhimento e repasse de contribuição sindical de servidores públicos regidos pelo regime estatutário, reputando-se a matéria como administrativa/tributária e não como questão trabalhista típica, salvo hipóteses específicas.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 994 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="no que se refere ao art. 100, §5º, da constituição e à súmula vinculante 17, o enunciado desta súmula não foi afetado pela ec 62/2009, de modo que não incidem juros de mora no período referido no §5º do art.100, e a fluência dos juros inicia-se após o decurso do &#x27;período de graça&#x27; caso haja inadimplemento do ente público devedor? o tema 1037 firmou que a súmula vinculante 17 não foi afetada pela ec 62/2009, mantendo-se o entendimento de que não incidem juros de mora no período de que trata o §5º do art.100; havendo inadimplemento pelo ente público, a fluência dos juros inicia-se após o término do referido período. tema 1037 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 70</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-70">Não respondida</span>
+</div>
+
+<p class="enunciado">No que se refere ao art. 100, §5º, da Constituição e à Súmula Vinculante 17, o enunciado desta súmula não foi afetado pela EC 62/2009, de modo que não incidem juros de mora no período referido no §5º do art.100, e a fluência dos juros inicia-se após o decurso do &#x27;período de graça&#x27; caso haja inadimplemento do ente público devedor?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(70, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(70, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-70">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 1037 firmou que a Súmula Vinculante 17 não foi afetada pela EC 62/2009, mantendo-se o entendimento de que não incidem juros de mora no período de que trata o §5º do art.100; havendo inadimplemento pelo ente público, a fluência dos juros inicia-se após o término do referido período.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1037 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="no tocante ao art. 16 da lei 7.347/1985 (alterado pela lei 9.494/1997), o stf declarou a sua constitucionalidade e determinou que, nas ações civis públicas de efeitos nacionais ou regionais, a competência deve observar regras diversas das previstas no cdc, sem reconhecimento de prevenção entre demandas conexas? o tema 1075 apresentou três pontos: (i) o art. 16 da lei 7.347/1985, alterado, foi considerado inconstitucional; (ii) em ações civis públicas de efeitos nacionais ou regionais, a competência deve observar o art. 93, ii, do cdc (lei 8.078/1990); (iii) havendo múltiplas acps nacionais ou regionais, firma-se a prevenção do juízo que primeiro conheceu de uma delas para julgamento de todas as demandas conexas. logo, a afirmação que declara constitucionalidade e nega prevenção é contrária ao tema. tema 1075 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 71</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-71">Não respondida</span>
+</div>
+
+<p class="enunciado">No tocante ao art. 16 da Lei 7.347/1985 (alterado pela Lei 9.494/1997), o STF declarou a sua constitucionalidade e determinou que, nas ações civis públicas de efeitos nacionais ou regionais, a competência deve observar regras diversas das previstas no CDC, sem reconhecimento de prevenção entre demandas conexas?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(71, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(71, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-71">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 1075 apresentou três pontos: (I) o art. 16 da Lei 7.347/1985, alterado, foi considerado inconstitucional; (II) em ações civis públicas de efeitos nacionais ou regionais, a competência deve observar o art. 93, II, do CDC (Lei 8.078/1990); (III) havendo múltiplas ACPs nacionais ou regionais, firma-se a prevenção do juízo que primeiro conheceu de uma delas para julgamento de todas as demandas conexas. Logo, a afirmação que declara constitucionalidade e nega prevenção é contrária ao tema.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1075 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="compete à justiça comum processar e julgar ações sobre complementação de aposentadoria instituída por lei cujo pagamento seja de responsabilidade originária ou sucessiva da administração pública direta ou indireta, por derivar de relação jurídico-administrativa, conforme entendimento do stf? o tema 1092 definiu que compete à justiça comum processar e julgar causas sobre complementação de aposentadoria instituída por lei quando o pagamento for de responsabilidade da administração pública direta ou indireta, por derivar de relação jurídico-administrativa, cabendo à jurisdição comum a apreciação. tema 1092 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 72</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-72">Não respondida</span>
+</div>
+
+<p class="enunciado">Compete à Justiça comum processar e julgar ações sobre complementação de aposentadoria instituída por lei cujo pagamento seja de responsabilidade originária ou sucessiva da Administração Pública direta ou indireta, por derivar de relação jurídico-administrativa, conforme entendimento do STF?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(72, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(72, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-72">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 1092 definiu que compete à Justiça comum processar e julgar causas sobre complementação de aposentadoria instituída por lei quando o pagamento for de responsabilidade da Administração Pública direta ou indireta, por derivar de relação jurídico-administrativa, cabendo à jurisdição comum a apreciação.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1092 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="para a cobrança de valores pretéritos decorrentes de título judicial originado de mandado de segurança coletivo impetrado por entidade associativa civil, é imprescindível autorização expressa dos associados, relação nominal e comprovação de filiação prévia, segundo a tese firmada pelo stf? o tema 1119 firmou que é desnecessária a autorização expressa dos associados, a relação nominal destes e a comprovação de filiação prévia para a cobrança de valores pretéritos de título judicial decorrente de mandado de segurança coletivo impetrado por entidade associativa de caráter civil. logo, a exigência apresentada na assertiva é indevida. tema 1119 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 73</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-73">Não respondida</span>
+</div>
+
+<p class="enunciado">Para a cobrança de valores pretéritos decorrentes de título judicial originado de mandado de segurança coletivo impetrado por entidade associativa civil, é imprescindível autorização expressa dos associados, relação nominal e comprovação de filiação prévia, segundo a tese firmada pelo STF?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(73, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(73, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-73">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 1119 firmou que é desnecessária a autorização expressa dos associados, a relação nominal destes e a comprovação de filiação prévia para a cobrança de valores pretéritos de título judicial decorrente de mandado de segurança coletivo impetrado por entidade associativa de caráter civil. Logo, a exigência apresentada na assertiva é indevida.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1119 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="os honorários advocatícios são considerados crédito único e indivisível; assim, o fracionamento da execução de honorários sucumbenciais fixados em ação coletiva contra a fazenda pública, proporcionalmente às execuções individuais de cada beneficiário, está em conformidade com o §8º do art. 100 da constituição, sendo permitido? o tema 1142 declarou que os honorários advocatícios constituem crédito único e indivisível, e que o fracionamento da execução desses honorários sucumbenciais fixados em ação coletiva contra a fazenda pública, proporcionalmente às execuções individuais, viola o §8º do art.100 da cf, tornando tal fracionamento inconstitucional. tema 1142 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 74</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-74">Não respondida</span>
+</div>
+
+<p class="enunciado">Os honorários advocatícios são considerados crédito único e indivisível; assim, o fracionamento da execução de honorários sucumbenciais fixados em ação coletiva contra a Fazenda Pública, proporcionalmente às execuções individuais de cada beneficiário, está em conformidade com o §8º do art. 100 da Constituição, sendo permitido?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(74, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(74, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-74">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 1142 declarou que os honorários advocatícios constituem crédito único e indivisível, e que o fracionamento da execução desses honorários sucumbenciais fixados em ação coletiva contra a Fazenda Pública, proporcionalmente às execuções individuais, viola o §8º do art.100 da CF, tornando tal fracionamento inconstitucional.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1142 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="em ação ajuizada por servidor celetista contra o poder público em que se pleiteia parcela de natureza administrativa, a justiça comum é competente, e o stf modulou os efeitos da decisão para manter na justiça do trabalho, até o trânsito em julgado e correspondentes execuções, os processos com sentença de mérito proferida até data determinada? o tema 1143 estabeleceu que a justiça comum é competente para julgar ação desse tipo, modulando efeitos para manter na justiça do trabalho, até o trânsito em julgado e execução, os processos em que houve sentença de mérito até a data indicada na ata de julgamento, conciliando segurança jurídica e transição. tema 1143 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 75</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-75">Não respondida</span>
+</div>
+
+<p class="enunciado">Em ação ajuizada por servidor celetista contra o Poder Público em que se pleiteia parcela de natureza administrativa, a Justiça Comum é competente, e o STF modulou os efeitos da decisão para manter na Justiça do Trabalho, até o trânsito em julgado e correspondentes execuções, os processos com sentença de mérito proferida até data determinada?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(75, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(75, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-75">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 1143 estabeleceu que a Justiça Comum é competente para julgar ação desse tipo, modulando efeitos para manter na Justiça do Trabalho, até o trânsito em julgado e execução, os processos em que houve sentença de mérito até a data indicada na ata de julgamento, conciliando segurança jurídica e transição.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1143 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="compete à justiça federal processar e julgar demandas relativas à expedição de diploma de conclusão de curso superior realizado em instituição privada integrante do sistema federal de ensino, inclusive quando a pretensão se limita ao pagamento de indenização, por envolver direito federal educacional? o tema 1154 fixou que compete à justiça federal processar e julgar feitos que discutam controvérsia relativa à expedição de diploma de curso superior em instituição privada que integre o sistema federal de ensino, mesmo quando a pretensão se limite a indenização, em razão de repercussão da união no sistema federal de ensino. tema 1154 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 76</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-76">Não respondida</span>
+</div>
+
+<p class="enunciado">Compete à Justiça Federal processar e julgar demandas relativas à expedição de diploma de conclusão de curso superior realizado em instituição privada integrante do Sistema Federal de Ensino, inclusive quando a pretensão se limita ao pagamento de indenização, por envolver direito federal educacional?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(76, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(76, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-76">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 1154 fixou que compete à Justiça Federal processar e julgar feitos que discutam controvérsia relativa à expedição de diploma de curso superior em instituição privada que integre o Sistema Federal de Ensino, mesmo quando a pretensão se limite a indenização, em razão de repercussão da União no sistema federal de ensino.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1154 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="o pagamento de crédito superpreferencial (art. 100, §2º da cf/1988) deve ser efetuado sempre por meio de requisição de pequeno valor (rpv), independentemente do montante, negando-se a necessidade de precatório? o tema 1156 determinou que o pagamento do crédito superpreferencial deve ser realizado por meio de precatório, exceto quando o valor a ser adimplido está dentro do limite estabelecido por lei como pequeno valor; ou seja, a regra é a exigência de precatório, salvo quando a quantia couber em rpv. tema 1156 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 77</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-77">Não respondida</span>
+</div>
+
+<p class="enunciado">O pagamento de crédito superpreferencial (art. 100, §2º da CF/1988) deve ser efetuado sempre por meio de requisição de pequeno valor (RPV), independentemente do montante, negando-se a necessidade de precatório?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(77, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(77, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-77">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 1156 determinou que o pagamento do crédito superpreferencial deve ser realizado por meio de precatório, exceto quando o valor a ser adimplido está dentro do limite estabelecido por lei como pequeno valor; ou seja, a regra é a exigência de precatório, salvo quando a quantia couber em RPV.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1156 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="compete à justiça do trabalho processar e julgar causas ajuizadas contra o empregador que tenham por objeto o reconhecimento de verbas de natureza trabalhista e os respectivos reflexos nas contribuições para entidade de previdência privada a ele vinculada, segundo entendimento do stf? o tema 1166 assentou que compete à justiça do trabalho processar e julgar ações contra o empregador em que se pleiteie reconhecimento de verbas trabalhistas e os reflexos nas contribuições a entidade de previdência privada vinculada ao empregador, por serem matérias trabalhistas. tema 1166 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 78</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-78">Não respondida</span>
+</div>
+
+<p class="enunciado">Compete à Justiça do Trabalho processar e julgar causas ajuizadas contra o empregador que tenham por objeto o reconhecimento de verbas de natureza trabalhista e os respectivos reflexos nas contribuições para entidade de previdência privada a ele vinculada, segundo entendimento do STF?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(78, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(78, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-78">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 1166 assentou que compete à Justiça do Trabalho processar e julgar ações contra o empregador em que se pleiteie reconhecimento de verbas trabalhistas e os reflexos nas contribuições a entidade de previdência privada vinculada ao empregador, por serem matérias trabalhistas.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1166 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="é aplicável às condenações da fazenda pública envolvendo relações jurídicas não tributárias o índice de juros moratórios previsto no art. 1º-f da lei 9.494/1997 (com redação da lei 11.960/2009) desde a vigência dessa legislação, mesmo que haja previsão diversa em título executivo judicial transitado em julgado, conforme o stf? o tema 1170 firmou que o índice de juros moratórios do art.1º-f da lei 9.494/1997, na redação da lei 11.960/2009, é aplicável às condenações da fazenda pública envolvendo relações jurídicas não tributárias a partir da vigência da referida legislação, mesmo havendo previsão diversa em título executivo transitado em julgado, admitindo a aplicação da norma superveniente. tema 1170 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 79</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-79">Não respondida</span>
+</div>
+
+<p class="enunciado">É aplicável às condenações da Fazenda Pública envolvendo relações jurídicas não tributárias o índice de juros moratórios previsto no art. 1º-F da Lei 9.494/1997 (com redação da Lei 11.960/2009) desde a vigência dessa legislação, mesmo que haja previsão diversa em título executivo judicial transitado em julgado, conforme o STF?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(79, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(79, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-79">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 1170 firmou que o índice de juros moratórios do art.1º-F da Lei 9.494/1997, na redação da Lei 11.960/2009, é aplicável às condenações da Fazenda Pública envolvendo relações jurídicas não tributárias a partir da vigência da referida legislação, mesmo havendo previsão diversa em título executivo transitado em julgado, admitindo a aplicação da norma superveniente.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1170 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="é legítima a extinção de execução fiscal de baixo valor por ausência de interesse de agir, sem necessidade de observância de providências prévias pelo exequente, já que a eficiência administrativa prevalece sobre o direito de cobrança? o tema 1184, em sua tese complexa, autorizou a extinção da execução fiscal de baixo valor por ausência de interesse de agir em face do princípio da eficiência administrativa, mas condicionou o ajuizamento da execução fiscal à prévia tentativa de conciliação ou solução administrativa e ao protesto do título (salvo exceções por eficiência administrativa), além de admitir suspensão para adoção de medidas administrativas — não havendo automática extinção sem observância dessas providências. tema 1184 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 80</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-80">Não respondida</span>
+</div>
+
+<p class="enunciado">É legítima a extinção de execução fiscal de baixo valor por ausência de interesse de agir, sem necessidade de observância de providências prévias pelo exequente, já que a eficiência administrativa prevalece sobre o direito de cobrança?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(80, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(80, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-80">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 1184, em sua tese complexa, autorizou a extinção da execução fiscal de baixo valor por ausência de interesse de agir em face do princípio da eficiência administrativa, mas condicionou o ajuizamento da execução fiscal à prévia tentativa de conciliação ou solução administrativa e ao protesto do título (salvo exceções por eficiência administrativa), além de admitir suspensão para adoção de medidas administrativas — não havendo automática extinção sem observância dessas providências.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1184 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="ECA"
+data-texto="a expedição de precatórios complementares ou suplementares de valor já pago é vedada, salvo nas hipóteses de erro material, inexatidão aritmética ou substituição de índices aplicáveis por alteração normativa; a verificação dessas hipóteses exige reexame de matéria fático-probatória, segundo entendimento do stf? o tema 1360 fixou que é vedada a expedição de precatórios complementares/suplementares de valor pago, salvo nas hipóteses enumeradas (erro material, inexatidão aritmética, substituição de índices por alteração normativa), e que a verificação dessas hipóteses pressupõe reexame de matéria fático-probatória. tema 1360 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 81</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-81">Não respondida</span>
+</div>
+
+<p class="enunciado">A expedição de precatórios complementares ou suplementares de valor já pago é vedada, salvo nas hipóteses de erro material, inexatidão aritmética ou substituição de índices aplicáveis por alteração normativa; a verificação dessas hipóteses exige reexame de matéria fático-probatória, segundo entendimento do STF?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(81, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(81, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-81">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 1360 fixou que é vedada a expedição de precatórios complementares/suplementares de valor pago, salvo nas hipóteses enumeradas (erro material, inexatidão aritmética, substituição de índices por alteração normativa), e que a verificação dessas hipóteses pressupõe reexame de matéria fático-probatória.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1360 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="o trânsito em julgado de decisão de mérito que contém previsão específica de índice de juros ou correção monetária impede, de forma absoluta, a incidência de legislação ou entendimento jurisprudencial superveniente do stf que estabeleça índice diverso, nos termos do tema 1170/rg? o tema 1361 asseverou que o trânsito em julgado com previsão de índice específico não impede a incidência de legislação ou entendimento jurisprudencial supervenientes do stf, nos termos do tema 1170/rg; portanto, não há impedimento absoluto: a legislação ou entendimento superveniente pode incidir, observadas as limitações constitucionais. tema 1361 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 82</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-82">Não respondida</span>
+</div>
+
+<p class="enunciado">O trânsito em julgado de decisão de mérito que contém previsão específica de índice de juros ou correção monetária impede, de forma absoluta, a incidência de legislação ou entendimento jurisprudencial superveniente do STF que estabeleça índice diverso, nos termos do Tema 1170/RG?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(82, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(82, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-82">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 1361 asseverou que o trânsito em julgado com previsão de índice específico não impede a incidência de legislação ou entendimento jurisprudencial supervenientes do STF, nos termos do Tema 1170/RG; portanto, não há impedimento absoluto: a legislação ou entendimento superveniente pode incidir, observadas as limitações constitucionais.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1361 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="para pleitear isenção de imposto de renda por doença grave e repetição do indébito tributário, é obrigatório o prévio requerimento administrativo, sendo vedada a via judicial sem esgotamento da via administrativa? o tema 1373 consolidou que o ajuizamento de ação para reconhecimento de isenção de imposto de renda por doença grave e para repetição do indébito tributário não exige prévio requerimento administrativo, autorizando a via judicial direta para proteção de direitos tributários em tais hipóteses. tema 1373 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 83</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-83">Não respondida</span>
+</div>
+
+<p class="enunciado">Para pleitear isenção de imposto de renda por doença grave e repetição do indébito tributário, é obrigatório o prévio requerimento administrativo, sendo vedada a via judicial sem esgotamento da via administrativa?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(83, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(83, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-83">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 1373 consolidou que o ajuizamento de ação para reconhecimento de isenção de imposto de renda por doença grave e para repetição do indébito tributário não exige prévio requerimento administrativo, autorizando a via judicial direta para proteção de direitos tributários em tais hipóteses.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1373 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="nos juizados especiais, é possível exigir da fazenda pública a apresentação de documentos e cálculos para o início do cumprimento de sentença; porém, é fática a controvérsia acerca da hipossuficiência do credor para transferir ao ente público o ônus de apresentar tais documentos, tendo o stf admitido que tal questão dependa de prova específica? o tema 1396 decidiu: (1) é possível exigir da fazenda pública a apresentação de documentos e cálculos para o início do cumprimento de sentença nos juizados especiais; (2) a controvérsia sobre a hipossuficiência da parte credora para atribuir à fazenda pública esse ônus é fática, exigindo aferição probatória concreta, o que torna a questão dependente de prova. tema 1396 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 84</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-84">Não respondida</span>
+</div>
+
+<p class="enunciado">Nos Juizados Especiais, é possível exigir da Fazenda Pública a apresentação de documentos e cálculos para o início do cumprimento de sentença; porém, é fática a controvérsia acerca da hipossuficiência do credor para transferir ao ente público o ônus de apresentar tais documentos, tendo o STF admitido que tal questão dependa de prova específica?</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(84, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(84, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-84">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 1396 decidiu: (1) é possível exigir da Fazenda Pública a apresentação de documentos e cálculos para o início do cumprimento de sentença nos Juizados Especiais; (2) a controvérsia sobre a hipossuficiência da parte credora para atribuir à Fazenda Pública esse ônus é fática, exigindo aferição probatória concreta, o que torna a questão dependente de prova.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1396 STF</p>
+</div>
+</section>
+
+</div>
+
+<script>
+const storageKey = location.pathname + "_respostas";
+let respostas = JSON.parse(localStorage.getItem(storageKey) || "{}");
+
+function destacar(t){
+ if(t==="CERTO") return '<span class="gabarito-certo">CERTO</span>';
+ if(t==="ERRADO") return '<span class="gabarito-errado">ERRADO</span>';
+ return t;
+}
+
+function responder(numero, resposta){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const gabarito=card.dataset.gabarito;
+ const correto=resposta===gabarito;
+ respostas[numero]={resposta,correto};
+ localStorage.setItem(storageKey, JSON.stringify(respostas));
+ mostrarFeedback(numero);
+ atualizarPainel();
+ filtrar();
+}
+
+function mostrarFeedback(numero){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const feedback=document.getElementById("feedback-"+numero);
+ const status=document.getElementById("status-"+numero);
+ const resultado=feedback.querySelector(".resultado");
+ const gabarito=card.dataset.gabarito;
+ const dados=respostas[numero];
+ if(!dados) return;
+ feedback.style.display="block";
+ feedback.classList.remove("correto","errado");
+ if(dados.correto){
+   feedback.classList.add("correto");
+   resultado.innerHTML="Você acertou. A resposta é "+destacar(gabarito)+".";
+   status.textContent="Respondida — acerto";
+   status.style.color="var(--green)";
+ } else {
+   feedback.classList.add("errado");
+   resultado.innerHTML="Você errou. O gabarito é "+destacar(gabarito)+".";
+   status.textContent="Respondida — erro";
+   status.style.color="var(--red)";
+ }
+}
+
+function atualizarPainel(){
+ let respondidas=0, acertos=0, erros=0;
+ for(const k in respostas){
+   respondidas++;
+   if(respostas[k].correto) acertos++; else erros++;
+ }
+ document.getElementById("respondidas").textContent=respondidas;
+ document.getElementById("acertos").textContent=acertos;
+ document.getElementById("erros").textContent=erros;
+ document.getElementById("visiveis").textContent=document.querySelectorAll(".questao:not(.oculta)").length;
+}
+
+function filtrar(){
+ const busca=document.getElementById("busca").value.trim().toLowerCase();
+ const disciplina=document.getElementById("disciplina").value;
+ const statusFiltro=document.getElementById("statusFiltro").value;
+ const cards=Array.from(document.querySelectorAll(".questao"));
+ let vis=0;
+ cards.forEach((card,idx)=>{
+   const n=idx+1;
+   const texto=card.dataset.texto||"";
+   const disc=card.dataset.disciplina||"";
+   const r=respostas[n];
+   let passaStatus=true;
+   if(statusFiltro==="nao") passaStatus=!r;
+   if(statusFiltro==="acerto") passaStatus=r && r.correto;
+   if(statusFiltro==="erro") passaStatus=r && !r.correto;
+   const ok=(!busca||texto.includes(busca)) && (!disciplina||disc===disciplina) && passaStatus;
+   card.classList.toggle("oculta", !ok);
+   if(ok) vis++;
+ });
+ document.getElementById("sem-resultados").style.display=vis===0?"block":"none";
+ atualizarPainel();
+}
+
+function reiniciar(){
+ if(!confirm("Deseja reiniciar este simulado?")) return;
+ localStorage.removeItem(storageKey);
+ location.reload();
+}
+
+function restaurar(){
+ for(const k in respostas) mostrarFeedback(Number(k));
+ filtrar();
+ atualizarPainel();
+}
+
+restaurar();
+</script>
+</body>
+</html>

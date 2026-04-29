@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Simulado - Info 852 STJ</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+    --bg: #0f172a;
+    --card: #111827;
+    --card2: #1f2937;
+    --text: #e5e7eb;
+    --muted: #9ca3af;
+    --accent: #38bdf8;
+    --green: #22c55e;
+    --red: #ef4444;
+    --yellow: #facc15;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #020617, #111827);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+header {
+    padding: 32px 20px;
+    text-align: center;
+    border-bottom: 1px solid #334155;
+}
+
+header h1 {
+    margin: 0 0 10px;
+    font-size: 28px;
+}
+
+header p {
+    color: var(--muted);
+    margin: 0;
+}
+
+.container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 24px 16px 80px;
+}
+
+.painel {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(8px);
+    border: 1px solid #334155;
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 24px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.stat {
+    background: var(--card2);
+    padding: 12px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.stat strong {
+    display: block;
+    font-size: 22px;
+    color: var(--accent);
+}
+
+.card {
+    background: rgba(17, 24, 39, 0.96);
+    border: 1px solid #334155;
+    border-radius: 18px;
+    padding: 22px;
+    margin-bottom: 20px;
+    box-shadow: 0 12px 30px rgba(0,0,0,.25);
+}
+
+.questao-topo {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.badge {
+    background: #0ea5e9;
+    color: #00111f;
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 999px;
+}
+
+.status {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.enunciado {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.botoes {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+button {
+    cursor: pointer;
+    border: 0;
+    padding: 12px 22px;
+    border-radius: 12px;
+    background: #334155;
+    color: white;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+button:hover {
+    transform: translateY(-1px);
+    background: #475569;
+}
+
+.feedback {
+    display: none;
+    background: #020617;
+    border-left: 4px solid var(--accent);
+    padding: 16px;
+    border-radius: 12px;
+    margin-top: 12px;
+}
+
+.feedback.correto {
+    border-left-color: var(--green);
+}
+
+.feedback.errado {
+    border-left-color: var(--red);
+}
+
+.resultado {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.referencia {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.acoes {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.acoes button {
+    background: #0ea5e9;
+    color: #00111f;
+}
+
+@media (max-width: 700px) {
+    .painel {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .botoes {
+        flex-direction: column;
+    }
+
+    header h1 {
+        font-size: 22px;
+    }
+
+    .enunciado {
+        font-size: 16px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Simulado - Info 852 STJ</h1>
+    <p>Simulado interativo de CERTO ou ERRADO</p>
+</header>
+
+<div class="container">
+
+    <div class="painel">
+        <div class="stat">
+            <strong id="total">19</strong>
+            Total
+        </div>
+        <div class="stat">
+            <strong id="respondidas">0</strong>
+            Respondidas
+        </div>
+        <div class="stat">
+            <strong id="acertos">0</strong>
+            Acertos
+        </div>
+        <div class="stat">
+            <strong id="erros">0</strong>
+            Erros
+        </div>
+    </div>
+
+    <div class="acoes">
+        <button onclick="reiniciar()">Reiniciar simulado</button>
+    </div>
+
+    
+        <section class="card questao" data-gabarito="CERTO">
+            <div class="questao-topo">
+                <span class="badge">Questão 1</span>
+                <span class="status" id="status-1">Não respondida</span>
+            </div>
+
+            <p class="enunciado">Em ação possessória ajuizada para tutela de área posteriormente reconhecida como terra tradicionalmente ocupada por povo indígena, é juridicamente admissível que o magistrado, em vez de determinar a imediata imissão na posse em favor da comunidade indígena, fixe prazo razoável para a desocupação e estabeleça medidas progressivas de transição destinadas a assegurar a retirada segura, física e juridicamente, dos ocupantes não indígenas, sem que isso implique afronta ao caráter declaratório do procedimento de demarcação ou julgamento extra petita.</p>
+
+            <div class="botoes">
+                <button onclick="responder(1, 'CERTO')">CERTO</button>
+                <button onclick="responder(1, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-1">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> CERTO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está correta porque o entendimento firmado admite uma atuação jurisdicional escalonada, cautelosa e ponderada, voltada à concretização progressiva da situação jurídica ideal prevista na legislação. Em conflitos possessórios envolvendo terras indígenas, a providência judicial não precisa ser instantânea e abrupta, desde que o provimento final preserve a tutela do direito indígena e seja estruturado para viabilizar a transição de forma segura e juridicamente adequada.<br><br>O ponto central é que a fixação de prazo razoável para a imissão na posse e a adoção de medidas progressivas não desnaturam o caráter declaratório do procedimento de demarcação nem significam resistência à eficácia da proteção constitucional das terras tradicionalmente ocupadas. Ao contrário, a implementação escalonada de providências jurisdicionais concretiza a própria finalidade normativa, especialmente quando orientada por princípios do processo estruturante, que autorizam soluções graduais para assegurar efetividade sem gerar riscos desnecessários à ordem pública, à segurança e à própria execução da decisão.<br><br>Além disso, a conversão da tutela possessória em providência indenizatória ou em solução processual compatível com a superveniência do reconhecimento da natureza indígena da terra não configura, por si só, julgamento extra petita, desde que a resposta judicial permaneça dentro da moldura fático-jurídica da controvérsia e busque realizar a tutela adequada do direito material em disputa.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 2ª Turma. REsp 1.637.991-AL, Rel. Min. Afrânio Vilela, julgado em 20/5/2025 (Info 852).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="CERTO">
+            <div class="questao-topo">
+                <span class="badge">Questão 2</span>
+                <span class="status" id="status-2">Não respondida</span>
+            </div>
+
+            <p class="enunciado">Em concurso público regido por edital que preveja a atribuição dos pontos de questão anulada a todos os candidatos, a procedência de ação individual proposta por candidato para desconstituir duas questões do certame não autoriza, por si só, a extensão automática dos pontos aos demais concorrentes que não integraram a relação processual, ainda que se encontrem em idêntica situação fática e tenham sido prejudicados pelas mesmas questões, pois os efeitos da sentença ficam restritos às partes e não impõem a reabertura do certame para nova reclassificação geral.</p>
+
+            <div class="botoes">
+                <button onclick="responder(2, 'CERTO')">CERTO</button>
+                <button onclick="responder(2, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-2">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> CERTO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está correta porque a anulação judicial de questões de concurso público obtida em ação individual produz efeitos apenas inter partes, não irradiando automaticamente efeitos erga omnes para todos os demais candidatos. Ainda que o edital contenha cláusula prevendo a atribuição dos pontos da questão anulada a todos os concorrentes, essa previsão não transforma a sentença individual em decisão com eficácia geral nem autoriza, por si só, a reclassificação administrativa de candidatos estranhos ao processo.<br><br>O ponto central é a limitação subjetiva da coisa julgada e dos efeitos da decisão judicial proferida em demanda individual. Assim, mesmo que outro candidato esteja em situação fática semelhante — por exemplo, também tenha sido reprovado por dois pontos e tenha errado as mesmas questões — ele não pode exigir administrativamente a extensão automática dos efeitos da sentença obtida por terceiro, se não participou da ação. A Administração, nesse contexto, não está obrigada a reabrir o certame para redistribuir pontuação e refazer a classificação geral com base em decisão judicial restrita às partes litigantes.<br><br>Esse entendimento preserva a estabilidade do concurso e evita a ampliação indevida dos efeitos de provimento jurisdicional individual para além dos limites subjetivos da lide. A cláusula editalícia de atribuição de pontos a todos os candidatos opera no âmbito da própria administração do certame, mas não altera a eficácia subjetiva da sentença judicial nem autoriza sua generalização automática a quem não demandou.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 2ª Turma. AgInt no RMS 74.847-RJ, Rel. Min. Teodoro Silva Santos, julgado em 1º/4/2025 (Info 852).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="ERRADO">
+            <div class="questao-topo">
+                <span class="badge">Questão 3</span>
+                <span class="status" id="status-3">Não respondida</span>
+            </div>
+
+            <p class="enunciado">A prescrição quinquenal prevista no Decreto n.º 20.910/1932 não se aplica, em nenhuma hipótese, às sociedades de economia mista e às empresas públicas, ainda que tais entidades atuem exclusivamente na prestação de serviço público essencial, sem finalidade lucrativa e sem inserção em ambiente concorrencial, pois a natureza de pessoa jurídica de direito privado afasta, por si só, a incidência do regime prescricional próprio da Fazenda Pública.</p>
+
+            <div class="botoes">
+                <button onclick="responder(3, 'CERTO')">CERTO</button>
+                <button onclick="responder(3, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-3">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> ERRADO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque generaliza uma regra que comporta exceção relevante. De fato, a orientação é de que, <strong>como regra</strong>, o prazo quinquenal do Decreto n.º 20.910/1932 e do Decreto-Lei n.º 4.597/1942 <strong>não se aplica</strong> às sociedades de economia mista e às empresas públicas, justamente porque essas entidades, em princípio, possuem personalidade de direito privado.<br><br>Contudo, há <strong>exceção expressa</strong> quando a estatal atua como <strong>prestadora de serviço público essencial</strong>, <strong>sem finalidade lucrativa</strong> e <strong>sem natureza concorrencial</strong>, hipótese em que se afasta a lógica empresarial típica e se admite a incidência da prescrição quinquenal própria das dívidas da Fazenda Pública. O critério decisivo, portanto, não é apenas a forma jurídica da entidade, mas a <strong>função desempenhada</strong>, a <strong>ausência de exploração econômica lucrativa</strong> e a <strong>inexistência de competição no mercado</strong>.<br><br>No caso paradigmático, reconheceu-se que sociedade de economia mista voltada à prestação de serviço público, em regime não concorrencial e sem finalidade lucrativa, submete-se ao prazo prescricional quinquenal do Decreto n.º 20.910/1932. Assim, a afirmação de inaplicabilidade absoluta do regime quinquenal às estatais contraria o entendimento consolidado no julgado.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Turma. AgInt no REsp 2.134.606-SP, Rel. Min. Regina Helena Costa, julgado em 28/4/2025 (Info 852).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="ERRADO">
+            <div class="questao-topo">
+                <span class="badge">Questão 4</span>
+                <span class="status" id="status-4">Não respondida</span>
+            </div>
+
+            <p class="enunciado">No âmbito do FIES, a extensão do período de carência em razão de ingresso em programa de residência médica pode ser deferida mesmo após o início da fase de amortização do contrato, desde que o pedido seja formulado enquanto ainda subsistir saldo devedor, por se tratar de benefício legal vinculado à condição profissional do financiado.</p>
+
+            <div class="botoes">
+                <button onclick="responder(4, 'CERTO')">CERTO</button>
+                <button onclick="responder(4, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-4">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> ERRADO</p>
+                <p><strong>Justificativa:</strong><br>A afirmação está incorreta porque a extensão da carência prevista para o participante de programa de residência médica não pode ser concedida quando o contrato já ingressou na fase de amortização. O ponto निर्णante não é a mera existência de saldo devedor, mas o estágio contratual em que o financiamento se encontra.<br><br>No regime do FIES, a carência estendida e a consequente suspensão do pagamento das parcelas têm natureza excepcional e dependem de requerimento formulado antes do início da amortização. Uma vez superada a fase de carência e iniciado o pagamento das prestações mensais destinadas à quitação do saldo financiado, não há mais espaço para retroagir o benefício, ainda que o estudante tenha sido posteriormente aprovado em residência médica.<br><br>A interpretação do art. 6º-B, § 3º, da Lei nº 10.260/2001 não autoriza ampliar o benefício para momento posterior ao início da amortização, pois isso alteraria a própria lógica temporal do contrato e esvaziaria a distinção legal entre carência e amortização. Assim, a residência médica não gera, por si só, direito automático à suspensão das parcelas se o financiamento já estiver em fase de pagamento ordinário da dívida.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Turma. AgInt no REsp 2.123.826-PE, Rel. Min. Regina Helena Costa, julgado em 28/4/2025 (Info 852).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="CERTO">
+            <div class="questao-topo">
+                <span class="badge">Questão 5</span>
+                <span class="status" id="status-5">Não respondida</span>
+            </div>
+
+            <p class="enunciado">A atividade de queima controlada da palha da cana-de-açúcar, ainda que amparada por licenças expedidas por órgão ambiental estadual, pode atrair a competência do IBAMA para o licenciamento quando os seus efeitos ambientais ultrapassarem os limites de um único município ou estado, pois a amplitude dos impactos sobre a qualidade do ar, a fauna, a flora e a saúde pública afasta a atuação exclusivamente local ou estadual.</p>
+
+            <div class="botoes">
+                <button onclick="responder(5, 'CERTO')">CERTO</button>
+                <button onclick="responder(5, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-5">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> CERTO</p>
+                <p><strong>Justificativa:</strong><br>O enunciado está correto porque reproduz a lógica central do entendimento firmado: a definição da autoridade licenciadora não depende apenas da existência de autorização estadual prévia, mas da extensão dos impactos ambientais da atividade. Quando a intervenção potencialmente degradadora produz efeitos que extrapolam a esfera de um único ente federativo — alcançando mais de um município ou mais de um estado —, a competência para o licenciamento desloca-se para o âmbito federal, cabendo ao IBAMA conduzir o procedimento.<br><br>No caso da queima controlada da palha da cana-de-açúcar, reconheceu-se que os impactos não se limitam ao local da colheita, pois a emissão de poluentes e a degradação ambiental repercutem em áreas mais amplas, com reflexos sobre a qualidade do ar, a fauna, a flora e a saúde da população em diferentes regiões. Por isso, a licença estadual não impede a atuação federal nem afasta a necessidade de revisão da regularidade do licenciamento à luz da repartição constitucional e legal de competências ambientais.<br><br>Além disso, a exigência de estudo prévio de impacto ambiental (EIA/RIMA) decorre da relevância e da potencialidade lesiva da atividade, especialmente quando os efeitos são difusos e transmunicipais ou interestaduais. Assim, não basta a classificação da atividade como “controlada” ou a sua tradição no setor sucroalcooleiro: o critério decisivo é a dimensão dos impactos ambientais gerados.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Turma. AgInt no AREsp 2.064.813-SP, Rel. Min. Paulo Sérgio Domingues, julgado em 31/3/2025 (Info 852).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="CERTO">
+            <div class="questao-topo">
+                <span class="badge">Questão 6</span>
+                <span class="status" id="status-6">Não respondida</span>
+            </div>
+
+            <p class="enunciado">A pretensão deduzida em face de sociedade de economia mista que presta serviço público essencial, sem finalidade lucrativa e sem atuar em regime de concorrência com particulares, submete-se ao prazo prescricional quinquenal previsto no Decreto n. 20.910/1932, ainda que, em regra, as empresas públicas e sociedades de economia mista não se beneficiem desse regime prescricional.</p>
+
+            <div class="botoes">
+                <button onclick="responder(6, 'CERTO')">CERTO</button>
+                <button onclick="responder(6, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-6">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> CERTO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a distinção central firmada no julgado: a regra geral é a de que o prazo quinquenal do Decreto n. 20.910/1932 e do Decreto-Lei n. 4.597/1942 não se aplica, em princípio, às empresas públicas e sociedades de economia mista. Contudo, há exceção relevante quando a estatal atua como prestadora de serviço público essencial, sem finalidade lucrativa e sem natureza concorrencial, hipótese em que se afasta a lógica própria da exploração de atividade econômica em ambiente competitivo e se aproxima o regime jurídico dessas entidades ao da Fazenda Pública para fins prescricionais.<br><br>No caso examinado, o metrô foi tratado como sociedade de economia mista voltada à prestação de serviço público, sem intuito lucrativo e sem concorrência com particulares, circunstância suficiente para atrair a prescrição quinquenal do Decreto n. 20.910/1932. Assim, a afirmação está tecnicamente correta ao enunciar a regra geral e a exceção aplicável, sem ampliar indevidamente o alcance do benefício prescricional para estatais que explorem atividade econômica em regime concorrencial.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Turma. AgInt no REsp 2.134.606-SP, Rel. Min. Regina Helena Costa, julgado em 28/4/2025 (Info 852).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="CERTO">
+            <div class="questao-topo">
+                <span class="badge">Questão 7</span>
+                <span class="status" id="status-7">Não respondida</span>
+            </div>
+
+            <p class="enunciado">A cobrança, em território nacional, de dívida de jogo contraída por brasileiro em cassino situado em jurisdição estrangeira que admite licitamente essa atividade não encontra óbice na ordem pública brasileira, sendo juridicamente relevante, para a solução do conflito, a regra de conexão do art. 9º da LINDB, além dos vetores da boa-fé objetiva e da vedação ao enriquecimento sem causa.</p>
+
+            <div class="botoes">
+                <button onclick="responder(7, 'CERTO')">CERTO</button>
+                <button onclick="responder(7, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-7">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> CERTO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está correta porque a obrigação foi constituída no exterior, em contexto no qual a atividade de jogo era lícita, de modo que não se aplica, de forma automática, a vedação interna às dívidas de jogo para impedir a cobrança no Brasil. Nessa hipótese, a análise do vínculo obrigacional deve observar a regra de conexão do art. 9º da LINDB, que disciplina as obrigações constituídas em país estrangeiro, permitindo reconhecer a validade da dívida à luz da lei do local de sua formação.<br><br>Além disso, a cobrança não afronta a ordem pública nem os bons costumes brasileiros quando a própria prática foi regularmente admitida pela ordem jurídica estrangeira competente. O ponto central não é a licitude do jogo no Brasil, mas a licitude da obrigação no lugar em que foi contraída. Também pesam, no raciocínio adotado, a boa-fé e a vedação ao enriquecimento sem causa: não seria compatível com esses princípios permitir que o devedor usufrua da prestação ou da aposta assumida em ambiente juridicamente válido e, depois, se recuse a adimplir apenas por buscar a proteção da proibição interna brasileira.<br><br>Em suma, a dívida de jogo legalmente contraída no exterior pode ser exigida no Brasil, desde que a atividade seja lícita na jurisdição de origem e não haja ofensa concreta à ordem pública nacional.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 4ª Turma. REsp 1.891.844-SP, Rel. Min. João Otávio de Noronha, julgado em 13/5/2025 (Info 852).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="ERRADO">
+            <div class="questao-topo">
+                <span class="badge">Questão 8</span>
+                <span class="status" id="status-8">Não respondida</span>
+            </div>
+
+            <p class="enunciado">A configuração de estelionato sentimental, por si só, não autoriza a reparação civil, pois a pretensão indenizatória somente seria juridicamente viável se a vítima demonstrasse, de forma autônoma e cumulativa, a existência de fraude penalmente tipificada e de prejuízo patrimonial estritamente vinculado a negócio jurídico formalmente inválido, sendo incabível, em qualquer hipótese, a condenação por danos morais em razão do sofrimento decorrente do término do relacionamento.</p>
+
+            <div class="botoes">
+                <button onclick="responder(8, 'CERTO')">CERTO</button>
+                <button onclick="responder(8, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-8">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> ERRADO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque reduz indevidamente a tutela civil decorrente do chamado estelionato sentimental e impõe requisitos que não foram exigidos para a responsabilização. A controvérsia apreciada envolveu situação em que uma pessoa, valendo-se de relação afetiva simulada e de manipulação emocional, obteve da parceira sucessivos aportes financeiros sob pretextos de dificuldades econômicas, encerrando o vínculo quando cessaram os repasses. Nessa hipótese, reconheceu-se a prática de ato ilícito civil, apto a gerar dever de indenizar.<br><br>O ponto central do entendimento é que a ilicitude não decorre do simples fim do relacionamento amoroso, mas da conduta dolosa de simular vínculo afetivo para explorar a vulnerabilidade emocional da outra parte e obter vantagem patrimonial. Por isso, a reparação não depende da prévia configuração de crime nem de “negócio jurídico formalmente inválido”. O fundamento é a responsabilidade civil por ato ilícito, com violação aos deveres de boa-fé e lealdade na esfera relacional, e não a existência de um contrato ou de uma fraude penal autônoma.<br><br>Além disso, a indenização por danos morais é cabível quando a vítima é submetida à manipulação afetiva e à frustração decorrente da fraude emocional, pois o abalo experimentado ultrapassa o mero dissabor cotidiano. Também são devidos danos materiais, limitados às despesas extraordinárias comprovadamente decorrentes da relação e dos repasses feitos em razão da enganação, não se confundindo com gastos ordinários ou com eventual liberalidade espontânea.<br><br>Em síntese, a tese firmada admite a reparação civil tanto por danos materiais quanto morais quando demonstrada a simulação da relação afetiva com finalidade de obtenção de vantagem econômica, sendo incorreto condicionar a indenização à tipificação penal do fato ou afastar, em abstrato, o dano moral.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 4ª Turma. REsp 2.208.310-SP, Rel. Min. Maria Isabel Gallotti, julgado em 20/5/2025 (Info 852).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="CERTO">
+            <div class="questao-topo">
+                <span class="badge">Questão 9</span>
+                <span class="status" id="status-9">Não respondida</span>
+            </div>
+
+            <p class="enunciado">A cessão, pelo consorciado cujo grupo já foi encerrado por cancelamento da cota, do direito de crédito relativo aos valores a serem restituídos ao final do plano produz efeitos entre cedente e cessionário, mas não autoriza, por si só, a imposição judicial de dever à administradora do consórcio para que promova o registro da transferência em seus assentamentos internos, inexistindo previsão legal específica na disciplina dos consórcios ou em normas regulatórias que a obrigue a tanto.</p>
+
+            <div class="botoes">
+                <button onclick="responder(9, 'CERTO')">CERTO</button>
+                <button onclick="responder(9, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-9">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> CERTO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está correta porque distingue dois planos jurídicos distintos: o da validade/eficácia da cessão entre as partes e o da oponibilidade dessa transferência à administradora do consórcio. No caso examinado, embora o crédito decorrente da cota cancelada possa ser cedido pelo titular originário a terceiro, a administradora não integra a relação obrigacional de cessão e, por isso, não pode ser compelida a alterar seus assentamentos internos apenas por iniciativa do cessionário.<br><br>O ponto central do entendimento é a ausência de base normativa que imponha à administradora o dever de registrar a cessão em seus sistemas, seja na Lei nº 11.795/2008, seja em regulamentação do Banco Central. Assim, não se trata de negar a validade da cessão, mas de reconhecer que a pretensão do cessionário de impor à administradora uma obrigação de fazer carece de suporte legal.<br><br>Em termos práticos, a recusa da administradora em proceder ao registro não invalida a cessão nem impede, em tese, a circulação do crédito; apenas significa que a administradora não está juridicamente obrigada a adaptar seus controles internos a pedido do cessionário. O julgado, portanto, afasta a ideia de que a mera notificação do cessionário seja suficiente para criar, por via judicial, um dever de registro não previsto em lei.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.183.131-SP, Rel. Min. Ricardo Villas Bôas Cueva, julgado em 18/3/2025 (Info 852).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="CERTO">
+            <div class="questao-topo">
+                <span class="badge">Questão 10</span>
+                <span class="status" id="status-10">Não respondida</span>
+            </div>
+
+            <p class="enunciado">A utilização, em campanha publicitária audiovisual, de grafite originalmente protegido por direitos autorais e fixado de modo permanente em logradouro público, quando a obra aparece apenas de forma secundária e de fundo, sem protagonismo na peça e sem demonstração de exploração econômica autônoma da criação artística, não configura, por si só, violação aos direitos do autor, pois incide a limitação legal que admite a livre representação da obra situada em espaço público, desde que não haja prejuízo injustificado ao titular.</p>
+
+            <div class="botoes">
+                <button onclick="responder(10, 'CERTO')">CERTO</button>
+                <button onclick="responder(10, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-10">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> CERTO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a lógica central do entendimento firmado: embora o grafite seja, em regra, obra intelectual protegida por direitos autorais, a proteção não é absoluta. Incide a limitação do art. 48 da Lei de Direitos Autorais, que autoriza a livre representação de obras situadas permanentemente em logradouros públicos por meio de fotografias, desenhos, pinturas e procedimentos audiovisuais, desde que tal uso não comprometa a exploração normal da obra nem cause prejuízo injustificado ao autor.<br><br>No caso examinado, a peça publicitária não explorou o grafite como objeto principal da comunicação. A obra apareceu apenas como elemento de cenário, em representação indireta e acessória, enquanto o foco do vídeo estava na performance do dançarino e na divulgação da marca. Nessas circunstâncias, não se reconheceu reprodução ilícita nem violação autoral, justamente porque a mera captação incidental de obra situada em espaço público, sem destaque autônomo e sem exploração comercial da própria criação artística, enquadra-se na exceção legal.<br><br>O ponto decisivo, portanto, não é a existência de finalidade publicitária em abstrato, mas a forma como a obra foi incorporada à peça: se de modo acessório, sem apropriação do conteúdo criativo como elemento central da campanha, e sem demonstração de dano ou de esvaziamento da exploração normal da obra, não há ilicitude. A autorização prévia do artista, nessas condições, não é exigida para afastar a licitude da representação.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.174.943-SP, Rel. Min. Ricardo Villas Bôas Cueva, julgado em 20/5/2025 (Info 852).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="ERRADO">
+            <div class="questao-topo">
+                <span class="badge">Questão 11</span>
+                <span class="status" id="status-11">Não respondida</span>
+            </div>
+
+            <p class="enunciado">Em demanda proposta por adquirentes de imóvel residencial em face da construtora, da corretora que intermediou a compra e da empresa encarregada da gestão financeira do contrato, a responsabilidade solidária prevista no Código de Defesa do Consumidor alcança, por si só, todos os agentes que tenham participado da relação negocial, ainda que suas atividades se limitem à intermediação da aquisição e à administração dos pagamentos, de modo que a demora na entrega da obra autoriza a condenação conjunta de tais terceiros pelos prejuízos materiais e morais decorrentes do inadimplemento da incorporadora.</p>
+
+            <div class="botoes">
+                <button onclick="responder(11, 'CERTO')">CERTO</button>
+                <button onclick="responder(11, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-11">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> ERRADO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque a responsabilidade solidária no âmbito do CDC não se estende automaticamente a todo e qualquer participante da relação contratual, mas apenas aos fornecedores que integrem efetivamente a cadeia de fornecimento e guardem vínculo causal com o dano experimentado pelo consumidor. No caso de atraso na entrega de imóvel adquirido na planta, a obrigação de responder pelo inadimplemento recai sobre quem deu causa direta ao descumprimento contratual, isto é, a construtora/incorporadora responsável pela obra.<br><br>A corretora de imóveis, cuja atuação se limita à intermediação da compra, e a empresa de pagamentos, encarregada apenas da gestão financeira do contrato, não participam da incorporação nem da construção do empreendimento. Por isso, não se lhes pode imputar responsabilidade pelo atraso na obra, pois suas atividades não se confundem com a execução do empreendimento imobiliário nem com a obrigação de entrega do imóvel no prazo ajustado.<br><br>O ponto central do entendimento é a delimitação da cadeia de fornecimento: a solidariedade consumerista não opera de forma abstrata ou expansiva a ponto de alcançar terceiros sem participação direta no fato gerador do dano. Assim, a pretensão indenizatória fundada exclusivamente no atraso da obra não autoriza a condenação da corretora e da empresa de pagamentos, permanecendo a responsabilidade concentrada na construtora que inadimpliu a obrigação principal.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.155.898-SP, Rel. Ministra Nancy Andrighi, julgado em 11/3/2025 (Info 852).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="CERTO">
+            <div class="questao-topo">
+                <span class="badge">Questão 12</span>
+                <span class="status" id="status-12">Não respondida</span>
+            </div>
+
+            <p class="enunciado">Em execução de título extrajudicial promovida contra o sócio único de sociedade limitada unipessoal, a ausência de outros bens penhoráveis autoriza a constrição da participação societária por ele titularizada, ainda que o capital social não esteja fracionado em quotas, sendo irrelevante, para esse fim, a circunstância de a estrutura societária não se confundir com a de sociedade limitada pluripessoal.</p>
+
+            <div class="botoes">
+                <button onclick="responder(12, 'CERTO')">CERTO</button>
+                <button onclick="responder(12, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-12">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> CERTO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está correta porque a participação societária titularizada pelo devedor em sociedade limitada unipessoal pode ser objeto de penhora para satisfação de dívida particular, inclusive quando o capital social não estiver dividido em quotas sociais. O ponto central do entendimento é que a proteção patrimonial conferida pela autonomia patrimonial da pessoa jurídica não impede, por si só, a constrição da posição societária do sócio único, desde que se trate de medida voltada à satisfação de crédito em execução e observadas as regras processuais aplicáveis.<br><br>A peculiaridade da sociedade limitada unipessoal — sucessora da antiga EIRELI — não afasta a possibilidade de penhora da participação societária. O fato de o capital social não se dividir em quotas, como ocorre nas limitadas pluripessoais, não impede a constrição judicial, pois o objeto da penhora recai sobre a titularidade societária em si, e não sobre a divisão formal do capital em frações. Assim, a inexistência de pluralidade de sócios ou de quotas não constitui óbice jurídico à medida executiva.<br><br>O entendimento é relevante porque evita que a forma societária seja utilizada como barreira absoluta à satisfação do crédito, especialmente quando frustradas outras tentativas de localização de bens do executado. Ao mesmo tempo, a penhora da participação societária não se confunde com desconsideração da personalidade jurídica: trata-se de técnica executiva voltada à expropriação de bem do devedor, sem necessidade, no caso, de demonstrar abuso da personalidade ou preenchimento dos requisitos do incidente respectivo.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 4ª Turma. REsp 2.186.044-SP, Rel. Min. Antonio Carlos Ferreira, julgado em 20/5/2025 (Info 852).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="CERTO">
+            <div class="questao-topo">
+                <span class="badge">Questão 13</span>
+                <span class="status" id="status-13">Não respondida</span>
+            </div>
+
+            <p class="enunciado">A concessão de crédito formalizada entre cooperativa de crédito e seu associado, quando inserida na dinâmica de consecução dos objetivos sociais da cooperativa, qualifica-se como ato cooperativo e, por isso, os créditos dela decorrentes não se submetem aos efeitos da recuperação judicial, ainda que instrumentalizados por cédulas de crédito bancário e posteriormente habilitados no quadro geral de credores.</p>
+
+            <div class="botoes">
+                <button onclick="responder(13, 'CERTO')">CERTO</button>
+                <button onclick="responder(13, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-13">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> CERTO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está correta porque o ponto central do entendimento é a natureza jurídica da operação realizada entre a cooperativa de crédito e seu associado. O art. 79 da Lei nº 5.764/1971 define ato cooperativo como aquele praticado entre a cooperativa e seus associados, ou entre estes e aquela, para a consecução dos objetivos sociais da entidade. Nessa lógica, a concessão de crédito ao associado não é tratada como operação mercantil comum, mas como atividade típica da própria estrutura cooperativa.<br><br>Além disso, o art. 6º, § 13, da Lei nº 11.101/2005, introduzido pela Lei nº 14.112/2020, estabelece expressamente que os contratos e obrigações decorrentes de atos cooperativos não se submetem aos efeitos da recuperação judicial. Assim, ainda que os créditos tenham sido formalizados por cédulas de crédito bancário e tenham sido inicialmente incluídos no quadro geral de credores, a natureza cooperativa da relação impede sua sujeição ao regime recuperacional.<br><br>O aspecto decisivo, portanto, não é a forma documental do crédito, mas a origem da obrigação e sua vinculação aos objetivos sociais da cooperativa. Se a operação decorre de ato cooperativo, a consequência legal é a exclusão dos efeitos da recuperação judicial, afastando a habilitação do respectivo crédito no concurso de credores.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.091.441-SP, Rel. Min. Ricardo Villas Bôas Cueva, julgado em 20/5/2025 (Info 852).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="CERTO">
+            <div class="questao-topo">
+                <span class="badge">Questão 14</span>
+                <span class="status" id="status-14">Não respondida</span>
+            </div>
+
+            <p class="enunciado">Em litisconsórcio passivo, se a audiência de conciliação for redesignada porque um dos corréus ainda não foi citado e, antes da nova assentada, houver desistência da ação em relação a esse corréu, devidamente homologada, com sua exclusão do polo passivo e cancelamento da audiência remarcada, o prazo para contestação do corréu já citado inicia-se com a intimação da decisão homologatória da desistência, e não com a data da primeira audiência frustrada.</p>
+
+            <div class="botoes">
+                <button onclick="responder(14, 'CERTO')">CERTO</button>
+                <button onclick="responder(14, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-14">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> CERTO</p>
+                <p><strong>Justificativa:</strong><br>A regra do art. 335, § 2º, do CPC, aplicada ao litisconsórcio passivo, conduz à conclusão de que o prazo de contestação não pode ser artificialmente antecipado quando a audiência de conciliação é inicialmente frustrada pela ausência de corréu ainda não citado e, por isso, é redesignada. Nessa hipótese, a dinâmica processual fica pendente da regularização da citação do litisconsorte ausente, de modo que a contagem do prazo defensivo do corréu já integrado ao processo não se estabiliza na primeira audiência, se ela não se exauriu validamente como marco processual apto a deflagrar o prazo.<br><br>Quando, antes da nova audiência, o autor desiste da ação em relação ao corréu não citado e essa desistência é homologada, ocorre alteração relevante na estrutura subjetiva da demanda: o litisconsorte ausente é excluído do processo e a audiência remarcada é cancelada. Nessa conjuntura, o termo inicial para a contestação do corréu remanescente passa a ser a intimação da homologação da desistência, pois é esse ato que encerra a pendência processual que justificava a redesignação da audiência. Assim, não se mostra correto fixar o início do prazo na data da primeira audiência, já que ela não produziu, naquele momento, a estabilização necessária para a abertura do prazo de defesa.<br><br>A solução prestigia a lógica do contraditório e da paridade de armas, evitando que o réu seja compelido a contestar antes da definição da composição subjetiva da lide. Em suma, havendo reagendamento da audiência por ausência de corréu não citado e posterior cancelamento em razão de desistência homologada, o prazo de contestação conta da intimação dessa homologação.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.180.502-GO, Rel. Min. Nancy Andrighi, julgado em 20/5/2025 (Info 852).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="CERTO">
+            <div class="questao-topo">
+                <span class="badge">Questão 15</span>
+                <span class="status" id="status-15">Não respondida</span>
+            </div>
+
+            <p class="enunciado">É incabível o manejo de ação popular para impugnar majoração de tributo estadual e pleitear a restituição de valores recolhidos, ainda que a parte autora sustente violação ao princípio da anterioridade, pois essa via processual não se destina à tutela de interesses individuais homogêneos de natureza tributária nem à mera recomposição patrimonial do erário ou do contribuinte.</p>
+
+            <div class="botoes">
+                <button onclick="responder(15, 'CERTO')">CERTO</button>
+                <button onclick="responder(15, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-15">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> CERTO</p>
+                <p><strong>Justificativa:</strong><br>A ação popular tem objeto constitucional e legal delimitado: destina-se à tutela de bens jurídicos transindividuais, especialmente patrimônio público, moralidade administrativa, meio ambiente e patrimônio histórico e cultural, não servindo como instrumento genérico de defesa de interesses individuais ou patrimoniais do cidadão.<br><br>No campo tributário, a inadequação é ainda mais evidente. A pretensão de afastar a exigência de tributo por suposta ofensa à anterioridade, com pedido de restituição dos valores pagos, revela controvérsia de índole patrimonial individual homogênea, e não lesão a bem jurídico difuso ou coletivo nos moldes exigidos para a ação popular. Além disso, o microssistema coletivo já contém vedação expressa ao uso da ação coletiva para discutir questões tributárias, o que reforça a impossibilidade de se utilizar a ação popular como sucedâneo de ação voltada à repetição de indébito ou à desconstituição de exação fiscal.<br><br>Assim, ainda que a tese de inconstitucionalidade tributária seja formulada sob a roupagem de proteção ao patrimônio público, o pedido de restituição de tributo pago evidencia que a finalidade real da demanda é a tutela de interesse individual homogêneo de caráter tributário, hipótese incompatível com a ação popular. Nessa linha, a via eleita é inadequada, pois não há lesão ao patrimônio público nos termos exigidos pela Lei da Ação Popular.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 2ª Turma. REsp 2.167.861-SE, Rel. Min. Francisco Falcão, julgado em 11/3/2025 (Info 852).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="CERTO">
+            <div class="questao-topo">
+                <span class="badge">Questão 16</span>
+                <span class="status" id="status-16">Não respondida</span>
+            </div>
+
+            <p class="enunciado">Ainda que a proposta de acordo de não persecução penal seja formulada em processo penal em curso quando da superveniência da Lei nº 13.964/2019, a manifestação do investigado ou réu não pode ser condicionada ao prévio julgamento de preliminares suscitadas na defesa, pois, uma vez ofertado o ANPP pelo Ministério Público, cabe à parte interessada aceitá-lo ou recusá-lo de imediato, sem poder eleger o momento processualmente mais conveniente para se pronunciar.</p>
+
+            <div class="botoes">
+                <button onclick="responder(16, 'CERTO')">CERTO</button>
+                <button onclick="responder(16, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-16">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> CERTO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está correta porque o entendimento firmado é no sentido de que, uma vez apresentada a proposta de ANPP pelo Ministério Público, a manifestação da defesa deve ocorrer no momento oportunizado, não sendo dado ao investigado ou réu postergar a resposta para depois do exame de outras questões processuais, como nulidades arguidas no recurso.<br><br>O ponto central do julgado é a limitação da disponibilidade temporal da resposta ao acordo: o ANPP é um negócio jurídico processual penal cuja dinâmica pressupõe manifestação tempestiva da parte destinatária da proposta. A superveniência da Lei nº 13.964/2019 e a possibilidade de incidência do instituto em processos em andamento não alteram essa lógica. Assim, mesmo em feitos antigos, a parte não adquire um “direito de aguardar” o desfecho de preliminares ou incidentes para só então decidir se aceita ou não o benefício.<br><br>A consequência da inércia ou da recusa tácita no momento próprio é o regular prosseguimento do processo, sem que isso implique nulidade pela não postergação da análise do acordo. Em outras palavras, o julgador não está obrigado a suspender indefinidamente o curso da marcha processual para aguardar manifestação futura da defesa sobre proposta já formulada.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 5ª Turma. AgRg no REsp 2.171.590-SP, Rel. Min. Ribeiro Dantas, julgado em 14/5/2025 (Info 852).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="CERTO">
+            <div class="questao-topo">
+                <span class="badge">Questão 17</span>
+                <span class="status" id="status-17">Não respondida</span>
+            </div>
+
+            <p class="enunciado">A leitura, em audiência de instrução e julgamento, de depoimento prestado pela vítima na fase policial, por si só, não enseja nulidade processual, sendo indispensável a demonstração de prejuízo concreto à defesa; além disso, a atuação do magistrado para preservar a dignidade da vítima, nos termos da Lei n. 14.245/2021, não configura cerceamento de defesa quando a parte acusada dispõe de oportunidade para formular perguntas e exercer o contraditório.</p>
+
+            <div class="botoes">
+                <button onclick="responder(17, 'CERTO')">CERTO</button>
+                <button onclick="responder(17, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-17">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> CERTO</p>
+                <p><strong>Justificativa:</strong><br>O enunciado está correto porque reproduz a lógica central do entendimento firmado: em matéria de nulidades no processo penal, não basta a mera irregularidade formal ou a alegação abstrata de ofensa ao contraditório; é necessária a demonstração de efetivo prejuízo, em observância ao princípio pas de nullité sans grief. Assim, a simples leitura, em juízo, de depoimento anteriormente prestado pela vítima na fase policial não gera nulidade automática.<br><br>Além disso, a proteção da dignidade da vítima, especialmente após as alterações introduzidas pela Lei n. 14.245/2021, autoriza a intervenção judicial para evitar constrangimentos indevidos durante a oitiva, sem que isso implique, por si só, restrição ilegítima à defesa. Se a defesa teve oportunidade de questionar a vítima e de exercer o contraditório, não há cerceamento apto a invalidar o ato processual. O ponto decisivo, portanto, é a ausência de prejuízo concreto e a preservação da possibilidade de atuação defensiva.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 5ª Turma. AgRg no RHC 198.541-RJ, Rel. Min. Joel Ilan Paciornik, julgado em 14/4/2025 (Info 852).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="CERTO">
+            <div class="questao-topo">
+                <span class="badge">Questão 18</span>
+                <span class="status" id="status-18">Não respondida</span>
+            </div>
+
+            <p class="enunciado">O assistente de acusação, embora possa atuar de forma subsidiária e recorrer em hipóteses legalmente admitidas, não possui legitimidade para, em sede recursal, ampliar a imputação deduzida na denúncia a ponto de postular a condenação do réu por delito mais grave e juridicamente diverso daquele atribuído pelo Ministério Público, ainda que a pretensão se fundamente em elementos probatórios extraídos da própria instrução criminal.</p>
+
+            <div class="botoes">
+                <button onclick="responder(18, 'CERTO')">CERTO</button>
+                <button onclick="responder(18, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-18">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> CERTO</p>
+                <p><strong>Justificativa:</strong><br>A atuação do assistente de acusação é acessória e subordinada à pretensão punitiva deduzida pelo titular da ação penal pública. Sua intervenção processual não lhe confere autonomia para redefinir os contornos objetivos da acusação, nem para substituir o Ministério Público na escolha da capitulação jurídica ou na formulação de pedido condenatório por fato penalmente diverso.<br><br>No caso examinado, a denúncia imputava ao acusado crimes culposos na direção de veículo automotor e embriaguez ao volante. O assistente, ao recorrer, pretendeu a desclassificação para homicídio doloso, com remessa ao Tribunal do Júri, o que implicaria alteração substancial da imputação originária, com deslocamento da competência e ampliação do objeto acusatório para delito não deduzido pelo Ministério Público.<br><br>Esse tipo de pretensão extrapola os limites de atuação do assistente de acusação, que pode intervir para resguardar o interesse da vítima na persecução penal, mas não para inovar na acusação nem para buscar condenação por crime diverso daquele narrado na denúncia. A legitimidade recursal do assistente não é irrestrita: ela deve permanecer adstrita aos contornos da acusação formulada pelo órgão ministerial e aos interesses juridicamente compatíveis com essa moldura processual.<br><br>Assim, é correta a conclusão de que o assistente não pode, por recurso próprio, provocar a condenação do réu por delito distinto do imputado na inicial acusatória, ainda que sustente haver prova de elemento subjetivo mais gravoso. A pretensão de enquadramento em homicídio doloso, nesse contexto, invade esfera reservada ao Ministério Público e desborda da função processual do assistente.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 5ª Turma. AgRg no REsp 2.194.523-CE, Rel. Min. Ribeiro Dantas, julgado em 6/5/2025 (Info 852).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="CERTO">
+            <div class="questao-topo">
+                <span class="badge">Questão 19</span>
+                <span class="status" id="status-19">Não respondida</span>
+            </div>
+
+            <p class="enunciado">A determinação emanada da Corte Interamericana de Direitos Humanos para o cômputo em dobro do tempo de pena cumprido em estabelecimento prisional submetido a condições degradantes possui eficácia vinculante e imediata no plano interno, de modo que sua incidência alcança todo o período de reclusão nessas condições, ainda que a superlotação ou a situação violadora tenha cessado posteriormente, sendo incompatível com a limitação de seus efeitos a partir da data da decisão internacional.</p>
+
+            <div class="botoes">
+                <button onclick="responder(19, 'CERTO')">CERTO</button>
+                <button onclick="responder(19, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-19">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> CERTO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está correta porque a orientação firmada reconhece que a medida internacional não produz apenas efeitos prospectivos restritos ao momento de sua implementação, mas irradia eficácia vinculante e imediata, com natureza meramente declaratória quanto ao reconhecimento da violação e à consequência jurídica dela decorrente. Em matéria de direitos humanos, prevalece a interpretação mais protetiva à pessoa humana, em observância ao princípio pro personae, o que impede leitura restritiva capaz de esvaziar a tutela conferida pela decisão internacional.<br><br>No caso examinado, afastou-se a tese de que a resolução teria efeitos ex nunc. Entendeu-se que a urgência da providência internacional está ligada à necessidade de adoção célere dos meios de cumprimento, e não à limitação temporal dos seus efeitos. Assim, o cômputo em dobro do tempo de pena no Instituto Penal Plácido de Sá Carvalho deve abranger todo o período de cumprimento da reprimenda em condições degradantes, independentemente de posterior cessação da superlotação ou da melhora das condições carcerárias.<br><br>Em termos práticos, isso significa que a superveniência de alteração fática favorável ao estabelecimento prisional não elimina o direito já consolidado ao cômputo em dobro do período pretérito em que houve violação grave a direitos humanos. A interpretação adotada prestigia a máxima efetividade das normas internacionais de proteção e impede que a reparação seja artificialmente reduzida por marco temporal não previsto na própria decisão internacional.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 6ª Turma. AgRg no HC 930.249-RJ, Rel. Min. Antonio Saldanha Palheiro, julgado em 6/5/2025 (Info 852).</p>
+            </div>
+        </section>
+        
+
+</div>
+
+<script>
+const totalQuestoes = 19;
+let respostas = JSON.parse(localStorage.getItem(location.pathname + "_respostas") || "{}");
+
+function atualizarPainel() {
+    const respondidas = Object.keys(respostas).length;
+    let acertos = 0;
+    let erros = 0;
+
+    for (const key in respostas) {
+        if (respostas[key].correto) acertos++;
+        else erros++;
+    }
+
+    document.getElementById("respondidas").textContent = respondidas;
+    document.getElementById("acertos").textContent = acertos;
+    document.getElementById("erros").textContent = erros;
+}
+
+function responder(numero, resposta) {
+    const card = document.querySelectorAll(".questao")[numero - 1];
+    const gabarito = card.dataset.gabarito;
+    const correto = resposta === gabarito;
+
+    respostas[numero] = {
+        resposta,
+        correto
+    };
+
+    localStorage.setItem(location.pathname + "_respostas", JSON.stringify(respostas));
+
+    mostrarFeedback(numero);
+    atualizarPainel();
+}
+
+function mostrarFeedback(numero) {
+    const card = document.querySelectorAll(".questao")[numero - 1];
+    const feedback = document.getElementById("feedback-" + numero);
+    const status = document.getElementById("status-" + numero);
+    const resultado = feedback.querySelector(".resultado");
+
+    const dados = respostas[numero];
+
+    if (!dados) return;
+
+    feedback.style.display = "block";
+    feedback.classList.remove("correto", "errado");
+
+    if (dados.correto) {
+        feedback.classList.add("correto");
+        resultado.textContent = "Você acertou. A resposta é " + card.dataset.gabarito + ".";
+        status.textContent = "Respondida — acerto";
+        status.style.color = "var(--green)";
+    } else {
+        feedback.classList.add("errado");
+        resultado.textContent = "Você errou. O gabarito é " + card.dataset.gabarito + ".";
+        status.textContent = "Respondida — erro";
+        status.style.color = "var(--red)";
+    }
+}
+
+function restaurar() {
+    for (const key in respostas) {
+        mostrarFeedback(Number(key));
+    }
+    atualizarPainel();
+}
+
+function reiniciar() {
+    if (!confirm("Deseja reiniciar este simulado?")) return;
+    localStorage.removeItem(location.pathname + "_respostas");
+    location.reload();
+}
+
+restaurar();
+</script>
+
+</body>
+</html>

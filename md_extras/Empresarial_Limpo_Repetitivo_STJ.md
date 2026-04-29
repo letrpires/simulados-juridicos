@@ -1,0 +1,2 @@
+## Tema 1145
+**Tese:** Ao produtor rural que exerça sua atividade de forma empresarial há mais de dois anos é facultado<br>requerer a recuperação judicial, desde que esteja inscrito na Junta Comercial no momento em que<br>formalizar o pedido recuperacional, independentemente do tempo de seu registro.

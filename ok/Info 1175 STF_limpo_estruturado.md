@@ -1,0 +1,55 @@
+# Info 1175 STF
+
+**Status geral:** Estruturado automaticamente
+
+---
+
+## Julgado 1
+
+**Disciplina:** Direito Constitucional
+
+**Subtema:** Competências Legislativas
+
+**ODS:** 16
+
+**Título do julgado:**
+
+Município não pode legislar sobre isenção de honorários advocatícios em programa de regularização tributária, por se tratar de matéria processual, de competência privativa da União Importante!!!
+
+**Tese / entendimento:**
+
+É inconstitucional — por violar a competência privativa da União para legislar sobre direito
+processual (art. 22, I, CF/88) — norma municipal que isenta de pagamento de honorários de
+sucumbência os contribuintes que aderirem ao Programa Especial de Regularização
+Tributária (PERT) e desistirem das ações judiciais que tratem dos débitos que são objeto do
+referido programa.
+A norma municipal que isenta o pagamento de honorários advocatícios de sucumbência
+devidos aos procuradores municipais invade a esfera do direito processual, violando a
+competência legislativa reservada privativamente à União.
+STF. Plenário. ADPF 1.066/MG, Rel. Min. Nunes Marques, julgado em 30/04/2025 (Info 1175)
+DIREITO FINANCEIRO
+FUNDO ORÇAMENTÁRIO TEMPORÁRIO
+É constitucional a exigência de depósito de percentual de benefícios fiscais
+de ICMS para o Fundo Orçamentário Temporário (FOT)
+Como o Fundo Orçamentário Temporário (FOT) se caracteriza como fundo atípico — na
+medida em que não se destina a organizar programações específicas e detalhadas, com
+aplicação em ações ou objetivos predeterminados —, o regime proposto pela legislação
+estadual que o instituiu não caracteriza a vinculação de receita vedada pelo texto
+constitucional (art. 167, IV, CF/88).
+Tese fixada:
+(i) É constitucional a exigência de depósito de percentual de benefícios fiscais de ICMS para o
+Fundo Orçamentário Temporário (FOT), nos termos da ADI 5.635; e
+(ii) é infraconstitucional e fática a controvérsia sobre a possibilidade de exigir o depósito ao
+FOT em benefícios fiscais de ICMS concedidos por prazo certo e sob condição.
+
+**Referência:**
+
+STF. Plenário. RE 1.506.320/RJ, Rel. Min. Luís Roberto Barroso, julgado em 14/04/2025 (Repercussão geral – Tema 1.386) (Info 1175).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Simulado - Info 1198 STF</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+:root{
+--bg:#020617;--panel:rgba(15,23,42,.88);--card:rgba(15,23,42,.96);
+--card2:rgba(30,41,59,.92);--border:rgba(148,163,184,.22);
+--text:#e5e7eb;--muted:#94a3b8;--accent:#38bdf8;--accent2:#0ea5e9;
+--green:#22c55e;--red:#ef4444;--yellow:#facc15;--purple:#a78bfa;
+}
+*{box-sizing:border-box}
+body{
+margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+background:radial-gradient(circle at top left,rgba(56,189,248,.20),transparent 28%),
+radial-gradient(circle at top right,rgba(167,139,250,.15),transparent 28%),
+linear-gradient(135deg,#020617,#0f172a 50%,#020617);
+color:var(--text);line-height:1.65;
+}
+header{padding:44px 20px 32px;text-align:center;border-bottom:1px solid var(--border)}
+header h1{margin:0 0 10px;font-size:clamp(28px,4vw,46px);letter-spacing:-.05em}
+header p{color:var(--muted);margin:0;font-size:16px}
+.container{max-width:1160px;margin:0 auto;padding:26px 16px 80px}
+.painel{
+position:sticky;top:10px;z-index:10;background:var(--panel);backdrop-filter:blur(18px);
+border:1px solid var(--border);border-radius:26px;padding:16px;margin-bottom:22px;
+box-shadow:0 22px 70px rgba(0,0,0,.35)
+}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.stat{background:var(--card2);padding:14px;border-radius:18px;text-align:center;border:1px solid rgba(148,163,184,.12)}
+.stat strong{display:block;font-size:25px;color:var(--accent);line-height:1.1}
+.stat span{font-size:12px;color:var(--muted)}
+.filtros{display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:12px;margin-top:14px}
+input,select{
+width:100%;background:rgba(2,6,23,.78);color:var(--text);border:1px solid var(--border);
+border-radius:14px;padding:13px 14px;outline:none;font-size:14px
+}
+input:focus,select:focus{border-color:var(--accent)}
+.card{
+background:var(--card);border:1px solid var(--border);border-radius:24px;padding:26px;
+margin-bottom:20px;box-shadow:0 18px 50px rgba(0,0,0,.24)
+}
+.questao{scroll-margin-top:190px}
+.questao-topo{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:18px}
+.badge{
+background:linear-gradient(135deg,var(--accent),var(--accent2));color:#00111f;font-weight:900;
+padding:7px 13px;border-radius:999px;display:inline-block
+}
+.disciplina-tag,.tipo-tag{
+display:inline-block;margin-left:8px;color:var(--muted);background:rgba(148,163,184,.10);
+border:1px solid rgba(148,163,184,.14);padding:6px 10px;border-radius:999px;font-size:12px
+}
+.tipo-tag{color:#ddd6fe;border-color:rgba(167,139,250,.25)}
+.status{color:var(--yellow);font-size:13px;white-space:nowrap}
+.enunciado{font-size:19px;margin:0 0 22px;letter-spacing:-.01em}
+.botoes{display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.btn{
+cursor:pointer;border:0;padding:12px 22px;border-radius:14px;color:white;font-weight:900;
+transition:.18s ease;letter-spacing:.02em
+}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.certo{background:rgba(34,197,94,.20);border:1px solid rgba(34,197,94,.42)}
+.btn.errado{background:rgba(239,68,68,.20);border:1px solid rgba(239,68,68,.42)}
+.btn.neutro{background:rgba(56,189,248,.16);color:var(--text);border:1px solid rgba(56,189,248,.32)}
+.feedback{
+display:none;background:rgba(2,6,23,.72);border:1px solid rgba(148,163,184,.16);
+border-left:5px solid var(--accent);padding:18px;border-radius:18px;margin-top:14px
+}
+.feedback.correto{border-left-color:var(--green)}
+.feedback.errado{border-left-color:var(--red)}
+.resultado{font-size:18px;font-weight:900;margin-top:0}
+.justificativa{margin-top:12px}
+.referencia{color:var(--muted);font-size:13px;margin-top:16px}
+.gabarito-certo{color:var(--green);font-weight:900}
+.gabarito-errado{color:var(--red);font-weight:900}
+.oculta{display:none}
+.sem-resultados{text-align:center;color:var(--muted);display:none;padding:30px}
+.grid-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
+.link-card{
+display:block;padding:20px;background:rgba(15,23,42,.95);border:1px solid rgba(148,163,184,.22);
+color:#e5e7eb;border-radius:22px;text-decoration:none;transition:.2s;box-shadow:0 14px 40px rgba(0,0,0,.22)
+}
+.link-card:hover{transform:translateY(-3px);border-color:#38bdf8}
+.link-card strong{display:block;font-size:17px;margin-bottom:8px}
+.link-card span{color:#94a3b8;font-size:13px}
+.index-tools{display:grid;grid-template-columns:1.5fr 1fr;gap:12px;margin-bottom:20px}
+@media(max-width:850px){
+.stats{grid-template-columns:repeat(2,1fr)}
+.filtros,.index-tools{grid-template-columns:1fr}
+.questao-topo{align-items:flex-start;flex-direction:column}
+.botoes{flex-direction:column}
+.enunciado{font-size:16px}
+.card{padding:20px}
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Simulado - Info 1198 STF</h1>
+<p>Informativos • Simulado interativo de CERTO ou ERRADO</p>
+</header>
+
+<div class="container">
+<div class="painel">
+<div class="stats">
+<div class="stat"><strong>3</strong><span>Total</span></div>
+<div class="stat"><strong id="visiveis">3</strong><span>Visíveis</span></div>
+<div class="stat"><strong id="respondidas">0</strong><span>Respondidas</span></div>
+<div class="stat"><strong id="acertos">0</strong><span>Acertos</span></div>
+<div class="stat"><strong id="erros">0</strong><span>Erros</span></div>
+</div>
+
+<div class="filtros">
+<input id="busca" type="search" placeholder="Buscar por palavra-chave..." oninput="filtrar()">
+<select id="disciplina" onchange="filtrar()">
+<option value="">Todas as disciplinas</option>
+<option value="ECA">ECA</option>
+<option value="N/I">N/I</option>
+</select>
+<select id="statusFiltro" onchange="filtrar()">
+<option value="">Todas</option>
+<option value="nao">Não respondidas</option>
+<option value="acerto">Acertos</option>
+<option value="erro">Erros</option>
+</select>
+<button class="btn neutro" onclick="reiniciar()">Reiniciar</button>
+</div>
+</div>
+
+<div id="sem-resultados" class="sem-resultados">Nenhuma questão encontrada com os filtros atuais.</div>
+
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="é constitucional lei estadual que, ao disciplinar o transporte individual privado remunerado de passageiros por motocicletas, condicione o início da atividade à prévia autorização do respectivo município e à edição de regras locais específicas, ainda que, na prática, isso impeça a prestação do serviço até a manifestação expressa da administração municipal. a assertiva está incorreta porque a imposição, por lei estadual, de condicionamento do exercício da atividade de transporte individual privado remunerado de passageiros por motocicletas à prévia autorização e regulamentação municipal extrapola a competência legislativa estadual. a matéria envolve, em sua essência, diretrizes da política nacional de transportes e disciplina de trânsito e transporte, temas inseridos na competência privativa da união, nos termos do art. 22, ix e xi, da constituição federal.
+
+além do vício formal de competência, há também inconstitucionalidade material, pois a exigência de autorização municipal prévia e de regulamentação local como condição de funcionamento do serviço restringe indevidamente a livre iniciativa e a livre concorrência, além de afetar a proteção do consumidor, em afronta ao art. 170, caput e iv, da constituição. em termos práticos, a norma estadual cria uma barreira generalizada ao exercício da atividade, subordinando sua existência à vontade administrativa de cada município, o que não se harmoniza com o modelo constitucional de repartição de competências nem com a ordem econômica constitucional. stf. plenário. adi 7.852 mc-ref/sp, rel. min. alexandre de moraes, julgado em 11/11/2025 (info 1198).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 1</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-1">Não respondida</span>
+</div>
+
+<p class="enunciado">É constitucional lei estadual que, ao disciplinar o transporte individual privado remunerado de passageiros por motocicletas, condicione o início da atividade à prévia autorização do respectivo município e à edição de regras locais específicas, ainda que, na prática, isso impeça a prestação do serviço até a manifestação expressa da administração municipal.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(1, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(1, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-1">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque a imposição, por lei estadual, de condicionamento do exercício da atividade de transporte individual privado remunerado de passageiros por motocicletas à prévia autorização e regulamentação municipal extrapola a competência legislativa estadual. A matéria envolve, em sua essência, diretrizes da política nacional de transportes e disciplina de trânsito e transporte, temas inseridos na competência privativa da União, nos termos do art. 22, IX e XI, da Constituição Federal.<br><br>Além do vício formal de competência, há também inconstitucionalidade material, pois a exigência de autorização municipal prévia e de regulamentação local como condição de funcionamento do serviço restringe indevidamente a livre iniciativa e a livre concorrência, além de afetar a proteção do consumidor, em afronta ao art. 170, caput e IV, da Constituição. Em termos práticos, a norma estadual cria uma barreira generalizada ao exercício da atividade, subordinando sua existência à vontade administrativa de cada município, o que não se harmoniza com o modelo constitucional de repartição de competências nem com a ordem econômica constitucional.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.852 MC-Ref/SP, Rel. Min. Alexandre de Moraes, julgado em 11/11/2025 (Info 1198).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="ECA"
+data-texto="a omissão do congresso nacional na edição da lei complementar destinada a instituir o imposto sobre grandes fortunas configura mora legislativa apta a comprometer não apenas a eficácia da competência tributária prevista na constituição, mas também a concretização de objetivos fundamentais da república, especialmente porque o produto da arrecadação desse tributo possui destinação constitucional vinculada ao fundo de combate e erradicação da pobreza; ainda assim, não cabe ao poder judiciário fixar prazo para a edição da norma, em razão da complexidade do tema e da vedação à atuação judicial como legislador positivo. a assertiva está correta porque reproduz, em essência, o núcleo do entendimento firmado: reconheceu-se a mora do congresso nacional na regulamentação do imposto sobre grandes fortunas, previsto no art. 153, vii, da constituição, cuja instituição depende de lei complementar. a omissão não foi tratada apenas como um déficit formal de regulamentação tributária, mas como fator que também repercute na concretização de objetivos constitucionais ligados à redução das desigualdades e à promoção de justiça social, especialmente diante da previsão de destinação do produto arrecadado ao fundo de combate e erradicação da pobreza, nos termos do adct.
+
+ao mesmo tempo, o tribunal não avançou para impor prazo ao legislativo. a razão central foi a impossibilidade de o judiciário substituir-se ao parlamento na conformação normativa de tema sensível e complexo, que exige ponderação sobre impactos fiscais, econômicos e distributivos. assim, embora tenha havido reconhecimento formal da mora, não se extraiu daí uma ordem judicial com prazo certo para legislar, justamente para evitar atuação típica de legislador positivo. stf. plenário. ado 55/df, rel. min. marco aurélio, redator do acórdão min. cristiano zanin, julgado em 06/11/2025 (info 1198).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 2</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-2">Não respondida</span>
+</div>
+
+<p class="enunciado">A omissão do Congresso Nacional na edição da lei complementar destinada a instituir o imposto sobre grandes fortunas configura mora legislativa apta a comprometer não apenas a eficácia da competência tributária prevista na Constituição, mas também a concretização de objetivos fundamentais da República, especialmente porque o produto da arrecadação desse tributo possui destinação constitucional vinculada ao Fundo de Combate e Erradicação da Pobreza; ainda assim, não cabe ao Poder Judiciário fixar prazo para a edição da norma, em razão da complexidade do tema e da vedação à atuação judicial como legislador positivo.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(2, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(2, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-2">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz, em essência, o núcleo do entendimento firmado: reconheceu-se a mora do Congresso Nacional na regulamentação do imposto sobre grandes fortunas, previsto no art. 153, VII, da Constituição, cuja instituição depende de lei complementar. A omissão não foi tratada apenas como um déficit formal de regulamentação tributária, mas como fator que também repercute na concretização de objetivos constitucionais ligados à redução das desigualdades e à promoção de justiça social, especialmente diante da previsão de destinação do produto arrecadado ao Fundo de Combate e Erradicação da Pobreza, nos termos do ADCT.<br><br>Ao mesmo tempo, o Tribunal não avançou para impor prazo ao Legislativo. A razão central foi a impossibilidade de o Judiciário substituir-se ao Parlamento na conformação normativa de tema sensível e complexo, que exige ponderação sobre impactos fiscais, econômicos e distributivos. Assim, embora tenha havido reconhecimento formal da mora, não se extraiu daí uma ordem judicial com prazo certo para legislar, justamente para evitar atuação típica de legislador positivo.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADO 55/DF, Rel. Min. Marco Aurélio, redator do acórdão Min. Cristiano Zanin, julgado em 06/11/2025 (Info 1198).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a instituição do regime de previdência complementar dos servidores públicos federais titulares de cargo efetivo exige lei complementar de iniciativa reservada ao poder judiciário quando a disciplina alcançar magistrados, sendo incompatível com a criação, por lei ordinária de iniciativa do poder executivo, de entidade fechada de previdência complementar dotada de personalidade jurídica de direito privado para gerir esse regime. o enunciado está incorreto porque, no caso examinado, afastou-se a necessidade de lei complementar para instituir o regime de previdência complementar dos servidores públicos federais. a constituição, ao remeter genericamente ao art. 202 no art. 40, § 15, não impôs quórum qualificado nem reserva de lei complementar para essa finalidade, sendo válida a regulamentação por lei ordinária de iniciativa do poder executivo.
+
+também não procede a afirmação de que a disciplina, por alcançar magistrados, dependeria de iniciativa reservada ao poder judiciário. o entendimento firmado foi no sentido de que os magistrados se submetem ao regime previdenciário geral dos servidores públicos previsto no art. 40 da constituição, nos termos do art. 93, vi, e que as normas constitucionais que reservam iniciativa legislativa ao judiciário têm rol taxativo, não abrangendo a instituição de regime previdenciário exclusivo para a magistratura.
+
+além disso, foi reconhecida a possibilidade de entidades fechadas de previdência complementar dos servidores públicos possuírem personalidade jurídica de direito privado, ainda que ostentem natureza pública. assim, não há incompatibilidade entre a criação de entidade com essa conformação jurídica e a gestão do regime complementar.
+
+em síntese, a tese firmada prestigia a uniformidade do regime previdenciário dos agentes públicos, a validade da lei ordinária de iniciativa do executivo e a submissão dos magistrados às mesmas balizas constitucionais aplicáveis aos demais servidores, inclusive quanto à previdência complementar. stf. plenário. adi 4.946/df, adi 4.893/df, adi 4.885/df e adi 4.863/df, rel. min. andré mendonça, julgados em 11/11/2025 (info 1198).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 3</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-3">Não respondida</span>
+</div>
+
+<p class="enunciado">A instituição do regime de previdência complementar dos servidores públicos federais titulares de cargo efetivo exige lei complementar de iniciativa reservada ao Poder Judiciário quando a disciplina alcançar magistrados, sendo incompatível com a criação, por lei ordinária de iniciativa do Poder Executivo, de entidade fechada de previdência complementar dotada de personalidade jurídica de direito privado para gerir esse regime.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(3, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(3, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-3">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O enunciado está incorreto porque, no caso examinado, afastou-se a necessidade de lei complementar para instituir o regime de previdência complementar dos servidores públicos federais. A Constituição, ao remeter genericamente ao art. 202 no art. 40, § 15, não impôs quórum qualificado nem reserva de lei complementar para essa finalidade, sendo válida a regulamentação por lei ordinária de iniciativa do Poder Executivo.<br><br>Também não procede a afirmação de que a disciplina, por alcançar magistrados, dependeria de iniciativa reservada ao Poder Judiciário. O entendimento firmado foi no sentido de que os magistrados se submetem ao regime previdenciário geral dos servidores públicos previsto no art. 40 da Constituição, nos termos do art. 93, VI, e que as normas constitucionais que reservam iniciativa legislativa ao Judiciário têm rol taxativo, não abrangendo a instituição de regime previdenciário exclusivo para a magistratura.<br><br>Além disso, foi reconhecida a possibilidade de entidades fechadas de previdência complementar dos servidores públicos possuírem personalidade jurídica de direito privado, ainda que ostentem natureza pública. Assim, não há incompatibilidade entre a criação de entidade com essa conformação jurídica e a gestão do regime complementar.<br><br>Em síntese, a tese firmada prestigia a uniformidade do regime previdenciário dos agentes públicos, a validade da lei ordinária de iniciativa do Executivo e a submissão dos magistrados às mesmas balizas constitucionais aplicáveis aos demais servidores, inclusive quanto à previdência complementar.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 4.946/DF, ADI 4.893/DF, ADI 4.885/DF e ADI 4.863/DF, Rel. Min. André Mendonça, julgados em 11/11/2025 (Info 1198).</p>
+</div>
+</section>
+
+</div>
+
+<script>
+const storageKey = location.pathname + "_respostas";
+let respostas = JSON.parse(localStorage.getItem(storageKey) || "{}");
+
+function destacar(t){
+ if(t==="CERTO") return '<span class="gabarito-certo">CERTO</span>';
+ if(t==="ERRADO") return '<span class="gabarito-errado">ERRADO</span>';
+ return t;
+}
+
+function responder(numero, resposta){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const gabarito=card.dataset.gabarito;
+ const correto=resposta===gabarito;
+ respostas[numero]={resposta,correto};
+ localStorage.setItem(storageKey, JSON.stringify(respostas));
+ mostrarFeedback(numero);
+ atualizarPainel();
+ filtrar();
+}
+
+function mostrarFeedback(numero){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const feedback=document.getElementById("feedback-"+numero);
+ const status=document.getElementById("status-"+numero);
+ const resultado=feedback.querySelector(".resultado");
+ const gabarito=card.dataset.gabarito;
+ const dados=respostas[numero];
+ if(!dados) return;
+ feedback.style.display="block";
+ feedback.classList.remove("correto","errado");
+ if(dados.correto){
+   feedback.classList.add("correto");
+   resultado.innerHTML="Você acertou. A resposta é "+destacar(gabarito)+".";
+   status.textContent="Respondida — acerto";
+   status.style.color="var(--green)";
+ } else {
+   feedback.classList.add("errado");
+   resultado.innerHTML="Você errou. O gabarito é "+destacar(gabarito)+".";
+   status.textContent="Respondida — erro";
+   status.style.color="var(--red)";
+ }
+}
+
+function atualizarPainel(){
+ let respondidas=0, acertos=0, erros=0;
+ for(const k in respostas){
+   respondidas++;
+   if(respostas[k].correto) acertos++; else erros++;
+ }
+ document.getElementById("respondidas").textContent=respondidas;
+ document.getElementById("acertos").textContent=acertos;
+ document.getElementById("erros").textContent=erros;
+ document.getElementById("visiveis").textContent=document.querySelectorAll(".questao:not(.oculta)").length;
+}
+
+function filtrar(){
+ const busca=document.getElementById("busca").value.trim().toLowerCase();
+ const disciplina=document.getElementById("disciplina").value;
+ const statusFiltro=document.getElementById("statusFiltro").value;
+ const cards=Array.from(document.querySelectorAll(".questao"));
+ let vis=0;
+ cards.forEach((card,idx)=>{
+   const n=idx+1;
+   const texto=card.dataset.texto||"";
+   const disc=card.dataset.disciplina||"";
+   const r=respostas[n];
+   let passaStatus=true;
+   if(statusFiltro==="nao") passaStatus=!r;
+   if(statusFiltro==="acerto") passaStatus=r && r.correto;
+   if(statusFiltro==="erro") passaStatus=r && !r.correto;
+   const ok=(!busca||texto.includes(busca)) && (!disciplina||disc===disciplina) && passaStatus;
+   card.classList.toggle("oculta", !ok);
+   if(ok) vis++;
+ });
+ document.getElementById("sem-resultados").style.display=vis===0?"block":"none";
+ atualizarPainel();
+}
+
+function reiniciar(){
+ if(!confirm("Deseja reiniciar este simulado?")) return;
+ localStorage.removeItem(storageKey);
+ location.reload();
+}
+
+function restaurar(){
+ for(const k in respostas) mostrarFeedback(Number(k));
+ filtrar();
+ atualizarPainel();
+}
+
+restaurar();
+</script>
+</body>
+</html>

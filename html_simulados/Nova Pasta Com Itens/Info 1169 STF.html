@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Simulado - Info 1169 STF</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+    --bg: #0f172a;
+    --card: #111827;
+    --card2: #1f2937;
+    --text: #e5e7eb;
+    --muted: #9ca3af;
+    --accent: #38bdf8;
+    --green: #22c55e;
+    --red: #ef4444;
+    --yellow: #facc15;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #020617, #111827);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+header {
+    padding: 32px 20px;
+    text-align: center;
+    border-bottom: 1px solid #334155;
+}
+
+header h1 {
+    margin: 0 0 10px;
+    font-size: 28px;
+}
+
+header p {
+    color: var(--muted);
+    margin: 0;
+}
+
+.container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 24px 16px 80px;
+}
+
+.painel {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(8px);
+    border: 1px solid #334155;
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 24px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.stat {
+    background: var(--card2);
+    padding: 12px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.stat strong {
+    display: block;
+    font-size: 22px;
+    color: var(--accent);
+}
+
+.card {
+    background: rgba(17, 24, 39, 0.96);
+    border: 1px solid #334155;
+    border-radius: 18px;
+    padding: 22px;
+    margin-bottom: 20px;
+    box-shadow: 0 12px 30px rgba(0,0,0,.25);
+}
+
+.questao-topo {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.badge {
+    background: #0ea5e9;
+    color: #00111f;
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 999px;
+}
+
+.status {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.enunciado {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.botoes {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+button {
+    cursor: pointer;
+    border: 0;
+    padding: 12px 22px;
+    border-radius: 12px;
+    background: #334155;
+    color: white;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+button:hover {
+    transform: translateY(-1px);
+    background: #475569;
+}
+
+.feedback {
+    display: none;
+    background: #020617;
+    border-left: 4px solid var(--accent);
+    padding: 16px;
+    border-radius: 12px;
+    margin-top: 12px;
+}
+
+.feedback.correto {
+    border-left-color: var(--green);
+}
+
+.feedback.errado {
+    border-left-color: var(--red);
+}
+
+.resultado {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.referencia {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.acoes {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.acoes button {
+    background: #0ea5e9;
+    color: #00111f;
+}
+
+@media (max-width: 700px) {
+    .painel {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .botoes {
+        flex-direction: column;
+    }
+
+    header h1 {
+        font-size: 22px;
+    }
+
+    .enunciado {
+        font-size: 16px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Simulado - Info 1169 STF</h1>
+    <p>Simulado interativo de CERTO ou ERRADO</p>
+</header>
+
+<div class="container">
+
+    <div class="painel">
+        <div class="stat">
+            <strong id="total">6</strong>
+            Total
+        </div>
+        <div class="stat">
+            <strong id="respondidas">0</strong>
+            Respondidas
+        </div>
+        <div class="stat">
+            <strong id="acertos">0</strong>
+            Acertos
+        </div>
+        <div class="stat">
+            <strong id="erros">0</strong>
+            Erros
+        </div>
+    </div>
+
+    <div class="acoes">
+        <button onclick="reiniciar()">Reiniciar simulado</button>
+    </div>
+
+    
+        <section class="card questao" data-gabarito="CERTO">
+            <div class="questao-topo">
+                <span class="badge">Questão 1</span>
+                <span class="status" id="status-1">Não respondida</span>
+            </div>
+
+            <p class="enunciado">A emenda constitucional que inseriu no art. 225 da Constituição Federal regra segundo a qual práticas desportivas que utilizem animais não se submetem à vedação de crueldade, desde que qualificadas como manifestações culturais registradas como patrimônio imaterial e disciplinadas por lei específica apta a assegurar o bem-estar dos animais envolvidos, é compatível com a ordem constitucional, por não implicar supressão do direito ao meio ambiente ecologicamente equilibrado nem esvaziamento absoluto da proteção animal.</p>
+
+            <div class="botoes">
+                <button onclick="responder(1, 'CERTO')">CERTO</button>
+                <button onclick="responder(1, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-1">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> CERTO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está correta porque a alteração constitucional não afastou, de modo irrestrito, a tutela ambiental nem a vedação à crueldade contra animais. O ponto central do entendimento é que a norma constitucional introduzida pela EC 96/2017 não criou uma autorização genérica para qualquer prática com animais, mas apenas para hipóteses estritamente delimitadas: (i) práticas desportivas; (ii) que utilizem animais; (iii) que sejam manifestações culturais nos termos do art. 215, § 1º, da CF; (iv) registradas como bem de natureza imaterial integrante do patrimônio cultural brasileiro; e (v) regulamentadas por lei específica que assegure o bem-estar dos animais envolvidos.<br><br>Esse desenho normativo evidencia harmonização entre direitos culturais e proteção ambiental, sem eliminação da tutela constitucional do art. 225. A emenda, portanto, não afronta cláusulas pétreas, porque não extingue o núcleo essencial do direito ao meio ambiente equilibrado nem suprime, em termos absolutos, a vedação à crueldade. Ao contrário, condiciona a excepcionalidade à existência de disciplina legal específica e à preservação do bem-estar animal, o que impede leitura de permissividade irrestrita.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 5.728/DF, Rel. Min. Dias Toffoli, julgado em 17/03/2025 (Info 1169).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="ERRADO">
+            <div class="questao-topo">
+                <span class="badge">Questão 2</span>
+                <span class="status" id="status-2">Não respondida</span>
+            </div>
+
+            <p class="enunciado">É constitucional a exigência de reconhecimento de firma do Promotor de Justiça, como condição para a averbação de termo de reconhecimento de paternidade lavrado perante o Ministério Público, pois tal formalidade reforça a segurança jurídica do registro civil e se harmoniza com a autonomia normativa dos serviços extrajudiciais, inexistindo violação à fé pública atribuída aos atos ministeriais.</p>
+
+            <div class="botoes">
+                <button onclick="responder(2, 'CERTO')">CERTO</button>
+                <button onclick="responder(2, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-2">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> ERRADO</p>
+                <p><strong>Justificativa:</strong><br>A exigência é inconstitucional. O ponto central do entendimento é que o termo de reconhecimento de paternidade firmado perante o Ministério Público já é praticado por agente investido de fé pública, de modo que submeter sua eficácia registral ao reconhecimento de firma do Promotor de Justiça equivale a tratar o ato ministerial como se fosse simples documento particular, o que desnatura sua presunção de autenticidade.<br><br>Além disso, a formalidade não se justifica à luz do princípio da proporcionalidade. A medida não se mostra adequada nem necessária para prevenir fraudes, porque o próprio sistema registral dispõe de mecanismos aptos a verificar a autenticidade documental e a regularidade do título apresentado. Assim, a imposição de mais uma etapa burocrática apenas cria obstáculo desnecessário ao exercício do direito ao registro da paternidade, sem ganho real de segurança jurídica.<br><br>Em síntese, a norma questionada viola a fé pública dos atos praticados por membros do Ministério Público e impõe entrave formal excessivo, sem justificativa razoável, razão pela qual não pode subsistir.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 5.511/DF, Rel. Min. Nunes Marques, julgado em 17/03/2025 (Info 1169).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="CERTO">
+            <div class="questao-topo">
+                <span class="badge">Questão 3</span>
+                <span class="status" id="status-3">Não respondida</span>
+            </div>
+
+            <p class="enunciado">A declaração de inconstitucionalidade da regra que restringia a participação na distribuição das sobras eleitorais aos partidos e candidatos que alcançassem, respectivamente, 80% e 20% do quociente eleitoral produz efeitos retroativos, sendo inaplicável a técnica da modulação com fundamento no art. 16 da Constituição quando a controvérsia não envolve criação de nova disciplina normativa, mas a expulsão do ordenamento de regra já existente, de modo que a solução alcança também o pleito de 2022.</p>
+
+            <div class="botoes">
+                <button onclick="responder(3, 'CERTO')">CERTO</button>
+                <button onclick="responder(3, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-3">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> CERTO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está correta. O ponto central do julgamento foi o reconhecimento de que a regra introduzida pela Lei nº 14.211/2021, ao limitar a participação nas sobras eleitorais, foi declarada inconstitucional sem que houvesse base válida para restringir os efeitos dessa decisão apenas para o futuro.<br><br>Em um primeiro momento, havia sido adotada a modulação dos efeitos para fazer incidir a decisão somente a partir das eleições de 2024, com invocação do art. 16 da Constituição, que protege a anualidade eleitoral. Contudo, nos embargos de declaração, prevaleceu o entendimento de que não se tratava de hipótese de criação de nova norma eleitoral, mas de simples declaração de invalidade de regra já existente. Nessa perspectiva, o art. 16 não serviria como fundamento para preservar, por um período adicional, a aplicação de uma disciplina inconstitucional.<br><br>Além disso, o STF reconheceu que não havia quórum suficiente para a modulação dos efeitos, exigência que, em matéria de controle concentrado, demanda maioria qualificada. A ausência desse requisito reforçou a impossibilidade de manter a eficácia prospectiva da decisão. O Tribunal também destacou que a manutenção dos efeitos ex nunc agravaria a insegurança jurídica e poderia comprometer a igualdade de chances entre os partidos, especialmente no contexto das eleições municipais de 2024.<br><br>Por consequência, a decisão passou a produzir efeitos retroativos, alcançando também as eleições de 2022. Em termos práticos, isso significa que a distribuição das sobras eleitorais não pode ser limitada pela regra 80/20, devendo observar o entendimento de que todos os partidos participam da divisão, sem a restrição antes imposta pela norma declarada inconstitucional.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.228/ED/DF e ADI 7.263 ED/DF, Rel. Min. Cármen Lúcia, redator do acórdão Min. Flávio Dino, julgado em 13/03/2025 (Info 1169).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="ERRADO">
+            <div class="questao-topo">
+                <span class="badge">Questão 4</span>
+                <span class="status" id="status-4">Não respondida</span>
+            </div>
+
+            <p class="enunciado">É constitucional a emenda à Lei Orgânica do Distrito Federal que, ao excluir os cargos em comissão dos gabinetes parlamentares e das lideranças partidárias da Câmara Legislativa do Distrito Federal do cômputo do percentual mínimo destinado a servidores públicos de carreira, apenas densifica a autonomia organizacional do Poder Legislativo local, sem ofensa à reserva de iniciativa do chefe do Poder Executivo nem à exigência constitucional de observância de proporção razoável entre cargos comissionados e efetivos.</p>
+
+            <div class="botoes">
+                <button onclick="responder(4, 'CERTO')">CERTO</button>
+                <button onclick="responder(4, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-4">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> ERRADO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque a exclusão de tais cargos do percentual mínimo de provimento por servidores de carreira não foi reputada compatível com a Constituição. O vício identificado não se limita a uma questão de organização interna do Legislativo local: a norma, ao disciplinar matéria inserida no regime jurídico dos servidores públicos, invade a iniciativa privativa do chefe do Poder Executivo para deflagrar o processo legislativo pertinente, nos termos do art. 61, § 1º, II, “c”, da Constituição Federal.<br><br>Além disso, a solução normativa impugnada produz efeito materialmente incompatível com os princípios que regem o provimento de cargos públicos. Ao retirar do cálculo justamente os cargos comissionados dos gabinetes parlamentares e das lideranças partidárias, a emenda reduz de modo significativo o percentual efetivo de cargos ocupados por servidores de carreira, esvaziando a exigência de proporcionalidade e enfraquecendo a regra do concurso público como forma ordinária de acesso aos cargos estatais. Em outras palavras, não se trata de mera opção legislativa neutra: a exclusão gera um resultado final excessivamente baixo de servidores efetivos, o que foi considerado incompatível com a Constituição.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 4.055/DF, Rel. Min. Nunes Marques, redator do acórdão Ministro Flávio Dino, julgado em 17/03/2025 (Info 1169).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="CERTO">
+            <div class="questao-topo">
+                <span class="badge">Questão 5</span>
+                <span class="status" id="status-5">Não respondida</span>
+            </div>
+
+            <p class="enunciado">A declaração de inconstitucionalidade do art. 24-C do Decreto-Lei n.º 667/1969, ao afastar a imposição federal de alíquotas uniformes para a contribuição previdenciária de militares estaduais, autoriza a repristinação automática da disciplina anterior prevista em lei estadual, ainda que o percentual nela fixado seja inferior ao aplicado aos militares das Forças Armadas, sem que isso configure violação à Constituição nem imponha, por si só, nova modulação de efeitos em razão de alegada repercussão financeira para o ente federado.</p>
+
+            <div class="botoes">
+                <button onclick="responder(5, 'CERTO')">CERTO</button>
+                <button onclick="responder(5, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-5">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> CERTO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a lógica central do entendimento firmado: uma vez reconhecida a inconstitucionalidade da norma federal que havia uniformizado a alíquota das contribuições previdenciárias dos militares estaduais, resta restabelecida a disciplina estadual anterior, por repristinação automática, desde que haja norma local válida a reger a matéria. Nessa hipótese, não subsiste fundamento para sustentar, por si só, que a alíquota estadual inferior à das Forças Armadas ofenda o princípio da simetria, pois a definição da contribuição previdenciária dos militares estaduais integra a esfera de competência dos Estados.<br><br>Além disso, a mera alegação de impacto financeiro — como eventual perda de arrecadação ou necessidade de restituição de valores recolhidos a maior — não basta para impor nova modulação de efeitos. No caso, a Corte já havia delimitado os efeitos temporais no julgamento do tema de repercussão geral pertinente, restringindo a validade das contribuições recolhidas até 1º de janeiro de 2023. Assim, não se abre automaticamente nova janela para rediscutir a modulação com base apenas nas consequências orçamentárias apontadas pelo ente federado.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADPF 1.184/MG, Rel. Min. Alexandre de Moraes, julgado em 17/03/2025 (Info 1169).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="ERRADO">
+            <div class="questao-topo">
+                <span class="badge">Questão 6</span>
+                <span class="status" id="status-6">Não respondida</span>
+            </div>
+
+            <p class="enunciado">A previsão constitucional introduzida pela EC 96/2017, ao afastar a caracterização de crueldade em práticas desportivas com animais, alcança automaticamente toda manifestação cultural registrada como patrimônio imaterial, independentemente de regulamentação infraconstitucional específica, bastando, para sua validade, a mera invocação do direito à cultura em detrimento da tutela ambiental.</p>
+
+            <div class="botoes">
+                <button onclick="responder(6, 'CERTO')">CERTO</button>
+                <button onclick="responder(6, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-6">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> ERRADO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque simplifica indevidamente o alcance da EC 96/2017. A emenda não afastou de modo irrestrito a vedação constitucional à crueldade contra animais nem conferiu salvo-conduto automático a qualquer prática cultural com uso de animais. O texto constitucional inserido no art. 225, § 7º, condiciona a não incidência da crueldade a dois requisitos cumulativos: (i) que a prática desportiva com animais seja manifestação cultural, nos termos do art. 215, § 1º, da Constituição, e registrada como bem de natureza imaterial integrante do patrimônio cultural brasileiro; e (ii) que seja regulamentada por lei específica apta a assegurar o bem-estar dos animais envolvidos.<br><br>O ponto central do entendimento é justamente a compatibilização entre direitos culturais e proteção ambiental, sem supressão de qualquer deles. A emenda não eliminou a tutela do meio ambiente ecologicamente equilibrado nem esvaziou a proibição de crueldade; apenas conferiu estatura constitucional a uma hipótese delimitada, submetida a condicionantes normativas. Por isso, é incorreto afirmar que a simples invocação do direito à cultura bastaria para afastar a proteção ambiental ou que toda manifestação cultural registrada como patrimônio imaterial seria automaticamente considerada não cruel.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 5.728/DF, Rel. Min. Dias Toffoli, julgado em 17/03/2025 (Info 1169).</p>
+            </div>
+        </section>
+        
+
+</div>
+
+<script>
+const totalQuestoes = 6;
+let respostas = JSON.parse(localStorage.getItem(location.pathname + "_respostas") || "{}");
+
+function atualizarPainel() {
+    const respondidas = Object.keys(respostas).length;
+    let acertos = 0;
+    let erros = 0;
+
+    for (const key in respostas) {
+        if (respostas[key].correto) acertos++;
+        else erros++;
+    }
+
+    document.getElementById("respondidas").textContent = respondidas;
+    document.getElementById("acertos").textContent = acertos;
+    document.getElementById("erros").textContent = erros;
+}
+
+function responder(numero, resposta) {
+    const card = document.querySelectorAll(".questao")[numero - 1];
+    const gabarito = card.dataset.gabarito;
+    const correto = resposta === gabarito;
+
+    respostas[numero] = {
+        resposta,
+        correto
+    };
+
+    localStorage.setItem(location.pathname + "_respostas", JSON.stringify(respostas));
+
+    mostrarFeedback(numero);
+    atualizarPainel();
+}
+
+function mostrarFeedback(numero) {
+    const card = document.querySelectorAll(".questao")[numero - 1];
+    const feedback = document.getElementById("feedback-" + numero);
+    const status = document.getElementById("status-" + numero);
+    const resultado = feedback.querySelector(".resultado");
+
+    const dados = respostas[numero];
+
+    if (!dados) return;
+
+    feedback.style.display = "block";
+    feedback.classList.remove("correto", "errado");
+
+    if (dados.correto) {
+        feedback.classList.add("correto");
+        resultado.textContent = "Você acertou. A resposta é " + card.dataset.gabarito + ".";
+        status.textContent = "Respondida — acerto";
+        status.style.color = "var(--green)";
+    } else {
+        feedback.classList.add("errado");
+        resultado.textContent = "Você errou. O gabarito é " + card.dataset.gabarito + ".";
+        status.textContent = "Respondida — erro";
+        status.style.color = "var(--red)";
+    }
+}
+
+function restaurar() {
+    for (const key in respostas) {
+        mostrarFeedback(Number(key));
+    }
+    atualizarPainel();
+}
+
+function reiniciar() {
+    if (!confirm("Deseja reiniciar este simulado?")) return;
+    localStorage.removeItem(location.pathname + "_respostas");
+    location.reload();
+}
+
+restaurar();
+</script>
+
+</body>
+</html>

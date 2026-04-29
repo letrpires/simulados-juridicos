@@ -1,0 +1,296 @@
+# Info 1180 STF
+
+**Status geral:** Estruturado automaticamente
+
+---
+
+## Julgado 1
+
+**Disciplina:** Direito Constitucional
+
+**Subtema:** Competências Legislativas
+
+**ODS:** N/I
+
+**Título do julgado:**
+
+É inconstitucional norma estadual que estabelece regras sobre a suspensão do fornecimento dos serviços de energia elétrica e de água por inadimplência do usuário Caso concreto: Lei de Tocantins proibiu que as concessionárias suspendam o fornecimento de energia elétrica e água tratada por falta de pagamento antes de 60 dias do vencimento da conta. Essa lei é inconstitucional porque: A Constituição atribui à União a competência administrativa para explorar os serviços de energia elétrica (art. 21, XII, b, CF/88), bem como a competência privativa para legislar sobre águas e energia (art. 22, IV, CF/88), não cabendo ao Estado-membro disciplinar aspectos do serviço de fornecimento de energia, inclusive quanto à suspensão por inadimplemento. No caso do fornecimento de água tratada, a Constituição atribui aos Municípios a responsabilidade de organizar e legislar sobre esse serviço, por ser de interesse local (art. 30, I e V, CF/88). A União, por sua vez, pode apenas estabelecer normas gerais sobre recursos hídricos (art. 22, IV, CF/88). Assim, a lei estadual interfere na autonomia dos Municípios ao legislar sobre o tema.
+
+**Tese / entendimento:**
+
+É inconstitucional norma estadual que estabelece regras sobre a suspensão do
+fornecimento dos serviços de energia elétrica e de água por inadimplência do usuário
+Caso concreto: Lei de Tocantins proibiu que as concessionárias suspendam o fornecimento de
+energia elétrica e água tratada por falta de pagamento antes de 60 dias do vencimento da
+conta.
+Essa lei é inconstitucional porque:
+A Constituição atribui à União a competência administrativa para explorar os serviços de
+energia elétrica (art. 21, XII, b, CF/88), bem como a competência privativa para legislar sobre
+águas e energia (art. 22, IV, CF/88), não cabendo ao Estado-membro disciplinar aspectos do
+serviço de fornecimento de energia, inclusive quanto à suspensão por inadimplemento.
+No caso do fornecimento de água tratada, a Constituição atribui aos Municípios a
+responsabilidade de organizar e legislar sobre esse serviço, por ser de interesse local (art. 30,
+I e V, CF/88). A União, por sua vez, pode apenas estabelecer normas gerais sobre recursos
+hídricos (art. 22, IV, CF/88). Assim, a lei estadual interfere na autonomia dos Municípios ao
+legislar sobre o tema.
+
+**Referência:**
+
+STF. Plenário. ADI 7.725/TO, Rel. Min. André Mendonça, julgado em 26/05/2025 (Info 1180).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 2
+
+**Disciplina:** Direito Constitucional
+
+**Subtema:** Poder Legislativo
+
+**ODS:** 16
+
+**Título do julgado:**
+
+Assim como ocorre com os Parlamentares federais, é vedado o pagamento de valor a mais a Deputados Estaduais pelo fato de terem sido convocados para sessão extraordinária
+
+**Tese / entendimento:**
+
+É proibido o pagamento de vantagem pecuniária a deputados estaduais por convocação para
+sessão extraordinária.
+Desse modo, é inconstitucional — por violar o princípio da simetria federativa (arts. 27, § 2º;
+e 57, § 7º, CF/88) — norma de Constituição estadual que possibilita o pagamento de parcela
+indenizatória a parlamentares convocados para sessões legislativas extraordinárias.
+
+**Referência:**
+
+STF. Plenário. ADI 6.857/SP, Rel. Min. Cristiano Zanin, julgado em 03/06/2025 (Info 1180).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 3
+
+**Disciplina:** Direito Administrativo
+
+**Subtema:** Servidores Públicos
+
+**ODS:** 3 E 8
+
+**Título do julgado:**
+
+No exercício de sua autonomia legislativa para disciplinar o regime jurídico dos servidores, o município não pode restringir o período de férias, sob o fundamento de que o servidor esteve em licença para tratamento de saúde
+
+**Tese / entendimento:**
+
+Caso concreto: Lei municipal de São Bernardo do Campo (SP) dizia que o servidor público
+municipal teria 30 dias de férias, mas só se não faltasse mais de 12 vezes ao trabalho no ano
+anterior, independentemente do motivo. Se o servidor ficasse afastado por licença médica por
+mais de 30 dias no ano, esses dias seriam contados como faltas e poderiam reduzir as férias
+de 30 para 20 dias.
+Essa lei não é compatível com a CF/88.
+O Município, no exercício de sua autonomia legislativa, não pode restringir o período de férias
+do servidor público sob o fundamento de afastamento por licença médica, pois tal restrição
+viola o direito fundamental de férias anuais assegurado pela Constituição.
+A licença para tratamento de saúde não equivale a licença voluntária e não pode ser utilizada
+como justificativa para reduzir ou impedir o gozo integral das férias.
+STF. Plenário. ADPF 1.132/SP, Rel. Min. Cristiano Zanin, julgado em 26/05/2025 (Info 1180)
+DIREITO ELEITORAL
+PARTIDOS POLÍTICOS
+Partidos políticos possuem autonomia para definir a duração de seus órgãos provisórios, desde
+que respeitado o prazo máximo de 4 anos e garantida a realização de eleições periódicas para
+sua substituição por órgãos permanentes
+A EC 97/2017 alterou o § 1º do art. 17 e deu aos partidos políticos o poder de decidir,
+livremente, por quanto tempo durariam seus órgãos provisórios (ou seja, as direções
+temporárias internas dos partidos): “§ 1º É assegurada aos partidos políticos autonomia para
+definir sua estrutura interna e estabelecer regras sobre escolha, formação e duração de seus
+órgãos permanentes e provisórios (...)”
+O STF julgou parcialmente procedente a ação para dar interpretação conforme a Constituição
+à expressão “duração de seus órgãos (...) provisórios”, contida no § 1º do art. 17 para:
+i) definir que os órgãos partidários provisórios possuem prazo máximo de vigência de até 4
+(quatro) anos, vedada qualquer tipo de prorrogação ou substituição subsequente por outro
+órgão provisório, ainda que com composição diversa;
+ii) estabelecer que as comissões provisórias devem ser substituídas por órgãos permanentes,
+com eleições periódicas, dentro do prazo máximo de vigência;
+iii) o descumprimento disso acarretará a suspensão do repasse de recursos do fundo
+partidário e do fundo eleitoral até a regularização, sem direito a pleitear valores retroativos.
+A autonomia partidária para definir a duração dos órgãos provisórios deve observar os
+princípios democrático e republicano, garantindo eleições periódicas em prazo razoável e
+vedando a perpetuação de estruturas transitórias.
+Obs: houve modulação para que a decisão não seja ex tunc e somente produza efeitos a partir
+da data da publicação da ata da sessão de julgamento.
+
+**Referência:**
+
+STF. Plenário. ADI 5.875/DF, Rel. Min. Luiz Fux, julgado em 28/05/2025 (Info 1180).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 4
+
+**Disciplina:** Direito Processual Penal
+
+**Subtema:** Execução Penal (Indulto)
+
+**ODS:** 16
+
+**Título do julgado:**
+
+Não viola o texto constitucional, em especial o art. 5º, XLIII, a concessão de indulto a indivíduos condenados por tráfico ilícito de drogas na modalidade privilegiada, dada a ausência da hediondez desse tipo penal Importante!!!
+
+**Tese / entendimento:**
+
+Caso hipotético: Regina, condenada por tráfico privilegiado (art. 33, § 4º da Lei n.
+11.343/2006, recebeu o indulto natalino do Decreto nº 11.846/2023. O Ministério Público
+recorreu alegando que o art. 5º, XLIII, da Constituição Federal veda a concessão de anistia e
+graça ao tráfico ilícito de entorpecentes. Logo, também seria proibida a concessão do indulto
+presidencial para o crime de tráfico privilegiado.
+O STF não concordou.
+O tráfico privilegiado, previsto no art. 33, § 4º, da Lei nº 11.343/2006, não ostenta natureza
+hedionda.
+A vedação de graça ou anistia constante do art. 5º, XLIII, da Constituição não se estende ao
+tráfico privilegiado, dadas suas características menos gravosas e diferenciadas do tráfico
+comum.
+Tese fixada: É constitucional a concessão de indulto a condenado por tráfico privilegiado, uma
+vez que o crime não tem natureza hedionda.
+
+**Referência:**
+
+STF. Plenário. RE 1.542.482/SP, Rel. Min. Roberto Barroso, julgado em 31/05/2025 (Repercussão Geral – Tema 1.400) (Info 1180).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 5
+
+**Disciplina:** Direito Tributário
+
+**Subtema:** Princípios
+
+**ODS:** 16 E 17
+
+**Título do julgado:**
+
+É inconstitucional norma estadual que permite ao governador autorizar, mediante decreto, a realização de compensação ou transação, conceder anistia, remissão, parcelamento de débitos fiscais, moratória e ampliação de prazo de recolhimento de tributos
+
+**Tese / entendimento:**
+
+Caso concreto: o art. 151, caput, da Lei nº 400/1997 do Estado do Amapá dizia que o
+governador poderia, por decreto, autorizar: compensação ou transação de créditos
+tributários, concessão de anistia, remissão, parcelamento de débitos fiscais, moratória e
+ampliação de prazos para pagamento de tributos, observando as regras gerais sobre ICMS
+definidas em convênios com outros Estados.
+Essa previsão é inconstitucional por violar os princípios da reserva legal e da exclusividade
+das leis tributárias (art. 150, I e § 6º, CF/88).
+Norma estadual não pode atribuir ao chefe do Executivo competência para, mediante decreto,
+conceder anistia, remissão, compensação, parcelamento de débitos fiscais, moratória ou
+ampliação de prazo de recolhimento de tributos, pois tais matérias são reservadas à lei em
+sentido formal.
+A concessão de benefícios fiscais deve respeitar a reserva legal tributária e as disposições da
+Lei de Responsabilidade Fiscal, incluindo estudos de impacto e vinculação às diretrizes
+orçamentárias.
+
+**Referência:**
+
+STF. Plenário. ADI 5.699/AP, Rel. Min. Nunes Marques, julgado em 02/06/2025 (Info 1180).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 6
+
+**Disciplina:** Direito Tributário
+
+**Subtema:** Pis/Cofins
+
+**ODS:** N/I
+
+**Título do julgado:**
+
+PIS e COFINS integram a base de cálculo da CPRB A contribuição previdenciária sobre a receita bruta (CPRB), instituída pela Lei nº 12.546/2011, tem como base de cálculo o conceito de receita bruta previsto no art. 12 do Decreto-Lei nº 1.598/1977, o qual inclui os tributos incidentes sobre ela, como o PIS e a COFINS. Por se tratar de benefício fiscal de adesão facultativa, o contribuinte que opta por esse regime deve observar integralmente suas regras. Tese fixada: É constitucional a inclusão da contribuição ao Programa de Integração Social (PIS) e da Contribuição para Financiamento da Seguridade Social (Cofins) na base de cálculo da Contribuição Previdenciária sobre a Receita Bruta (CPRB).
+
+**Tese / entendimento:**
+
+PIS e COFINS integram a base de cálculo da CPRB
+A contribuição previdenciária sobre a receita bruta (CPRB), instituída pela Lei nº
+12.546/2011, tem como base de cálculo o conceito de receita bruta previsto no art. 12 do
+Decreto-Lei nº 1.598/1977, o qual inclui os tributos incidentes sobre ela, como o PIS e a
+COFINS. Por se tratar de benefício fiscal de adesão facultativa, o contribuinte que opta por esse
+regime deve observar integralmente suas regras.
+Tese fixada: É constitucional a inclusão da contribuição ao Programa de Integração Social (PIS)
+e da Contribuição para Financiamento da Seguridade Social (Cofins) na base de cálculo da
+Contribuição Previdenciária sobre a Receita Bruta (CPRB).
+
+**Referência:**
+
+STF. Plenário. RE 1.341.464/CE, Rel. Min. André Mendonça, julgado em 02/06/2025 (Repercussão geral – Tema 1.186) (Info 1180).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 7
+
+**Disciplina:** Direito Financeiro
+
+**Subtema:** É Inconstitucional Dispositivo Da Lei Orgânica Do Distrito Federal Que Proíbe A Concessão, No
+
+**ODS:** 16
+
+**Título do julgado:**
+
+Último ano de cada legislatura, de isenções, anistias, remissões, benefícios e incentivos fiscais, envolvendo matéria tributária e previdenciária
+
+**Tese / entendimento:**
+
+Caso concreto: o art. 131, II, da Lei Orgânica do DF proibia que o Distrito Federal concedesse
+isenções, anistias, remissões, benefícios e incentivos fiscais no último ano de cada legislatura
+(ou seja, no último ano do mandato dos parlamentares), exceto em casos de calamidade
+pública.
+O Distrito Federal não pode, por meio de sua Lei Orgânica, estabelecer vedação absoluta à
+concessão de isenções, anistias, remissões, benefícios e incentivos fiscais no último ano de
+legislatura, pois invade a competência da União para editar normas gerais de direito
+financeiro e tributário.
+A norma distrital que restringe de forma generalizada prerrogativas dos Poderes Legislativo
+e Executivo viola a autonomia política e a separação de poderes asseguradas pela CF/88.
+
+**Referência:**
+
+STF. Plenário. ADI 4.065/DF, Rel. Min. Nunes Marques, julgado em 02/06/2025 (Info 1180).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---

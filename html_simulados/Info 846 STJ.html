@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Simulado - Info 846 STJ</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+:root{
+--bg:#020617;--panel:rgba(15,23,42,.88);--card:rgba(15,23,42,.96);
+--card2:rgba(30,41,59,.92);--border:rgba(148,163,184,.22);
+--text:#e5e7eb;--muted:#94a3b8;--accent:#38bdf8;--accent2:#0ea5e9;
+--green:#22c55e;--red:#ef4444;--yellow:#facc15;--purple:#a78bfa;
+}
+*{box-sizing:border-box}
+body{
+margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+background:radial-gradient(circle at top left,rgba(56,189,248,.20),transparent 28%),
+radial-gradient(circle at top right,rgba(167,139,250,.15),transparent 28%),
+linear-gradient(135deg,#020617,#0f172a 50%,#020617);
+color:var(--text);line-height:1.65;
+}
+header{padding:44px 20px 32px;text-align:center;border-bottom:1px solid var(--border)}
+header h1{margin:0 0 10px;font-size:clamp(28px,4vw,46px);letter-spacing:-.05em}
+header p{color:var(--muted);margin:0;font-size:16px}
+.container{max-width:1160px;margin:0 auto;padding:26px 16px 80px}
+.painel{
+position:sticky;top:10px;z-index:10;background:var(--panel);backdrop-filter:blur(18px);
+border:1px solid var(--border);border-radius:26px;padding:16px;margin-bottom:22px;
+box-shadow:0 22px 70px rgba(0,0,0,.35)
+}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.stat{background:var(--card2);padding:14px;border-radius:18px;text-align:center;border:1px solid rgba(148,163,184,.12)}
+.stat strong{display:block;font-size:25px;color:var(--accent);line-height:1.1}
+.stat span{font-size:12px;color:var(--muted)}
+.filtros{display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:12px;margin-top:14px}
+input,select{
+width:100%;background:rgba(2,6,23,.78);color:var(--text);border:1px solid var(--border);
+border-radius:14px;padding:13px 14px;outline:none;font-size:14px
+}
+input:focus,select:focus{border-color:var(--accent)}
+.card{
+background:var(--card);border:1px solid var(--border);border-radius:24px;padding:26px;
+margin-bottom:20px;box-shadow:0 18px 50px rgba(0,0,0,.24)
+}
+.questao{scroll-margin-top:190px}
+.questao-topo{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:18px}
+.badge{
+background:linear-gradient(135deg,var(--accent),var(--accent2));color:#00111f;font-weight:900;
+padding:7px 13px;border-radius:999px;display:inline-block
+}
+.disciplina-tag,.tipo-tag{
+display:inline-block;margin-left:8px;color:var(--muted);background:rgba(148,163,184,.10);
+border:1px solid rgba(148,163,184,.14);padding:6px 10px;border-radius:999px;font-size:12px
+}
+.tipo-tag{color:#ddd6fe;border-color:rgba(167,139,250,.25)}
+.status{color:var(--yellow);font-size:13px;white-space:nowrap}
+.enunciado{font-size:19px;margin:0 0 22px;letter-spacing:-.01em}
+.botoes{display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.btn{
+cursor:pointer;border:0;padding:12px 22px;border-radius:14px;color:white;font-weight:900;
+transition:.18s ease;letter-spacing:.02em
+}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.certo{background:rgba(34,197,94,.20);border:1px solid rgba(34,197,94,.42)}
+.btn.errado{background:rgba(239,68,68,.20);border:1px solid rgba(239,68,68,.42)}
+.btn.neutro{background:rgba(56,189,248,.16);color:var(--text);border:1px solid rgba(56,189,248,.32)}
+.feedback{
+display:none;background:rgba(2,6,23,.72);border:1px solid rgba(148,163,184,.16);
+border-left:5px solid var(--accent);padding:18px;border-radius:18px;margin-top:14px
+}
+.feedback.correto{border-left-color:var(--green)}
+.feedback.errado{border-left-color:var(--red)}
+.resultado{font-size:18px;font-weight:900;margin-top:0}
+.justificativa{margin-top:12px}
+.referencia{color:var(--muted);font-size:13px;margin-top:16px}
+.gabarito-certo{color:var(--green);font-weight:900}
+.gabarito-errado{color:var(--red);font-weight:900}
+.oculta{display:none}
+.sem-resultados{text-align:center;color:var(--muted);display:none;padding:30px}
+.grid-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
+.link-card{
+display:block;padding:20px;background:rgba(15,23,42,.95);border:1px solid rgba(148,163,184,.22);
+color:#e5e7eb;border-radius:22px;text-decoration:none;transition:.2s;box-shadow:0 14px 40px rgba(0,0,0,.22)
+}
+.link-card:hover{transform:translateY(-3px);border-color:#38bdf8}
+.link-card strong{display:block;font-size:17px;margin-bottom:8px}
+.link-card span{color:#94a3b8;font-size:13px}
+.index-tools{display:grid;grid-template-columns:1.5fr 1fr;gap:12px;margin-bottom:20px}
+@media(max-width:850px){
+.stats{grid-template-columns:repeat(2,1fr)}
+.filtros,.index-tools{grid-template-columns:1fr}
+.questao-topo{align-items:flex-start;flex-direction:column}
+.botoes{flex-direction:column}
+.enunciado{font-size:16px}
+.card{padding:20px}
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Simulado - Info 846 STJ</h1>
+<p>Informativos • Simulado interativo de CERTO ou ERRADO</p>
+</header>
+
+<div class="container">
+<div class="painel">
+<div class="stats">
+<div class="stat"><strong>12</strong><span>Total</span></div>
+<div class="stat"><strong id="visiveis">12</strong><span>Visíveis</span></div>
+<div class="stat"><strong id="respondidas">0</strong><span>Respondidas</span></div>
+<div class="stat"><strong id="acertos">0</strong><span>Acertos</span></div>
+<div class="stat"><strong id="erros">0</strong><span>Erros</span></div>
+</div>
+
+<div class="filtros">
+<input id="busca" type="search" placeholder="Buscar por palavra-chave..." oninput="filtrar()">
+<select id="disciplina" onchange="filtrar()">
+<option value="">Todas as disciplinas</option>
+<option value="ECA">ECA</option>
+<option value="N/I">N/I</option>
+</select>
+<select id="statusFiltro" onchange="filtrar()">
+<option value="">Todas</option>
+<option value="nao">Não respondidas</option>
+<option value="acerto">Acertos</option>
+<option value="erro">Erros</option>
+</select>
+<button class="btn neutro" onclick="reiniciar()">Reiniciar</button>
+</div>
+</div>
+
+<div id="sem-resultados" class="sem-resultados">Nenhuma questão encontrada com os filtros atuais.</div>
+
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a ocupação prolongada, com exploração econômica e registro imobiliário em nome de particular, de terreno marginal contíguo a rio navegável não afasta, por si só, a natureza pública da área, de modo que eventual pretensão indenizatória somente pode prosperar se demonstrada a existência de enfiteuse ou de concessão administrativa de caráter pessoal, não bastando a mera invocação de domínio privado ou de posse qualificada sobre o imóvel. a assertiva está correta porque reproduz a orientação de que os terrenos marginais a rios navegáveis integram o patrimônio público da união, por força do art. 20, iii, da constituição federal, sendo, em regra, insuscetíveis de apropriação privada. assim, a circunstância de haver ocupação antiga, exploração econômica ou mesmo registro imobiliário em nome de particular não é suficiente, por si só, para desnaturar a titularidade pública da área.
+
+o ponto central do entendimento é a releitura restritiva do art. 11 do código de águas: a indenização não decorre automaticamente de qualquer alegação de domínio ou posse, mas apenas quando houver prova de situação jurídica específica apta a justificar compensação, isto é, enfiteuse ou concessão administrativa de caráter pessoal. fora dessas hipóteses, não se reconhece domínio privado sobre o terreno marginal, justamente porque a área permanece submetida ao regime jurídico de bem público federal.
+
+em termos de prova, a banca pode explorar a distinção entre:
+- mera ocupação/posse/registro particular, que não gera indenização;
+- e a existência de enfiteuse ou concessão administrativa pessoal, que pode abrir espaço para compensação.
+
+portanto, o enunciado acerta ao afirmar que a proteção possessória ou registral isolada não afasta a natureza pública do bem nem autoriza indenização sem a demonstração dos títulos jurídicos excepcionais admitidos. stj. 1ª turma. resp 1.976.184-mg, rel. min. paulo sérgio domingues, julgado em 1º/4/2025 (info 846).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 1</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-1">Não respondida</span>
+</div>
+
+<p class="enunciado">A ocupação prolongada, com exploração econômica e registro imobiliário em nome de particular, de terreno marginal contíguo a rio navegável não afasta, por si só, a natureza pública da área, de modo que eventual pretensão indenizatória somente pode prosperar se demonstrada a existência de enfiteuse ou de concessão administrativa de caráter pessoal, não bastando a mera invocação de domínio privado ou de posse qualificada sobre o imóvel.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(1, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(1, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-1">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a orientação de que os terrenos marginais a rios navegáveis integram o patrimônio público da União, por força do art. 20, III, da Constituição Federal, sendo, em regra, insuscetíveis de apropriação privada. Assim, a circunstância de haver ocupação antiga, exploração econômica ou mesmo registro imobiliário em nome de particular não é suficiente, por si só, para desnaturar a titularidade pública da área.<br><br>O ponto central do entendimento é a releitura restritiva do art. 11 do Código de Águas: a indenização não decorre automaticamente de qualquer alegação de domínio ou posse, mas apenas quando houver prova de situação jurídica específica apta a justificar compensação, isto é, enfiteuse ou concessão administrativa de caráter pessoal. Fora dessas hipóteses, não se reconhece domínio privado sobre o terreno marginal, justamente porque a área permanece submetida ao regime jurídico de bem público federal.<br><br>Em termos de prova, a banca pode explorar a distinção entre:<br>- mera ocupação/posse/registro particular, que não gera indenização;<br>- e a existência de enfiteuse ou concessão administrativa pessoal, que pode abrir espaço para compensação.<br><br>Portanto, o enunciado acerta ao afirmar que a proteção possessória ou registral isolada não afasta a natureza pública do bem nem autoriza indenização sem a demonstração dos títulos jurídicos excepcionais admitidos.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Turma. REsp 1.976.184-MG, Rel. Min. Paulo Sérgio Domingues, julgado em 1º/4/2025 (Info 846).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="em condomínio de fato formado por edifícios situados em bairro residencial aberto, a imposição de fechamento ou de restrição de acesso a vias públicas não autoriza, por si só, a cobrança de taxas de manutenção instituídas por associação de moradores contra edifício que jamais formalizou sua adesão, ainda que este tenha realizado, por liberalidade, contribuições espontâneas durante vários anos, pois tais pagamentos pretéritos não equivalem a anuência válida nem a adesão associativa apta a legitimar a cobrança futura. a assertiva está correta porque reproduz a lógica central do entendimento firmado: a existência de contribuições voluntárias anteriores não converte, automaticamente, a relação jurídica em adesão formal à associação de moradores, nem cria obrigação permanente de pagar mensalidades futuras. em matéria de direitos reais e condomínio de fato, a cobrança de taxas por associação depende de base jurídica idônea, não bastando a mera tolerância pretérita do morador ou do edifício.
+
+o ponto decisivo é que a contribuição espontânea, ainda que reiterada ao longo de anos, não se confunde com manifestação inequívoca de vontade apta a vincular o edifício à associação. sem adesão formal ou anuência válida à cobrança, inexiste suporte para impor a obrigação de custeio. a circunstância de se tratar de bairro residencial aberto, com fechamento e/ou restrição de acesso a vias públicas, também não altera essa conclusão, porque a restrição fática do acesso não substitui o requisito jurídico de vinculação associativa.
+
+em termos práticos, o precedente afasta a tentativa de transformar pagamentos voluntários em obrigação perpétua por presunção, reforçando que a cobrança futura exige fundamento jurídico próprio e não pode ser extraída apenas do histórico de contribuições passadas. stj. 4ª turma. agint no agint no aresp 1.060.252-rj, rel. min. maria isabel gallotti, julgado em 17/2/2025 (info 846).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 2</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-2">Não respondida</span>
+</div>
+
+<p class="enunciado">Em condomínio de fato formado por edifícios situados em bairro residencial aberto, a imposição de fechamento ou de restrição de acesso a vias públicas não autoriza, por si só, a cobrança de taxas de manutenção instituídas por associação de moradores contra edifício que jamais formalizou sua adesão, ainda que este tenha realizado, por liberalidade, contribuições espontâneas durante vários anos, pois tais pagamentos pretéritos não equivalem a anuência válida nem a adesão associativa apta a legitimar a cobrança futura.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(2, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(2, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-2">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a lógica central do entendimento firmado: a existência de contribuições voluntárias anteriores não converte, automaticamente, a relação jurídica em adesão formal à associação de moradores, nem cria obrigação permanente de pagar mensalidades futuras. Em matéria de direitos reais e condomínio de fato, a cobrança de taxas por associação depende de base jurídica idônea, não bastando a mera tolerância pretérita do morador ou do edifício.<br><br>O ponto decisivo é que a contribuição espontânea, ainda que reiterada ao longo de anos, não se confunde com manifestação inequívoca de vontade apta a vincular o edifício à associação. Sem adesão formal ou anuência válida à cobrança, inexiste suporte para impor a obrigação de custeio. A circunstância de se tratar de bairro residencial aberto, com fechamento e/ou restrição de acesso a vias públicas, também não altera essa conclusão, porque a restrição fática do acesso não substitui o requisito jurídico de vinculação associativa.<br><br>Em termos práticos, o precedente afasta a tentativa de transformar pagamentos voluntários em obrigação perpétua por presunção, reforçando que a cobrança futura exige fundamento jurídico próprio e não pode ser extraída apenas do histórico de contribuições passadas.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 4ª Turma. AgInt no AgInt no AREsp 1.060.252-RJ, Rel. Min. Maria Isabel Gallotti, julgado em 17/2/2025 (Info 846).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="em demanda fundada na indisponibilidade de peça de reposição necessária ao adequado funcionamento de produto durável, é juridicamente admissível impor ao fornecedor, por analogia, o prazo máximo de 30 dias previsto para o saneamento de vício do produto, de modo que, ultrapassado esse lapso, o consumidor possa imediatamente exercer as opções do art. 18, § 1º, do cdc, pois haveria identidade de razão entre a demora na reparação do defeito e a ausência de componente essencial à recomposição da utilidade do bem. a assertiva está incorreta porque o prazo de 30 dias do art. 18, § 1º, do cdc é regra específica voltada ao saneamento do vício do produto ou serviço já colocado em circulação e com defeito a ser reparado, hipótese em que a lei expressamente disciplina as consequências do não reparo no prazo legal. já o art. 32 do cdc trata de situação distinta: o dever dos fabricantes e importadores de assegurar a oferta de componentes e peças de reposição enquanto não cessar a fabricação ou importação do produto.
+
+a distinção é relevante porque, no caso de peças de reposição, não há lacuna normativa a ser preenchida por analogia com o art. 18, § 1º. o regime jurídico é próprio e não autoriza transportar automaticamente o prazo de 30 dias para a hipótese do art. 32. em outras palavras, a ausência de peça de reposição não se confunde com o vício do produto a ser sanado no prazo legal, razão pela qual não se pode criar, por interpretação analógica, um prazo que o legislador não previu para essa situação específica.
+
+assim, a tese correta é a de que o prazo de 30 dias do art. 18, § 1º, do cdc não se aplica analogicamente ao fornecimento de peças de reposição pelo fornecedor, justamente porque as hipóteses legais são diversas e suficientemente disciplinadas pelo próprio código. stj. 4ª turma. resp 1.604.270-df, rel. min. joão otávio de noronha, julgado em 1º/4/2025 (info 846).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 3</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-3">Não respondida</span>
+</div>
+
+<p class="enunciado">Em demanda fundada na indisponibilidade de peça de reposição necessária ao adequado funcionamento de produto durável, é juridicamente admissível impor ao fornecedor, por analogia, o prazo máximo de 30 dias previsto para o saneamento de vício do produto, de modo que, ultrapassado esse lapso, o consumidor possa imediatamente exercer as opções do art. 18, § 1º, do CDC, pois haveria identidade de razão entre a demora na reparação do defeito e a ausência de componente essencial à recomposição da utilidade do bem.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(3, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(3, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-3">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque o prazo de 30 dias do art. 18, § 1º, do CDC é regra específica voltada ao saneamento do vício do produto ou serviço já colocado em circulação e com defeito a ser reparado, hipótese em que a lei expressamente disciplina as consequências do não reparo no prazo legal. Já o art. 32 do CDC trata de situação distinta: o dever dos fabricantes e importadores de assegurar a oferta de componentes e peças de reposição enquanto não cessar a fabricação ou importação do produto.<br><br>A distinção é relevante porque, no caso de peças de reposição, não há lacuna normativa a ser preenchida por analogia com o art. 18, § 1º. O regime jurídico é próprio e não autoriza transportar automaticamente o prazo de 30 dias para a hipótese do art. 32. Em outras palavras, a ausência de peça de reposição não se confunde com o vício do produto a ser sanado no prazo legal, razão pela qual não se pode criar, por interpretação analógica, um prazo que o legislador não previu para essa situação específica.<br><br>Assim, a tese correta é a de que o prazo de 30 dias do art. 18, § 1º, do CDC não se aplica analogicamente ao fornecimento de peças de reposição pelo fornecedor, justamente porque as hipóteses legais são diversas e suficientemente disciplinadas pelo próprio Código.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 4ª Turma. REsp 1.604.270-DF, Rel. Min. João Otávio de Noronha, julgado em 1º/4/2025 (Info 846).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="em demanda indenizatória proposta por paciente em face de hospital privado, fundada em alegada falha na prestação do serviço médico-hospitalar, é juridicamente admissível a denunciação da lide aos médicos plantonistas apontados como responsáveis pelo atendimento, ainda que a pretensão do consumidor decorra de acidente de consumo e a responsabilidade do estabelecimento seja objetiva, desde que a inclusão dos profissionais seja útil à adequada definição da culpa e à eventual formação de título regressivo no mesmo processo. a assertiva está incorreta porque, em hipóteses de relação de consumo envolvendo falha na prestação de serviço médico-hospitalar, não se admite a denunciação da lide para chamar ao processo os médicos supostamente responsáveis pelo erro. o art. 88 do código de defesa do consumidor veda expressamente essa modalidade de intervenção de terceiros nas ações de responsabilidade por fato do produto ou do serviço, justamente para evitar a ampliação indevida do objeto litigioso e a perda de celeridade processual.
+
+a vedação não se limita a situações em que a responsabilidade do fornecedor seja estritamente contratual, mas alcança as hipóteses de responsabilidade objetiva por acidente de consumo, como ocorre quando o hospital responde pelos danos decorrentes da atividade econômica que explora. nessa linha, a discussão sobre eventual culpa dos médicos não autoriza a formação de litisconsórcio passivo por denunciação da lide no mesmo processo, pois isso deslocaria o foco da demanda do consumidor e imporia complexidade processual incompatível com a tutela célere e efetiva prevista no sistema consumerista.
+
+isso não impede, contudo, que o hospital busque eventual ressarcimento em ação regressiva autônoma contra os profissionais, caso demonstre a culpa deles. a distinção é importante: a vedação recai sobre a intervenção de terceiros na ação indenizatória proposta pelo consumidor, mas não elimina o direito regressivo em via própria. stj. 3ª turma. resp 2.160.516-ce, rel. min. nancy andrighi, rel. para acórdão min. humberto martins, julgado em 1º/4/2025 (info 846).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 4</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-4">Não respondida</span>
+</div>
+
+<p class="enunciado">Em demanda indenizatória proposta por paciente em face de hospital privado, fundada em alegada falha na prestação do serviço médico-hospitalar, é juridicamente admissível a denunciação da lide aos médicos plantonistas apontados como responsáveis pelo atendimento, ainda que a pretensão do consumidor decorra de acidente de consumo e a responsabilidade do estabelecimento seja objetiva, desde que a inclusão dos profissionais seja útil à adequada definição da culpa e à eventual formação de título regressivo no mesmo processo.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(4, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(4, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-4">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque, em hipóteses de relação de consumo envolvendo falha na prestação de serviço médico-hospitalar, não se admite a denunciação da lide para chamar ao processo os médicos supostamente responsáveis pelo erro. O art. 88 do Código de Defesa do Consumidor veda expressamente essa modalidade de intervenção de terceiros nas ações de responsabilidade por fato do produto ou do serviço, justamente para evitar a ampliação indevida do objeto litigioso e a perda de celeridade processual.<br><br>A vedação não se limita a situações em que a responsabilidade do fornecedor seja estritamente contratual, mas alcança as hipóteses de responsabilidade objetiva por acidente de consumo, como ocorre quando o hospital responde pelos danos decorrentes da atividade econômica que explora. Nessa linha, a discussão sobre eventual culpa dos médicos não autoriza a formação de litisconsórcio passivo por denunciação da lide no mesmo processo, pois isso deslocaria o foco da demanda do consumidor e imporia complexidade processual incompatível com a tutela célere e efetiva prevista no sistema consumerista.<br><br>Isso não impede, contudo, que o hospital busque eventual ressarcimento em ação regressiva autônoma contra os profissionais, caso demonstre a culpa deles. A distinção é importante: a vedação recai sobre a intervenção de terceiros na ação indenizatória proposta pelo consumidor, mas não elimina o direito regressivo em via própria.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.160.516-CE, Rel. Min. Nancy Andrighi, Rel. para acórdão Min. Humberto Martins, julgado em 1º/4/2025 (Info 846).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="em execução fiscal ajuizada contra empresa em recuperação judicial, a constrição de bens pode ser realizada pelo juízo da execução independentemente de prévia demonstração de que a medida não comprometerá o soerguimento da devedora; contudo, se a penhora recair sobre bem de capital essencial à atividade empresarial, a substituição da garantia deverá ser apreciada pelo juízo da execução fiscal, que, nesse exame, fica vinculado à preservação da empresa e à vedação de qualquer cooperação com o juízo da recuperação. a assertiva erra ao deslocar para o juízo da execução fiscal a competência para reavaliar, nessa hipótese específica, a substituição da garantia quando a penhora incidir sobre bem de capital essencial. o entendimento firmado é no sentido de que o juízo da execução fiscal não deve condicionar a constrição à análise prévia do impacto sobre a recuperação judicial, pois essa ponderação não lhe compete. assim, ele pode efetivar a penhora normalmente.
+
+a distinção relevante está no momento posterior: se a constrição atingir bem de capital essencial à manutenção da atividade empresarial, enquanto a recuperação judicial ainda estiver em curso, a providência de substituir a garantia deve ser apreciada pelo juízo da recuperação judicial. isso decorre da necessidade de compatibilizar a satisfação do crédito exequendo com a preservação da atividade empresarial, sem esvaziar a competência do juízo recuperacional para tutelar os bens indispensáveis ao soerguimento da empresa.
+
+além disso, o julgado ressalta a possibilidade de atuação cooperativa entre os juízos, inclusive com formulação de proposta alternativa de satisfação do crédito, sempre observando-se o princípio da menor onerosidade ao devedor. portanto, não há vedação à cooperação; ao contrário, ela é expressamente admitida. a assertiva também erra ao afirmar que o juízo da execução fiscal ficaria vinculado, nesse exame, à preservação da empresa e à proibição de cooperação, o que contraria a lógica do precedente. stj. 2ª turma. resp 2.184.895-pe, rel. min. marco aurélio bellizze, julgado em 1º/4/2025 (info 846).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 5</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-5">Não respondida</span>
+</div>
+
+<p class="enunciado">Em execução fiscal ajuizada contra empresa em recuperação judicial, a constrição de bens pode ser realizada pelo juízo da execução independentemente de prévia demonstração de que a medida não comprometerá o soerguimento da devedora; contudo, se a penhora recair sobre bem de capital essencial à atividade empresarial, a substituição da garantia deverá ser apreciada pelo juízo da execução fiscal, que, nesse exame, fica vinculado à preservação da empresa e à vedação de qualquer cooperação com o juízo da recuperação.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(5, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(5, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-5">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva erra ao deslocar para o juízo da execução fiscal a competência para reavaliar, nessa hipótese específica, a substituição da garantia quando a penhora incidir sobre bem de capital essencial. O entendimento firmado é no sentido de que o juízo da execução fiscal não deve condicionar a constrição à análise prévia do impacto sobre a recuperação judicial, pois essa ponderação não lhe compete. Assim, ele pode efetivar a penhora normalmente.<br><br>A distinção relevante está no momento posterior: se a constrição atingir bem de capital essencial à manutenção da atividade empresarial, enquanto a recuperação judicial ainda estiver em curso, a providência de substituir a garantia deve ser apreciada pelo juízo da recuperação judicial. Isso decorre da necessidade de compatibilizar a satisfação do crédito exequendo com a preservação da atividade empresarial, sem esvaziar a competência do juízo recuperacional para tutelar os bens indispensáveis ao soerguimento da empresa.<br><br>Além disso, o julgado ressalta a possibilidade de atuação cooperativa entre os juízos, inclusive com formulação de proposta alternativa de satisfação do crédito, sempre observando-se o princípio da menor onerosidade ao devedor. Portanto, não há vedação à cooperação; ao contrário, ela é expressamente admitida. A assertiva também erra ao afirmar que o juízo da execução fiscal ficaria vinculado, nesse exame, à preservação da empresa e à proibição de cooperação, o que contraria a lógica do precedente.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 2ª Turma. REsp 2.184.895-PE, Rel. Min. Marco Aurélio Bellizze, julgado em 1º/4/2025 (Info 846).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="em demanda de natureza tributária proposta pela fazenda nacional, a intervenção do ministério público como custos legis ou custos juris não é automática: exige a demonstração concreta de relevância social objetiva ou subjetiva, nos termos do art. 178, i, do cpc/2015, de modo que, inexistindo elementos que revelem repercussão social ampla, caráter multitudinário do conflito ou presença de sujeitos vulneráveis, não se legitima a atuação ministerial nem a interposição de recurso para discutir relação jurídico-tributária individual, inclusive quando o débito tenha sido parcelado no âmbito de programa de recuperação fiscal. a assertiva está correta porque reproduz a ratio decidendi do julgado: a intervenção do ministério público em processos judiciais, na qualidade de fiscal da ordem jurídica, não decorre da mera natureza tributária da controvérsia. o art. 178, i, do cpc/2015 condiciona essa atuação à presença de interesse público ou social qualificado, o que, no caso analisado, foi afastado diante da inexistência de relevância social objetiva ou subjetiva.
+
+o ponto central do entendimento é que litígios tributários, por si sós, não atraem a atuação ministerial. quando a controvérsia se limita a relação jurídico-tributária individual entre contribuinte e fisco, sem demonstração de repercussão social ampla, de multiplicidade de interessados ou de vulnerabilidade de sujeitos envolvidos, não há fundamento para reconhecer legitimidade ao ministério público como custos legis ou custos juris.
+
+além disso, o julgado também afastou a legitimidade ministerial para interpor recurso em contexto no qual houve parcelamento do débito tributário no âmbito do refis. assim, a mera existência de discussão sobre crédito tributário parcelado não basta para justificar a intervenção do parquet, se ausentes os requisitos legais de relevância social exigidos pelo cpc. stj. 1ª turma. agint no resp 2.124.453-df, rel. min. benedito gonçalves, julgado em 24/2/2025 (info 846).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 6</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-6">Não respondida</span>
+</div>
+
+<p class="enunciado">Em demanda de natureza tributária proposta pela Fazenda Nacional, a intervenção do Ministério Público como custos legis ou custos juris não é automática: exige a demonstração concreta de relevância social objetiva ou subjetiva, nos termos do art. 178, I, do CPC/2015, de modo que, inexistindo elementos que revelem repercussão social ampla, caráter multitudinário do conflito ou presença de sujeitos vulneráveis, não se legitima a atuação ministerial nem a interposição de recurso para discutir relação jurídico-tributária individual, inclusive quando o débito tenha sido parcelado no âmbito de programa de recuperação fiscal.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(6, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(6, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-6">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a ratio decidendi do julgado: a intervenção do Ministério Público em processos judiciais, na qualidade de fiscal da ordem jurídica, não decorre da mera natureza tributária da controvérsia. O art. 178, I, do CPC/2015 condiciona essa atuação à presença de interesse público ou social qualificado, o que, no caso analisado, foi afastado diante da inexistência de relevância social objetiva ou subjetiva.<br><br>O ponto central do entendimento é que litígios tributários, por si sós, não atraem a atuação ministerial. Quando a controvérsia se limita a relação jurídico-tributária individual entre contribuinte e Fisco, sem demonstração de repercussão social ampla, de multiplicidade de interessados ou de vulnerabilidade de sujeitos envolvidos, não há fundamento para reconhecer legitimidade ao Ministério Público como custos legis ou custos juris.<br><br>Além disso, o julgado também afastou a legitimidade ministerial para interpor recurso em contexto no qual houve parcelamento do débito tributário no âmbito do REFIS. Assim, a mera existência de discussão sobre crédito tributário parcelado não basta para justificar a intervenção do Parquet, se ausentes os requisitos legais de relevância social exigidos pelo CPC.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Turma. AgInt no REsp 2.124.453-DF, Rel. Min. Benedito Gonçalves, julgado em 24/2/2025 (Info 846).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="em demanda em que a fazenda pública é condenada ao pagamento de duas verbas distintas, a interposição de apelação restrita a apenas uma delas limita o âmbito de cognição do tribunal, de modo que a outra condenação, não impugnada no recurso voluntário, fica acobertada pela preclusão e não pode ser reexaminada em remessa necessária. a assertiva contraria a lógica da remessa necessária quando a sentença impõe condenação à fazenda pública. nessa hipótese, a devolução da matéria ao tribunal não se restringe aos capítulos efetivamente impugnados pela apelação da parte vencida. a remessa necessária possui devolutividade ampla, permitindo o reexame, pelo tribunal de origem, de toda a condenação sujeita ao duplo grau obrigatório, ainda que determinado capítulo não tenha sido objeto de insurgência no recurso voluntário.
+
+isso significa que, se a fazenda pública apela apenas quanto à verba 1, o tribunal pode, no âmbito da remessa necessária, examinar também a verba 2, mesmo sem provocação específica da parte. a razão é que a remessa necessária impede a formação de preclusão sobre a matéria submetida ao reexame obrigatório, justamente porque a sentença, nesses casos, não se estabiliza integralmente sem a revisão judicial prevista em lei.
+
+portanto, não procede a ideia de que a ausência de impugnação na apelação torna irrecorrível o capítulo não atacado. em condenações impostas à fazenda pública, a devolução obrigatória autoriza a análise de capítulos não devolvidos pelo recurso voluntário, desde que inseridos no âmbito da sentença sujeita ao reexame necessário. stj. 1ª turma. agint no resp 1.935.370-to, rel. min. paulo sérgio domingues, julgado em 24/2/2025 (info 846).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 7</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-7">Não respondida</span>
+</div>
+
+<p class="enunciado">Em demanda em que a Fazenda Pública é condenada ao pagamento de duas verbas distintas, a interposição de apelação restrita a apenas uma delas limita o âmbito de cognição do tribunal, de modo que a outra condenação, não impugnada no recurso voluntário, fica acobertada pela preclusão e não pode ser reexaminada em remessa necessária.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(7, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(7, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-7">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva contraria a lógica da remessa necessária quando a sentença impõe condenação à Fazenda Pública. Nessa hipótese, a devolução da matéria ao tribunal não se restringe aos capítulos efetivamente impugnados pela apelação da parte vencida. A remessa necessária possui devolutividade ampla, permitindo o reexame, pelo tribunal de origem, de toda a condenação sujeita ao duplo grau obrigatório, ainda que determinado capítulo não tenha sido objeto de insurgência no recurso voluntário.<br><br>Isso significa que, se a Fazenda Pública apela apenas quanto à verba 1, o tribunal pode, no âmbito da remessa necessária, examinar também a verba 2, mesmo sem provocação específica da parte. A razão é que a remessa necessária impede a formação de preclusão sobre a matéria submetida ao reexame obrigatório, justamente porque a sentença, nesses casos, não se estabiliza integralmente sem a revisão judicial prevista em lei.<br><br>Portanto, não procede a ideia de que a ausência de impugnação na apelação torna irrecorrível o capítulo não atacado. Em condenações impostas à Fazenda Pública, a devolução obrigatória autoriza a análise de capítulos não devolvidos pelo recurso voluntário, desde que inseridos no âmbito da sentença sujeita ao reexame necessário.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Turma. AgInt no REsp 1.935.370-TO, Rel. Min. Paulo Sérgio Domingues, julgado em 24/2/2025 (Info 846).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="o terceiro prejudicado que, após a prolação da sentença, ingressa voluntariamente no processo apenas na fase recursal para impugnar a decisão assume o feito no estado em que se encontra, de modo que, havendo prévia fixação de honorários advocatícios na origem, poderá ser condenado ao pagamento de honorários recursais ainda que seu recurso não seja conhecido, sendo irrelevante que a verba sucumbencial tenha sido inicialmente imposta em desfavor de parte diversa. a assertiva está correta porque, ao intervir voluntariamente apenas na fase recursal, o terceiro prejudicado se submete ao estágio processual em que o processo se encontra, não podendo selecionar apenas os efeitos favoráveis da decisão recorrida para dela se beneficiar e, ao mesmo tempo, afastar os ônus dela decorrentes. essa lógica decorre da vedação ao comportamento contraditório e da disciplina do terceiro prejudicado/assistente, que recebe o processo no estado em que está, nos termos do parágrafo único do art. 119 do cpc.
+
+no caso de honorários recursais, a incidência do art. 85, §11, do cpc exige, como pressuposto, que já tenha havido fixação de honorários advocatícios na origem no processo em que o recurso é interposto. atendido esse requisito, a condenação em honorários recursais pode alcançar o terceiro que ingressa para recorrer, ainda que sua insurgência não seja conhecida, pois o dever de suportar a verba decorre da sucumbência recursal e da assunção voluntária do processo no estado em que se encontra.
+
+também é irrelevante, para esse efeito, que a condenação originária em honorários tenha sido fixada em desfavor de outra parte. o ponto decisivo não é contra quem a verba foi inicialmente imposta, mas sim a existência prévia de honorários na origem e a atuação recursal do terceiro interessado, que, ao recorrer, submete-se aos efeitos da decisão impugnada e aos ônus processuais correlatos. stj. 3ª turma. resp 1.888.521-sp, rel. min. nancy andrighi, julgado em 1º/4/2025 (info 846).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 8</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-8">Não respondida</span>
+</div>
+
+<p class="enunciado">O terceiro prejudicado que, após a prolação da sentença, ingressa voluntariamente no processo apenas na fase recursal para impugnar a decisão assume o feito no estado em que se encontra, de modo que, havendo prévia fixação de honorários advocatícios na origem, poderá ser condenado ao pagamento de honorários recursais ainda que seu recurso não seja conhecido, sendo irrelevante que a verba sucumbencial tenha sido inicialmente imposta em desfavor de parte diversa.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(8, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(8, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-8">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque, ao intervir voluntariamente apenas na fase recursal, o terceiro prejudicado se submete ao estágio processual em que o processo se encontra, não podendo selecionar apenas os efeitos favoráveis da decisão recorrida para dela se beneficiar e, ao mesmo tempo, afastar os ônus dela decorrentes. Essa lógica decorre da vedação ao comportamento contraditório e da disciplina do terceiro prejudicado/assistente, que recebe o processo no estado em que está, nos termos do parágrafo único do art. 119 do CPC.<br><br>No caso de honorários recursais, a incidência do art. 85, §11, do CPC exige, como pressuposto, que já tenha havido fixação de honorários advocatícios na origem no processo em que o recurso é interposto. Atendido esse requisito, a condenação em honorários recursais pode alcançar o terceiro que ingressa para recorrer, ainda que sua insurgência não seja conhecida, pois o dever de suportar a verba decorre da sucumbência recursal e da assunção voluntária do processo no estado em que se encontra.<br><br>Também é irrelevante, para esse efeito, que a condenação originária em honorários tenha sido fixada em desfavor de outra parte. O ponto decisivo não é contra quem a verba foi inicialmente imposta, mas sim a existência prévia de honorários na origem e a atuação recursal do terceiro interessado, que, ao recorrer, submete-se aos efeitos da decisão impugnada e aos ônus processuais correlatos.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 1.888.521-SP, Rel. Min. Nancy Andrighi, julgado em 1º/4/2025 (Info 846).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a configuração do crime de prevaricação, por exigir dolo específico, não se satisfaz com a mera demonstração de desídia funcional, comodismo ou reiterado descumprimento de deveres administrativos; é indispensável que a omissão ou retardamento do ato de ofício revele, de modo objetivo e concreto, a finalidade de satisfazer interesse ou sentimento pessoal do agente, razão pela qual a existência de graves irregularidades na unidade policial, por si só, não autoriza a condenação se ausente esse especial fim de agir. o art. 319 do código penal pune o funcionário público que retarda ou deixa de praticar, indevidamente, ato de ofício, ou o pratica contra disposição expressa de lei, para satisfazer interesse ou sentimento pessoal. o núcleo distintivo do tipo, portanto, não está apenas na omissão funcional, mas no especial fim de agir: é necessário demonstrar que a conduta foi orientada por interesse ou sentimento pessoal do agente, de forma concreta e objetivamente verificável.
+
+no caso examinado, embora houvesse um quadro grave de desorganização e irregularidades na delegacia — com boletins sem andamento, armazenamento inadequado de drogas, destinação imprópria de armas e uso de veículo oficial para atividade particular durante o expediente —, isso foi considerado insuficiente para caracterizar prevaricação. a razão é que tais elementos evidenciam, no máximo, desídia administrativa, negligência ou comodismo, mas não demonstram, por si sós, a finalidade específica exigida pelo tipo penal.
+
+a distinção é relevante para concursos: nem toda má gestão, ineficiência ou abandono de dever funcional configura prevaricação. para a responsabilização penal, é indispensável prova de que o agente agiu para atender a interesse próprio ou sentimento pessoal, e não apenas por descompromisso com o serviço público. assim, a mera gravidade objetiva das irregularidades não substitui a demonstração do dolo específico. stj. 5ª turma. agrg no aresp 2.693.820-sp, rel. min. ribeiro dantas, julgado em 18/3/2025 (info 846).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 9</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-9">Não respondida</span>
+</div>
+
+<p class="enunciado">A configuração do crime de prevaricação, por exigir dolo específico, não se satisfaz com a mera demonstração de desídia funcional, comodismo ou reiterado descumprimento de deveres administrativos; é indispensável que a omissão ou retardamento do ato de ofício revele, de modo objetivo e concreto, a finalidade de satisfazer interesse ou sentimento pessoal do agente, razão pela qual a existência de graves irregularidades na unidade policial, por si só, não autoriza a condenação se ausente esse especial fim de agir.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(9, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(9, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-9">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O art. 319 do Código Penal pune o funcionário público que retarda ou deixa de praticar, indevidamente, ato de ofício, ou o pratica contra disposição expressa de lei, para satisfazer interesse ou sentimento pessoal. O núcleo distintivo do tipo, portanto, não está apenas na omissão funcional, mas no especial fim de agir: é necessário demonstrar que a conduta foi orientada por interesse ou sentimento pessoal do agente, de forma concreta e objetivamente verificável.<br><br>No caso examinado, embora houvesse um quadro grave de desorganização e irregularidades na delegacia — com boletins sem andamento, armazenamento inadequado de drogas, destinação imprópria de armas e uso de veículo oficial para atividade particular durante o expediente —, isso foi considerado insuficiente para caracterizar prevaricação. A razão é que tais elementos evidenciam, no máximo, desídia administrativa, negligência ou comodismo, mas não demonstram, por si sós, a finalidade específica exigida pelo tipo penal.<br><br>A distinção é relevante para concursos: nem toda má gestão, ineficiência ou abandono de dever funcional configura prevaricação. Para a responsabilização penal, é indispensável prova de que o agente agiu para atender a interesse próprio ou sentimento pessoal, e não apenas por descompromisso com o serviço público. Assim, a mera gravidade objetiva das irregularidades não substitui a demonstração do dolo específico.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 5ª Turma. AgRg no AREsp 2.693.820-SP, Rel. Min. Ribeiro Dantas, julgado em 18/3/2025 (Info 846).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="em contexto de violência doméstica e familiar contra a mulher, a prática de violação de domicílio seguida de lesão corporal não autoriza, por si só, a absorção do primeiro delito pelo segundo, ainda que ambos integrem a mesma sequência fática, pois a tutela da inviolabilidade do lar e da tranquilidade da vítima não se confunde com a proteção da integridade física; nessa hipótese, havendo emprego de violência na invasão, subsiste a incidência autônoma da sanção prevista para o art. 150, § 1º, do código penal, cumulada com a pena correspondente à agressão corporal. a assertiva está correta porque reproduz a lógica central do entendimento: a violação de domicílio e a lesão corporal, quando praticadas de modo autônomo no contexto de violência doméstica e familiar baseada em gênero, não se absorvem automaticamente. o ponto decisivo é a diversidade de bens jurídicos tutelados. o crime de invasão de domicílio protege a privacidade, o sossego e a tranquilidade da pessoa no âmbito doméstico, enquanto a lesão corporal tutela a integridade física.
+
+por isso, não se aplica o princípio da consunção quando a invasão do domicílio não é mero meio necessário ou fase de execução da lesão, mas conduta autônoma, ainda que praticada antes ou depois da agressão. também não se trata de progressão criminosa, pois cada delito conserva finalidade própria e ofende valores distintos, especialmente à luz dos arts. 5º e 7º da lei maria da penha, que estruturam a proteção contra a violência doméstica e familiar.
+
+além disso, o art. 150, § 1º, do código penal prevê expressamente hipótese qualificada quando a violação de domicílio é cometida com violência, emprego de arma ou concurso de duas ou mais pessoas, impondo a pena correspondente ao delito patrimonial/contra a liberdade individual, sem prejuízo da pena pela violência praticada. assim, a resposta penal não se esgota na lesão corporal, sendo juridicamente possível e devida a responsabilização autônoma pelos dois fatos. stj. 6ª turma. agrg no aresp 2.711.392-sc, rel. min. otávio de almeida toledo (desembargador convocado do tjsp), julgado em 12/3/2025 (info 846).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 10</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-10">Não respondida</span>
+</div>
+
+<p class="enunciado">Em contexto de violência doméstica e familiar contra a mulher, a prática de violação de domicílio seguida de lesão corporal não autoriza, por si só, a absorção do primeiro delito pelo segundo, ainda que ambos integrem a mesma sequência fática, pois a tutela da inviolabilidade do lar e da tranquilidade da vítima não se confunde com a proteção da integridade física; nessa hipótese, havendo emprego de violência na invasão, subsiste a incidência autônoma da sanção prevista para o art. 150, § 1º, do Código Penal, cumulada com a pena correspondente à agressão corporal.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(10, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(10, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-10">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a lógica central do entendimento: a violação de domicílio e a lesão corporal, quando praticadas de modo autônomo no contexto de violência doméstica e familiar baseada em gênero, não se absorvem automaticamente. O ponto decisivo é a diversidade de bens jurídicos tutelados. O crime de invasão de domicílio protege a privacidade, o sossego e a tranquilidade da pessoa no âmbito doméstico, enquanto a lesão corporal tutela a integridade física.<br><br>Por isso, não se aplica o princípio da consunção quando a invasão do domicílio não é mero meio necessário ou fase de execução da lesão, mas conduta autônoma, ainda que praticada antes ou depois da agressão. Também não se trata de progressão criminosa, pois cada delito conserva finalidade própria e ofende valores distintos, especialmente à luz dos arts. 5º e 7º da Lei Maria da Penha, que estruturam a proteção contra a violência doméstica e familiar.<br><br>Além disso, o art. 150, § 1º, do Código Penal prevê expressamente hipótese qualificada quando a violação de domicílio é cometida com violência, emprego de arma ou concurso de duas ou mais pessoas, impondo a pena correspondente ao delito patrimonial/contra a liberdade individual, sem prejuízo da pena pela violência praticada. Assim, a resposta penal não se esgota na lesão corporal, sendo juridicamente possível e devida a responsabilização autônoma pelos dois fatos.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 6ª Turma. AgRg no AREsp 2.711.392-SC, Rel. Min. Otávio de Almeida Toledo (Desembargador convocado do TJSP), julgado em 12/3/2025 (Info 846).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="a condenação pelo crime de tráfico de drogas pode ser validamente mantida quando lastreada, de forma preponderante, em prints de publicações em redes sociais, mensagens eletrônicas, áudios e depoimentos policiais, ainda que não haja apreensão de entorpecentes, desde que o conjunto probatório revele, com suficiente segurança, a mercancia ilícita e a autoria. a afirmação contraria a exigência de prova concreta da materialidade do delito de tráfico de drogas. embora elementos digitais, como prints, mensagens, áudios e depoimentos, possam indicar a prática de traficância e até justificar investigação, medidas cautelares ou denúncia, eles não bastam, por si sós, para sustentar condenação penal quando inexistente a apreensão da substância entorpecente ou de outros elementos materiais idôneos que demonstrem, de modo concreto, a ocorrência do crime.
+
+no caso examinado, a condenação foi reputada ilegal porque se apoiou essencialmente em registros eletrônicos e em prova testemunhal, sem que houvesse apreensão de drogas com o acusado ou em locais a ele vinculados. a ausência de apreensão compromete a demonstração da materialidade, que é indispensável para a condenação por tráfico. assim, ainda que haja indícios fortes de envolvimento com a mercancia, a prova deve ultrapassar o plano meramente indiciário e alcançar suporte material mínimo apto a confirmar a existência do entorpecente ou de elementos equivalentes de comprovação.
+
+em síntese, prints e mensagens podem integrar o acervo probatório, mas não substituem a prova material do crime quando esta é exigida para a formação do juízo condenatório. a condenação fundada predominantemente nesses elementos, sem apreensão da droga, viola a orientação consolidada aplicada ao caso. stj. 5ª turma. agrg no hc 977.266-rn, rel. min. reynaldo soares da fonseca, julgado em 20/3/2025 (info 846).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 11</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-11">Não respondida</span>
+</div>
+
+<p class="enunciado">A condenação pelo crime de tráfico de drogas pode ser validamente mantida quando lastreada, de forma preponderante, em prints de publicações em redes sociais, mensagens eletrônicas, áudios e depoimentos policiais, ainda que não haja apreensão de entorpecentes, desde que o conjunto probatório revele, com suficiente segurança, a mercancia ilícita e a autoria.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(11, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(11, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-11">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A afirmação contraria a exigência de prova concreta da materialidade do delito de tráfico de drogas. Embora elementos digitais, como prints, mensagens, áudios e depoimentos, possam indicar a prática de traficância e até justificar investigação, medidas cautelares ou denúncia, eles não bastam, por si sós, para sustentar condenação penal quando inexistente a apreensão da substância entorpecente ou de outros elementos materiais idôneos que demonstrem, de modo concreto, a ocorrência do crime.<br><br>No caso examinado, a condenação foi reputada ilegal porque se apoiou essencialmente em registros eletrônicos e em prova testemunhal, sem que houvesse apreensão de drogas com o acusado ou em locais a ele vinculados. A ausência de apreensão compromete a demonstração da materialidade, que é indispensável para a condenação por tráfico. Assim, ainda que haja indícios fortes de envolvimento com a mercancia, a prova deve ultrapassar o plano meramente indiciário e alcançar suporte material mínimo apto a confirmar a existência do entorpecente ou de elementos equivalentes de comprovação.<br><br>Em síntese, prints e mensagens podem integrar o acervo probatório, mas não substituem a prova material do crime quando esta é exigida para a formação do juízo condenatório. A condenação fundada predominantemente nesses elementos, sem apreensão da droga, viola a orientação consolidada aplicada ao caso.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 5ª Turma. AgRg no HC 977.266-RN, Rel. Min. Reynaldo Soares da Fonseca, julgado em 20/3/2025 (Info 846).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a imposição, em proposta de acordo de não persecução penal, de condição consistente no pagamento de valor a título de reparação mínima dos danos causados pelo delito não se torna juridicamente inválida pelo simples fato de já existir ação cível em curso sobre os mesmos fatos, nem a alegação de insuficiência econômica do investigado autoriza, por si só, o controle judicial do conteúdo da proposta por habeas corpus, devendo eventual inconformismo ser submetido ao órgão superior do ministério público na forma prevista para a revisão ministerial. a assertiva está correta porque reproduz, com precisão técnica, a orientação firmada no caso: a existência de ação cível paralela não impede, por si só, que o ministério público inclua, no anpp, condição voltada à reparação dos danos causados pela infração. o acordo de não persecução penal possui disciplina própria no art. 28-a do cpp e pode conter obrigações de natureza reparatória, sem que isso implique automática duplicidade ilícita de responsabilização.
+
+além disso, a alegação de incapacidade financeira do investigado não torna, por si, ilegal a proposta apresentada pelo órgão acusador. esse tipo de controvérsia não autoriza o judiciário a substituir-se ao ministério público para reformular o conteúdo da avença por meio de habeas corpus. o controle judicial, nesse contexto, é limitado, especialmente quando a insurgência diz respeito ao mérito das condições negociadas.
+
+o caminho processual adequado para impugnar a proposta, quando se pretende revisão de suas cláusulas, é a provocação do órgão superior do ministério público, na forma do § 14 do art. 28-a do cpp, e não a utilização do habeas corpus como sucedâneo para rediscutir a conveniência ou a proporcionalidade das condições ofertadas. assim, a tese central é a de inadequação da via eleita para questionar o conteúdo do anpp, sem prejuízo da revisão ministerial pela via própria. stj. 6ª turma. rhc 184.507-mt, rel. min. sebastião reis júnior, julgado em 1º/4/2025 (info 846).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 12</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-12">Não respondida</span>
+</div>
+
+<p class="enunciado">A imposição, em proposta de acordo de não persecução penal, de condição consistente no pagamento de valor a título de reparação mínima dos danos causados pelo delito não se torna juridicamente inválida pelo simples fato de já existir ação cível em curso sobre os mesmos fatos, nem a alegação de insuficiência econômica do investigado autoriza, por si só, o controle judicial do conteúdo da proposta por habeas corpus, devendo eventual inconformismo ser submetido ao órgão superior do Ministério Público na forma prevista para a revisão ministerial.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(12, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(12, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-12">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz, com precisão técnica, a orientação firmada no caso: a existência de ação cível paralela não impede, por si só, que o Ministério Público inclua, no ANPP, condição voltada à reparação dos danos causados pela infração. O acordo de não persecução penal possui disciplina própria no art. 28-A do CPP e pode conter obrigações de natureza reparatória, sem que isso implique automática duplicidade ilícita de responsabilização.<br><br>Além disso, a alegação de incapacidade financeira do investigado não torna, por si, ilegal a proposta apresentada pelo órgão acusador. Esse tipo de controvérsia não autoriza o Judiciário a substituir-se ao Ministério Público para reformular o conteúdo da avença por meio de habeas corpus. O controle judicial, nesse contexto, é limitado, especialmente quando a insurgência diz respeito ao mérito das condições negociadas.<br><br>O caminho processual adequado para impugnar a proposta, quando se pretende revisão de suas cláusulas, é a provocação do órgão superior do Ministério Público, na forma do § 14 do art. 28-A do CPP, e não a utilização do habeas corpus como sucedâneo para rediscutir a conveniência ou a proporcionalidade das condições ofertadas. Assim, a tese central é a de inadequação da via eleita para questionar o conteúdo do ANPP, sem prejuízo da revisão ministerial pela via própria.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 6ª Turma. RHC 184.507-MT, Rel. Min. Sebastião Reis Júnior, julgado em 1º/4/2025 (Info 846).</p>
+</div>
+</section>
+
+</div>
+
+<script>
+const storageKey = location.pathname + "_respostas";
+let respostas = JSON.parse(localStorage.getItem(storageKey) || "{}");
+
+function destacar(t){
+ if(t==="CERTO") return '<span class="gabarito-certo">CERTO</span>';
+ if(t==="ERRADO") return '<span class="gabarito-errado">ERRADO</span>';
+ return t;
+}
+
+function responder(numero, resposta){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const gabarito=card.dataset.gabarito;
+ const correto=resposta===gabarito;
+ respostas[numero]={resposta,correto};
+ localStorage.setItem(storageKey, JSON.stringify(respostas));
+ mostrarFeedback(numero);
+ atualizarPainel();
+ filtrar();
+}
+
+function mostrarFeedback(numero){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const feedback=document.getElementById("feedback-"+numero);
+ const status=document.getElementById("status-"+numero);
+ const resultado=feedback.querySelector(".resultado");
+ const gabarito=card.dataset.gabarito;
+ const dados=respostas[numero];
+ if(!dados) return;
+ feedback.style.display="block";
+ feedback.classList.remove("correto","errado");
+ if(dados.correto){
+   feedback.classList.add("correto");
+   resultado.innerHTML="Você acertou. A resposta é "+destacar(gabarito)+".";
+   status.textContent="Respondida — acerto";
+   status.style.color="var(--green)";
+ } else {
+   feedback.classList.add("errado");
+   resultado.innerHTML="Você errou. O gabarito é "+destacar(gabarito)+".";
+   status.textContent="Respondida — erro";
+   status.style.color="var(--red)";
+ }
+}
+
+function atualizarPainel(){
+ let respondidas=0, acertos=0, erros=0;
+ for(const k in respostas){
+   respondidas++;
+   if(respostas[k].correto) acertos++; else erros++;
+ }
+ document.getElementById("respondidas").textContent=respondidas;
+ document.getElementById("acertos").textContent=acertos;
+ document.getElementById("erros").textContent=erros;
+ document.getElementById("visiveis").textContent=document.querySelectorAll(".questao:not(.oculta)").length;
+}
+
+function filtrar(){
+ const busca=document.getElementById("busca").value.trim().toLowerCase();
+ const disciplina=document.getElementById("disciplina").value;
+ const statusFiltro=document.getElementById("statusFiltro").value;
+ const cards=Array.from(document.querySelectorAll(".questao"));
+ let vis=0;
+ cards.forEach((card,idx)=>{
+   const n=idx+1;
+   const texto=card.dataset.texto||"";
+   const disc=card.dataset.disciplina||"";
+   const r=respostas[n];
+   let passaStatus=true;
+   if(statusFiltro==="nao") passaStatus=!r;
+   if(statusFiltro==="acerto") passaStatus=r && r.correto;
+   if(statusFiltro==="erro") passaStatus=r && !r.correto;
+   const ok=(!busca||texto.includes(busca)) && (!disciplina||disc===disciplina) && passaStatus;
+   card.classList.toggle("oculta", !ok);
+   if(ok) vis++;
+ });
+ document.getElementById("sem-resultados").style.display=vis===0?"block":"none";
+ atualizarPainel();
+}
+
+function reiniciar(){
+ if(!confirm("Deseja reiniciar este simulado?")) return;
+ localStorage.removeItem(storageKey);
+ location.reload();
+}
+
+function restaurar(){
+ for(const k in respostas) mostrarFeedback(Number(k));
+ filtrar();
+ atualizarPainel();
+}
+
+restaurar();
+</script>
+</body>
+</html>

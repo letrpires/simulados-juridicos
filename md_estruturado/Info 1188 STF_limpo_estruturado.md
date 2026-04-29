@@ -1,0 +1,344 @@
+# Info 1188 STF
+
+**Status geral:** Estruturado automaticamente
+
+---
+
+## Julgado 1
+
+**Disciplina:** Direito Constitucional
+
+**Subtema:** Competências Legislativas
+
+**ODS:** 16
+
+**Título do julgado:**
+
+É inconstitucional lei estadual que imponha a inclusão automática de recém-nascido como dependente em plano de saúde; é válida a lei estadual que obrigue operadoras a informar o prazo de inscrição do recém-nascido para ele manter a carência Importante!!!
+
+**Tese / entendimento:**
+
+É inconstitucional lei estadual que determine a inclusão automática de recém-nascido em
+tratamento terapêutico como dependente do plano de saúde do titular, por invadir
+competência privativa da União para legislar sobre contratos e seguros (art. 22, I e VII, CF).
+Por outro lado, é constitucional a norma estadual que imponha às operadoras o dever de
+informar o prazo para inscrição do neonato com isenção de carência, pois tal matéria se insere
+na competência concorrente sobre proteção ao consumidor (art. 24, V, CF).
+
+**Referência:**
+
+STF. Plenário. ADI 7.428/MS, Rel. Min. André Mendonça, julgado em 01/09/2025 (Info 1188).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 2
+
+**Disciplina:** Direito Constitucional
+
+**Subtema:** Segurança Pública
+
+**ODS:** 16
+
+**Título do julgado:**
+
+São inconstitucionais a equiparação da carreira de delegado de polícia às carreiras jurídicas e a fixação de teto remuneratório em desconformidade com o preconizado no art. 37, XI, da CF Importante!!!
+
+**Tese / entendimento:**
+
+A polícia civil integra a estrutura do Poder Executivo e está subordinada ao Governador do
+Estado, não possuindo autonomia funcional ou financeira. A Constituição Federal atribui
+autonomia apenas ao Judiciário, Ministério Público, Defensoria Pública e universidades, não
+havendo previsão de independência funcional para delegados de polícia.
+Estados-membros não podem, por emenda constitucional ou lei complementar, classificar a
+carreira de delegado de polícia como jurídica ou atribuir-lhe status de função essencial à
+justiça, pois isso contraria o vínculo de subordinação hierárquica ao Chefe do Executivo
+estabelecido no art. 144, § 6º, da Constituição Federal.
+A fixação de subteto remuneratório de 90,25% do subsídio dos Ministros do STF aplica-se
+apenas aos membros do Judiciário, Ministério Público, procuradores e defensores públicos,
+conforme art. 37, XI, da CF. Estados não podem estender esse limite a outras carreiras (como
+auditores fiscais, delegados de polícia e auditores governamentais) sem previsão na
+Constituição Federal.
+
+**Referência:**
+
+STF. Plenário. ADI 5.622/PI, Rel. Min. Nunes Marques, julgado em 28/08/2025 (Info 1188).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 3
+
+**Disciplina:** Direito Administrativo
+
+**Subtema:** Concurso Público
+
+**ODS:** 10 E 16
+
+**Título do julgado:**
+
+É inconstitucional o art. 144-A do Estatuto dos Militares, que proibia o ingresso de pessoas casadas, em união estável ou com filhos e dependentes em cursos de formação ou graduação de oficiais e praças das Forças Armadas Importante!!!
+
+**Tese / entendimento:**
+
+O art. 144-A do Estatuto dos Militares proíbe o ingresso de pessoas casadas, em união estável
+ou com dependentes, em cursos de formação ou graduação de oficiais e de praças que exijam
+regime de internato, de dedicação exclusiva e de disponibilidade permanente peculiar à
+carreira militar. O STF considerou essa previsão inconstitucional.
+Tese fixada: É inconstitucional o artigo 144-A da Lei n. 6.880/1980 (Estatuto dos Militares), ao
+condicionar o ingresso e a permanência nos órgãos de formação ou graduação de oficiais e de
+praças, ainda que em regime de internato, de dedicação exclusiva e/ou de disponibilidade
+permanente peculiar à carreira militar à inexistência de vínculos conjugal, de união estável,
+de maternidade, de paternidade e de dependência socioafetiva.
+
+**Referência:**
+
+STF. Plenário. RE 1.530.083/RN, Rel. Min. Luiz Fux, julgado em 27/08/2025 (Repercussão geral – Tema 1.388) (Info 1188).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 4
+
+**Disciplina:** Direito Administrativo
+
+**Subtema:** Servidores Públicos
+
+**ODS:** 16
+
+**Título do julgado:**
+
+O prazo prescricional para servidores temporários cobrarem os depósitos do FGTS após nulidade de suas contratações é de cinco anos Importante!!!
+
+**Tese / entendimento:**
+
+Caso hipotético: Marcos foi contratado pelo Estado-membro como servidor temporário (art.
+37, IX, da CF/88). No entanto, sua situação se prolongou por muitos anos, com renovações
+sucessivas do contrato sem que houvesse justificativa real de excepcionalidade. Após a
+rescisão, Marcos ajuizou ação em 2012, alegando que a necessidade era permanente e que
+deveria ter sido realizada contratação via concurso público. Pediu a nulidade dos contratos e
+o pagamento do FGTS.
+O Estado suscitou a ocorrência de prescrição, com base no art. 7º, XXIX da Constituição, que
+fixa prazo de dois anos após o término do contrato para ajuizamento de ações trabalhistas.
+Como Marcos ingressou com a ação mais de quatro anos após o fim do vínculo, o Estado
+defendeu que a pretensão estaria prescrita. O STF não concordou.
+Tese fixada: O prazo bienal para ajuizamento de ação, previsto na parte final do art. 7º, XXIX,
+da Constituição Federal, não se aplica aos servidores temporários que tiveram seus contratos
+declarados nulos, por se tratarem de ocupantes de cargos públicos regidos por vínculo de
+natureza jurídico-administrativa. Nesses casos, incide o prazo prescricional quinquenal, nos
+termos do art. 1º do Decreto nº 20.910/1932.
+
+**Referência:**
+
+STF. Plenário. RE 1.336.848/PA, Rel. Min. Gilmar Mendes, julgado em 01/09/2025 (Repercussão Geral – Tema 1.189) (Info 1188).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 5
+
+**Disciplina:** Direito Administrativo
+
+**Subtema:** Servidores Públicos
+
+**ODS:** 16
+
+**Título do julgado:**
+
+É constitucional, desde que observe os princípios da irredutibilidade de vencimentos, da isonomia e da legalidade remuneratória, a lei estadual que disciplina o regime jurídico e remuneratório dos servidores da Polícia Civil
+
+**Tese / entendimento:**
+
+O regime de subsídio não impede o pagamento de outras verbas, mas apenas daquelas que
+remuneram atividades ordinárias e inerentes ao cargo público. A inclusão dos adicionais de
+insalubridade, periculosidade e risco de vida na parcela única do subsídio é constitucional,
+pois tais riscos são próprios das funções policiais, ou seja, inerentes ao cargo.
+A suspensão da revisão geral anual até 2027 é constitucional quando há concessão de
+reajustes escalonados que incorporam os percentuais de revisão geral. O inciso X do art. 37 da
+Constituição não estabelece obrigatoriedade de aumentos anuais, devendo ser considerados
+fatores como a previsão orçamentária e eventual compensação em relação a outras formas de
+aumento.
+A diferenciação no tratamento de delegados de polícia em relação aos demais policiais civis
+(como exigência de aprovação por 2/3 do Conselho Superior para remoção) não viola o
+princípio da isonomia, sendo legítima e razoável à luz das prerrogativas e atribuições
+diferenciadas do cargo, que incluem direção, presidência, comando e controle das atividades
+de investigação.
+
+**Referência:**
+
+STF. Plenário. ADI 7.578/PR, Rel. Min. Cármen Lúcia, julgado em 01/09/2025 (Info 1188).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 6
+
+**Disciplina:** Direito Eleitoral
+
+**Subtema:** Prestação De Contas
+
+**ODS:** 16
+
+**Título do julgado:**
+
+É constitucional a Resolução 23.709/2022, do TSE, que regulamenta o procedimento de execução e cumprimento de decisões impositivas de multa e outras sanções de natureza pecuniária, exceto as criminais, proferidas pela Justiça Eleitoral
+
+**Tese / entendimento:**
+
+A Resolução TSE nº 23.709/2022 não estabelece responsabilidade solidária entre os órgãos
+nacional, estadual e municipal dos partidos políticos quanto a débitos de prestação de contas
+que resultem em sanção de desconto ou suspensão de cotas do Fundo Partidário. O que há é
+imposição de obrigação de fazer, de natureza acessória, aos diretórios nacionais no
+procedimento de prestação de contas dos diretórios estaduais e municipais.
+O caráter nacional dos partidos políticos e o princípio da autonomia partidária implicam
+organização que reflete o modelo federativo, com órgãos dotados de autonomia funcional,
+administrativa, financeira e operacional, com capacidade jurídica para assumir obrigações em
+nome próprio.
+A sistemática de desconto se legitima em função da regra do art. 41, caput, da Lei nº
+9.096/1995, que determina que os recursos do Fundo Partidário sejam distribuídos pelo TSE
+diretamente aos órgãos nacionais dos partidos, para posterior repasse aos diretórios
+subnacionais.
+
+**Referência:**
+
+STF. Plenário. ADI 7.415/DF, Rel. Min. André Mendonça, julgado em 01/09/2025 (Info 1188).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 7
+
+**Disciplina:** Direito Processual Civil
+
+**Subtema:** Fazenda Pública Em Juízo
+
+**ODS:** 16
+
+**Título do julgado:**
+
+Após a vigência do art. 3º da EC nº 113/2021, os valores devidos nas demandas em que a Fazenda Pública figure como parte devem ser atualizados pelo índice da taxa referencial do Sistema Especial de Liquidação e de Custódia (SELIC) Importante!!!
+
+**Tese / entendimento:**
+
+A taxa SELIC, prevista no art. 3º da EC 113/2021, é aplicável para a atualização de valores em
+qualquer discussão ou condenação da Fazenda Pública, inclusive na cobrança judicial de
+créditos tributários.
+
+**Referência:**
+
+STF. Plenário. ARE 1.557.312/SP, Rel. Min. Luís Roberto Barroso, julgado em 30/08/2025 (Repercussão Geral – Tema 1.419) (Info 1188).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 8
+
+**Disciplina:** Direito Tributário
+
+**Subtema:** Taxas
+
+**ODS:** 16 E 17
+
+**Título do julgado:**
+
+É inconstitucional norma estadual que estabelece valores de custas para interposição de recursos aos tribunais superiores (Taxa de Serviços Judiciários), por violar a competência exclusiva desses tribunais
+
+**Tese / entendimento:**
+
+A fixação de custas judiciais com base no valor da causa, desde que em percentual módico e
+com limites máximos, não ofende a Constituição Federal.
+As custas judiciais têm natureza de taxa remuneratória de serviços públicos. A cobrança de
+custas tanto na fase de conhecimento quanto na fase de cumprimento de sentença é
+constitucional, pois em cada etapa há prestação de serviços distinguíveis pelo Poder
+Judiciário.
+Por outro lado, Estados não podem cobrar custas judiciais para processar recursos
+extraordinários e especiais. Compete exclusivamente ao STF e ao STJ estabelecer o valor das
+custas de interposição do recurso extraordinário e do recurso especial. Estados-membros não
+têm competência para instituir custas referentes a recursos dirigidos aos tribunais
+superiores, ainda que para o processamento destes perante a corte estadual.
+
+**Referência:**
+
+STF. Plenário. ADI 5.689/RR, Rel. Min. Nunes Marques, julgado em 01/09/2025 (Info 1188).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 9
+
+**Disciplina:** Direito Tributário
+
+**Subtema:** Direito Internacional
+
+**ODS:** 3, 16 E 17 1
+
+**Título do julgado:**
+
+CONVENÇÃO DA HAIA A violência doméstica sofrida pela mãe é, por si só, um risco grave e uma situação intolerável para a criança, mesmo que o filho não seja agredido diretamente, e, por isso, pode impedir o seu retorno forçado ao país de origem (Artigo 13, 1, b, da Convenção da Haia) Importante!!!
+
+**Tese / entendimento:**
+
+1. A Convenção da Haia de 1980 sobre os aspectos civis da subtração internacional de crianças
+é compatível com a Constituição Federal, possuindo status supralegal no ordenamento
+jurídico brasileiro, por sua natureza de tratado internacional de proteção de direitos da
+criança.
+2. A aplicação da Convenção no Brasil, à luz do princípio do melhor interesse da criança (art.
+227, CF/88), exige a adoção de medidas estruturais e procedimentais para garantir a
+tramitação célere e eficaz das ações sobre restituição internacional de crianças.
+3. A exceção de risco grave à criança, prevista no art. 13 (1) (b) da Convenção da Haia de 1980,
+deve ser interpretada de forma compatível com o princípio do melhor interesse da criança
+(art. 227, CF/88) e com perspectiva de gênero, de modo a admitir sua aplicação quando houver
+indícios objetivos e concretos de violência doméstica, ainda que a criança não seja vítima
+direta.
+
+**Referência:**
+
+STF. Plenário. ADI 4.245/DF e ADI 7.686/DF, Rel. Min. Luís Roberto Barroso, julgado em 27/08/2025 (Info 1188).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---

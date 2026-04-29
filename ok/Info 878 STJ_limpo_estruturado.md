@@ -1,0 +1,582 @@
+# Info 878 STJ
+
+**Status geral:** Estruturado automaticamente
+
+---
+
+## Julgado 1
+
+**Disciplina:** Direito Administrativo
+
+**Subtema:** Servidores Públicos
+
+**ODS:** 16
+
+**Título do julgado:**
+
+O marco inicial da prescrição quinquenal dos efeitos financeiros do abono de permanência especial é a data do requerimento administrativo em que o servidor efetivamente comprova o direito vindicado
+
+**Tese / entendimento:**
+
+Caso hipotético: João, servidor público com visão monocular desde a infância, preencheu os
+requisitos para a aposentadoria especial em agosto de 2007, mas optou por permanecer em
+atividade, fazendo jus ao abono de permanência especial. Em março de 2013, formulou
+requerimento administrativo para a concessão do benefício, que foi indeferido por
+insuficiência de provas quanto à origem da deficiência. Após o trânsito em julgado
+administrativo, apresentou novo pedido em abril de 2018, instruído com laudos mais
+completos, obtendo o deferimento. A Administração fixou o marco prescricional na data do
+segundo requerimento (abril de 2018), permitindo a João receber valores retroativos apenas
+desde abril de 2013. João impetrou mandado de segurança, alegando que o marco correto
+seria o primeiro requerimento (março de 2013), o que lhe garantiria retroatividade desde
+março de 2008. O STJ não concordou com o pedido de João.
+Os efeitos financeiros da concessão do abono de permanência especial submetem-se à
+prescrição quinquenal, contada a partir do requerimento administrativo em que se comprove
+o direito vindicado.
+Os efeitos financeiros da concessão do abono de permanência especial submetem-se à
+prescrição quinquenal, contada a partir do requerimento administrativo em que se comprove
+o direito vindicado.
+Se a decisão administrativa proferida no primeiro requerimento foi equivocada porque a
+prova então produzida era suficiente para demonstrar o direito, a prescrição retroage à data
+desse primeiro pedido. Contudo, se a comprovação do direito somente se consolidou no
+segundo requerimento (porque o servidor não apresentou a documentação necessária desde
+o início), o marco inicial da prescrição quinquenal é a data desse segundo requerimento.
+
+**Referência:**
+
+STJ. 1ª Turma. RMS 65.384-DF, Rel. Min. Gurgel de Faria, julgado em 3/2/2026 (Info 878).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 2
+
+**Disciplina:** Direito Ambiental
+
+**Subtema:** Alta Relevância: Magistratura Estadual, Magistratura Federal, Magistratura Federal, Pge, Pgm, Advocacia Pública Federal
+
+**ODS:** 12, 14, 15 E 16
+
+**Título do julgado:**
+
+Média relevância: MPF, MPE, DPU, DPE, Tribunais, Cartório, Delegado DIREITO AMBIENTAL RESPONSABILIDADE CIVIL POR DANO AMBIENTAL Ações individuais relacionadas ao Programa Indenizatório Definitivo (PID) do rompimento da Barragem de Fundão devem ser julgadas pela Justiça Federal (TRF-6), pois envolvem a análise e interpretação do acordo de repactuação homologado pelo STF
+
+**Tese / entendimento:**
+
+Caso hipotético: João, morador de Governador Valadares/MG e pessoa atingida pelo
+rompimento da barragem de Fundão, tentou aderir ao Programa Indenizatório Definitivo
+(PID), programa criado pelo Acordo de Repactuação do Rio Doce, homologado pelo STF em
+6/11/2024, que prevê o pagamento de R$ 35.000,00 em parcela única às pessoas que
+preencherem os requisitos. João tentou receber, mas disseram que ele não preenchia os
+requisitos. Ele ajuizou ação contra a Samarco, a Vale, a BHP e a Fundação Renova pedindo o
+reconhecimento judicial de seu direito ao PID. A competência para julgar esse pedido é da
+Justiça Federal.
+Compete à Justiça Federal - Tribunal Regional Federal da 6ª Região - processar e julgar as
+demandas que tenham como objeto o Programa Indenizatório Definitivo (PID) relativo ao
+desastre do rompimento da barragem de Fundão, em Mariana/MG, no contexto da
+repactuação homologada pelo STF.
+
+**Referência:**
+
+STJ. 1ª Seção. CC 215.613-MG, Rel. Min. Paulo Sérgio Domingues, julgado em 5/2/2026 (Info 878).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 3
+
+**Disciplina:** Direito Civil
+
+**Subtema:** Alta Relevância: Magistratura Federal, Mpf, Dpu, Advocacia Pública Federal
+
+**ODS:** 16
+
+**Título do julgado:**
+
+Média relevância: Magistratura estadual, MPE, DPE DIREITO CIVIL CONTRATOS > SEGURO Acordo feito pela segurada com o causador do dano, sem participação da seguradora, não afeta os direitos regressivos decorrentes da sub-rogação, mas a seguradora sub-rogada fica sujeita aos mesmos limites indenizatórios aplicáveis à segurada na Convenção de Montreal
+
+**Tese / entendimento:**
+
+Caso hipotético: a Eletron contratou a transportadora Alpha Global para trazer do exterior ao
+Brasil componentes eletrônicos avaliados em US$ 1 milhão. Antes do embarque, a carga foi
+furtada no depósito da transportadora no exterior. A seguradora Beta Seguros, que havia
+emitido apólice em favor da Eletron, pagou integralmente a indenização para a importadora
+e, com isso, sub-rogou-se nos direitos da segurada para cobrar da transportadora o prejuízo.
+Ocorre que, antes de a seguradora ajuizar a ação regressiva, a Alpha firmou acordo
+extrajudicial com a Eletron, pagando US$ 100 mil e obtendo ‘ampla quitação’, inclusive em
+nome da seguradora, embora esta não tenha participado nem anuído.
+A seguradora, que não sabia do acordo, ajuizou ação regressiva contra a transportadora.
+A ré contestou invocando dois argumentos: 1) o acordo de quitação teria extinguido qualquer
+direito sub-rogado e, portanto, nada mais poderia ser cobrado; 2) sua responsabilidade
+estaria limitada pela Convenção de Montreal, que fixa teto de 17 Direitos Especiais de Saque
+(DES) por quilograma, salvo se o remetente apresentar Declaração Especial de Valor. A Eletron
+contra argumentou afirmando ter informado o valor da carga por meio de faturas e
+conhecimento aéreo.
+O STJ não acolheu o primeiro argumento. A transação dos direitos da seguradora realizada
+sem a sua participação ou anuência não gera efeitos em relação aos direitos sub-rogados
+decorrentes do pagamento da indenização securitária.
+Por outro lado, o STJ acolheu o segundo argumento. Somente a declaração especial de valor e
+o pagamento, quando exigido, de quantia suplementar são capazes de afastar o limite
+indenizatório previsto no art. 22, item 3, da Convenção de Montreal, não servindo para essa
+finalidade outros documentos que afirmem o valor da carga transportada. Não se transfere à
+seguradora sub-rogada mais direitos do que aqueles que a segurada detinha no momento do
+pagamento da indenização.
+
+**Referência:**
+
+STJ. 4ª Turma. AgInt nos EDcl no AREsp 2.372.854-SP, Rel. Min. Antonio Carlos Ferreira, julgado em 16/12/2025 (Info 878).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 4
+
+**Disciplina:** Direito Civil
+
+**Subtema:** Alta Relevância: Magistratura Estadual
+
+**ODS:** 16
+
+**Título do julgado:**
+
+Média relevância: Magistratura federal, DPE, Cartório CONTRATOS > SEGURO Nos contratos de seguro de vida em grupo não se pode equiparar doença profissional com acidente de trabalho para recebimento de indenização securitária, notadamente quando há exclusão de cobertura da invalidez parcial por doença laboral
+
+**Tese / entendimento:**
+
+Caso hipotético: João ingressou no Exército e aderiu a um seguro de vida em grupo, que previa
+cobertura apenas para invalidez permanente por acidente (IPA). A apólice continha cláusula
+expressa excluindo a cobertura para invalidez decorrente de doença ocupacional. Após anos
+de atividades militares intensas, João desenvolveu artrose e outros transtornos degenerativos
+nos joelhos, resultando em invalidez parcial e permanente. A perícia reconheceu que as
+atividades no Exército contribuíram para a doença. Ele acionou o seguro, alegando que a
+doença ocupacional deveria ser equiparada a acidente de trabalho, como ocorre na legislação
+trabalhista e previdenciária. A seguradora negou o pagamento, sustentando que o contrato
+cobria apenas acidente pessoal e excluía expressamente doença ocupacional, devendo a
+apólice ser interpretada de forma restritiva. O STJ concordou com a seguradora.
+Nos contratos de seguro de vida em grupo, diante da necessidade de interpretação restritiva
+das cláusulas do seguro, é inviável a equiparação entre doença profissional e acidente de
+trabalho para recebimento de indenização securitária, notadamente quando há exclusão de
+cobertura da invalidez parcial por doença laboral.
+
+**Referência:**
+
+STJ. 4ª Turma. REsp 2.206.239-MS, Rel. Min. Marco Buzzi, julgado em 1/12/2025 (Info 878).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 5
+
+**Disciplina:** Direito Civil
+
+**Subtema:** Alta Relevância: Magistratura Estadual, Mpe, Dpe, Tribunais
+
+**ODS:** 16
+
+**Título do julgado:**
+
+Média relevância: Magistratura federal, PGE, PGM, Cartório RESPONSABILIDADE CIVIL Indenização por dano moral pela morte de filha em excursão escolar pode superar a faixa de 300 a 500 salários-mínimos quando as circunstâncias revelarem gravidade extraordinária
+
+**Tese / entendimento:**
+
+Caso adaptado: Roberto era pai de Patrícia, adolescente de 17 anos, assassinada por asfixia
+mecânica durante excursão curricular organizada por seu colégio particular em uma fazenda
+no interior de São Paulo. A escola havia proibido os alunos de levarem celulares. Os
+responsáveis pela excursão levaram duas horas para notar o desaparecimento da aluna; quem
+acionou o Corpo de Bombeiros foi a cozinheira da fazenda. Roberto só foi avisado horas depois,
+sem receber o endereço do local. O corpo de Patríciafoi encontrado na manhã seguinte, após
+o próprio Roberto acionar pessoalmente o helicóptero da Polícia Militar. O juízo de primeira
+instância condenou a escola ao pagamento de R$ 1.000.000,00 a título de danos morais. O TJSP
+reduziu esse valor para R$ 400.000,00 sem fundamentar a decisão nas particularidades do
+caso. Roberto recorreu ao STJ que restabeleceu o valor de R$ 1.000.000,00 considerando a
+gravidade dos fatos, a extensão do dano e a capacidade econômica da instituição.
+A indenização em caso de morte de familiar, normalmente, é fixada entre 300 a 500 salários-
+mínimos. Vale ressaltar, contudo, que esse é um mero parâmetro orientador. Não se trata de
+intervalo rígido, podendo ser superado em casos de gravidade extraordinária.
+A morte de filho por homicídio configura dano moral in re ipsa qualificado, pois ao sofrimento
+pela perda soma-se a consciência de que o filho enfrentou violência e desamparo em seus
+últimos instantes.
+A redução do valor da indenização sem fundamentação nas particularidades do caso concreto
+autoriza o controle excepcional pelo STJ.
+Nos casos de responsabilidade contratual, os juros de mora fluem a partir da citação.
+A correção monetária da indenização por danos morais incide desde a data do arbitramento
+(Súmula 362/STJ).
+
+**Referência:**
+
+STJ. 4ª Turma. REsp 2.240.249-SP, Rel. Min. Antonio Carlos Ferreira, julgado em 3/2/2026 (Info 878).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 6
+
+**Disciplina:** Direito Civil
+
+**Subtema:** Alta Relevância: Magistratura Estadual, Magistratura Federal, Mpe, Mpf, Dpe, Dpu, Tribunais
+
+**ODS:** 16
+
+**Título do julgado:**
+
+Média relevância: PGE, PGM, Advocacia Pública Federal, Cartório, Delegado RESPONSABILIDADE CIVIL Em caso de responsabilidade civil por falha médico-hospitalar, o hospital deve custear integralmente todos os tratamentos, medicações e terapias necessários à vítima, sem limitação temporal, além de pagar pensão vitalícia no valor integral fixado na sentença
+
+**Tese / entendimento:**
+
+Caso adaptado: Lucas, recém-nascido prematuro e de baixo peso, contraiu infecção hospitalar
+na UTI neonatal e ficou com sequelas permanentes. O hospital alegou que as condições prévias
+do bebê configurariam concausas predominantes, afastando o dever de indenizar com base na
+teoria da equivalência dos antecedentes. O STJ, contudo, aplicando a teoria da causalidade
+adequada e o regime de responsabilidade objetiva do art. 14 do CDC, afastou essa tese.
+Entendeu que prematuridade e baixo peso são riscos inerentes à atividade hospitalar e não
+rompem o nexo causal, sobretudo porque outros bebês, sem essas condições, também foram
+infectados. Assim, reconheceu a responsabilidade integral do hospital.
+No julgamento do recurso especial, o STJ afastou a concorrência de causas e restabeleceu o
+pagamento integral das indenizações, negando provimento ao recurso do hospital.
+O STJ deu provimento aos embargos de declaração opostos pelos autores ampliando a
+condenação que já havia sido fixada no recurso especial. Isso porque o STJ determinou que o
+hospital arque, de forma integral e sem limitação temporal, com todos os tratamentos,
+terapias, medicamentos e despesas futuras relacionadas às sequelas, em observância ao
+princípio da reparação integral (arts. 944, 949 e 950 do CC), com apuração contínua em fase
+de liquidação. Reconheceu também omissão quanto à pensão, restabelecendo o valor fixado
+na sentença (quatro salários-mínimos), a partir dos 18 anos de idade.
+Em suma: uma vez reconhecido o ato ilícito e a responsabilidade civil, é devida a indenização
+pelo prejuízo material suportado pela vítima em sua integralidade, em atenção ao princípio
+da reparação integral.
+
+**Referência:**
+
+STJ. 4ª Turma. EDcl no REsp 2.069.914/DF, Rel. Min. Marco Buzzi, julgado em 3/2/2026 (Info 878).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 7
+
+**Disciplina:** Direito Processual Civil
+
+**Subtema:** Alta Relevância: Magistratura Estadual, Magistratura Federal, Mpe, Mpf, Dpe, Dpu, Tribunais
+
+**ODS:** 16
+
+**Título do julgado:**
+
+Média relevância: PGE, PGM, Cartório, Delegado DIREITO PROCESSUAL CIVIL REMESSA NECESSÁRIA Demandas previdenciárias com valor da condenação aferível por simples cálculos aritméticos estão dispensadas da remessa necessária quando for possível estimar que não excederá 1.000 salários-mínimos
+
+**Tese / entendimento:**
+
+Caso hipotético: João ajuizou ação contra o INSS pedindo a concessão da aposentadoria. O juiz
+julgou o pedido procedente determinando a concessão do benefício desde o requerimento
+administrativo e o pagamento das parcelas atrasadas, com juros e correção monetária.
+Embora a sentença não tenha indicado o valor total da condenação, fixou todos os critérios
+necessários para sua apuração por simples cálculo aritmético.
+Nem João nem o INSS interpuseram apelação. Mesmo assim, os autos foram remetidos ao
+Tribunal Regional Federal por força da remessa necessária. O TRF, contudo, deixou de
+conhecê-la, entendendo que, apesar de a sentença não apresentar valor expresso, era possível
+calcular facilmente o montante devido, que ficaria muito abaixo do limite de 1.000 salários-
+mínimos previsto no art. 496, § 3º, I, do CPC para dispensa do reexame necessário em
+condenações contra a Fazenda Pública.
+O INSS recorreu ao STJ alegando que a sentença seria ilíquida e que, conforme o Tema 17 e a
+Súmula 490 do STJ, sentenças ilíquidas contra a Fazenda Pública exigiriam reexame
+necessário.
+O STJ rejeitou esse argumento do INSS e decidiu que, nas ações previdenciárias, quando o valor
+da condenação puder ser apurado por simples cálculos aritméticos e claramente permanecer
+abaixo do limite legal, não há necessidade de remessa necessária, ainda que o valor não conste
+expressamente na sentença.
+Tese fixada: A demanda previdenciária cujo valor da condenação seja aferível por simples
+cálculos aritméticos, com base nos parâmetros fixados na sentença, deve ser dispensada da
+remessa necessária quando for possível estimar que não excederá o limite previsto no art.
+496, § 3º, I, do Código de Processo Civil.
+
+**Referência:**
+
+STJ. Corte Especial. REsp 1.882.236-RS, REsp 1.893.709-RS e REsp 1.894.666-SC, Rel. Min. Og Fernandes, julgados em 4/2/2026 (Recurso Repetitivo - Tema 1081) (Info 878).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 8
+
+**Disciplina:** Direito Penal
+
+**Subtema:** Recurso Repetitivo - Tema 1.081
+
+**ODS:** 16
+
+**Título do julgado:**
+
+Julgado IMPORTANTE Alta relevância: Magistratura estadual, Magistratura federal, MPF, PGE, PGM, Advocacia Pública Federal, Tribunais Média relevância: MPE, DPE, DPU, Delegado, Cartório DIREITO PENAL CRIMES CONTRA O PATRIMÔNIO A obtenção de benefício previdenciário, quando não evidenciada fraude no preenchimento dos seus requisitos legais, não caracteriza vantagem indevida para fins de enquadramento típico do crime do art. 171, § 3º, do CP
+
+**Tese / entendimento:**
+
+Caso hipotético: João, servidor público federal aposentado, casou-se com Larissa, mãe de sua
+neta. Após a morte de João, Larissa requereu e obteve pensão por morte como cônjuge
+sobrevivente, com base em certidão de casamento formalmente válida. Posteriormente,
+familiares noticiaram ao MPF que o casamento teria sido celebrado apenas para viabilizar o
+recebimento do benefício previdenciário, alegando inexistência de intenção de constituir vida
+em comum e a manutenção de relacionamento entre Larissa e Pedro (filho de João), havendo
+prova de repasses de parte da pensão a ele. O MPF denunciou Larissa e Pedro por estelionato
+previdenciário (art. 171, § 3º, do CP), sustentando que o casamento teria sido simulado para
+induzir a União em erro. O STJ afirmou que a conduta era atípica por duas razões.
+O casamento foi regularmente formalizado, sem impedimentos legais e sem nulidade civil
+demonstrada. Não se anula casamento pela intenção torpe de um dos nubentes.
+A pensão recebida por Larissa não pode ser considerada vantagem indevida. No caso da
+pensão por morte, a lei exige apenas dois requisitos: que o cônjuge segurado tenha falecido e
+que exista um casamento válido. João morreu. O casamento existia formalmente. Larissa
+preenchia os dois requisitos. Logo, ela tinha direito à pensão. Quem recebe aquilo a que tem
+direito não está obtendo vantagem indevida. Sem vantagem indevida, não há estelionato.
+
+**Referência:**
+
+STJ. 5ª Turma. AgRg no REsp 2.230.017-PB, Rel. Min. Joel Ilan Paciornik, julgado em 9/12/2025 (Info 878).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 9
+
+**Disciplina:** Direito Processual Penal
+
+**Subtema:** Favorável À Defesa
+
+**ODS:** 16
+
+**Título do julgado:**
+
+Alta relevância: MPF, MPE, Delegado, DPE, DPU, Magistratura federal, Magistratura estadual Média relevância: Tribunais, PGE, PGM, Advocacia Pública Federal, Cartório DIREITO PROCESSUAL PENAL PROVAS Se houver dúvida razoável sobre a integridade e autenticidade da prova digital, é necessária a realização de perícia; se essas foram as principais provas da autoria, a prisão preventiva do suspeito deve ser substituída por medidas cautelares diversas até a conclusão da perícia
+
+**Tese / entendimento:**
+
+Caso hipotético: Pedro foi assassinado. João foi apontado como um dos responsáveis pelo
+homicídio. A polícia apreendeu celulares da vítima e do investigado, além de um DVR com
+imagens do dia do crime. Com autorização judicial, um investigador acessou os aparelhos e
+extraiu conversas e arquivos de forma manual, sem uso de ferramentas forenses nem geração
+de código hash, reunindo o material em relatório policial. Com base nessas provas digitais, o
+juiz decretou a prisão preventiva de João, que foi denunciado por homicídio. A defesa
+impetrou habeas corpus alegando quebra da cadeia de custódia em razão da ausência de
+registro técnico adequado que garantisse a integridade e a rastreabilidade das provas digitais.
+O STJ concedeu a ordem para determinar a realização de perícia oficial nos dispositivos
+eletrônicos apreendidos. Além disso, entendeu que a prisão preventiva deveria ser
+substituída por medidas cautelares diversas até a conclusão da diligência técnica.
+Teses de julgamento:
+1. Havendo dúvida razoável sobre a integridade e autenticidade da prova digital, é necessária
+a realização de exame pericial para assegurar a confiabilidade do material e o exercício do
+contraditório.
+2. Quando os principais elementos probatórios de autoria consistem em dados digitais cuja
+fidedignidade necessita de confirmação mediante exame pericial, a proporcionalidade
+recomenda a substituição da prisão preventiva por medidas cautelares diversas até a
+conclusão da diligência técnica.
+
+**Referência:**
+
+STJ. 6ª Turma. AgRg no HC 1.014.212-ES, Rel. Min. Carlos Pires Brandão, julgado em 10/2/2026 (Info 878).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 10
+
+**Disciplina:** Direito Processual Penal
+
+**Subtema:** Alta Relevância: Magistratura Estadual, Magistratura Federal, Mpf, Mpe, Delegado, Dpe, Dpu
+
+**ODS:** 16
+
+**Título do julgado:**
+
+EXECUÇÃO PENAL Exige-se prova inequívoca da imprescindibilidade da presença materna como fundamento da prisão domiciliar, não bastando o mero vínculo familiar com a criança
+
+**Tese / entendimento:**
+
+Caso hipotético: Bianca foi condenada definitivamente por tráfico de drogas e cumpre pena
+em regime fechado. Ela possui uma filha de 7 anos e, com base nessa condição, a defesa
+requereu a concessão de prisão domiciliar humanitária, sustentando que a presença materna
+seria imprescindível aos cuidados da criança. O pedido foi fundamentado na aplicação
+analógica dos arts. 318 e 318-A do CPP e na interpretação extensiva do art. 117 da LEP. O TJ
+indeferiu o pedido destacando que não havia prova da imprescindibilidade da presença
+materna, sobretudo porque relatório informativo indicava que a criança estava sob os
+cuidados da avó paterna e de seu marido, que pretendiam requerer a guarda provisória, não
+havendo dificuldades de adaptação da menor ao novo núcleo familiar. O que o STJ entende
+sobre o tema?
+1ª corrente: a concessão de prisão domiciliar às genitoras de menores de até 12 anos
+incompletos é legalmente presumida, não estando condicionada à comprovação da
+imprescindibilidade dos cuidados maternos.
+
+**Referência:**
+
+STJ. 5ª Turma. AgRg no HC 731648-SC, Rel. Min. Joel Ilan Paciornik, Rel. Acd. Min. João Otávio de Noronha, julgado em 07/06/2022 (Info 742).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 11
+
+**Disciplina:** Direito Processual Penal
+
+**Subtema:** Jurisprudência Em Teses (Ed. 210): 9) A Concessão De Prisão Domiciliar À Mulher Com Filho De Até 12
+
+**ODS:** N/I
+
+**Título do julgado:**
+
+Anos incompletos não está condicionada à comprovação da imprescindibilidade de cuidados maternos, que é legalmente presumida. 2ª corrente: a concessão da prisão domiciliar humanitária à mãe de filho menor de 12 anos exige a comprovação inequívoca da imprescindibilidade da presença materna. A simples existência do vínculo materno-filial ou a alegação genérica de necessidade de cuidados não são suficientes. O princípio constitucional da proteção integral da criança (art. 227 da CF/88) não opera de forma automática para garantir o benefício, sendo imprescindível a comprovação concreta da vulnerabilidade da criança diante do encarceramento materno.
+
+**Tese / entendimento:**
+
+anos incompletos não está condicionada à comprovação da imprescindibilidade de cuidados
+maternos, que é legalmente presumida.
+2ª corrente: a concessão da prisão domiciliar humanitária à mãe de filho menor de 12 anos
+exige a comprovação inequívoca da imprescindibilidade da presença materna.
+A simples existência do vínculo materno-filial ou a alegação genérica de necessidade de
+cuidados não são suficientes.
+O princípio constitucional da proteção integral da criança (art. 227 da CF/88) não opera de
+forma automática para garantir o benefício, sendo imprescindível a comprovação concreta da
+vulnerabilidade da criança diante do encarceramento materno.
+
+**Referência:**
+
+STJ. 6ª Turma. AgRg no HC 1.035.233-PR, Rel. Min. Carlos Pires Brandão, julgado em 25/11/2025 (Info 878).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 12
+
+**Disciplina:** Direito Tributário
+
+**Subtema:** Assunto Ainda Não Pacificado | Favorável À Acusação
+
+**ODS:** 16
+
+**Título do julgado:**
+
+Alta relevância: Magistratura estadual, MPE, Delegado, DPE, DPU DIREITO TRIBUTÁRIO IMUNIDADE TRIBUTÁRIA A renovação/concessão do CEBAS não pode ser indeferida com base em exigências materiais previstas em lei ordinária, decreto ou portaria, pois contrapartidas para fruição da imunidade do art. 195, § 7º, da CF dependem de lei complementar
+
+**Tese / entendimento:**
+
+Caso adaptado: a Santa Casa de Misericórdia de Lorena, entidade filantrópica que atende
+pacientes do SUS, solicitou a renovação do seu CEBAS ao Ministério da Saúde. Teve o pedido
+indeferido sob o argumento de que teria descumprido art. 4º do Decreto nº 2.536/1998. A
+entidade impetrou mandado de segurança no STJ, alegando que somente lei complementar
+pode fixar os requisitos para o gozo da imunidade prevista no art. 195, § 7º, da CF. O STJ
+concedeu a segurança.
+O STF decidiu, no RE 566.622/RS (Tema 32) e nas ADIs 2.028, 2.036, 2.228 e 2.621, que apenas
+lei complementar pode estabelecer requisitos para o gozo da imunidade tributária relativa às
+contribuições sociais, sendo inconstitucionais disposições de leis ordinárias e decretos que
+imponham tais contrapartidas.
+O pedido de concessão ou renovação de CEBAS deve ser examinado, a princípio, à luz da regra
+contida no art. 14 do CTN, até que sobrevenha, se for o caso, lei complementar disciplinando
+de forma diversa a matéria.
+É ilegal o indeferimento do pleito quando fundado exclusivamente em exigências previstas em
+decreto e normas infralegais, sem indicação de descumprimento dos requisitos do art. 14 do
+CTN.
+
+**Referência:**
+
+STJ. 1ª Seção. AgInt no MS 27.589-DF, Rel. Min. Teodoro Silva Santos, julgado em 5/2/2026 (Info 878).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 13
+
+**Disciplina:** Direito Previdenciário
+
+**Subtema:** Alta Relevância: Magistratura Estadual, Magistratura Federal, Mpf, Mpe, Pge, Pgm, Advocacia Pública Federal, Tribunais
+
+**ODS:** 16
+
+**Título do julgado:**
+
+Média relevância: DPE, DPU, Cartório DIREITO PREVIDENCIÁRIO CONTRIBUIÇÃO PREVIDENCIÁRIA STJ realiza juízo de retração para se adequar ao entendimento do STF no sentido de que é legítima a incidência de contribuição social, a cargo do empregador, sobre os valores pagos ao empregado a título de terço constitucional de férias gozadas
+
+**Tese / entendimento:**
+
+Caso hipotético: a empresa Alfa Ltda. impetrou mandado de segurança para afastar a
+incidência de contribuição previdenciária patronal sobre o adicional de um terço de férias
+gozadas, sustentando que a verba teria natureza indenizatória. O STJ, aplicando seu antigo
+entendimento firmado no Tema 479, decidiu inicialmente em favor da empresa.
+Ocorre que a Fazenda Nacional interpôs recurso extraordinário, e o processo ficou sobrestado
+até o julgamento do Tema 985 da repercussão geral pelo STF.
+Em agosto de 2020, o STF fixou tese em sentido contrário ao do STJ, reconhecendo que o terço
+constitucional de férias gozadas possui natureza remuneratória, sendo legítima a incidência
+da contribuição patronal. Posteriormente, modulou os efeitos da decisão para que a nova
+orientação produzisse efeitos apenas a partir de 15 de setembro de 2020, ressalvadas as
+contribuições já pagas e não questionadas até essa data.
+Com o trânsito em julgado do precedente do STF, os autos retornaram ao STJ para juízo de
+retratação (art. 1.030, II, do CPC). O STJ exerceu a retratação para adequar seu entendimento
+à tese fixada pelo Supremo.
+Em adequação ao entendimento do Supremo Tribunal Federal, é legítima a incidência de
+contribuição social, a cargo do empregador, sobre os valores pagos ao empregado a título de
+terço constitucional de férias gozadas.
+
+**Referência:**
+
+STJ. 2ª Turma. REsp 1.559.926-RS, Rel. Min. Maria Thereza de Assis Moura, julgado em 10/2/2026 (Info 878).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---

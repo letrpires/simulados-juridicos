@@ -1,0 +1,593 @@
+# Info 876 STJ
+
+**Status geral:** Estruturado automaticamente
+
+---
+
+## Julgado 1
+
+**Disciplina:** Direito Administrativo
+
+**Subtema:** Responsabilidade Civil Do Estado
+
+**ODS:** 16
+
+**Título do julgado:**
+
+O pensionamento mensal decorrente de ato ilícito deve limitar-se a 2/3 (dois terços) dos rendimentos auferidos pela vítima falecida ou ser equivalente a um salário-mínimo se não houver comprovação dos seus rendimentos
+
+**Tese / entendimento:**
+
+Caso hipotético: Regina faleceu no hospital público em razão da falta de atendimento. Sua mãe,
+Francisca, e sua filha Carla ajuizaram ação de indenização contra o Estado por falha na
+prestação do serviço público de saúde. O juiz reconheceu a responsabilidade estatal e fixou
+indenização por danos morais, além de pensão mensal calculada com base no salário-mínimo,
+já que não havia prova da renda da vítima, estabelecendo 1/3 para a mãe e 2/3 para a filha,
+totalizando 1 salário-mínimo mensal. O Estado recorreu ao STJ sustentando que, conforme a
+jurisprudência, deve-se presumir que 1/3 da renda da vítima seria destinada a ela própria, de
+modo que os dependentes só poderiam receber 2/3 do salário-mínimo. O STJ, contudo, negou
+provimento ao recurso e manteve a decisão.
+Quando a vítima tinha renda comprovada, a pensão deve ser de 2/3 (dois terços) desse valor,
+pois presume-se que 1/3 (um terço) era usado pela própria vítima para seu sustento. Porém,
+quando não há comprovação da renda da vítima, a pensão pode ser fixada no valor de um
+salário-mínimo completo, sem aplicar a redução de 2/3.
+
+**Referência:**
+
+STJ. 2ª Turma. REsp 2.204.627-DF, Rel. Min. Afrânio Vilela, julgado em 3/2/2026 (Info 876).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 2
+
+**Disciplina:** Direito Administrativo
+
+**Subtema:** Processo Administrativo
+
+**ODS:** 16
+
+**Título do julgado:**
+
+A aplicação da continuidade delitiva ou de outros institutos do Direito Penal às infrações administrativas somente é admitida quando houver previsão expressa em lei Importante !!! Atualize o Info 11 edição Extraordinária STJ Mudança de entendimento
+
+**Tese / entendimento:**
+
+Caso hipotético: um supermercado recebeu uma fiscalização do INMETRO. A empresa foi
+autuada por expor diversos produtos do setor de carnes sem indicação de peso na embalagem.
+Para cada item irregular, os fiscais lavraram um auto de infração distinto, aplicando multa
+individual. Ao todo, foram instaurados 15 processos administrativos diferentes, todos pela
+mesma irregularidade, resultando em múltiplas multas. A empresa, ao ser executada, alegou
+que as penalidades deveriam seguir a lógica da infração continuada prevista no art. 71 do
+Código Penal, defendendo a aplicação de uma única multa com acréscimo proporcional.
+O STJ não concordou com o pedido do supermercado porque a legislação específica que rege a
+atuação (Lei nº 9.933/1999 – Lei do INMETRO) não prevê o instituto da continuidade delitiva,
+não podendo ser aplicado, por analogia, o art. 71 do CP.
+O instituto da continuidade delitiva (art. 71 do Código Penal) não se aplica às infrações
+administrativas quando a legislação administrativa específica não prevê expressamente esse
+benefício. Em respeito ao princípio da legalidade estrita que rege o Direito Administrativo
+Sancionador, não cabe ao julgador criar mecanismos atenuadores da responsabilidade
+administrativa sem amparo legal, sob pena de indevida ampliação dos limites impostos pelo
+legislador.
+Por outro lado, nada impede a aplicação da continuidade delitiva se a legislação
+administrativa trouxer previsão legal expressa autorizando.
+
+**Referência:**
+
+STJ. 1ª Turma. AREsp 2.642.744-RJ, Rel. Min. Gurgel de Faria, julgado em 3/2/2026 (Info 876).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 3
+
+**Disciplina:** Direito Administrativo
+
+**Subtema:** Improbidade Administrativa
+
+**ODS:** N/I
+
+**Título do julgado:**
+
+Tortura não é mais ato de improbidade após a Lei 14.230/2021 Importante !!! Atualize o Info 577-STJ A tortura praticada por policiais configura ato de improbidade? Antes da Lei 14.230/2021: era. Depois da Lei 14.230/2021: deixou de ser. Antes da Lei 14.230/2021, o STJ considerava que a tortura praticada por agentes públicos configurava ato de improbidade com base no art. 11 da LIA, que tinha natureza exemplificativa. A Lei 14.230/2021 alterou o art. 11 da LIA. O rol passou a ser taxativo (fechado). Apenas as condutas expressamente previstas nos incisos do art. 11 podem ser consideradas atos de improbidade por violação de princípios. Assim, com o advento da Lei 14.230/2021, a prática do crime de tortura deixou de constituir ato de improbidade administrativa por não estar prevista no rol exemplificativo do art. 11. Não é possível reconhecer a continuidade típico-normativa para continuar punindo como ato ímprobo a tortura praticada antes da Lei 14.230/2021 porque essa conduta não se amolda em nenhum dispositivo da LIA.
+
+**Tese / entendimento:**
+
+Tortura não é mais ato de improbidade após a Lei 14.230/2021
+Importante !!!
+Atualize o Info 577-STJ
+A tortura praticada por policiais configura ato de improbidade?
+Antes da Lei 14.230/2021: era.
+Depois da Lei 14.230/2021: deixou de ser.
+Antes da Lei 14.230/2021, o STJ considerava que a tortura praticada por agentes públicos
+configurava ato de improbidade com base no art. 11 da LIA, que tinha natureza
+exemplificativa.
+A Lei 14.230/2021 alterou o art. 11 da LIA. O rol passou a ser taxativo (fechado). Apenas as
+condutas expressamente previstas nos incisos do art. 11 podem ser consideradas atos de
+improbidade por violação de princípios.
+Assim, com o advento da Lei 14.230/2021, a prática do crime de tortura deixou de constituir
+ato de improbidade administrativa por não estar prevista no rol exemplificativo do art. 11.
+Não é possível reconhecer a continuidade típico-normativa para continuar punindo como ato
+ímprobo a tortura praticada antes da Lei 14.230/2021 porque essa conduta não se amolda em
+nenhum dispositivo da LIA.
+
+**Referência:**
+
+STJ. 1ª Turma. REsp 2.232.623-AL, Rel. Min. Regina Helena Costa, julgado em 3/2/2026 (Info 876).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 4
+
+**Disciplina:** Direito Civil
+
+**Subtema:** Contratos > Mútuo
+
+**ODS:** 16
+
+**Título do julgado:**
+
+É válida a inclusão de cláusula de paridade cambial nos contratos de repasse de recursos externos celebrados com fundamento na Resolução do CMN 63/1967, bem como em todas as posteriores que passaram a reger a matéria
+
+**Tese / entendimento:**
+
+Caso hipotético: a Alfa Floresta Ltda. buscou financiamento junto ao BNDES para expandir suas
+plantações de eucalipto. O BNDES utilizou a modalidade de repasse de recursos externos,
+prevista na Resolução nº 63/1967 do CMN. Como funcionou? O BNDES tomou empréstimo em
+dólar no exterior e repassou o valor, convertido em reais, à empresa, transferindo a ela o risco
+cambial por meio de cláusula de paridade cambial vinculada a uma cesta de moedas. Com a
+posterior desvalorização do real, a dívida aumentou significativamente. Após enfrentar
+dificuldades financeiras e tornar-se inadimplente, a empresa teve o vencimento antecipado
+da dívida declarado e foi executada pelo valor integral, já elevado pela variação cambial.
+A Alfa Floresta ajuizou ação revisional alegando que o art. 6º da Lei nº 8.880/1994 (atualmente
+revogado) proibia a indexação cambial, tornando a cláusula nula. O STJ não concordou com o
+argumento.
+Embora o art. 6º da Lei 8.880/1994 vedasse, como regra geral, o reajuste vinculado à variação
+cambial, esse mesmo artigo excepcionava os casos em que houvesse expressa autorização por
+lei federal. A Resolução n. 63/1967 do CMN, que disciplinava o repasse de recursos captados
+no exterior, impunha a inclusão de cláusula de paridade cambial nesses contratos. A atividade
+normativa do Banco Central, antecedida de deliberação do CMN, decorre de delegação prevista
+na Lei n. 4.595/1964, recepcionada pela Constituição Federal com status de lei complementar.
+Assim, essa autorização se enquadra na exceção legal.
+
+**Referência:**
+
+STJ. 4ª Turma. AREsp 2.422.049-SP, Rel. Min. Raul Araújo, julgado em 3/2/2026 (Info 876).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 5
+
+**Disciplina:** Direito Civil
+
+**Subtema:** Contratos > Seguro De Vida
+
+**ODS:** 16
+
+**Título do julgado:**
+
+No seguro de vida, apenas o suicídio ocorrido nos dois primeiros anos de vigência do contrato é considerado agravamento intencional do risco passível de excluir a cobertura securitária Importante!!!
+
+**Tese / entendimento:**
+
+Caso hipotético: João, policial militar, contratou seguro de vida em 2008, indicando sua
+esposa, Regina, como beneficiária. Em 2019, fora de serviço, dirigiu-se a um ponto de venda
+de drogas para comprar cocaína, adormeceu nas proximidades e foi morto por traficantes com
+disparos feitos com sua própria arma, que foi subtraída. Regina comunicou o sinistro, mas a
+seguradora negou a indenização sob o argumento de que João teria agravado
+intencionalmente o risco de morte ao frequentar local perigoso, com base no art. 768 do
+Código Civil (atual art. 13 da Lei nº 15.040/2024). O STJ não concordou com a seguradora.
+No seguro de vida, é da própria essência do contrato um permanente e contínuo agravamento
+do risco, pois o risco de morte aumenta naturalmente com o tempo e com as atividades
+cotidianas.
+O art. 798 do CC (atual art. 120 da Lei nº 15.040/2024) prevê que o suicídio só exclui a
+cobertura nos dois primeiros anos de vigência do contrato. Ora, se nem mesmo o suicídio
+afasta a cobertura após o biênio, com muito maior razão não pode afastá-la a morte causada
+por terceiros, ainda que o segurado tenha se colocado em situação perigosa. A Súmula 620/STJ
+reforça essa lógica ao estabelecer que a embriaguez do segurado não exime a seguradora do
+pagamento.
+O agravamento intencional do risco, no contexto do seguro de vida, exige que o segurado tenha
+querido provocar a própria morte, o que, na prática, equivale ao suicídio.
+No caso, o contrato vigorava havia mais de onze anos, não houve suicídio nem má-fé. O
+segurado foi vítima de homicídio, e sua exposição voluntária a situação de risco é irrelevante
+para excluir a cobertura no seguro de vida.
+Em suma: no seguro de vida, apenas o suicídio, ocorrido nos dois primeiros anos de vigência
+do contrato, é considerado agravamento intencional do risco passível de excluir a cobertura
+securitária.
+
+**Referência:**
+
+STJ. 4ª Turma. REsp 2.130.908-SP, Rel. Min. Antonio Carlos Ferreira, julgado em 16/12/2025 (Info 876).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 6
+
+**Disciplina:** Direito Civil
+
+**Subtema:** Propriedade Intelectual
+
+**ODS:** 16 E 17
+
+**Título do julgado:**
+
+A extensão do prazo de vigência de patente não pode ser concedida judicialmente com base apenas na mora do INPI, após a declaração de inconstitucionalidade do art. 40, parágrafo único, da LPI, na ADI 5529/DF (caso Ozempic) Importante!!!
+
+**Tese / entendimento:**
+
+Caso concreto: a Novo Nordisk desenvolveu o medicamento Ozempic. Para garantir
+exclusividade na exploração desse produto no Brasil, a empresa depositou pedido de patente
+no INPI em 2004. Contudo, a patente só foi concedida em 2020, após longo tempo de análise.
+Como a Lei de Propriedade Industrial estabelece prazo de 20 anos contados do depósito, a
+empresa passou a ter apenas 4 anos de exclusividade para o Ozempic. A Novo Nordisk não
+concordou e ajuizou ação buscando a ampliação do prazo das patentes como forma de
+compensação pelo atraso do INPI. No entanto, durante o processo, o STF declarou
+inconstitucional a regra do parágrafo único do art. 40 da Lei 9.279/96, que garantia prazo
+mínimo de 10 anos a partir da concessão, especialmente vedando extensões para patentes de
+medicamentos (ADI 5529). Com base nessa decisão, o pedido foi rejeitado em primeira
+instância, no TRF-1 e, por fim, no STJ, que negou o recurso especial da empresa, mantendo o
+entendimento de que as patentes devem valer apenas 20 anos contados do depósito, mesmo
+diante da demora do INPI.
+Após a declaração de inconstitucionalidade do parágrafo único do art. 40 da Lei 9.279/1996
+pelo STF na ADI 5529/DF, não cabe ao Poder Judiciário realizar análise casuística para
+estender prazos de vigência de patentes farmacêuticas com base em alegação de mora do INPI,
+na ausência de lei que estabeleça critérios objetivos para essa finalidade.
+O prazo de vigência de patentes de medicamentos é de 20 anos contados da data do depósito,
+independentemente do tempo que o INPI leve para concluir o processo administrativo de
+concessão.
+
+**Referência:**
+
+STJ. 4ª Turma. REsp 2.240.025-DF, Rel. Min. Maria Isabel Gallotti, julgado em 16/12/2025 (Info 876).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 7
+
+**Disciplina:** Direito Do Consumidor
+
+**Subtema:** Práticas Comerciais
+
+**ODS:** 16
+
+**Título do julgado:**
+
+A liberdade de precificação, como expressão legítima da autonomia privada e da livre iniciativa, permite ao fornecedor manter o mesmo preço para vendas à vista e a prazo, desde que respeitados os deveres de informação e transparência previstos no CDC
+
+**Tese / entendimento:**
+
+Caso adaptado: uma rede de supermercados anunciou a venda de eletrodomésticos em até 10
+parcelas ‘sem juros’, ou seja, pelo mesmo preço à vista. O MP/SP ação civil pública contra a
+rede alegando publicidade enganosa e violação ao dever de informação. A ACP sustentou que,
+na realidade econômica brasileira, não existiria crédito verdadeiramente gratuito, pois os
+juros estariam embutidos no preço à vista. Segundo o MP, isso prejudicaria quem paga à vista
+e induziria em erro quem compra a prazo, razão pela qual pediu que a empresa diferenciasse
+os preços ou informasse expressamente os juros cobrados. O STJ não concordou com os
+argumentos do MP.
+A liberdade de precificação, como expressão da livre iniciativa, autoriza o fornecedor a
+praticar o mesmo preço na venda à vista e na venda parcelada, desde que não haja ilegalidade
+A venda parcelada pelo mesmo preço da venda à vista, com anúncio de ‘parcelamento sem
+juros’, não configura publicidade enganosa se o consumidor paga exatamente o mesmo valor
+total, sem qualquer acréscimo.
+O dever de informação (art. 6º, III, do CDC) é atendido quando o preço total e as parcelas são
+apresentados de forma clara, permitindo ao consumidor conhecer previamente quanto
+pagará.
+Não cabe ao Poder Judiciário impor a diferenciação de preços entre pagamento à vista e a
+prazo, pois a fixação do preço integra a estratégia empresarial e a liberdade econômica,
+ausente demonstração concreta de ilusão ou dano informacional ao consumidor.
+
+**Referência:**
+
+STJ. 4ª Turma. REsp 1.876.423-SP, Rel. Min. Marco Buzzi, julgado em 3/2/2026 (Info 876).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 8
+
+**Disciplina:** Direito Do Consumidor
+
+**Subtema:** Plano De Saúde
+
+**ODS:** 16
+
+**Título do julgado:**
+
+O plano de saúde não é obrigado a custear medicamento de uso domiciliar à base de canabidiol e não registrado pela Anvisa
+
+**Tese / entendimento:**
+
+Caso hipotético: Regina sofreu um AVC que lhe deixou graves sequelas. O médico prescreveu
+medicamento à base de canabidiol para o tratamento, mas o plano de saúde negou o custeio
+sob a justificativa de que o produto não possui registro na Anvisa e de que se trata de
+medicamento de uso domiciliar, fora das hipóteses legais de cobertura obrigatória. O STJ
+considerou que a recusa foi legítima.
+Em regra, o plano de saúde pode recusar o custeio de medicamento sem registro na Anvisa
+(Tema 990/STJ). Exceção: o plano de saúde pode ser obrigado a custear se o medicamento
+ainda não tem registro, mas a Anvisa autoriza a importação para uso próprio. É o caso de
+fármaco à base de canabidiol.
+Mesmo que fosse superada a questão do registro (pela autorização de importação), o plano de
+saúde não seria obrigado a fornecer o medicamento em questão porque ele é de uso
+domiciliar.
+Em regra, os planos de saúde não são obrigados a fornecer medicamentos para tratamento
+domiciliar.
+Exceções. Os planos de saúde são obrigados a fornecer medicamentos de uso domiciliar em
+três casos excepcionais: a) antineoplásicos orais (e correlacionados); b) medicação assistida
+(home care); e c) incluídos no rol da ANS para esse fim.
+No caso analisado, o canabidiol era autoadministrado em casa, não era antineoplásico, não
+exigia acompanhamento profissional (logo, não era home care) e não estava no rol da RN ANS
+465/2021 para a situação clínica discutida. Por isso, o STJ concluiu que a negativa do plano
+não é abusiva e não há dever de custear.
+
+**Referência:**
+
+STJ. 4ª Turma. REsp 2.224.539-SP, Rel. Min. Raul Araújo, julgado em 3/2/2026 (Info 876).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 9
+
+**Disciplina:** Direito Penal
+
+**Subtema:** Crimes Contra A Dignidade Sexual > Estupro De Vulnerável
+
+**ODS:** 16
+
+**Título do julgado:**
+
+Não houve estupro de vulnerável em caso de homem de 22 anos que se relacionou com uma adolescente de 13 anos, havendo contradição entre a prova pericial e os depoimentos da vítima e de sua mãe sobre a idade no momento dos fatos, e tendo nascido um filho fruto da relação
+
+**Tese / entendimento:**
+
+O STJ, no julgamento do Tema 918/STJ (REsp 1.480.881/PI) e na Súmula 593, fixou o
+entendimento de que o crime de estupro de vulnerável se configura com a conjunção carnal
+ou prática de ato libidinoso com menor de 14 anos, sendo irrelevante eventual consentimento
+da vítima para a prática do ato, sua experiência sexual anterior ou existência de
+relacionamento amoroso com o agente.
+É possível, no entanto, o reconhecimento da atipicidade material da conduta formalmente
+típica, quando as circunstâncias fáticas do caso concreto demonstram ausência de efetiva
+lesão ao bem jurídico tutelado. Isso afasta a configuração do crime e impede a punição do
+agente.
+Circunstâncias fáticas do caso concreto: o réu e a vítima mantinham um relacionamento
+amoroso; a prova pericial apontava que a vítima tinha 13 anos, 10 meses e 21 dias na data dos
+fatos, mas tanto ela quanto sua mãe afirmaram em juízo que as relações sexuais somente
+tiveram início quando a adolescente já havia completado 14 anos; e dessa relação nasceu um
+filho, que foi reconhecido pelo pai, resultando na constituição de um núcleo familiar.
+
+**Referência:**
+
+STJ. 6ª Turma. HC 860.538-PE, Rel. Min. Sebastião Reis Júnior, julgado em 3/2/2026 (Info 876).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 10
+
+**Disciplina:** Direito Penal
+
+**Subtema:** Crimes No Eca
+
+**ODS:** 16
+
+**Título do julgado:**
+
+Nos crimes dos arts. 240 e 241-A do ECA, a culpabilidade deve ser aferida pelas circunstâncias concretas que revelam maior gravidade da conduta, seja pela violação da confiança e intimidade no ambiente doméstico, seja pelo conteúdo envolvendo crianças de tenra idade
+
+**Tese / entendimento:**
+
+Caso hipotético: João foi condenado por dois crimes do ECA: produzir pornografia infantil (art.
+240, com causa de aumento do §2º, II por prevalecer-se de relações domésticas) ao filmar
+secretamente sua enteada de 11 anos nua no banheiro; e compartilhar pornografia infantil
+pela internet (art. 241-A) ao manter e distribuir centenas de arquivos com conteúdo
+pornográfico envolvendo crianças através de programa de troca de arquivos.
+Na dosimetria, o juiz fixou a pena-base acima do mínimo nos dois crimes considerando a
+culpabilidade elevada. A defesa recorreu alegando bis in idem, argumentando que: 1) no crime
+do art. 240, o juiz teria valorado negativamente circunstâncias já contempladas na própria
+majorante aplicada (filmagens no ambiente doméstico e aproveitamento da relação de
+confiança); e 2) no crime do art. 241-A, distinguir ‘crianças de tenra idade’ seria valorar
+novamente elemento já previsto no tipo penal genérico. O STJ rejeitou os argumentos da
+defesa apontando duas conclusões:
+1 - No crime do art. 240 do ECA, a produção clandestina de pornografia infantil no ambiente
+doméstico, com violação da intimidade da vítima por pessoa que se aproveitou da relação de
+confiança e coabitação, justifica a culpabilidade acentuada, independentemente da análise
+isolada da idade ou da quantidade de registros.
+2 - No crime do art. 241-A do ECA, a amplitude do tipo penal não impede que o julgador, ao
+analisar a culpabilidade, considere a gravidade concreta revelada pelo conteúdo específico do
+material compartilhado, notadamente quando a perícia identifica o envolvimento de crianças
+de idade bastante reduzida.
+
+**Referência:**
+
+STJ. 5ª Turma. AREsp 3.032.889-SP, Rel. Min. Maria Marluce Caldas, julgado em 3/2/2026 (Info 876).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 11
+
+**Disciplina:** Direito Processual Penal
+
+**Subtema:** Recursos > Correição Parcial
+
+**ODS:** 16
+
+**Título do julgado:**
+
+A correição parcial é admissível em situações extremamente excepcionais, quando há evidente inversão tumultuária do processo e risco de prejuízo às investigações, como no caso do deferimento de medidas cautelares urgentes e indispensáveis
+
+**Tese / entendimento:**
+
+Caso hipotético: João, servidor público, estava sendo investigado por suposta prática do crime
+de concussão (art. 316 do CP). O Ministério Público requereu ao juiz busca e apreensão em sua
+residência e quebra de sigilo de dados. O pedido foi indeferido. Em vez de interpor apelação
+(art. 593, II, do CPP), o MP ajuizou correição parcial no Tribunal de Justiça. O TJ deferiu as
+medidas, sem prévia intimação da defesa. João recorreu ao STJ alegando nulidade,
+sustentando que o instrumento correto seria apelação (não correição parcial) e que houve
+cerceamento de defesa pela ausência de contraditório prévio. O STJ, contudo, rejeitou os
+argumentos e manteve a validade das medidas.
+Tese de julgamento:
+1. A correição parcial é admissível em situações extremamente excepcionais, quando há
+evidente inversão tumultuária do processo originário e risco de prejuízo às investigações,
+como no caso do deferimento de medidas cautelares urgentes e indispensáveis à eficácia de
+providências investigativas posteriores.
+2. O contraditório diferido é admissível, no caso de urgência para se garantir a eficácia das
+investigações, especialmente em momentos anteriores à formação da relação processual
+entre as partes, de modo que a ausência de intimação prévia da parte atingida pelas medidas
+assecuratórias não configura nulidade, por falta de prova de prejuízo concreto à defesa.
+
+**Referência:**
+
+STJ. 5ª Turma. AgRg no AgRg no AREsp 2.734.423-SC, Rel. Min. Joel Ilan Paciornik, julgado em 3/2/2026 (Info 876).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 12
+
+**Disciplina:** Direito Tributário
+
+**Subtema:** Imposto De Renda
+
+**ODS:** 8 E 16
+
+**Título do julgado:**
+
+Verbas pagas na rescisão unilateral e imotivada de contrato civil de prestação de serviços, ainda que denominadas de indenizatórias, sofrem incidência de IRPF quando representarem acréscimo patrimonial
+
+**Tese / entendimento:**
+
+O Imposto sobre a Renda da Pessoa Física (IRPF) incide sobre as verbas recebidas a título de
+participação nos lucros e resultados, bônus de performance individual, outplacement e a
+compensação por stock options, pagas a executivo por ocasião da rescisão unilateral e
+imotivada de seu contrato de prestação de serviços.
+A PLR e o bônus de performance possuem natureza remuneratória; o outplacement
+convertido em dinheiro representa vantagem econômica mensurável; e a compensação por
+stock options substitui o ganho de capital potencial que seria tributável na alienação das
+ações. Essas verbas não se enquadram nas hipóteses de isenção do art. 6º, V, da Lei 7.713/88
+nem na exceção do § 5º do art. 70 da Lei 9.430/96, por não decorrerem de legislação
+trabalhista, dissídio ou convenção coletiva, nem se destinarem à mera recomposição de dano
+emergente.
+
+**Referência:**
+
+STJ. 2ª Turma. REsp 1.409.762-SP, Rel. Min. Afrânio Vilela, Rel. para acórdão Min. Maria Thereza de Assis Moura, julgado em 3/2/2026 (Info 876).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 13
+
+**Disciplina:** Direito Tributário
+
+**Subtema:** Direito Internacional
+
+**ODS:** 16
+
+**Título do julgado:**
+
+HOMOLOGAÇÃO DE SENTENÇA ESTRANGEIRA Não será homologado ato notarial estrangeiro que confirme testamento particular e discipline inventário e partilha de bens situados no Brasil; isso é vedado pelo art. 23, II c/c o art. 964 do CPC
+
+**Tese / entendimento:**
+
+Caso hipotético: Roberto, brasileiro que morava na França, faleceu deixando testamento
+particular e bens no Brasil. Suas únicas herdeiras (filha e companheira) fizeram acordo
+perante tabelião francês, que lavrou ato notarial reconhecendo o testamento e partilhando os
+bens, inclusive os situados no Brasil. As herdeiras pediram conjuntamente ao STJ a
+homologação desses atos, alegando consenso total e preenchimento de todos os requisitos
+formais. O pedido foi indeferido.
+A confirmação de testamento particular e a partilha de bens situados no Brasil são de
+competência exclusiva da autoridade judiciária brasileira (art. 23, II, CPC), ainda que o
+falecido seja estrangeiro e tenha residido no exterior.
+O art. 964 do CPC veda expressamente a homologação de decisão estrangeira quando se tratar
+de competência exclusiva da jurisdição nacional.
+O testamento particular exige procedimento judicial específico previsto nos arts. 1.877 a
+1.880 do Código Civil, com publicação em juízo e citação dos herdeiros legítimos. Esse controle
+jurisdicional é de ordem pública e não pode ser dispensado.
+O consenso entre os herdeiros não afasta a exigência de controle judicial, que visa proteger
+não apenas os interesses das partes, mas também a ordem pública, assegurando a
+autenticidade do testamento, o cumprimento dos requisitos legais e a proteção de eventuais
+herdeiros necessários.
+A homologação pressupõe apenas juízo de delibação (análise formal). Homologar ato
+estrangeiro sobre testamento e partilha de bens no Brasil significaria permitir que autoridade
+estrangeira discipline a sucessão de patrimônio brasileiro, contrariando a finalidade da
+norma que reserva essa matéria à jurisdição nacional.
+Em suma: a homologação de ato notarial estrangeiro que versa sobre bens situados no Brasil
+contraria o art. 964 do CPC, que veda a homologação de decisões estrangeiras em hipóteses de
+competência exclusiva da jurisdição nacional.
+
+**Referência:**
+
+STJ. Corte Especial. AgInt na HDE 9.862-EX, Rel. Min. Og Fernandes, julgado em 11/11/2025 (Info 876).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---

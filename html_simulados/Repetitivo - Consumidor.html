@@ -1,0 +1,1652 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Simulado - Repetitivo - Consumidor</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+:root{
+--bg:#020617;--panel:rgba(15,23,42,.88);--card:rgba(15,23,42,.96);
+--card2:rgba(30,41,59,.92);--border:rgba(148,163,184,.22);
+--text:#e5e7eb;--muted:#94a3b8;--accent:#38bdf8;--accent2:#0ea5e9;
+--green:#22c55e;--red:#ef4444;--yellow:#facc15;--purple:#a78bfa;
+}
+*{box-sizing:border-box}
+body{
+margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+background:radial-gradient(circle at top left,rgba(56,189,248,.20),transparent 28%),
+radial-gradient(circle at top right,rgba(167,139,250,.15),transparent 28%),
+linear-gradient(135deg,#020617,#0f172a 50%,#020617);
+color:var(--text);line-height:1.65;
+}
+header{padding:44px 20px 32px;text-align:center;border-bottom:1px solid var(--border)}
+header h1{margin:0 0 10px;font-size:clamp(28px,4vw,46px);letter-spacing:-.05em}
+header p{color:var(--muted);margin:0;font-size:16px}
+.container{max-width:1160px;margin:0 auto;padding:26px 16px 80px}
+.painel{
+position:sticky;top:10px;z-index:10;background:var(--panel);backdrop-filter:blur(18px);
+border:1px solid var(--border);border-radius:26px;padding:16px;margin-bottom:22px;
+box-shadow:0 22px 70px rgba(0,0,0,.35)
+}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.stat{background:var(--card2);padding:14px;border-radius:18px;text-align:center;border:1px solid rgba(148,163,184,.12)}
+.stat strong{display:block;font-size:25px;color:var(--accent);line-height:1.1}
+.stat span{font-size:12px;color:var(--muted)}
+.filtros{display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:12px;margin-top:14px}
+input,select{
+width:100%;background:rgba(2,6,23,.78);color:var(--text);border:1px solid var(--border);
+border-radius:14px;padding:13px 14px;outline:none;font-size:14px
+}
+input:focus,select:focus{border-color:var(--accent)}
+.card{
+background:var(--card);border:1px solid var(--border);border-radius:24px;padding:26px;
+margin-bottom:20px;box-shadow:0 18px 50px rgba(0,0,0,.24)
+}
+.questao{scroll-margin-top:190px}
+.questao-topo{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:18px}
+.badge{
+background:linear-gradient(135deg,var(--accent),var(--accent2));color:#00111f;font-weight:900;
+padding:7px 13px;border-radius:999px;display:inline-block
+}
+.disciplina-tag,.tipo-tag{
+display:inline-block;margin-left:8px;color:var(--muted);background:rgba(148,163,184,.10);
+border:1px solid rgba(148,163,184,.14);padding:6px 10px;border-radius:999px;font-size:12px
+}
+.tipo-tag{color:#ddd6fe;border-color:rgba(167,139,250,.25)}
+.status{color:var(--yellow);font-size:13px;white-space:nowrap}
+.enunciado{font-size:19px;margin:0 0 22px;letter-spacing:-.01em}
+.botoes{display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.btn{
+cursor:pointer;border:0;padding:12px 22px;border-radius:14px;color:white;font-weight:900;
+transition:.18s ease;letter-spacing:.02em
+}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.certo{background:rgba(34,197,94,.20);border:1px solid rgba(34,197,94,.42)}
+.btn.errado{background:rgba(239,68,68,.20);border:1px solid rgba(239,68,68,.42)}
+.btn.neutro{background:rgba(56,189,248,.16);color:var(--text);border:1px solid rgba(56,189,248,.32)}
+.feedback{
+display:none;background:rgba(2,6,23,.72);border:1px solid rgba(148,163,184,.16);
+border-left:5px solid var(--accent);padding:18px;border-radius:18px;margin-top:14px
+}
+.feedback.correto{border-left-color:var(--green)}
+.feedback.errado{border-left-color:var(--red)}
+.resultado{font-size:18px;font-weight:900;margin-top:0}
+.justificativa{margin-top:12px}
+.referencia{color:var(--muted);font-size:13px;margin-top:16px}
+.gabarito-certo{color:var(--green);font-weight:900}
+.gabarito-errado{color:var(--red);font-weight:900}
+.oculta{display:none}
+.sem-resultados{text-align:center;color:var(--muted);display:none;padding:30px}
+.grid-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
+.link-card{
+display:block;padding:20px;background:rgba(15,23,42,.95);border:1px solid rgba(148,163,184,.22);
+color:#e5e7eb;border-radius:22px;text-decoration:none;transition:.2s;box-shadow:0 14px 40px rgba(0,0,0,.22)
+}
+.link-card:hover{transform:translateY(-3px);border-color:#38bdf8}
+.link-card strong{display:block;font-size:17px;margin-bottom:8px}
+.link-card span{color:#94a3b8;font-size:13px}
+.index-tools{display:grid;grid-template-columns:1.5fr 1fr;gap:12px;margin-bottom:20px}
+@media(max-width:850px){
+.stats{grid-template-columns:repeat(2,1fr)}
+.filtros,.index-tools{grid-template-columns:1fr}
+.questao-topo{align-items:flex-start;flex-direction:column}
+.botoes{flex-direction:column}
+.enunciado{font-size:16px}
+.card{padding:20px}
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Simulado - Repetitivo - Consumidor</h1>
+<p>Repetitivos • Simulado interativo de CERTO ou ERRADO</p>
+</header>
+
+<div class="container">
+<div class="painel">
+<div class="stats">
+<div class="stat"><strong>49</strong><span>Total</span></div>
+<div class="stat"><strong id="visiveis">49</strong><span>Visíveis</span></div>
+<div class="stat"><strong id="respondidas">0</strong><span>Respondidas</span></div>
+<div class="stat"><strong id="acertos">0</strong><span>Acertos</span></div>
+<div class="stat"><strong id="erros">0</strong><span>Erros</span></div>
+</div>
+
+<div class="filtros">
+<input id="busca" type="search" placeholder="Buscar por palavra-chave..." oninput="filtrar()">
+<select id="disciplina" onchange="filtrar()">
+<option value="">Todas as disciplinas</option>
+<option value="ECA">ECA</option>
+<option value="N/I">N/I</option>
+</select>
+<select id="statusFiltro" onchange="filtrar()">
+<option value="">Todas</option>
+<option value="nao">Não respondidas</option>
+<option value="acerto">Acertos</option>
+<option value="erro">Erros</option>
+</select>
+<button class="btn neutro" onclick="reiniciar()">Reiniciar</button>
+</div>
+</div>
+
+<div id="sem-resultados" class="sem-resultados">Nenhuma questão encontrada com os filtros atuais.</div>
+
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="nas relações entre instituições financeiras e consumidores, a limitação dos juros remuneratórios prevista no decreto nº 22.626/1933 (lei de usura) aplica-se plenamente às operações bancárias, de modo que as instituições financeiras não podem elidir a vedação contida naquele diploma legal. a tese firmada no tema 24 do stj reconhece que as instituições financeiras não estão sujeitas à limitação da lei de usura (decreto 22.626/33). portanto, afirmar que a lei se aplica plenamente aos contratos bancários contraria o entendimento consolidado da corte. a distinção decorre da legislação e da jurisprudência que tratam do sistema financeiro e dos contratos bancários como regidos por regras autônomas, não alcançadas pela norma antimiséria de 1933. tema 24">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 1</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-1">Não respondida</span>
+</div>
+
+<p class="enunciado">Nas relações entre instituições financeiras e consumidores, a limitação dos juros remuneratórios prevista no Decreto nº 22.626/1933 (Lei de Usura) aplica-se plenamente às operações bancárias, de modo que as instituições financeiras não podem elidir a vedação contida naquele diploma legal.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(1, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(1, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-1">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A tese firmada no Tema 24 do STJ reconhece que as instituições financeiras não estão sujeitas à limitação da Lei de Usura (Decreto 22.626/33). Portanto, afirmar que a lei se aplica plenamente aos contratos bancários contraria o entendimento consolidado da Corte. A distinção decorre da legislação e da jurisprudência que tratam do sistema financeiro e dos contratos bancários como regidos por regras autônomas, não alcançadas pela norma antimiséria de 1933.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 24</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a simples estipulação de juros remuneratórios em patamar superior a 12% ao ano, por si só, é suficiente para caracterizar automaticamente a abusividade e ensejar sua revisão pelo judiciário, independentemente da análise do equilíbrio contratual e das circunstâncias do caso. o tema 25 do stj firma que a cobrança de juros remuneratórios acima de 12% ao ano, isoladamente, não demonstra abusividade. a análise deve considerar o contexto fático-negocial, índices de mercado, saneamento contratual e eventual demonstração de vantagem exagerada ao consumidor (art. 51, §1º, cdc). logo, a mera percentagem não autoriza revisão sem prova da onerosidade excessiva. tema 25">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 2</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-2">Não respondida</span>
+</div>
+
+<p class="enunciado">A simples estipulação de juros remuneratórios em patamar superior a 12% ao ano, por si só, é suficiente para caracterizar automaticamente a abusividade e ensejar sua revisão pelo Judiciário, independentemente da análise do equilíbrio contratual e das circunstâncias do caso.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(2, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(2, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-2">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 25 do STJ firma que a cobrança de juros remuneratórios acima de 12% ao ano, isoladamente, não demonstra abusividade. A análise deve considerar o contexto fático-negocial, índices de mercado, saneamento contratual e eventual demonstração de vantagem exagerada ao consumidor (art. 51, §1º, CDC). Logo, a mera percentagem não autoriza revisão sem prova da onerosidade excessiva.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 25</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="as regras do código civil relativas aos juros legais e às taxas aplicáveis ao mútuo (art. 591 c/c art. 406 do cc/02) são diretamente aplicáveis ao cálculo dos juros remuneratórios pactuados em contratos de mútuo bancário, salvo disposição expressa em contrário. o tema 26 define que as disposições do art. 591 c/c art. 406 do código civil não se aplicam aos juros remuneratórios dos contratos de mútuo bancário. os contratos bancários possuem regime próprio e são regidos por normas específicas e pela dinâmica do mercado financeiro, exigindo análise própria quanto aos juros remuneratórios. tema 26">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 3</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-3">Não respondida</span>
+</div>
+
+<p class="enunciado">As regras do Código Civil relativas aos juros legais e às taxas aplicáveis ao mútuo (art. 591 c/c art. 406 do CC/02) são diretamente aplicáveis ao cálculo dos juros remuneratórios pactuados em contratos de mútuo bancário, salvo disposição expressa em contrário.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(3, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(3, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-3">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 26 define que as disposições do art. 591 c/c art. 406 do Código Civil não se aplicam aos juros remuneratórios dos contratos de mútuo bancário. Os contratos bancários possuem regime próprio e são regidos por normas específicas e pela dinâmica do mercado financeiro, exigindo análise própria quanto aos juros remuneratórios.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 26</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="ainda que os contratos bancários fixem juros remuneratórios elevados, é admissível ao julgador promover a revisão dessas taxas em caráter excepcional quando comprovada relação de consumo e a abusividade capaz de impor desvantagem exagerada ao consumidor, observada a prova cabal na cognição adequada. o tema 27 admite a revisão excepcional das taxas de juros remuneratórios desde que demonstrada a relação de consumo e a abusividade apta a impor desvantagem exagerada (art. 51, §1º, cdc), exigindo análise concreta e prova robusta da onerosidade excessiva. a revisão não é automática, mas possível nas hipóteses comprovadas. tema 27">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 4</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-4">Não respondida</span>
+</div>
+
+<p class="enunciado">Ainda que os contratos bancários fixem juros remuneratórios elevados, é admissível ao julgador promover a revisão dessas taxas em caráter excepcional quando comprovada relação de consumo e a abusividade capaz de impor desvantagem exagerada ao consumidor, observada a prova cabal na cognição adequada.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(4, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(4, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-4">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 27 admite a revisão excepcional das taxas de juros remuneratórios desde que demonstrada a relação de consumo e a abusividade apta a impor desvantagem exagerada (art. 51, §1º, CDC), exigindo análise concreta e prova robusta da onerosidade excessiva. A revisão não é automática, mas possível nas hipóteses comprovadas.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 27</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a declaração judicial de abusividade dos encargos contratuais incidentes durante a fase de execução regular do contrato — notadamente juros remuneratórios e capitalização — não tem qualquer efeito sobre a caracterização da mora do devedor, devendo a mora ser apurada independentemente dessa eventual declaração. segundo o tema 28, o reconhecimento da abusividade dos encargos exigidos no período da normalidade contratual descaracteriza, em regra, a mora, porque torna inexigíveis os atos executórios fundados em encargos nulos ou excessivos. assim, a declaração de abusividade pode afastar a constituição em mora que decorre da exigência desses encargos. tema 28">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 5</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-5">Não respondida</span>
+</div>
+
+<p class="enunciado">A declaração judicial de abusividade dos encargos contratuais incidentes durante a fase de execução regular do contrato — notadamente juros remuneratórios e capitalização — não tem qualquer efeito sobre a caracterização da mora do devedor, devendo a mora ser apurada independentemente dessa eventual declaração.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(5, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(5, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-5">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Segundo o Tema 28, o reconhecimento da abusividade dos encargos exigidos no período da normalidade contratual descaracteriza, em regra, a mora, porque torna inexigíveis os atos executórios fundados em encargos nulos ou excessivos. Assim, a declaração de abusividade pode afastar a constituição em mora que decorre da exigência desses encargos.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 28</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="quando a sentença ou acórdão decidir pelo mérito e reconhecer a mora do devedor, a inscrição ou manutenção do nome nos cadastros de inadimplentes deverá observar estritamente o decidido no dispositivo, sendo correta a negativa de exclusão enquanto mantiver sua force jurídica. o tema 35 dispõe que a inscrição ou manutenção do nome do devedor em cadastro determinada na sentença ou acórdão deve observar o decidido no mérito; se reconhecida a mora, a inscrição é considerada correta. a eficácia da decisão sobre a inscrição vincula as partes e o cadastro, conforme o próprio decisum. tema 35">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 6</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-6">Não respondida</span>
+</div>
+
+<p class="enunciado">Quando a sentença ou acórdão decidir pelo mérito e reconhecer a mora do devedor, a inscrição ou manutenção do nome nos cadastros de inadimplentes deverá observar estritamente o decidido no dispositivo, sendo correta a negativa de exclusão enquanto mantiver sua force jurídica.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(6, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(6, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-6">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 35 dispõe que a inscrição ou manutenção do nome do devedor em cadastro determinada na sentença ou acórdão deve observar o decidido no mérito; se reconhecida a mora, a inscrição é considerada correta. A eficácia da decisão sobre a inscrição vincula as partes e o cadastro, conforme o próprio decisum.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 35</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="nos contratos bancários, o juiz pode, de ofício, conhecer da abusividade de cláusulas contratuais sempre que identifique indícios de vício, sem necessidade de provocação das partes, em razão de seu dever de proteger a parte vulnerável. o tema 36 veda o conhecimento de ofício, pelo magistrado, da abusividade de cláusulas em contratos bancários. a corte entendeu que, em tais contratos, o juiz não deve conhecer de ofício da abusividade, preservando-se a necessidade de provocação e de observância do contraditório quanto à matéria contratual alegada. tema 36">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 7</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-7">Não respondida</span>
+</div>
+
+<p class="enunciado">Nos contratos bancários, o juiz pode, de ofício, conhecer da abusividade de cláusulas contratuais sempre que identifique indícios de vício, sem necessidade de provocação das partes, em razão de seu dever de proteger a parte vulnerável.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(7, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(7, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-7">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 36 veda o conhecimento de ofício, pelo magistrado, da abusividade de cláusulas em contratos bancários. A Corte entendeu que, em tais contratos, o juiz não deve conhecer de ofício da abusividade, preservando-se a necessidade de provocação e de observância do contraditório quanto à matéria contratual alegada.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 36</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="os órgãos que mantêm cadastros de proteção ao crédito são legitimados passivamente para responder por indenização por danos morais ou materiais decorrentes da inscrição sem notificação prévia, inclusive quando a informação utilizada para negativar provier de cadastro do banco central (ccf) ou de outros bancos de dados mantidos por entidades diversas. o tema 37 reconhece a legitimidade passiva dos órgãos mantenedores de cadastros para ações de reparação por inscrições sem prévia notificação, ainda que os dados utilizados provenham do ccf ou de outros cadastros. isso permite demandar tanto o fornecedor quanto o mantenedor do banco de dados conforme a responsabilidade decorrente da inserção indevida. tema 37">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 8</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-8">Não respondida</span>
+</div>
+
+<p class="enunciado">Os órgãos que mantêm cadastros de proteção ao crédito são legitimados passivamente para responder por indenização por danos morais ou materiais decorrentes da inscrição sem notificação prévia, inclusive quando a informação utilizada para negativar provier de cadastro do Banco Central (CCF) ou de outros bancos de dados mantidos por entidades diversas.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(8, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(8, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-8">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 37 reconhece a legitimidade passiva dos órgãos mantenedores de cadastros para ações de reparação por inscrições sem prévia notificação, ainda que os dados utilizados provenham do CCF ou de outros cadastros. Isso permite demandar tanto o fornecedor quanto o mantenedor do banco de dados conforme a responsabilidade decorrente da inserção indevida.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 37</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a legitimidade passiva dos mantenedores de cadastros para responder por inscrições sem notificação prévia é negada quando a informação usada para negativação provém exclusivamente de banco de dados público, como o ccf do banco central, eximindo-os de responsabilidade. o tema 38, alinhado ao tema 37, afasta a exculpação dos mantenedores de cadastros mesmo quando a informação provier do ccf ou de outros cadastros de entidades diversas, reconhecendo sua legitimidade passiva nas demandas por danos morais e materiais decorrentes de inscrição sem prévia comunicação. tema 38">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 9</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-9">Não respondida</span>
+</div>
+
+<p class="enunciado">A legitimidade passiva dos mantenedores de cadastros para responder por inscrições sem notificação prévia é negada quando a informação usada para negativação provém exclusivamente de banco de dados público, como o CCF do Banco Central, eximindo-os de responsabilidade.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(9, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(9, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-9">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 38, alinhado ao Tema 37, afasta a exculpação dos mantenedores de cadastros mesmo quando a informação provier do CCF ou de outros cadastros de entidades diversas, reconhecendo sua legitimidade passiva nas demandas por danos morais e materiais decorrentes de inscrição sem prévia comunicação.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 38</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a inobservância da obrigação legal de comunicar previamente o consumidor acerca da inscrição de seu nome em cadastros de proteção ao crédito (art. 43, §2º, cdc) constitui ilícito apto a ensejar, em regra, compensação por dano moral, independente de demonstração de abalo psíquico. o tema 40 estabelece que a ausência de prévia comunicação prevista no art. 43, §2º, do cdc autoriza compensação por danos morais, pois a falta de notificação viola direitos de informação e de defesa do consumidor, gerando abalo que a jurisprudência do stj considera suficiente para indenização, sem necessidade de prova específica do dano. tema 40">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 10</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-10">Não respondida</span>
+</div>
+
+<p class="enunciado">A inobservância da obrigação legal de comunicar previamente o consumidor acerca da inscrição de seu nome em cadastros de proteção ao crédito (art. 43, §2º, CDC) constitui ilícito apto a ensejar, em regra, compensação por dano moral, independente de demonstração de abalo psíquico.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(10, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(10, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-10">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 40 estabelece que a ausência de prévia comunicação prevista no art. 43, §2º, do CDC autoriza compensação por danos morais, pois a falta de notificação viola direitos de informação e de defesa do consumidor, gerando abalo que a jurisprudência do STJ considera suficiente para indenização, sem necessidade de prova específica do dano.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 40</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="se já houver anotação legítima preexistente em cadastro de proteção ao crédito, a ocorrência de nova anotação irregular pelo mesmo fato possibilita automaticamente indenização por dano moral, independentemente de demonstração de prejuízo adicional. o tema 41 esclarece que, quando existe inscrição legítima preexistente, a anotação irregular subsequente não enseja, em regra, indenização por dano moral, sendo ressalvado apenas o direito ao cancelamento. portanto, a existência da anotação válida anterior afeta o cabimento da indenização. tema 41">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 11</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-11">Não respondida</span>
+</div>
+
+<p class="enunciado">Se já houver anotação legítima preexistente em cadastro de proteção ao crédito, a ocorrência de nova anotação irregular pelo mesmo fato possibilita automaticamente indenização por dano moral, independentemente de demonstração de prejuízo adicional.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(11, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(11, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-11">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 41 esclarece que, quando existe inscrição legítima preexistente, a anotação irregular subsequente não enseja, em regra, indenização por dano moral, sendo ressalvado apenas o direito ao cancelamento. Portanto, a existência da anotação válida anterior afeta o cabimento da indenização.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 41</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a cobrança da comissão de permanência tem natureza compensatória exclusiva e, quando incidente, opera como substituição plena dos demais encargos contratuais (juros remuneratórios, juros moratórios e multa), tornando-os inexigíveis em qualquer hipótese. consoante o tema 52, a comissão de permanência não pode ultrapassar a soma dos encargos remuneratórios e moratórios previstos no contrato e, quando devida, exclui a exigibilidade simultânea de juros remuneratórios, moratórios e multa contratual. contudo, tal exclusão opera nos limites legais e contratuais, não constituindo substituição universal em quaisquer circunstâncias; há condicionantes e limites interpretativos. tema 52">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 12</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-12">Não respondida</span>
+</div>
+
+<p class="enunciado">A cobrança da comissão de permanência tem natureza compensatória exclusiva e, quando incidente, opera como substituição plena dos demais encargos contratuais (juros remuneratórios, juros moratórios e multa), tornando-os inexigíveis em qualquer hipótese.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(12, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(12, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-12">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Consoante o Tema 52, a comissão de permanência não pode ultrapassar a soma dos encargos remuneratórios e moratórios previstos no contrato e, quando devida, exclui a exigibilidade simultânea de juros remuneratórios, moratórios e multa contratual. Contudo, tal exclusão opera nos limites legais e contratuais, não constituindo substituição universal em quaisquer circunstâncias; há condicionantes e limites interpretativos.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 52</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="no âmbito das comunicações de pré-negativação, a utilização de carta registrada com aviso de recebimento (ar) constitui requisito imprescindível e obrigatório para a validade da notificação ao consumidor, sob pena de nulidade da inscrição. o tema 59 admite que o aviso de recebimento (ar) não é obrigatório na comunicação ao consumidor sobre a negativação; o ar é dispensável, desde que haja prova idônea do envio e da entrega efetiva da notificação por outros meios. assim, a obrigatoriedade do ar não é absoluta. tema 59">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 13</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-13">Não respondida</span>
+</div>
+
+<p class="enunciado">No âmbito das comunicações de pré-negativação, a utilização de carta registrada com aviso de recebimento (AR) constitui requisito imprescindível e obrigatório para a validade da notificação ao consumidor, sob pena de nulidade da inscrição.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(13, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(13, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-13">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 59 admite que o Aviso de Recebimento (AR) não é obrigatório na comunicação ao consumidor sobre a negativação; o AR é dispensável, desde que haja prova idônea do envio e da entrega efetiva da notificação por outros meios. Assim, a obrigatoriedade do AR não é absoluta.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 59</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="em ação proposta por correntista que intenta obter extratos bancários para fins de verificar cobranças, é cabível a inversão do ônus da prova em favor do consumidor para determinar que a instituição financeira exiba tais extratos, mesmo sem prévia recusa administrativa, desde que o pedido apresente elementos mínimos de plausibilidade e não esteja prescrito o direito material. o tema 411 autoriza a inversão do ônus da prova para compelir instituições financeiras à exibição de extratos bancários enquanto não houver prescrição da ação sobre eles, tratando-se de obrigação legal e de integração contratual. exige-se plausibilidade da relação jurídica e especificação dos períodos pretendidos, sem necessidade de prévia recusa administrativa ou adiantamento de custos pelo correntista. tema 411">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 14</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-14">Não respondida</span>
+</div>
+
+<p class="enunciado">Em ação proposta por correntista que intenta obter extratos bancários para fins de verificar cobranças, é cabível a inversão do ônus da prova em favor do consumidor para determinar que a instituição financeira exiba tais extratos, mesmo sem prévia recusa administrativa, desde que o pedido apresente elementos mínimos de plausibilidade e não esteja prescrito o direito material.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(14, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(14, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-14">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 411 autoriza a inversão do ônus da prova para compelir instituições financeiras à exibição de extratos bancários enquanto não houver prescrição da ação sobre eles, tratando-se de obrigação legal e de integração contratual. Exige-se plausibilidade da relação jurídica e especificação dos períodos pretendidos, sem necessidade de prévia recusa administrativa ou adiantamento de custos pelo correntista.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 411</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="em condomínios com hidrômetro único e diversas unidades consumidoras, é vedada a cobrança de qualquer parcela fixa por franquia de consumo individual; somente se admite a cobrança única proporcional pelo consumo global do edifício. o tema 414 reconhece a licitude da adoção de tarifa mínima (parcela fixa, concebida como franquia de consumo) por unidade consumidora em condomínios com hidrômetro único, desde que também exista parcela variável quando o consumo global exceder a soma das franquias. entretanto, é ilegal tratar o condomínio como uma única economia quando a metodologia ignora a franquia unitária. tema 414">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 15</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-15">Não respondida</span>
+</div>
+
+<p class="enunciado">Em condomínios com hidrômetro único e diversas unidades consumidoras, é vedada a cobrança de qualquer parcela fixa por franquia de consumo individual; somente se admite a cobrança única proporcional pelo consumo global do edifício.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(15, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(15, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-15">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 414 reconhece a licitude da adoção de tarifa mínima (parcela fixa, concebida como franquia de consumo) por unidade consumidora em condomínios com hidrômetro único, desde que também exista parcela variável quando o consumo global exceder a soma das franquias. Entretanto, é ilegal tratar o condomínio como uma única economia quando a metodologia ignora a franquia unitária.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 414</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="o direito de o consumidor exigir prestação de contas sobre taxas, tarifas e encargos bancários está submetido ao prazo decadencial do art. 26 do cdc, de modo que a pretensão de esclarecimentos perece se não proposta no prazo decadencial. o tema 449 determina que a decadência prevista no art. 26 do cdc não é aplicável à prestação de contas para esclarecer cobrança de taxas, tarifas e encargos bancários; logo, a pretensão de prestação de contas não perece automaticamente pela regra decadencial daquele dispositivo, por tratar-se de mecanismo próprio de verificação da cobrança. tema 449">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 16</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-16">Não respondida</span>
+</div>
+
+<p class="enunciado">O direito de o consumidor exigir prestação de contas sobre taxas, tarifas e encargos bancários está submetido ao prazo decadencial do art. 26 do CDC, de modo que a pretensão de esclarecimentos perece se não proposta no prazo decadencial.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(16, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(16, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-16">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 449 determina que a decadência prevista no art. 26 do CDC não é aplicável à prestação de contas para esclarecer cobrança de taxas, tarifas e encargos bancários; logo, a pretensão de prestação de contas não perece automaticamente pela regra decadencial daquele dispositivo, por tratar-se de mecanismo próprio de verificação da cobrança.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 449</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="no âmbito dos contratos de consórcio, as administradoras possuem plena liberdade contratual para estipular taxa de administração em patamar superior a 10%, sendo vedada qualquer declaração de ilegalidade ou abusividade apenas pela superação desse limite. o tema 499 reconhece que administradoras de consórcio têm liberdade para fixar a taxa de administração nos termos do art. 33 da lei nº 8.177/91 e da circular nº 2.766/97 do bacen, não havendo, por si só, ilegalidade quando a taxa contratada excede 10%. a aferição de abusividade exige análise fática e contratual, não sendo a percentagem isolada suficiente. tema 499">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 17</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-17">Não respondida</span>
+</div>
+
+<p class="enunciado">No âmbito dos contratos de consórcio, as administradoras possuem plena liberdade contratual para estipular taxa de administração em patamar superior a 10%, sendo vedada qualquer declaração de ilegalidade ou abusividade apenas pela superação desse limite.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(17, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(17, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-17">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 499 reconhece que administradoras de consórcio têm liberdade para fixar a taxa de administração nos termos do art. 33 da Lei nº 8.177/91 e da Circular nº 2.766/97 do Bacen, não havendo, por si só, ilegalidade quando a taxa contratada excede 10%. A aferição de abusividade exige análise fática e contratual, não sendo a percentagem isolada suficiente.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 499</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="em contratos consumeristas de promessa de compra e venda de imóvel, é plenamente lícita a cláusula que condiciona a restituição integral de valores ao término da obra, de modo que a resolução por culpa de qualquer das partes não autoriza restituição imediata, sem tutela judicial. tema 577 considera abusiva, em contratos submetidos ao cdc, cláusula que determina restituição dos valores devidos somente ao término da obra ou de forma parcelada na hipótese de resolução por culpa de qualquer contratante. a cláusula é vedada por impor desvantagem exagerada ao consumidor e ofender princípios do cdc. tema 577">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 18</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-18">Não respondida</span>
+</div>
+
+<p class="enunciado">Em contratos consumeristas de promessa de compra e venda de imóvel, é plenamente lícita a cláusula que condiciona a restituição integral de valores ao término da obra, de modo que a resolução por culpa de qualquer das partes não autoriza restituição imediata, sem tutela judicial.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(18, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(18, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-18">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 577 considera abusiva, em contratos submetidos ao CDC, cláusula que determina restituição dos valores devidos somente ao término da obra ou de forma parcelada na hipótese de resolução por culpa de qualquer contratante. A cláusula é vedada por impor desvantagem exagerada ao consumidor e ofender princípios do CDC.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 577</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="no regime do sistema de planta comunitária de telefonia (pct), é válida a previsão contratual que exime a operadora de recomprar ou subscrever ações em nome do consumidor quando este deixou de participar do sistema, sendo esta dispensa dotada de efetividade jurídica. o tema 666 reconhece a validade, no pct, de cláusula contratual ou regulamentar que desobrigue a companhia de subscrever ações em nome do consumidor ou de restituir o valor investido, validando-se tal previsão no contexto específico do sistema. a validade decorre do próprio regime convencional/regulamentar do pct. tema 666">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 19</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-19">Não respondida</span>
+</div>
+
+<p class="enunciado">No regime do sistema de planta comunitária de telefonia (PCT), é válida a previsão contratual que exime a operadora de recomprar ou subscrever ações em nome do consumidor quando este deixou de participar do sistema, sendo esta dispensa dotada de efetividade jurídica.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(19, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(19, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-19">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 666 reconhece a validade, no PCT, de cláusula contratual ou regulamentar que desobrigue a companhia de subscrever ações em nome do consumidor ou de restituir o valor investido, validando-se tal previsão no contexto específico do sistema. A validade decorre do próprio regime convencional/regulamentar do PCT.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 666</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="o uso do sistema &quot;credit scoring&quot; para avaliação de risco de crédito é ilícito por vedar ao consumidor a obtenção de informações acerca das fontes e critérios utilizados, além de exigir seu consentimento expresso para qualquer consulta. o tema 710 afirma a licitude do credit scoring, regulamentado pela lei nº 12.414/2011, sem exigência de consentimento para a mera consulta, contudo impondo limites quanto à tutela da privacidade e máxima transparência: o consumidor pode solicitar esclarecimentos sobre fontes e informações consideradas. o uso abusivo pode ensejar responsabilidade, inclusive objetiva. tema 710">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 20</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-20">Não respondida</span>
+</div>
+
+<p class="enunciado">O uso do sistema &quot;credit scoring&quot; para avaliação de risco de crédito é ilícito por vedar ao consumidor a obtenção de informações acerca das fontes e critérios utilizados, além de exigir seu consentimento expresso para qualquer consulta.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(20, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(20, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-20">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 710 afirma a licitude do credit scoring, regulamentado pela Lei nº 12.414/2011, sem exigência de consentimento para a mera consulta, contudo impondo limites quanto à tutela da privacidade e máxima transparência: o consumidor pode solicitar esclarecimentos sobre fontes e informações consideradas. O uso abusivo pode ensejar responsabilidade, inclusive objetiva.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 710</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="o credor que promoveu a inscrição do nome do devedor em cadastro restritivo, mesmo após a integral quitação da dívida, tem o dever de diligenciar pela exclusão do registro no prazo de cinco dias úteis contados da data em que o valor ficou efetivamente disponível para quitação, sob pena de responsabilização. o tema 735 estabelece que, mesmo havendo inscrição regular, após o pagamento integral o credor deve requerer a exclusão do registro no prazo de 5 dias úteis, contado do primeiro dia útil subsequente à completa disponibilização do numerário para quitação. o não cumprimento pode acarretar responsabilidade do credor. tema 735">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 21</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-21">Não respondida</span>
+</div>
+
+<p class="enunciado">O credor que promoveu a inscrição do nome do devedor em cadastro restritivo, mesmo após a integral quitação da dívida, tem o dever de diligenciar pela exclusão do registro no prazo de cinco dias úteis contados da data em que o valor ficou efetivamente disponível para quitação, sob pena de responsabilização.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(21, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(21, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-21">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 735 estabelece que, mesmo havendo inscrição regular, após o pagamento integral o credor deve requerer a exclusão do registro no prazo de 5 dias úteis, contado do primeiro dia útil subsequente à completa disponibilização do numerário para quitação. O não cumprimento pode acarretar responsabilidade do credor.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 735</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a inscrição indevida determinada pelo credor em cadastro de inadimplentes, quando há anotação legítima preexistente, autoriza sempre indenização por dano moral, independentemente do contexto fático, nos termos da súmula 385/stj. o tema 922, em consonância com a súmula 385/stj, dispõe que a inscrição indevida comandada pelo credor, quando há pré-existente inscrição legítima, não enseja indenização por dano moral, ressalvado o direito ao cancelamento. assim, não há automática indenização nestes casos. tema 922">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 22</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-22">Não respondida</span>
+</div>
+
+<p class="enunciado">A inscrição indevida determinada pelo credor em cadastro de inadimplentes, quando há anotação legítima preexistente, autoriza sempre indenização por dano moral, independentemente do contexto fático, nos termos da Súmula 385/STJ.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(22, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(22, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-22">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 922, em consonância com a Súmula 385/STJ, dispõe que a inscrição indevida comandada pelo credor, quando há pré-existente inscrição legítima, não enseja indenização por dano moral, ressalvado o direito ao cancelamento. Assim, não há automática indenização nestes casos.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 922</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="o tema 929 encontra-se em julgamento pendente, de modo que não é possível afirmar qualquer tese consolidada sobre a matéria sem alteração jurisprudencial posterior. o próprio conteúdo do arquivo indica que o tema 929 está &quot;aguardando julgamento de mérito&quot;. nessa situação não existe tese vinculante consolidada pelo stj, razão pela qual qualquer afirmação categórica sobre a matéria careceria de respaldo jurisprudencial definitivo até o julgamento. tema 929">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 23</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-23">Não respondida</span>
+</div>
+
+<p class="enunciado">O Tema 929 encontra-se em julgamento pendente, de modo que não é possível afirmar qualquer tese consolidada sobre a matéria sem alteração jurisprudencial posterior.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(23, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(23, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-23">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O próprio conteúdo do arquivo indica que o Tema 929 está &quot;Aguardando julgamento de mérito&quot;. Nessa situação não existe tese vinculante consolidada pelo STJ, razão pela qual qualquer afirmação categórica sobre a matéria careceria de respaldo jurisprudencial definitivo até o julgamento.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 929</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="o reajuste de mensalidade de plano de saúde individual ou familiar decorrente de mudança de faixa etária do beneficiário é sempre inválido, salvo quando houver previsão contratual, regulamentação e comprovação atuarial idônea. o tema 952 admite o reajuste por mudança de faixa etária desde que (i) haja previsão contratual, (ii) sejam observadas normas regulatórias e (iii) não sejam aplicados percentuais desarrazoados ou sem base atuarial, de modo que o reajuste não é sempre inválido; pode ser válido se observadas essas condições. tema 952">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 24</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-24">Não respondida</span>
+</div>
+
+<p class="enunciado">O reajuste de mensalidade de plano de saúde individual ou familiar decorrente de mudança de faixa etária do beneficiário é sempre inválido, salvo quando houver previsão contratual, regulamentação e comprovação atuarial idônea.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(24, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(24, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-24">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 952 admite o reajuste por mudança de faixa etária desde que (i) haja previsão contratual, (ii) sejam observadas normas regulatórias e (iii) não sejam aplicados percentuais desarrazoados ou sem base atuarial, de modo que o reajuste não é sempre inválido; pode ser válido se observadas essas condições.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 952</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="o tema 954 está pendente de julgamento, de modo que não se pode extrair tese consolidada do stj a respeito do tema por ora. o arquivo registra &quot;aguardando julgamento de mérito&quot; para o tema 954, o que significa ausência de entendimento definitivo pelo tribunal sobre o assunto, impedindo a extração de tese vinculante até o julgamento. tema 954">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 25</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-25">Não respondida</span>
+</div>
+
+<p class="enunciado">O Tema 954 está pendente de julgamento, de modo que não se pode extrair tese consolidada do STJ a respeito do tema por ora.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(25, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(25, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-25">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O arquivo registra &quot;Aguardando julgamento de mérito&quot; para o Tema 954, o que significa ausência de entendimento definitivo pelo tribunal sobre o assunto, impedindo a extração de tese vinculante até o julgamento.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 954</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="nos planos de saúde coletivos custeados exclusivamente pelo empregador, o ex-empregado tem direito automático de permanecer como beneficiário após a demissão sem justa causa ou aposentadoria, sendo irrelevante a existência de cláusula contratual ou acordo coletivo em sentido diverso. o tema 989 afirma que, nos planos coletivos custeados exclusivamente pelo empregador, não há direito de permanência do ex-empregado salvo disposição expressa em contrato ou acordo/convenção coletiva. pagamento de coparticipação isolada não caracteriza contribuição suficiente à manutenção de vínculo. tema 989">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 26</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-26">Não respondida</span>
+</div>
+
+<p class="enunciado">Nos planos de saúde coletivos custeados exclusivamente pelo empregador, o ex-empregado tem direito automático de permanecer como beneficiário após a demissão sem justa causa ou aposentadoria, sendo irrelevante a existência de cláusula contratual ou acordo coletivo em sentido diverso.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(26, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(26, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-26">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 989 afirma que, nos planos coletivos custeados exclusivamente pelo empregador, não há direito de permanência do ex-empregado salvo disposição expressa em contrato ou acordo/convenção coletiva. Pagamento de coparticipação isolada não caracteriza contribuição suficiente à manutenção de vínculo.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 989</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="as operadoras de planos de saúde ficam obrigadas a fornecer medicamentos que não possuam registro na anvisa sempre que o médico assistente justificar sua indispensabilidade, não sendo possível recusar por ausência de registro regulatório. o tema 990 firma que as operadoras não têm obrigação de fornecer medicamentos não registrados pela anvisa. a falta de registro constitui óbice regulamentar que afasta a obrigatoriedade, salvo hipóteses excepcionais previstas em normas específicas ou decisão judicial fundada em comprovação robusta. tema 990">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 27</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-27">Não respondida</span>
+</div>
+
+<p class="enunciado">As operadoras de planos de saúde ficam obrigadas a fornecer medicamentos que não possuam registro na ANVISA sempre que o médico assistente justificar sua indispensabilidade, não sendo possível recusar por ausência de registro regulatório.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(27, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(27, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-27">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 990 firma que as operadoras não têm obrigação de fornecer medicamentos não registrados pela ANVISA. A falta de registro constitui óbice regulamentar que afasta a obrigatoriedade, salvo hipóteses excepcionais previstas em normas específicas ou decisão judicial fundada em comprovação robusta.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 990</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a suspensão ativa mencionada no tema 1016 relaciona-se a procedimentos de irdr e are pendentes, o que implica que decisões proferidas no incidente vinculante podem adiar efeitos de recursos extraordinários até o julgamento do tema. o enunciado do tema 1016 remete à suspensão ativa oriunda de irdr/are pendente (are 1456101), razão pela qual o tema envolve efeitos de suspensão de recursos extraordinários enquanto o incidente que trata do mérito permanece pendente, impactando o processamento de causas semelhantes. tema 1016">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 28</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-28">Não respondida</span>
+</div>
+
+<p class="enunciado">A suspensão ativa mencionada no Tema 1016 relaciona-se a procedimentos de IRDR e ARE pendentes, o que implica que decisões proferidas no incidente vinculante podem adiar efeitos de recursos extraordinários até o julgamento do tema.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(28, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(28, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-28">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O enunciado do Tema 1016 remete à suspensão ativa oriunda de IRDR/ARE pendente (ARE 1456101), razão pela qual o tema envolve efeitos de suspensão de recursos extraordinários enquanto o incidente que trata do mérito permanece pendente, impactando o processamento de causas semelhantes.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1016</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="em contratos de plano de saúde, cláusula de coparticipação informada e acordada com o consumidor é sempre abusiva se fixar percentual superior a 30% das despesas, independentemente do tipo de procedimento ou do equilíbrio contratual. o tema 1032 admite cláusula de coparticipação expressamente ajustada e informada ao consumidor até o limite de 50% das despesas, em determinadas hipóteses (internação psiquiátrica superior a 30 dias/ano), preservado o equilíbrio financeiro. logo, não existe vedação per se de percentuais superiores a 30%. tema 1032">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 29</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-29">Não respondida</span>
+</div>
+
+<p class="enunciado">Em contratos de plano de saúde, cláusula de coparticipação informada e acordada com o consumidor é sempre abusiva se fixar percentual superior a 30% das despesas, independentemente do tipo de procedimento ou do equilíbrio contratual.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(29, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(29, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-29">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 1032 admite cláusula de coparticipação expressamente ajustada e informada ao consumidor até o limite de 50% das despesas, em determinadas hipóteses (internação psiquiátrica superior a 30 dias/ano), preservado o equilíbrio financeiro. Logo, não existe vedação per se de percentuais superiores a 30%.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1032</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a resilição unilateral do contrato de plano de saúde coletivo empresarial promovida pela operadora é admitida em contratos com menos de trinta beneficiários, desde que acompanhada de motivação idônea, não implicando nulidade automática. o tema 1047 aceita a resilição unilateral pela operadora em coletivos empresariais com menos de 30 beneficiários, desde que haja motivação idônea. a corte reconhece a possibilidade, sujeita ao requisito de justificativa plausível e idônea para o exercício do direito. tema 1047">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 30</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-30">Não respondida</span>
+</div>
+
+<p class="enunciado">A resilição unilateral do contrato de plano de saúde coletivo empresarial promovida pela operadora é admitida em contratos com menos de trinta beneficiários, desde que acompanhada de motivação idônea, não implicando nulidade automática.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(30, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(30, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-30">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 1047 aceita a resilição unilateral pela operadora em coletivos empresariais com menos de 30 beneficiários, desde que haja motivação idônea. A Corte reconhece a possibilidade, sujeita ao requisito de justificativa plausível e idônea para o exercício do direito.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1047</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="quando o autor impugna a autenticidade da assinatura em contrato bancário juntado pela instituição, a instituição financeira não possui ônus probatório especial, cabendo ao autor provar a falsidade, nos termos gerais do ordenamento processual. o tema 1061 estabelece que, na hipótese de impugnação da autenticidade da assinatura pelo autor, incumbe à instituição financeira o ônus de provar a autenticidade do documento (cpc, arts. 6º, 369 e 429, ii), aplicando-se norma processual que impõe exibição probatória ao banco. tema 1061">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 31</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-31">Não respondida</span>
+</div>
+
+<p class="enunciado">Quando o autor impugna a autenticidade da assinatura em contrato bancário juntado pela instituição, a instituição financeira não possui ônus probatório especial, cabendo ao autor provar a falsidade, nos termos gerais do ordenamento processual.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(31, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(31, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-31">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 1061 estabelece que, na hipótese de impugnação da autenticidade da assinatura pelo autor, incumbe à instituição financeira o ônus de provar a autenticidade do documento (CPC, arts. 6º, 369 e 429, II), aplicando-se norma processual que impõe exibição probatória ao banco.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1061</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="é ilegal e abusiva a cláusula de seguro coletivo que condiciona a cobertura por invalidez funcional permanente total por doença (ifpd) apenas à perda da existência independente, requerida por declaração médica, de modo a restringir o direito ao benefício. o tema 1068 entende que não é ilegal ou abusiva a cláusula que condiciona a cobertura ifpd à perda da existência independente comprovada por declaração médica em contrato de seguro de vida em grupo. assim, tal condicionamento não foi considerado abusivo pelo stj, desde que a estipulação contratual e requisito médico sejam compatíveis com o risco coberto. tema 1068">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 32</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-32">Não respondida</span>
+</div>
+
+<p class="enunciado">É ilegal e abusiva a cláusula de seguro coletivo que condiciona a cobertura por invalidez funcional permanente total por doença (IFPD) apenas à perda da existência independente, requerida por declaração médica, de modo a restringir o direito ao benefício.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(32, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(32, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-32">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 1068 entende que não é ilegal ou abusiva a cláusula que condiciona a cobertura IFPD à perda da existência independente comprovada por declaração médica em contrato de seguro de vida em grupo. Assim, tal condicionamento não foi considerado abusivo pelo STJ, desde que a estipulação contratual e requisito médico sejam compatíveis com o risco coberto.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1068</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="nos planos de saúde, a cirurgia plástica reparadora ou funcional pós-bariátrica integra obrigatoriamente o rol de cobertura dos planos, sendo indispensável a cobertura pelo operador quando indicada pelo médico assistente; na hipótese de divergência justificável sobre caráter estético, a operadora pode recorrer à junta médica, arcando com seus honorários, sem prejuízo do direito de ação do beneficiário. o tema 1069 fixa que (i) a cirurgia plástica de caráter reparador ou funcional indicada após cirurgia bariátrica é de cobertura obrigatória pelos planos, e (ii) em caso de dúvida justificável quanto ao caráter estético, a operadora pode utilizar junta médica para dirimir a divergência, devendo arcar com honorários e sem prejuízo do direito do beneficiário pleitear em juízo. tema 1069">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 33</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-33">Não respondida</span>
+</div>
+
+<p class="enunciado">Nos planos de saúde, a cirurgia plástica reparadora ou funcional pós-bariátrica integra obrigatoriamente o rol de cobertura dos planos, sendo indispensável a cobertura pelo operador quando indicada pelo médico assistente; na hipótese de divergência justificável sobre caráter estético, a operadora pode recorrer à junta médica, arcando com seus honorários, sem prejuízo do direito de ação do beneficiário.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(33, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(33, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-33">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 1069 fixa que (i) a cirurgia plástica de caráter reparador ou funcional indicada após cirurgia bariátrica é de cobertura obrigatória pelos planos, e (ii) em caso de dúvida justificável quanto ao caráter estético, a operadora pode utilizar junta médica para dirimir a divergência, devendo arcar com honorários e sem prejuízo do direito do beneficiário pleitear em juízo.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1069</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="o atraso na baixa de gravame de alienação fiduciária no registro de veículo pela instituição financeira sempre configura dano moral in re ipsa, bastando a mera ocorrência do atraso para ensejar indenização. o tema 1078 determina que o mero atraso na baixa do gravame pela instituição financeira não configura, por si só, dano moral in re ipsa. a caracterização do dano moral exige demonstração de abalo ou circunstâncias agravantes; a simples demora não é presumida como dano. tema 1078">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 34</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-34">Não respondida</span>
+</div>
+
+<p class="enunciado">O atraso na baixa de gravame de alienação fiduciária no registro de veículo pela instituição financeira sempre configura dano moral in re ipsa, bastando a mera ocorrência do atraso para ensejar indenização.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(34, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(34, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-34">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 1078 determina que o mero atraso na baixa do gravame pela instituição financeira não configura, por si só, dano moral in re ipsa. A caracterização do dano moral exige demonstração de abalo ou circunstâncias agravantes; a simples demora não é presumida como dano.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1078</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="após o exercício regular da rescisão unilateral do contrato de plano coletivo por parte da operadora, a empresa deve garantir a continuidade dos cuidados assistenciais prescritos a usuário internado ou em tratamento imprescindível à vida até a alta hospitalar, desde que o titular arque integralmente com a contraprestação devida. o tema 1082 determina que a operadora, ainda após rescisão regular do contrato coletivo, deve assegurar a continuidade dos cuidados assistenciais prescritos a usuário internado ou em pleno tratamento médico vital até a alta, desde que o titular pague integralmente a contraprestação. a tese foi esclarecida em embargos, ampliando o alcance dos &quot;cuidados assistenciais prescritos&quot;. tema 1082">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 35</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-35">Não respondida</span>
+</div>
+
+<p class="enunciado">Após o exercício regular da rescisão unilateral do contrato de plano coletivo por parte da operadora, a empresa deve garantir a continuidade dos cuidados assistenciais prescritos a usuário internado ou em tratamento imprescindível à vida até a alta hospitalar, desde que o titular arque integralmente com a contraprestação devida.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(35, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(35, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-35">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 1082 determina que a operadora, ainda após rescisão regular do contrato coletivo, deve assegurar a continuidade dos cuidados assistenciais prescritos a usuário internado ou em pleno tratamento médico vital até a alta, desde que o titular pague integralmente a contraprestação. A tese foi esclarecida em embargos, ampliando o alcance dos &quot;cuidados assistenciais prescritos&quot;.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1082</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="em contrato de compra e venda de imóvel garantido por alienação fiduciária regularmente registrado, na hipótese de inadimplemento do devedor constituído em mora, a resolução contratual deverá observar as formalidades previstas na lei nº 9.514/97, por se tratar de norma especial aplicável ao caso, afastando a incidência do código de defesa do consumidor. o tema 1095 fixa que, em contratos com garantia de alienação fiduciária de imóvel devidamente registrado, a resolução por inadimplemento deve observar a forma prevista na lei nº 9.514/97 (sistema de alienação fiduciária imobiliária), afastando aplicação subsidiária do cdc dada a especialidade da legislação aplicável. tema 1095">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 36</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-36">Não respondida</span>
+</div>
+
+<p class="enunciado">Em contrato de compra e venda de imóvel garantido por alienação fiduciária regularmente registrado, na hipótese de inadimplemento do devedor constituído em mora, a resolução contratual deverá observar as formalidades previstas na Lei nº 9.514/97, por se tratar de norma especial aplicável ao caso, afastando a incidência do Código de Defesa do Consumidor.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(36, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(36, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-36">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 1095 fixa que, em contratos com garantia de alienação fiduciária de imóvel devidamente registrado, a resolução por inadimplemento deve observar a forma prevista na Lei nº 9.514/97 (sistema de alienação fiduciária imobiliária), afastando aplicação subsidiária do CDC dada a especialidade da legislação aplicável.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1095</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="o artigo 1.040 do cpc é inaplicável quando o stj firma tese em recurso repetitivo, de modo que o tema não vincula as instâncias de origem nem permite modulação de efeitos processuais. o arquivo traz menção de aplicar o art. 1040 do cpc no tema 1112, o que indica que as decisões em recursos repetitivos e irdrs possuem efeitos orientadores e podem impactar processos idênticos. o art. 1.040/ cpc disciplina o processamento dos recursos especial e extraordinário, sendo aplicável na sistemática recursal, não sendo correto negar sua eficácia automaticamente. tema 1112">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 37</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-37">Não respondida</span>
+</div>
+
+<p class="enunciado">O artigo 1.040 do CPC é inaplicável quando o STJ firma tese em recurso repetitivo, de modo que o tema não vincula as instâncias de origem nem permite modulação de efeitos processuais.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(37, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(37, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-37">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O arquivo traz menção de aplicar o art. 1040 do CPC no Tema 1112, o que indica que as decisões em recursos repetitivos e IRDRs possuem efeitos orientadores e podem impactar processos idênticos. O art. 1.040/ CPC disciplina o processamento dos recursos especial e extraordinário, sendo aplicável na sistemática recursal, não sendo correto negar sua eficácia automaticamente.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1112</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="o tema 1116 consta como &quot;aguardando julgamento de mérito&quot;, razão pela qual já existem parâmetros vinculantes do stj sobre o assunto que devem ser observados pelos juízes de primeira instância. como o tema 1116 está indicado no arquivo como &quot;aguardando julgamento de mérito&quot;, não há tese consolidada. portanto, não se pode afirmar que existam parâmetros vinculantes do stj aplicáveis ao tema até que ocorra o julgamento de mérito. tema 1116">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 38</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-38">Não respondida</span>
+</div>
+
+<p class="enunciado">O Tema 1116 consta como &quot;Aguardando julgamento de mérito&quot;, razão pela qual já existem parâmetros vinculantes do STJ sobre o assunto que devem ser observados pelos juízes de primeira instância.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(38, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(38, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-38">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Como o Tema 1116 está indicado no arquivo como &quot;Aguardando julgamento de mérito&quot;, não há tese consolidada. Portanto, não se pode afirmar que existam parâmetros vinculantes do STJ aplicáveis ao tema até que ocorra o julgamento de mérito.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1116</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="o tema 1119 encontra-se pendente de julgamento pelo stj, o que impede a extração de conclusões definitivas sobre a matéria até eventual decisão colegiada. o arquivo registra &quot;aguardando julgamento de mérito&quot; para o tema 1119; desse modo, não existe ainda tese consolidada pelo tribunal, o que justifica a afirmação de pendência de julgamento e a impossibilidade de conclusões definitivas. tema 1119">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 39</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-39">Não respondida</span>
+</div>
+
+<p class="enunciado">O tema 1119 encontra-se pendente de julgamento pelo STJ, o que impede a extração de conclusões definitivas sobre a matéria até eventual decisão colegiada.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(39, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(39, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-39">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O arquivo registra &quot;Aguardando julgamento de mérito&quot; para o Tema 1119; desse modo, não existe ainda tese consolidada pelo tribunal, o que justifica a afirmação de pendência de julgamento e a impossibilidade de conclusões definitivas.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1119</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="as concessionárias de rodovias, no exercício das atividades de conservação e segurança viária sob o regime de concessão, respondem objetivamente (independentemente de culpa) pelos danos decorrentes de acidentes provocados pela presença de animais domésticos nas pistas, aplicando-se o código de defesa do consumidor e a legislação das concessões. o tema 1122 estabelece a responsabilidade objetiva das concessionárias por danos originados de acidentes causados por animais domésticos nas pistas, impondo a aplicação do cdc e da lei das concessões, dada a prestação de serviço e a teoria do risco do empreendimento. tema 1122">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 40</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-40">Não respondida</span>
+</div>
+
+<p class="enunciado">As concessionárias de rodovias, no exercício das atividades de conservação e segurança viária sob o regime de concessão, respondem objetivamente (independentemente de culpa) pelos danos decorrentes de acidentes provocados pela presença de animais domésticos nas pistas, aplicando-se o Código de Defesa do Consumidor e a legislação das concessões.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(40, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(40, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-40">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 1122 estabelece a responsabilidade objetiva das concessionárias por danos originados de acidentes causados por animais domésticos nas pistas, impondo a aplicação do CDC e da Lei das Concessões, dada a prestação de serviço e a teoria do risco do empreendimento.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1122</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="o mero descumprimento do prazo legal para prestação de serviço bancário configura automaticamente dano moral in re ipsa, dispensando a prova de abalo psíquico ou prejuízo concreto pelo consumidor. o tema 1156 determina que o simples descumprimento do prazo previsto em legislação específica para prestação de serviço bancário não gera, por si só, dano moral in re ipsa. a configuração do dano moral exige análise das circunstâncias e não se presume automaticamente pela mera inobservância do prazo. tema 1156">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 41</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-41">Não respondida</span>
+</div>
+
+<p class="enunciado">O mero descumprimento do prazo legal para prestação de serviço bancário configura automaticamente dano moral in re ipsa, dispensando a prova de abalo psíquico ou prejuízo concreto pelo consumidor.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(41, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(41, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-41">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 1156 determina que o simples descumprimento do prazo previsto em legislação específica para prestação de serviço bancário não gera, por si só, dano moral in re ipsa. A configuração do dano moral exige análise das circunstâncias e não se presume automaticamente pela mera inobservância do prazo.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1156</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="o tema 1211 ainda aguarda julgamento do stj, o que impede a formulação de enunciado vinculante sobre a matéria neste momento. conforme o arquivo, o tema 1211 encontra-se &quot;aguardando julgamento de mérito&quot;, o que significa ausência de tese consolidada pelo tribunal, impossibilitando afirmar conclusão vinculante até decisão colegiada. tema 1211">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 42</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-42">Não respondida</span>
+</div>
+
+<p class="enunciado">O Tema 1211 ainda aguarda julgamento do STJ, o que impede a formulação de enunciado vinculante sobre a matéria neste momento.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(42, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(42, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-42">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Conforme o arquivo, o Tema 1211 encontra-se &quot;Aguardando julgamento de mérito&quot;, o que significa ausência de tese consolidada pelo tribunal, impossibilitando afirmar conclusão vinculante até decisão colegiada.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1211</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="o tema 1280 possui orientações jurisprudenciais definitivamente consolidadas pelo stj, cabendo sua imediata aplicação em todas as demandas idênticas sem exame casuístico. o arquivo indica que o tema 1280 está &quot;aguardando julgamento de mérito&quot;, não havendo tese consolidada. assim, não existem orientações vinculantes definitivas para aplicação automática; cada caso requer exame conforme jurisprudência vigente até eventual consolidação. tema 1280">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 43</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-43">Não respondida</span>
+</div>
+
+<p class="enunciado">O Tema 1280 possui orientações jurisprudenciais definitivamente consolidadas pelo STJ, cabendo sua imediata aplicação em todas as demandas idênticas sem exame casuístico.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(43, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(43, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-43">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O arquivo indica que o Tema 1280 está &quot;Aguardando julgamento de mérito&quot;, não havendo tese consolidada. Assim, não existem orientações vinculantes definitivas para aplicação automática; cada caso requer exame conforme jurisprudência vigente até eventual consolidação.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1280</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="o tema 1314 encontra-se pendente de julgamento, razão pela qual não se pode afirmar que haja tese vinculante sobre o seu conteúdo. o arquivo registra &quot;aguardando julgamento de mérito&quot; para o tema 1314, o que torna correta a afirmação de pendência e a impossibilidade de extração de tese consolidada pelo stj até o julgamento. tema 1314">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 44</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-44">Não respondida</span>
+</div>
+
+<p class="enunciado">O Tema 1314 encontra-se pendente de julgamento, razão pela qual não se pode afirmar que haja tese vinculante sobre o seu conteúdo.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(44, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(44, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-44">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O arquivo registra &quot;Aguardando julgamento de mérito&quot; para o Tema 1314, o que torna correta a afirmação de pendência e a impossibilidade de extração de tese consolidada pelo STJ até o julgamento.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1314</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="para fins do art. 43, §2º, do cdc, a notificação eletrônica enviada ao consumidor é válida desde que seja possível comprovar o envio e a efetiva entrega ao destinatário, equivalendo em eficácia à comunicação física. o tema 1315 do stj reconhece a validade da comunicação eletrônica prevista no art. 43, §2º, do cdc, desde que comprovados o envio da notificação e a respectiva entrega ao destinatário. a exigência é probatória: não basta o mero envio, é necessário demonstrar a entrega. tema 1315">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 45</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-45">Não respondida</span>
+</div>
+
+<p class="enunciado">Para fins do art. 43, §2º, do CDC, a notificação eletrônica enviada ao consumidor é válida desde que seja possível comprovar o envio e a efetiva entrega ao destinatário, equivalendo em eficácia à comunicação física.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(45, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(45, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-45">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 1315 do STJ reconhece a validade da comunicação eletrônica prevista no art. 43, §2º, do CDC, desde que comprovados o envio da notificação e a respectiva entrega ao destinatário. A exigência é probatória: não basta o mero envio, é necessário demonstrar a entrega.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1315</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="o tema 1340 encontra-se em fase de julgamento, já sendo possível aplicá-lo como enunciado vinculado a todas as instâncias, mesmo sem trânsito em julgado. o arquivo indica que o tema 1340 está &quot;aguardando julgamento de mérito&quot;; portanto, não há enunciado vinculante formado e aplicável. a aplicação como tese vinculante só ocorre após a devida formação jurisprudencial pelo stj. tema 1340">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 46</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-46">Não respondida</span>
+</div>
+
+<p class="enunciado">O Tema 1340 encontra-se em fase de julgamento, já sendo possível aplicá-lo como enunciado vinculado a todas as instâncias, mesmo sem trânsito em julgado.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(46, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(46, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-46">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O arquivo indica que o Tema 1340 está &quot;Aguardando julgamento de mérito&quot;; portanto, não há enunciado vinculante formado e aplicável. A aplicação como tese vinculante só ocorre após a devida formação jurisprudencial pelo STJ.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1340</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="o tema 1343, estando em pendência de julgamento, não enseja a existência de tese consolidada pelo tribunal, o que impede sua invocação como norma vinculante até decisão definitiva. o arquivo informa &quot;aguardando julgamento de mérito&quot; para o tema 1343, confirmando a ausência de tese consolidada e impedindo sua utilização como enunciado vinculante até julgamento colegiado. tema 1343">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 47</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-47">Não respondida</span>
+</div>
+
+<p class="enunciado">O Tema 1343, estando em pendência de julgamento, não enseja a existência de tese consolidada pelo tribunal, o que impede sua invocação como norma vinculante até decisão definitiva.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(47, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(47, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-47">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O arquivo informa &quot;Aguardando julgamento de mérito&quot; para o Tema 1343, confirmando a ausência de tese consolidada e impedindo sua utilização como enunciado vinculante até julgamento colegiado.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1343</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a recusa indevida de cobertura médico-assistencial por operadora de plano de saúde gera automaticamente dano moral in re ipsa, não sendo necessário demonstrar repercussão emocional ou prejuízo adicional da parte. o tema 1365 define que a simples recusa indevida de cobertura não gera dano moral presumido automaticamente; é imprescindível a demonstração de elementos que comprovem alteração anímica da vítima em grau além do mero aborrecimento. assim, não há presunção automática do dano. tema 1365">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 48</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-48">Não respondida</span>
+</div>
+
+<p class="enunciado">A recusa indevida de cobertura médico-assistencial por operadora de plano de saúde gera automaticamente dano moral in re ipsa, não sendo necessário demonstrar repercussão emocional ou prejuízo adicional da parte.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(48, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(48, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-48">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tema 1365 define que a simples recusa indevida de cobertura não gera dano moral presumido automaticamente; é imprescindível a demonstração de elementos que comprovem alteração anímica da vítima em grau além do mero aborrecimento. Assim, não há presunção automática do dano.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1365</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="o tema 1404 continua pendente de julgamento, razão pela qual não existe ainda posição definitiva do stj sobre a matéria constante do referido tema. o arquivo indica que o tema 1404 está &quot;aguardando julgamento de mérito&quot;, o que implica inexistência de tese consolidada pelo tribunal sobre o tema até decisão colegiada. tema 1404">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 49</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-49">Não respondida</span>
+</div>
+
+<p class="enunciado">O Tema 1404 continua pendente de julgamento, razão pela qual não existe ainda posição definitiva do STJ sobre a matéria constante do referido tema.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(49, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(49, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-49">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O arquivo indica que o Tema 1404 está &quot;Aguardando julgamento de mérito&quot;, o que implica inexistência de tese consolidada pelo tribunal sobre o tema até decisão colegiada.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1404</p>
+</div>
+</section>
+
+</div>
+
+<script>
+const storageKey = location.pathname + "_respostas";
+let respostas = JSON.parse(localStorage.getItem(storageKey) || "{}");
+
+function destacar(t){
+ if(t==="CERTO") return '<span class="gabarito-certo">CERTO</span>';
+ if(t==="ERRADO") return '<span class="gabarito-errado">ERRADO</span>';
+ return t;
+}
+
+function responder(numero, resposta){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const gabarito=card.dataset.gabarito;
+ const correto=resposta===gabarito;
+ respostas[numero]={resposta,correto};
+ localStorage.setItem(storageKey, JSON.stringify(respostas));
+ mostrarFeedback(numero);
+ atualizarPainel();
+ filtrar();
+}
+
+function mostrarFeedback(numero){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const feedback=document.getElementById("feedback-"+numero);
+ const status=document.getElementById("status-"+numero);
+ const resultado=feedback.querySelector(".resultado");
+ const gabarito=card.dataset.gabarito;
+ const dados=respostas[numero];
+ if(!dados) return;
+ feedback.style.display="block";
+ feedback.classList.remove("correto","errado");
+ if(dados.correto){
+   feedback.classList.add("correto");
+   resultado.innerHTML="Você acertou. A resposta é "+destacar(gabarito)+".";
+   status.textContent="Respondida — acerto";
+   status.style.color="var(--green)";
+ } else {
+   feedback.classList.add("errado");
+   resultado.innerHTML="Você errou. O gabarito é "+destacar(gabarito)+".";
+   status.textContent="Respondida — erro";
+   status.style.color="var(--red)";
+ }
+}
+
+function atualizarPainel(){
+ let respondidas=0, acertos=0, erros=0;
+ for(const k in respostas){
+   respondidas++;
+   if(respostas[k].correto) acertos++; else erros++;
+ }
+ document.getElementById("respondidas").textContent=respondidas;
+ document.getElementById("acertos").textContent=acertos;
+ document.getElementById("erros").textContent=erros;
+ document.getElementById("visiveis").textContent=document.querySelectorAll(".questao:not(.oculta)").length;
+}
+
+function filtrar(){
+ const busca=document.getElementById("busca").value.trim().toLowerCase();
+ const disciplina=document.getElementById("disciplina").value;
+ const statusFiltro=document.getElementById("statusFiltro").value;
+ const cards=Array.from(document.querySelectorAll(".questao"));
+ let vis=0;
+ cards.forEach((card,idx)=>{
+   const n=idx+1;
+   const texto=card.dataset.texto||"";
+   const disc=card.dataset.disciplina||"";
+   const r=respostas[n];
+   let passaStatus=true;
+   if(statusFiltro==="nao") passaStatus=!r;
+   if(statusFiltro==="acerto") passaStatus=r && r.correto;
+   if(statusFiltro==="erro") passaStatus=r && !r.correto;
+   const ok=(!busca||texto.includes(busca)) && (!disciplina||disc===disciplina) && passaStatus;
+   card.classList.toggle("oculta", !ok);
+   if(ok) vis++;
+ });
+ document.getElementById("sem-resultados").style.display=vis===0?"block":"none";
+ atualizarPainel();
+}
+
+function reiniciar(){
+ if(!confirm("Deseja reiniciar este simulado?")) return;
+ localStorage.removeItem(storageKey);
+ location.reload();
+}
+
+function restaurar(){
+ for(const k in respostas) mostrarFeedback(Number(k));
+ filtrar();
+ atualizarPainel();
+}
+
+restaurar();
+</script>
+</body>
+</html>

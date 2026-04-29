@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Simulado - Info 1171 STF</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+    --bg: #0f172a;
+    --card: #111827;
+    --card2: #1f2937;
+    --text: #e5e7eb;
+    --muted: #9ca3af;
+    --accent: #38bdf8;
+    --green: #22c55e;
+    --red: #ef4444;
+    --yellow: #facc15;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #020617, #111827);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+header {
+    padding: 32px 20px;
+    text-align: center;
+    border-bottom: 1px solid #334155;
+}
+
+header h1 {
+    margin: 0 0 10px;
+    font-size: 28px;
+}
+
+header p {
+    color: var(--muted);
+    margin: 0;
+}
+
+.container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 24px 16px 80px;
+}
+
+.painel {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(8px);
+    border: 1px solid #334155;
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 24px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.stat {
+    background: var(--card2);
+    padding: 12px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.stat strong {
+    display: block;
+    font-size: 22px;
+    color: var(--accent);
+}
+
+.card {
+    background: rgba(17, 24, 39, 0.96);
+    border: 1px solid #334155;
+    border-radius: 18px;
+    padding: 22px;
+    margin-bottom: 20px;
+    box-shadow: 0 12px 30px rgba(0,0,0,.25);
+}
+
+.questao-topo {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.badge {
+    background: #0ea5e9;
+    color: #00111f;
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 999px;
+}
+
+.status {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.enunciado {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.botoes {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+button {
+    cursor: pointer;
+    border: 0;
+    padding: 12px 22px;
+    border-radius: 12px;
+    background: #334155;
+    color: white;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+button:hover {
+    transform: translateY(-1px);
+    background: #475569;
+}
+
+.feedback {
+    display: none;
+    background: #020617;
+    border-left: 4px solid var(--accent);
+    padding: 16px;
+    border-radius: 12px;
+    margin-top: 12px;
+}
+
+.feedback.correto {
+    border-left-color: var(--green);
+}
+
+.feedback.errado {
+    border-left-color: var(--red);
+}
+
+.resultado {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.referencia {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.acoes {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.acoes button {
+    background: #0ea5e9;
+    color: #00111f;
+}
+
+@media (max-width: 700px) {
+    .painel {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .botoes {
+        flex-direction: column;
+    }
+
+    header h1 {
+        font-size: 22px;
+    }
+
+    .enunciado {
+        font-size: 16px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Simulado - Info 1171 STF</h1>
+    <p>Simulado interativo de CERTO ou ERRADO</p>
+</header>
+
+<div class="container">
+
+    <div class="painel">
+        <div class="stat">
+            <strong id="total">9</strong>
+            Total
+        </div>
+        <div class="stat">
+            <strong id="respondidas">0</strong>
+            Respondidas
+        </div>
+        <div class="stat">
+            <strong id="acertos">0</strong>
+            Acertos
+        </div>
+        <div class="stat">
+            <strong id="erros">0</strong>
+            Erros
+        </div>
+    </div>
+
+    <div class="acoes">
+        <button onclick="reiniciar()">Reiniciar simulado</button>
+    </div>
+
+    
+        <section class="card questao" data-gabarito="CERTO">
+            <div class="questao-topo">
+                <span class="badge">Questão 1</span>
+                <span class="status" id="status-1">Não respondida</span>
+            </div>
+
+            <p class="enunciado">É constitucional lei estadual de iniciativa parlamentar que concede isenção de pedágio a veículos de propriedade de pessoas com deficiência, inclusive quando a fruição do benefício é condicionada à comprovação de adaptação legal do veículo e à expedição de documento pela Administração Pública, mas é inconstitucional a imposição, pelo próprio diploma legislativo, de prazo certo para que o Chefe do Poder Executivo edite o regulamento necessário à sua execução, por ofensa à separação dos poderes.</p>
+
+            <div class="botoes">
+                <button onclick="responder(1, 'CERTO')">CERTO</button>
+                <button onclick="responder(1, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-1">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> CERTO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz, com precisão, a solução adotada no caso concreto. A norma estadual que instituiu a isenção de pedágio para pessoas com deficiência não foi reputada inconstitucional por vício de iniciativa, pois não tratou de organização da Administração Pública em sentido reservado ao Executivo, nem invadiu matéria de iniciativa privativa. Além disso, a concessão da isenção, por si só, não foi considerada ofensiva ao equilíbrio econômico-financeiro dos contratos de concessão, sendo compatível com a tutela de direitos fundamentais das pessoas com deficiência.<br><br>Por outro lado, a previsão legislativa que fixava prazo de 60 dias para o Poder Executivo regulamentar a lei foi tida por inconstitucional, porque o Legislativo não pode impor, por iniciativa própria, prazo vinculante ao Chefe do Executivo para edição de regulamento, sob pena de violação ao princípio da separação dos poderes. Assim, no caso examinado, a declaração de inconstitucionalidade recaiu apenas sobre o dispositivo que estabelecia o prazo para regulamentação, permanecendo hígidos os demais comandos da lei.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 3.816/ES, Rel. Min. Nunes Marques, julgado em 31/03/2025 (Info 1171).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="ERRADO">
+            <div class="questao-topo">
+                <span class="badge">Questão 2</span>
+                <span class="status" id="status-2">Não respondida</span>
+            </div>
+
+            <p class="enunciado">É constitucional a emenda parlamentar que, em projeto de lei de iniciativa privativa do Tribunal de Contas voltado à organização de seus serviços auxiliares, amplia o reajuste remuneratório originalmente previsto para alcançar servidores da Assembleia Legislativa, desde que a alteração seja formalizada no curso da tramitação legislativa e não haja modificação do texto-base quanto à estrutura administrativa do órgão proponente.</p>
+
+            <div class="botoes">
+                <button onclick="responder(2, 'CERTO')">CERTO</button>
+                <button onclick="responder(2, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-2">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> ERRADO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque a emenda parlamentar não pode, em projeto de iniciativa reservada, inserir disciplina remuneratória para servidores não contemplados na proposição originária, sobretudo quando isso implica aumento de despesa e desborda da matéria inicialmente submetida ao Legislativo.<br><br>No caso, a iniciativa privativa do Tribunal de Contas alcança normas relativas à estrutura e à organização de seus serviços auxiliares, nos termos dos arts. 73, 75 e 96, II, “b”, da Constituição. Já a fixação da remuneração dos servidores da Assembleia Legislativa demanda lei específica de iniciativa privativa do próprio Poder Legislativo. Assim, não se admite que, por emenda parlamentar, se estenda reajuste a categoria diversa daquela abrangida pelo projeto original.<br><br>Além disso, a emenda parlamentar deve guardar pertinência temática com a proposição em exame. Quando ela introduz matéria estranha ao objeto inicial e ainda provoca aumento de despesa com pessoal não contemplado na proposta, há violação ao devido processo legislativo e aos arts. 37, X; 51, IV; 52, XIII; e 63, I e II, da Constituição. A irregularidade, portanto, não decorre apenas da forma de apresentação da emenda, mas do conteúdo materialmente incompatível com a reserva de iniciativa e com os limites constitucionais ao poder de emendar.<br><br>Em síntese, a ampliação do reajuste para servidores da Assembleia Legislativa, por emenda a projeto de iniciativa reservada do Tribunal de Contas, é inconstitucional porque subverte a afinidade temática, invade esfera de iniciativa privativa e acarreta aumento de despesa vedado pelo texto constitucional.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 4.570/PR, Rel. Min. Nunes Marques, julgado em 31/03/2025 (Info 1171).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="ERRADO">
+            <div class="questao-topo">
+                <span class="badge">Questão 3</span>
+                <span class="status" id="status-3">Não respondida</span>
+            </div>
+
+            <p class="enunciado">A disciplina legal da investigação criminal atribuída ao delegado de polícia, ao prever a condução do inquérito policial ou de outro procedimento previsto em lei para apuração da materialidade e da autoria delitivas, impede que o Ministério Público ou outras autoridades administrativas realizem apurações criminais próprias, ainda que dentro de suas competências constitucionais e legais, pois a função investigativa seria privativa da autoridade policial.</p>
+
+            <div class="botoes">
+                <button onclick="responder(3, 'CERTO')">CERTO</button>
+                <button onclick="responder(3, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-3">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> ERRADO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque confunde a disciplina da investigação criminal conduzida pelo delegado de polícia com uma suposta exclusividade investigativa da autoridade policial. A Lei nº 12.830/2013, ao tratar da atividade do delegado, apenas reconhece que a ele cabe a condução da investigação criminal por meio de inquérito policial ou de outro procedimento previsto em lei, com a finalidade de apurar circunstâncias, materialidade e autoria das infrações penais.<br><br>O ponto central do entendimento é justamente a vedação a uma interpretação ampliativa do art. 2º, § 1º, da Lei nº 12.830/2013 que transforme essa previsão em monopólio investigativo do delegado. Tal leitura seria incompatível com a Constituição, especialmente com as atribuições institucionais do Ministério Público previstas no art. 129, I, VI e IX, além da possibilidade de atuação investigativa de outras autoridades administrativas nos limites de suas competências legais e constitucionais.<br><br>Assim, não há exclusividade ou privatividade da investigação criminal em favor da polícia judiciária. O dispositivo legal disciplina a atuação do delegado, mas não pode ser interpretado para restringir indevidamente a atuação investigativa de outros órgãos legitimados pelo ordenamento jurídico.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 5.043/DF, Rel. Min. Dias Toffoli, julgado em 31/03/2025 (Info 1171).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="CERTO">
+            <div class="questao-topo">
+                <span class="badge">Questão 4</span>
+                <span class="status" id="status-4">Não respondida</span>
+            </div>
+
+            <p class="enunciado">A pretensão executória fundada em título judicial que reconheça obrigação de reparar dano ambiental não se submete à prescrição, nem à prescrição intercorrente, ainda que a obrigação específica de recomposição tenha sido posteriormente convertida em indenização por perdas e danos, pois a tutela do meio ambiente, por sua natureza transindividual, transgeracional e indisponível, impede a extinção da pretensão executiva pelo decurso do tempo.</p>
+
+            <div class="botoes">
+                <button onclick="responder(4, 'CERTO')">CERTO</button>
+                <button onclick="responder(4, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-4">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> CERTO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está correta. O entendimento firmado é no sentido de que, uma vez reconhecida judicialmente a obrigação de reparar dano ambiental, a pretensão executória correspondente é imprescritível. Isso decorre da natureza jurídica do bem ambiental, que é difuso, transindividual, transgeracional e indisponível, o que afasta a incidência de prescrição sobre a atividade voltada à efetivação da tutela reparatória.<br><br>Além disso, a posterior conversão da obrigação de fazer em prestação pecuniária não altera essa conclusão. A transformação da reparação específica em perdas e danos não descaracteriza a origem ambiental da condenação nem converte a execução em mera cobrança patrimonial ordinária. Permanece, portanto, a mesma razão de fundo que impede a fluência do prazo prescricional: a necessidade de assegurar a recomposição do dano ambiental ou, quando inviável, a correspondente satisfação pecuniária vinculada ao mesmo título judicial.<br><br>Também foi afastada a prescrição intercorrente na fase executiva. Em outras palavras, o decurso do tempo no curso da execução, por inércia processual, não extingue a pretensão executória quando se trata de título judicial relativo à reparação de dano ambiental. A lógica adotada privilegia a máxima efetividade da tutela ambiental e impede que a proteção do meio ambiente seja esvaziada por obstáculos temporais típicos de relações patrimoniais disponíveis.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ARE 1.352.872/SC, Rel. Min. Cristiano Zanin, julgado em 31/03/2025 (Repercussão Geral – Tema 1.194) (Info 1171).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="ERRADO">
+            <div class="questao-topo">
+                <span class="badge">Questão 5</span>
+                <span class="status" id="status-5">Não respondida</span>
+            </div>
+
+            <p class="enunciado">É constitucional lei estadual que, ao disciplinar o licenciamento ambiental em área integrante da Zona Costeira, atribua de forma genérica aos Municípios a competência para autorizar empreendimentos e atividades em faixas terrestres e marítimas, ainda que tal delegação resulte em disciplina menos protetiva do que a prevista na legislação federal aplicável à Mata Atlântica e à repartição de competências ambientais.</p>
+
+            <div class="botoes">
+                <button onclick="responder(5, 'CERTO')">CERTO</button>
+                <button onclick="responder(5, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-5">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> ERRADO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque a ordem constitucional e infraconstitucional não admite que o Estado, por lei própria, faça delegação genérica aos Municípios para licenciar empreendimentos ou atividades situados em faixas terrestres e marítimas da Zona Costeira quando isso implique afastamento das balizas federais de competência e de proteção ambiental.<br><br>No caso, a inconstitucionalidade decorre de dois eixos centrais. Primeiro, a Zona Costeira e a Mata Atlântica são bens juridicamente qualificados como patrimônio nacional e sujeitos a proteção especial, o que reforça a necessidade de observância estrita das normas federais de tutela ambiental. Segundo, a Lei Complementar n. 140/2011 disciplina a cooperação administrativa em matéria ambiental e não autoriza que o ente estadual, por ato normativo próprio, amplie de modo genérico a competência municipal para licenciar em desconformidade com o modelo federativo e com a repartição constitucional de competências.<br><br>Além disso, a disciplina estadual impugnada, ao permitir licenciamento e supressão de vegetação nativa da Mata Atlântica em áreas urbanas por Municípios em termos mais permissivos do que os previstos na legislação federal, afronta a Lei da Mata Atlântica e institui proteção inferior à exigida pelo sistema normativo nacional. Isso viola os princípios da prevenção e da precaução, bem como a vedação ao retrocesso ambiental, pois reduz o nível de tutela de ecossistemas especialmente protegidos sem respaldo constitucional.<br><br>Em síntese, não é válida norma estadual que, de forma ampla e abstrata, transfira aos Municípios competência para licenciar em zona costeira ou flexibilize a supressão de vegetação nativa da Mata Atlântica em desacordo com a legislação federal.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.007/BA, Rel. Min. Cristiano Zanin, julgado em 31/03/2025 (Info 1171).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="CERTO">
+            <div class="questao-topo">
+                <span class="badge">Questão 6</span>
+                <span class="status" id="status-6">Não respondida</span>
+            </div>
+
+            <p class="enunciado">Em execução fiscal, a verba honorária sucumbencial ou contratual regularmente destacada em favor do advogado pode ser satisfeita com precedência sobre o crédito tributário, pois o art. 85, § 14, do CPC, ao atribuir natureza alimentar aos honorários e lhes conferir preferência, harmoniza-se com a disciplina do art. 186 do CTN, não havendo vício formal na opção legislativa de estabelecer essa superpreferência em relação ao Fisco.</p>
+
+            <div class="botoes">
+                <button onclick="responder(6, 'CERTO')">CERTO</button>
+                <button onclick="responder(6, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-6">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> CERTO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está correta porque o entendimento firmado reconhece a constitucionalidade formal do art. 85, § 14, do CPC, especificamente no ponto em que assegura preferência aos honorários advocatícios — inclusive os contratuais — em relação ao crédito tributário. A compatibilização com o sistema jurídico decorre da leitura conjunta com o art. 186 do CTN, que disciplina a preferência do crédito tributário, mas admite as ressalvas legalmente estabelecidas, permitindo a incidência da regra processual que prestigia a natureza alimentar da verba honorária.<br><br>O ponto central do julgado não foi apenas afirmar a natureza alimentar dos honorários, mas validar a opção legislativa de conferir-lhes precedência sobre o crédito tributário, afastando a alegação de inconstitucionalidade formal do dispositivo do CPC. Assim, em contexto de concurso, é relevante perceber que a preferência não se limita aos honorários sucumbenciais: alcança também os honorários contratuais, desde que regularmente considerados na forma admitida pelo ordenamento.<br><br>A assertiva também evita o erro comum de supor que o crédito tributário sempre prevalece por força de sua supremacia ou por uma leitura isolada do art. 186 do CTN. O precedente reconhece justamente o contrário: a regra do CPC é válida e produz efeito de preferência dos honorários advocatícios em face do crédito tributário.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. RE 1.326.559/SC, Rel. Min. Dias Toffoli, julgado em 31/03/2025 (Repercussão Geral – Tema 1.220) (Info 1171).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="ERRADO">
+            <div class="questao-topo">
+                <span class="badge">Questão 7</span>
+                <span class="status" id="status-7">Não respondida</span>
+            </div>
+
+            <p class="enunciado">A instituição, por lei estadual, de taxa cobrada em razão da utilização efetiva ou potencial de serviços de prevenção e combate a incêndios, busca, salvamento ou resgate prestados ou postos à disposição pelo Corpo de Bombeiros Militar é incompatível com a Constituição, por se tratar de atividade típica de segurança pública, de fruição geral e indivisível, insuscetível de remuneração por taxa.</p>
+
+            <div class="botoes">
+                <button onclick="responder(7, 'CERTO')">CERTO</button>
+                <button onclick="responder(7, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-7">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> ERRADO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque parte de uma premissa superada: nem toda atividade desempenhada por órgão de segurança pública possui natureza geral, indivisível e remunerável apenas por impostos. No caso dos serviços de prevenção e combate a incêndios, busca, salvamento e resgate prestados pelos Corpos de Bombeiros Militares, reconheceu-se a possibilidade de cobrança de taxa estadual quando tais serviços forem efetiva ou potencialmente colocados à disposição do contribuinte.<br><br>O fundamento central está na própria Constituição, que atribui aos corpos de bombeiros militares, órgãos estaduais, a execução das atividades de defesa civil, abrangendo precisamente essas funções. Além disso, a cobrança de taxa encontra amparo no art. 145, II, da Constituição, desde que o serviço seja específico e divisível. A compreensão firmada foi a de que esses serviços não se confundem com prestações uti universi: podem ser prestados como unidades autônomas de intervenção, são individualizáveis por usuário e admitem mensuração econômica, inclusive porque há serviços privados análogos no mercado.<br><br>Assim, a tese não nega a natureza pública da atividade nem exige que o serviço tenha sido efetivamente utilizado para legitimar a exação, pois a própria disponibilização ao contribuinte já é suficiente, desde que a lei respeite os requisitos constitucionais da taxa. O erro da assertiva está em afirmar a incompatibilidade absoluta com a Constituição, quando o entendimento consolidado é justamente o oposto.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. RE 1.417.155/RN, Rel. Min. Dias Toffoli, julgado em 26/03/2025 (Repercussão Geral – Tema 1.282) (Info 1171).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="ERRADO">
+            <div class="questao-topo">
+                <span class="badge">Questão 8</span>
+                <span class="status" id="status-8">Não respondida</span>
+            </div>
+
+            <p class="enunciado">É constitucional a lei estadual que institui taxa pela vistoria veicular destinada a verificar a presença e a funcionalidade de equipamentos obrigatórios de proteção contra incêndio, ainda que a cobrança seja vinculada à atuação do Corpo de Bombeiros Militar, pois se trata de serviço específico e divisível prestado ao contribuinte, inserido na competência estadual para prevenção e combate a incêndios.</p>
+
+            <div class="botoes">
+                <button onclick="responder(8, 'CERTO')">CERTO</button>
+                <button onclick="responder(8, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-8">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> ERRADO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque, embora seja constitucional a cobrança de taxa pela utilização, efetiva ou potencial, dos serviços públicos de prevenção e combate a incêndios, busca, salvamento ou resgate prestados pelo Corpo de Bombeiros Militar ou postos à disposição do contribuinte, isso não autoriza o Estado a instituir taxa de vistoria veicular para verificação de equipamentos de proteção contra incêndio.<br><br>O ponto central da inconstitucionalidade não está na mera vinculação formal ao Corpo de Bombeiros, mas no objeto material da cobrança: a vistoria veicular para checagem de equipamentos obrigatórios de segurança integra a disciplina de trânsito e transporte, matéria sujeita à competência privativa da União (art. 22, XI, da Constituição). A União, por meio do Código de Trânsito Brasileiro, já disciplinou a inspeção das condições de segurança veicular e atribuiu aos órgãos executivos de trânsito dos Estados e do Distrito Federal a execução dessa atividade, além de delegar ao CONTRAN a regulamentação da inspeção técnica.<br><br>Como a regulamentação nacional abrange a verificação da presença e funcionalidade de equipamentos obrigatórios — inclusive extintores de incêndio —, a lei estadual que cria taxa específica sobre essa vistoria paralela invade competência legislativa da União e estabelece disciplina concorrente indevida em matéria de trânsito. Em outras palavras, não se trata de taxa por serviço de prevenção e combate a incêndio em sentido próprio, mas de exação atrelada a atividade de fiscalização veicular já inserida no regime jurídico nacional de trânsito.<br><br>Assim, a cobrança é inconstitucional quando recai sobre vistoria veicular destinada à verificação de equipamentos de proteção contra incêndio, ainda que a lei estadual tente enquadrá-la como taxa de serviço prestado pelo Corpo de Bombeiros.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADPF 1.028/PE, Rel. Min. Edson Fachin, julgado em 26/03/2025 (Info 1171).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="ERRADO">
+            <div class="questao-topo">
+                <span class="badge">Questão 9</span>
+                <span class="status" id="status-9">Não respondida</span>
+            </div>
+
+            <p class="enunciado">A instituição de taxa estadual para custear a expedição de certidões requeridas pelo administrado com a finalidade de defesa de direitos ou de esclarecimento de situação de interesse pessoal é compatível com a Constituição, desde que o valor cobrado se limite ao custo administrativo do serviço e não inviabilize o acesso do interessado ao documento.</p>
+
+            <div class="botoes">
+                <button onclick="responder(9, 'CERTO')">CERTO</button>
+                <button onclick="responder(9, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-9">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> ERRADO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque a Constituição assegura, de modo expresso, a gratuidade das certidões quando solicitadas para a defesa de direitos ou para o esclarecimento de situação de interesse pessoal. Nessa hipótese, não se trata de mera limitação ao poder de tributar por critérios de razoabilidade ou modicidade da exação, mas de verdadeira vedação constitucional à instituição de qualquer cobrança.<br><br>O fundamento central está no art. 5º, XXXIV, “b”, da Constituição Federal, que garante a todos, independentemente do pagamento de taxas, a obtenção de certidões nessas condições. Assim, a cobrança de taxa — ainda que sob o argumento de ressarcimento de custos administrativos ou de proporcionalidade — viola garantia fundamental e não pode ser validada por lei estadual ou por qualquer outro ato normativo.<br><br>A lógica é distinta da disciplina das taxas em geral, previstas no art. 145, II, da Constituição, pois aqui incide uma hipótese específica de não incidência tributária de caráter fundamental. Em outras palavras, a própria Constituição exclui a possibilidade de tributação sobre esse serviço quando a certidão se destina à defesa de direitos ou ao esclarecimento de situação de interesse pessoal.<br><br>Por outro lado, a cobrança de taxa pela utilização, efetiva ou potencial, de serviços públicos de prevenção e combate a incêndios, busca, salvamento ou resgate prestados pelo Corpo de Bombeiros Militar foi reputada compatível com os arts. 144, § 5º, e 145, II, da Constituição, o que evidencia que o julgado distinguiu claramente essa hipótese da expedição de certidões protegidas pela gratuidade constitucional.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADPF 1.029/RJ, Rel. Min. Edson Fachin, julgado em 26/03/2025 (Info 1171).</p>
+            </div>
+        </section>
+        
+
+</div>
+
+<script>
+const totalQuestoes = 9;
+let respostas = JSON.parse(localStorage.getItem(location.pathname + "_respostas") || "{}");
+
+function atualizarPainel() {
+    const respondidas = Object.keys(respostas).length;
+    let acertos = 0;
+    let erros = 0;
+
+    for (const key in respostas) {
+        if (respostas[key].correto) acertos++;
+        else erros++;
+    }
+
+    document.getElementById("respondidas").textContent = respondidas;
+    document.getElementById("acertos").textContent = acertos;
+    document.getElementById("erros").textContent = erros;
+}
+
+function responder(numero, resposta) {
+    const card = document.querySelectorAll(".questao")[numero - 1];
+    const gabarito = card.dataset.gabarito;
+    const correto = resposta === gabarito;
+
+    respostas[numero] = {
+        resposta,
+        correto
+    };
+
+    localStorage.setItem(location.pathname + "_respostas", JSON.stringify(respostas));
+
+    mostrarFeedback(numero);
+    atualizarPainel();
+}
+
+function mostrarFeedback(numero) {
+    const card = document.querySelectorAll(".questao")[numero - 1];
+    const feedback = document.getElementById("feedback-" + numero);
+    const status = document.getElementById("status-" + numero);
+    const resultado = feedback.querySelector(".resultado");
+
+    const dados = respostas[numero];
+
+    if (!dados) return;
+
+    feedback.style.display = "block";
+    feedback.classList.remove("correto", "errado");
+
+    if (dados.correto) {
+        feedback.classList.add("correto");
+        resultado.textContent = "Você acertou. A resposta é " + card.dataset.gabarito + ".";
+        status.textContent = "Respondida — acerto";
+        status.style.color = "var(--green)";
+    } else {
+        feedback.classList.add("errado");
+        resultado.textContent = "Você errou. O gabarito é " + card.dataset.gabarito + ".";
+        status.textContent = "Respondida — erro";
+        status.style.color = "var(--red)";
+    }
+}
+
+function restaurar() {
+    for (const key in respostas) {
+        mostrarFeedback(Number(key));
+    }
+    atualizarPainel();
+}
+
+function reiniciar() {
+    if (!confirm("Deseja reiniciar este simulado?")) return;
+    localStorage.removeItem(location.pathname + "_respostas");
+    location.reload();
+}
+
+restaurar();
+</script>
+
+</body>
+</html>
