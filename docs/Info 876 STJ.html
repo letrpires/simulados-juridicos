@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Simulado - Info 876 STJ</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+:root{
+--bg:#020617;--panel:rgba(15,23,42,.88);--card:rgba(15,23,42,.96);
+--card2:rgba(30,41,59,.92);--border:rgba(148,163,184,.22);
+--text:#e5e7eb;--muted:#94a3b8;--accent:#38bdf8;--accent2:#0ea5e9;
+--green:#22c55e;--red:#ef4444;--yellow:#facc15;--purple:#a78bfa;
+}
+*{box-sizing:border-box}
+body{
+margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+background:radial-gradient(circle at top left,rgba(56,189,248,.20),transparent 28%),
+radial-gradient(circle at top right,rgba(167,139,250,.15),transparent 28%),
+linear-gradient(135deg,#020617,#0f172a 50%,#020617);
+color:var(--text);line-height:1.65;
+}
+header{padding:44px 20px 32px;text-align:center;border-bottom:1px solid var(--border)}
+header h1{margin:0 0 10px;font-size:clamp(28px,4vw,46px);letter-spacing:-.05em}
+header p{color:var(--muted);margin:0;font-size:16px}
+.container{max-width:1160px;margin:0 auto;padding:26px 16px 80px}
+.painel{
+position:sticky;top:10px;z-index:10;background:var(--panel);backdrop-filter:blur(18px);
+border:1px solid var(--border);border-radius:26px;padding:16px;margin-bottom:22px;
+box-shadow:0 22px 70px rgba(0,0,0,.35)
+}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.stat{background:var(--card2);padding:14px;border-radius:18px;text-align:center;border:1px solid rgba(148,163,184,.12)}
+.stat strong{display:block;font-size:25px;color:var(--accent);line-height:1.1}
+.stat span{font-size:12px;color:var(--muted)}
+.filtros{display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:12px;margin-top:14px}
+input,select{
+width:100%;background:rgba(2,6,23,.78);color:var(--text);border:1px solid var(--border);
+border-radius:14px;padding:13px 14px;outline:none;font-size:14px
+}
+input:focus,select:focus{border-color:var(--accent)}
+.card{
+background:var(--card);border:1px solid var(--border);border-radius:24px;padding:26px;
+margin-bottom:20px;box-shadow:0 18px 50px rgba(0,0,0,.24)
+}
+.questao{scroll-margin-top:190px}
+.questao-topo{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:18px}
+.badge{
+background:linear-gradient(135deg,var(--accent),var(--accent2));color:#00111f;font-weight:900;
+padding:7px 13px;border-radius:999px;display:inline-block
+}
+.disciplina-tag,.tipo-tag{
+display:inline-block;margin-left:8px;color:var(--muted);background:rgba(148,163,184,.10);
+border:1px solid rgba(148,163,184,.14);padding:6px 10px;border-radius:999px;font-size:12px
+}
+.tipo-tag{color:#ddd6fe;border-color:rgba(167,139,250,.25)}
+.status{color:var(--yellow);font-size:13px;white-space:nowrap}
+.enunciado{font-size:19px;margin:0 0 22px;letter-spacing:-.01em}
+.botoes{display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.btn{
+cursor:pointer;border:0;padding:12px 22px;border-radius:14px;color:white;font-weight:900;
+transition:.18s ease;letter-spacing:.02em
+}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.certo{background:rgba(34,197,94,.20);border:1px solid rgba(34,197,94,.42)}
+.btn.errado{background:rgba(239,68,68,.20);border:1px solid rgba(239,68,68,.42)}
+.btn.neutro{background:rgba(56,189,248,.16);color:var(--text);border:1px solid rgba(56,189,248,.32)}
+.feedback{
+display:none;background:rgba(2,6,23,.72);border:1px solid rgba(148,163,184,.16);
+border-left:5px solid var(--accent);padding:18px;border-radius:18px;margin-top:14px
+}
+.feedback.correto{border-left-color:var(--green)}
+.feedback.errado{border-left-color:var(--red)}
+.resultado{font-size:18px;font-weight:900;margin-top:0}
+.justificativa{margin-top:12px}
+.referencia{color:var(--muted);font-size:13px;margin-top:16px}
+.gabarito-certo{color:var(--green);font-weight:900}
+.gabarito-errado{color:var(--red);font-weight:900}
+.oculta{display:none}
+.sem-resultados{text-align:center;color:var(--muted);display:none;padding:30px}
+.grid-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
+.link-card{
+display:block;padding:20px;background:rgba(15,23,42,.95);border:1px solid rgba(148,163,184,.22);
+color:#e5e7eb;border-radius:22px;text-decoration:none;transition:.2s;box-shadow:0 14px 40px rgba(0,0,0,.22)
+}
+.link-card:hover{transform:translateY(-3px);border-color:#38bdf8}
+.link-card strong{display:block;font-size:17px;margin-bottom:8px}
+.link-card span{color:#94a3b8;font-size:13px}
+.index-tools{display:grid;grid-template-columns:1.5fr 1fr;gap:12px;margin-bottom:20px}
+@media(max-width:850px){
+.stats{grid-template-columns:repeat(2,1fr)}
+.filtros,.index-tools{grid-template-columns:1fr}
+.questao-topo{align-items:flex-start;flex-direction:column}
+.botoes{flex-direction:column}
+.enunciado{font-size:16px}
+.card{padding:20px}
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Simulado - Info 876 STJ</h1>
+<p>Informativos • Simulado interativo de CERTO ou ERRADO</p>
+</header>
+
+<div class="container">
+<div class="painel">
+<div class="stats">
+<div class="stat"><strong>13</strong><span>Total</span></div>
+<div class="stat"><strong id="visiveis">13</strong><span>Visíveis</span></div>
+<div class="stat"><strong id="respondidas">0</strong><span>Respondidas</span></div>
+<div class="stat"><strong id="acertos">0</strong><span>Acertos</span></div>
+<div class="stat"><strong id="erros">0</strong><span>Erros</span></div>
+</div>
+
+<div class="filtros">
+<input id="busca" type="search" placeholder="Buscar por palavra-chave..." oninput="filtrar()">
+<select id="disciplina" onchange="filtrar()">
+<option value="">Todas as disciplinas</option>
+<option value="Direito Administrativo">Direito Administrativo</option>
+<option value="ECA">ECA</option>
+<option value="N/I">N/I</option>
+</select>
+<select id="statusFiltro" onchange="filtrar()">
+<option value="">Todas</option>
+<option value="nao">Não respondidas</option>
+<option value="acerto">Acertos</option>
+<option value="erro">Erros</option>
+</select>
+<button class="btn neutro" onclick="reiniciar()">Reiniciar</button>
+</div>
+</div>
+
+<div id="sem-resultados" class="sem-resultados">Nenhuma questão encontrada com os filtros atuais.</div>
+
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="em ação de responsabilidade civil do estado por morte de vítima em razão de falha na prestação do serviço público de saúde, a ausência de prova dos rendimentos auferidos pela falecida impede a fixação de pensão mensal em valor equivalente a um salário-mínimo integral, impondo-se, nessa hipótese, a adoção da presunção de que 1/3 do salário-mínimo seria destinado ao próprio sustento da vítima, de modo que apenas 2/3 poderiam ser repassados aos dependentes. a assertiva está incorreta porque inverte a lógica aplicada quando não há comprovação da renda da vítima falecida. a regra de que a pensão deve corresponder a 2/3 dos rendimentos da vítima decorre da presunção de que 1/3 seria consumido com o próprio sustento do falecido. essa técnica de cálculo, porém, pressupõe renda efetivamente demonstrada.
+
+na hipótese em que não se consegue comprovar quanto a vítima ganhava, não há base segura para aplicar automaticamente a redução de 1/3 sobre um salário-mínimo presumido. nessa situação, admite-se a fixação da pensão em valor equivalente a um salário-mínimo integral, justamente porque a ausência de prova da remuneração inviabiliza a adoção da fórmula redutora típica dos casos em que a renda é conhecida.
+
+assim, a tese firmada afasta a pretensão de limitar, por presunção, a pensão a 2/3 do salário-mínimo quando inexiste comprovação dos rendimentos da vítima. a redução para 2/3 é pertinente apenas quando há renda comprovada; sem essa prova, a pensão pode ser arbitrada em um salário-mínimo completo. stj. 2ª turma. resp 2.204.627-df, rel. min. afrânio vilela, julgado em 3/2/2026 (info 876).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 1</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-1">Não respondida</span>
+</div>
+
+<p class="enunciado">Em ação de responsabilidade civil do Estado por morte de vítima em razão de falha na prestação do serviço público de saúde, a ausência de prova dos rendimentos auferidos pela falecida impede a fixação de pensão mensal em valor equivalente a um salário-mínimo integral, impondo-se, nessa hipótese, a adoção da presunção de que 1/3 do salário-mínimo seria destinado ao próprio sustento da vítima, de modo que apenas 2/3 poderiam ser repassados aos dependentes.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(1, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(1, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-1">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque inverte a lógica aplicada quando não há comprovação da renda da vítima falecida. A regra de que a pensão deve corresponder a 2/3 dos rendimentos da vítima decorre da presunção de que 1/3 seria consumido com o próprio sustento do falecido. Essa técnica de cálculo, porém, pressupõe renda efetivamente demonstrada.<br><br>Na hipótese em que não se consegue comprovar quanto a vítima ganhava, não há base segura para aplicar automaticamente a redução de 1/3 sobre um salário-mínimo presumido. Nessa situação, admite-se a fixação da pensão em valor equivalente a um salário-mínimo integral, justamente porque a ausência de prova da remuneração inviabiliza a adoção da fórmula redutora típica dos casos em que a renda é conhecida.<br><br>Assim, a tese firmada afasta a pretensão de limitar, por presunção, a pensão a 2/3 do salário-mínimo quando inexiste comprovação dos rendimentos da vítima. A redução para 2/3 é pertinente apenas quando há renda comprovada; sem essa prova, a pensão pode ser arbitrada em um salário-mínimo completo.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 2ª Turma. REsp 2.204.627-DF, Rel. Min. Afrânio Vilela, julgado em 3/2/2026 (Info 876).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="Direito Administrativo"
+data-texto="a incidência da continuidade delitiva, prevista no art. 71 do código penal, pode ser estendida às infrações administrativas para unificar sanções aplicadas em autos distintos, ainda que o regime sancionador específico não contenha autorização expressa, desde que as condutas sejam da mesma espécie e guardem nexo de continuidade fática. no direito administrativo sancionador, prevalece a legalidade estrita, de modo que institutos típicos do direito penal, como a continuidade delitiva, não podem ser automaticamente transplantados para o regime administrativo por analogia em prejuízo da disciplina legal específica. a aplicação de mecanismo atenuador ou unificador de sanções somente é admissível quando houver previsão expressa na legislação administrativa pertinente.
+
+no caso examinado, a autuação decorreu de infrações reiteradas identificadas em fiscalização do inmetro, com lavratura de autos distintos e imposição de multas individualizadas. a pretensão de converter múltiplas penalidades em uma única sanção, com acréscimo proporcional nos moldes do art. 71 do código penal, foi rejeitada porque a lei nº 9.933/1999 não prevê esse benefício. assim, a mera identidade da conduta ou a repetição de infrações não autoriza, por si só, a incidência da continuidade delitiva no âmbito administrativo.
+
+a ressalva importante é que a aplicação desse instituto não é absolutamente vedada em matéria administrativa: ela pode ocorrer se a própria legislação sancionadora expressamente a admitir. fora dessa hipótese, a sua utilização implicaria indevida ampliação judicial dos limites fixados pelo legislador, em afronta ao princípio da legalidade. stj. 1ª turma. aresp 2.642.744-rj, rel. min. gurgel de faria, julgado em 3/2/2026 (info 876).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 2</span>
+    <span class="disciplina-tag">Direito Administrativo</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-2">Não respondida</span>
+</div>
+
+<p class="enunciado">A incidência da continuidade delitiva, prevista no art. 71 do Código Penal, pode ser estendida às infrações administrativas para unificar sanções aplicadas em autos distintos, ainda que o regime sancionador específico não contenha autorização expressa, desde que as condutas sejam da mesma espécie e guardem nexo de continuidade fática.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(2, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(2, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-2">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>No Direito Administrativo Sancionador, prevalece a legalidade estrita, de modo que institutos típicos do Direito Penal, como a continuidade delitiva, não podem ser automaticamente transplantados para o regime administrativo por analogia em prejuízo da disciplina legal específica. A aplicação de mecanismo atenuador ou unificador de sanções somente é admissível quando houver previsão expressa na legislação administrativa pertinente.<br><br>No caso examinado, a autuação decorreu de infrações reiteradas identificadas em fiscalização do INMETRO, com lavratura de autos distintos e imposição de multas individualizadas. A pretensão de converter múltiplas penalidades em uma única sanção, com acréscimo proporcional nos moldes do art. 71 do Código Penal, foi rejeitada porque a Lei nº 9.933/1999 não prevê esse benefício. Assim, a mera identidade da conduta ou a repetição de infrações não autoriza, por si só, a incidência da continuidade delitiva no âmbito administrativo.<br><br>A ressalva importante é que a aplicação desse instituto não é absolutamente vedada em matéria administrativa: ela pode ocorrer se a própria legislação sancionadora expressamente a admitir. Fora dessa hipótese, a sua utilização implicaria indevida ampliação judicial dos limites fixados pelo legislador, em afronta ao princípio da legalidade.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Turma. AREsp 2.642.744-RJ, Rel. Min. Gurgel de Faria, julgado em 3/2/2026 (Info 876).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a prática de tortura por agente público, embora antes pudesse ser enquadrada como ato de improbidade por violação a princípios administrativos, deixou de admitir essa subsunção após a lei 14.230/2021, pois o art. 11 da lei de improbidade administrativa passou a conter rol taxativo; por isso, ainda que o fato tenha ocorrido sob a égide da redação anterior, não se admite a continuidade típico-normativa para manter a responsabilização por improbidade se a conduta não se amolda a nenhum dos tipos atualmente previstos. a assertiva está correta porque reproduz a orientação de que, com a reforma promovida pela lei 14.230/2021, o art. 11 da lei de improbidade administrativa deixou de ter natureza exemplificativa e passou a conter hipóteses fechadas de atos de improbidade por violação a princípios. nesse novo regime, a tortura praticada por agente público não pode ser enquadrada, por si só, como ato ímprobo, já que não está expressamente prevista entre as condutas tipificadas.
+
+o ponto central do julgado é que não se admite, para preservar a punição por improbidade, a chamada continuidade típico-normativa quando a conduta anterior não encontra correspondência em nenhum dos dispositivos vigentes da lia. em outras palavras, a mera existência de reprovação ética, penal ou administrativa da tortura não autoriza sua subsunção automática ao sistema de improbidade após a alteração legislativa. a responsabilização por improbidade exige tipicidade estrita, especialmente após a taxatividade do art. 11.
+
+além disso, o entendimento afasta a ideia de que a mudança legislativa teria apenas restringido o alcance interpretativo do dispositivo, mantendo intacta a possibilidade de punição por princípios em sentido amplo. não: a reforma fechou o rol, e isso impede a manutenção da imputação com base em construção ampliativa. assim, ainda que o fato tenha ocorrido antes da lei 14.230/2021, não basta invocar a redação pretérita do art. 11 se a pretensão sancionatória não se ajusta ao regime atual e à nova conformação típica da lia. stj. 1ª turma. resp 2.232.623-al, rel. min. regina helena costa, julgado em 3/2/2026 (info 876).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 3</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-3">Não respondida</span>
+</div>
+
+<p class="enunciado">A prática de tortura por agente público, embora antes pudesse ser enquadrada como ato de improbidade por violação a princípios administrativos, deixou de admitir essa subsunção após a Lei 14.230/2021, pois o art. 11 da Lei de Improbidade Administrativa passou a conter rol taxativo; por isso, ainda que o fato tenha ocorrido sob a égide da redação anterior, não se admite a continuidade típico-normativa para manter a responsabilização por improbidade se a conduta não se amolda a nenhum dos tipos atualmente previstos.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(3, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(3, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-3">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a orientação de que, com a reforma promovida pela Lei 14.230/2021, o art. 11 da Lei de Improbidade Administrativa deixou de ter natureza exemplificativa e passou a conter hipóteses fechadas de atos de improbidade por violação a princípios. Nesse novo regime, a tortura praticada por agente público não pode ser enquadrada, por si só, como ato ímprobo, já que não está expressamente prevista entre as condutas tipificadas.<br><br>O ponto central do julgado é que não se admite, para preservar a punição por improbidade, a chamada continuidade típico-normativa quando a conduta anterior não encontra correspondência em nenhum dos dispositivos vigentes da LIA. Em outras palavras, a mera existência de reprovação ética, penal ou administrativa da tortura não autoriza sua subsunção automática ao sistema de improbidade após a alteração legislativa. A responsabilização por improbidade exige tipicidade estrita, especialmente após a taxatividade do art. 11.<br><br>Além disso, o entendimento afasta a ideia de que a mudança legislativa teria apenas restringido o alcance interpretativo do dispositivo, mantendo intacta a possibilidade de punição por princípios em sentido amplo. Não: a reforma fechou o rol, e isso impede a manutenção da imputação com base em construção ampliativa. Assim, ainda que o fato tenha ocorrido antes da Lei 14.230/2021, não basta invocar a redação pretérita do art. 11 se a pretensão sancionatória não se ajusta ao regime atual e à nova conformação típica da LIA.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Turma. REsp 2.232.623-AL, Rel. Min. Regina Helena Costa, julgado em 3/2/2026 (Info 876).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="em contrato de repasse de recursos externos celebrado com fundamento na resolução cmn n.º 63/1967, é inválida a cláusula de paridade cambial por afronta ao art. 6.º da lei n.º 8.880/1994, ainda que a operação decorra de captação de recursos no exterior e a indexação cambial tenha sido expressamente prevista na disciplina normativa aplicável ao repasse. a assertiva está incorreta porque parte de uma premissa incompatível com o regime jurídico dos contratos de repasse de recursos externos disciplinados pela resolução cmn n.º 63/1967. embora o art. 6.º da lei n.º 8.880/1994 tenha estabelecido, como regra geral, a vedação ao reajuste vinculado à variação cambial, o próprio dispositivo legal excepcionava hipóteses em que houvesse autorização expressa por lei federal.
+
+nos contratos de repasse de recursos captados no exterior, a cláusula de paridade cambial não é uma imposição arbitrária do credor, mas elemento inerente à estrutura da operação, justamente porque o agente financeiro toma recursos em moeda estrangeira e os repassa ao tomador final, transferindo-lhe o risco cambial nos termos da disciplina normativa aplicável. a resolução cmn n.º 63/1967, editada no âmbito da competência normativa do conselho monetário nacional e da atuação do banco central, constitui fundamento normativo suficiente para enquadrar a operação na exceção legal prevista no art. 6.º da lei n.º 8.880/1994.
+
+assim, não há nulidade automática da cláusula de paridade cambial apenas com base na vedação geral à indexação cambial. o ponto decisivo é que a própria legislação excepcionava situações autorizadas por lei federal, e a disciplina dos repasses externos se insere nessa moldura normativa. por isso, a cláusula é válida nos contratos celebrados sob esse regime, não sendo possível afastá-la apenas com invocação abstrata da proibição geral de correção cambial. stj. 4ª turma. aresp 2.422.049-sp, rel. min. raul araújo, julgado em 3/2/2026 (info 876).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 4</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-4">Não respondida</span>
+</div>
+
+<p class="enunciado">Em contrato de repasse de recursos externos celebrado com fundamento na Resolução CMN n.º 63/1967, é inválida a cláusula de paridade cambial por afronta ao art. 6.º da Lei n.º 8.880/1994, ainda que a operação decorra de captação de recursos no exterior e a indexação cambial tenha sido expressamente prevista na disciplina normativa aplicável ao repasse.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(4, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(4, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-4">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque parte de uma premissa incompatível com o regime jurídico dos contratos de repasse de recursos externos disciplinados pela Resolução CMN n.º 63/1967. Embora o art. 6.º da Lei n.º 8.880/1994 tenha estabelecido, como regra geral, a vedação ao reajuste vinculado à variação cambial, o próprio dispositivo legal excepcionava hipóteses em que houvesse autorização expressa por lei federal.<br><br>Nos contratos de repasse de recursos captados no exterior, a cláusula de paridade cambial não é uma imposição arbitrária do credor, mas elemento inerente à estrutura da operação, justamente porque o agente financeiro toma recursos em moeda estrangeira e os repassa ao tomador final, transferindo-lhe o risco cambial nos termos da disciplina normativa aplicável. A Resolução CMN n.º 63/1967, editada no âmbito da competência normativa do Conselho Monetário Nacional e da atuação do Banco Central, constitui fundamento normativo suficiente para enquadrar a operação na exceção legal prevista no art. 6.º da Lei n.º 8.880/1994.<br><br>Assim, não há nulidade automática da cláusula de paridade cambial apenas com base na vedação geral à indexação cambial. O ponto decisivo é que a própria legislação excepcionava situações autorizadas por lei federal, e a disciplina dos repasses externos se insere nessa moldura normativa. Por isso, a cláusula é válida nos contratos celebrados sob esse regime, não sendo possível afastá-la apenas com invocação abstrata da proibição geral de correção cambial.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 4ª Turma. AREsp 2.422.049-SP, Rel. Min. Raul Araújo, julgado em 3/2/2026 (Info 876).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="no contrato de seguro de vida, a cláusula de exclusão fundada em agravamento intencional do risco não pode ser aplicada para afastar a indenização quando o segurado, após longa vigência da apólice, expõe-se voluntariamente a situação perigosa e vem a óbito por homicídio praticado por terceiros, pois, nessa modalidade securitária, a exclusão da cobertura por conduta do próprio segurado restringe-se ao suicídio ocorrido nos dois primeiros anos de vigência do contrato. a assertiva está correta. no seguro de vida, o risco de morte é inerente ao próprio contrato e se agrava naturalmente com o decurso do tempo e com as atividades ordinárias da vida, o que impede a ampliação indevida das hipóteses de exclusão da cobertura com base em mera exposição voluntária a perigo.
+
+o ponto central do entendimento é a leitura sistemática do art. 798 do código civil, hoje reproduzido no art. 120 da lei nº 15.040/2024: o suicídio somente afasta a cobertura se ocorrido nos dois primeiros anos de vigência do contrato. essa regra revela uma opção legislativa de limitar, de forma expressa e temporalmente delimitada, a exclusão securitária por ato do próprio segurado. após esse biênio, mesmo o suicídio não autoriza a negativa de indenização.
+
+daí decorre a conclusão de que não é juridicamente admissível ampliar a exclusão para hipóteses menos gravosas do que o suicídio, como a morte causada por terceiro, ainda que o segurado tenha se colocado em situação arriscada. no caso examinado, não houve suicídio, nem prova de má-fé, nem de intenção de provocar a própria morte. houve homicídio praticado por terceiros, circunstância que rompe a tentativa de enquadramento no art. 768 do código civil, pois o agravamento intencional do risco, no contexto do seguro de vida, exige conduta equiparável à vontade de morrer, isto é, algo que, na prática, se aproxima do suicídio.
+
+a tese também se harmoniza com a súmula 620/stj, que reforça a impossibilidade de afastar a cobertura securitária por condutas do segurado que não se confundem com a intenção de causar a própria morte, como a embriaguez. assim, a simples assunção de risco, sem dolo de produzir o próprio óbito, não basta para excluir a indenização no seguro de vida. stj. 4ª turma. resp 2.130.908-sp, rel. min. antonio carlos ferreira, julgado em 16/12/2025 (info 876).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 5</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-5">Não respondida</span>
+</div>
+
+<p class="enunciado">No contrato de seguro de vida, a cláusula de exclusão fundada em agravamento intencional do risco não pode ser aplicada para afastar a indenização quando o segurado, após longa vigência da apólice, expõe-se voluntariamente a situação perigosa e vem a óbito por homicídio praticado por terceiros, pois, nessa modalidade securitária, a exclusão da cobertura por conduta do próprio segurado restringe-se ao suicídio ocorrido nos dois primeiros anos de vigência do contrato.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(5, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(5, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-5">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta. No seguro de vida, o risco de morte é inerente ao próprio contrato e se agrava naturalmente com o decurso do tempo e com as atividades ordinárias da vida, o que impede a ampliação indevida das hipóteses de exclusão da cobertura com base em mera exposição voluntária a perigo.<br><br>O ponto central do entendimento é a leitura sistemática do art. 798 do Código Civil, hoje reproduzido no art. 120 da Lei nº 15.040/2024: o suicídio somente afasta a cobertura se ocorrido nos dois primeiros anos de vigência do contrato. Essa regra revela uma opção legislativa de limitar, de forma expressa e temporalmente delimitada, a exclusão securitária por ato do próprio segurado. Após esse biênio, mesmo o suicídio não autoriza a negativa de indenização.<br><br>Daí decorre a conclusão de que não é juridicamente admissível ampliar a exclusão para hipóteses menos gravosas do que o suicídio, como a morte causada por terceiro, ainda que o segurado tenha se colocado em situação arriscada. No caso examinado, não houve suicídio, nem prova de má-fé, nem de intenção de provocar a própria morte. Houve homicídio praticado por terceiros, circunstância que rompe a tentativa de enquadramento no art. 768 do Código Civil, pois o agravamento intencional do risco, no contexto do seguro de vida, exige conduta equiparável à vontade de morrer, isto é, algo que, na prática, se aproxima do suicídio.<br><br>A tese também se harmoniza com a Súmula 620/STJ, que reforça a impossibilidade de afastar a cobertura securitária por condutas do segurado que não se confundem com a intenção de causar a própria morte, como a embriaguez. Assim, a simples assunção de risco, sem dolo de produzir o próprio óbito, não basta para excluir a indenização no seguro de vida.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 4ª Turma. REsp 2.130.908-SP, Rel. Min. Antonio Carlos Ferreira, julgado em 16/12/2025 (Info 876).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a superação, pelo controle concentrado de constitucionalidade, da regra que assegurava prazo mínimo de vigência de patente contado da concessão não autoriza, por si só, a ampliação judicial do termo final de patente farmacêutica com fundamento exclusivo na demora administrativa do inpi, pois, ausente disciplina legal com critérios objetivos de compensação, prevalece o prazo de 20 anos contado do depósito, ainda que a análise administrativa tenha consumido lapso significativamente superior ao ordinariamente esperado. o enunciado está correto porque reproduz a lógica central do entendimento firmado no caso: após a declaração de inconstitucionalidade do art. 40, parágrafo único, da lei 9.279/1996, não subsiste base jurídica para que o poder judiciário, de forma casuística, prorrogue o prazo de vigência de patente farmacêutica apenas em razão da mora do inpi.
+
+a controvérsia surgiu porque a patente do medicamento foi depositada em 2004 e concedida apenas em 2020, o que, na prática, reduziu de modo expressivo o período de exclusividade útil. a pretensão da titular era obter uma extensão compensatória do prazo de proteção. ocorre que, com a invalidação da regra que garantia ao titular um prazo mínimo de 10 anos a partir da concessão, o sistema passou a operar estritamente com o prazo geral de 20 anos contados do depósito, sem previsão legal de alongamento automático ou judicialmente calibrado em função do tempo de tramitação administrativa.
+
+o ponto decisivo é que a mora estatal, embora possa ser relevante sob a ótica de política legislativa, não autoriza o judiciário a criar critério de recomposição temporal sem lei que estabeleça parâmetros objetivos. em matéria de propriedade industrial, a definição do prazo de exclusividade envolve forte reserva legal e impacto concorrencial relevante, especialmente no setor farmacêutico. assim, a extensão do prazo não pode ser construída caso a caso com base apenas na demora do exame administrativo, sob pena de substituição indevida do legislador.
+
+em síntese: para patentes de medicamentos, o prazo permanece sendo de 20 anos contados do depósito, independentemente do tempo gasto pelo inpi na concessão, e a ausência de norma legal específica impede a concessão judicial de extensão compensatória fundada exclusivamente na mora administrativa. stj. 4ª turma. resp 2.240.025-df, rel. min. maria isabel gallotti, julgado em 16/12/2025 (info 876).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 6</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-6">Não respondida</span>
+</div>
+
+<p class="enunciado">A superação, pelo controle concentrado de constitucionalidade, da regra que assegurava prazo mínimo de vigência de patente contado da concessão não autoriza, por si só, a ampliação judicial do termo final de patente farmacêutica com fundamento exclusivo na demora administrativa do INPI, pois, ausente disciplina legal com critérios objetivos de compensação, prevalece o prazo de 20 anos contado do depósito, ainda que a análise administrativa tenha consumido lapso significativamente superior ao ordinariamente esperado.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(6, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(6, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-6">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O enunciado está correto porque reproduz a lógica central do entendimento firmado no caso: após a declaração de inconstitucionalidade do art. 40, parágrafo único, da Lei 9.279/1996, não subsiste base jurídica para que o Poder Judiciário, de forma casuística, prorrogue o prazo de vigência de patente farmacêutica apenas em razão da mora do INPI.<br><br>A controvérsia surgiu porque a patente do medicamento foi depositada em 2004 e concedida apenas em 2020, o que, na prática, reduziu de modo expressivo o período de exclusividade útil. A pretensão da titular era obter uma extensão compensatória do prazo de proteção. Ocorre que, com a invalidação da regra que garantia ao titular um prazo mínimo de 10 anos a partir da concessão, o sistema passou a operar estritamente com o prazo geral de 20 anos contados do depósito, sem previsão legal de alongamento automático ou judicialmente calibrado em função do tempo de tramitação administrativa.<br><br>O ponto decisivo é que a mora estatal, embora possa ser relevante sob a ótica de política legislativa, não autoriza o Judiciário a criar critério de recomposição temporal sem lei que estabeleça parâmetros objetivos. Em matéria de propriedade industrial, a definição do prazo de exclusividade envolve forte reserva legal e impacto concorrencial relevante, especialmente no setor farmacêutico. Assim, a extensão do prazo não pode ser construída caso a caso com base apenas na demora do exame administrativo, sob pena de substituição indevida do legislador.<br><br>Em síntese: para patentes de medicamentos, o prazo permanece sendo de 20 anos contados do depósito, independentemente do tempo gasto pelo INPI na concessão, e a ausência de norma legal específica impede a concessão judicial de extensão compensatória fundada exclusivamente na mora administrativa.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 4ª Turma. REsp 2.240.025-DF, Rel. Min. Maria Isabel Gallotti, julgado em 16/12/2025 (Info 876).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a oferta de eletrodomésticos com pagamento em até 10 parcelas “sem juros”, pelo mesmo valor total cobrado na aquisição à vista, não caracteriza, por si só, publicidade enganosa nem viola o dever de informação do fornecedor, sendo legítima a manutenção de preço único entre as modalidades de pagamento, desde que o consumidor seja previamente informado, de modo claro e ostensivo, do preço total e da forma de parcelamento. a assertiva está correta porque reproduz a lógica central do entendimento firmado: a fixação do preço integra a liberdade econômica e a autonomia privada do fornecedor, não havendo imposição legal para que haja diferenciação obrigatória entre venda à vista e venda a prazo. o ponto decisivo não é a existência abstrata de “juros embutidos” na dinâmica econômica, mas a transparência da oferta ao consumidor.
+
+no caso analisado, a publicidade de parcelamento “sem juros” não foi considerada enganosa porque o consumidor pagava exatamente o mesmo valor total, sem acréscimo em razão do fracionamento. assim, não se pode presumir ilicitude apenas porque o preço à vista e o preço parcelado coincidem. para haver violação ao cdc, seria necessário demonstrar efetiva ofensa à informação, à transparência ou indução concreta em erro, o que não se verificou.
+
+o dever de informação previsto no art. 6º, iii, do cdc é satisfeito quando o consumidor consegue conhecer previamente, de forma clara, o preço total e as condições de pagamento. por isso, não cabe ao judiciário impor, como regra geral, a separação compulsória entre preço à vista e preço a prazo, pois isso significaria interferência indevida na estratégia empresarial, sem base em demonstração concreta de dano informacional ou de ilusão apta a comprometer a escolha do consumidor. stj. 4ª turma. resp 1.876.423-sp, rel. min. marco buzzi, julgado em 3/2/2026 (info 876).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 7</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-7">Não respondida</span>
+</div>
+
+<p class="enunciado">A oferta de eletrodomésticos com pagamento em até 10 parcelas “sem juros”, pelo mesmo valor total cobrado na aquisição à vista, não caracteriza, por si só, publicidade enganosa nem viola o dever de informação do fornecedor, sendo legítima a manutenção de preço único entre as modalidades de pagamento, desde que o consumidor seja previamente informado, de modo claro e ostensivo, do preço total e da forma de parcelamento.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(7, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(7, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-7">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a lógica central do entendimento firmado: a fixação do preço integra a liberdade econômica e a autonomia privada do fornecedor, não havendo imposição legal para que haja diferenciação obrigatória entre venda à vista e venda a prazo. O ponto decisivo não é a existência abstrata de “juros embutidos” na dinâmica econômica, mas a transparência da oferta ao consumidor.<br><br>No caso analisado, a publicidade de parcelamento “sem juros” não foi considerada enganosa porque o consumidor pagava exatamente o mesmo valor total, sem acréscimo em razão do fracionamento. Assim, não se pode presumir ilicitude apenas porque o preço à vista e o preço parcelado coincidem. Para haver violação ao CDC, seria necessário demonstrar efetiva ofensa à informação, à transparência ou indução concreta em erro, o que não se verificou.<br><br>O dever de informação previsto no art. 6º, III, do CDC é satisfeito quando o consumidor consegue conhecer previamente, de forma clara, o preço total e as condições de pagamento. Por isso, não cabe ao Judiciário impor, como regra geral, a separação compulsória entre preço à vista e preço a prazo, pois isso significaria interferência indevida na estratégia empresarial, sem base em demonstração concreta de dano informacional ou de ilusão apta a comprometer a escolha do consumidor.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 4ª Turma. REsp 1.876.423-SP, Rel. Min. Marco Buzzi, julgado em 3/2/2026 (Info 876).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a operadora de plano de saúde pode ser compelida a custear medicamento à base de canabidiol, de uso autoadministrado em ambiente domiciliar, ainda que o produto não possua registro sanitário na anvisa, desde que haja prescrição médica e se trate de tratamento necessário à preservação da saúde do beneficiário. a assertiva está incorreta porque reúne, de forma indevida, dois pontos que afastam o dever de cobertura.
+
+primeiro, a ausência de registro na anvisa, em regra, autoriza a negativa de custeio pelo plano de saúde. há exceção apenas quando o medicamento, embora ainda sem registro, conta com autorização administrativa para importação e uso próprio, hipótese em que a discussão sobre a ausência de registro pode ser mitigada. no caso do canabidiol, esse aspecto não basta, por si só, para impor a cobertura.
+
+segundo, ainda que se superasse a questão do registro, o medicamento descrito é de uso domiciliar e autoadministrado, o que, como regra, não integra a cobertura obrigatória dos planos de saúde. as exceções legalmente reconhecidas para medicamentos de uso domiciliar são restritas: antineoplásicos orais e correlacionados; medicação assistida em regime de home care; e fármacos expressamente incluídos no rol da ans para essa finalidade. fora dessas hipóteses, a operadora não está obrigada a fornecer o medicamento.
+
+assim, a mera prescrição médica e a alegação de necessidade terapêutica não bastam para impor o custeio, quando ausentes registro sanitário e enquadramento nas exceções legais relativas ao uso domiciliar. stj. 4ª turma. resp 2.224.539-sp, rel. min. raul araújo, julgado em 3/2/2026 (info 876).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 8</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-8">Não respondida</span>
+</div>
+
+<p class="enunciado">A operadora de plano de saúde pode ser compelida a custear medicamento à base de canabidiol, de uso autoadministrado em ambiente domiciliar, ainda que o produto não possua registro sanitário na Anvisa, desde que haja prescrição médica e se trate de tratamento necessário à preservação da saúde do beneficiário.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(8, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(8, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-8">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque reúne, de forma indevida, dois pontos que afastam o dever de cobertura.<br><br>Primeiro, a ausência de registro na Anvisa, em regra, autoriza a negativa de custeio pelo plano de saúde. Há exceção apenas quando o medicamento, embora ainda sem registro, conta com autorização administrativa para importação e uso próprio, hipótese em que a discussão sobre a ausência de registro pode ser mitigada. No caso do canabidiol, esse aspecto não basta, por si só, para impor a cobertura.<br><br>Segundo, ainda que se superasse a questão do registro, o medicamento descrito é de uso domiciliar e autoadministrado, o que, como regra, não integra a cobertura obrigatória dos planos de saúde. As exceções legalmente reconhecidas para medicamentos de uso domiciliar são restritas: antineoplásicos orais e correlacionados; medicação assistida em regime de home care; e fármacos expressamente incluídos no rol da ANS para essa finalidade. Fora dessas hipóteses, a operadora não está obrigada a fornecer o medicamento.<br><br>Assim, a mera prescrição médica e a alegação de necessidade terapêutica não bastam para impor o custeio, quando ausentes registro sanitário e enquadramento nas exceções legais relativas ao uso domiciliar.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 4ª Turma. REsp 2.224.539-SP, Rel. Min. Raul Araújo, julgado em 3/2/2026 (Info 876).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a configuração do estupro de vulnerável, por envolver vítima menor de 14 anos, é sempre automática e independe das peculiaridades do caso concreto, de modo que a existência de relacionamento afetivo estável, o nascimento de filho em comum e a prova oral indicando que a prática sexual somente se iniciou após a adolescente completar 14 anos não afastam a tipicidade penal, ainda que haja divergência entre a prova pericial e os depoimentos colhidos em juízo. embora a regra geral seja a de que a conjunção carnal ou outro ato libidinoso com menor de 14 anos configura estupro de vulnerável, sendo irrelevantes o consentimento da vítima, sua experiência sexual anterior ou eventual vínculo amoroso com o agente, o entendimento aplicado no caso admitiu uma exceção relevante: a possibilidade de reconhecimento da atipicidade material quando as circunstâncias concretas revelam ausência de efetiva lesão ao bem jurídico tutelado.
+
+no caso examinado, havia elementos fáticos específicos que afastaram a incidência da norma penal: o réu e a adolescente mantinham relacionamento amoroso; a prova pericial indicava idade inferior a 14 anos na data dos fatos, mas os depoimentos da vítima e de sua mãe foram no sentido de que as relações sexuais só começaram após o aniversário de 14 anos; além disso, houve nascimento de filho, posteriormente reconhecido pelo pai, com constituição de núcleo familiar. diante dessa moldura, a conclusão foi pela inexistência de estupro de vulnerável, justamente porque a prova produzida não permitiu afirmar, com segurança, a prática do ato quando a vítima ainda era menor de 14 anos, e o contexto concreto evidenciou ausência de lesão ao bem jurídico protegido.
+
+assim, a assertiva erra ao afirmar que a tipicidade seria “sempre automática” e que tais circunstâncias jamais poderiam afastá-la. o ponto decisivo do julgado foi a excepcional admissão da atipicidade material em cenário fático muito específico, sem negar a orientação geral da súmula 593 e do tema 918. stj. 6ª turma. hc 860.538-pe, rel. min. sebastião reis júnior, julgado em 3/2/2026 (info 876).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 9</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-9">Não respondida</span>
+</div>
+
+<p class="enunciado">A configuração do estupro de vulnerável, por envolver vítima menor de 14 anos, é sempre automática e independe das peculiaridades do caso concreto, de modo que a existência de relacionamento afetivo estável, o nascimento de filho em comum e a prova oral indicando que a prática sexual somente se iniciou após a adolescente completar 14 anos não afastam a tipicidade penal, ainda que haja divergência entre a prova pericial e os depoimentos colhidos em juízo.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(9, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(9, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-9">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Embora a regra geral seja a de que a conjunção carnal ou outro ato libidinoso com menor de 14 anos configura estupro de vulnerável, sendo irrelevantes o consentimento da vítima, sua experiência sexual anterior ou eventual vínculo amoroso com o agente, o entendimento aplicado no caso admitiu uma exceção relevante: a possibilidade de reconhecimento da atipicidade material quando as circunstâncias concretas revelam ausência de efetiva lesão ao bem jurídico tutelado.<br><br>No caso examinado, havia elementos fáticos específicos que afastaram a incidência da norma penal: o réu e a adolescente mantinham relacionamento amoroso; a prova pericial indicava idade inferior a 14 anos na data dos fatos, mas os depoimentos da vítima e de sua mãe foram no sentido de que as relações sexuais só começaram após o aniversário de 14 anos; além disso, houve nascimento de filho, posteriormente reconhecido pelo pai, com constituição de núcleo familiar. Diante dessa moldura, a conclusão foi pela inexistência de estupro de vulnerável, justamente porque a prova produzida não permitiu afirmar, com segurança, a prática do ato quando a vítima ainda era menor de 14 anos, e o contexto concreto evidenciou ausência de lesão ao bem jurídico protegido.<br><br>Assim, a assertiva erra ao afirmar que a tipicidade seria “sempre automática” e que tais circunstâncias jamais poderiam afastá-la. O ponto decisivo do julgado foi a excepcional admissão da atipicidade material em cenário fático muito específico, sem negar a orientação geral da Súmula 593 e do Tema 918.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 6ª Turma. HC 860.538-PE, Rel. Min. Sebastião Reis Júnior, julgado em 3/2/2026 (Info 876).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="ECA"
+data-texto="nos delitos previstos nos arts. 240 e 241-a do eca, não há bis in idem quando a pena-base é exasperada, na primeira hipótese, pela especial reprovabilidade da produção clandestina de material pornográfico no interior do ambiente doméstico, com violação da intimidade da vítima e aproveitamento de relação de confiança e coabitação, e, na segunda, pela culpabilidade acentuada decorrente do conteúdo compartilhado revelar crianças de tenra idade, ainda que o tipo penal do art. 241-a seja formulado de modo amplo. a assertiva está correta porque reproduz a lógica adotada na valoração da culpabilidade em ambos os crimes, sem incorrer em dupla punição pelo mesmo dado fático.
+
+no art. 240 do eca, a causa de aumento do § 2º, ii, incide quando o agente se prevalece de relações domésticas, de coabitação ou de hospitalidade. isso não impede que, na primeira fase da dosimetria, o julgador reconheça maior reprovabilidade concreta da conduta quando a produção do material é clandestina, realizada no ambiente doméstico e com violação da intimidade da vítima, especialmente se o agente se vale da confiança inerente à convivência familiar. a exasperação da pena-base, nesse contexto, não decorre do simples fato de existir a majorante, mas da forma particularmente grave como o delito foi executado.
+
+já no art. 241-a do eca, o tipo penal é amplo e abrange diversas condutas relacionadas à divulgação, transmissão, oferta, troca, disponibilização ou publicação de conteúdo pornográfico envolvendo criança ou adolescente. essa amplitude, porém, não impede que a culpabilidade seja graduada conforme a gravidade concreta do material compartilhado. assim, a circunstância de o acervo periciado envolver crianças de idade bastante reduzida pode ser considerada na fixação da pena-base, desde que não se trate de mera repetição abstrata do próprio tipo penal. o ponto central é que a análise não se limita à subsunção formal da conduta, mas alcança o maior desvalor concreto revelado pelo conteúdo efetivamente disseminado.
+
+portanto, não há bis in idem quando o juiz, de modo fundamentado, utiliza elementos concretos distintos daqueles já absorvidos pela tipicidade ou pela causa de aumento para reconhecer culpabilidade mais intensa. stj. 5ª turma. aresp 3.032.889-sp, rel. min. maria marluce caldas, julgado em 3/2/2026 (info 876).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 10</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-10">Não respondida</span>
+</div>
+
+<p class="enunciado">Nos delitos previstos nos arts. 240 e 241-A do ECA, não há bis in idem quando a pena-base é exasperada, na primeira hipótese, pela especial reprovabilidade da produção clandestina de material pornográfico no interior do ambiente doméstico, com violação da intimidade da vítima e aproveitamento de relação de confiança e coabitação, e, na segunda, pela culpabilidade acentuada decorrente do conteúdo compartilhado revelar crianças de tenra idade, ainda que o tipo penal do art. 241-A seja formulado de modo amplo.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(10, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(10, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-10">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a lógica adotada na valoração da culpabilidade em ambos os crimes, sem incorrer em dupla punição pelo mesmo dado fático.<br><br>No art. 240 do ECA, a causa de aumento do § 2º, II, incide quando o agente se prevalece de relações domésticas, de coabitação ou de hospitalidade. Isso não impede que, na primeira fase da dosimetria, o julgador reconheça maior reprovabilidade concreta da conduta quando a produção do material é clandestina, realizada no ambiente doméstico e com violação da intimidade da vítima, especialmente se o agente se vale da confiança inerente à convivência familiar. A exasperação da pena-base, nesse contexto, não decorre do simples fato de existir a majorante, mas da forma particularmente grave como o delito foi executado.<br><br>Já no art. 241-A do ECA, o tipo penal é amplo e abrange diversas condutas relacionadas à divulgação, transmissão, oferta, troca, disponibilização ou publicação de conteúdo pornográfico envolvendo criança ou adolescente. Essa amplitude, porém, não impede que a culpabilidade seja graduada conforme a gravidade concreta do material compartilhado. Assim, a circunstância de o acervo periciado envolver crianças de idade bastante reduzida pode ser considerada na fixação da pena-base, desde que não se trate de mera repetição abstrata do próprio tipo penal. O ponto central é que a análise não se limita à subsunção formal da conduta, mas alcança o maior desvalor concreto revelado pelo conteúdo efetivamente disseminado.<br><br>Portanto, não há bis in idem quando o juiz, de modo fundamentado, utiliza elementos concretos distintos daqueles já absorvidos pela tipicidade ou pela causa de aumento para reconhecer culpabilidade mais intensa.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 5ª Turma. AREsp 3.032.889-SP, Rel. Min. Maria Marluce Caldas, julgado em 3/2/2026 (Info 876).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a correição parcial, embora não se preste à substituição de recurso previsto em lei, pode ser manejada de forma excepcional para impugnar decisão judicial que, ao indeferir medidas cautelares reputadas urgentes e indispensáveis à eficácia da investigação, gere inversão tumultuária do procedimento e risco concreto de frustração da colheita probatória; nessa hipótese, a concessão da providência pelo tribunal, ainda que sem prévia intimação da defesa, não implica nulidade automática, desde que assegurado o contraditório diferido e ausente demonstração de prejuízo efetivo. o enunciado está de acordo com o entendimento firmado no julgado. a correição parcial não é via ordinária de impugnação nem substitui recurso expressamente cabível; sua utilização é excepcionalíssima, admitida apenas quando houver evidente inversão tumultuária do processo e risco de dano relevante à marcha investigativa ou processual. no caso examinado, a providência foi aceita porque a controvérsia envolvia medidas cautelares urgentes — busca e apreensão e quebra de sigilo de dados — consideradas indispensáveis à eficácia das diligências investigativas subsequentes.
+
+além disso, o julgado prestigia a lógica do contraditório diferido em contexto de urgência, especialmente antes da formação da relação processual plena entre as partes. nessa situação, a ausência de prévia intimação da defesa não gera nulidade por si só. para que se reconheça a invalidade do ato, seria necessária a demonstração de prejuízo concreto, em observância à lógica da instrumentalidade das formas e ao princípio pas de nullité sans grief. como isso não foi demonstrado, as medidas foram mantidas. stj. 5ª turma. agrg no agrg no aresp 2.734.423-sc, rel. min. joel ilan paciornik, julgado em 3/2/2026 (info 876).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 11</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-11">Não respondida</span>
+</div>
+
+<p class="enunciado">A correição parcial, embora não se preste à substituição de recurso previsto em lei, pode ser manejada de forma excepcional para impugnar decisão judicial que, ao indeferir medidas cautelares reputadas urgentes e indispensáveis à eficácia da investigação, gere inversão tumultuária do procedimento e risco concreto de frustração da colheita probatória; nessa hipótese, a concessão da providência pelo tribunal, ainda que sem prévia intimação da defesa, não implica nulidade automática, desde que assegurado o contraditório diferido e ausente demonstração de prejuízo efetivo.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(11, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(11, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-11">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O enunciado está de acordo com o entendimento firmado no julgado. A correição parcial não é via ordinária de impugnação nem substitui recurso expressamente cabível; sua utilização é excepcionalíssima, admitida apenas quando houver evidente inversão tumultuária do processo e risco de dano relevante à marcha investigativa ou processual. No caso examinado, a providência foi aceita porque a controvérsia envolvia medidas cautelares urgentes — busca e apreensão e quebra de sigilo de dados — consideradas indispensáveis à eficácia das diligências investigativas subsequentes.<br><br>Além disso, o julgado prestigia a lógica do contraditório diferido em contexto de urgência, especialmente antes da formação da relação processual plena entre as partes. Nessa situação, a ausência de prévia intimação da defesa não gera nulidade por si só. Para que se reconheça a invalidade do ato, seria necessária a demonstração de prejuízo concreto, em observância à lógica da instrumentalidade das formas e ao princípio pas de nullité sans grief. Como isso não foi demonstrado, as medidas foram mantidas.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 5ª Turma. AgRg no AgRg no AREsp 2.734.423-SC, Rel. Min. Joel Ilan Paciornik, julgado em 3/2/2026 (Info 876).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a verba paga a executivo, por ocasião da rescisão unilateral e imotivada de contrato civil de prestação de serviços, ainda que rotulada como indenizatória, não se sujeita ao irpf quando corresponder a participação nos lucros e resultados, bônus de performance, outplacement convertido em pecúnia e compensação por stock options, pois tais parcelas, por decorrerem da ruptura contratual, estariam abrangidas pela isenção relativa às verbas de natureza reparatória e pela exceção legal destinada a indenizações sem acréscimo patrimonial. a assertiva está incorreta porque parte de uma premissa incompatível com a natureza jurídica das parcelas examinadas e com o critério material do irpf. o imposto incide sobre acréscimo patrimonial, e não sobre a mera nomenclatura atribuída à verba. no caso, a rescisão unilateral e imotivada de contrato civil de prestação de serviços não transforma automaticamente em indenizatórias parcelas que, em substância, representam vantagem econômica nova ao beneficiário.
+
+a participação nos lucros e resultados e o bônus de performance possuem natureza remuneratória, pois remuneram desempenho e resultados alcançados, não se confundindo com recomposição de dano emergente. o outplacement, quando convertido em dinheiro, deixa de ser mera prestação de apoio e passa a representar vantagem econômica mensurável, integrando o patrimônio do recebedor. já a compensação por stock options substitui o ganho de capital potencial que seria tributável na alienação das ações, de modo que também revela acréscimo patrimonial tributável.
+
+além disso, essas verbas não se enquadram na isenção do art. 6º, v, da lei 7.713/88, nem na exceção do § 5º do art. 70 da lei 9.430/96, porque não decorrem de legislação trabalhista, dissídio ou convenção coletiva, tampouco se destinam à mera recomposição de dano emergente. assim, a simples vinculação ao término do contrato e a rotulagem como indenização não afastam a incidência do irpf quando houver efetivo acréscimo patrimonial. stj. 2ª turma. resp 1.409.762-sp, rel. min. afrânio vilela, rel. para acórdão min. maria thereza de assis moura, julgado em 3/2/2026 (info 876).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 12</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-12">Não respondida</span>
+</div>
+
+<p class="enunciado">A verba paga a executivo, por ocasião da rescisão unilateral e imotivada de contrato civil de prestação de serviços, ainda que rotulada como indenizatória, não se sujeita ao IRPF quando corresponder a participação nos lucros e resultados, bônus de performance, outplacement convertido em pecúnia e compensação por stock options, pois tais parcelas, por decorrerem da ruptura contratual, estariam abrangidas pela isenção relativa às verbas de natureza reparatória e pela exceção legal destinada a indenizações sem acréscimo patrimonial.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(12, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(12, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-12">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque parte de uma premissa incompatível com a natureza jurídica das parcelas examinadas e com o critério material do IRPF. O imposto incide sobre acréscimo patrimonial, e não sobre a mera nomenclatura atribuída à verba. No caso, a rescisão unilateral e imotivada de contrato civil de prestação de serviços não transforma automaticamente em indenizatórias parcelas que, em substância, representam vantagem econômica nova ao beneficiário.<br><br>A participação nos lucros e resultados e o bônus de performance possuem natureza remuneratória, pois remuneram desempenho e resultados alcançados, não se confundindo com recomposição de dano emergente. O outplacement, quando convertido em dinheiro, deixa de ser mera prestação de apoio e passa a representar vantagem econômica mensurável, integrando o patrimônio do recebedor. Já a compensação por stock options substitui o ganho de capital potencial que seria tributável na alienação das ações, de modo que também revela acréscimo patrimonial tributável.<br><br>Além disso, essas verbas não se enquadram na isenção do art. 6º, V, da Lei 7.713/88, nem na exceção do § 5º do art. 70 da Lei 9.430/96, porque não decorrem de legislação trabalhista, dissídio ou convenção coletiva, tampouco se destinam à mera recomposição de dano emergente. Assim, a simples vinculação ao término do contrato e a rotulagem como indenização não afastam a incidência do IRPF quando houver efetivo acréscimo patrimonial.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 2ª Turma. REsp 1.409.762-SP, Rel. Min. Afrânio Vilela, Rel. para acórdão Min. Maria Thereza de Assis Moura, julgado em 3/2/2026 (Info 876).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="ECA"
+data-texto="é inviável a homologação, no brasil, de ato notarial estrangeiro que reconheça testamento particular e promova a partilha de bens situados em território nacional, ainda que todos os herdeiros sejam capazes, estejam em consenso e tenham observado as formalidades exigidas pela lei do país de origem, pois a disciplina da confirmação do testamento e da sucessão de bens localizados no brasil insere-se na competência exclusiva da autoridade judiciária brasileira, o que impede a atuação homologatória quando a matéria é reservada à jurisdição nacional. a assertiva está correta porque explora precisamente o limite material da homologação de ato estrangeiro: não basta que o documento seja formalmente válido no país de origem, nem que haja consenso entre os interessados, se o conteúdo do ato recair sobre matéria submetida à competência exclusiva da jurisdição brasileira.
+
+no caso, a confirmação de testamento particular e a partilha de bens situados no brasil dependem de controle judicial interno, inclusive porque o testamento particular, no direito brasileiro, exige procedimento específico de verificação e confirmação em juízo, com observância das etapas legais próprias. trata-se de providência de ordem pública, voltada não apenas à tutela da vontade do falecido e dos herdeiros presentes no acordo, mas também à proteção de eventuais herdeiros necessários e à verificação da autenticidade e regularidade do ato de última vontade.
+
+além disso, o cpc veda a homologação de decisão estrangeira quando a matéria estiver abrangida por competência exclusiva da autoridade judiciária brasileira. assim, ainda que o falecido fosse estrangeiro, residisse no exterior e os bens estivessem parcialmente no brasil, a disciplina da sucessão quanto ao patrimônio situado em território nacional não pode ser transferida para autoridade estrangeira por via homologatória.
+
+o ponto decisivo, portanto, não é a existência de consenso entre as partes, mas a natureza da matéria submetida à homologação. quando o ato estrangeiro pretende produzir efeitos sobre testamento particular e inventário/partilha de bens localizados no brasil, a homologação esbarra em vedação expressa do cpc, por se tratar de hipótese reservada à jurisdição nacional. stj. corte especial. agint na hde 9.862-ex, rel. min. og fernandes, julgado em 11/11/2025 (info 876).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 13</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-13">Não respondida</span>
+</div>
+
+<p class="enunciado">É inviável a homologação, no Brasil, de ato notarial estrangeiro que reconheça testamento particular e promova a partilha de bens situados em território nacional, ainda que todos os herdeiros sejam capazes, estejam em consenso e tenham observado as formalidades exigidas pela lei do país de origem, pois a disciplina da confirmação do testamento e da sucessão de bens localizados no Brasil insere-se na competência exclusiva da autoridade judiciária brasileira, o que impede a atuação homologatória quando a matéria é reservada à jurisdição nacional.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(13, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(13, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-13">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque explora precisamente o limite material da homologação de ato estrangeiro: não basta que o documento seja formalmente válido no país de origem, nem que haja consenso entre os interessados, se o conteúdo do ato recair sobre matéria submetida à competência exclusiva da jurisdição brasileira.<br><br>No caso, a confirmação de testamento particular e a partilha de bens situados no Brasil dependem de controle judicial interno, inclusive porque o testamento particular, no direito brasileiro, exige procedimento específico de verificação e confirmação em juízo, com observância das etapas legais próprias. Trata-se de providência de ordem pública, voltada não apenas à tutela da vontade do falecido e dos herdeiros presentes no acordo, mas também à proteção de eventuais herdeiros necessários e à verificação da autenticidade e regularidade do ato de última vontade.<br><br>Além disso, o CPC veda a homologação de decisão estrangeira quando a matéria estiver abrangida por competência exclusiva da autoridade judiciária brasileira. Assim, ainda que o falecido fosse estrangeiro, residisse no exterior e os bens estivessem parcialmente no Brasil, a disciplina da sucessão quanto ao patrimônio situado em território nacional não pode ser transferida para autoridade estrangeira por via homologatória.<br><br>O ponto decisivo, portanto, não é a existência de consenso entre as partes, mas a natureza da matéria submetida à homologação. Quando o ato estrangeiro pretende produzir efeitos sobre testamento particular e inventário/partilha de bens localizados no Brasil, a homologação esbarra em vedação expressa do CPC, por se tratar de hipótese reservada à jurisdição nacional.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. Corte Especial. AgInt na HDE 9.862-EX, Rel. Min. Og Fernandes, julgado em 11/11/2025 (Info 876).</p>
+</div>
+</section>
+
+</div>
+
+<script>
+const storageKey = location.pathname + "_respostas";
+let respostas = JSON.parse(localStorage.getItem(storageKey) || "{}");
+
+function destacar(t){
+ if(t==="CERTO") return '<span class="gabarito-certo">CERTO</span>';
+ if(t==="ERRADO") return '<span class="gabarito-errado">ERRADO</span>';
+ return t;
+}
+
+function responder(numero, resposta){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const gabarito=card.dataset.gabarito;
+ const correto=resposta===gabarito;
+ respostas[numero]={resposta,correto};
+ localStorage.setItem(storageKey, JSON.stringify(respostas));
+ mostrarFeedback(numero);
+ atualizarPainel();
+ filtrar();
+}
+
+function mostrarFeedback(numero){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const feedback=document.getElementById("feedback-"+numero);
+ const status=document.getElementById("status-"+numero);
+ const resultado=feedback.querySelector(".resultado");
+ const gabarito=card.dataset.gabarito;
+ const dados=respostas[numero];
+ if(!dados) return;
+ feedback.style.display="block";
+ feedback.classList.remove("correto","errado");
+ if(dados.correto){
+   feedback.classList.add("correto");
+   resultado.innerHTML="Você acertou. A resposta é "+destacar(gabarito)+".";
+   status.textContent="Respondida — acerto";
+   status.style.color="var(--green)";
+ } else {
+   feedback.classList.add("errado");
+   resultado.innerHTML="Você errou. O gabarito é "+destacar(gabarito)+".";
+   status.textContent="Respondida — erro";
+   status.style.color="var(--red)";
+ }
+}
+
+function atualizarPainel(){
+ let respondidas=0, acertos=0, erros=0;
+ for(const k in respostas){
+   respondidas++;
+   if(respostas[k].correto) acertos++; else erros++;
+ }
+ document.getElementById("respondidas").textContent=respondidas;
+ document.getElementById("acertos").textContent=acertos;
+ document.getElementById("erros").textContent=erros;
+ document.getElementById("visiveis").textContent=document.querySelectorAll(".questao:not(.oculta)").length;
+}
+
+function filtrar(){
+ const busca=document.getElementById("busca").value.trim().toLowerCase();
+ const disciplina=document.getElementById("disciplina").value;
+ const statusFiltro=document.getElementById("statusFiltro").value;
+ const cards=Array.from(document.querySelectorAll(".questao"));
+ let vis=0;
+ cards.forEach((card,idx)=>{
+   const n=idx+1;
+   const texto=card.dataset.texto||"";
+   const disc=card.dataset.disciplina||"";
+   const r=respostas[n];
+   let passaStatus=true;
+   if(statusFiltro==="nao") passaStatus=!r;
+   if(statusFiltro==="acerto") passaStatus=r && r.correto;
+   if(statusFiltro==="erro") passaStatus=r && !r.correto;
+   const ok=(!busca||texto.includes(busca)) && (!disciplina||disc===disciplina) && passaStatus;
+   card.classList.toggle("oculta", !ok);
+   if(ok) vis++;
+ });
+ document.getElementById("sem-resultados").style.display=vis===0?"block":"none";
+ atualizarPainel();
+}
+
+function reiniciar(){
+ if(!confirm("Deseja reiniciar este simulado?")) return;
+ localStorage.removeItem(storageKey);
+ location.reload();
+}
+
+function restaurar(){
+ for(const k in respostas) mostrarFeedback(Number(k));
+ filtrar();
+ atualizarPainel();
+}
+
+restaurar();
+</script>
+</body>
+</html>

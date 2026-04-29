@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Simulado - Info 848 STJ</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+:root{
+--bg:#020617;--panel:rgba(15,23,42,.88);--card:rgba(15,23,42,.96);
+--card2:rgba(30,41,59,.92);--border:rgba(148,163,184,.22);
+--text:#e5e7eb;--muted:#94a3b8;--accent:#38bdf8;--accent2:#0ea5e9;
+--green:#22c55e;--red:#ef4444;--yellow:#facc15;--purple:#a78bfa;
+}
+*{box-sizing:border-box}
+body{
+margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+background:radial-gradient(circle at top left,rgba(56,189,248,.20),transparent 28%),
+radial-gradient(circle at top right,rgba(167,139,250,.15),transparent 28%),
+linear-gradient(135deg,#020617,#0f172a 50%,#020617);
+color:var(--text);line-height:1.65;
+}
+header{padding:44px 20px 32px;text-align:center;border-bottom:1px solid var(--border)}
+header h1{margin:0 0 10px;font-size:clamp(28px,4vw,46px);letter-spacing:-.05em}
+header p{color:var(--muted);margin:0;font-size:16px}
+.container{max-width:1160px;margin:0 auto;padding:26px 16px 80px}
+.painel{
+position:sticky;top:10px;z-index:10;background:var(--panel);backdrop-filter:blur(18px);
+border:1px solid var(--border);border-radius:26px;padding:16px;margin-bottom:22px;
+box-shadow:0 22px 70px rgba(0,0,0,.35)
+}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.stat{background:var(--card2);padding:14px;border-radius:18px;text-align:center;border:1px solid rgba(148,163,184,.12)}
+.stat strong{display:block;font-size:25px;color:var(--accent);line-height:1.1}
+.stat span{font-size:12px;color:var(--muted)}
+.filtros{display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:12px;margin-top:14px}
+input,select{
+width:100%;background:rgba(2,6,23,.78);color:var(--text);border:1px solid var(--border);
+border-radius:14px;padding:13px 14px;outline:none;font-size:14px
+}
+input:focus,select:focus{border-color:var(--accent)}
+.card{
+background:var(--card);border:1px solid var(--border);border-radius:24px;padding:26px;
+margin-bottom:20px;box-shadow:0 18px 50px rgba(0,0,0,.24)
+}
+.questao{scroll-margin-top:190px}
+.questao-topo{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:18px}
+.badge{
+background:linear-gradient(135deg,var(--accent),var(--accent2));color:#00111f;font-weight:900;
+padding:7px 13px;border-radius:999px;display:inline-block
+}
+.disciplina-tag,.tipo-tag{
+display:inline-block;margin-left:8px;color:var(--muted);background:rgba(148,163,184,.10);
+border:1px solid rgba(148,163,184,.14);padding:6px 10px;border-radius:999px;font-size:12px
+}
+.tipo-tag{color:#ddd6fe;border-color:rgba(167,139,250,.25)}
+.status{color:var(--yellow);font-size:13px;white-space:nowrap}
+.enunciado{font-size:19px;margin:0 0 22px;letter-spacing:-.01em}
+.botoes{display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.btn{
+cursor:pointer;border:0;padding:12px 22px;border-radius:14px;color:white;font-weight:900;
+transition:.18s ease;letter-spacing:.02em
+}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.certo{background:rgba(34,197,94,.20);border:1px solid rgba(34,197,94,.42)}
+.btn.errado{background:rgba(239,68,68,.20);border:1px solid rgba(239,68,68,.42)}
+.btn.neutro{background:rgba(56,189,248,.16);color:var(--text);border:1px solid rgba(56,189,248,.32)}
+.feedback{
+display:none;background:rgba(2,6,23,.72);border:1px solid rgba(148,163,184,.16);
+border-left:5px solid var(--accent);padding:18px;border-radius:18px;margin-top:14px
+}
+.feedback.correto{border-left-color:var(--green)}
+.feedback.errado{border-left-color:var(--red)}
+.resultado{font-size:18px;font-weight:900;margin-top:0}
+.justificativa{margin-top:12px}
+.referencia{color:var(--muted);font-size:13px;margin-top:16px}
+.gabarito-certo{color:var(--green);font-weight:900}
+.gabarito-errado{color:var(--red);font-weight:900}
+.oculta{display:none}
+.sem-resultados{text-align:center;color:var(--muted);display:none;padding:30px}
+.grid-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
+.link-card{
+display:block;padding:20px;background:rgba(15,23,42,.95);border:1px solid rgba(148,163,184,.22);
+color:#e5e7eb;border-radius:22px;text-decoration:none;transition:.2s;box-shadow:0 14px 40px rgba(0,0,0,.22)
+}
+.link-card:hover{transform:translateY(-3px);border-color:#38bdf8}
+.link-card strong{display:block;font-size:17px;margin-bottom:8px}
+.link-card span{color:#94a3b8;font-size:13px}
+.index-tools{display:grid;grid-template-columns:1.5fr 1fr;gap:12px;margin-bottom:20px}
+@media(max-width:850px){
+.stats{grid-template-columns:repeat(2,1fr)}
+.filtros,.index-tools{grid-template-columns:1fr}
+.questao-topo{align-items:flex-start;flex-direction:column}
+.botoes{flex-direction:column}
+.enunciado{font-size:16px}
+.card{padding:20px}
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Simulado - Info 848 STJ</h1>
+<p>Informativos • Simulado interativo de CERTO ou ERRADO</p>
+</header>
+
+<div class="container">
+<div class="painel">
+<div class="stats">
+<div class="stat"><strong>11</strong><span>Total</span></div>
+<div class="stat"><strong id="visiveis">11</strong><span>Visíveis</span></div>
+<div class="stat"><strong id="respondidas">0</strong><span>Respondidas</span></div>
+<div class="stat"><strong id="acertos">0</strong><span>Acertos</span></div>
+<div class="stat"><strong id="erros">0</strong><span>Erros</span></div>
+</div>
+
+<div class="filtros">
+<input id="busca" type="search" placeholder="Buscar por palavra-chave..." oninput="filtrar()">
+<select id="disciplina" onchange="filtrar()">
+<option value="">Todas as disciplinas</option>
+<option value="ECA">ECA</option>
+<option value="N/I">N/I</option>
+</select>
+<select id="statusFiltro" onchange="filtrar()">
+<option value="">Todas</option>
+<option value="nao">Não respondidas</option>
+<option value="acerto">Acertos</option>
+<option value="erro">Erros</option>
+</select>
+<button class="btn neutro" onclick="reiniciar()">Reiniciar</button>
+</div>
+</div>
+
+<div id="sem-resultados" class="sem-resultados">Nenhuma questão encontrada com os filtros atuais.</div>
+
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="em ação de improbidade administrativa proposta em litisconsórcio passivo, a vedação legal à solidariedade na condenação impede, em qualquer hipótese, a imposição de ressarcimento integral a todos os réus, ainda que a prova demonstre atuação concertada, em unidade de desígnios, com participação de igual intensidade e impossibilidade de individualização do dano causado por cada agente. a assertiva está incorreta porque a vedação à solidariedade prevista no art. 17-c, § 2º, da lei de improbidade administrativa não é absoluta. esse dispositivo determina que, havendo litisconsórcio passivo, a condenação deve observar o limite da participação e dos benefícios diretos, vedada a solidariedade. contudo, essa regra incide quando é possível individualizar os desígnios e a contribuição de cada agente no ilícito.
+
+quando, porém, os réus atuam em unidade de vontades, com participação de igual intensidade, e não é viável quantificar isoladamente o dano imputável a cada um, admite-se a responsabilização solidária pelo ressarcimento integral, com fundamento no art. 942 do código civil. nessa hipótese, a solidariedade não decorre de uma simples opção interpretativa, mas da própria estrutura do ilícito praticado em concurso, em que todos concorrem para o mesmo resultado danoso.
+
+assim, a regra legal de limitação da condenação por participação individual não afasta a incidência do art. 942 do cc quando a prova revela atuação conjunta e indissociável dos agentes, hipótese em que é legítima a condenação solidária ao ressarcimento integral do dano. stj. 1ª turma. agint no aresp 1.485.464-sp, rel. min. paulo sérgio domingues, julgado em 8/4/2025 (info 848).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 1</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-1">Não respondida</span>
+</div>
+
+<p class="enunciado">Em ação de improbidade administrativa proposta em litisconsórcio passivo, a vedação legal à solidariedade na condenação impede, em qualquer hipótese, a imposição de ressarcimento integral a todos os réus, ainda que a prova demonstre atuação concertada, em unidade de desígnios, com participação de igual intensidade e impossibilidade de individualização do dano causado por cada agente.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(1, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(1, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-1">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque a vedação à solidariedade prevista no art. 17-C, § 2º, da Lei de Improbidade Administrativa não é absoluta. Esse dispositivo determina que, havendo litisconsórcio passivo, a condenação deve observar o limite da participação e dos benefícios diretos, vedada a solidariedade. Contudo, essa regra incide quando é possível individualizar os desígnios e a contribuição de cada agente no ilícito.<br><br>Quando, porém, os réus atuam em unidade de vontades, com participação de igual intensidade, e não é viável quantificar isoladamente o dano imputável a cada um, admite-se a responsabilização solidária pelo ressarcimento integral, com fundamento no art. 942 do Código Civil. Nessa hipótese, a solidariedade não decorre de uma simples opção interpretativa, mas da própria estrutura do ilícito praticado em concurso, em que todos concorrem para o mesmo resultado danoso.<br><br>Assim, a regra legal de limitação da condenação por participação individual não afasta a incidência do art. 942 do CC quando a prova revela atuação conjunta e indissociável dos agentes, hipótese em que é legítima a condenação solidária ao ressarcimento integral do dano.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Turma. AgInt no AREsp 1.485.464-SP, Rel. Min. Paulo Sérgio Domingues, julgado em 8/4/2025 (Info 848).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="em incidente de desconsideração da personalidade jurídica instaurado em processo de conhecimento, o indeferimento do pedido, por impedir a inclusão do sócio no polo passivo e, assim, alterar substancialmente a configuração subjetiva da lide, autoriza a fixação de honorários advocatícios sucumbenciais em favor do patrono daquele que foi indevidamente chamado a integrar a demanda. a afirmação está correta porque a fixação de honorários advocatícios não se limita à sentença de mérito em sentido estrito, sendo admitida também em incidentes processuais quando deles decorre efetiva sucumbência com repercussão relevante na estrutura da lide. no incidente de desconsideração da personalidade jurídica, o indeferimento do pedido produz resultado juridicamente relevante: impede a inclusão do sócio no polo passivo e preserva sua esfera patrimonial e processual, afastando-o da relação processual que se pretendia ampliar.
+
+nessa hipótese, há alteração substancial da lide, pois o incidente não se resolve por mera decisão interlocutória sem conteúdo sucumbencial, mas por pronunciamento que define a improcedência da pretensão de redirecionamento da responsabilidade patrimonial. por isso, é cabível a condenação da parte requerente ao pagamento de honorários ao advogado da pessoa indevidamente chamada a litigar, em observância à lógica da sucumbência e à remuneração do trabalho profissional efetivamente exigido para a defesa no incidente.
+
+a conclusão não decorre de automatismo em qualquer incidente processual: o ponto central é a existência de conteúdo decisório apto a gerar sucumbência com modificação substancial da posição processual da parte. assim, o entendimento prestigia a natureza contenciosa do incidente de desconsideração quando rejeitado, afastando a ideia de que honorários somente seriam devidos em sentença final do processo principal. stj. corte especial. eresp 2.042.753-sp, rel. min. mauro campbell marques, julgado em 2/4/2025 (info 848).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 2</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-2">Não respondida</span>
+</div>
+
+<p class="enunciado">Em incidente de desconsideração da personalidade jurídica instaurado em processo de conhecimento, o indeferimento do pedido, por impedir a inclusão do sócio no polo passivo e, assim, alterar substancialmente a configuração subjetiva da lide, autoriza a fixação de honorários advocatícios sucumbenciais em favor do patrono daquele que foi indevidamente chamado a integrar a demanda.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(2, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(2, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-2">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A afirmação está correta porque a fixação de honorários advocatícios não se limita à sentença de mérito em sentido estrito, sendo admitida também em incidentes processuais quando deles decorre efetiva sucumbência com repercussão relevante na estrutura da lide. No incidente de desconsideração da personalidade jurídica, o indeferimento do pedido produz resultado juridicamente relevante: impede a inclusão do sócio no polo passivo e preserva sua esfera patrimonial e processual, afastando-o da relação processual que se pretendia ampliar.<br><br>Nessa hipótese, há alteração substancial da lide, pois o incidente não se resolve por mera decisão interlocutória sem conteúdo sucumbencial, mas por pronunciamento que define a improcedência da pretensão de redirecionamento da responsabilidade patrimonial. Por isso, é cabível a condenação da parte requerente ao pagamento de honorários ao advogado da pessoa indevidamente chamada a litigar, em observância à lógica da sucumbência e à remuneração do trabalho profissional efetivamente exigido para a defesa no incidente.<br><br>A conclusão não decorre de automatismo em qualquer incidente processual: o ponto central é a existência de conteúdo decisório apto a gerar sucumbência com modificação substancial da posição processual da parte. Assim, o entendimento prestigia a natureza contenciosa do incidente de desconsideração quando rejeitado, afastando a ideia de que honorários somente seriam devidos em sentença final do processo principal.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. Corte Especial. EREsp 2.042.753-SP, Rel. Min. Mauro Campbell Marques, julgado em 2/4/2025 (Info 848).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="em ação de obrigação de fazer proposta para compelir provedor de busca a desindexar resultados associados ao nome do autor, é juridicamente admissível a formulação de pedido genérico de retirada de “todos os links” ou de “qualquer resultado de pesquisa” que remeta ao conteúdo reputado ofensivo, ainda que a inicial não individualize as urls específicas, pois a tutela jurisdicional pode ser cumprida mediante filtragem ampla pelo mecanismo de busca, sem necessidade de delimitação precisa do conteúdo a ser removido. a assertiva contraria o entendimento firmado no julgado, que condiciona a remoção de conteúdo por provedor de busca à indicação específica das urls que se pretende ver desindexadas. a razão central é de ordem processual e prática: não se admite impor ao provedor uma obrigação genérica e indeterminada de retirada de resultados de pesquisa, porque isso equivaleria a exigir cumprimento impossível ou excessivamente aberto, incompatível com a necessária delimitação do objeto da demanda e com a própria efetividade da ordem judicial.
+
+no contexto do marco civil da internet, a pretensão de remoção não pode ser formulada de modo abstrato, como se bastasse apontar um tema, um nome ou uma expressão para que o buscador elimine, indistintamente, todos os resultados correlatos. é indispensável a individualização das urls, justamente para que a ordem judicial seja precisa, exequível e compatível com a técnica de indexação dos provedores de busca. a ausência dessa indicação inviabiliza a execução da medida, pois o provedor não pode ser compelido a adivinhar quais páginas específicas devem ser retiradas do índice.
+
+assim, a tese não impede a tutela jurisdicional de proteção à honra, imagem ou privacidade, mas exige que o pedido seja adequadamente delimitado. o ponto decisivo é que a remoção genérica de resultados de pesquisa, sem a identificação das urls, não atende ao padrão de certeza e determinabilidade exigido para a obrigação de fazer. stj. 4ª turma. resp 1.969.219-sp, rel. min. joão otávio de noronha, julgado em 24/3/2025 (info 848).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 3</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-3">Não respondida</span>
+</div>
+
+<p class="enunciado">Em ação de obrigação de fazer proposta para compelir provedor de busca a desindexar resultados associados ao nome do autor, é juridicamente admissível a formulação de pedido genérico de retirada de “todos os links” ou de “qualquer resultado de pesquisa” que remeta ao conteúdo reputado ofensivo, ainda que a inicial não individualize as URLs específicas, pois a tutela jurisdicional pode ser cumprida mediante filtragem ampla pelo mecanismo de busca, sem necessidade de delimitação precisa do conteúdo a ser removido.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(3, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(3, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-3">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva contraria o entendimento firmado no julgado, que condiciona a remoção de conteúdo por provedor de busca à indicação específica das URLs que se pretende ver desindexadas. A razão central é de ordem processual e prática: não se admite impor ao provedor uma obrigação genérica e indeterminada de retirada de resultados de pesquisa, porque isso equivaleria a exigir cumprimento impossível ou excessivamente aberto, incompatível com a necessária delimitação do objeto da demanda e com a própria efetividade da ordem judicial.<br><br>No contexto do Marco Civil da Internet, a pretensão de remoção não pode ser formulada de modo abstrato, como se bastasse apontar um tema, um nome ou uma expressão para que o buscador elimine, indistintamente, todos os resultados correlatos. É indispensável a individualização das URLs, justamente para que a ordem judicial seja precisa, exequível e compatível com a técnica de indexação dos provedores de busca. A ausência dessa indicação inviabiliza a execução da medida, pois o provedor não pode ser compelido a adivinhar quais páginas específicas devem ser retiradas do índice.<br><br>Assim, a tese não impede a tutela jurisdicional de proteção à honra, imagem ou privacidade, mas exige que o pedido seja adequadamente delimitado. O ponto decisivo é que a remoção genérica de resultados de pesquisa, sem a identificação das URLs, não atende ao padrão de certeza e determinabilidade exigido para a obrigação de fazer.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 4ª Turma. REsp 1.969.219-SP, Rel. Min. João Otávio de Noronha, julgado em 24/3/2025 (Info 848).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="nas ações de adoção de criança indígena, a obrigatoriedade de intervenção da funai, prevista no eca para resguardar o adequado acolhimento e o melhor interesse do adotando, desloca automaticamente a competência para a justiça federal, ainda que não haja controvérsia sobre direitos indígenas coletivos, por se tratar de hipótese abrangida pelo art. 109, xi, da constituição federal. a assertiva está incorreta porque confunde dois planos distintos: a obrigatoriedade de intervenção da funai e a definição da competência jurisdicional.
+
+no procedimento de adoção de criança indígena, a participação da funai é obrigatória, nos termos do art. 28, § 6º, iii, do eca, justamente para permitir a verificação do adequado acolhimento da criança e a preservação de seus melhores interesses. essa intervenção, porém, não tem o efeito de atrair, por si só, a competência da justiça federal.
+
+a razão é que a adoção, em regra, versa sobre situação jurídica de natureza privada, voltada ao interesse particular da criança ou adolescente, ainda que indígena. a competência federal do art. 109, xi, da constituição somente se configura quando houver controvérsia sobre direitos indígenas de natureza coletiva, o que não se verifica em adoção intuitu personae. nessa hipótese, a justiça estadual, especialmente as varas da infância e juventude, é a competente para processar e julgar a demanda, inclusive porque dispõe de estrutura e equipe técnica mais adequadas à tutela do melhor interesse da criança.
+
+portanto, a presença obrigatória da funai não implica, automaticamente, deslocamento da competência para a justiça federal. stj. 2ª seção. cc 209.192-pa, rel. min. nancy andrighi, julgado em 3/4/2025 (info 848).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 4</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-4">Não respondida</span>
+</div>
+
+<p class="enunciado">Nas ações de adoção de criança indígena, a obrigatoriedade de intervenção da FUNAI, prevista no ECA para resguardar o adequado acolhimento e o melhor interesse do adotando, desloca automaticamente a competência para a Justiça Federal, ainda que não haja controvérsia sobre direitos indígenas coletivos, por se tratar de hipótese abrangida pelo art. 109, XI, da Constituição Federal.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(4, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(4, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-4">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque confunde dois planos distintos: a obrigatoriedade de intervenção da FUNAI e a definição da competência jurisdicional.<br><br>No procedimento de adoção de criança indígena, a participação da FUNAI é obrigatória, nos termos do art. 28, § 6º, III, do ECA, justamente para permitir a verificação do adequado acolhimento da criança e a preservação de seus melhores interesses. Essa intervenção, porém, não tem o efeito de atrair, por si só, a competência da Justiça Federal.<br><br>A razão é que a adoção, em regra, versa sobre situação jurídica de natureza privada, voltada ao interesse particular da criança ou adolescente, ainda que indígena. A competência federal do art. 109, XI, da Constituição somente se configura quando houver controvérsia sobre direitos indígenas de natureza coletiva, o que não se verifica em adoção intuitu personae. Nessa hipótese, a Justiça Estadual, especialmente as Varas da Infância e Juventude, é a competente para processar e julgar a demanda, inclusive porque dispõe de estrutura e equipe técnica mais adequadas à tutela do melhor interesse da criança.<br><br>Portanto, a presença obrigatória da FUNAI não implica, automaticamente, deslocamento da competência para a Justiça Federal.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 2ª Seção. CC 209.192-PA, Rel. Min. Nancy Andrighi, julgado em 3/4/2025 (Info 848).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="na execução por quantia certa contra devedor solvente, frustrada a citação realizada por via postal, é lícito o deferimento de arresto eletrônico de ativos financeiros, ainda que não tenha sido previamente tentada a citação por oficial de justiça, pois o cpc admite a citação eletrônica ou postal como formas idôneas de chamamento do executado, reservando a atuação presencial do meirinho apenas para hipóteses em que sua intervenção seja indispensável à prática de atos executivos específicos. a assertiva está correta porque reproduz a lógica do entendimento firmado: a tentativa de citação por oficial de justiça não é condição necessária para o arresto eletrônico de bens quando já houve frustração da citação por via postal. em execução por quantia certa contra devedor solvente, a citação pode ocorrer por meio eletrônico ou postal, nos termos dos arts. 246 e 247 do cpc, não havendo uma ordem rígida que imponha, como etapa obrigatória anterior ao arresto, a diligência presencial por oficial de justiça.
+
+o ponto central é que o arresto eletrônico, nessa hipótese, funciona como medida executiva voltada a assegurar a efetividade da tutela executiva diante da frustração da citação válida do executado. assim, uma vez esgotada a tentativa postal, não se exige que o exequente aguarde nova tentativa presencial para só então requerer a constrição eletrônica de ativos financeiros. a atuação do oficial de justiça, nesse contexto, não é universal nem automática na execução: ela se justifica quando a prática do ato executivo depender de sua presença, como em determinadas providências expropriatórias ou atos materiais que exijam intervenção direta.
+
+a pegadinha da questão está em sugerir uma preferência obrigatória pela citação presencial, o que não existe como requisito legal para o arresto eletrônico. o cpc prestigia a instrumentalidade e a efetividade da execução, de modo que a frustração da citação por via postal já autoriza a adoção da medida constritiva, sem necessidade de formalismo adicional não previsto em lei. stj. 3ª turma. resp 2.099.780-pr, rel. min. moura ribeiro, julgado em 22/4/2025 (info 848).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 5</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-5">Não respondida</span>
+</div>
+
+<p class="enunciado">Na execução por quantia certa contra devedor solvente, frustrada a citação realizada por via postal, é lícito o deferimento de arresto eletrônico de ativos financeiros, ainda que não tenha sido previamente tentada a citação por oficial de justiça, pois o CPC admite a citação eletrônica ou postal como formas idôneas de chamamento do executado, reservando a atuação presencial do meirinho apenas para hipóteses em que sua intervenção seja indispensável à prática de atos executivos específicos.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(5, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(5, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-5">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a lógica do entendimento firmado: a tentativa de citação por oficial de justiça não é condição necessária para o arresto eletrônico de bens quando já houve frustração da citação por via postal. Em execução por quantia certa contra devedor solvente, a citação pode ocorrer por meio eletrônico ou postal, nos termos dos arts. 246 e 247 do CPC, não havendo uma ordem rígida que imponha, como etapa obrigatória anterior ao arresto, a diligência presencial por oficial de justiça.<br><br>O ponto central é que o arresto eletrônico, nessa hipótese, funciona como medida executiva voltada a assegurar a efetividade da tutela executiva diante da frustração da citação válida do executado. Assim, uma vez esgotada a tentativa postal, não se exige que o exequente aguarde nova tentativa presencial para só então requerer a constrição eletrônica de ativos financeiros. A atuação do oficial de justiça, nesse contexto, não é universal nem automática na execução: ela se justifica quando a prática do ato executivo depender de sua presença, como em determinadas providências expropriatórias ou atos materiais que exijam intervenção direta.<br><br>A pegadinha da questão está em sugerir uma preferência obrigatória pela citação presencial, o que não existe como requisito legal para o arresto eletrônico. O CPC prestigia a instrumentalidade e a efetividade da execução, de modo que a frustração da citação por via postal já autoriza a adoção da medida constritiva, sem necessidade de formalismo adicional não previsto em lei.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.099.780-PR, Rel. Min. Moura Ribeiro, julgado em 22/4/2025 (Info 848).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="em execução penal, se o trânsito em julgado para a acusação tiver ocorrido antes de 12/11/2020, a contagem do prazo da prescrição da pretensão executória deve observar o marco anterior à fixação do tema 788, ainda que a defesa sustente a incidência imediata da orientação mais favorável sobre o termo inicial, pois a modulação dos efeitos estabelecida pelo supremo tribunal federal incide de modo objetivo, segundo critérios temporais e processuais previamente definidos. a assertiva está correta porque, nas hipóteses em que o trânsito em julgado para a acusação ocorreu antes de 12/11/2020, prevalece o entendimento anterior ao tema 788, de modo que o termo inicial da prescrição da pretensão executória permanece sendo o trânsito em julgado para a acusação. isso decorre da modulação de efeitos fixada no julgamento paradigmático, cuja aplicação é objetiva e vinculada aos marcos temporais e processuais estabelecidos.
+
+o ponto central é que não se trata de aplicar automaticamente a orientação superveniente mais benéfica em qualquer caso. a definição do termo inicial da prescrição executória depende da incidência da modulação, que preserva a disciplina anterior para situações consolidadas antes da data-limite fixada. assim, se o trânsito em julgado para a acusação é anterior a 12/11/2020, não há deslocamento do marco inicial para outro momento posterior, devendo ser mantida a solução anterior.
+
+em termos práticos, a tese impede que a mudança jurisprudencial alcance indistintamente processos já estabilizados sob a lógica anterior, respeitando a delimitação temporal estabelecida na modulação. por isso, a prescrição executória, nessas hipóteses, consuma-se com base no trânsito em julgado para a acusação, e não com fundamento em critério posterior derivado da nova orientação. stj. 6ª turma. rhc 201.968-df, rel. min. sebastião reis júnior, julgado em 19/3/2025 (info 848).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 6</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-6">Não respondida</span>
+</div>
+
+<p class="enunciado">Em execução penal, se o trânsito em julgado para a acusação tiver ocorrido antes de 12/11/2020, a contagem do prazo da prescrição da pretensão executória deve observar o marco anterior à fixação do Tema 788, ainda que a defesa sustente a incidência imediata da orientação mais favorável sobre o termo inicial, pois a modulação dos efeitos estabelecida pelo Supremo Tribunal Federal incide de modo objetivo, segundo critérios temporais e processuais previamente definidos.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(6, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(6, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-6">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque, nas hipóteses em que o trânsito em julgado para a acusação ocorreu antes de 12/11/2020, prevalece o entendimento anterior ao Tema 788, de modo que o termo inicial da prescrição da pretensão executória permanece sendo o trânsito em julgado para a acusação. Isso decorre da modulação de efeitos fixada no julgamento paradigmático, cuja aplicação é objetiva e vinculada aos marcos temporais e processuais estabelecidos.<br><br>O ponto central é que não se trata de aplicar automaticamente a orientação superveniente mais benéfica em qualquer caso. A definição do termo inicial da prescrição executória depende da incidência da modulação, que preserva a disciplina anterior para situações consolidadas antes da data-limite fixada. Assim, se o trânsito em julgado para a acusação é anterior a 12/11/2020, não há deslocamento do marco inicial para outro momento posterior, devendo ser mantida a solução anterior.<br><br>Em termos práticos, a tese impede que a mudança jurisprudencial alcance indistintamente processos já estabilizados sob a lógica anterior, respeitando a delimitação temporal estabelecida na modulação. Por isso, a prescrição executória, nessas hipóteses, consuma-se com base no trânsito em julgado para a acusação, e não com fundamento em critério posterior derivado da nova orientação.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 6ª Turma. RHC 201.968-DF, Rel. Min. Sebastião Reis Júnior, julgado em 19/3/2025 (Info 848).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="no delito de descumprimento de medida protetiva de urgência, a incidência da agravante genérica prevista no art. 61, ii, f, do código penal é incompatível com a condenação, pois a situação de violência doméstica e familiar contra a mulher já integra a própria estrutura típica do art. 24-a da lei maria da penha, de modo que sua utilização para exasperar a pena importa dupla valoração do mesmo fato. a assertiva está correta porque, no crime de descumprimento de medida protetiva de urgência, a circunstância de violência doméstica e familiar contra a mulher não funciona apenas como dado periférico do contexto fático: ela compõe o próprio núcleo de incidência do tipo penal do art. 24-a da lei maria da penha. assim, utilizar a agravante do art. 61, ii, f, do código penal para aumentar a pena nessa hipótese significa valorar duas vezes o mesmo fundamento normativo e fático, o que caracteriza bis in idem.
+
+a distinção central está no alcance da tese repetitiva que admite a incidência da agravante em conjunto com a lei maria da penha: essa orientação foi construída para hipóteses em que a violência doméstica e familiar contra a mulher não integra o tipo penal como elemento constitutivo, mas apenas revela o contexto em que o crime ocorreu. nesses casos, a agravante cumpre a função de recrudescer a resposta penal diante da especial reprovabilidade da violência de gênero, sem duplicar elementar do delito.
+
+já no art. 24-a, o contexto de violência doméstica é inerente ao próprio tipo, de modo que a agravante não pode ser aplicada sem violar a vedação ao bis in idem. em outras palavras, a incidência automática do art. 61, ii, f, é afastada quando a circunstância que a fundamenta já foi previamente absorvida pela descrição típica do crime. stj. 5ª turma. resp 2.182.733-df, rel. min. ribeiro dantas, julgado em 8/4/2025 (info 848).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 7</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-7">Não respondida</span>
+</div>
+
+<p class="enunciado">No delito de descumprimento de medida protetiva de urgência, a incidência da agravante genérica prevista no art. 61, II, f, do Código Penal é incompatível com a condenação, pois a situação de violência doméstica e familiar contra a mulher já integra a própria estrutura típica do art. 24-A da Lei Maria da Penha, de modo que sua utilização para exasperar a pena importa dupla valoração do mesmo fato.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(7, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(7, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-7">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque, no crime de descumprimento de medida protetiva de urgência, a circunstância de violência doméstica e familiar contra a mulher não funciona apenas como dado periférico do contexto fático: ela compõe o próprio núcleo de incidência do tipo penal do art. 24-A da Lei Maria da Penha. Assim, utilizar a agravante do art. 61, II, f, do Código Penal para aumentar a pena nessa hipótese significa valorar duas vezes o mesmo fundamento normativo e fático, o que caracteriza bis in idem.<br><br>A distinção central está no alcance da tese repetitiva que admite a incidência da agravante em conjunto com a Lei Maria da Penha: essa orientação foi construída para hipóteses em que a violência doméstica e familiar contra a mulher não integra o tipo penal como elemento constitutivo, mas apenas revela o contexto em que o crime ocorreu. Nesses casos, a agravante cumpre a função de recrudescer a resposta penal diante da especial reprovabilidade da violência de gênero, sem duplicar elementar do delito.<br><br>Já no art. 24-A, o contexto de violência doméstica é inerente ao próprio tipo, de modo que a agravante não pode ser aplicada sem violar a vedação ao bis in idem. Em outras palavras, a incidência automática do art. 61, II, f, é afastada quando a circunstância que a fundamenta já foi previamente absorvida pela descrição típica do crime.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 5ª Turma. REsp 2.182.733-DF, Rel. Min. Ribeiro Dantas, julgado em 8/4/2025 (Info 848).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="ECA"
+data-texto="a prática de crime ambiental consistente na supressão ou dano a espécie vegetal incluída em lista nacional de espécies ameaçadas de extinção atrai, em regra, a competência da justiça federal, pois a tutela da flora ameaçada, assim como a da fauna, evidencia interesse específico da união; essa conclusão, contudo, não se estende automaticamente a qualquer infração ambiental, exigindo a demonstração de que o objeto material do delito esteja efetivamente abrangido por ato normativo federal de proteção. a assertiva está correta porque reproduz a lógica central do entendimento firmado: a presença de espécie vegetal em lista nacional de ameaçadas de extinção revela interesse específico da união na preservação do bem ambiental tutelado, o que desloca a competência para a justiça federal. o ponto decisivo não é apenas a natureza ambiental do ilícito, mas a existência de um vínculo normativo federal concreto com o objeto material da conduta.
+
+o julgado equipara a proteção da flora ameaçada à proteção da fauna ameaçada, afastando distinção artificial entre ambas para fins de definição da competência. assim, se a espécie vegetal atingida integra lista nacional de ameaça, há interesse federal suficiente para justificar a atuação da justiça federal, nos termos da orientação consolidada sobre crimes ambientais que envolvem bens juridicamente protegidos por ato da união.
+
+ao mesmo tempo, a assertiva preserva um limite importante: não basta a mera alegação de dano ambiental genérico. a competência federal não se presume em toda e qualquer infração contra o meio ambiente; ela depende da demonstração de que o fato recaiu sobre espécie efetivamente incluída em lista nacional de ameaça, isto é, protegida por ato normativo federal. sem esse elemento de federalização do interesse, a competência tende a permanecer na justiça estadual. stj. 3ª seção. agrg no cc 206.862-sc, rel. ministro joel ilan paciornik, julgado em 18/2/2025 (info 848).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 8</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-8">Não respondida</span>
+</div>
+
+<p class="enunciado">A prática de crime ambiental consistente na supressão ou dano a espécie vegetal incluída em lista nacional de espécies ameaçadas de extinção atrai, em regra, a competência da Justiça Federal, pois a tutela da flora ameaçada, assim como a da fauna, evidencia interesse específico da União; essa conclusão, contudo, não se estende automaticamente a qualquer infração ambiental, exigindo a demonstração de que o objeto material do delito esteja efetivamente abrangido por ato normativo federal de proteção.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(8, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(8, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-8">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a lógica central do entendimento firmado: a presença de espécie vegetal em lista nacional de ameaçadas de extinção revela interesse específico da União na preservação do bem ambiental tutelado, o que desloca a competência para a Justiça Federal. O ponto decisivo não é apenas a natureza ambiental do ilícito, mas a existência de um vínculo normativo federal concreto com o objeto material da conduta.<br><br>O julgado equipara a proteção da flora ameaçada à proteção da fauna ameaçada, afastando distinção artificial entre ambas para fins de definição da competência. Assim, se a espécie vegetal atingida integra lista nacional de ameaça, há interesse federal suficiente para justificar a atuação da Justiça Federal, nos termos da orientação consolidada sobre crimes ambientais que envolvem bens juridicamente protegidos por ato da União.<br><br>Ao mesmo tempo, a assertiva preserva um limite importante: não basta a mera alegação de dano ambiental genérico. A competência federal não se presume em toda e qualquer infração contra o meio ambiente; ela depende da demonstração de que o fato recaiu sobre espécie efetivamente incluída em lista nacional de ameaça, isto é, protegida por ato normativo federal. Sem esse elemento de federalização do interesse, a competência tende a permanecer na Justiça estadual.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Seção. AgRg no CC 206.862-SC, Rel. Ministro Joel Ilan Paciornik, julgado em 18/2/2025 (Info 848).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a captação de imagens de suspeito em via pública, por câmera instalada em poste de energia elétrica, com a finalidade de acompanhar sua movimentação e angariar indícios da prática de tráfico de drogas, configura ação controlada, razão pela qual depende de prévia autorização judicial, sob pena de violação à intimidade e de ilicitude da prova. o enunciado está incorreto porque o simples monitoramento por câmera instalada em via pública, voltado à observação da movimentação do suspeito para verificar a ocorrência de crime, não se enquadra como ação controlada na disciplina da lei de drogas. a ação controlada pressupõe uma atuação estatal mais intrusiva e diferida, com contenção momentânea da intervenção policial para melhor apuração do delito, o que não se confunde com mera vigilância visual de espaço público.
+
+além disso, a filmagem realizada em local de acesso coletivo, como via pública, não viola, por si só, o direito à intimidade ou à vida privada, pois não há captação de esfera de reserva constitucionalmente protegida. a diligência é compatível com a finalidade de segurança pública e pode ser utilizada para colher elementos informativos sobre a prática delitiva, sem necessidade de autorização judicial prévia, desde que se limite à observação de fatos ocorridos em espaço público.
+
+também não procede a alegação de ilicitude da prova. a gravação é considerada fidedigna à realidade observada e, em termos probatórios, equivale ao que poderia ser presenciado por agente policial de forma direta no local. por isso, a captação por câmera em via pública preserva o contraditório e a ampla defesa, na medida em que documenta objetivamente a dinâmica dos fatos e não representa invasão indevida de privacidade. stj. 5ª turma. agrg no rhc 203.030-sc, rel. min. carlos cini marchionatti (desembargador convocado do tjrs), julgado em 1º/4/2025 (info 848).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 9</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-9">Não respondida</span>
+</div>
+
+<p class="enunciado">A captação de imagens de suspeito em via pública, por câmera instalada em poste de energia elétrica, com a finalidade de acompanhar sua movimentação e angariar indícios da prática de tráfico de drogas, configura ação controlada, razão pela qual depende de prévia autorização judicial, sob pena de violação à intimidade e de ilicitude da prova.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(9, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(9, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-9">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O enunciado está incorreto porque o simples monitoramento por câmera instalada em via pública, voltado à observação da movimentação do suspeito para verificar a ocorrência de crime, não se enquadra como ação controlada na disciplina da Lei de Drogas. A ação controlada pressupõe uma atuação estatal mais intrusiva e diferida, com contenção momentânea da intervenção policial para melhor apuração do delito, o que não se confunde com mera vigilância visual de espaço público.<br><br>Além disso, a filmagem realizada em local de acesso coletivo, como via pública, não viola, por si só, o direito à intimidade ou à vida privada, pois não há captação de esfera de reserva constitucionalmente protegida. A diligência é compatível com a finalidade de segurança pública e pode ser utilizada para colher elementos informativos sobre a prática delitiva, sem necessidade de autorização judicial prévia, desde que se limite à observação de fatos ocorridos em espaço público.<br><br>Também não procede a alegação de ilicitude da prova. A gravação é considerada fidedigna à realidade observada e, em termos probatórios, equivale ao que poderia ser presenciado por agente policial de forma direta no local. Por isso, a captação por câmera em via pública preserva o contraditório e a ampla defesa, na medida em que documenta objetivamente a dinâmica dos fatos e não representa invasão indevida de privacidade.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 5ª Turma. AgRg no RHC 203.030-SC, Rel. Min. Carlos Cini Marchionatti (Desembargador convocado do TJRS), julgado em 1º/4/2025 (Info 848).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="ECA"
+data-texto="a recusa reiterada e injustificada da defesa, após sucessivas intimações e encerrada a instrução probatória, em apresentar alegações finais, quando apta a prolongar de modo desarrazoado o desfecho da ação penal, pode caracterizar comportamento atentatório à dignidade da justiça e legitimar a destituição dos advogados constituídos, sem que isso implique, por si só, nulidade processual. a assertiva está correta porque o entendimento firmado admite a adoção de medida sancionatória diante de atuação defensiva manifestamente recalcitrante e procrastinatória. no caso examinado, a defesa, mesmo intimada sucessivas vezes, deixou de apresentar alegações finais após o encerramento da instrução, obstando injustificadamente o regular prosseguimento e o desfecho da ação penal.  
+
+nessa hipótese, o comportamento processual viola os deveres de lealdade e boa-fé processual e pode ser enquadrado como ato atentatório à dignidade da justiça, autorizando a destituição dos patronos. a providência não foi tida como ilegal porque não decorreu de mero descumprimento formal ou de simples atraso pontual, mas de resistência reiterada, injustificada e apta a frustrar a duração razoável do processo.  
+
+o ponto central é que a prerrogativa de defesa técnica não se confunde com direito de paralisar indefinidamente o processo por conduta abusiva. assim, diante da persistência da omissão, a intervenção judicial para preservar a regularidade procedimental e evitar procrastinação indevida mostra-se compatível com o ordenamento. stj. 6ª turma. agrg no rms 74.055-sp, rel. min. antonio saldanha palheiro, julgado em 22/4/2025 (info 848).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 10</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-10">Não respondida</span>
+</div>
+
+<p class="enunciado">A recusa reiterada e injustificada da defesa, após sucessivas intimações e encerrada a instrução probatória, em apresentar alegações finais, quando apta a prolongar de modo desarrazoado o desfecho da ação penal, pode caracterizar comportamento atentatório à dignidade da justiça e legitimar a destituição dos advogados constituídos, sem que isso implique, por si só, nulidade processual.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(10, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(10, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-10">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque o entendimento firmado admite a adoção de medida sancionatória diante de atuação defensiva manifestamente recalcitrante e procrastinatória. No caso examinado, a defesa, mesmo intimada sucessivas vezes, deixou de apresentar alegações finais após o encerramento da instrução, obstando injustificadamente o regular prosseguimento e o desfecho da ação penal.  <br><br>Nessa hipótese, o comportamento processual viola os deveres de lealdade e boa-fé processual e pode ser enquadrado como ato atentatório à dignidade da justiça, autorizando a destituição dos patronos. A providência não foi tida como ilegal porque não decorreu de mero descumprimento formal ou de simples atraso pontual, mas de resistência reiterada, injustificada e apta a frustrar a duração razoável do processo.  <br><br>O ponto central é que a prerrogativa de defesa técnica não se confunde com direito de paralisar indefinidamente o processo por conduta abusiva. Assim, diante da persistência da omissão, a intervenção judicial para preservar a regularidade procedimental e evitar procrastinação indevida mostra-se compatível com o ordenamento.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 6ª Turma. AgRg no RMS 74.055-SP, Rel. Min. Antonio Saldanha Palheiro, julgado em 22/4/2025 (Info 848).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a pessoa com visão monocular faz jus à isenção do ipi na aquisição de veículo automotor, sendo irrelevante a existência de restrição específica na cnh, pois a lei nº 8.989/1995 condiciona o benefício apenas à comprovação da deficiência enquadrável em seu art. 1º, iv, interpretação que deve prestigiar a finalidade inclusiva da norma, especialmente após o reconhecimento legal da visão monocular como deficiência visual para todos os efeitos. o enunciado está correto. a disciplina legal da isenção do ipi para aquisição de veículo por pessoa com deficiência, prevista no art. 1º, iv, da lei nº 8.989/1995, abrange pessoas com deficiência física, visual, auditiva e mental severa ou profunda, além de pessoas com transtorno do espectro autista. no caso da visão monocular, a lei nº 14.126/2021 passou a prever expressamente que ela é considerada deficiência visual para todos os efeitos legais, o que reforça o enquadramento do beneficiário na hipótese legal.
+
+o ponto central do entendimento é que a lei instituidora da isenção não exige, como condição autônoma e necessária, a existência de restrição na carteira nacional de habilitação. assim, não se pode criar requisito não previsto em lei para limitar o alcance do benefício fiscal. a interpretação adotada é teleológica e sistêmica, voltada à finalidade social da norma: promover inclusão e ampliar a garantia de direitos às pessoas com deficiência, e não restringir indevidamente o acesso ao incentivo tributário.
+
+em matéria de isenção tributária, a regra é de interpretação literal quanto à outorga do benefício, mas isso não autoriza a administração ou o intérprete a acrescentar exigências não previstas no texto legal. aqui, a conclusão foi justamente a de que basta a demonstração da deficiência nos termos legais, sem imposição de restrição na cnh como requisito adicional. portanto, a visão monocular, por si só, é suficiente para o reconhecimento do direito à isenção, desde que comprovada a condição de deficiência nos moldes da legislação aplicável. stj. 2ª turma. resp 2.185.814-rs, rel. min. afrânio vilela, julgado em 22/4/2025 (info 848).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 11</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-11">Não respondida</span>
+</div>
+
+<p class="enunciado">A pessoa com visão monocular faz jus à isenção do IPI na aquisição de veículo automotor, sendo irrelevante a existência de restrição específica na CNH, pois a Lei nº 8.989/1995 condiciona o benefício apenas à comprovação da deficiência enquadrável em seu art. 1º, IV, interpretação que deve prestigiar a finalidade inclusiva da norma, especialmente após o reconhecimento legal da visão monocular como deficiência visual para todos os efeitos.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(11, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(11, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-11">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O enunciado está correto. A disciplina legal da isenção do IPI para aquisição de veículo por pessoa com deficiência, prevista no art. 1º, IV, da Lei nº 8.989/1995, abrange pessoas com deficiência física, visual, auditiva e mental severa ou profunda, além de pessoas com transtorno do espectro autista. No caso da visão monocular, a Lei nº 14.126/2021 passou a prever expressamente que ela é considerada deficiência visual para todos os efeitos legais, o que reforça o enquadramento do beneficiário na hipótese legal.<br><br>O ponto central do entendimento é que a lei instituidora da isenção não exige, como condição autônoma e necessária, a existência de restrição na Carteira Nacional de Habilitação. Assim, não se pode criar requisito não previsto em lei para limitar o alcance do benefício fiscal. A interpretação adotada é teleológica e sistêmica, voltada à finalidade social da norma: promover inclusão e ampliar a garantia de direitos às pessoas com deficiência, e não restringir indevidamente o acesso ao incentivo tributário.<br><br>Em matéria de isenção tributária, a regra é de interpretação literal quanto à outorga do benefício, mas isso não autoriza a Administração ou o intérprete a acrescentar exigências não previstas no texto legal. Aqui, a conclusão foi justamente a de que basta a demonstração da deficiência nos termos legais, sem imposição de restrição na CNH como requisito adicional. Portanto, a visão monocular, por si só, é suficiente para o reconhecimento do direito à isenção, desde que comprovada a condição de deficiência nos moldes da legislação aplicável.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 2ª Turma. REsp 2.185.814-RS, Rel. Min. Afrânio Vilela, julgado em 22/4/2025 (Info 848).</p>
+</div>
+</section>
+
+</div>
+
+<script>
+const storageKey = location.pathname + "_respostas";
+let respostas = JSON.parse(localStorage.getItem(storageKey) || "{}");
+
+function destacar(t){
+ if(t==="CERTO") return '<span class="gabarito-certo">CERTO</span>';
+ if(t==="ERRADO") return '<span class="gabarito-errado">ERRADO</span>';
+ return t;
+}
+
+function responder(numero, resposta){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const gabarito=card.dataset.gabarito;
+ const correto=resposta===gabarito;
+ respostas[numero]={resposta,correto};
+ localStorage.setItem(storageKey, JSON.stringify(respostas));
+ mostrarFeedback(numero);
+ atualizarPainel();
+ filtrar();
+}
+
+function mostrarFeedback(numero){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const feedback=document.getElementById("feedback-"+numero);
+ const status=document.getElementById("status-"+numero);
+ const resultado=feedback.querySelector(".resultado");
+ const gabarito=card.dataset.gabarito;
+ const dados=respostas[numero];
+ if(!dados) return;
+ feedback.style.display="block";
+ feedback.classList.remove("correto","errado");
+ if(dados.correto){
+   feedback.classList.add("correto");
+   resultado.innerHTML="Você acertou. A resposta é "+destacar(gabarito)+".";
+   status.textContent="Respondida — acerto";
+   status.style.color="var(--green)";
+ } else {
+   feedback.classList.add("errado");
+   resultado.innerHTML="Você errou. O gabarito é "+destacar(gabarito)+".";
+   status.textContent="Respondida — erro";
+   status.style.color="var(--red)";
+ }
+}
+
+function atualizarPainel(){
+ let respondidas=0, acertos=0, erros=0;
+ for(const k in respostas){
+   respondidas++;
+   if(respostas[k].correto) acertos++; else erros++;
+ }
+ document.getElementById("respondidas").textContent=respondidas;
+ document.getElementById("acertos").textContent=acertos;
+ document.getElementById("erros").textContent=erros;
+ document.getElementById("visiveis").textContent=document.querySelectorAll(".questao:not(.oculta)").length;
+}
+
+function filtrar(){
+ const busca=document.getElementById("busca").value.trim().toLowerCase();
+ const disciplina=document.getElementById("disciplina").value;
+ const statusFiltro=document.getElementById("statusFiltro").value;
+ const cards=Array.from(document.querySelectorAll(".questao"));
+ let vis=0;
+ cards.forEach((card,idx)=>{
+   const n=idx+1;
+   const texto=card.dataset.texto||"";
+   const disc=card.dataset.disciplina||"";
+   const r=respostas[n];
+   let passaStatus=true;
+   if(statusFiltro==="nao") passaStatus=!r;
+   if(statusFiltro==="acerto") passaStatus=r && r.correto;
+   if(statusFiltro==="erro") passaStatus=r && !r.correto;
+   const ok=(!busca||texto.includes(busca)) && (!disciplina||disc===disciplina) && passaStatus;
+   card.classList.toggle("oculta", !ok);
+   if(ok) vis++;
+ });
+ document.getElementById("sem-resultados").style.display=vis===0?"block":"none";
+ atualizarPainel();
+}
+
+function reiniciar(){
+ if(!confirm("Deseja reiniciar este simulado?")) return;
+ localStorage.removeItem(storageKey);
+ location.reload();
+}
+
+function restaurar(){
+ for(const k in respostas) mostrarFeedback(Number(k));
+ filtrar();
+ atualizarPainel();
+}
+
+restaurar();
+</script>
+</body>
+</html>

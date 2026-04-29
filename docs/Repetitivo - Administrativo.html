@@ -1,0 +1,3247 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Simulado - Repetitivo - Administrativo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+:root{
+--bg:#020617;--panel:rgba(15,23,42,.88);--card:rgba(15,23,42,.96);
+--card2:rgba(30,41,59,.92);--border:rgba(148,163,184,.22);
+--text:#e5e7eb;--muted:#94a3b8;--accent:#38bdf8;--accent2:#0ea5e9;
+--green:#22c55e;--red:#ef4444;--yellow:#facc15;--purple:#a78bfa;
+}
+*{box-sizing:border-box}
+body{
+margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+background:radial-gradient(circle at top left,rgba(56,189,248,.20),transparent 28%),
+radial-gradient(circle at top right,rgba(167,139,250,.15),transparent 28%),
+linear-gradient(135deg,#020617,#0f172a 50%,#020617);
+color:var(--text);line-height:1.65;
+}
+header{padding:44px 20px 32px;text-align:center;border-bottom:1px solid var(--border)}
+header h1{margin:0 0 10px;font-size:clamp(28px,4vw,46px);letter-spacing:-.05em}
+header p{color:var(--muted);margin:0;font-size:16px}
+.container{max-width:1160px;margin:0 auto;padding:26px 16px 80px}
+.painel{
+position:sticky;top:10px;z-index:10;background:var(--panel);backdrop-filter:blur(18px);
+border:1px solid var(--border);border-radius:26px;padding:16px;margin-bottom:22px;
+box-shadow:0 22px 70px rgba(0,0,0,.35)
+}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.stat{background:var(--card2);padding:14px;border-radius:18px;text-align:center;border:1px solid rgba(148,163,184,.12)}
+.stat strong{display:block;font-size:25px;color:var(--accent);line-height:1.1}
+.stat span{font-size:12px;color:var(--muted)}
+.filtros{display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:12px;margin-top:14px}
+input,select{
+width:100%;background:rgba(2,6,23,.78);color:var(--text);border:1px solid var(--border);
+border-radius:14px;padding:13px 14px;outline:none;font-size:14px
+}
+input:focus,select:focus{border-color:var(--accent)}
+.card{
+background:var(--card);border:1px solid var(--border);border-radius:24px;padding:26px;
+margin-bottom:20px;box-shadow:0 18px 50px rgba(0,0,0,.24)
+}
+.questao{scroll-margin-top:190px}
+.questao-topo{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:18px}
+.badge{
+background:linear-gradient(135deg,var(--accent),var(--accent2));color:#00111f;font-weight:900;
+padding:7px 13px;border-radius:999px;display:inline-block
+}
+.disciplina-tag,.tipo-tag{
+display:inline-block;margin-left:8px;color:var(--muted);background:rgba(148,163,184,.10);
+border:1px solid rgba(148,163,184,.14);padding:6px 10px;border-radius:999px;font-size:12px
+}
+.tipo-tag{color:#ddd6fe;border-color:rgba(167,139,250,.25)}
+.status{color:var(--yellow);font-size:13px;white-space:nowrap}
+.enunciado{font-size:19px;margin:0 0 22px;letter-spacing:-.01em}
+.botoes{display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.btn{
+cursor:pointer;border:0;padding:12px 22px;border-radius:14px;color:white;font-weight:900;
+transition:.18s ease;letter-spacing:.02em
+}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.certo{background:rgba(34,197,94,.20);border:1px solid rgba(34,197,94,.42)}
+.btn.errado{background:rgba(239,68,68,.20);border:1px solid rgba(239,68,68,.42)}
+.btn.neutro{background:rgba(56,189,248,.16);color:var(--text);border:1px solid rgba(56,189,248,.32)}
+.feedback{
+display:none;background:rgba(2,6,23,.72);border:1px solid rgba(148,163,184,.16);
+border-left:5px solid var(--accent);padding:18px;border-radius:18px;margin-top:14px
+}
+.feedback.correto{border-left-color:var(--green)}
+.feedback.errado{border-left-color:var(--red)}
+.resultado{font-size:18px;font-weight:900;margin-top:0}
+.justificativa{margin-top:12px}
+.referencia{color:var(--muted);font-size:13px;margin-top:16px}
+.gabarito-certo{color:var(--green);font-weight:900}
+.gabarito-errado{color:var(--red);font-weight:900}
+.oculta{display:none}
+.sem-resultados{text-align:center;color:var(--muted);display:none;padding:30px}
+.grid-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
+.link-card{
+display:block;padding:20px;background:rgba(15,23,42,.95);border:1px solid rgba(148,163,184,.22);
+color:#e5e7eb;border-radius:22px;text-decoration:none;transition:.2s;box-shadow:0 14px 40px rgba(0,0,0,.22)
+}
+.link-card:hover{transform:translateY(-3px);border-color:#38bdf8}
+.link-card strong{display:block;font-size:17px;margin-bottom:8px}
+.link-card span{color:#94a3b8;font-size:13px}
+.index-tools{display:grid;grid-template-columns:1.5fr 1fr;gap:12px;margin-bottom:20px}
+@media(max-width:850px){
+.stats{grid-template-columns:repeat(2,1fr)}
+.filtros,.index-tools{grid-template-columns:1fr}
+.questao-topo{align-items:flex-start;flex-direction:column}
+.botoes{flex-direction:column}
+.enunciado{font-size:16px}
+.card{padding:20px}
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Simulado - Repetitivo - Administrativo</h1>
+<p>Repetitivos • Simulado interativo de CERTO ou ERRADO</p>
+</header>
+
+<div class="container">
+<div class="painel">
+<div class="stats">
+<div class="stat"><strong>104</strong><span>Total</span></div>
+<div class="stat"><strong id="visiveis">104</strong><span>Visíveis</span></div>
+<div class="stat"><strong id="respondidas">0</strong><span>Respondidas</span></div>
+<div class="stat"><strong id="acertos">0</strong><span>Acertos</span></div>
+<div class="stat"><strong id="erros">0</strong><span>Erros</span></div>
+</div>
+
+<div class="filtros">
+<input id="busca" type="search" placeholder="Buscar por palavra-chave..." oninput="filtrar()">
+<select id="disciplina" onchange="filtrar()">
+<option value="">Todas as disciplinas</option>
+<option value="ECA">ECA</option>
+<option value="N/I">N/I</option>
+</select>
+<select id="statusFiltro" onchange="filtrar()">
+<option value="">Todas</option>
+<option value="nao">Não respondidas</option>
+<option value="acerto">Acertos</option>
+<option value="erro">Erros</option>
+</select>
+<button class="btn neutro" onclick="reiniciar()">Reiniciar</button>
+</div>
+</div>
+
+<div id="sem-resultados" class="sem-resultados">Nenhuma questão encontrada com os filtros atuais.</div>
+
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="o dispositivo do art. 1º-f da lei 9.494/97, que fixa os juros moratórios em 6% nas demandas ajuizadas contra a fazenda pública, aplica-se somente às execuções e ações propostas após a entrada em vigor da norma, não alcançando ações ajuizadas anteriormente cuja liquidação ou fase de conhecimento ainda não estavam encerradas. a tese do tema 4 do stj delimita a eficácia temporal do art. 1º‑f/lei 9.494/97, afirmando que sua incidência é restrita às demandas ajuizadas após sua vigência. logo, não se estende, em regra, a ações já em curso antes da entrada em vigor, salvo disposição de direito intertemporal diversa. a observância da irretroatividade da lei penal e civil dos tributos e encargos moratórios fundamenta essa limitação. tema 4">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 1</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-1">Não respondida</span>
+</div>
+
+<p class="enunciado">O dispositivo do art. 1º-F da Lei 9.494/97, que fixa os juros moratórios em 6% nas demandas ajuizadas contra a Fazenda Pública, aplica-se somente às execuções e ações propostas após a entrada em vigor da norma, não alcançando ações ajuizadas anteriormente cuja liquidação ou fase de conhecimento ainda não estavam encerradas.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(1, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(1, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-1">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A tese do Tema 4 do STJ delimita a eficácia temporal do art. 1º‑F/Lei 9.494/97, afirmando que sua incidência é restrita às demandas ajuizadas após sua vigência. Logo, não se estende, em regra, a ações já em curso antes da entrada em vigor, salvo disposição de direito intertemporal diversa. A observância da irretroatividade da lei penal e civil dos tributos e encargos moratórios fundamenta essa limitação.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 4</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="reconhecido desvio de função, o servidor não tem direito automático às diferenças salariais, pois essas só são devidas quando houver previsão expressa em lei ou quando o desvio importou acúmulo formal de atribuições com prova inequívoca de prejuízo financeiro. a tese do tema 14 estabelece que, uma vez reconhecido o desvio de função, o servidor faz jus às diferenças salariais daí decorrentes. a existência de previsão legal formal não constitui óbice quando comprovado o exercício habitual de atribuições superiores, gerando direito às diferenças remuneratórias. tema 14">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 2</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-2">Não respondida</span>
+</div>
+
+<p class="enunciado">Reconhecido desvio de função, o servidor não tem direito automático às diferenças salariais, pois essas só são devidas quando houver previsão expressa em lei ou quando o desvio importou acúmulo formal de atribuições com prova inequívoca de prejuízo financeiro.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(2, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(2, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-2">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A tese do Tema 14 estabelece que, uma vez reconhecido o desvio de função, o servidor faz jus às diferenças salariais daí decorrentes. A existência de previsão legal formal não constitui óbice quando comprovado o exercício habitual de atribuições superiores, gerando direito às diferenças remuneratórias.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 14</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="os estados e municípios estão obrigados a observar os critérios da lei federal nº 8.880/94 para a conversão em urv dos vencimentos e proventos de seus servidores, independentemente de lei local diversa, por força de aplicabilidade imediata da norma federal. tema 15 do stj reconhece a obrigatoriedade de observância, por estados e municípios, dos critérios previstos na lei 8.880/94 para conversão em urv, impondo uniformidade de parâmetros federais na conversão remuneratória, salvo compatibilização local que respeite os critérios nacionais. tema 15">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 3</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-3">Não respondida</span>
+</div>
+
+<p class="enunciado">Os Estados e Municípios estão obrigados a observar os critérios da Lei Federal nº 8.880/94 para a conversão em URV dos vencimentos e proventos de seus servidores, independentemente de lei local diversa, por força de aplicabilidade imediata da norma federal.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(3, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(3, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-3">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 15 do STJ reconhece a obrigatoriedade de observância, por Estados e Municípios, dos critérios previstos na Lei 8.880/94 para conversão em URV, impondo uniformidade de parâmetros federais na conversão remuneratória, salvo compatibilização local que respeite os critérios nacionais.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 15</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a certidão individual expedida por tribunal de justiça, em que se confessa a existência de dívida consolidada em favor de servidor do seu quadro, não pode interromper a prescrição, por se tratar de documento atuado por órgão jurisdicional e não por reconhecimento do devedor. tema 23 dispõe que a confissão realizada por meio de certidão individual emitida pelo tribunal de justiça, reconhecendo dívida consolidada em favor de servidor integrante do quadro, importa em interrupção da prescrição. trata‑se de confissão formal apta a suspender o prazo prescricional, nos termos da jurisprudência. tema 23">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 4</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-4">Não respondida</span>
+</div>
+
+<p class="enunciado">A certidão individual expedida por Tribunal de Justiça, em que se confessa a existência de dívida consolidada em favor de servidor do seu quadro, não pode interromper a prescrição, por se tratar de documento atuado por órgão jurisdicional e não por reconhecimento do devedor.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(4, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(4, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-4">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 23 dispõe que a confissão realizada por meio de certidão individual emitida pelo Tribunal de Justiça, reconhecendo dívida consolidada em favor de servidor integrante do quadro, importa em interrupção da prescrição. Trata‑se de confissão formal apta a suspender o prazo prescricional, nos termos da jurisprudência.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 23</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="é legítima a cobrança de tarifa básica sobre o serviço de telefonia fixa, ainda que tal tarifa constitua cobrança mínima independentemente do efetivo uso do serviço, diante da natureza de contraprestação pelo serviço posto à disposição do usuário. tema 77 confirma a legitimidade da tarifa básica pelo uso de serviços de telefonia fixa, reconhecendo a possibilidade de cobrança de valor fixo que remunere a disponibilização do serviço, mesmo que não haja consumo efetivo naquele período. tema 77">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 5</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-5">Não respondida</span>
+</div>
+
+<p class="enunciado">É legítima a cobrança de tarifa básica sobre o serviço de telefonia fixa, ainda que tal tarifa constitua cobrança mínima independentemente do efetivo uso do serviço, diante da natureza de contraprestação pelo serviço posto à disposição do usuário.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(5, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(5, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-5">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 77 confirma a legitimidade da tarifa básica pelo uso de serviços de telefonia fixa, reconhecendo a possibilidade de cobrança de valor fixo que remunere a disponibilização do serviço, mesmo que não haja consumo efetivo naquele período.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 77</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a exigência de depósito prévio para interposição de recurso administrativo destinado à discussão de crédito previdenciário é válida, por não afetar o direito à ampla defesa nem o direito de petição, sendo compatível com o art. 5º, lv e xxxiv da cf/88. tema 86 assinala a inexigibilidade do depósito prévio ao recurso administrativo para discutir crédito previdenciário, por violação da ampla defesa e do direito de petição. o stf declarou a inconstitucionalidade de dispositivos que impunham tal depósito, protegendo o acesso ao recurso sem pagamento prévio. tema 86 (re 389.383-1/sp)">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 6</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-6">Não respondida</span>
+</div>
+
+<p class="enunciado">A exigência de depósito prévio para interposição de recurso administrativo destinado à discussão de crédito previdenciário é válida, por não afetar o direito à ampla defesa nem o direito de petição, sendo compatível com o art. 5º, LV e XXXIV da CF/88.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(6, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(6, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-6">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 86 assinala a inexigibilidade do depósito prévio ao recurso administrativo para discutir crédito previdenciário, por violação da ampla defesa e do direito de petição. O STF declarou a inconstitucionalidade de dispositivos que impunham tal depósito, protegendo o acesso ao recurso sem pagamento prévio.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 86 (RE 389.383-1/SP)</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="desde 1º de agosto de 2007 passou a ser exigido das concessionárias de telefonia fixa o detalhamento de todas as chamadas na modalidade local, inclusive as realizadas dentro da franquia contratada, por não haver qualquer vedação normativa a tal registro. tema 87 confirma que, a partir da implementação total do sistema em 01/08/2007, as concessionárias devem detalhar todas as ligações na modalidade local, inclusive as dentro da franquia, conforme previsto no artigo 83 do anexo à resolução 426/2005. tema 87">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 7</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-7">Não respondida</span>
+</div>
+
+<p class="enunciado">Desde 1º de agosto de 2007 passou a ser exigido das concessionárias de telefonia fixa o detalhamento de todas as chamadas na modalidade local, inclusive as realizadas dentro da franquia contratada, por não haver qualquer vedação normativa a tal registro.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(7, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(7, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-7">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 87 confirma que, a partir da implementação total do sistema em 01/08/2007, as concessionárias devem detalhar todas as ligações na modalidade local, inclusive as dentro da franquia, conforme previsto no artigo 83 do anexo à Resolução 426/2005.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 87</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="as obrigações ao portador emitidas pela eletrobrás em razão do empréstimo compulsório instituído pela lei 4.156/62 são equiparadas a debêntures para fins de contagem do prazo prescricional de vinte anos do art. 442 do código comercial, por configurarem obrigação de natureza comercial. tema 92 afasta a equiparação às debêntures, entendendo que as obrigações ao portador da eletrobrás decorrem de relação de natureza administrativa e não comercial, sendo inaplicável a regra do art. 442 do ccom; aplica‑se, em tese, a regra do decreto 20.910/32. tema 92">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 8</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-8">Não respondida</span>
+</div>
+
+<p class="enunciado">As Obrigações ao Portador emitidas pela ELETROBRÁS em razão do empréstimo compulsório instituído pela Lei 4.156/62 são equiparadas a debêntures para fins de contagem do prazo prescricional de vinte anos do art. 442 do Código Comercial, por configurarem obrigação de natureza comercial.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(8, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(8, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-8">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 92 afasta a equiparação às debêntures, entendendo que as Obrigações ao Portador da ELETROBRÁS decorrem de relação de natureza administrativa e não comercial, sendo inaplicável a regra do art. 442 do CCom; aplica‑se, em tese, a regra do Decreto 20.910/32.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 92</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="ECA"
+data-texto="o direito ao resgate das obrigações ao portador previstas na lei 4.156/62 configura direito potestativo, razão pela qual o prazo de cinco anos previsto no art. 4º, §11 da lei constitui prazo de decadência e não prescrição. tema 93 determina que o direito ao resgate é potestativo, e a regra do art. 4º, §11, que fixa cinco anos para troca e resgate, caracteriza prazo decadencial, impondo a perda do direito por inércia e não mera prescrição. tema 93">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 9</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-9">Não respondida</span>
+</div>
+
+<p class="enunciado">O direito ao resgate das Obrigações ao Portador previstas na Lei 4.156/62 configura direito potestativo, razão pela qual o prazo de cinco anos previsto no art. 4º, §11 da Lei constitui prazo de decadência e não prescrição.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(9, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(9, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-9">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 93 determina que o direito ao resgate é potestativo, e a regra do art. 4º, §11, que fixa cinco anos para troca e resgate, caracteriza prazo decadencial, impondo a perda do direito por inércia e não mera prescrição.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 93</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="como a lei 4.156/62 conferiu à eletrobrás a faculdade de substituir obrigações por ações preferenciais, se a empresa deixar de exercer essa faculdade, o titular do crédito mantém o direito de exigir, em qualquer hipótese, ações preferenciais em substituição ao crédito. tema 94 esclarece que a conversão em ações preferenciais era faculdade da eletrobrás; não exercida, o titular do crédito, em tese, apenas teria direito à devolução em dinheiro, não podendo compelir a concessão das ações. tema 94">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 10</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-10">Não respondida</span>
+</div>
+
+<p class="enunciado">Como a Lei 4.156/62 conferiu à ELETROBRÁS a faculdade de substituir obrigações por ações preferenciais, se a empresa deixar de exercer essa faculdade, o titular do crédito mantém o direito de exigir, em qualquer hipótese, ações preferenciais em substituição ao crédito.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(10, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(10, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-10">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 94 esclarece que a conversão em ações preferenciais era faculdade da ELETROBRÁS; não exercida, o titular do crédito, em tese, apenas teria direito à devolução em dinheiro, não podendo compelir a concessão das ações.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 94</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="ECA"
+data-texto="a falta de expedição da notificação da autuação no prazo de 30 dias, na forma prevista no art. 281, parágrafo único, ii, do ctb, constitui causa para arquivamento do auto de infração e julgamento de insubsistência do registro, configurando decadência do direito punitivo do estado sem ensejar reinício do procedimento administrativo. tema 105 sustenta que, não havendo notificação do infrator no prazo de 30 dias, opera‑se a decadência do direito de punir, com arquivamento do auto de infração e declaração de insubsistência do registro, não cabendo reinício do procedimento pelo mesmo fato. tema 105 (ctb, art. 281, par. único, ii)">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 11</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-11">Não respondida</span>
+</div>
+
+<p class="enunciado">A falta de expedição da notificação da autuação no prazo de 30 dias, na forma prevista no art. 281, parágrafo único, II, do CTB, constitui causa para arquivamento do auto de infração e julgamento de insubsistência do registro, configurando decadência do direito punitivo do Estado sem ensejar reinício do procedimento administrativo.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(11, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(11, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-11">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 105 sustenta que, não havendo notificação do infrator no prazo de 30 dias, opera‑se a decadência do direito de punir, com arquivamento do auto de infração e declaração de insubsistência do registro, não cabendo reinício do procedimento pelo mesmo fato.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 105 (CTB, art. 281, par. único, II)</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a concessão judicial de medicamento não incorporado em atos normativos do sus pode ocorrer sem necessidade de comprovação de insuficiência das medicações fornecidas pelo sus, bastando a prescrição médica e a incapacidade financeira do paciente. tema 106 exige requisitos cumulativos: (i) laudo médico fundamentado que comprove a imprescindibilidade e a ineficácia dos fármacos do sus; (ii) incapacidade financeira; e (iii) registro na anvisa. assim, não basta prescrição e insuficiência financeira para autorizar fornecimento. tema 106">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 12</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-12">Não respondida</span>
+</div>
+
+<p class="enunciado">A concessão judicial de medicamento não incorporado em atos normativos do SUS pode ocorrer sem necessidade de comprovação de insuficiência das medicações fornecidas pelo SUS, bastando a prescrição médica e a incapacidade financeira do paciente.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(12, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(12, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-12">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 106 exige requisitos cumulativos: (i) laudo médico fundamentado que comprove a imprescindibilidade e a ineficácia dos fármacos do SUS; (ii) incapacidade financeira; e (iii) registro na ANVISA. Assim, não basta prescrição e insuficiência financeira para autorizar fornecimento.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 106</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="quando é aplicada a pena de apreensão de veículo, é lícito à autoridade administrativa vincular a liberação do bem ao pagamento das multas regularmente notificadas e vencidas relativas à infração que motivou a apreensão. tema 123 reconhece a licitude de condicionar a liberação de veículo apreendido ao pagamento das multas regularmente notificadas e vencidas, visto tratar‑se de medida vinculada à execução da penalidade administrativa. tema 123">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 13</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-13">Não respondida</span>
+</div>
+
+<p class="enunciado">Quando é aplicada a pena de apreensão de veículo, é lícito à autoridade administrativa vincular a liberação do bem ao pagamento das multas regularmente notificadas e vencidas relativas à infração que motivou a apreensão.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(13, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(13, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-13">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 123 reconhece a licitude de condicionar a liberação de veículo apreendido ao pagamento das multas regularmente notificadas e vencidas, visto tratar‑se de medida vinculada à execução da penalidade administrativa.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 123</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a exigência de prévio pagamento das despesas de remoção e estada do depósito como condição para a liberação de veículo apreendido é ilegal, e a cobrança das taxas de estada não tem limite temporal. tema 124 admite a exigência do pagamento prévio das despesas de remoção e estada para liberação do veículo, porém limita a cobrança da taxa de estada aos primeiros 30 dias, tornando ilegal a cobrança ilimitada. tema 124">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 14</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-14">Não respondida</span>
+</div>
+
+<p class="enunciado">A exigência de prévio pagamento das despesas de remoção e estada do depósito como condição para a liberação de veículo apreendido é ilegal, e a cobrança das taxas de estada não tem limite temporal.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(14, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(14, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-14">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 124 admite a exigência do pagamento prévio das despesas de remoção e estada para liberação do veículo, porém limita a cobrança da taxa de estada aos primeiros 30 dias, tornando ilegal a cobrança ilimitada.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 124</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="o índice de juros compensatórios aplicável nas desapropriações ocorridas até 11/06/1997 era de 12%, permanecendo essa taxa inalterada mesmo para desapropriações posteriores à publicação da mp 1577/97. tema 126 fixa que o índice de juros compensatórios era de 12% até 11/6/97 (data anterior à mp 1577/97). a tautologia temporal indica limite até essa data; não se afirma aplicação automática após a mp, que alterou o panorama jurídico subsequente. tema 126">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 15</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-15">Não respondida</span>
+</div>
+
+<p class="enunciado">O índice de juros compensatórios aplicável nas desapropriações ocorridas até 11/06/1997 era de 12%, permanecendo essa taxa inalterada mesmo para desapropriações posteriores à publicação da MP 1577/97.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(15, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(15, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-15">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 126 fixa que o índice de juros compensatórios era de 12% até 11/6/97 (data anterior à MP 1577/97). A tautologia temporal indica limite até essa data; não se afirma aplicação automática após a MP, que alterou o panorama jurídico subsequente.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 126</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="o prazo prescricional para ajuizamento da execução fiscal visando à cobrança de multa administrativa é de cinco anos, contado do momento em que o crédito tributário tornou‑se exigível, com o vencimento do prazo de pagamento. tema 135 estabelece prazo quinquenal (cinco anos) para execução fiscal de multa administrativa, contado do momento em que o crédito se tornou exigível, i.e., do vencimento do prazo para pagamento. tema 135">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 16</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-16">Não respondida</span>
+</div>
+
+<p class="enunciado">O prazo prescricional para ajuizamento da execução fiscal visando à cobrança de multa administrativa é de cinco anos, contado do momento em que o crédito tributário tornou‑se exigível, com o vencimento do prazo de pagamento.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(16, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(16, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-16">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 135 estabelece prazo quinquenal (cinco anos) para execução fiscal de multa administrativa, contado do momento em que o crédito se tornou exigível, i.e., do vencimento do prazo para pagamento.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 135</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="na ausência de regra específica, o prazo para a cobrança da multa aplicada por infração administrativa ambiental é trintenário, não se aplicando o decreto 20.910/32 por incompatibilidade normativa. tema 146 determina ser de cinco anos o prazo para cobrança de multa administrativa ambiental, aplicando‑se, por isonomia, o decreto 20.910/32 quando não há regra específica, afastando prazo trintenário. tema 146">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 17</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-17">Não respondida</span>
+</div>
+
+<p class="enunciado">Na ausência de regra específica, o prazo para a cobrança da multa aplicada por infração administrativa ambiental é trintenário, não se aplicando o Decreto 20.910/32 por incompatibilidade normativa.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(17, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(17, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-17">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 146 determina ser de cinco anos o prazo para cobrança de multa administrativa ambiental, aplicando‑se, por isonomia, o Decreto 20.910/32 quando não há regra específica, afastando prazo trintenário.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 146</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="em se tratando de multa administrativa, a prescrição da ação de cobrança somente começa a fluir a partir do momento em que o crédito se torna exigível em razão da inércia do administrado, i.e., do vencimento do crédito sem pagamento. tema 147 estabelece que, para multa administrativa, a prescrição começa a correr com o vencimento do crédito sem pagamento — momento em que o administrado fica inadimplente — o que marca o termo inicial do prazo prescricional. tema 147">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 18</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-18">Não respondida</span>
+</div>
+
+<p class="enunciado">Em se tratando de multa administrativa, a prescrição da ação de cobrança somente começa a fluir a partir do momento em que o crédito se torna exigível em razão da inércia do administrado, i.e., do vencimento do crédito sem pagamento.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(18, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(18, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-18">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 147 estabelece que, para multa administrativa, a prescrição começa a correr com o vencimento do crédito sem pagamento — momento em que o administrado fica inadimplente — o que marca o termo inicial do prazo prescricional.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 147</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a cobrança da tarifa de água pode ser estruturada por categorias de usuários e faixas de consumo, sendo tal sistemática de fixação tarifária ilegítima por violar o princípio da isonomia. tema 153 declara legítima a cobrança de tarifa de água fixada segundo categorias de usuários e faixas de consumo, reconhecendo a discriminação tarifária em razão do critério de uso e capacidade econômico‑financeira como compatível com os serviços públicos. tema 153">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 19</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-19">Não respondida</span>
+</div>
+
+<p class="enunciado">A cobrança da tarifa de água pode ser estruturada por categorias de usuários e faixas de consumo, sendo tal sistemática de fixação tarifária ilegítima por violar o princípio da isonomia.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(19, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(19, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-19">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 153 declara legítima a cobrança de tarifa de água fixada segundo categorias de usuários e faixas de consumo, reconhecendo a discriminação tarifária em razão do critério de uso e capacidade econômico‑financeira como compatível com os serviços públicos.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 153</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a ação de repetição de indébito relativa às tarifas de água e esgoto sujeita‑se ao prazo prescricional estabelecido no código civil, devendo observar‑se, portanto, os prazos civis aplicáveis à espécie. tema 154 (repetido no 155) consagra que a ação de repetição de indébito das tarifas de água e esgoto se submete ao prazo prescricional do código civil, sofrendo incidência das regras gerais de prescrição civil. tema 154">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 20</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-20">Não respondida</span>
+</div>
+
+<p class="enunciado">A ação de repetição de indébito relativa às tarifas de água e esgoto sujeita‑se ao prazo prescricional estabelecido no Código Civil, devendo observar‑se, portanto, os prazos civis aplicáveis à espécie.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(20, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(20, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-20">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 154 (repetido no 155) consagra que a ação de repetição de indébito das tarifas de água e esgoto se submete ao prazo prescricional do Código Civil, sofrendo incidência das regras gerais de prescrição civil.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 154</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a repetição de indébito das tarifas de água e esgoto sujeita‑se a regime especial autônomo, distinto do código civil, com prazo prescricional diverso do previsto no ordenamento civil. tema 155 reitera entendimento de que a ação de repetição de indébito dessas tarifas está submetida ao prazo prescricional do código civil, afastando regime especial diverso. tema 155">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 21</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-21">Não respondida</span>
+</div>
+
+<p class="enunciado">A repetição de indébito das tarifas de água e esgoto sujeita‑se a regime especial autônomo, distinto do Código Civil, com prazo prescricional diverso do previsto no ordenamento civil.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(21, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(21, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-21">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 155 reitera entendimento de que a ação de repetição de indébito dessas tarifas está submetida ao prazo prescricional do Código Civil, afastando regime especial diverso.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 155</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="o farmacêutico pode acumular responsabilidade técnica por mais de uma unidade farmacêutica e por duas drogarias, desde que se trate de espécies distintas do gênero &#x27;farmácia&#x27;, não havendo vedação estatutária para tal acumulação. tema 181 dispõe que o farmacêutico pode acumular responsabilidade técnica por unidade farmacêutica e por unidade de drogaria, bem como por duas drogarias, sendo consideradas espécies do gênero &#x27;farmácia&#x27;, autorizando acúmulo em situações específicas. tema 181">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 22</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-22">Não respondida</span>
+</div>
+
+<p class="enunciado">O farmacêutico pode acumular responsabilidade técnica por mais de uma unidade farmacêutica e por duas drogarias, desde que se trate de espécies distintas do gênero &#x27;farmácia&#x27;, não havendo vedação estatutária para tal acumulação.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(22, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(22, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-22">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 181 dispõe que o farmacêutico pode acumular responsabilidade técnica por unidade farmacêutica e por unidade de drogaria, bem como por duas drogarias, sendo consideradas espécies do gênero &#x27;farmácia&#x27;, autorizando acúmulo em situações específicas.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 181</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="o cartório extrajudicial tem o dever de expedir certidões sobre atos constitutivos da empresa executada requerida pela fazenda pública, sendo-lhe vedada a cobrança prévia das custas, que somente serão reembolsadas se houver condenação em favor do requerente. tema 202 estabelece que o cartório deve expedir a certidão requerida pela fazenda pública e, se vencida, reembolsar o valor das custas ao final. não há vedação à cobrança de custas pelo cartório, cabendo reembolso quando vencido. tema 202">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 23</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-23">Não respondida</span>
+</div>
+
+<p class="enunciado">O cartório extrajudicial tem o dever de expedir certidões sobre atos constitutivos da empresa executada requerida pela Fazenda Pública, sendo-lhe vedada a cobrança prévia das custas, que somente serão reembolsadas se houver condenação em favor do requerente.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(23, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(23, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-23">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 202 estabelece que o cartório deve expedir a certidão requerida pela Fazenda Pública e, se vencida, reembolsar o valor das custas ao final. Não há vedação à cobrança de custas pelo cartório, cabendo reembolso quando vencido.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 202</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="os juros moratórios devidos em desapropriações têm termo inicial no dia 1º de janeiro do exercício seguinte àquele em que o pagamento deveria ser realizado. tema 210 fixa o termo inicial dos juros moratórios em desapropriações como 1º de janeiro do exercício subsequente ao do vencimento do pagamento, dispondo sobre o marco temporal para a incidência dos juros moratórios no âmbito expropriatório. tema 210">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 24</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-24">Não respondida</span>
+</div>
+
+<p class="enunciado">Os juros moratórios devidos em desapropriações têm termo inicial no dia 1º de janeiro do exercício seguinte àquele em que o pagamento deveria ser realizado.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(24, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(24, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-24">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 210 fixa o termo inicial dos juros moratórios em desapropriações como 1º de janeiro do exercício subsequente ao do vencimento do pagamento, dispondo sobre o marco temporal para a incidência dos juros moratórios no âmbito expropriatório.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 210</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="ECA"
+data-texto="os juros compensatórios incidem em desapropriação até a expedição do precatório original, sendo vedada a cumulação de juros moratórios sobre juros compensatórios, conforme entendimento consolidado. tema 211 determina que juros compensatórios em desapropriação somente incidem até a data da expedição do precatório original, e que não há hipótese de cumulação de juros moratórios com compensatórios, delimitando a acumulação de encargos. tema 211">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 25</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-25">Não respondida</span>
+</div>
+
+<p class="enunciado">Os juros compensatórios incidem em desapropriação até a expedição do precatório original, sendo vedada a cumulação de juros moratórios sobre juros compensatórios, conforme entendimento consolidado.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(25, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(25, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-25">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 211 determina que juros compensatórios em desapropriação somente incidem até a data da expedição do precatório original, e que não há hipótese de cumulação de juros moratórios com compensatórios, delimitando a acumulação de encargos.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 211</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a remuneração cobrada por concessionária pelo serviço de água e esgoto tem natureza tributária, subsumindo‑se ao regime jurídico das taxas previsto na constituição e na legislação tributária. tema 251 entende que a remuneração por serviços de água e esgoto constitui tarifa ou preço público de natureza não‑tributária, contraprestação, não subsumindo ao regime jurídico das taxas, que têm natureza tributária. tema 251">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 26</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-26">Não respondida</span>
+</div>
+
+<p class="enunciado">A remuneração cobrada por concessionária pelo serviço de água e esgoto tem natureza tributária, subsumindo‑se ao regime jurídico das taxas previsto na Constituição e na legislação tributária.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(26, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(26, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-26">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 251 entende que a remuneração por serviços de água e esgoto constitui tarifa ou preço público de natureza não‑tributária, contraprestação, não subsumindo ao regime jurídico das taxas, que têm natureza tributária.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 251</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a pretensão executiva relativa à tarifa por prestação de serviços de água e esgoto, cujo vencimento na entrada em vigor do código civil de 2002 era superior a dez anos, prescreve em vinte anos, não sendo aplicável o novo prazo decenal. tema 252 reconhece o caráter vintenário do prazo prescricional da pretensão executiva atinente a tarifas de água e esgoto, quando, na data de entrada em vigor do cc/2002, o prazo era superior a dez anos, aplicando‑se regra de direito intertemporal que preserva o prazo mais favorável. tema 252">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 27</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-27">Não respondida</span>
+</div>
+
+<p class="enunciado">A pretensão executiva relativa à tarifa por prestação de serviços de água e esgoto, cujo vencimento na entrada em vigor do Código Civil de 2002 era superior a dez anos, prescreve em vinte anos, não sendo aplicável o novo prazo decenal.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(27, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(27, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-27">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 252 reconhece o caráter vintenário do prazo prescricional da pretensão executiva atinente a tarifas de água e esgoto, quando, na data de entrada em vigor do CC/2002, o prazo era superior a dez anos, aplicando‑se regra de direito intertemporal que preserva o prazo mais favorável.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 252</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a natureza jurídica da remuneração dos serviços de água e esgoto permanece tributária, por se tratar de taxa, de modo que a aplicação do regime de tarifas como preço público é inadequada. tema 253 reafirma que a remuneração por serviços de água e esgoto tem natureza de tarifa ou preço público, contraprestação não‑tributária, afastando sua subsunção ao regime das taxas. tema 253">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 28</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-28">Não respondida</span>
+</div>
+
+<p class="enunciado">A natureza jurídica da remuneração dos serviços de água e esgoto permanece tributária, por se tratar de taxa, de modo que a aplicação do regime de tarifas como preço público é inadequada.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(28, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(28, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-28">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 253 reafirma que a remuneração por serviços de água e esgoto tem natureza de tarifa ou preço público, contraprestação não‑tributária, afastando sua subsunção ao regime das taxas.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 253</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="em respeito ao direito intertemporal, as pretensões executivas referentes a tarifas de água e esgoto que, à entrada em vigor do cc/2002, tinham prazo prescricional superior a dez anos, passam automaticamente a ter prazo decenal. tema 254 reitera que, quando o vencimento era superior a dez anos na data de vigência do cc/2002, aplica‑se o prazo vintenário por força da regra de direito intertemporal; não há redução automática para o prazo decenal quando a norma anterior conferia maior proteção. tema 254">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 29</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-29">Não respondida</span>
+</div>
+
+<p class="enunciado">Em respeito ao direito intertemporal, as pretensões executivas referentes a tarifas de água e esgoto que, à entrada em vigor do CC/2002, tinham prazo prescricional superior a dez anos, passam automaticamente a ter prazo decenal.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(29, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(29, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-29">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 254 reitera que, quando o vencimento era superior a dez anos na data de vigência do CC/2002, aplica‑se o prazo vintenário por força da regra de direito intertemporal; não há redução automática para o prazo decenal quando a norma anterior conferia maior proteção.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 254</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="até 26/09/1999 — data anterior à mp 1901‑30/99 — eram devidos juros compensatórios nas desapropriações de imóveis improdutivos, nos termos da legislação então vigente. tema 280 confirma que, até 26/9/99, eram devidos os juros compensatórios nas desapropriações de imóveis improdutivos, situação que mudou com a mp mencionada a partir de sua publicação. tema 280">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 30</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-30">Não respondida</span>
+</div>
+
+<p class="enunciado">Até 26/09/1999 — data anterior à MP 1901‑30/99 — eram devidos juros compensatórios nas desapropriações de imóveis improdutivos, nos termos da legislação então vigente.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(30, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(30, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-30">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 280 confirma que, até 26/9/99, eram devidos os juros compensatórios nas desapropriações de imóveis improdutivos, situação que mudou com a MP mencionada a partir de sua publicação.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 280</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="mesmo antes da mp 1901‑30/99, os juros compensatórios eram sempre devidos em desapropriações, ainda que a propriedade fosse inteiramente inapta para exploração econômica por limitações legais ou fáticas. tema 281 corrige essa noção: mesmo antes da mp 1901‑30/99, eram indevidos juros compensatórios quando a propriedade se mostrava imprópria para exploração econômica atual ou futura por limitações legais ou fáticas, afastando a incidência automática. tema 281">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 31</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-31">Não respondida</span>
+</div>
+
+<p class="enunciado">Mesmo antes da MP 1901‑30/99, os juros compensatórios eram sempre devidos em desapropriações, ainda que a propriedade fosse inteiramente inapta para exploração econômica por limitações legais ou fáticas.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(31, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(31, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-31">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 281 corrige essa noção: mesmo antes da MP 1901‑30/99, eram indevidos juros compensatórios quando a propriedade se mostrava imprópria para exploração econômica atual ou futura por limitações legais ou fáticas, afastando a incidência automática.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 281</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a partir de 27/09/1999 passou a caber ao expropriado o ônus probatório de demonstrar efetiva perda de renda para a incidência de juros compensatórios; e desde 05/05/2000 vedou‑se juros em imóveis com índice de produtividade zero. tema 282 contém duas partes: (i) a partir de 27/9/99 exige‑se prova da perda de renda para juros compensatórios (mp 1901‑30/99); (ii) desde 5/5/2000 a mp 2027‑38/00 vedou a incidência de juros em imóveis com produtividade zero, conforme art. 15‑a do dl 3365/41. tema 282">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 32</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-32">Não respondida</span>
+</div>
+
+<p class="enunciado">A partir de 27/09/1999 passou a caber ao expropriado o ônus probatório de demonstrar efetiva perda de renda para a incidência de juros compensatórios; e desde 05/05/2000 vedou‑se juros em imóveis com índice de produtividade zero.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(32, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(32, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-32">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 282 contém duas partes: (i) a partir de 27/9/99 exige‑se prova da perda de renda para juros compensatórios (MP 1901‑30/99); (ii) desde 5/5/2000 a MP 2027‑38/00 vedou a incidência de juros em imóveis com produtividade zero, conforme art. 15‑A do DL 3365/41.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 282</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="o prazo prescricional para ação tendente a recuperar quantias pagas a maior em razão da majoração da tarifa de energia elétrica pelas portarias 38/86 e 45/86 é prescrito segundo as regras gerais do código de defesa do consumidor, com prazo de cinco anos. tema 318 estabelece que o prazo prescricional para ação de reaver quantias pagas a maior por conta das portarias 38/86 e 45/86 é de 20 anos, nos moldes do art. 177 do cc/1916, não se sujeitando ao prazo quinquenal do cdc. tema 318">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 33</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-33">Não respondida</span>
+</div>
+
+<p class="enunciado">O prazo prescricional para ação tendente a recuperar quantias pagas a maior em razão da majoração da tarifa de energia elétrica pelas Portarias 38/86 e 45/86 é prescrito segundo as regras gerais do Código de Defesa do Consumidor, com prazo de cinco anos.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(33, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(33, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-33">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 318 estabelece que o prazo prescricional para ação de reaver quantias pagas a maior por conta das Portarias 38/86 e 45/86 é de 20 anos, nos moldes do art. 177 do CC/1916, não se sujeitando ao prazo quinquenal do CDC.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 318</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a majoração da tarifa de energia estabelecida pelas portarias dnaee 38/86 e 45/86 violou o congelamento de preços do plano cruzado, sendo reconhecido aos consumidores industriais o direito à repetição do que foi cobrado a mais, ao passo que consumidores residenciais ficam privados desse direito. tema 319 conclui pela ilegitimidade das portarias 38/86 e 45/86 em face do congelamento de preços (plano cruzado), reconhecendo direito à repetição para consumidores industriais afetados e afastando‑o, em regra, para consumidores residenciais, com ressalvas para reajustes posteriores. tema 319">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 34</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-34">Não respondida</span>
+</div>
+
+<p class="enunciado">A majoração da tarifa de energia estabelecida pelas Portarias DNAEE 38/86 e 45/86 violou o congelamento de preços do Plano Cruzado, sendo reconhecido aos consumidores industriais o direito à repetição do que foi cobrado a mais, ao passo que consumidores residenciais ficam privados desse direito.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(34, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(34, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-34">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 319 conclui pela ilegitimidade das portarias 38/86 e 45/86 em face do congelamento de preços (Plano Cruzado), reconhecendo direito à repetição para consumidores industriais afetados e afastando‑o, em regra, para consumidores residenciais, com ressalvas para reajustes posteriores.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 319</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="o fundo de compensação de variações salariais (fcvs) é exonerado de qualquer responsabilidade pelos saldos residuais de segundo financiamento em contratos firmados até 05/12/1990, não se aplicando a ratio essendi do art. 3º da lei 8.100/90. tema 323 reconhece a responsabilidade do fcvs pela quitação do saldo residual de segundo financiamento em contratos até 05/12/1990, em razão da ratio essendi do art. 3º da lei 8.100/90, conforme alterações promovidas pela lei 10.150/2001. tema 323">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 35</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-35">Não respondida</span>
+</div>
+
+<p class="enunciado">O Fundo de Compensação de Variações Salariais (FCVS) é exonerado de qualquer responsabilidade pelos saldos residuais de segundo financiamento em contratos firmados até 05/12/1990, não se aplicando a ratio essendi do art. 3º da Lei 8.100/90.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(35, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(35, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-35">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 323 reconhece a responsabilidade do FCVS pela quitação do saldo residual de segundo financiamento em contratos até 05/12/1990, em razão da ratio essendi do art. 3º da Lei 8.100/90, conforme alterações promovidas pela Lei 10.150/2001.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 323</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a liberação do veículo retido por transporte irregular de passageiros, com fundamento no art. 231, viii, do ctb, pode ser condicionada ao pagamento de multas e despesas, conforme entendimento pacificado. tema 339 determina que a liberação do veículo retido por transporte irregular de passageiros não está condicionada ao pagamento de multas e despesas, admitindo a devolução independentemente do adimplemento, salvo previsão legal específica diversa. tema 339">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 36</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-36">Não respondida</span>
+</div>
+
+<p class="enunciado">A liberação do veículo retido por transporte irregular de passageiros, com fundamento no art. 231, VIII, do CTB, pode ser condicionada ao pagamento de multas e despesas, conforme entendimento pacificado.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(36, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(36, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-36">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 339 determina que a liberação do veículo retido por transporte irregular de passageiros não está condicionada ao pagamento de multas e despesas, admitindo a devolução independentemente do adimplemento, salvo previsão legal específica diversa.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 339</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a exigência de comum acordo entre credor e devedor na escolha do agente fiduciário aplica‑se apenas aos contratos vinculados ao sistema financeiro da habitação (sfh), não alcançando contratos fora do sfh. tema 352 afirma que a exigência de comum acordo quanto à escolha de agente fiduciário aplica‑se somente aos contratos não vinculados ao sfh; inversamente, contratos vinculados ao sfh estão sujeitos a regras distintas que afastam tal exigência. tema 352">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 37</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-37">Não respondida</span>
+</div>
+
+<p class="enunciado">A exigência de comum acordo entre credor e devedor na escolha do agente fiduciário aplica‑se apenas aos contratos vinculados ao Sistema Financeiro da Habitação (SFH), não alcançando contratos fora do SFH.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(37, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(37, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-37">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 352 afirma que a exigência de comum acordo quanto à escolha de agente fiduciário aplica‑se somente aos contratos não vinculados ao SFH; inversamente, contratos vinculados ao SFH estão sujeitos a regras distintas que afastam tal exigência.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 352</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a entrega de carnês de iptu pelos municípios diretamente aos contribuintes, sem intermediação de terceiros, dentro de seu território, viola o privilégio postal da união ao monopolizar o serviço de entrega. tema 415 reconhece que a entrega direta de carnês de iptu pelos municípios, sem intermediação, no âmbito territorial municipal, não viola o privilégio postal da união, por tratar‑se de ato administrativo interno e não de prestação postal remunerada. tema 415">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 38</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-38">Não respondida</span>
+</div>
+
+<p class="enunciado">A entrega de carnês de IPTU pelos Municípios diretamente aos contribuintes, sem intermediação de terceiros, dentro de seu território, viola o privilégio postal da União ao monopolizar o serviço de entrega.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(38, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(38, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-38">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 415 reconhece que a entrega direta de carnês de IPTU pelos Municípios, sem intermediação, no âmbito territorial municipal, não viola o privilégio postal da União, por tratar‑se de ato administrativo interno e não de prestação postal remunerada.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 415</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="salvo previsão contratual diversa, aplica‑se aos contratos do sfh a regra de imputação prevista no art. 354 do código civil de 2002 (art. 993 do cc/1916), conforme adotado pela rd bnh 81/1969. tema 426 admite a aplicação, salvo cláusula contratual diversa, da regra de imputação de pagamentos do art. 354 do cc/2002 aos contratos do sfh, em consonância com a rd bnh 81/1969, reproduzindo posicionamento histórico de imputação. tema 426">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 39</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-39">Não respondida</span>
+</div>
+
+<p class="enunciado">Salvo previsão contratual diversa, aplica‑se aos contratos do SFH a regra de imputação prevista no art. 354 do Código Civil de 2002 (art. 993 do CC/1916), conforme adotado pela RD BNH 81/1969.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(39, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(39, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-39">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 426 admite a aplicação, salvo cláusula contratual diversa, da regra de imputação de pagamentos do art. 354 do CC/2002 aos contratos do SFH, em consonância com a RD BNH 81/1969, reproduzindo posicionamento histórico de imputação.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 426</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="o depósito judicial do valor apurado exclusivamente pelo corpo técnico do ente público, quando inferior ao valor arbitrado por perito judicial e ao cadastral, é suficiente para autorizar a imissão provisória na posse do imóvel. tema 472 dispõe que o depósito judicial do valor apenas apurado pelo corpo técnico do ente público, e inferior ao valor periciado judicialmente e ao valor cadastral, não viabiliza a imissão provisória na posse, por insuficiência do depósito para garantir o direito do expropriado. tema 472">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 40</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-40">Não respondida</span>
+</div>
+
+<p class="enunciado">O depósito judicial do valor apurado exclusivamente pelo corpo técnico do ente público, quando inferior ao valor arbitrado por perito judicial e ao cadastral, é suficiente para autorizar a imissão provisória na posse do imóvel.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(40, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(40, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-40">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 472 dispõe que o depósito judicial do valor apenas apurado pelo corpo técnico do ente público, e inferior ao valor periciado judicialmente e ao valor cadastral, não viabiliza a imissão provisória na posse, por insuficiência do depósito para garantir o direito do expropriado.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 472</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a presença de farmacêutico em dispensário de medicamentos é obrigatória, sendo vedada a operação do estabelecimento sem sua atuação técnica permanente. tema 483 esclarece que não é obrigatória a presença de farmacêutico em dispensário de medicamentos, afastando a imposição peremptória em todas as hipóteses, dependendo da configuração do estabelecimento e da legislação local. tema 483">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 41</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-41">Não respondida</span>
+</div>
+
+<p class="enunciado">A presença de farmacêutico em dispensário de medicamentos é obrigatória, sendo vedada a operação do estabelecimento sem sua atuação técnica permanente.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(41, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(41, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-41">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 483 esclarece que não é obrigatória a presença de farmacêutico em dispensário de medicamentos, afastando a imposição peremptória em todas as hipóteses, dependendo da configuração do estabelecimento e da legislação local.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 483</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a contagem do prazo prescricional quinquenal relativo à conversão em pecúnia de licença‑prêmio não gozadas tem termo inicial na data da aposentadoria do servidor público, marco a quo do quinquênio. tema 516 determina que o termo a quo da prescrição quinquenal para ajuizamento da ação que converte licença‑prêmio em pecúnia é a data da aposentadoria do servidor, momento em que nasce a pretensão. tema 516">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 42</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-42">Não respondida</span>
+</div>
+
+<p class="enunciado">A contagem do prazo prescricional quinquenal relativo à conversão em pecúnia de licença‑prêmio não gozadas tem termo inicial na data da aposentadoria do servidor público, marco a quo do quinquênio.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(42, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(42, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-42">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 516 determina que o termo a quo da prescrição quinquenal para ajuizamento da ação que converte licença‑prêmio em pecúnia é a data da aposentadoria do servidor, momento em que nasce a pretensão.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 516</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="tratando‑se de contrato de mútuo para aquisição de imóvel garantido pelo fcvs firmado até 25/10/1996, quando transferido sem a interveniência da instituição financeira, o cessionário não possui legitimidade para discutir em juízo obrigações e direitos referentes ao contrato. tema 520 afirma que, nos contratos fcvs avençados até 25/10/96 e transferidos sem intervenção da instituição financeira, o cessionário possui legitimidade ativa para discutir e demandar questões atinentes às obrigações e direitos adquiridos, reconhecendo sua legitimidade processual. tema 520">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 43</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-43">Não respondida</span>
+</div>
+
+<p class="enunciado">Tratando‑se de contrato de mútuo para aquisição de imóvel garantido pelo FCVS firmado até 25/10/1996, quando transferido sem a interveniência da instituição financeira, o cessionário não possui legitimidade para discutir em juízo obrigações e direitos referentes ao contrato.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(43, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(43, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-43">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 520 afirma que, nos contratos FCVS avençados até 25/10/96 e transferidos sem intervenção da instituição financeira, o cessionário possui legitimidade ativa para discutir e demandar questões atinentes às obrigações e direitos adquiridos, reconhecendo sua legitimidade processual.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 520</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="na cessão de direitos sobre imóvel financiado no âmbito do sfh realizada após 25/10/1996, a anuência da instituição financeira mutuante é imprescindível para que o cessionário adquira legitimidade ativa para pleitear revisão contratual, tanto para contratos com cobertura do fcvs quanto sem ela. tema 522 estabelece que a cessão posterior a 25/10/1996 exige a anuência da instituição financeira mutuante para conferir legitimidade ativa ao cessionário na ação de revisão das condições ajustadas, aplicando‑se tanto aos contratos garantidos pelo fcvs quanto aos sem cobertura. tema 522">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 44</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-44">Não respondida</span>
+</div>
+
+<p class="enunciado">Na cessão de direitos sobre imóvel financiado no âmbito do SFH realizada após 25/10/1996, a anuência da instituição financeira mutuante é imprescindível para que o cessionário adquira legitimidade ativa para pleitear revisão contratual, tanto para contratos com cobertura do FCVS quanto sem ela.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(44, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(44, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-44">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 522 estabelece que a cessão posterior a 25/10/1996 exige a anuência da instituição financeira mutuante para conferir legitimidade ativa ao cessionário na ação de revisão das condições ajustadas, aplicando‑se tanto aos contratos garantidos pelo FCVS quanto aos sem cobertura.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 522</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="quando a administração, por interpretação legal equivocada, efetua pagamento indevido a servidor, tal pagamento constitui expectativa legítima do servidor e, por isso, impede sempre a posterior repetição dos valores pela administração, independentemente de boa‑fé. tema 531 trata de pagamento indevido decorrente de interpretação errônea da administração. a tese reconhece que, quando o pagamento decorre de erro de interpretação administrativa (não de erro técnico), não se forma expectativa definitiva impedindo sempre a repetição; todavia, quando a administração interpreta erroneamente a lei e isso gera boa‑fé do servidor, há limites ao desconto, dependendo da boa‑fé e da impossibilidade de constatação do indevido. tema 531">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 45</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-45">Não respondida</span>
+</div>
+
+<p class="enunciado">Quando a Administração, por interpretação legal equivocada, efetua pagamento indevido a servidor, tal pagamento constitui expectativa legítima do servidor e, por isso, impede sempre a posterior repetição dos valores pela Administração, independentemente de boa‑fé.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(45, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(45, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-45">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 531 trata de pagamento indevido decorrente de interpretação errônea da Administração. A tese reconhece que, quando o pagamento decorre de erro de interpretação administrativa (não de erro técnico), não se forma expectativa definitiva impedindo sempre a repetição; todavia, quando a Administração interpreta erroneamente a lei e isso gera boa‑fé do servidor, há limites ao desconto, dependendo da boa‑fé e da impossibilidade de constatação do indevido.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 531</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a fixação de prazo temporal regulamentar para o recebimento de indenização prevista no art. 53, i, da lei 8.112/1990, por normas infralegais, ofende o princípio da legalidade e, portanto, é inválida. tema 538 entende que a fixação de limitação temporal por normas infralegais para o recebimento da indenização prevista no art. 53, i, não ofende o princípio da legalidade, admitindo regulamentação infralegal para disciplinar aspectos temporais desde que não contrariem a lei. tema 538">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 46</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-46">Não respondida</span>
+</div>
+
+<p class="enunciado">A fixação de prazo temporal regulamentar para o recebimento de indenização prevista no art. 53, I, da Lei 8.112/1990, por normas infralegais, ofende o princípio da legalidade e, portanto, é inválida.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(46, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(46, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-46">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 538 entende que a fixação de limitação temporal por normas infralegais para o recebimento da indenização prevista no art. 53, I, não ofende o princípio da legalidade, admitindo regulamentação infralegal para disciplinar aspectos temporais desde que não contrariem a lei.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 538</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="as ações indenizatórias ajuizadas contra a fazenda pública sujeitam‑se ao prazo prescricional quinquenal do decreto 20.910/32, prevalecendo sobre o prazo trienal disposto no código civil de 2002. tema 553 consolida o entendimento de aplicação do prazo prescricional quinquenal do decreto 20.910/32 às ações indenizatórias contra a fazenda pública, em detrimento do prazo trienal do cc/2002, em razão do regime especial aplicável à fazenda. tema 553">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 47</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-47">Não respondida</span>
+</div>
+
+<p class="enunciado">As ações indenizatórias ajuizadas contra a Fazenda Pública sujeitam‑se ao prazo prescricional quinquenal do Decreto 20.910/32, prevalecendo sobre o prazo trienal disposto no Código Civil de 2002.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(47, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(47, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-47">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 553 consolida o entendimento de aplicação do prazo prescricional quinquenal do Decreto 20.910/32 às ações indenizatórias contra a Fazenda Pública, em detrimento do prazo trienal do CC/2002, em razão do regime especial aplicável à Fazenda.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 553</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a legislação autoriza a cobrança de tarifa de esgoto mesmo na ausência do tratamento final dos dejetos, pois não condiciona a existência do serviço público ao funcionamento de todas as etapas do sistema de esgotamento sanitário. tema 565 sustenta que a cobrança da tarifa de esgoto é possível mesmo sem tratamento final concluído, pois a legislação não exige a efetivação de todas as etapas para que exista o serviço público de esgotamento sanitário nem veda a cobrança por prestação de parte das atividades. tema 565">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 48</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-48">Não respondida</span>
+</div>
+
+<p class="enunciado">A legislação autoriza a cobrança de tarifa de esgoto mesmo na ausência do tratamento final dos dejetos, pois não condiciona a existência do serviço público ao funcionamento de todas as etapas do sistema de esgotamento sanitário.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(48, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(48, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-48">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 565 sustenta que a cobrança da tarifa de esgoto é possível mesmo sem tratamento final concluído, pois a legislação não exige a efetivação de todas as etapas para que exista o serviço público de esgotamento sanitário nem veda a cobrança por prestação de parte das atividades.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 565</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="nas demandas que discutem a ausência ou obstáculo ao credenciamento de instituição de ensino superior junto ao mec como condição para expedição de diploma, não há interesse jurídico da união, competindo exclusivamente à justiça estadual processar e julgar a causa. tema 584 determina a presença de interesse jurídico da união em tais demandas, razão pela qual a competência pertence à justiça federal, nos termos do art. 109, i, da cf/88, ao se discutir credenciamento/autorizações federais. tema 584">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 49</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-49">Não respondida</span>
+</div>
+
+<p class="enunciado">Nas demandas que discutem a ausência ou obstáculo ao credenciamento de instituição de ensino superior junto ao MEC como condição para expedição de diploma, não há interesse jurídico da União, competindo exclusivamente à Justiça Estadual processar e julgar a causa.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(49, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(49, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-49">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 584 determina a presença de interesse jurídico da União em tais demandas, razão pela qual a competência pertence à Justiça Federal, nos termos do art. 109, I, da CF/88, ao se discutir credenciamento/autorizações federais.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 584</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="o art. 53, inciso v, da lei 9.394/96 autoriza universidades a fixarem normas específicas para o processo de revalidação de diplomas estrangeiros, possibilitando a instituição de processo seletivo como critério legítimo de avaliação. tema 599 reconhece que o art. 53, v, autoriza a universidade a estabelecer normas específicas para a revalidação, incluindo processo seletivo, por adequação dos procedimentos institucionais para aferir a capacidade técnica do profissional, sem ilegalidade. tema 599">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 50</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-50">Não respondida</span>
+</div>
+
+<p class="enunciado">O art. 53, inciso V, da Lei 9.394/96 autoriza universidades a fixarem normas específicas para o processo de revalidação de diplomas estrangeiros, possibilitando a instituição de processo seletivo como critério legítimo de avaliação.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(50, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(50, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-50">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 599 reconhece que o art. 53, V, autoriza a universidade a estabelecer normas específicas para a revalidação, incluindo processo seletivo, por adequação dos procedimentos institucionais para aferir a capacidade técnica do profissional, sem ilegalidade.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 599</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a alteração introduzida pela lei 11.960/2009 ao art. 1º‑f da lei 9.494/97 deslocou o termo inicial (a quo) de incidência dos juros moratórios sobre obrigações ilíquidas da administração ao momento da citação, deixando de aplicar os arts. 219 do cpc e 405 do cc. tema 611 esclarece que o art. 1º‑f com a redação da lei 11.960/09 não modificou o termo a quo dos juros moratórios em relação às obrigações ilíquidas devidas pela administração ao servidor; aplicam‑se as regras dos arts. 219 do cpc e 405 do cc, que consideram a citação como marco inicial. tema 611">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 51</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-51">Não respondida</span>
+</div>
+
+<p class="enunciado">A alteração introduzida pela Lei 11.960/2009 ao art. 1º‑F da Lei 9.494/97 deslocou o termo inicial (a quo) de incidência dos juros moratórios sobre obrigações ilíquidas da Administração ao momento da citação, deixando de aplicar os arts. 219 do CPC e 405 do CC.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(51, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(51, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-51">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 611 esclarece que o art. 1º‑F com a redação da Lei 11.960/09 não modificou o termo a quo dos juros moratórios em relação às obrigações ilíquidas devidas pela Administração ao servidor; aplicam‑se as regras dos arts. 219 do CPC e 405 do CC, que consideram a citação como marco inicial.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 611</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="ao profissional graduado em educação física na modalidade licenciatura plena é vedado exercer atividades fora da educação básica, sendo limitado exclusivamente ao magistério. tema 647 estabelece que o bacharel/licenciado em educação física, na modalidade licenciatura de graduação plena, só pode atuar na educação básica, sendo-lhe defeso o exercício da profissão na área não formal, conforme a delimitação da habilitação. tema 647">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 52</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-52">Não respondida</span>
+</div>
+
+<p class="enunciado">Ao profissional graduado em Educação Física na modalidade licenciatura plena é vedado exercer atividades fora da educação básica, sendo limitado exclusivamente ao magistério.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(52, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(52, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-52">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 647 estabelece que o bacharel/licenciado em Educação Física, na modalidade licenciatura de graduação plena, só pode atuar na educação básica, sendo-lhe defeso o exercício da profissão na área não formal, conforme a delimitação da habilitação.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 647</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="no caso de débito resultante de recuperação de consumo efetivo por fraude no medidor atribuída ao consumidor, desde que observados contraditório e ampla defesa, é possível o corte do fornecimento de energia elétrica sem prévio aviso, desde que o débito seja referente a até 90 dias anteriores à constatação. tema 699 autoriza o corte administrativo mediante prévio aviso ao consumidor, desde que o débito apurado recaia sobre o período de 90 dias anteriores à constatação e o corte ocorra em até 90 dias após o vencimento; portanto, o corte sem aviso prévio não é admitido. tema 699">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 53</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-53">Não respondida</span>
+</div>
+
+<p class="enunciado">No caso de débito resultante de recuperação de consumo efetivo por fraude no medidor atribuída ao consumidor, desde que observados contraditório e ampla defesa, é possível o corte do fornecimento de energia elétrica sem prévio aviso, desde que o débito seja referente a até 90 dias anteriores à constatação.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(53, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(53, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-53">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 699 autoriza o corte administrativo mediante prévio aviso ao consumidor, desde que o débito apurado recaia sobre o período de 90 dias anteriores à constatação e o corte ocorra em até 90 dias após o vencimento; portanto, o corte sem aviso prévio não é admitido.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 699</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="até a entrada em vigor da lei n. 13.021/2014, técnicos de farmácia regularmente inscritos no crf podiam assumir responsabilidade técnica por drogaria independentemente do preenchimento dos requisitos do art. 15, §3º, da lei 5.991/73 combinado com art. 28 do decreto 74.170/74. tema 727 reconhece que, aplicando‑se até a vigência da lei 13.021/2014, técnicos de farmácia inscritos no crf podiam assumir a responsabilidade técnica por drogaria independentemente do preenchimento do requisito legal citado, entendimento posteriormente alterado pela nova lei (observar tema 1049 do stf). tema 727">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 54</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-54">Não respondida</span>
+</div>
+
+<p class="enunciado">Até a entrada em vigor da Lei n. 13.021/2014, técnicos de farmácia regularmente inscritos no CRF podiam assumir responsabilidade técnica por drogaria independentemente do preenchimento dos requisitos do art. 15, §3º, da Lei 5.991/73 combinado com art. 28 do Decreto 74.170/74.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(54, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(54, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-54">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 727 reconhece que, aplicando‑se até a vigência da Lei 13.021/2014, técnicos de farmácia inscritos no CRF podiam assumir a responsabilidade técnica por drogaria independentemente do preenchimento do requisito legal citado, entendimento posteriormente alterado pela nova lei (observar tema 1049 do STF).</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 727</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a atualização das contas vinculadas ao fgts obedece a disciplina legal que impõe exclusivamente a taxa referencial (tr) como índice de atualização, sendo, portanto, proibida ao poder judiciário a substituição do índice por outro critério de correção. tema 731 afirma que a remuneração das contas vinculadas ao fgts tem disciplina própria que fixa a tr como forma de atualização, sendo vedado ao judiciário substituir tal índice por outros critérios, em reconhecimento à competência legislativa para tal disciplina. tema 731">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 55</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-55">Não respondida</span>
+</div>
+
+<p class="enunciado">A atualização das contas vinculadas ao FGTS obedece a disciplina legal que impõe exclusivamente a Taxa Referencial (TR) como índice de atualização, sendo, portanto, proibida ao Poder Judiciário a substituição do índice por outro critério de correção.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(55, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(55, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-55">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 731 afirma que a remuneração das contas vinculadas ao FGTS tem disciplina própria que fixa a TR como forma de atualização, sendo vedado ao Judiciário substituir tal índice por outros critérios, em reconhecimento à competência legislativa para tal disciplina.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 731</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="o art. 2º, §1º, da lei 11.738/2008 determina que o vencimento inicial das carreiras do magistério público da educação básica corresponda ao piso salarial nacional e, consequentemente, impõe que todo o restante da carreira sofra reflexo automático e imediato sobre vantagens e gratificações. tema 911 esclarece que o art. 2º, §1º, impõe que o vencimento inicial da carreira corresponda ao piso, vedando valor inferior, mas não determina incidência automática em toda a carreira nem reflexo imediato sobre demais vantagens e gratificações, que dependem de previsão nas legislações locais. tema 911">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 56</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-56">Não respondida</span>
+</div>
+
+<p class="enunciado">O art. 2º, §1º, da Lei 11.738/2008 determina que o vencimento inicial das carreiras do magistério público da educação básica corresponda ao piso salarial nacional e, consequentemente, impõe que todo o restante da carreira sofra reflexo automático e imediato sobre vantagens e gratificações.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(56, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(56, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-56">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 911 esclarece que o art. 2º, §1º, impõe que o vencimento inicial da carreira corresponda ao piso, vedando valor inferior, mas não determina incidência automática em toda a carreira nem reflexo imediato sobre demais vantagens e gratificações, que dependem de previsão nas legislações locais.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 911</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="as ações de repetição de indébito relativas às tarifas de água e esgoto cobradas indevidamente têm prazo prescricional que, por direito intertemporal, pode ser de 20 anos (art. 177 do cc/1916) ou de 10 anos (art. 205 do cc/2002), conforme o caso, observando‑se a regra de transição. tema 932 fixa que o prazo prescricional para ações de repetição de indébito de tarifas de água e esgoto é de 20 anos (cc/1916) ou 10 anos (cc/2002), conforme a regra de direito intertemporal prevista no art. 2.028 do cc/2002, aplicando‑se a transição. tema 932">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 57</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-57">Não respondida</span>
+</div>
+
+<p class="enunciado">As ações de repetição de indébito relativas às tarifas de água e esgoto cobradas indevidamente têm prazo prescricional que, por direito intertemporal, pode ser de 20 anos (art. 177 do CC/1916) ou de 10 anos (art. 205 do CC/2002), conforme o caso, observando‑se a regra de transição.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(57, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(57, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-57">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 932 fixa que o prazo prescricional para ações de repetição de indébito de tarifas de água e esgoto é de 20 anos (CC/1916) ou 10 anos (CC/2002), conforme a regra de direito intertemporal prevista no art. 2.028 do CC/2002, aplicando‑se a transição.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 932</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="o departamento nacional de infraestrutura de transportes (dnit) não detém competência para fiscalização do trânsito nas rodovias federais, sendo tal atribuição exclusiva dos órgãos de trânsito previstos no ctb. tema 965 reconhece competência do dnit para fiscalização do trânsito nas rodovias e estradas federais, podendo aplicar penalidades por infrações ao ctb em caráter não exclusivo, consoante as leis 10.233/2001 e 9.503/1997. tema 965">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 58</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-58">Não respondida</span>
+</div>
+
+<p class="enunciado">O Departamento Nacional de Infraestrutura de Transportes (DNIT) não detém competência para fiscalização do trânsito nas rodovias federais, sendo tal atribuição exclusiva dos órgãos de trânsito previstos no CTB.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(58, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(58, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-58">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 965 reconhece competência do DNIT para fiscalização do trânsito nas rodovias e estradas federais, podendo aplicar penalidades por infrações ao CTB em caráter não exclusivo, consoante as Leis 10.233/2001 e 9.503/1997.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 965</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a lei 12.855/2013, que institui a indenização por trabalho em localidade estratégica, é norma de eficácia condicionada, dependendo de regulamentação prévia para que sejam definidas as localidades consideradas estratégicas para fins de pagamento. tema 974 estabelece que a norma é de eficácia condicionada à prévia regulamentação para a definição das localidades consideradas estratégicas, requisito necessário para operacionalizar o pagamento da vantagem. tema 974">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 59</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-59">Não respondida</span>
+</div>
+
+<p class="enunciado">A Lei 12.855/2013, que institui a Indenização por Trabalho em Localidade Estratégica, é norma de eficácia condicionada, dependendo de regulamentação prévia para que sejam definidas as localidades consideradas estratégicas para fins de pagamento.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(59, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(59, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-59">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 974 estabelece que a norma é de eficácia condicionada à prévia regulamentação para a definição das localidades consideradas estratégicas, requisito necessário para operacionalizar o pagamento da vantagem.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 974</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="os pagamentos indevidos a servidores decorrentes de erro administrativo operacional ou de cálculo, quando não resultantes de interpretação equivocada da lei, são sempre inexigíveis de devolução, haja vista a proteção ao servidor frente ao erário. tema 1009 admite a devolução dos pagamentos indevidos decorrentes de erro administrativo (operacional ou de cálculo), salvo quando o servidor comprove boa‑fé objetiva, demonstrando que não lhe era possível constatar o indevido; portanto, a devolução é possível, não absoluta impossibilidade. tema 1009">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 60</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-60">Não respondida</span>
+</div>
+
+<p class="enunciado">Os pagamentos indevidos a servidores decorrentes de erro administrativo operacional ou de cálculo, quando não resultantes de interpretação equivocada da lei, são sempre inexigíveis de devolução, haja vista a proteção ao servidor frente ao erário.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(60, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(60, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-60">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 1009 admite a devolução dos pagamentos indevidos decorrentes de erro administrativo (operacional ou de cálculo), salvo quando o servidor comprove boa‑fé objetiva, demonstrando que não lhe era possível constatar o indevido; portanto, a devolução é possível, não absoluta impossibilidade.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1009</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="o ato administrativo que concede aposentadoria ao servidor público, por si só, impede o reconhecimento e o cômputo de verbas não concedidas enquanto em atividade, salvo quando o próprio ato expressamente indeferir tais verbas, circunstância que pode configurar o início da contagem prescricional. tema 1017 aponta que a aposentadoria não configura, por si só, negativa expressa do direito a verbas não concedidas na atividade; apenas quando o ato contém indeferimento inequívoco é que se considera a prescrição do fundo de direito, a partir do ato. tema 1017">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 61</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-61">Não respondida</span>
+</div>
+
+<p class="enunciado">O ato administrativo que concede aposentadoria ao servidor público, por si só, impede o reconhecimento e o cômputo de verbas não concedidas enquanto em atividade, salvo quando o próprio ato expressamente indeferir tais verbas, circunstância que pode configurar o início da contagem prescricional.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(61, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(61, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-61">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 1017 aponta que a aposentadoria não configura, por si só, negativa expressa do direito a verbas não concedidas na atividade; apenas quando o ato contém indeferimento inequívoco é que se considera a prescrição do fundo de direito, a partir do ato.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1017</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="servidores efetivados pelo estado de minas gerais sob regime estatutário, por dispositivo da lce n. 100/2007 posteriormente declarado inconstitucional, não têm direito aos depósitos no fgts referentes ao período irregular prestado, por tratar‑se de direito autônomo vedado pelo ordenamento. tema 1020 reconhece o direito aos depósitos no fgts referentes ao período irregular de serviço prestado, mesmo que a efetivação tenha ocorrido via dispositivo declarado inconstitucional, por reconhecer o direito ao fgts para os períodos irregulares. tema 1020">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 62</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-62">Não respondida</span>
+</div>
+
+<p class="enunciado">Servidores efetivados pelo Estado de Minas Gerais sob regime estatutário, por dispositivo da LCE n. 100/2007 posteriormente declarado inconstitucional, não têm direito aos depósitos no FGTS referentes ao período irregular prestado, por tratar‑se de direito autônomo vedado pelo ordenamento.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(62, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(62, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-62">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 1020 reconhece o direito aos depósitos no FGTS referentes ao período irregular de serviço prestado, mesmo que a efetivação tenha ocorrido via dispositivo declarado inconstitucional, por reconhecer o direito ao FGTS para os períodos irregulares.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1020</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a composição da tripulação das ambulâncias tipo b e usb do samu sem enfermeiro ofende o disposto na lei nº 7.498/86 que regulamenta o exercício da enfermagem, sendo vedada tal composição. tema 1024 firmou que a composição sem enfermeiro não ofende, mas concretiza o que determinam os arts. 11, 12, 13 e 15 da lei 7.498/86, admitindo a configuração de tripulação sem enfermeiro em determinadas unidades, conforme a lei e a regulamentação. tema 1024">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 63</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-63">Não respondida</span>
+</div>
+
+<p class="enunciado">A composição da tripulação das ambulâncias tipo B e USB do SAMU sem enfermeiro ofende o disposto na Lei nº 7.498/86 que regulamenta o exercício da enfermagem, sendo vedada tal composição.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(63, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(63, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-63">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 1024 firmou que a composição sem enfermeiro não ofende, mas concretiza o que determinam os arts. 11, 12, 13 e 15 da Lei 7.498/86, admitindo a configuração de tripulação sem enfermeiro em determinadas unidades, conforme a lei e a regulamentação.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1024</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="o exercício da advocacia, inclusive em causa própria, é incompatível com o cargo de agente de trânsito, por expressa vedação contida no art. 28, v, da lei 8.906/94. tema 1028 interpreta que o exercício da advocacia, mesmo em causa própria, é incompatível com as atividades desempenhadas por agente de trânsito, nos termos do art. 28, v, do estatuto da advocacia (lei 8.906/94), que relaciona atividades incompatíveis. tema 1028">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 64</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-64">Não respondida</span>
+</div>
+
+<p class="enunciado">O exercício da advocacia, inclusive em causa própria, é incompatível com o cargo de agente de trânsito, por expressa vedação contida no art. 28, V, da Lei 8.906/94.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(64, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(64, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-64">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 1028 interpreta que o exercício da advocacia, mesmo em causa própria, é incompatível com as atividades desempenhadas por agente de trânsito, nos termos do art. 28, V, do Estatuto da Advocacia (Lei 8.906/94), que relaciona atividades incompatíveis.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1028</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a apreensão do instrumento utilizado na infração ambiental, com base no §4º do art. 25 da lei 9.605/1998, somente se admite se o bem for de uso exclusivo ou habitual para a atividade delituosa, exigindo prova de tal uso. tema 1036 afirma que a apreensão do instrumento independentemente do uso específico, exclusivo ou habitual para a empreitada infracional é permitida segundo a redação atual do §4º do art. 25 da lei 9.605/1998, não exigindo tal restrição probatória. tema 1036">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 65</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-65">Não respondida</span>
+</div>
+
+<p class="enunciado">A apreensão do instrumento utilizado na infração ambiental, com base no §4º do art. 25 da Lei 9.605/1998, somente se admite se o bem for de uso exclusivo ou habitual para a atividade delituosa, exigindo prova de tal uso.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(65, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(65, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-65">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 1036 afirma que a apreensão do instrumento independentemente do uso específico, exclusivo ou habitual para a empreitada infracional é permitida segundo a redação atual do §4º do art. 25 da Lei 9.605/1998, não exigindo tal restrição probatória.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1036</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="editais de licitação ou de pregão não podem prever percentual mínimo de taxa de administração em propostas, por violarem o art. 40, inciso x, da lei nº 8.666/1993, sendo tal cláusula nula. tema 1038 estabelece que cláusulas editalícias que fixem percentual mínimo referente à taxa de administração são vedadas, por ofensa ao art. 40, x, da lei de licitações, que veda imposição de ônus incompatíveis com a competitividade. tema 1038">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 66</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-66">Não respondida</span>
+</div>
+
+<p class="enunciado">Editais de licitação ou de pregão não podem prever percentual mínimo de taxa de administração em propostas, por violarem o art. 40, inciso X, da Lei nº 8.666/1993, sendo tal cláusula nula.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(66, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(66, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-66">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 1038 estabelece que cláusulas editalícias que fixem percentual mínimo referente à taxa de administração são vedadas, por ofensa ao art. 40, X, da Lei de Licitações, que veda imposição de ônus incompatíveis com a competitividade.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1038</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="o proprietário de veículo apreendido por transporte irregular de madeira tem direito absoluto e subjetivo de ser nomeado fiel depositário do bem, sendo vedado ao poder público decisão discricionária sobre a nomeação. tema 1043 sustenta que o proprietário não tem direito público subjetivo de nomeação como fiel depositário; a nomeação e as providências dos arts. 105 e 106 do decreto 6.514/2008 competem ao juízo de oportunidade e conveniência da administração, sendo discricionárias. tema 1043">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 67</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-67">Não respondida</span>
+</div>
+
+<p class="enunciado">O proprietário de veículo apreendido por transporte irregular de madeira tem direito absoluto e subjetivo de ser nomeado fiel depositário do bem, sendo vedado ao poder público decisão discricionária sobre a nomeação.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(67, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(67, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-67">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 1043 sustenta que o proprietário não tem direito público subjetivo de nomeação como fiel depositário; a nomeação e as providências dos arts. 105 e 106 do Decreto 6.514/2008 competem ao juízo de oportunidade e conveniência da Administração, sendo discricionárias.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1043</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="na ação de improbidade administrativa, é possível a decretação de indisponibilidade de bens que inclua o montante correspondente a eventual multa civil imposta na sentença, mesmo com base no art. 11 da lei 8.429/1992. tema 1055 admite a inclusão do valor de multa civil na medida de indisponibilidade de bens decretada na ação de improbidade, inclusive em demandas fundamentadas em violação dos princípios (art. 11), para assegurar futura execução da condenação. tema 1055">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 68</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-68">Não respondida</span>
+</div>
+
+<p class="enunciado">Na ação de improbidade administrativa, é possível a decretação de indisponibilidade de bens que inclua o montante correspondente a eventual multa civil imposta na sentença, mesmo com base no art. 11 da Lei 8.429/1992.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(68, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(68, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-68">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 1055 admite a inclusão do valor de multa civil na medida de indisponibilidade de bens decretada na ação de improbidade, inclusive em demandas fundamentadas em violação dos princípios (art. 11), para assegurar futura execução da condenação.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1055</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="os juros compensatórios aplicam‑se com percentual vigente no momento da ocorrência da infração, devendo ser sempre fixados pela legislação superveniente que melhor remunerar o capital, independentemente da data de sua incidência. tema 1072 estabelece que os juros compensatórios observam o percentual vigente no momento de sua incidência, i.e., aplicando‑se a taxa vigente na época de utilização econômica do capital, o que confere temporalidade ao índice aplicado. tema 1072">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 69</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-69">Não respondida</span>
+</div>
+
+<p class="enunciado">Os juros compensatórios aplicam‑se com percentual vigente no momento da ocorrência da infração, devendo ser sempre fixados pela legislação superveniente que melhor remunerar o capital, independentemente da data de sua incidência.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(69, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(69, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-69">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 1072 estabelece que os juros compensatórios observam o percentual vigente no momento de sua incidência, i.e., aplicando‑se a taxa vigente na época de utilização econômica do capital, o que confere temporalidade ao índice aplicado.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1072</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="as súmulas 12/stj, 70/stj e 102/stj, que tratam de cumulação de juros e prazo de contagem, aplicam‑se indistintamente a fatos posteriores e anteriores a 12/01/2000, não havendo delimitação temporal decorrente da mp 1.997‑34. tema 1073 limita a aplicação dessas súmulas às situações ocorridas até 12/01/2000, data anterior à vigência da mp 1.997‑34; portanto, não se aplicam automaticamente aos fatos posteriores a essa data, havendo delimitação temporal. tema 1073">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 70</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-70">Não respondida</span>
+</div>
+
+<p class="enunciado">As Súmulas 12/STJ, 70/STJ e 102/STJ, que tratam de cumulação de juros e prazo de contagem, aplicam‑se indistintamente a fatos posteriores e anteriores a 12/01/2000, não havendo delimitação temporal decorrente da MP 1.997‑34.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(70, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(70, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-70">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 1073 limita a aplicação dessas súmulas às situações ocorridas até 12/01/2000, data anterior à vigência da MP 1.997‑34; portanto, não se aplicam automaticamente aos fatos posteriores a essa data, havendo delimitação temporal.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1073</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a não concessão de progressão funcional a servidor que preenche todos os requisitos legais é ilícita mesmo que o ente público tenha ultrapassado, em razão da concessão, os limites de gastos com pessoal previstos na lrf, pois a progressão é direito subjetivo previsto em lei e enquadrado na exceção do inciso i do parágrafo único do art. 22 da lc 101/2000. tema 1075 afirma que a progressão funcional é direito subjetivo quando atendidos os requisitos legais, e a sua concessão não pode ser obstada pela superação de limites orçamentários da lrf, enquadrando‑se na exceção prevista no dispositivo mencionado. tema 1075">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 71</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-71">Não respondida</span>
+</div>
+
+<p class="enunciado">A não concessão de progressão funcional a servidor que preenche todos os requisitos legais é ilícita mesmo que o ente público tenha ultrapassado, em razão da concessão, os limites de gastos com pessoal previstos na LRF, pois a progressão é direito subjetivo previsto em lei e enquadrado na exceção do inciso I do parágrafo único do art. 22 da LC 101/2000.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(71, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(71, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-71">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 1075 afirma que a progressão funcional é direito subjetivo quando atendidos os requisitos legais, e a sua concessão não pode ser obstada pela superação de limites orçamentários da LRF, enquadrando‑se na exceção prevista no dispositivo mencionado.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1075</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="os pensionistas ou dependentes de militares têm direito adquirido ao regime jurídico da assistência médico‑hospitalar própria das forças armadas, independentemente de alteração legislativa superveniente, por se tratar de benefício indisponível. tema 1080, item 1, dispõe que não há direito adquirido ao regime jurídico relativo à assistência médico‑hospitalar própria das forças armadas, sendo benefício condicionado e passível de modificação pela lei, não constituindo direito adquirido absoluto. tema 1080 (item 1 e demais)">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 72</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-72">Não respondida</span>
+</div>
+
+<p class="enunciado">Os pensionistas ou dependentes de militares têm direito adquirido ao regime jurídico da Assistência Médico‑Hospitalar própria das Forças Armadas, independentemente de alteração legislativa superveniente, por se tratar de benefício indisponível.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(72, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(72, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-72">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 1080, item 1, dispõe que não há direito adquirido ao regime jurídico relativo à Assistência Médico‑Hospitalar própria das Forças Armadas, sendo benefício condicionado e passível de modificação pela lei, não constituindo direito adquirido absoluto.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1080 (item 1 e demais)</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="na vigência da redação original do art. 87, §2º, da lei 8.112/1990 e do art. 7º da lei 9.527/1997, o servidor federal inativo tem direito à conversão em pecúnia da licença‑prêmio não usufruída sem necessidade de requerimento prévio, salvo risco de enriquecimento ilícito da administração. tema 1086 reconhece que, diante da redação original dos dispositivos, o servidor inativo federal tem direito à conversão em pecúnia da licença‑prêmio não gozada, independentemente de prévio requerimento, por evitar enriquecimento ilícito do ente público; não se exige prova adicional de necessidade do serviço. tema 1086">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 73</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-73">Não respondida</span>
+</div>
+
+<p class="enunciado">Na vigência da redação original do art. 87, §2º, da Lei 8.112/1990 e do art. 7º da Lei 9.527/1997, o servidor federal inativo tem direito à conversão em pecúnia da licença‑prêmio não usufruída sem necessidade de requerimento prévio, salvo risco de enriquecimento ilícito da Administração.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(73, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(73, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-73">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 1086 reconhece que, diante da redação original dos dispositivos, o servidor inativo federal tem direito à conversão em pecúnia da licença‑prêmio não gozada, independentemente de prévio requerimento, por evitar enriquecimento ilícito do ente público; não se exige prova adicional de necessidade do serviço.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1086</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="o militar de carreira diagnosticado como portador do vírus hiv tem, necessariamente, direito à reforma ex officio com remuneração calculada com base no soldo do posto imediatamente superior ao que ocupava na ativa, mesmo que não esteja incapacitado para qualquer trabalho. tema 1088 determina que o militar portador de hiv tem direito à reforma ex officio por incapacidade definitiva para o serviço ativo, porém sem a remuneração calculada com base no soldo do grau hierárquico imediatamente superior se não estiver impossibilitado total e permanente para qualquer trabalho, conforme art. 110, §1º, da lei 6.880/80. tema 1088">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 74</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-74">Não respondida</span>
+</div>
+
+<p class="enunciado">O militar de carreira diagnosticado como portador do vírus HIV tem, necessariamente, direito à reforma ex officio com remuneração calculada com base no soldo do posto imediatamente superior ao que ocupava na ativa, mesmo que não esteja incapacitado para qualquer trabalho.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(74, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(74, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-74">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 1088 determina que o militar portador de HIV tem direito à reforma ex officio por incapacidade definitiva para o serviço ativo, porém sem a remuneração calculada com base no soldo do grau hierárquico imediatamente superior se não estiver impossibilitado total e permanente para qualquer trabalho, conforme art. 110, §1º, da Lei 6.880/80.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1088</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="na ação civil pública por improbidade administrativa, ainda que as sanções previstas no art. 12 da lei 8.429/92 sejam declaradas prescritas, é possível prosseguir com a demanda quanto ao pedido de ressarcimento ao erário. tema 1089 admite o prosseguimento da ação para pleitear o ressarcimento do dano ao erário mesmo que as demais sanções punitivas sejam consideradas prescritas, permitindo a responsabilização patrimonial em separado. tema 1089">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 75</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-75">Não respondida</span>
+</div>
+
+<p class="enunciado">Na ação civil pública por improbidade administrativa, ainda que as sanções previstas no art. 12 da Lei 8.429/92 sejam declaradas prescritas, é possível prosseguir com a demanda quanto ao pedido de ressarcimento ao erário.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(75, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(75, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-75">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 1089 admite o prosseguimento da ação para pleitear o ressarcimento do dano ao erário mesmo que as demais sanções punitivas sejam consideradas prescritas, permitindo a responsabilização patrimonial em separado.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1089</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="candidato aprovado em concurso público cujo edital exige título de ensino médio técnico em área específica não pode assumir o cargo mesmo que possua diploma de nível superior na mesma área profissional, pois o requisito editalício é taxativo e insubstituível. tema 1094 prevê que o candidato aprovado pode assumir cargo que exige título de ensino médio profissionalizante ou técnico específico mesmo não ostentando tal título, desde que detenha diploma de nível superior na mesma área profissional, permitindo equivalência na escolaridade para fins de posse. tema 1094">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 76</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-76">Não respondida</span>
+</div>
+
+<p class="enunciado">Candidato aprovado em concurso público cujo edital exige título de Ensino Médio técnico em área específica não pode assumir o cargo mesmo que possua diploma de nível superior na mesma área profissional, pois o requisito editalício é taxativo e insubstituível.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(76, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(76, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-76">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 1094 prevê que o candidato aprovado pode assumir cargo que exige título de Ensino Médio profissionalizante ou técnico específico mesmo não ostentando tal título, desde que detenha diploma de nível superior na mesma área profissional, permitindo equivalência na escolaridade para fins de posse.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1094</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="N/I"
+data-disciplina="N/I"
+data-texto="a conduta de frustrar a licitude do processo licitatório ou dispensá‑lo indevidamente, por sua própria natureza, sempre configura ato de improbidade que causa dano presumido ao erário (in re ipsa), dispensando a prova do efetivo prejuízo. tema 1096 indica a necessidade de definir se tal conduta configura dano presumido in re ipsa; não há afirmativa conclusiva no enunciado do tema. assim, não se pode afirmar categoricamente que sempre configura dano presumido; a caracterização depende da análise fática e do elemento de lesão ao patrimônio. tema 1096">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 77</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-77">Não respondida</span>
+</div>
+
+<p class="enunciado">A conduta de frustrar a licitude do processo licitatório ou dispensá‑lo indevidamente, por sua própria natureza, sempre configura ato de improbidade que causa dano presumido ao erário (in re ipsa), dispensando a prova do efetivo prejuízo.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(77, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(77, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-77">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>N/I</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 1096 indica a necessidade de definir se tal conduta configura dano presumido in re ipsa; não há afirmativa conclusiva no enunciado do tema. Assim, não se pode afirmar categoricamente que sempre configura dano presumido; a caracterização depende da análise fática e do elemento de lesão ao patrimônio.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1096</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="na hipótese de multa aplicada a pessoa jurídica proprietária de veículo fundamentada pela ausência de indicação do condutor, é obrigatório observar dupla notificação — primeira para a autuação e segunda para a aplicação da penalidade — em conformidade com arts. 280 a 282 do ctb. tema 1097 estabelece a obrigatoriedade de dupla notificação nos casos em que a multa é aplicada à pessoa jurídica por ausência de indicação do condutor, sendo primeiro o aviso da autuação e depois o da imposição da penalidade, conforme dispositivos do ctb. tema 1097 (arts. 280, 281, 282/ctb)">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 78</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-78">Não respondida</span>
+</div>
+
+<p class="enunciado">Na hipótese de multa aplicada a pessoa jurídica proprietária de veículo fundamentada pela ausência de indicação do condutor, é obrigatório observar dupla notificação — primeira para a autuação e segunda para a aplicação da penalidade — em conformidade com arts. 280 a 282 do CTB.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(78, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(78, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-78">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 1097 estabelece a obrigatoriedade de dupla notificação nos casos em que a multa é aplicada à pessoa jurídica por ausência de indicação do condutor, sendo primeiro o aviso da autuação e depois o da imposição da penalidade, conforme dispositivos do CTB.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1097 (arts. 280, 281, 282/CTB)</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="o direito ao trânsito seguro e os danos coletivos decorrentes de tráfego reiterado de veículos com excesso de peso em rodovias autorizam a imposição de medidas inibitórias e a responsabilização civil do infrator, em linha com a tutela coletiva. tema 1104 reconhece a possibilidade de tutela inibitória e responsabilização civil pelo dano coletivo e ao direito ao trânsito seguro em decorrência do tráfego reiterado de veículo com excesso de peso, cabendo medidas preventivas e reparatórias. tema 1104">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 79</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-79">Não respondida</span>
+</div>
+
+<p class="enunciado">O direito ao trânsito seguro e os danos coletivos decorrentes de tráfego reiterado de veículos com excesso de peso em rodovias autorizam a imposição de medidas inibitórias e a responsabilização civil do infrator, em linha com a tutela coletiva.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(79, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(79, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-79">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 1104 reconhece a possibilidade de tutela inibitória e responsabilização civil pelo dano coletivo e ao direito ao trânsito seguro em decorrência do tráfego reiterado de veículo com excesso de peso, cabendo medidas preventivas e reparatórias.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1104</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a mera contratação de servidores temporários por legislação local, sem concurso público, configura necessariamente ato de improbidade administrativa previsto no art. 11 da lei 8.429/1992, independentemente da presença de dolo. tema 1108 afirma que a contratação temporária prevista em lei local, por si só, não configura improbidade do art. 11, pois falta o elemento subjetivo (dolo), requisito essencial para configuração do ato de improbidade que viola princípios administrativos. tema 1108">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 80</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-80">Não respondida</span>
+</div>
+
+<p class="enunciado">A mera contratação de servidores temporários por legislação local, sem concurso público, configura necessariamente ato de improbidade administrativa previsto no art. 11 da Lei 8.429/1992, independentemente da presença de dolo.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(80, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(80, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-80">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 1108 afirma que a contratação temporária prevista em lei local, por si só, não configura improbidade do art. 11, pois falta o elemento subjetivo (dolo), requisito essencial para configuração do ato de improbidade que viola princípios administrativos.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1108</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="é ilegal que menor de 18 anos, mesmo emancipado ou dotado de altas habilidades, antecipe a conclusão da educação básica submetendo‑se ao sistema de avaliação diferenciado dos cejas para obtenção do diploma de ensino médio; contudo, os efeitos da decisão são modulados para manter decisões judiciais favoráveis proferidas antes da publicação do acórdão. tema 1127 declara ilegítima a antecipação da conclusão da educação básica por menor de 18 anos, mesmo emancipado, via sistema de avaliação diferenciado dos cejas, e modula efeitos para preservar decisões já proferidas até a data da publicação do acórdão, mitigando impacto retroativo. tema 1127">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 81</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-81">Não respondida</span>
+</div>
+
+<p class="enunciado">É ilegal que menor de 18 anos, mesmo emancipado ou dotado de altas habilidades, antecipe a conclusão da educação básica submetendo‑se ao sistema de avaliação diferenciado dos CEJAs para obtenção do diploma de ensino médio; contudo, os efeitos da decisão são modulados para manter decisões judiciais favoráveis proferidas antes da publicação do acórdão.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(81, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(81, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-81">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 1127 declara ilegítima a antecipação da conclusão da educação básica por menor de 18 anos, mesmo emancipado, via sistema de avaliação diferenciado dos CEJAs, e modula efeitos para preservar decisões já proferidas até a data da publicação do acórdão, mitigando impacto retroativo.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1127</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="na multa civil prevista na lei 8.429/1992, a correção monetária e os juros de mora devem incidir a partir da data do ato ímprobo, de acordo com as súmulas 43 e 54/stj, sem qualquer outra alternativa temporal. tema 1128 reitera que, na multa civil prevista na lei de improbidade, a correção monetária e os juros de mora devem incidir desde a data do ato ímprobo, conforme orientações das súmulas 43 e 54/stj, fixando o marco temporal para atualização e encargos. tema 1128">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 82</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-82">Não respondida</span>
+</div>
+
+<p class="enunciado">Na multa civil prevista na Lei 8.429/1992, a correção monetária e os juros de mora devem incidir a partir da data do ato ímprobo, de acordo com as Súmulas 43 e 54/STJ, sem qualquer outra alternativa temporal.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(82, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(82, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-82">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 1128 reitera que, na multa civil prevista na Lei de Improbidade, a correção monetária e os juros de mora devem incidir desde a data do ato ímprobo, conforme orientações das Súmulas 43 e 54/STJ, fixando o marco temporal para atualização e encargos.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1128</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="os conselhos seccionais da oab têm competência para instituir e cobrar anuidade das sociedades de advogados, pois a lei lhes atribui autonomia financeira para tanto. tema 1179 estabelece que os conselhos seccionais da oab não podem instituir e cobrar anuidade das sociedades de advogados, vedando‑se a incidência de cobrança semelhante à dos profissionais, por falta de previsão legal autorizadora. tema 1179">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 83</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-83">Não respondida</span>
+</div>
+
+<p class="enunciado">Os Conselhos Seccionais da OAB têm competência para instituir e cobrar anuidade das sociedades de advogados, pois a lei lhes atribui autonomia financeira para tanto.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(83, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(83, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-83">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 1179 estabelece que os Conselhos Seccionais da OAB não podem instituir e cobrar anuidade das sociedades de advogados, vedando‑se a incidência de cobrança semelhante à dos profissionais, por falta de previsão legal autorizadora.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1179</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="nos procedimentos de demarcação de terrenos de marinha, entre 31/05/2007 e 28/03/2011, é válido o ato jurídico de chamamento de interessados, certos ou incertos, formalizado exclusivamente por edital, em razão da alteração legislativa do art. 11 do decreto‑lei 9.760/46 promovida pela lei 11.481/2007. tema 1199 reconhece a validade do chamamento à participação por edital no período indicado (31/05/2007 a 28/03/2011), em decorrência da eficácia da alteração legislativa promovida, autorizando tal forma de formalização no procedimento de demarcação. tema 1199">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 84</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-84">Não respondida</span>
+</div>
+
+<p class="enunciado">Nos procedimentos de demarcação de terrenos de marinha, entre 31/05/2007 e 28/03/2011, é válido o ato jurídico de chamamento de interessados, certos ou incertos, formalizado exclusivamente por edital, em razão da alteração legislativa do art. 11 do Decreto‑lei 9.760/46 promovida pela Lei 11.481/2007.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(84, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(84, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-84">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 1199 reconhece a validade do chamamento à participação por edital no período indicado (31/05/2007 a 28/03/2011), em decorrência da eficácia da alteração legislativa promovida, autorizando tal forma de formalização no procedimento de demarcação.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1199</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="para fins de indisponibilidade de bens na ação de improbidade, há solidariedade entre os corréus de modo que a constrição de bens deve recair individualmente sobre montantes correspondentes ao débito total em relação a cada um, sem limitação ao quantum determinado pelo juiz. tema 1213 estabelece solidariedade entre corréus quanto à indisponibilidade, mas limita a constrição ao somatório da medida ao quantum determinado pelo juiz, vedando o bloqueio que corresponda ao débito total em face de cada corréu (proibição de múltipla constrição idêntica). tema 1213">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 85</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-85">Não respondida</span>
+</div>
+
+<p class="enunciado">Para fins de indisponibilidade de bens na ação de improbidade, há solidariedade entre os corréus de modo que a constrição de bens deve recair individualmente sobre montantes correspondentes ao débito total em relação a cada um, sem limitação ao quantum determinado pelo juiz.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(85, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(85, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-85">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 1213 estabelece solidariedade entre corréus quanto à indisponibilidade, mas limita a constrição ao somatório da medida ao quantum determinado pelo juiz, vedando o bloqueio que corresponda ao débito total em face de cada corréu (proibição de múltipla constrição idêntica).</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1213</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="em ação que pleiteia reparação moral por mau cheiro proveniente de serviço público de tratamento de esgoto, os juros moratórios incidem desde a data da citação válida, salvo se comprovada mora anterior por parte da prestadora do serviço. tema 1221 determina que, nessas hipóteses, os juros moratórios devem ser contados desde a citação válida, salvo prova de mora anterior da prestadora, caso em que o termo inicial pode ser antecipado para quando a mora efetivamente se verificou. tema 1221">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 86</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-86">Não respondida</span>
+</div>
+
+<p class="enunciado">Em ação que pleiteia reparação moral por mau cheiro proveniente de serviço público de tratamento de esgoto, os juros moratórios incidem desde a data da citação válida, salvo se comprovada mora anterior por parte da prestadora do serviço.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(86, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(86, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-86">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 1221 determina que, nessas hipóteses, os juros moratórios devem ser contados desde a citação válida, salvo prova de mora anterior da prestadora, caso em que o termo inicial pode ser antecipado para quando a mora efetivamente se verificou.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1221</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="o abono de permanência, por sua natureza remuneratória e permanente, integra a base de cálculo para demais parcelas remuneratórias do servidor, tais como adicional de férias e 13º salário. tema 1233 consagra que o abono de permanência integra a base de incidência das verbas calculadas sobre a remuneração (adicional de férias, 13º), em razão de sua natureza remuneratória e caráter permanente. tema 1233">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 87</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-87">Não respondida</span>
+</div>
+
+<p class="enunciado">O abono de permanência, por sua natureza remuneratória e permanente, integra a base de cálculo para demais parcelas remuneratórias do servidor, tais como adicional de férias e 13º salário.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(87, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(87, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-87">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 1233 consagra que o abono de permanência integra a base de incidência das verbas calculadas sobre a remuneração (adicional de férias, 13º), em razão de sua natureza remuneratória e caráter permanente.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1233</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a impenhorabilidade de quantia inferior a 40 salários‑mínimos, prevista no art. 833, x, do cpc, é matéria de ordem pública e pode ser reconhecida ex officio pelo juiz a qualquer tempo, independentemente de arguição pelo executado. tema 1235 dispõe que a impenhorabilidade de quantia inferior a 40 salários‑mínimos não é matéria de ordem pública e não pode ser reconhecida de ofício; deve ser alegada pelo executado no primeiro momento oportuno (contestação ou embargos) sob pena de preclusão. tema 1235">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 88</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-88">Não respondida</span>
+</div>
+
+<p class="enunciado">A impenhorabilidade de quantia inferior a 40 salários‑mínimos, prevista no art. 833, X, do CPC, é matéria de ordem pública e pode ser reconhecida ex officio pelo juiz a qualquer tempo, independentemente de arguição pelo executado.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(88, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(88, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-88">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 1235 dispõe que a impenhorabilidade de quantia inferior a 40 salários‑mínimos não é matéria de ordem pública e não pode ser reconhecida de ofício; deve ser alegada pelo executado no primeiro momento oportuno (contestação ou embargos) sob pena de preclusão.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1235</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="as disposições da lei 14.230/2021 são aplicáveis aos processos em curso, de modo que procedimentos de tutela provisória de indisponibilidade de bens previamente deferidos poderão ser reapreciados para adequação à nova redação da lei 8.429/1992. tema 1257 reconhece a aplicabilidade das disposições da lei 14.230/2021 aos processos em curso, permitindo reapreciação das medidas já deferidas para conformação com a atual redação da lei de improbidade, respeitando princípios de direito intertemporal. tema 1257">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 89</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-89">Não respondida</span>
+</div>
+
+<p class="enunciado">As disposições da Lei 14.230/2021 são aplicáveis aos processos em curso, de modo que procedimentos de tutela provisória de indisponibilidade de bens previamente deferidos poderão ser reapreciados para adequação à nova redação da Lei 8.429/1992.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(89, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(89, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-89">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 1257 reconhece a aplicabilidade das disposições da Lei 14.230/2021 aos processos em curso, permitindo reapreciação das medidas já deferidas para conformação com a atual redação da Lei de Improbidade, respeitando princípios de direito intertemporal.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1257</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="o adicional noturno é devido ao servidor da então carreira de agente federal de execução penal mesmo durante períodos de afastamento considerados como de efetivo exercício, nos termos da legislação que regulamenta a carreira. tema 1272 estabelece que o adicional noturno não será devido ao servidor da citada carreira nos períodos de afastamento, ainda que esses sejam considerados como de efetivo exercício, afastando a continuidade do adicional durante o afastamento. tema 1272">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 90</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-90">Não respondida</span>
+</div>
+
+<p class="enunciado">O adicional noturno é devido ao servidor da então carreira de Agente Federal de Execução Penal mesmo durante períodos de afastamento considerados como de efetivo exercício, nos termos da legislação que regulamenta a carreira.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(90, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(90, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-90">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 1272 estabelece que o adicional noturno não será devido ao servidor da citada carreira nos períodos de afastamento, ainda que esses sejam considerados como de efetivo exercício, afastando a continuidade do adicional durante o afastamento.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1272</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="tema 1275 encontra‑se em julgamento de mérito e, por isso, já possui enunciado jurisprudencial vinculante sobre a matéria. o enunciado do tema 1275 indica &quot;aguardando julgamento de mérito&quot;, o que significa que não há decisão consolidada nem enunciado definitivo, logo não há jurisprudência vinculante formada sobre o tema. tema 1275">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 91</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-91">Não respondida</span>
+</div>
+
+<p class="enunciado">Tema 1275 encontra‑se em julgamento de mérito e, por isso, já possui enunciado jurisprudencial vinculante sobre a matéria.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(91, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(91, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-91">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O enunciado do Tema 1275 indica &quot;Aguardando julgamento de mérito&quot;, o que significa que não há decisão consolidada nem enunciado definitivo, logo não há jurisprudência vinculante formada sobre o tema.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1275</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="para descontos autorizados antes de 04/08/2022 (vigência da mp 1.132/2022 convertida na lei 14.509/2022), não se aplica limite específico às consignações autorizadas em favor de terceiros, devendo apenas observar‑se que o militar não receba quantia inferior a 30% de sua remuneração após descontos, nos termos do art. 14, §3º, da mp 2.215‑10/2001. tema 1286 expressa que para consignações autorizadas antes de 4/8/2022 não se aplicava o limite específico posterior, e incide apenas a regra de proteção de parcela mínima do militar (não receber menos de 30% após descontos), conforme art. 14, §3º, da mp 2.215‑10/2001. tema 1286">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 92</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-92">Não respondida</span>
+</div>
+
+<p class="enunciado">Para descontos autorizados antes de 04/08/2022 (vigência da MP 1.132/2022 convertida na Lei 14.509/2022), não se aplica limite específico às consignações autorizadas em favor de terceiros, devendo apenas observar‑se que o militar não receba quantia inferior a 30% de sua remuneração após descontos, nos termos do art. 14, §3º, da MP 2.215‑10/2001.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(92, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(92, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-92">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 1286 expressa que para consignações autorizadas antes de 4/8/2022 não se aplicava o limite específico posterior, e incide apenas a regra de proteção de parcela mínima do militar (não receber menos de 30% após descontos), conforme art. 14, §3º, da MP 2.215‑10/2001.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1286</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="o decreto 20.910/1932 regula expressamente a prescrição intercorrente em processos administrativos estaduais e municipais, sendo adequada sua utilização por analogia para reconhecimento da prescrição intercorrente nesses processos. tema 1294 afirma que o decreto 20.910/1932 não dispõe sobre a prescrição intercorrente e não pode ser utilizado como referência normativa para reconhecimento da prescrição intercorrente em processos administrativos estaduais e municipais, nem mesmo por analogia. tema 1294">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 93</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-93">Não respondida</span>
+</div>
+
+<p class="enunciado">O Decreto 20.910/1932 regula expressamente a prescrição intercorrente em processos administrativos estaduais e municipais, sendo adequada sua utilização por analogia para reconhecimento da prescrição intercorrente nesses processos.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(93, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(93, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-93">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 1294 afirma que o Decreto 20.910/1932 não dispõe sobre a prescrição intercorrente e não pode ser utilizado como referência normativa para reconhecimento da prescrição intercorrente em processos administrativos estaduais e municipais, nem mesmo por analogia.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1294</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="tema 1301 encontra‑se pendente de julgamento de mérito, pelo que não há tese consolidada aplicável ao tema. o enunciado &quot;aguardando julgamento de mérito&quot; indica que o tema 1301 não possui tese definida, devendo aguardar decisão para formar jurisprudência, cabendo reconhecer inexistência de enunciado consolidado. tema 1301">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 94</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-94">Não respondida</span>
+</div>
+
+<p class="enunciado">Tema 1301 encontra‑se pendente de julgamento de mérito, pelo que não há tese consolidada aplicável ao tema.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(94, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(94, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-94">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O enunciado &quot;Aguardando julgamento de mérito&quot; indica que o tema 1301 não possui tese definida, devendo aguardar decisão para formar jurisprudência, cabendo reconhecer inexistência de enunciado consolidado.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1301</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="tema 1305 está com julgamento de mérito pendente e, portanto, não se pode afirmar qual é a tese a ser adotada, inexistindo entendimento pacificado. conforme o documento, tema 1305 está &quot;aguardando julgamento de mérito&quot;, o que implica ausência de tese consolidada e impossibilidade de extração de enunciado vinculante até o pronunciamento final. tema 1305">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 95</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-95">Não respondida</span>
+</div>
+
+<p class="enunciado">Tema 1305 está com julgamento de mérito pendente e, portanto, não se pode afirmar qual é a tese a ser adotada, inexistindo entendimento pacificado.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(95, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(95, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-95">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Conforme o documento, Tema 1305 está &quot;Aguardando julgamento de mérito&quot;, o que implica ausência de tese consolidada e impossibilidade de extração de enunciado vinculante até o pronunciamento final.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1305</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="tema 1324 aguarda julgamento de mérito, razão pela qual não existe enunciado vinculante formado sobre o tema. o arquivo indica que tema 1324 está &quot;aguardando julgamento de mérito&quot;, significando falta de tese consolidada, o que torna improcedente qualquer afirmação conclusiva sobre o tema. tema 1324">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 96</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-96">Não respondida</span>
+</div>
+
+<p class="enunciado">Tema 1324 aguarda julgamento de mérito, razão pela qual não existe enunciado vinculante formado sobre o tema.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(96, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(96, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-96">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O arquivo indica que Tema 1324 está &quot;Aguardando julgamento de mérito&quot;, significando falta de tese consolidada, o que torna improcedente qualquer afirmação conclusiva sobre o tema.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1324</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a pretensão de cobrança de complementação de recursos relativos ao valor mínimo anual por aluno (vmaa) repassado ao fundeb/fundef deve ser avaliada anualmente, contada a prescrição por exercício anual, e não mês a mês, por se tratar de repasse anual. tema 1326 estabelece que o prazo prescricional deve ser apurado mês a mês, por se tratar de relação de trato sucessivo que se renova mensalmente, afastando a contagem anual e preservando prescrição apenas das parcelas relativas ao quinquênio anterior à propositura da ação. tema 1326">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 97</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-97">Não respondida</span>
+</div>
+
+<p class="enunciado">A pretensão de cobrança de complementação de recursos relativos ao Valor Mínimo Anual por Aluno (VMAA) repassado ao FUNDEB/FUNDEF deve ser avaliada anualmente, contada a prescrição por exercício anual, e não mês a mês, por se tratar de repasse anual.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(97, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(97, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-97">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Tema 1326 estabelece que o prazo prescricional deve ser apurado mês a mês, por se tratar de relação de trato sucessivo que se renova mensalmente, afastando a contagem anual e preservando prescrição apenas das parcelas relativas ao quinquênio anterior à propositura da ação.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1326</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="tema 1344 ainda encontra‑se sem julgamento de mérito, não havendo enunciado jurisprudencial consolidado aplicável. o arquivo indica &quot;aguardando julgamento de mérito&quot; para o tema 1344, confirmando inexistência de tese consolidada até decisão final. tema 1344">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 98</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-98">Não respondida</span>
+</div>
+
+<p class="enunciado">Tema 1344 ainda encontra‑se sem julgamento de mérito, não havendo enunciado jurisprudencial consolidado aplicável.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(98, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(98, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-98">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O arquivo indica &quot;Aguardando julgamento de mérito&quot; para o Tema 1344, confirmando inexistência de tese consolidada até decisão final.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1344</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a indicação &quot;aplicar (art. 1040 do cpc)&quot; relativa ao tema 1387 significa que o tema dispõe a aplicação direta do art. 1.040 do cpc, sem necessidade de interpretação adicional. a menção é sintética e não constitui enunciado jurídico autônomo; o tema 1387 remete à aplicação do art. 1040 do cpc, mas a afirmação absoluta de aplicação direta sem contextualização é improcedente, pois depende do caso concreto e da compatibilidade processual. tema 1387">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 99</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-99">Não respondida</span>
+</div>
+
+<p class="enunciado">A indicação &quot;aplicar (Art. 1040 do CPC)&quot; relativa ao Tema 1387 significa que o tema dispõe a aplicação direta do art. 1.040 do CPC, sem necessidade de interpretação adicional.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(99, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(99, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-99">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A menção é sintética e não constitui enunciado jurídico autônomo; o Tema 1387 remete à aplicação do art. 1040 do CPC, mas a afirmação absoluta de aplicação direta sem contextualização é improcedente, pois depende do caso concreto e da compatibilidade processual.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1387</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="tema 1395 está pendente de julgamento de mérito, não existindo tese consolidada sobre a matéria até a decisão final. o arquivo registra &quot;aguardando julgamento de mérito&quot; para o tema 1395, o que demonstra ausência de enunciado final e consequente inexistência de jurisprudência vinculante. tema 1395">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 100</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-100">Não respondida</span>
+</div>
+
+<p class="enunciado">Tema 1395 está pendente de julgamento de mérito, não existindo tese consolidada sobre a matéria até a decisão final.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(100, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(100, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-100">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O arquivo registra &quot;Aguardando julgamento de mérito&quot; para o Tema 1395, o que demonstra ausência de enunciado final e consequente inexistência de jurisprudência vinculante.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1395</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="tema 1397 já foi definitivamente julgado e contém tese consolidada aplicável a futuros litígios envolvendo a matéria. no documento, tema 1397 aparece como &quot;aguardando julgamento de mérito&quot;, indicando que não foi ainda definitivamente julgado e, portanto, não há tese consolidada. tema 1397">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 101</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-101">Não respondida</span>
+</div>
+
+<p class="enunciado">Tema 1397 já foi definitivamente julgado e contém tese consolidada aplicável a futuros litígios envolvendo a matéria.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(101, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(101, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-101">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>No documento, Tema 1397 aparece como &quot;Aguardando julgamento de mérito&quot;, indicando que não foi ainda definitivamente julgado e, portanto, não há tese consolidada.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1397</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="tema 1400 ainda aguarda julgamento de mérito, não sendo possível extrair dele qualquer enunciado jurisprudencial vinculante neste momento. conforme o arquivo, tema 1400 está &quot;aguardando julgamento de mérito&quot;, o que impede a extração de tese consolidada até pronunciamento final do tribunal. tema 1400">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 102</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-102">Não respondida</span>
+</div>
+
+<p class="enunciado">Tema 1400 ainda aguarda julgamento de mérito, não sendo possível extrair dele qualquer enunciado jurisprudencial vinculante neste momento.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(102, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(102, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-102">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Conforme o arquivo, Tema 1400 está &quot;Aguardando julgamento de mérito&quot;, o que impede a extração de tese consolidada até pronunciamento final do tribunal.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1400</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="tema 1410 permanece pendente de julgamento de mérito, não havendo tese jurídica delineada no material fornecido. o documento indica &quot;aguardando julgamento de mérito&quot; para o tema 1410, confirmando a ausência de enunciado final e a necessidade de aguardar julgamento. tema 1410">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 103</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-103">Não respondida</span>
+</div>
+
+<p class="enunciado">Tema 1410 permanece pendente de julgamento de mérito, não havendo tese jurídica delineada no material fornecido.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(103, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(103, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-103">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O documento indica &quot;Aguardando julgamento de mérito&quot; para o Tema 1410, confirmando a ausência de enunciado final e a necessidade de aguardar julgamento.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1410</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="tema 1417 encontra‑se em estado de pendência de julgamento de mérito, o que impede a formulação de enunciado jurisprudencial consolidado aplicável à matéria. o arquivo aponta &quot;aguardando julgamento de mérito&quot; para o tema 1417, denotando inexistência de tese pacificada até decisão do colegiado, razão pela qual não há enunciado vinculante. tema 1417">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 104</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-104">Não respondida</span>
+</div>
+
+<p class="enunciado">Tema 1417 encontra‑se em estado de pendência de julgamento de mérito, o que impede a formulação de enunciado jurisprudencial consolidado aplicável à matéria.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(104, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(104, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-104">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O arquivo aponta &quot;Aguardando julgamento de mérito&quot; para o Tema 1417, denotando inexistência de tese pacificada até decisão do colegiado, razão pela qual não há enunciado vinculante.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1417</p>
+</div>
+</section>
+
+</div>
+
+<script>
+const storageKey = location.pathname + "_respostas";
+let respostas = JSON.parse(localStorage.getItem(storageKey) || "{}");
+
+function destacar(t){
+ if(t==="CERTO") return '<span class="gabarito-certo">CERTO</span>';
+ if(t==="ERRADO") return '<span class="gabarito-errado">ERRADO</span>';
+ return t;
+}
+
+function responder(numero, resposta){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const gabarito=card.dataset.gabarito;
+ const correto=resposta===gabarito;
+ respostas[numero]={resposta,correto};
+ localStorage.setItem(storageKey, JSON.stringify(respostas));
+ mostrarFeedback(numero);
+ atualizarPainel();
+ filtrar();
+}
+
+function mostrarFeedback(numero){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const feedback=document.getElementById("feedback-"+numero);
+ const status=document.getElementById("status-"+numero);
+ const resultado=feedback.querySelector(".resultado");
+ const gabarito=card.dataset.gabarito;
+ const dados=respostas[numero];
+ if(!dados) return;
+ feedback.style.display="block";
+ feedback.classList.remove("correto","errado");
+ if(dados.correto){
+   feedback.classList.add("correto");
+   resultado.innerHTML="Você acertou. A resposta é "+destacar(gabarito)+".";
+   status.textContent="Respondida — acerto";
+   status.style.color="var(--green)";
+ } else {
+   feedback.classList.add("errado");
+   resultado.innerHTML="Você errou. O gabarito é "+destacar(gabarito)+".";
+   status.textContent="Respondida — erro";
+   status.style.color="var(--red)";
+ }
+}
+
+function atualizarPainel(){
+ let respondidas=0, acertos=0, erros=0;
+ for(const k in respostas){
+   respondidas++;
+   if(respostas[k].correto) acertos++; else erros++;
+ }
+ document.getElementById("respondidas").textContent=respondidas;
+ document.getElementById("acertos").textContent=acertos;
+ document.getElementById("erros").textContent=erros;
+ document.getElementById("visiveis").textContent=document.querySelectorAll(".questao:not(.oculta)").length;
+}
+
+function filtrar(){
+ const busca=document.getElementById("busca").value.trim().toLowerCase();
+ const disciplina=document.getElementById("disciplina").value;
+ const statusFiltro=document.getElementById("statusFiltro").value;
+ const cards=Array.from(document.querySelectorAll(".questao"));
+ let vis=0;
+ cards.forEach((card,idx)=>{
+   const n=idx+1;
+   const texto=card.dataset.texto||"";
+   const disc=card.dataset.disciplina||"";
+   const r=respostas[n];
+   let passaStatus=true;
+   if(statusFiltro==="nao") passaStatus=!r;
+   if(statusFiltro==="acerto") passaStatus=r && r.correto;
+   if(statusFiltro==="erro") passaStatus=r && !r.correto;
+   const ok=(!busca||texto.includes(busca)) && (!disciplina||disc===disciplina) && passaStatus;
+   card.classList.toggle("oculta", !ok);
+   if(ok) vis++;
+ });
+ document.getElementById("sem-resultados").style.display=vis===0?"block":"none";
+ atualizarPainel();
+}
+
+function reiniciar(){
+ if(!confirm("Deseja reiniciar este simulado?")) return;
+ localStorage.removeItem(storageKey);
+ location.reload();
+}
+
+function restaurar(){
+ for(const k in respostas) mostrarFeedback(Number(k));
+ filtrar();
+ atualizarPainel();
+}
+
+restaurar();
+</script>
+</body>
+</html>

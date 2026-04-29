@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Simulado - Info 870 STJ</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+:root{
+--bg:#020617;--panel:rgba(15,23,42,.88);--card:rgba(15,23,42,.96);
+--card2:rgba(30,41,59,.92);--border:rgba(148,163,184,.22);
+--text:#e5e7eb;--muted:#94a3b8;--accent:#38bdf8;--accent2:#0ea5e9;
+--green:#22c55e;--red:#ef4444;--yellow:#facc15;--purple:#a78bfa;
+}
+*{box-sizing:border-box}
+body{
+margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+background:radial-gradient(circle at top left,rgba(56,189,248,.20),transparent 28%),
+radial-gradient(circle at top right,rgba(167,139,250,.15),transparent 28%),
+linear-gradient(135deg,#020617,#0f172a 50%,#020617);
+color:var(--text);line-height:1.65;
+}
+header{padding:44px 20px 32px;text-align:center;border-bottom:1px solid var(--border)}
+header h1{margin:0 0 10px;font-size:clamp(28px,4vw,46px);letter-spacing:-.05em}
+header p{color:var(--muted);margin:0;font-size:16px}
+.container{max-width:1160px;margin:0 auto;padding:26px 16px 80px}
+.painel{
+position:sticky;top:10px;z-index:10;background:var(--panel);backdrop-filter:blur(18px);
+border:1px solid var(--border);border-radius:26px;padding:16px;margin-bottom:22px;
+box-shadow:0 22px 70px rgba(0,0,0,.35)
+}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.stat{background:var(--card2);padding:14px;border-radius:18px;text-align:center;border:1px solid rgba(148,163,184,.12)}
+.stat strong{display:block;font-size:25px;color:var(--accent);line-height:1.1}
+.stat span{font-size:12px;color:var(--muted)}
+.filtros{display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:12px;margin-top:14px}
+input,select{
+width:100%;background:rgba(2,6,23,.78);color:var(--text);border:1px solid var(--border);
+border-radius:14px;padding:13px 14px;outline:none;font-size:14px
+}
+input:focus,select:focus{border-color:var(--accent)}
+.card{
+background:var(--card);border:1px solid var(--border);border-radius:24px;padding:26px;
+margin-bottom:20px;box-shadow:0 18px 50px rgba(0,0,0,.24)
+}
+.questao{scroll-margin-top:190px}
+.questao-topo{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:18px}
+.badge{
+background:linear-gradient(135deg,var(--accent),var(--accent2));color:#00111f;font-weight:900;
+padding:7px 13px;border-radius:999px;display:inline-block
+}
+.disciplina-tag,.tipo-tag{
+display:inline-block;margin-left:8px;color:var(--muted);background:rgba(148,163,184,.10);
+border:1px solid rgba(148,163,184,.14);padding:6px 10px;border-radius:999px;font-size:12px
+}
+.tipo-tag{color:#ddd6fe;border-color:rgba(167,139,250,.25)}
+.status{color:var(--yellow);font-size:13px;white-space:nowrap}
+.enunciado{font-size:19px;margin:0 0 22px;letter-spacing:-.01em}
+.botoes{display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.btn{
+cursor:pointer;border:0;padding:12px 22px;border-radius:14px;color:white;font-weight:900;
+transition:.18s ease;letter-spacing:.02em
+}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.certo{background:rgba(34,197,94,.20);border:1px solid rgba(34,197,94,.42)}
+.btn.errado{background:rgba(239,68,68,.20);border:1px solid rgba(239,68,68,.42)}
+.btn.neutro{background:rgba(56,189,248,.16);color:var(--text);border:1px solid rgba(56,189,248,.32)}
+.feedback{
+display:none;background:rgba(2,6,23,.72);border:1px solid rgba(148,163,184,.16);
+border-left:5px solid var(--accent);padding:18px;border-radius:18px;margin-top:14px
+}
+.feedback.correto{border-left-color:var(--green)}
+.feedback.errado{border-left-color:var(--red)}
+.resultado{font-size:18px;font-weight:900;margin-top:0}
+.justificativa{margin-top:12px}
+.referencia{color:var(--muted);font-size:13px;margin-top:16px}
+.gabarito-certo{color:var(--green);font-weight:900}
+.gabarito-errado{color:var(--red);font-weight:900}
+.oculta{display:none}
+.sem-resultados{text-align:center;color:var(--muted);display:none;padding:30px}
+.grid-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
+.link-card{
+display:block;padding:20px;background:rgba(15,23,42,.95);border:1px solid rgba(148,163,184,.22);
+color:#e5e7eb;border-radius:22px;text-decoration:none;transition:.2s;box-shadow:0 14px 40px rgba(0,0,0,.22)
+}
+.link-card:hover{transform:translateY(-3px);border-color:#38bdf8}
+.link-card strong{display:block;font-size:17px;margin-bottom:8px}
+.link-card span{color:#94a3b8;font-size:13px}
+.index-tools{display:grid;grid-template-columns:1.5fr 1fr;gap:12px;margin-bottom:20px}
+@media(max-width:850px){
+.stats{grid-template-columns:repeat(2,1fr)}
+.filtros,.index-tools{grid-template-columns:1fr}
+.questao-topo{align-items:flex-start;flex-direction:column}
+.botoes{flex-direction:column}
+.enunciado{font-size:16px}
+.card{padding:20px}
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Simulado - Info 870 STJ</h1>
+<p>Informativos • Simulado interativo de CERTO ou ERRADO</p>
+</header>
+
+<div class="container">
+<div class="painel">
+<div class="stats">
+<div class="stat"><strong>20</strong><span>Total</span></div>
+<div class="stat"><strong id="visiveis">20</strong><span>Visíveis</span></div>
+<div class="stat"><strong id="respondidas">0</strong><span>Respondidas</span></div>
+<div class="stat"><strong id="acertos">0</strong><span>Acertos</span></div>
+<div class="stat"><strong id="erros">0</strong><span>Erros</span></div>
+</div>
+
+<div class="filtros">
+<input id="busca" type="search" placeholder="Buscar por palavra-chave..." oninput="filtrar()">
+<select id="disciplina" onchange="filtrar()">
+<option value="">Todas as disciplinas</option>
+<option value="ECA">ECA</option>
+<option value="N/I">N/I</option>
+</select>
+<select id="statusFiltro" onchange="filtrar()">
+<option value="">Todas</option>
+<option value="nao">Não respondidas</option>
+<option value="acerto">Acertos</option>
+<option value="erro">Erros</option>
+</select>
+<button class="btn neutro" onclick="reiniciar()">Reiniciar</button>
+</div>
+</div>
+
+<div id="sem-resultados" class="sem-resultados">Nenhuma questão encontrada com os filtros atuais.</div>
+
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="na fase de cumprimento de sentença em ação de improbidade administrativa, é juridicamente admissível converter a sanção de perda da função pública em cassação de aposentadoria quando, no momento da execução do título condenatório, o agente já se encontra inativo, por se tratar de providência compatível com a equivalência material entre as duas medidas sancionatórias, sem que isso implique inovação indevida do título executivo. a assertiva está correta porque o entendimento consolidado admite, na fase executiva, a conversão da sanção de perda do cargo público em cassação de aposentadoria quando o agente já estava aposentado no momento do cumprimento da sentença condenatória por improbidade administrativa. a lógica adotada é a de equivalência funcional entre as medidas: se a condenação impôs a perda da função pública, mas o destinatário já não ocupa cargo ativo e passou à inatividade, a execução pode se adequar à situação jurídica superveniente, alcançando a aposentadoria por meio de cassação.
+
+esse ajuste não é tratado como inovação indevida do título executivo, mas como forma de efetivar a própria sanção imposta, preservando sua finalidade e evitando esvaziamento prático da condenação. a solução também se harmoniza com a orientação atual do stf, que admite a compatibilização da sanção com a condição funcional do agente no momento da execução.
+
+o ponto decisivo é que a conversão não decorre de mera conveniência administrativa, mas da necessidade de dar efetividade à condenação por improbidade quando o condenado já se encontra inativo. assim, a cassação da aposentadoria é válida como equivalente à perda do cargo público, desde que a aposentadoria exista no momento da execução da sentença condenatória. stj. 1ª seção. eresp 1781874-df, rel. min. paulo sérgio domingues, julgado em 2/10/2025 (info 870).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 1</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-1">Não respondida</span>
+</div>
+
+<p class="enunciado">Na fase de cumprimento de sentença em ação de improbidade administrativa, é juridicamente admissível converter a sanção de perda da função pública em cassação de aposentadoria quando, no momento da execução do título condenatório, o agente já se encontra inativo, por se tratar de providência compatível com a equivalência material entre as duas medidas sancionatórias, sem que isso implique inovação indevida do título executivo.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(1, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(1, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-1">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque o entendimento consolidado admite, na fase executiva, a conversão da sanção de perda do cargo público em cassação de aposentadoria quando o agente já estava aposentado no momento do cumprimento da sentença condenatória por improbidade administrativa. A lógica adotada é a de equivalência funcional entre as medidas: se a condenação impôs a perda da função pública, mas o destinatário já não ocupa cargo ativo e passou à inatividade, a execução pode se adequar à situação jurídica superveniente, alcançando a aposentadoria por meio de cassação.<br><br>Esse ajuste não é tratado como inovação indevida do título executivo, mas como forma de efetivar a própria sanção imposta, preservando sua finalidade e evitando esvaziamento prático da condenação. A solução também se harmoniza com a orientação atual do STF, que admite a compatibilização da sanção com a condição funcional do agente no momento da execução.<br><br>O ponto decisivo é que a conversão não decorre de mera conveniência administrativa, mas da necessidade de dar efetividade à condenação por improbidade quando o condenado já se encontra inativo. Assim, a cassação da aposentadoria é válida como equivalente à perda do cargo público, desde que a aposentadoria exista no momento da execução da sentença condenatória.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Seção. EREsp 1781874-DF, Rel. Min. Paulo Sérgio Domingues, julgado em 2/10/2025 (Info 870).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a divulgação, em redes sociais, de falas proferidas durante trote universitário, ainda que contenham conteúdo machista e sexualizado e tenham gerado ampla reprovação pública, não basta, por si só, para caracterizar dano moral coletivo, sendo indispensável a demonstração de lesão grave e objetivamente aferível a interesse transindividual, com repercussão jurídica que ultrapasse a ofensa a grupo determinado e a mera indignação social provocada pelo episódio. a afirmação está de acordo com o entendimento firmado no caso: embora as declarações tenham sido ofensivas, imorais e amplamente divulgadas, isso não foi suficiente, por si só, para configurar dano moral coletivo. a responsabilização por dano extrapatrimonial coletivo exige mais do que a existência de conteúdo reprovável ou de forte repercussão midiática; é necessária a demonstração de conduta antijurídica, lesão a interesse transindividual, nexo causal e gravidade objetiva da lesão.
+
+no caso examinado, o conteúdo foi proferido em contexto específico de trote universitário, dirigido a um grupo delimitado de calouros, ainda que depois tenha sido filmado e repercutido nacionalmente. o ponto central do julgamento foi justamente afastar a ideia de que a mera viralização do episódio em redes sociais, ou a intensa reação social negativa, bastaria para converter a ofensa em dano moral coletivo indenizável. a repercussão pública pode evidenciar reprovação social, mas não substitui a prova da lesão juridicamente relevante a uma coletividade indeterminada ou a interesse metaindividual.
+
+também é importante notar que o tribunal não acolheu a tese de que o tom de brincadeira ou a repetição voluntária pelos calouros, isoladamente, fosse o fundamento único da improcedência; o núcleo da decisão foi a ausência de configuração dos requisitos do dano moral coletivo, especialmente a gravidade objetiva da lesão e a afetação de interesse transindividual em nível suficiente para justificar a condenação.
+
+assim, a questão explora corretamente o limite do instituto: nem toda conduta ofensiva, ainda que socialmente repudiada e amplamente divulgada, gera automaticamente dano moral coletivo. stj. 4ª turma. resp 2.060.852-sp, rel. min. antonio carlos ferreira, julgado em 14/10/2025 (info 870).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 2</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-2">Não respondida</span>
+</div>
+
+<p class="enunciado">A divulgação, em redes sociais, de falas proferidas durante trote universitário, ainda que contenham conteúdo machista e sexualizado e tenham gerado ampla reprovação pública, não basta, por si só, para caracterizar dano moral coletivo, sendo indispensável a demonstração de lesão grave e objetivamente aferível a interesse transindividual, com repercussão jurídica que ultrapasse a ofensa a grupo determinado e a mera indignação social provocada pelo episódio.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(2, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(2, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-2">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A afirmação está de acordo com o entendimento firmado no caso: embora as declarações tenham sido ofensivas, imorais e amplamente divulgadas, isso não foi suficiente, por si só, para configurar dano moral coletivo. A responsabilização por dano extrapatrimonial coletivo exige mais do que a existência de conteúdo reprovável ou de forte repercussão midiática; é necessária a demonstração de conduta antijurídica, lesão a interesse transindividual, nexo causal e gravidade objetiva da lesão.<br><br>No caso examinado, o conteúdo foi proferido em contexto específico de trote universitário, dirigido a um grupo delimitado de calouros, ainda que depois tenha sido filmado e repercutido nacionalmente. O ponto central do julgamento foi justamente afastar a ideia de que a mera viralização do episódio em redes sociais, ou a intensa reação social negativa, bastaria para converter a ofensa em dano moral coletivo indenizável. A repercussão pública pode evidenciar reprovação social, mas não substitui a prova da lesão juridicamente relevante a uma coletividade indeterminada ou a interesse metaindividual.<br><br>Também é importante notar que o Tribunal não acolheu a tese de que o tom de brincadeira ou a repetição voluntária pelos calouros, isoladamente, fosse o fundamento único da improcedência; o núcleo da decisão foi a ausência de configuração dos requisitos do dano moral coletivo, especialmente a gravidade objetiva da lesão e a afetação de interesse transindividual em nível suficiente para justificar a condenação.<br><br>Assim, a questão explora corretamente o limite do instituto: nem toda conduta ofensiva, ainda que socialmente repudiada e amplamente divulgada, gera automaticamente dano moral coletivo.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 4ª Turma. REsp 2.060.852-SP, Rel. Min. Antonio Carlos Ferreira, julgado em 14/10/2025 (Info 870).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a recusa ao pagamento da indenização do seguro de vida é juridicamente legítima quando o segurado, ainda que em estado de embriaguez e convencido de que a arma utilizada não funcionaria, dispara contra a própria cabeça em prática de roleta-russa, pois a conduta, por si só, caracteriza agravamento intencional do risco contratado e autoriza a incidência da cláusula legal de perda da cobertura securitária. a assertiva está incorreta porque confunde conduta objetivamente arriscada com agravamento intencional do risco, exigido para a incidência da regra de perda da indenização no contrato de seguro. no caso examinado, embora o comportamento do segurado fosse manifestamente temerário, o elemento decisivo foi a ausência de dolo específico: ele estava embriagado e acreditava que a arma antiga não funcionava, de modo que não havia propósito deliberado de provocar o sinistro nem de agravar intencionalmente o risco contratado.
+
+nessa linha, o simples fato de o segurado ter apontado a arma para si e efetuado o disparo não basta, por si só, para afastar a cobertura securitária. o art. 768 do código civil exige conduta dolosa de agravamento do risco, e não mera imprudência extrema, temeridade ou comportamento autodestrutivo sem intenção suicida. também não se tratou de hipótese de suicídio, razão pela qual não se aplicou a lógica da exclusão por morte voluntária.
+
+assim, a indenização securitária foi devida à beneficiária, pois a conduta, embora gravíssima e imprudente, foi praticada sem a intenção de morrer e sem a finalidade de agravar o risco do contrato. stj. 3ª turma. resp 2.204.888-pr, rel. min. nancy andrighi, julgado em 4/11/2025 (info 870).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 3</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-3">Não respondida</span>
+</div>
+
+<p class="enunciado">A recusa ao pagamento da indenização do seguro de vida é juridicamente legítima quando o segurado, ainda que em estado de embriaguez e convencido de que a arma utilizada não funcionaria, dispara contra a própria cabeça em prática de roleta-russa, pois a conduta, por si só, caracteriza agravamento intencional do risco contratado e autoriza a incidência da cláusula legal de perda da cobertura securitária.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(3, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(3, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-3">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque confunde conduta objetivamente arriscada com agravamento intencional do risco, exigido para a incidência da regra de perda da indenização no contrato de seguro. No caso examinado, embora o comportamento do segurado fosse manifestamente temerário, o elemento decisivo foi a ausência de dolo específico: ele estava embriagado e acreditava que a arma antiga não funcionava, de modo que não havia propósito deliberado de provocar o sinistro nem de agravar intencionalmente o risco contratado.<br><br>Nessa linha, o simples fato de o segurado ter apontado a arma para si e efetuado o disparo não basta, por si só, para afastar a cobertura securitária. O art. 768 do Código Civil exige conduta dolosa de agravamento do risco, e não mera imprudência extrema, temeridade ou comportamento autodestrutivo sem intenção suicida. Também não se tratou de hipótese de suicídio, razão pela qual não se aplicou a lógica da exclusão por morte voluntária.<br><br>Assim, a indenização securitária foi devida à beneficiária, pois a conduta, embora gravíssima e imprudente, foi praticada sem a intenção de morrer e sem a finalidade de agravar o risco do contrato.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.204.888-PR, Rel. Min. Nancy Andrighi, julgado em 4/11/2025 (Info 870).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="em ação de despejo cumulada com cobrança, a condenação pode abranger os encargos locatícios periódicos vencidos no curso do processo até a efetiva desocupação do imóvel, ainda que a petição inicial não tenha discriminado, de modo individualizado, cada parcela acessória prevista no contrato, desde que haja referência expressa às obrigações assumidas pelo locatário, sendo desnecessária a formulação de pedido pormenorizado para cada uma dessas prestações sucessivas. a assertiva está correta porque, nas obrigações de trato sucessivo decorrentes de contrato de locação, a disciplina processual autoriza a inclusão, na condenação, das parcelas vencidas no curso da demanda até o efetivo encerramento da relação possessória, sem exigir que o autor detalhe, uma a uma, todas as prestações acessórias na petição inicial.
+
+o ponto central é a interpretação sistemática da inicial e do pedido. embora os arts. 322 e 324 do cpc exijam, como regra, pedido certo e determinado, essa exigência não impede a incidência do art. 323 do cpc, que trata justamente das prestações periódicas. em relações continuativas, como a locação urbana, os encargos contratuais de natureza periódica — a exemplo de aluguel, iptu, seguro e outras despesas ordinárias previstas no ajuste — podem ser incluídos na condenação à medida que se vencem no curso do processo, até a efetiva desocupação do imóvel.
+
+além disso, não se exige pedido pormenorizado quando a inicial, lida de forma lógico-sistemática, revela a pretensão de cobrança das obrigações contratuais assumidas pelo locatário. a referência expressa ao contrato é suficiente para delimitar o conteúdo da obrigação e permitir a incidência automática das parcelas sucessivas vencidas durante a tramitação da ação. assim, é incorreto restringir a condenação apenas aos aluguéis, excluindo encargos locatícios previstos contratualmente, sob o argumento de ausência de discriminação minuciosa na inicial.
+
+em síntese, a tese prestigia a efetividade processual e evita que a tutela jurisdicional fique defasada em razão do decurso do tempo do processo, especialmente em obrigações continuadas. stj. 3ª turma. resp 2.091.358-df, rel. min. ricardo villas bôas cueva, julgado em 16/9/2025 (info 870).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 4</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-4">Não respondida</span>
+</div>
+
+<p class="enunciado">Em ação de despejo cumulada com cobrança, a condenação pode abranger os encargos locatícios periódicos vencidos no curso do processo até a efetiva desocupação do imóvel, ainda que a petição inicial não tenha discriminado, de modo individualizado, cada parcela acessória prevista no contrato, desde que haja referência expressa às obrigações assumidas pelo locatário, sendo desnecessária a formulação de pedido pormenorizado para cada uma dessas prestações sucessivas.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(4, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(4, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-4">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque, nas obrigações de trato sucessivo decorrentes de contrato de locação, a disciplina processual autoriza a inclusão, na condenação, das parcelas vencidas no curso da demanda até o efetivo encerramento da relação possessória, sem exigir que o autor detalhe, uma a uma, todas as prestações acessórias na petição inicial.<br><br>O ponto central é a interpretação sistemática da inicial e do pedido. Embora os arts. 322 e 324 do CPC exijam, como regra, pedido certo e determinado, essa exigência não impede a incidência do art. 323 do CPC, que trata justamente das prestações periódicas. Em relações continuativas, como a locação urbana, os encargos contratuais de natureza periódica — a exemplo de aluguel, IPTU, seguro e outras despesas ordinárias previstas no ajuste — podem ser incluídos na condenação à medida que se vencem no curso do processo, até a efetiva desocupação do imóvel.<br><br>Além disso, não se exige pedido pormenorizado quando a inicial, lida de forma lógico-sistemática, revela a pretensão de cobrança das obrigações contratuais assumidas pelo locatário. A referência expressa ao contrato é suficiente para delimitar o conteúdo da obrigação e permitir a incidência automática das parcelas sucessivas vencidas durante a tramitação da ação. Assim, é incorreto restringir a condenação apenas aos aluguéis, excluindo encargos locatícios previstos contratualmente, sob o argumento de ausência de discriminação minuciosa na inicial.<br><br>Em síntese, a tese prestigia a efetividade processual e evita que a tutela jurisdicional fique defasada em razão do decurso do tempo do processo, especialmente em obrigações continuadas.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.091.358-DF, Rel. Min. Ricardo Villas Bôas Cueva, julgado em 16/9/2025 (Info 870).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a morte do alimentando, ainda que menor e representado por sua genitora na execução, não extingue automaticamente a pretensão executiva quando já houver parcelas alimentares vencidas e inadimplidas, pois tais prestações, uma vez incorporadas ao patrimônio jurídico do credor antes do óbito, transmitem-se aos seus herdeiros, admitindo-se a sucessão processual para prosseguimento da cobrança, sem prejuízo de a obrigação alimentar em si permanecer personalíssima e intransmissível quanto às prestações vincendas. a assertiva está correta porque distingue, de forma tecnicamente adequada, duas situações jurídicas diversas: (i) a obrigação alimentar em si, que é personalíssima e não se transmite, e (ii) as parcelas vencidas e não pagas, que já se converteram em crédito patrimonial do alimentando. no momento em que a prestação alimentar vence e não é adimplida, ela deixa de representar mera expectativa de subsistência futura e passa a integrar o acervo patrimonial do credor, podendo ser transmitida aos herdeiros na forma do art. 1.784 do código civil, que consagra a transmissão da herança com a abertura da sucessão.
+
+assim, o falecimento do alimentando não impede o prosseguimento da execução quanto às parcelas pretéritas já vencidas, porque o objeto da cobrança não é mais a prestação alimentar futura — esta, sim, extinta com a morte —, mas um crédito certo, exigível e patrimonializado. por isso, é juridicamente possível a sucessão processual, com a substituição do polo ativo pelos herdeiros do credor falecido, preservando-se a execução dos valores atrasados.
+
+a pegadinha da questão está em confundir a natureza personalíssima dos alimentos com a transmissibilidade do crédito já constituído. a intransmissibilidade alcança a obrigação alimentar enquanto dever de prestar alimentos no futuro, não alcançando as parcelas vencidas e não pagas, que se incorporam ao patrimônio do alimentando e, por isso, podem ser exigidas pelos sucessores. stj. 4ª turma. resp 2.010.219-mg, rel. min. maria isabel gallotti, julgado em 14/10/2025 (info 870).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 5</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-5">Não respondida</span>
+</div>
+
+<p class="enunciado">A morte do alimentando, ainda que menor e representado por sua genitora na execução, não extingue automaticamente a pretensão executiva quando já houver parcelas alimentares vencidas e inadimplidas, pois tais prestações, uma vez incorporadas ao patrimônio jurídico do credor antes do óbito, transmitem-se aos seus herdeiros, admitindo-se a sucessão processual para prosseguimento da cobrança, sem prejuízo de a obrigação alimentar em si permanecer personalíssima e intransmissível quanto às prestações vincendas.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(5, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(5, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-5">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque distingue, de forma tecnicamente adequada, duas situações jurídicas diversas: (i) a obrigação alimentar em si, que é personalíssima e não se transmite, e (ii) as parcelas vencidas e não pagas, que já se converteram em crédito patrimonial do alimentando. No momento em que a prestação alimentar vence e não é adimplida, ela deixa de representar mera expectativa de subsistência futura e passa a integrar o acervo patrimonial do credor, podendo ser transmitida aos herdeiros na forma do art. 1.784 do Código Civil, que consagra a transmissão da herança com a abertura da sucessão.<br><br>Assim, o falecimento do alimentando não impede o prosseguimento da execução quanto às parcelas pretéritas já vencidas, porque o objeto da cobrança não é mais a prestação alimentar futura — esta, sim, extinta com a morte —, mas um crédito certo, exigível e patrimonializado. Por isso, é juridicamente possível a sucessão processual, com a substituição do polo ativo pelos herdeiros do credor falecido, preservando-se a execução dos valores atrasados.<br><br>A pegadinha da questão está em confundir a natureza personalíssima dos alimentos com a transmissibilidade do crédito já constituído. A intransmissibilidade alcança a obrigação alimentar enquanto dever de prestar alimentos no futuro, não alcançando as parcelas vencidas e não pagas, que se incorporam ao patrimônio do alimentando e, por isso, podem ser exigidas pelos sucessores.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 4ª Turma. REsp 2.010.219-MG, Rel. Min. Maria Isabel Gallotti, julgado em 14/10/2025 (Info 870).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a operadora de plano de saúde pode recusar o custeio de fórmula à base de aminoácidos indicada para lactente com alergia à proteína do leite de vaca em grau severo, sob o argumento de que o produto possui natureza alimentar, não integra o rol da ans e, por isso, não se submete à cobertura contratual obrigatória, ainda que haja comprovação médica de que se trata da única alternativa tolerada pela criança e de que a tecnologia foi incorporada ao sus para o tratamento de pacientes de até dois anos de idade. a assertiva está incorreta porque, embora a fórmula à base de aminoácidos não seja medicamento em sentido estrito e tenha natureza nutricional, isso não afasta, por si só, o dever de cobertura quando demonstrada sua indispensabilidade terapêutica no contexto clínico específico. o ponto central do entendimento é que o neocate, fórmula à base de aminoácidos livres, foi reconhecido como tecnologia em saúde recomendada pela conitec e incorporada ao sus para o tratamento de crianças de até dois anos com alergia à proteína do leite de vaca, especialmente nos casos em que há necessidade médica comprovada.
+
+a negativa fundada exclusivamente na ausência de previsão expressa no rol da ans ou na alegação genérica de que se trata de “alimento” não prevalece quando a fórmula é essencial ao tratamento nutricional da criança e inexiste outra alternativa tolerada. o julgado também destaca a limitação etária: a cobertura obrigatória se dá para crianças de até dois anos diagnosticadas com aplv, desde que demonstrada a necessidade médica. assim, a operadora não pode se eximir do custeio apenas com base na classificação do produto ou em sua não inclusão no rol, pois o caso envolve tecnologia incorporada ao sistema público de saúde e indicada para situação clínica específica e grave. stj. 3ª turma. resp 2.204.902-rj, rel. min. nancy andrighi, julgado em 4/11/2025 (info 870).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 6</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-6">Não respondida</span>
+</div>
+
+<p class="enunciado">A operadora de plano de saúde pode recusar o custeio de fórmula à base de aminoácidos indicada para lactente com alergia à proteína do leite de vaca em grau severo, sob o argumento de que o produto possui natureza alimentar, não integra o rol da ANS e, por isso, não se submete à cobertura contratual obrigatória, ainda que haja comprovação médica de que se trata da única alternativa tolerada pela criança e de que a tecnologia foi incorporada ao SUS para o tratamento de pacientes de até dois anos de idade.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(6, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(6, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-6">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque, embora a fórmula à base de aminoácidos não seja medicamento em sentido estrito e tenha natureza nutricional, isso não afasta, por si só, o dever de cobertura quando demonstrada sua indispensabilidade terapêutica no contexto clínico específico. O ponto central do entendimento é que o Neocate, fórmula à base de aminoácidos livres, foi reconhecido como tecnologia em saúde recomendada pela Conitec e incorporada ao SUS para o tratamento de crianças de até dois anos com alergia à proteína do leite de vaca, especialmente nos casos em que há necessidade médica comprovada.<br><br>A negativa fundada exclusivamente na ausência de previsão expressa no rol da ANS ou na alegação genérica de que se trata de “alimento” não prevalece quando a fórmula é essencial ao tratamento nutricional da criança e inexiste outra alternativa tolerada. O julgado também destaca a limitação etária: a cobertura obrigatória se dá para crianças de até dois anos diagnosticadas com APLV, desde que demonstrada a necessidade médica. Assim, a operadora não pode se eximir do custeio apenas com base na classificação do produto ou em sua não inclusão no rol, pois o caso envolve tecnologia incorporada ao sistema público de saúde e indicada para situação clínica específica e grave.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.204.902-RJ, Rel. Min. Nancy Andrighi, julgado em 4/11/2025 (Info 870).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="nos procedimentos regidos pelo estatuto da criança e do adolescente, a contagem dos prazos em dias corridos e a vedação expressa ao prazo em dobro alcançam indistintamente todos os sujeitos processuais com atuação institucional, de modo que a defensoria pública, por integrar a estrutura estatal e atuar em regime de serviço público essencial, também fica impedida de usufruir da prerrogativa de prazo em dobro, ainda que a restrição legal mencione apenas a fazenda pública e o ministério público. a assertiva está incorreta porque o regime especial de contagem de prazos previsto no eca não eliminou, por si só, a prerrogativa da defensoria pública ao prazo em dobro. o art. 152, § 2º, do estatuto estabelece que os prazos nos procedimentos da lei são contados em dias corridos e veda expressamente o prazo em dobro apenas para a fazenda pública e o ministério público. a interpretação adotada é a de que a exclusão nominal desses dois sujeitos processuais não se estende, por analogia restritiva, à defensoria pública, justamente porque o legislador silenciou quanto a ela.
+
+esse silêncio é compreendido como opção legislativa de preservação da prerrogativa defensiva, e não como revogação implícita. a defensoria pública possui peculiaridades institucionais relevantes: atua sob o princípio da indeclinabilidade, enfrenta elevada carga de trabalho e presta assistência jurídica integral e gratuita a pessoas em situação de vulnerabilidade. por isso, a concessão de prazo em dobro funciona como mecanismo de isonomia material e de efetivação do acesso à justiça, sem comprometer a celeridade própria das demandas infantojuvenis.
+
+além disso, a prioridade absoluta conferida à criança e ao adolescente não autoriza suprimir garantias processuais básicas da defesa. o entendimento harmoniza a proteção integral com o contraditório e a ampla defesa, evitando que a busca por rapidez procesual resulte em desequilíbrio entre as partes. assim, a vedação do art. 152, § 2º, é restrita à fazenda pública e ao ministério público, não alcançando a defensoria pública. stj. 3ª turma. resp 2.212.651/pr, rel. min. ricardo villas bôas cueva, julgado em 15/9/2025. stj. 4ª turma. resp 2.139.217-pr, rel. min. antonio carlos ferreira, julgado em 27/10/2025 (info 870).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 7</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-7">Não respondida</span>
+</div>
+
+<p class="enunciado">Nos procedimentos regidos pelo Estatuto da Criança e do Adolescente, a contagem dos prazos em dias corridos e a vedação expressa ao prazo em dobro alcançam indistintamente todos os sujeitos processuais com atuação institucional, de modo que a Defensoria Pública, por integrar a estrutura estatal e atuar em regime de serviço público essencial, também fica impedida de usufruir da prerrogativa de prazo em dobro, ainda que a restrição legal mencione apenas a Fazenda Pública e o Ministério Público.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(7, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(7, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-7">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque o regime especial de contagem de prazos previsto no ECA não eliminou, por si só, a prerrogativa da Defensoria Pública ao prazo em dobro. O art. 152, § 2º, do Estatuto estabelece que os prazos nos procedimentos da lei são contados em dias corridos e veda expressamente o prazo em dobro apenas para a Fazenda Pública e o Ministério Público. A interpretação adotada é a de que a exclusão nominal desses dois sujeitos processuais não se estende, por analogia restritiva, à Defensoria Pública, justamente porque o legislador silenciou quanto a ela.<br><br>Esse silêncio é compreendido como opção legislativa de preservação da prerrogativa defensiva, e não como revogação implícita. A Defensoria Pública possui peculiaridades institucionais relevantes: atua sob o princípio da indeclinabilidade, enfrenta elevada carga de trabalho e presta assistência jurídica integral e gratuita a pessoas em situação de vulnerabilidade. Por isso, a concessão de prazo em dobro funciona como mecanismo de isonomia material e de efetivação do acesso à justiça, sem comprometer a celeridade própria das demandas infantojuvenis.<br><br>Além disso, a prioridade absoluta conferida à criança e ao adolescente não autoriza suprimir garantias processuais básicas da defesa. O entendimento harmoniza a proteção integral com o contraditório e a ampla defesa, evitando que a busca por rapidez procesual resulte em desequilíbrio entre as partes. Assim, a vedação do art. 152, § 2º, é restrita à Fazenda Pública e ao Ministério Público, não alcançando a Defensoria Pública.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.212.651/PR, Rel. Min. Ricardo Villas Bôas Cueva, julgado em 15/9/2025. STJ. 4ª Turma. Resp 2.139.217-PR, Rel. Min. Antonio Carlos Ferreira, julgado em 27/10/2025 (Info 870).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="no procedimento de apuração de ato infracional, a realização da audiência de apresentação do adolescente supre a necessidade de interrogatório ao final da instrução, razão pela qual a falta de oitiva pessoal do representado após a produção probatória não configura nulidade, ainda que a defesa alegue prejuízo à autodefesa na primeira oportunidade processual. no rito especial do eca destinado à apuração de ato infracional, a audiência de apresentação prevista no art. 184 não esgota a garantia de autodefesa do adolescente. há incidência subsidiária do art. 400 do cpp, o que impõe, além daquela audiência inicial, a realização do interrogatório ao final da instrução. assim, a oitiva pessoal do adolescente deve ocorrer após a produção das provas, e não apenas no início do procedimento.
+
+a inobservância dessa sequência procedimental pode gerar nulidade, mas não de forma automática em qualquer hipótese. é necessário que o prejuízo à autodefesa seja suscitado pela parte na primeira oportunidade em que puder se manifestar nos autos, sob pena de preclusão. além disso, o entendimento foi fixado com eficácia temporal delimitada: aplica-se aos feitos cuja instrução tenha sido encerrada após 3/3/2016.
+
+portanto, é incorreto afirmar que a audiência de apresentação substitui o interrogatório final ou que a ausência dessa oitiva jamais acarreta nulidade. o ponto central do entendimento é justamente o reforço das garantias de defesa no procedimento socioeducativo, com a exigência de interrogatório ao final da instrução, observada a regra de arguição tempestiva do prejuízo. stj. 3ª seção. resp 2.088.626-rs e resp 2.100.005-rs, rel. min. rogerio schietti cruz, julgados em 8/10/2025 (recurso repetitivo - tema 1269) (info 870).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 8</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-8">Não respondida</span>
+</div>
+
+<p class="enunciado">No procedimento de apuração de ato infracional, a realização da audiência de apresentação do adolescente supre a necessidade de interrogatório ao final da instrução, razão pela qual a falta de oitiva pessoal do representado após a produção probatória não configura nulidade, ainda que a defesa alegue prejuízo à autodefesa na primeira oportunidade processual.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(8, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(8, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-8">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>No rito especial do ECA destinado à apuração de ato infracional, a audiência de apresentação prevista no art. 184 não esgota a garantia de autodefesa do adolescente. Há incidência subsidiária do art. 400 do CPP, o que impõe, além daquela audiência inicial, a realização do interrogatório ao final da instrução. Assim, a oitiva pessoal do adolescente deve ocorrer após a produção das provas, e não apenas no início do procedimento.<br><br>A inobservância dessa sequência procedimental pode gerar nulidade, mas não de forma automática em qualquer hipótese. É necessário que o prejuízo à autodefesa seja suscitado pela parte na primeira oportunidade em que puder se manifestar nos autos, sob pena de preclusão. Além disso, o entendimento foi fixado com eficácia temporal delimitada: aplica-se aos feitos cuja instrução tenha sido encerrada após 3/3/2016.<br><br>Portanto, é incorreto afirmar que a audiência de apresentação substitui o interrogatório final ou que a ausência dessa oitiva jamais acarreta nulidade. O ponto central do entendimento é justamente o reforço das garantias de defesa no procedimento socioeducativo, com a exigência de interrogatório ao final da instrução, observada a regra de arguição tempestiva do prejuízo.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Seção. REsp 2.088.626-RS e REsp 2.100.005-RS, Rel. Min. Rogerio Schietti Cruz, julgados em 8/10/2025 (Recurso Repetitivo - Tema 1269) (Info 870).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="em ação indenizatória proposta por criança, representada por sua genitora, contra município em razão de abusos sexuais ocorridos em escola pública, a posterior mudança de domicílio da autora para outra comarca desloca a competência territorial para o novo foro, por incidência do princípio do juízo imediato previsto no art. 147, i, do eca, ainda que a demanda tenha natureza estritamente patrimonial e já tenha sido ajuizada antes da alteração de residência. a assertiva está incorreta porque, em demanda de natureza estritamente indenizatória, não se aplica automaticamente a competência absoluta do juízo da infância e da juventude com base no art. 147, i, do eca. esse dispositivo é voltado à tutela jurisdicional de interesses diretamente ligados à proteção integral da criança e do adolescente, especialmente em hipóteses em que a intervenção do juízo especializado se justifica pela necessidade de salvaguarda de direitos fundamentais infantojuvenis.
+
+quando a pretensão deduzida em juízo é apenas patrimonial ou obrigacional — como ocorre na ação de reparação por danos morais e materiais —, a competência deve observar a regra geral de competência territorial. nessa hipótese, não se desloca a competência para o foro do novo domicílio da autora com base em superveniente mudança de residência, sobretudo porque incide a regra da perpetuação da jurisdição: a competência se fixa no momento do ajuizamento da ação, sendo irrelevante, em regra, alteração posterior de domicílio das partes.
+
+além disso, o entendimento prestigia a estabilidade da relação processual e evita manipulação oportunista do foro por fato superveniente. somente haveria espaço para afastar a regra geral se demonstrado efetivo prejuízo ao contraditório ou se a controvérsia estivesse intimamente vinculada à proteção de direitos fundamentais da criança, o que não se verifica em ação meramente indenizatória. stj. 1ª seção. cc 215.093-sc, rel. min. marco aurélio bellizze, julgado em 2/10/2025 (info 870).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 9</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-9">Não respondida</span>
+</div>
+
+<p class="enunciado">Em ação indenizatória proposta por criança, representada por sua genitora, contra município em razão de abusos sexuais ocorridos em escola pública, a posterior mudança de domicílio da autora para outra comarca desloca a competência territorial para o novo foro, por incidência do princípio do juízo imediato previsto no art. 147, I, do ECA, ainda que a demanda tenha natureza estritamente patrimonial e já tenha sido ajuizada antes da alteração de residência.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(9, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(9, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-9">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque, em demanda de natureza estritamente indenizatória, não se aplica automaticamente a competência absoluta do Juízo da Infância e da Juventude com base no art. 147, I, do ECA. Esse dispositivo é voltado à tutela jurisdicional de interesses diretamente ligados à proteção integral da criança e do adolescente, especialmente em hipóteses em que a intervenção do juízo especializado se justifica pela necessidade de salvaguarda de direitos fundamentais infantojuvenis.<br><br>Quando a pretensão deduzida em juízo é apenas patrimonial ou obrigacional — como ocorre na ação de reparação por danos morais e materiais —, a competência deve observar a regra geral de competência territorial. Nessa hipótese, não se desloca a competência para o foro do novo domicílio da autora com base em superveniente mudança de residência, sobretudo porque incide a regra da perpetuação da jurisdição: a competência se fixa no momento do ajuizamento da ação, sendo irrelevante, em regra, alteração posterior de domicílio das partes.<br><br>Além disso, o entendimento prestigia a estabilidade da relação processual e evita manipulação oportunista do foro por fato superveniente. Somente haveria espaço para afastar a regra geral se demonstrado efetivo prejuízo ao contraditório ou se a controvérsia estivesse intimamente vinculada à proteção de direitos fundamentais da criança, o que não se verifica em ação meramente indenizatória.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Seção. CC 215.093-SC, Rel. Min. Marco Aurélio Bellizze, julgado em 2/10/2025 (Info 870).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a ação proposta por entregador de plataforma digital que busca apenas a reativação de sua conta, além de indenização por danos morais, materiais e lucros cessantes decorrentes de bloqueio unilateral e imotivado, sem formular pedido de reconhecimento de vínculo empregatício nem pleitear verbas típicas da relação de trabalho, deve ser processada e julgada pela justiça do trabalho, por se tratar de controvérsia oriunda de relação de prestação de serviços em ambiente digital. a competência da justiça do trabalho, embora ampla para abarcar controvérsias decorrentes da relação de trabalho, não se estende automaticamente a toda e qualquer disputa envolvendo prestação de serviços em plataforma digital. o ponto decisivo é a natureza do pedido e da causa de pedir: se a demanda não veicula pretensão de reconhecimento de vínculo empregatício, tampouco postula verbas trabalhistas ou direitos típicos da relação de emprego/trabalho, a controvérsia permanece no âmbito da justiça comum estadual.
+
+no caso examinado, o bloqueio da conta em plataforma digital foi discutido como ato unilateral que teria impedido o exercício da atividade econômica do usuário, com pedidos de reativação da conta e reparação civil por danos morais, materiais e lucros cessantes. ausente pedido de declaração de vínculo trabalhista, a lide não se insere na competência material da justiça do trabalho, pois o núcleo do conflito é contratual/civil-empresarial, relacionado ao uso da plataforma e aos efeitos patrimoniais do bloqueio.
+
+a solução também evita ampliar indevidamente a competência trabalhista para hipóteses em que inexiste controvérsia sobre relação de emprego ou trabalho subordinado, preservando a regra de que a justiça especializada somente atua quando a matéria efetivamente gravita em torno de relação laboral juridicamente qualificada. assim, a justiça comum estadual é competente para julgar a demanda. stj. 2ª seção. cc 214.451-sp, rel. min. daniela teixeira, julgado em 16/9/2025 (info 870).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 10</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-10">Não respondida</span>
+</div>
+
+<p class="enunciado">A ação proposta por entregador de plataforma digital que busca apenas a reativação de sua conta, além de indenização por danos morais, materiais e lucros cessantes decorrentes de bloqueio unilateral e imotivado, sem formular pedido de reconhecimento de vínculo empregatício nem pleitear verbas típicas da relação de trabalho, deve ser processada e julgada pela Justiça do Trabalho, por se tratar de controvérsia oriunda de relação de prestação de serviços em ambiente digital.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(10, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(10, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-10">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A competência da Justiça do Trabalho, embora ampla para abarcar controvérsias decorrentes da relação de trabalho, não se estende automaticamente a toda e qualquer disputa envolvendo prestação de serviços em plataforma digital. O ponto decisivo é a natureza do pedido e da causa de pedir: se a demanda não veicula pretensão de reconhecimento de vínculo empregatício, tampouco postula verbas trabalhistas ou direitos típicos da relação de emprego/trabalho, a controvérsia permanece no âmbito da Justiça Comum Estadual.<br><br>No caso examinado, o bloqueio da conta em plataforma digital foi discutido como ato unilateral que teria impedido o exercício da atividade econômica do usuário, com pedidos de reativação da conta e reparação civil por danos morais, materiais e lucros cessantes. Ausente pedido de declaração de vínculo trabalhista, a lide não se insere na competência material da Justiça do Trabalho, pois o núcleo do conflito é contratual/civil-empresarial, relacionado ao uso da plataforma e aos efeitos patrimoniais do bloqueio.<br><br>A solução também evita ampliar indevidamente a competência trabalhista para hipóteses em que inexiste controvérsia sobre relação de emprego ou trabalho subordinado, preservando a regra de que a Justiça especializada somente atua quando a matéria efetivamente gravita em torno de relação laboral juridicamente qualificada. Assim, a Justiça Comum Estadual é competente para julgar a demanda.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 2ª Seção. CC 214.451-SP, Rel. Min. Daniela Teixeira, julgado em 16/9/2025 (Info 870).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="ECA"
+data-texto="em comarca dotada de sala passiva de videoconferência, a expedição de carta precatória para colheita de depoimento testemunhal deve restringir-se à viabilização da estrutura física, da logística e dos atos preparatórios necessários, cabendo ao magistrado que conduz o processo realizar diretamente a oitiva das partes e das testemunhas, por videoconferência, não sendo legítima a delegação ao juízo deprecado para que este conduza o ato instrutório. a afirmação está correta porque, havendo sala passiva na comarca onde se encontra a testemunha, a finalidade da deprecação não é transferir ao juízo local a condução da audiência, mas apenas permitir que o ato seja realizado à distância, com suporte material e operacional do fórum deprecado. nessa hipótese, o juiz competente para o processo mantém a direção da prova oral e deve colher diretamente os depoimentos por videoconferência, preservando a unidade da instrução e evitando a indevida fragmentação do ato processual.
+
+o entendimento afasta a ideia de que a existência de testemunha em outra comarca autorize, automaticamente, a expedição de carta precatória para que o juízo deprecado assuma a oitiva. ao contrário, a presença de sala passiva altera a dinâmica do cumprimento da diligência: o juízo deprecado limita-se a disponibilizar o espaço, a estrutura tecnológica, a intimação de quem for necessário e os demais atos de apoio, enquanto a condução substancial da audiência permanece com o magistrado do processo principal.
+
+esse raciocínio se harmoniza com a lógica de racionalização dos atos processuais, economia de meios e preservação da direção da prova pelo juiz natural da causa, sem que isso implique supressão de garantias das partes ou das testemunhas. a carta precatória, nesse contexto, não pode ser utilizada para deslocar a competência funcional de condução da prova oral quando a tecnologia disponível permite a prática direta do ato pelo próprio juízo processante. stj. 1ª seção. edcl no agint no cc 196.645-sp, rel. min. afrânio vilela, julgado em 14/10/2025 (info 870).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 11</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-11">Não respondida</span>
+</div>
+
+<p class="enunciado">Em comarca dotada de sala passiva de videoconferência, a expedição de carta precatória para colheita de depoimento testemunhal deve restringir-se à viabilização da estrutura física, da logística e dos atos preparatórios necessários, cabendo ao magistrado que conduz o processo realizar diretamente a oitiva das partes e das testemunhas, por videoconferência, não sendo legítima a delegação ao juízo deprecado para que este conduza o ato instrutório.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(11, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(11, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-11">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A afirmação está correta porque, havendo sala passiva na comarca onde se encontra a testemunha, a finalidade da deprecação não é transferir ao juízo local a condução da audiência, mas apenas permitir que o ato seja realizado à distância, com suporte material e operacional do fórum deprecado. Nessa hipótese, o juiz competente para o processo mantém a direção da prova oral e deve colher diretamente os depoimentos por videoconferência, preservando a unidade da instrução e evitando a indevida fragmentação do ato processual.<br><br>O entendimento afasta a ideia de que a existência de testemunha em outra comarca autorize, automaticamente, a expedição de carta precatória para que o juízo deprecado assuma a oitiva. Ao contrário, a presença de sala passiva altera a dinâmica do cumprimento da diligência: o juízo deprecado limita-se a disponibilizar o espaço, a estrutura tecnológica, a intimação de quem for necessário e os demais atos de apoio, enquanto a condução substancial da audiência permanece com o magistrado do processo principal.<br><br>Esse raciocínio se harmoniza com a lógica de racionalização dos atos processuais, economia de meios e preservação da direção da prova pelo juiz natural da causa, sem que isso implique supressão de garantias das partes ou das testemunhas. A carta precatória, nesse contexto, não pode ser utilizada para deslocar a competência funcional de condução da prova oral quando a tecnologia disponível permite a prática direta do ato pelo próprio juízo processante.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Seção. EDcl no AgInt no CC 196.645-SP, Rel. Min. Afrânio Vilela, julgado em 14/10/2025 (Info 870).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a apresentação de embargos à execução por simples petição juntada aos autos da própria execução, em vez de distribuição por dependência como ação autônoma, embora contrarie a forma prevista no art. 914, § 1º, do cpc, não implica, por si só, intempestividade ou inadmissibilidade da defesa, podendo o vício ser superado se o ato tiver atingido sua finalidade, for posteriormente regularizado em prazo razoável e não houver prejuízo ao contraditório. o art. 914, § 1º, do cpc estabelece que os embargos à execução devem ser oferecidos por meio de ação autônoma, distribuída por dependência e autuada em apartado. trata-se, portanto, de regra formal relevante para a adequada organização procedimental da defesa do executado.
+
+todavia, a inobservância dessa forma não conduz automaticamente à perda do direito de embargar nem à rejeição liminar da insurgência, quando o defeito for meramente formal e puder ser corrigido sem comprometimento da finalidade do ato. incide, nesse contexto, o princípio da instrumentalidade das formas, positivado no art. 277 do cpc, segundo o qual o ato processual realizado de modo diverso do previsto em lei pode ser reputado válido se alcançar sua finalidade.
+
+no caso julgado, o executado apresentou os embargos dentro do prazo legal, mas protocolou inicialmente apenas petição nos autos da execução, regularizando depois a distribuição autônoma, ainda que fora do prazo de 15 dias. a solução adotada foi a de reconhecer que o erro era escusável e sanável, sobretudo porque não houve demonstração de prejuízo ao contraditório nem de comprometimento da defesa da parte exequente. assim, a irregularidade formal não foi tratada como causa automática de intempestividade.
+
+a conclusão é importante para concursos porque distingue:  
+- vício de forma sanável, quando há preservação da finalidade do ato e ausência de prejuízo; e  
+- hipótese de inobservância formal com efetivo comprometimento da defesa ou do contraditório, em que a irregularidade pode produzir consequências processuais mais gravosas.
+
+em suma, a mera apresentação dos embargos nos autos da execução, embora tecnicamente incorreta, pode ser aproveitada se houver posterior regularização em prazo razoável e inexistir prejuízo processual relevante. stj. 4ª turma. resp 2.206.445-sp, rel. min. antonio carlos ferreira, julgado em 14/10/2025 (info 870).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 12</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-12">Não respondida</span>
+</div>
+
+<p class="enunciado">A apresentação de embargos à execução por simples petição juntada aos autos da própria execução, em vez de distribuição por dependência como ação autônoma, embora contrarie a forma prevista no art. 914, § 1º, do CPC, não implica, por si só, intempestividade ou inadmissibilidade da defesa, podendo o vício ser superado se o ato tiver atingido sua finalidade, for posteriormente regularizado em prazo razoável e não houver prejuízo ao contraditório.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(12, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(12, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-12">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O art. 914, § 1º, do CPC estabelece que os embargos à execução devem ser oferecidos por meio de ação autônoma, distribuída por dependência e autuada em apartado. Trata-se, portanto, de regra formal relevante para a adequada organização procedimental da defesa do executado.<br><br>Todavia, a inobservância dessa forma não conduz automaticamente à perda do direito de embargar nem à rejeição liminar da insurgência, quando o defeito for meramente formal e puder ser corrigido sem comprometimento da finalidade do ato. Incide, nesse contexto, o princípio da instrumentalidade das formas, positivado no art. 277 do CPC, segundo o qual o ato processual realizado de modo diverso do previsto em lei pode ser reputado válido se alcançar sua finalidade.<br><br>No caso julgado, o executado apresentou os embargos dentro do prazo legal, mas protocolou inicialmente apenas petição nos autos da execução, regularizando depois a distribuição autônoma, ainda que fora do prazo de 15 dias. A solução adotada foi a de reconhecer que o erro era escusável e sanável, sobretudo porque não houve demonstração de prejuízo ao contraditório nem de comprometimento da defesa da parte exequente. Assim, a irregularidade formal não foi tratada como causa automática de intempestividade.<br><br>A conclusão é importante para concursos porque distingue:  <br>- vício de forma sanável, quando há preservação da finalidade do ato e ausência de prejuízo; e  <br>- hipótese de inobservância formal com efetivo comprometimento da defesa ou do contraditório, em que a irregularidade pode produzir consequências processuais mais gravosas.<br><br>Em suma, a mera apresentação dos embargos nos autos da execução, embora tecnicamente incorreta, pode ser aproveitada se houver posterior regularização em prazo razoável e inexistir prejuízo processual relevante.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 4ª Turma. REsp 2.206.445-SP, Rel. Min. Antonio Carlos Ferreira, julgado em 14/10/2025 (Info 870).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="em crimes praticados no contexto de violência doméstica e familiar contra a mulher, a condenação por dano moral prescinde de prova específica do abalo psíquico, por se tratar de lesão extrapatrimonial presumida, sendo suficiente, para a fixação da reparação mínima, a existência de elementos probatórios idôneos acerca da materialidade e da autoria, inclusive a palavra da vítima quando corroborada por prova pericial e testemunhal; nessa hipótese, a alegação defensiva de autolesão ou de motivação patrimonial da ofendida, desacompanhada de suporte probatório consistente, não afasta a responsabilização nem impede a indenização. a assertiva está correta porque reproduz, em termos tecnicamente adequados, a orientação firmada no julgado: em contexto de violência doméstica e familiar contra a mulher, o dano moral possui natureza **in re ipsa**, isto é, decorre do próprio fato ofensivo, dispensando prova autônoma e específica do sofrimento psíquico experimentado pela vítima. não se exige, portanto, demonstração individualizada do abalo emocional para a fixação da reparação mínima.
+
+além disso, o precedente atribui **especial relevância probatória à palavra da vítima** nesses delitos, especialmente quando ela vem **corroborada por outros elementos de convicção**, como provas periciais e testemunhais. isso é particularmente importante em crimes praticados no âmbito doméstico, em que a dinâmica fática costuma ocorrer sem testemunhas presenciais e em ambiente de intimidade, o que torna a narrativa da ofendida um elemento central de reconstrução dos fatos, desde que confirmada por outros dados probatórios.
+
+a assertiva também acerta ao indicar que teses defensivas como **autolesão** ou **interesse patrimonial da vítima** não bastam, por si sós, para afastar a responsabilização quando não encontram respaldo no acervo probatório. o julgado expressamente rechaça esse tipo de argumentação por reproduzir **estereótipos de gênero ultrapassados**, incompatíveis com a análise probatória racional e com a proteção conferida pela lei maria da penha.
+
+por fim, a indenização por dano moral deve ser arbitrada em valor razoável, com observância da dupla finalidade de **punir o ilícito** e **reparar o sofrimento da vítima**, considerando sua vulnerabilidade e as peculiaridades do caso concreto. a formulação da questão não extrapola o julgado e permanece fiel ao entendimento aplicado. stj. 6ª turma. rhc 218.358-pi, rel. min. sebastião reis júnior, julgado em 4/11/2025 (info 870).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 13</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-13">Não respondida</span>
+</div>
+
+<p class="enunciado">Em crimes praticados no contexto de violência doméstica e familiar contra a mulher, a condenação por dano moral prescinde de prova específica do abalo psíquico, por se tratar de lesão extrapatrimonial presumida, sendo suficiente, para a fixação da reparação mínima, a existência de elementos probatórios idôneos acerca da materialidade e da autoria, inclusive a palavra da vítima quando corroborada por prova pericial e testemunhal; nessa hipótese, a alegação defensiva de autolesão ou de motivação patrimonial da ofendida, desacompanhada de suporte probatório consistente, não afasta a responsabilização nem impede a indenização.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(13, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(13, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-13">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz, em termos tecnicamente adequados, a orientação firmada no julgado: em contexto de violência doméstica e familiar contra a mulher, o dano moral possui natureza <strong>in re ipsa</strong>, isto é, decorre do próprio fato ofensivo, dispensando prova autônoma e específica do sofrimento psíquico experimentado pela vítima. Não se exige, portanto, demonstração individualizada do abalo emocional para a fixação da reparação mínima.<br><br>Além disso, o precedente atribui <strong>especial relevância probatória à palavra da vítima</strong> nesses delitos, especialmente quando ela vem <strong>corroborada por outros elementos de convicção</strong>, como provas periciais e testemunhais. Isso é particularmente importante em crimes praticados no âmbito doméstico, em que a dinâmica fática costuma ocorrer sem testemunhas presenciais e em ambiente de intimidade, o que torna a narrativa da ofendida um elemento central de reconstrução dos fatos, desde que confirmada por outros dados probatórios.<br><br>A assertiva também acerta ao indicar que teses defensivas como <strong>autolesão</strong> ou <strong>interesse patrimonial da vítima</strong> não bastam, por si sós, para afastar a responsabilização quando não encontram respaldo no acervo probatório. O julgado expressamente rechaça esse tipo de argumentação por reproduzir <strong>estereótipos de gênero ultrapassados</strong>, incompatíveis com a análise probatória racional e com a proteção conferida pela Lei Maria da Penha.<br><br>Por fim, a indenização por dano moral deve ser arbitrada em valor razoável, com observância da dupla finalidade de <strong>punir o ilícito</strong> e <strong>reparar o sofrimento da vítima</strong>, considerando sua vulnerabilidade e as peculiaridades do caso concreto. A formulação da questão não extrapola o julgado e permanece fiel ao entendimento aplicado.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 6ª Turma. RHC 218.358-PI, Rel. Min. Sebastião Reis Júnior, julgado em 4/11/2025 (Info 870).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="a utilização, pela polícia judiciária, de software de ronda virtual destinado a rastrear redes p2p em busca de arquivos com conteúdo de pornografia infantil, com posterior requisição direta aos provedores de internet dos dados cadastrais vinculados aos endereços ip identificados, depende de prévia autorização judicial, por se equiparar à infiltração de agentes na internet e envolver devassa em ambiente protegido por sigilo. a assertiva está incorreta porque o emprego de software de ronda virtual para localizar material de pornografia infantil em redes de compartilhamento ponto a ponto não se confunde com a infiltração de agentes prevista no art. 190-a do eca. nessa técnica investigativa, não há ocultação de identidade de agente estatal, tampouco atuação dirigida a suspeitos previamente individualizados, mas apenas a coleta de dados e sinais disponibilizados em ambiente virtual de acesso amplo ou, ao menos, voluntariamente exposto pelos próprios usuários da rede p2p.
+
+por isso, a utilização do software é considerada lícita e prescinde de autorização judicial prévia. da mesma forma, uma vez identificado o ip associado à atividade ilícita, a requisição dos dados cadastrais ao provedor de internet pode ser feita diretamente pela autoridade policial, sem necessidade de prévia ordem judicial, para fins de identificação do usuário vinculado ao endereço eletrônico apurado na ronda virtual.
+
+a tese, portanto, distingue a mera varredura automatizada em ambiente virtual da infiltração policial propriamente dita, que exige disciplina legal específica e pressupõe atuação encoberta do agente. no caso examinado, a investigação posterior ainda contou com mandado de busca e apreensão e com afastamento do sigilo telemático, mas isso não altera a licitude da etapa anterior de identificação do ip por software de ronda virtual. stj. 6ª turma. rhc 199.047-ms, rel. min. rogerio schietti cruz, julgado em 14/10/2025 (info 870).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 14</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-14">Não respondida</span>
+</div>
+
+<p class="enunciado">A utilização, pela polícia judiciária, de software de ronda virtual destinado a rastrear redes P2P em busca de arquivos com conteúdo de pornografia infantil, com posterior requisição direta aos provedores de internet dos dados cadastrais vinculados aos endereços IP identificados, depende de prévia autorização judicial, por se equiparar à infiltração de agentes na internet e envolver devassa em ambiente protegido por sigilo.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(14, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(14, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-14">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque o emprego de software de ronda virtual para localizar material de pornografia infantil em redes de compartilhamento ponto a ponto não se confunde com a infiltração de agentes prevista no art. 190-A do ECA. Nessa técnica investigativa, não há ocultação de identidade de agente estatal, tampouco atuação dirigida a suspeitos previamente individualizados, mas apenas a coleta de dados e sinais disponibilizados em ambiente virtual de acesso amplo ou, ao menos, voluntariamente exposto pelos próprios usuários da rede P2P.<br><br>Por isso, a utilização do software é considerada lícita e prescinde de autorização judicial prévia. Da mesma forma, uma vez identificado o IP associado à atividade ilícita, a requisição dos dados cadastrais ao provedor de internet pode ser feita diretamente pela autoridade policial, sem necessidade de prévia ordem judicial, para fins de identificação do usuário vinculado ao endereço eletrônico apurado na ronda virtual.<br><br>A tese, portanto, distingue a mera varredura automatizada em ambiente virtual da infiltração policial propriamente dita, que exige disciplina legal específica e pressupõe atuação encoberta do agente. No caso examinado, a investigação posterior ainda contou com mandado de busca e apreensão e com afastamento do sigilo telemático, mas isso não altera a licitude da etapa anterior de identificação do IP por software de ronda virtual.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 6ª Turma. RHC 199.047-MS, Rel. Min. Rogerio Schietti Cruz, julgado em 14/10/2025 (Info 870).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a prolação de nova decisão de pronúncia, em cumprimento a acórdão que determinou a reinclusão de crime conexo anteriormente excluído, tem o efeito de reabrir integralmente o prazo para recurso em sentido estrito, inclusive quanto aos capítulos da decisão originária que foram apenas reproduzidos sem alteração substancial, de modo que a defesa pode, nessa segunda oportunidade, impugnar a qualificadora, a desclassificação e a própria materialidade do homicídio, ainda que tais matérias já estivessem acobertadas pela preclusão temporal. a assertiva está incorreta porque a nova decisão de pronúncia não possui eficácia substitutiva ampla e irrestrita. quando o juízo profere nova pronúncia apenas para cumprir determinação de tribunal que reincluiu crime conexo, a substituição alcança somente os pontos efetivamente modificados na nova manifestação judicial. os capítulos da pronúncia anterior que foram simplesmente reproduzidos, sem alteração de conteúdo, permanecem estabilizados pela preclusão temporal se a parte não os impugnou na primeira oportunidade recursal.
+
+no caso examinado, a defesa deixou de recorrer da primeira decisão de pronúncia quanto ao homicídio qualificado. posteriormente, ao ser proferida nova pronúncia apenas para acrescentar a fundamentação relativa ao tráfico de drogas, não se reabriu o prazo para rediscutir temas já consolidados, como legítima defesa, desclassificação para homicídio culposo ou afastamento da qualificadora. a unidade formal da pronúncia não afasta o regime de preclusão nem autoriza a rediscussão de capítulos inalterados.
+
+a lógica adotada prestigia a segurança jurídica, a estabilidade das decisões judiciais e a lealdade processual. em outras palavras, a nova decisão substitui apenas o que foi efetivamente alterado; não serve como “novo marco inicial” para impugnação de matérias já definitivamente preclusas. stj. 5ª turma. resp 2.197.114-mg, rel. min. ribeiro dantas, julgado em 4/11/2025 (info 870).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 15</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-15">Não respondida</span>
+</div>
+
+<p class="enunciado">A prolação de nova decisão de pronúncia, em cumprimento a acórdão que determinou a reinclusão de crime conexo anteriormente excluído, tem o efeito de reabrir integralmente o prazo para recurso em sentido estrito, inclusive quanto aos capítulos da decisão originária que foram apenas reproduzidos sem alteração substancial, de modo que a defesa pode, nessa segunda oportunidade, impugnar a qualificadora, a desclassificação e a própria materialidade do homicídio, ainda que tais matérias já estivessem acobertadas pela preclusão temporal.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(15, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(15, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-15">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque a nova decisão de pronúncia não possui eficácia substitutiva ampla e irrestrita. Quando o juízo profere nova pronúncia apenas para cumprir determinação de tribunal que reincluiu crime conexo, a substituição alcança somente os pontos efetivamente modificados na nova manifestação judicial. Os capítulos da pronúncia anterior que foram simplesmente reproduzidos, sem alteração de conteúdo, permanecem estabilizados pela preclusão temporal se a parte não os impugnou na primeira oportunidade recursal.<br><br>No caso examinado, a defesa deixou de recorrer da primeira decisão de pronúncia quanto ao homicídio qualificado. Posteriormente, ao ser proferida nova pronúncia apenas para acrescentar a fundamentação relativa ao tráfico de drogas, não se reabriu o prazo para rediscutir temas já consolidados, como legítima defesa, desclassificação para homicídio culposo ou afastamento da qualificadora. A unidade formal da pronúncia não afasta o regime de preclusão nem autoriza a rediscussão de capítulos inalterados.<br><br>A lógica adotada prestigia a segurança jurídica, a estabilidade das decisões judiciais e a lealdade processual. Em outras palavras, a nova decisão substitui apenas o que foi efetivamente alterado; não serve como “novo marco inicial” para impugnação de matérias já definitivamente preclusas.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 5ª Turma. REsp 2.197.114-MG, Rel. Min. Ribeiro Dantas, julgado em 4/11/2025 (Info 870).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="no procedimento do tribunal do júri, a plenitude de defesa autoriza a admissão de carta psicografada como elemento probatório, ainda que o meio seja controvertido, desde que a parte interessada sustente sua pertinência para a reconstrução dos fatos, sendo irrelevante, para esse fim, a exigência de confiabilidade epistemológica mínima. a assertiva está incorreta porque, embora o sistema processual penal adote a livre apreciação da prova e não estabeleça hierarquia abstrata entre os meios probatórios, isso não significa que qualquer elemento possa ingressar validamente nos autos. a admissibilidade da prova exige, cumulativamente, licitude e aptidão mínima para contribuir racionalmente com o esclarecimento do fato controvertido, isto é, confiabilidade epistemológica e capacidade de corroboração.
+
+no âmbito do tribunal do júri, essa filtragem é ainda mais relevante, pois o juiz presidente deve exercer controle rigoroso sobre o material probatório submetido aos jurados, afastando elementos logicamente irrelevantes ou epistemicamente inadequados, justamente para evitar que o conselho de sentença seja influenciado por conclusões irracionais ou por dados incapazes de sustentar inferência probatória válida.
+
+a plenitude de defesa, embora seja garantia constitucional de máxima amplitude argumentativa e probatória, não é um salvo-conduto para a introdução de meios de prova inidôneos. nenhuma das partes possui direito subjetivo à produção de prova impertinente, irrelevante ou epistemicamente desqualificada. assim, a carta psicografada não pode ser admitida como prova judicial, porque se trata de meio desprovido de mínima idoneidade epistêmica para a demonstração racional de enunciados fáticos. a crença subjacente à psicografia é ato de fé, incompatível com a lógica da prova processual, que exige demonstração objetiva e racional.
+
+além disso, a carta psicografada não é considerada prova ilícita, pois sua obtenção não viola, por si, normas de direito material. por essa razão, não se aplica o art. 157, § 1º, do cpp quanto à eventual contaminação de outras provas derivadas de seu conteúdo. o vício reconhecido é de inadmissibilidade por irrelevância/inidoneidade epistemológica, e não de ilicitude. stj. 6ª turma. rhc 167.478-ms, rel. min. rogerio schietti cruz, julgado dia 21/10/2025 (info 870).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 16</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-16">Não respondida</span>
+</div>
+
+<p class="enunciado">No procedimento do Tribunal do Júri, a plenitude de defesa autoriza a admissão de carta psicografada como elemento probatório, ainda que o meio seja controvertido, desde que a parte interessada sustente sua pertinência para a reconstrução dos fatos, sendo irrelevante, para esse fim, a exigência de confiabilidade epistemológica mínima.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(16, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(16, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-16">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque, embora o sistema processual penal adote a livre apreciação da prova e não estabeleça hierarquia abstrata entre os meios probatórios, isso não significa que qualquer elemento possa ingressar validamente nos autos. A admissibilidade da prova exige, cumulativamente, licitude e aptidão mínima para contribuir racionalmente com o esclarecimento do fato controvertido, isto é, confiabilidade epistemológica e capacidade de corroboração.<br><br>No âmbito do Tribunal do Júri, essa filtragem é ainda mais relevante, pois o juiz presidente deve exercer controle rigoroso sobre o material probatório submetido aos jurados, afastando elementos logicamente irrelevantes ou epistemicamente inadequados, justamente para evitar que o conselho de sentença seja influenciado por conclusões irracionais ou por dados incapazes de sustentar inferência probatória válida.<br><br>A plenitude de defesa, embora seja garantia constitucional de máxima amplitude argumentativa e probatória, não é um salvo-conduto para a introdução de meios de prova inidôneos. Nenhuma das partes possui direito subjetivo à produção de prova impertinente, irrelevante ou epistemicamente desqualificada. Assim, a carta psicografada não pode ser admitida como prova judicial, porque se trata de meio desprovido de mínima idoneidade epistêmica para a demonstração racional de enunciados fáticos. A crença subjacente à psicografia é ato de fé, incompatível com a lógica da prova processual, que exige demonstração objetiva e racional.<br><br>Além disso, a carta psicografada não é considerada prova ilícita, pois sua obtenção não viola, por si, normas de direito material. Por essa razão, não se aplica o art. 157, § 1º, do CPP quanto à eventual contaminação de outras provas derivadas de seu conteúdo. O vício reconhecido é de inadmissibilidade por irrelevância/inidoneidade epistemológica, e não de ilicitude.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 6ª Turma. RHC 167.478-MS, Rel. Min. Rogerio Schietti Cruz, julgado dia 21/10/2025 (Info 870).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="em ação penal submetida ao procedimento do tribunal do júri, se o conselho de sentença absolver o acusado e a apelação ministerial for provida com fundamento de que o veredicto foi manifestamente contrário à prova dos autos, o novo julgamento deverá restringir-se ao acervo probatório já produzido no primeiro plenário, sendo inadmissível a oitiva, no segundo júri, de testemunha ocular surgida apenas após o julgamento originário, ainda que a parte acusadora alegue necessidade de melhor esclarecimento dos fatos. a afirmação está correta porque, na hipótese de anulação do julgamento do júri por decisão manifestamente contrária à prova dos autos, o novo julgamento não autoriza inovação probatória no plenário. a lógica do sistema é preservar a delimitação do objeto submetido ao novo conselho de sentença, evitando que a parte interessada amplie artificialmente o conjunto de provas após já ter ocorrido um primeiro julgamento.
+
+o ponto central é que o art. 593, iii, d, § 3º, do cpp admite a apelação quando a decisão dos jurados for manifestamente contrária à prova dos autos, mas essa disciplina não pode ser interpretada como autorização para reabrir indefinidamente a instrução com acréscimo de novas testemunhas no segundo júri. o novo julgamento deve se apoiar nas provas já produzidas, sob pena de violação à paridade de armas e de esvaziamento da própria lógica recursal do procedimento do júri.
+
+a circunstância de a testemunha ter surgido apenas depois do primeiro julgamento não altera essa conclusão. o entendimento firmado é no sentido de que, nessa específica hipótese de renovação do julgamento, não se admite a inclusão de testemunhas novas, porque isso representaria inovação no conjunto probatório levado ao conhecimento dos jurados, com potencial de desequilibrar a disputa processual e modificar o cenário probatório já submetido ao controle recursal.
+
+em suma, a anulação do veredicto por manifesta contrariedade à prova dos autos conduz a novo julgamento, mas não a uma nova instrução probatória irrestrita. o segundo plenário deve observar os limites do acervo anteriormente apresentado, sendo vedada a introdução de testemunha inédita, ainda que sua existência tenha sido descoberta somente após o primeiro júri. stj. 6ª turma. resp 2.225.331-rj, rel. min. antonio saldanha palheiro, julgado em 04/11/2025 (info 870).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 17</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-17">Não respondida</span>
+</div>
+
+<p class="enunciado">Em ação penal submetida ao procedimento do Tribunal do Júri, se o Conselho de Sentença absolver o acusado e a apelação ministerial for provida com fundamento de que o veredicto foi manifestamente contrário à prova dos autos, o novo julgamento deverá restringir-se ao acervo probatório já produzido no primeiro plenário, sendo inadmissível a oitiva, no segundo júri, de testemunha ocular surgida apenas após o julgamento originário, ainda que a parte acusadora alegue necessidade de melhor esclarecimento dos fatos.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(17, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(17, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-17">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A afirmação está correta porque, na hipótese de anulação do julgamento do Júri por decisão manifestamente contrária à prova dos autos, o novo julgamento não autoriza inovação probatória no plenário. A lógica do sistema é preservar a delimitação do objeto submetido ao novo Conselho de Sentença, evitando que a parte interessada amplie artificialmente o conjunto de provas após já ter ocorrido um primeiro julgamento.<br><br>O ponto central é que o art. 593, III, d, § 3º, do CPP admite a apelação quando a decisão dos jurados for manifestamente contrária à prova dos autos, mas essa disciplina não pode ser interpretada como autorização para reabrir indefinidamente a instrução com acréscimo de novas testemunhas no segundo júri. O novo julgamento deve se apoiar nas provas já produzidas, sob pena de violação à paridade de armas e de esvaziamento da própria lógica recursal do procedimento do Júri.<br><br>A circunstância de a testemunha ter surgido apenas depois do primeiro julgamento não altera essa conclusão. O entendimento firmado é no sentido de que, nessa específica hipótese de renovação do julgamento, não se admite a inclusão de testemunhas novas, porque isso representaria inovação no conjunto probatório levado ao conhecimento dos jurados, com potencial de desequilibrar a disputa processual e modificar o cenário probatório já submetido ao controle recursal.<br><br>Em suma, a anulação do veredicto por manifesta contrariedade à prova dos autos conduz a novo julgamento, mas não a uma nova instrução probatória irrestrita. O segundo plenário deve observar os limites do acervo anteriormente apresentado, sendo vedada a introdução de testemunha inédita, ainda que sua existência tenha sido descoberta somente após o primeiro júri.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 6ª Turma. REsp 2.225.331-RJ, Rel. Min. Antonio Saldanha Palheiro, julgado em 04/11/2025 (Info 870).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a fixação, na sentença penal condenatória, de valor mínimo a título de reparação por danos morais com fundamento no art. 387, iv, do cpp, pressupõe não apenas que a acusação formule pedido expresso nesse sentido, mas também que indique, na denúncia, a quantia específica pretendida; ausente essa delimitação numérica, a condenação indenizatória viola o contraditório e a ampla defesa, ainda que o abalo extrapatrimonial decorra de fato penalmente relevante e seja intuitivamente presumível. o art. 387, iv, do cpp autoriza o juiz, ao proferir sentença condenatória, a fixar valor mínimo para reparação dos danos causados pela infração. contudo, essa providência não pode ser adotada de forma automática ou genérica, sobretudo quando se trata de dano moral, cuja quantificação exige delimitação mínima do objeto litigioso e possibilidade real de impugnação pela defesa.
+
+no caso examinado, embora a denúncia tivesse formulado pedido de fixação de indenização por danos morais, não houve indicação do valor pretendido. essa omissão foi considerada relevante porque a simples menção ao pedido não basta para assegurar o contraditório substancial: a defesa precisa saber, com antecedência, qual montante está sendo postulado para poder se manifestar adequadamente sobre a extensão da pretensão indenizatória, a necessidade de prova e eventual impugnação do quantum.
+
+a ausência de valor específico inviabiliza a fixação da indenização mínima na sentença, pois transforma a pretensão reparatória em pedido indeterminado, incompatível com a lógica do sistema acusatório e com a exigência de paridade de armas. assim, ainda que o fato narrado possa causar abalo moral evidente, não se admite a condenação civil mínima sem prévia delimitação numérica na acusação.
+
+em síntese, para a incidência do art. 387, iv, do cpp, não basta o pedido expresso de reparação moral: é indispensável que a denúncia também indique o valor pretendido, sob pena de nulidade da fixação indenizatória por ofensa ao contraditório e à ampla defesa. stj. 5ª turma. agrg no resp 2.217.743-rs, rel. min. ribeiro dantas, julgado em 15/10/2025 (info 870).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 18</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-18">Não respondida</span>
+</div>
+
+<p class="enunciado">A fixação, na sentença penal condenatória, de valor mínimo a título de reparação por danos morais com fundamento no art. 387, IV, do CPP, pressupõe não apenas que a acusação formule pedido expresso nesse sentido, mas também que indique, na denúncia, a quantia específica pretendida; ausente essa delimitação numérica, a condenação indenizatória viola o contraditório e a ampla defesa, ainda que o abalo extrapatrimonial decorra de fato penalmente relevante e seja intuitivamente presumível.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(18, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(18, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-18">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O art. 387, IV, do CPP autoriza o juiz, ao proferir sentença condenatória, a fixar valor mínimo para reparação dos danos causados pela infração. Contudo, essa providência não pode ser adotada de forma automática ou genérica, sobretudo quando se trata de dano moral, cuja quantificação exige delimitação mínima do objeto litigioso e possibilidade real de impugnação pela defesa.<br><br>No caso examinado, embora a denúncia tivesse formulado pedido de fixação de indenização por danos morais, não houve indicação do valor pretendido. Essa omissão foi considerada relevante porque a simples menção ao pedido não basta para assegurar o contraditório substancial: a defesa precisa saber, com antecedência, qual montante está sendo postulado para poder se manifestar adequadamente sobre a extensão da pretensão indenizatória, a necessidade de prova e eventual impugnação do quantum.<br><br>A ausência de valor específico inviabiliza a fixação da indenização mínima na sentença, pois transforma a pretensão reparatória em pedido indeterminado, incompatível com a lógica do sistema acusatório e com a exigência de paridade de armas. Assim, ainda que o fato narrado possa causar abalo moral evidente, não se admite a condenação civil mínima sem prévia delimitação numérica na acusação.<br><br>Em síntese, para a incidência do art. 387, IV, do CPP, não basta o pedido expresso de reparação moral: é indispensável que a denúncia também indique o valor pretendido, sob pena de nulidade da fixação indenizatória por ofensa ao contraditório e à ampla defesa.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 5ª Turma. AgRg no REsp 2.217.743-RS, Rel. Min. Ribeiro Dantas, julgado em 15/10/2025 (Info 870).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="em ação de repetição de indébito proposta por condomínio para reaver valores pagos a título de taxa de coleta e destinação final de resíduos sólidos, é legítima a exigência de prova de que o encargo financeiro não foi repassado aos condôminos, com fundamento no art. 166 do ctn, ainda que se trate de exação de natureza direta e sem aptidão para transferência do ônus tributário a terceiro. o art. 166 do ctn incide apenas sobre tributos que, por sua natureza, comportem transferência do respectivo encargo financeiro, isto é, sobre hipóteses em que o ônus econômico do tributo possa ser repassado a terceiro. a regra foi concebida para evitar enriquecimento sem causa na restituição de tributos indiretos, em que o contribuinte de direito pode não ter suportado, em definitivo, o encargo.
+
+no caso da taxa de coleta e destinação final de resíduos sólidos, trata-se de tributo direto, sem estrutura jurídica apta a transferir o encargo tributário a terceiro nos moldes exigidos pelo art. 166 do ctn. a circunstância de o condomínio ratear despesas entre os condôminos não se confunde com repasse do ônus tributário a terceiro, mas com mera distribuição interna de custos condominiais, o que não atrai a exigência de prova prevista no dispositivo.
+
+assim, sendo a exação incompatível com a lógica dos tributos indiretos, não se pode condicionar a restituição à demonstração de que o condomínio não repassou o valor aos condôminos. a aplicação do art. 166, nesse contexto, é indevida. stj. 2ª turma. resp 2.117.022-rs, rel. min. afrânio vilela, julgado em 4/11/2025 (info 870).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 19</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-19">Não respondida</span>
+</div>
+
+<p class="enunciado">Em ação de repetição de indébito proposta por condomínio para reaver valores pagos a título de taxa de coleta e destinação final de resíduos sólidos, é legítima a exigência de prova de que o encargo financeiro não foi repassado aos condôminos, com fundamento no art. 166 do CTN, ainda que se trate de exação de natureza direta e sem aptidão para transferência do ônus tributário a terceiro.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(19, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(19, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-19">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O art. 166 do CTN incide apenas sobre tributos que, por sua natureza, comportem transferência do respectivo encargo financeiro, isto é, sobre hipóteses em que o ônus econômico do tributo possa ser repassado a terceiro. A regra foi concebida para evitar enriquecimento sem causa na restituição de tributos indiretos, em que o contribuinte de direito pode não ter suportado, em definitivo, o encargo.<br><br>No caso da taxa de coleta e destinação final de resíduos sólidos, trata-se de tributo direto, sem estrutura jurídica apta a transferir o encargo tributário a terceiro nos moldes exigidos pelo art. 166 do CTN. A circunstância de o condomínio ratear despesas entre os condôminos não se confunde com repasse do ônus tributário a terceiro, mas com mera distribuição interna de custos condominiais, o que não atrai a exigência de prova prevista no dispositivo.<br><br>Assim, sendo a exação incompatível com a lógica dos tributos indiretos, não se pode condicionar a restituição à demonstração de que o condomínio não repassou o valor aos condôminos. A aplicação do art. 166, nesse contexto, é indevida.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 2ª Turma. REsp 2.117.022-RS, Rel. Min. Afrânio Vilela, julgado em 4/11/2025 (Info 870).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a perda total de veículo adquirido por pessoa com deficiência com isenção de ipi, em decorrência de acidente de trânsito, não autoriza a exigência do imposto da seguradora que recebeu os salvados, nem impede a aquisição de novo automóvel com nova fruição da isenção antes de transcorrido o prazo de dois anos previsto na legislação de regência, pois a transferência do bem nessa hipótese não se equipara a alienação voluntária com intuito lucrativo. a assertiva está correta porque reproduz a lógica jurídica aplicada ao caso: quando o veículo adquirido com isenção de ipi sofre perda total em acidente, a posterior transferência dos salvados à seguradora decorre de evento involuntário, destinado à mitigação do prejuízo securitário, e não de alienação voluntária com finalidade lucrativa pelo beneficiário da isenção. por isso, não se legitima a cobrança do ipi da seguradora com base em uma suposta quebra do regime de favor fiscal.
+
+além disso, a restrição temporal do art. 2º da lei nº 8.989/1995 — que, em regra, limita a utilização da isenção a uma única vez, salvo se o veículo tiver sido adquirido há mais de dois anos — não incide de modo absoluto quando o automóvel isento é perdido total ou subtraído por furto/roubo. nessas hipóteses excepcionais, o beneficiário mantém o direito de adquirir outro veículo com nova isenção, ainda que não tenha transcorrido o biênio legal, porque o evento danoso ou criminoso frustra a própria utilidade do bem originalmente adquirido e impede a leitura rigorosamente literal da limitação temporal.
+
+em síntese, o entendimento prestigia a finalidade da norma de proteção à pessoa com deficiência, afastando tanto a exigência tributária sobre a seguradora quanto a interpretação restritiva que impediria nova isenção em situação de perda total do veículo. stj. 1ª turma. aresp 2.849.743-sp, rel. min. gurgel de faria, julgado em 7/10/2025 (info 870).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 20</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-20">Não respondida</span>
+</div>
+
+<p class="enunciado">A perda total de veículo adquirido por pessoa com deficiência com isenção de IPI, em decorrência de acidente de trânsito, não autoriza a exigência do imposto da seguradora que recebeu os salvados, nem impede a aquisição de novo automóvel com nova fruição da isenção antes de transcorrido o prazo de dois anos previsto na legislação de regência, pois a transferência do bem nessa hipótese não se equipara a alienação voluntária com intuito lucrativo.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(20, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(20, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-20">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a lógica jurídica aplicada ao caso: quando o veículo adquirido com isenção de IPI sofre perda total em acidente, a posterior transferência dos salvados à seguradora decorre de evento involuntário, destinado à mitigação do prejuízo securitário, e não de alienação voluntária com finalidade lucrativa pelo beneficiário da isenção. Por isso, não se legitima a cobrança do IPI da seguradora com base em uma suposta quebra do regime de favor fiscal.<br><br>Além disso, a restrição temporal do art. 2º da Lei nº 8.989/1995 — que, em regra, limita a utilização da isenção a uma única vez, salvo se o veículo tiver sido adquirido há mais de dois anos — não incide de modo absoluto quando o automóvel isento é perdido total ou subtraído por furto/roubo. Nessas hipóteses excepcionais, o beneficiário mantém o direito de adquirir outro veículo com nova isenção, ainda que não tenha transcorrido o biênio legal, porque o evento danoso ou criminoso frustra a própria utilidade do bem originalmente adquirido e impede a leitura rigorosamente literal da limitação temporal.<br><br>Em síntese, o entendimento prestigia a finalidade da norma de proteção à pessoa com deficiência, afastando tanto a exigência tributária sobre a seguradora quanto a interpretação restritiva que impediria nova isenção em situação de perda total do veículo.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Turma. AREsp 2.849.743-SP, Rel. Min. Gurgel de Faria, julgado em 7/10/2025 (Info 870).</p>
+</div>
+</section>
+
+</div>
+
+<script>
+const storageKey = location.pathname + "_respostas";
+let respostas = JSON.parse(localStorage.getItem(storageKey) || "{}");
+
+function destacar(t){
+ if(t==="CERTO") return '<span class="gabarito-certo">CERTO</span>';
+ if(t==="ERRADO") return '<span class="gabarito-errado">ERRADO</span>';
+ return t;
+}
+
+function responder(numero, resposta){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const gabarito=card.dataset.gabarito;
+ const correto=resposta===gabarito;
+ respostas[numero]={resposta,correto};
+ localStorage.setItem(storageKey, JSON.stringify(respostas));
+ mostrarFeedback(numero);
+ atualizarPainel();
+ filtrar();
+}
+
+function mostrarFeedback(numero){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const feedback=document.getElementById("feedback-"+numero);
+ const status=document.getElementById("status-"+numero);
+ const resultado=feedback.querySelector(".resultado");
+ const gabarito=card.dataset.gabarito;
+ const dados=respostas[numero];
+ if(!dados) return;
+ feedback.style.display="block";
+ feedback.classList.remove("correto","errado");
+ if(dados.correto){
+   feedback.classList.add("correto");
+   resultado.innerHTML="Você acertou. A resposta é "+destacar(gabarito)+".";
+   status.textContent="Respondida — acerto";
+   status.style.color="var(--green)";
+ } else {
+   feedback.classList.add("errado");
+   resultado.innerHTML="Você errou. O gabarito é "+destacar(gabarito)+".";
+   status.textContent="Respondida — erro";
+   status.style.color="var(--red)";
+ }
+}
+
+function atualizarPainel(){
+ let respondidas=0, acertos=0, erros=0;
+ for(const k in respostas){
+   respondidas++;
+   if(respostas[k].correto) acertos++; else erros++;
+ }
+ document.getElementById("respondidas").textContent=respondidas;
+ document.getElementById("acertos").textContent=acertos;
+ document.getElementById("erros").textContent=erros;
+ document.getElementById("visiveis").textContent=document.querySelectorAll(".questao:not(.oculta)").length;
+}
+
+function filtrar(){
+ const busca=document.getElementById("busca").value.trim().toLowerCase();
+ const disciplina=document.getElementById("disciplina").value;
+ const statusFiltro=document.getElementById("statusFiltro").value;
+ const cards=Array.from(document.querySelectorAll(".questao"));
+ let vis=0;
+ cards.forEach((card,idx)=>{
+   const n=idx+1;
+   const texto=card.dataset.texto||"";
+   const disc=card.dataset.disciplina||"";
+   const r=respostas[n];
+   let passaStatus=true;
+   if(statusFiltro==="nao") passaStatus=!r;
+   if(statusFiltro==="acerto") passaStatus=r && r.correto;
+   if(statusFiltro==="erro") passaStatus=r && !r.correto;
+   const ok=(!busca||texto.includes(busca)) && (!disciplina||disc===disciplina) && passaStatus;
+   card.classList.toggle("oculta", !ok);
+   if(ok) vis++;
+ });
+ document.getElementById("sem-resultados").style.display=vis===0?"block":"none";
+ atualizarPainel();
+}
+
+function reiniciar(){
+ if(!confirm("Deseja reiniciar este simulado?")) return;
+ localStorage.removeItem(storageKey);
+ location.reload();
+}
+
+function restaurar(){
+ for(const k in respostas) mostrarFeedback(Number(k));
+ filtrar();
+ atualizarPainel();
+}
+
+restaurar();
+</script>
+</body>
+</html>

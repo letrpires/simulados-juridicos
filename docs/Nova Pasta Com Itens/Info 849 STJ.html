@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Simulado - Info 849 STJ</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+    --bg: #0f172a;
+    --card: #111827;
+    --card2: #1f2937;
+    --text: #e5e7eb;
+    --muted: #9ca3af;
+    --accent: #38bdf8;
+    --green: #22c55e;
+    --red: #ef4444;
+    --yellow: #facc15;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #020617, #111827);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+header {
+    padding: 32px 20px;
+    text-align: center;
+    border-bottom: 1px solid #334155;
+}
+
+header h1 {
+    margin: 0 0 10px;
+    font-size: 28px;
+}
+
+header p {
+    color: var(--muted);
+    margin: 0;
+}
+
+.container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 24px 16px 80px;
+}
+
+.painel {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(8px);
+    border: 1px solid #334155;
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 24px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.stat {
+    background: var(--card2);
+    padding: 12px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.stat strong {
+    display: block;
+    font-size: 22px;
+    color: var(--accent);
+}
+
+.card {
+    background: rgba(17, 24, 39, 0.96);
+    border: 1px solid #334155;
+    border-radius: 18px;
+    padding: 22px;
+    margin-bottom: 20px;
+    box-shadow: 0 12px 30px rgba(0,0,0,.25);
+}
+
+.questao-topo {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.badge {
+    background: #0ea5e9;
+    color: #00111f;
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 999px;
+}
+
+.status {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.enunciado {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.botoes {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+button {
+    cursor: pointer;
+    border: 0;
+    padding: 12px 22px;
+    border-radius: 12px;
+    background: #334155;
+    color: white;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+button:hover {
+    transform: translateY(-1px);
+    background: #475569;
+}
+
+.feedback {
+    display: none;
+    background: #020617;
+    border-left: 4px solid var(--accent);
+    padding: 16px;
+    border-radius: 12px;
+    margin-top: 12px;
+}
+
+.feedback.correto {
+    border-left-color: var(--green);
+}
+
+.feedback.errado {
+    border-left-color: var(--red);
+}
+
+.resultado {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.referencia {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.acoes {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.acoes button {
+    background: #0ea5e9;
+    color: #00111f;
+}
+
+@media (max-width: 700px) {
+    .painel {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .botoes {
+        flex-direction: column;
+    }
+
+    header h1 {
+        font-size: 22px;
+    }
+
+    .enunciado {
+        font-size: 16px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Simulado - Info 849 STJ</h1>
+    <p>Simulado interativo de CERTO ou ERRADO</p>
+</header>
+
+<div class="container">
+
+    <div class="painel">
+        <div class="stat">
+            <strong id="total">12</strong>
+            Total
+        </div>
+        <div class="stat">
+            <strong id="respondidas">0</strong>
+            Respondidas
+        </div>
+        <div class="stat">
+            <strong id="acertos">0</strong>
+            Acertos
+        </div>
+        <div class="stat">
+            <strong id="erros">0</strong>
+            Erros
+        </div>
+    </div>
+
+    <div class="acoes">
+        <button onclick="reiniciar()">Reiniciar simulado</button>
+    </div>
+
+    
+        <section class="card questao" data-gabarito="ERRADO">
+            <div class="questao-topo">
+                <span class="badge">Questão 1</span>
+                <span class="status" id="status-1">Não respondida</span>
+            </div>
+
+            <p class="enunciado">A ausência de disciplina legislativa específica acerca do gênero neutro no registro civil impede a retificação da assento registral de pessoa transgênera não-binária, pois a tutela da personalidade, embora assegure a autodeterminação de gênero, não autoriza a integração judicial da lacuna normativa para criar hipótese não expressamente prevista em lei.</p>
+
+            <div class="botoes">
+                <button onclick="responder(1, 'CERTO')">CERTO</button>
+                <button onclick="responder(1, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-1">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> ERRADO</p>
+                <p><strong>Justificativa:</strong><br>O enunciado contraria o entendimento firmado no julgado. Reconheceu-se que o livre desenvolvimento da personalidade confere ao indivíduo autonomia para autodeterminar sua identidade de gênero, sem submissão a interferências estatais ou sociais indevidas. A proteção geral da personalidade, prevista no art. 12 do Código Civil, foi utilizada como fundamento para assegurar o direito à autodeterminação de gênero, inclusive para pessoas transgêneras não-binárias.<br><br>Além disso, a inexistência de norma específica sobre gênero neutro não foi considerada obstáculo à tutela jurisdicional do direito. Ao contrário, admitiu-se a integração da lacuna legislativa com apoio nos arts. 4º da LINDB e 140 do CPC, que vedam a negativa de prestação jurisdicional por ausência de norma e autorizam o juiz a decidir o caso concreto por analogia, costumes e princípios gerais do direito.<br><br>O julgado também destacou que seria incongruente admitir a retificação registral apenas para pessoas trans binárias e negar igual proteção às não-binárias, pois isso violaria os princípios da igualdade e da dignidade da pessoa humana. Assim, a retificação do registro civil para constar gênero neutro foi reputada compatível com a identidade autodeclarada da pessoa e com a tutela dos direitos da personalidade.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.135.967-SP, Rel. Min. Nancy Andrighi, julgado em 6/5/2025 (Info 849).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="CERTO">
+            <div class="questao-topo">
+                <span class="badge">Questão 2</span>
+                <span class="status" id="status-2">Não respondida</span>
+            </div>
+
+            <p class="enunciado">Na hipótese de interrupção da prescrição por meio de protesto judicial ajuizado contra a Fazenda Pública, o novo prazo prescricional não se reinicia na data do ajuizamento da medida, mas apenas a partir do último ato processual praticado no respectivo procedimento, de modo que, enquanto não encerrada a marcha processual do protesto, não se pode considerar consumada a fluência do prazo extintivo para a ação principal.</p>
+
+            <div class="botoes">
+                <button onclick="responder(2, 'CERTO')">CERTO</button>
+                <button onclick="responder(2, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-2">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> CERTO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está correta porque o art. 9º do Decreto nº 20.910/1932, aplicado às pretensões deduzidas em face da Fazenda Pública, estabelece que a interrupção da prescrição produz o reinício da contagem a partir do último ato do processo interruptivo, e não da simples propositura da medida. Em outras palavras, o ajuizamento do protesto judicial é suficiente para interromper o prazo, mas o marco inicial do novo lapso prescricional somente surge com a prática do último ato processual no procedimento de protesto.<br><br>Esse ponto é relevante porque afasta a interpretação de que o novo prazo se reabre imediatamente com a distribuição da cautelar de protesto. No caso examinado, a pretensão indenizatória havia sido originalmente submetida ao prazo quinquenal do art. 1º do Decreto nº 20.910/1932, mas a interrupção operada pelo protesto judicial deslocou o termo inicial do reinício para a data do último ato processual, preservando integralmente o período remanescente. Assim, não se admite reduzir artificialmente o prazo pela fixação do reinício na data do ajuizamento do protesto, sob pena de esvaziar a eficácia interruptiva prevista em lei.<br><br>A tese também é importante para distinguir interrupção de suspensão: aqui não há mera paralisação temporária do curso prescricional, mas efetiva ruptura da contagem, com recomeço posterior em novo marco temporal legalmente definido. Por isso, a consumação da prescrição não pode ser aferida com base apenas na data de distribuição do protesto, mas sim considerando-se a data do último ato processual praticado no respectivo feito.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Turma. AgInt no REsp 2.036.964-RJ, Rel. Min. Regina Helena Costa, julgado em 20/3/2025 (Info 849).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="CERTO">
+            <div class="questao-topo">
+                <span class="badge">Questão 3</span>
+                <span class="status" id="status-3">Não respondida</span>
+            </div>
+
+            <p class="enunciado">Nos contratos de financiamento imobiliário submetidos ao Sistema de Financiamento Imobiliário, a mera previsão contratual expressa de capitalização de juros não afasta a incidência da vedação legal à cobrança de juros em periodicidade inferior à anual, pois a autorização contida na legislação de regência desse sistema não contempla, de forma específica, a fracionamento temporal inferior a um ano, razão pela qual permanece aplicável a disciplina restritiva da Lei da Usura.</p>
+
+            <div class="botoes">
+                <button onclick="responder(3, 'CERTO')">CERTO</button>
+                <button onclick="responder(3, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-3">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> CERTO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está correta porque, no âmbito do Sistema de Financiamento Imobiliário, a autorização legal para capitalização de juros não se confunde com autorização para capitalização em periodicidade inferior à anual. A disciplina aplicável ao SFI, regido pela Lei nº 9.514/1997, admite a capitalização de juros, mas não contém autorização específica para sua incidência em intervalos menores que um ano.<br><br>Essa distinção é decisiva: a jurisprudência que admite capitalização inferior à anual, desde que expressamente pactuada, foi construída para as operações do Sistema Financeiro Nacional, em que há autorização legal expressa e específica para essa periodicidade, além da exigência de pactuação clara. Já no SFI, a ausência de previsão legal específica quanto ao fracionamento temporal impede a extensão dessa lógica.<br><br>Por isso, ainda que o contrato preveja expressamente a capitalização, essa cláusula não basta para afastar a vedação do art. 4º da Lei da Usura quanto à periodicidade inferior à anual. Em outras palavras, a pactuação expressa não supre a falta de autorização legal específica para capitalização mensal, semestral ou em qualquer outra fração inferior a um ano, no contexto do SFI.<br><br>A consequência prática é que, nos contratos celebrados no âmbito do SFI, a capitalização inferior à anual é vedada, permanecendo possível apenas a capitalização nos limites admitidos pela legislação aplicável, sem a extrapolação da periodicidade anual.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.086.650-MG, Rel. Min. Nancy Andrighi, julgado em 4/2/2025 (Info 849).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="CERTO">
+            <div class="questao-topo">
+                <span class="badge">Questão 4</span>
+                <span class="status" id="status-4">Não respondida</span>
+            </div>
+
+            <p class="enunciado">A prática de desvio de clientela por empregado que, valendo-se de posição de confiança e de acesso a informações estratégicas da empresa, passa a explorar atividade concorrente durante a vigência do contrato de trabalho pode ensejar responsabilização civil por concorrência desleal; contudo, inexistindo cláusula específica de não concorrência para o período posterior ao desligamento, não se admite ampliar os lucros cessantes para alcançar fatos ocorridos após a extinção do vínculo empregatício, pois o dever de fidelidade do empregado não subsiste automaticamente ao término da relação de trabalho.</p>
+
+            <div class="botoes">
+                <button onclick="responder(4, 'CERTO')">CERTO</button>
+                <button onclick="responder(4, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-4">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> CERTO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a distinção central firmada no caso: a concorrência desleal, na hipótese examinada, foi reconhecida apenas enquanto ainda vigente o contrato de trabalho, período em que subsiste o dever de lealdade/fidelidade do empregado em relação ao empregador. Assim, a utilização de posição funcional privilegiada para desviar clientela e explorar atividade concorrente durante o vínculo pode gerar dever de indenizar.<br><br>Por outro lado, o entendimento afastou a extensão automática da responsabilidade para o período posterior à ruptura do vínculo empregatício. Encerrado o contrato de trabalho, extingue-se, como regra, o dever de fidelidade do empregado, de modo que a mera continuidade da atividade concorrente após a demissão não autoriza, por si só, a ampliação dos lucros cessantes. Para que haja restrição pós-contratual, seria necessária cláusula específica de não concorrência, o que não estava presente no caso.<br><br>No plano indenizatório, isso repercute diretamente na delimitação do dano material: a perícia havia apontado dois cenários, um restrito ao período até a demissão e outro incluindo o lapso posterior. A solução adotada foi limitar os lucros cessantes ao período em que ainda existia o vínculo empregatício, afastando a projeção para depois da rescisão.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.047.758-SP, Rel. Min. Ricardo Villas Bôas Cueva, julgado em 1º/4/2025 (Info 849).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="CERTO">
+            <div class="questao-topo">
+                <span class="badge">Questão 5</span>
+                <span class="status" id="status-5">Não respondida</span>
+            </div>
+
+            <p class="enunciado">Em se tratando de crédito concursal cujo fato gerador é anterior ao primeiro pedido de recuperação judicial, a atualização monetária e os encargos incidentes para fins de habilitação devem ser limitados à data do ajuizamento desse primeiro requerimento, ainda que o credor somente venha a apurar, reconhecer judicialmente ou habilitar o crédito após a instauração de novo processo recuperacional, pois a superveniência de segundo pedido não autoriza a reabertura do marco temporal de atualização previsto na legislação de regência.</p>
+
+            <div class="botoes">
+                <button onclick="responder(5, 'CERTO')">CERTO</button>
+                <button onclick="responder(5, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-5">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> CERTO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está correta porque, para definir o montante sujeito à recuperação judicial, o marco relevante é a data do primeiro pedido recuperacional, desde que o fato gerador do crédito seja anterior a esse requerimento. Nessa hipótese, a posterior demora do credor em promover a cobrança, obter sentença ou habilitar o crédito não desloca o termo final de atualização para a data de um segundo pedido de recuperação.<br><br>O ponto central é que a sujeição do crédito à recuperação decorre da sua origem anterior ao primeiro pedido, e não do momento em que ele é judicialmente reconhecido ou habilitado. Assim, ainda que o credor só venha a exercer sua pretensão em momento posterior, inclusive após novo pedido de recuperação judicial, a apuração do valor deve observar o estado da obrigação na data do primeiro requerimento recuperacional, preservando a lógica concursal e a paridade entre credores.<br><br>A interpretação do art. 9º, II, da Lei 11.101/2005 não pode ser dissociada da finalidade do regime recuperacional: o crédito concursal deve ser quantificado com base no marco inicial da crise empresarial formalmente submetida ao juízo recuperacional. Admitir atualização até o segundo pedido, quando o crédito já existia antes do primeiro, implicaria distorcer a igualdade entre credores e permitir que a inércia na habilitação gerasse vantagem indevida em relação aos demais sujeitos ao mesmo concurso.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.138.916-RS, Rel. Min. Ricardo Villas Bôas Cueva, julgado em 8/4/2025 (Info 849).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="CERTO">
+            <div class="questao-topo">
+                <span class="badge">Questão 6</span>
+                <span class="status" id="status-6">Não respondida</span>
+            </div>
+
+            <p class="enunciado">A homologação judicial do plano de recuperação judicial sem a observância estrita do quórum e das demais exigências legais pode ser admitida em caráter excepcional, desde que demonstrado abuso de direito de voto por credor dominante; contudo, a simples circunstância de o credor titular de parcela expressiva do passivo sujeito à recuperação ter rejeitado o plano não basta, por si só, para caracterizar tal abuso, especialmente quando a oposição se funda em sacrifício excessivo do crédito, em cláusulas potencialmente ilegais e em indícios de blindagem patrimonial e fraudes contábeis ainda sob apuração.</p>
+
+            <div class="botoes">
+                <button onclick="responder(6, 'CERTO')">CERTO</button>
+                <button onclick="responder(6, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-6">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> CERTO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva reproduz a lógica central do entendimento aplicado ao caso: a superação excepcional dos requisitos ordinários para homologação do plano de recuperação judicial somente se admite quando houver efetiva demonstração de abuso de direito de voto por credor com poder relevante de deliberação. Não se trata, portanto, de uma flexibilização automática do art. 58, § 1º, da Lei 11.101/2005, mas de medida excepcionalíssima, dependente de prova concreta do desvio no exercício do voto.<br><br>O ponto decisivo é que a mera rejeição do plano por credor detentor de participação significativa no passivo não configura, por si só, abuso. O exercício do direito de voto pode ser legítimo quando amparado em razões objetivas relacionadas à viabilidade e à legalidade do plano, como a imposição de condições excessivamente gravosas ao crédito — a exemplo da utilização da TR como índice de correção monetária e do alongamento do pagamento por prazo muito extenso —, além da existência de cláusulas reputadas ilegais pelas instâncias ordinárias.<br><br>Também é relevante que a oposição do credor tenha sido reforçada por indícios de blindagem patrimonial, desvio de bens para familiares dos sócios e possíveis fraudes contábeis, fatos que, em tese, recomendam cautela na concessão da recuperação antes da adequada apuração pelos meios próprios, inclusive na esfera criminal. Nessa moldura, o voto contrário não revela exercício abusivo do direito, mas reação fundada em elementos concretos de risco e de ilegalidade do plano.<br><br>Em síntese, a tese não afirma que todo voto contrário de credor dominante seja abusivo, nem que a homologação possa ser imposta sempre que o plano não alcançar a maioria qualificada. Ao contrário, preserva-se a regra legal, admitindo-se a superação apenas em hipóteses excepcionais e devidamente comprovadas, o que não ocorreu quando a recusa se apoiou em fundamentos plausíveis e juridicamente relevantes.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 4ª Turma. AgInt no REsp 1.969.340-SP, Rel. Min. Maria Isabel Gallotti, julgado em 31/3/2025 (Info 849).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="ERRADO">
+            <div class="questao-topo">
+                <span class="badge">Questão 7</span>
+                <span class="status" id="status-7">Não respondida</span>
+            </div>
+
+            <p class="enunciado">Em se tratando de reservatório artificial de água destinado à geração de energia ou ao abastecimento público, cuja outorga, registro ou contrato de concessão/autorização tenha sido formalizado antes da Medida Provisória n.º 2.166-67/2001, a disciplina do Código Florestal autoriza a desconsideração da faixa de Área de Preservação Permanente fixada na licença ambiental sempre que a ocupação antrópica posterior a 22/7/2008 ocorrer em área diversa da originalmente licenciada, pois o art. 62 teria efeito de redefinir a APP do empreendimento para fins de regularização fundiária e ambiental.</p>
+
+            <div class="botoes">
+                <button onclick="responder(7, 'CERTO')">CERTO</button>
+                <button onclick="responder(7, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-7">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> ERRADO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque inverte a função jurídica do art. 62 do Código Florestal e atribui a ele efeito que o dispositivo não possui. Para os reservatórios artificiais de água destinados à geração de energia ou ao abastecimento público, quando registrados ou com contrato de concessão/autorização firmado antes da MP n.º 2.166-67/2001, a faixa de APP não é livremente redesenhada pelo art. 62: ela permanece aquela definida na licença ambiental.<br><br>O ponto central do entendimento é que o art. 62 opera como regra de consolidação/tolerância de ocupações antrópicas preexistentes a 22/7/2008, e não como mecanismo de desconstituição da APP já delimitada na licença de operação. Assim, o dispositivo serve para reconhecer como regularizadas as ocupações anteriores ao marco temporal, mas não para ampliar, reduzir ou substituir a faixa de proteção ambiental fixada administrativamente.<br><br>Além disso, para ocupações posteriores a 22/7/2008, não incide a lógica de consolidação do art. 62; aplica-se a APP estabelecida pelas normas definitivas do Código Florestal, isto é, a faixa definida na licença ambiental. Em outras palavras, a data de 22/7/2008 funciona como limite temporal relevante: o que é anterior pode ser tolerado/consolidado; o que é posterior permanece submetido integralmente à disciplina protetiva aplicável, sem que o art. 62 autorize a redefinição da APP do reservatório.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 2ª Turma. REsp 2.141.730-SP, Rel. Min. Maria Thereza de Assis Moura, julgado em 22/4/2025 (Info 849).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="CERTO">
+            <div class="questao-topo">
+                <span class="badge">Questão 8</span>
+                <span class="status" id="status-8">Não respondida</span>
+            </div>
+
+            <p class="enunciado">A decisão judicial que, de ofício e por arbitramento, corrige o valor da causa para adequá-lo ao conteúdo patrimonial em discussão ou ao proveito econômico perseguido não desafia agravo de instrumento, ainda que a parte sustente prejuízo imediato decorrente da majoração do montante atribuído à demanda, pois tal pronunciamento não se enquadra no rol do art. 1.015 do CPC nem revela urgência apta a afastar a regra da impugnação diferida em preliminar de apelação.</p>
+
+            <div class="botoes">
+                <button onclick="responder(8, 'CERTO')">CERTO</button>
+                <button onclick="responder(8, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-8">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> CERTO</p>
+                <p><strong>Justificativa:</strong><br>O enunciado está correto. O art. 292, § 3º, do CPC atribui ao magistrado poder-dever de corrigir, de ofício e por arbitramento, o valor da causa quando ele não corresponder ao conteúdo patrimonial em discussão ou ao proveito econômico perseguido. Nessa hipótese, o pronunciamento judicial tem natureza interlocutória, mas não é impugnável por agravo de instrumento, porque não há previsão expressa no art. 1.015 do CPC.<br><br>Além disso, não se aplica a tese da taxatividade mitigada para admitir o agravo, pois a controvérsia sobre o valor da causa pode ser suscitada em preliminar de apelação, nos termos do art. 1.009, § 1º, do CPC. Assim, inexiste urgência processual decorrente da inutilidade de apreciação futura da matéria, requisito que justificaria excepcionalmente a interposição imediata do agravo de instrumento.<br><br>Em outras palavras, a correção de ofício do valor da causa não gera, por si só, situação de preclusão imediata ou de irreversibilidade apta a autorizar a via recursal imediata. A insurgência da parte deve ser reservada ao momento oportuno, em preliminar de apelação, ou nas contrarrazões, conforme a sistemática do CPC.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.186.037-AM, Rel. Min. Nancy Andrighi, julgado em 20/3/2025 (Info 849).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="ERRADO">
+            <div class="questao-topo">
+                <span class="badge">Questão 9</span>
+                <span class="status" id="status-9">Não respondida</span>
+            </div>
+
+            <p class="enunciado">A licitude da busca pessoal e do ingresso em domicílio pode ser reconhecida com base exclusiva em relatos policiais, ainda que a corporação disponha de câmeras corporais e não tenha produzido nem examinado as imagens da diligência, desde que os agentes afirmem que o imóvel aparentava estar abandonado e invadido, circunstância suficiente, por si só, para afastar a proteção constitucional da inviolabilidade domiciliar.</p>
+
+            <div class="botoes">
+                <button onclick="responder(9, 'CERTO')">CERTO</button>
+                <button onclick="responder(9, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-9">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> ERRADO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva contraria o entendimento firmado no julgado. A prova obtida por busca pessoal e por ingresso domiciliar foi reputada ilícita porque a atuação estatal se apoiou apenas em testemunhos policiais, sem lastro audiovisual que permitisse controlar a legalidade da diligência, embora houvesse câmeras corporais à disposição. A inexistência de gravação — ou, ao menos, de exame das imagens — compromete a verificabilidade objetiva da narrativa policial e reduz a confiabilidade da prova oral produzida pelos próprios agentes envolvidos.<br><br>Além disso, a mera afirmação de que o local seria um “apartamento abandonado e invadido” não basta, por si só, para afastar a proteção constitucional do domicílio. A inviolabilidade domiciliar não é eliminada por rótulos atribuídos unilateralmente pelos policiais, sobretudo quando há elementos indicativos de que o paciente efetivamente habitava o imóvel. Nessa hipótese, a entrada no local exige fundamentação concreta e compatível com as exceções constitucionais, não sendo suficiente uma descrição genérica do estado aparente do imóvel.<br><br>O ponto central do precedente é a soma de dois déficits: (i) ausência de registro audiovisual das diligências, apesar da disponibilidade de câmeras corporais; e (ii) inconsistência da narrativa policial para justificar a busca pessoal e o ingresso domiciliar. Esse conjunto torna a prova ilícita e contamina os elementos dela derivados.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 6ª Turma. HC 896.306-SC, Rel. Min. Rogerio Schietti Cruz, julgado em 20/3/2025 (Info 849).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="CERTO">
+            <div class="questao-topo">
+                <span class="badge">Questão 10</span>
+                <span class="status" id="status-10">Não respondida</span>
+            </div>
+
+            <p class="enunciado">Em ação penal por tráfico de drogas, a confissão informal colhida por policiais durante abordagem em via pública, embora registrada em vídeo sem exibição explícita de agressões ou ameaças, deve ser reputada ilícita e contaminante das provas subsequentes quando a defesa apresenta narrativa verossímil de coação física e moral, corroborada por laudo pericial que atesta lesão corporal compatível com maus-tratos, incumbindo ao Estado demonstrar que a atuação policial observou os contornos da legalidade.</p>
+
+            <div class="botoes">
+                <button onclick="responder(10, 'CERTO')">CERTO</button>
+                <button onclick="responder(10, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-10">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> CERTO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a lógica central do entendimento firmado: a ausência, no vídeo, de violência ou ameaça expressa não basta, por si só, para afastar a plausibilidade da alegação defensiva de que a confissão foi obtida mediante coação. Quando há elementos objetivos de corroboração — como laudo pericial indicando lesão corporal compatível com agressão — a narrativa de maus-tratos ganha verossimilhança suficiente para comprometer a validade da confissão informal.<br><br>Nessa hipótese, a confissão não pode ser tratada como prova hígida, pois a obtenção de declaração autoincriminatória sob coação física ou moral viola a legalidade da prova e a voluntariedade exigida para esse meio probatório. Além disso, aplica-se a lógica da prova ilícita por derivação: se a confissão contaminada foi o suporte para a diligência que levou à apreensão das drogas, também devem ser excluídas as provas dela decorrentes, salvo demonstração de fonte independente ou outra causa de ruptura do nexo causal, o que não se verificou no caso.<br><br>Outro ponto relevante é a distribuição do ônus probatório. Em contexto de alegação plausível de abuso estatal, não basta presumir a regularidade da atuação policial com base apenas na versão dos agentes ou na aparência comportamental do abordado no vídeo. O Estado deve demonstrar que agiu dentro dos limites legais, sobretudo quando a própria forma de registro é parcial e seletiva, o que fragiliza a credibilidade da narrativa oficial. Por isso, a prova derivada da confissão ilícita também deve ser desentranhada, com a consequente invalidação do suporte probatório que sustentava a imputação.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 6ª Turma. HC 915.025-SP, Rel. Min. Rogerio Schietti Cruz, julgado em 20/3/2025 (Info 849).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="CERTO">
+            <div class="questao-topo">
+                <span class="badge">Questão 11</span>
+                <span class="status" id="status-11">Não respondida</span>
+            </div>
+
+            <p class="enunciado">A eventual irregularidade na obtenção, no exterior, de elementos informativos que apenas desencadearam a persecução penal no Brasil não acarreta, por si só, a nulidade das provas produzidas em território nacional, quando estas forem colhidas autonomamente, sob o crivo do devido processo legal, de modo que a condenação não se invalida se fundada exclusivamente em prova lícita obtida no país.</p>
+
+            <div class="botoes">
+                <button onclick="responder(11, 'CERTO')">CERTO</button>
+                <button onclick="responder(11, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-11">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> CERTO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está correta porque distingue adequadamente duas situações processualmente distintas: (i) a utilização de dados oriundos do exterior apenas como ponto de partida investigativo, isto é, como notícia de fato possivelmente criminoso; e (ii) a utilização desses mesmos dados como suporte probatório direto da condenação. No caso julgado, a comunicação internacional serviu apenas para deflagrar a apuração no Brasil, autorizando diligências internas, como a busca e apreensão, que resultaram na apreensão de dispositivos eletrônicos e de imagens ilícitas.<br><br>O ponto central do entendimento é que a eventual discussão sobre a validade da prova estrangeira, inclusive sob alegação de quebra da cadeia de custódia, não contamina automaticamente as provas colhidas no Brasil quando estas possuem origem autônoma, foram produzidas regularmente e observam o devido processo legal. Em outras palavras, não há efeito dominó ou contaminação necessária se a condenação se apoia em elementos probatórios nacionais, lícitos e independentes.<br><br>Além disso, a tese afasta a ideia de que toda irregularidade na fase informativa inicial invalida a persecução penal subsequente. Para haver nulidade com reflexo na condenação, seria necessário demonstrar que a prova estrangeira ilícita foi efetivamente utilizada como fundamento decisivo da sentença ou que as provas nacionais derivaram dela de forma juridicamente relevante e sem fonte independente. No caso, isso não ocorreu: a condenação pelos crimes do ECA foi lastreada em provas obtidas em território nacional, não em material estrangeiro.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 6ª Turma. HC 828.743-RS, Rel. Min. Sebastião Reis Júnior, julgado em 22/4/2025 (Info 849).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="ERRADO">
+            <div class="questao-topo">
+                <span class="badge">Questão 12</span>
+                <span class="status" id="status-12">Não respondida</span>
+            </div>
+
+            <p class="enunciado">A revogação, pela Lei n. 14.752/2023, da multa prevista no art. 265 do CPP por abandono do processo impede a manutenção de penalidade pecuniária já aplicada ao defensor sob a redação anterior do dispositivo, pois a norma posterior, por ser mais benéfica e de índole processual, deve retroagir para alcançar atos processuais pretéritos ainda não definitivamente exauridos.</p>
+
+            <div class="botoes">
+                <button onclick="responder(12, 'CERTO')">CERTO</button>
+                <button onclick="responder(12, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-12">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> ERRADO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque a revogação do art. 265 do CPP pela Lei n. 14.752/2023 não produz efeito retroativo para afastar multa validamente imposta quando ainda vigente a redação anterior do dispositivo. A razão central é a incidência do princípio do <strong>tempus regit actum</strong>: os atos processuais são regidos pela lei em vigor no momento de sua prática.<br><br>No regime anterior, o art. 265 do CPP previa expressamente a possibilidade de multa ao defensor que abandonasse o processo sem motivo imperioso e sem comunicação prévia ao juiz. Com a alteração legislativa, a consequência jurídica passou a ser apenas a responsabilização por infração disciplinar perante o órgão correicional competente, mas isso não autoriza desconstituir sanções regularmente aplicadas sob a disciplina anterior.<br><br>O ponto decisivo é que a multa em questão possui <strong>natureza processual</strong>, e não penal material. Por isso, não se aplica a lógica da retroatividade da norma mais benéfica própria do direito penal material. Em matéria processual, prevalece a regra de aplicação imediata da lei nova aos atos futuros, sem invalidação automática dos efeitos já produzidos sob a lei revogada.<br><br>Assim, a superveniência da Lei n. 14.752/2023 não isenta penalidades impostas anteriormente com base no art. 265 do CPP, nem impede sua manutenção quando regularmente fixadas à época dos fatos.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 6ª Turma. AgRg no HC 797.438/MG, Rel. Min. Sebastião Reis Júnior, julgado em 20/2/2024. STJ. 5ª Turma. AgRg no RMS 72.002-GO, Rel. Min. Daniela Teixeira, Rel. para acórdão Min. Joel Ilan Paciornik, julgado em 11/3/2025 (Info 849).</p>
+            </div>
+        </section>
+        
+
+</div>
+
+<script>
+const totalQuestoes = 12;
+let respostas = JSON.parse(localStorage.getItem(location.pathname + "_respostas") || "{}");
+
+function atualizarPainel() {
+    const respondidas = Object.keys(respostas).length;
+    let acertos = 0;
+    let erros = 0;
+
+    for (const key in respostas) {
+        if (respostas[key].correto) acertos++;
+        else erros++;
+    }
+
+    document.getElementById("respondidas").textContent = respondidas;
+    document.getElementById("acertos").textContent = acertos;
+    document.getElementById("erros").textContent = erros;
+}
+
+function responder(numero, resposta) {
+    const card = document.querySelectorAll(".questao")[numero - 1];
+    const gabarito = card.dataset.gabarito;
+    const correto = resposta === gabarito;
+
+    respostas[numero] = {
+        resposta,
+        correto
+    };
+
+    localStorage.setItem(location.pathname + "_respostas", JSON.stringify(respostas));
+
+    mostrarFeedback(numero);
+    atualizarPainel();
+}
+
+function mostrarFeedback(numero) {
+    const card = document.querySelectorAll(".questao")[numero - 1];
+    const feedback = document.getElementById("feedback-" + numero);
+    const status = document.getElementById("status-" + numero);
+    const resultado = feedback.querySelector(".resultado");
+
+    const dados = respostas[numero];
+
+    if (!dados) return;
+
+    feedback.style.display = "block";
+    feedback.classList.remove("correto", "errado");
+
+    if (dados.correto) {
+        feedback.classList.add("correto");
+        resultado.textContent = "Você acertou. A resposta é " + card.dataset.gabarito + ".";
+        status.textContent = "Respondida — acerto";
+        status.style.color = "var(--green)";
+    } else {
+        feedback.classList.add("errado");
+        resultado.textContent = "Você errou. O gabarito é " + card.dataset.gabarito + ".";
+        status.textContent = "Respondida — erro";
+        status.style.color = "var(--red)";
+    }
+}
+
+function restaurar() {
+    for (const key in respostas) {
+        mostrarFeedback(Number(key));
+    }
+    atualizarPainel();
+}
+
+function reiniciar() {
+    if (!confirm("Deseja reiniciar este simulado?")) return;
+    localStorage.removeItem(location.pathname + "_respostas");
+    location.reload();
+}
+
+restaurar();
+</script>
+
+</body>
+</html>

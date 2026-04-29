@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Simulado - RG - Civil</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+:root{
+--bg:#020617;--panel:rgba(15,23,42,.88);--card:rgba(15,23,42,.96);
+--card2:rgba(30,41,59,.92);--border:rgba(148,163,184,.22);
+--text:#e5e7eb;--muted:#94a3b8;--accent:#38bdf8;--accent2:#0ea5e9;
+--green:#22c55e;--red:#ef4444;--yellow:#facc15;--purple:#a78bfa;
+}
+*{box-sizing:border-box}
+body{
+margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+background:radial-gradient(circle at top left,rgba(56,189,248,.20),transparent 28%),
+radial-gradient(circle at top right,rgba(167,139,250,.15),transparent 28%),
+linear-gradient(135deg,#020617,#0f172a 50%,#020617);
+color:var(--text);line-height:1.65;
+}
+header{padding:44px 20px 32px;text-align:center;border-bottom:1px solid var(--border)}
+header h1{margin:0 0 10px;font-size:clamp(28px,4vw,46px);letter-spacing:-.05em}
+header p{color:var(--muted);margin:0;font-size:16px}
+.container{max-width:1160px;margin:0 auto;padding:26px 16px 80px}
+.painel{
+position:sticky;top:10px;z-index:10;background:var(--panel);backdrop-filter:blur(18px);
+border:1px solid var(--border);border-radius:26px;padding:16px;margin-bottom:22px;
+box-shadow:0 22px 70px rgba(0,0,0,.35)
+}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.stat{background:var(--card2);padding:14px;border-radius:18px;text-align:center;border:1px solid rgba(148,163,184,.12)}
+.stat strong{display:block;font-size:25px;color:var(--accent);line-height:1.1}
+.stat span{font-size:12px;color:var(--muted)}
+.filtros{display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:12px;margin-top:14px}
+input,select{
+width:100%;background:rgba(2,6,23,.78);color:var(--text);border:1px solid var(--border);
+border-radius:14px;padding:13px 14px;outline:none;font-size:14px
+}
+input:focus,select:focus{border-color:var(--accent)}
+.card{
+background:var(--card);border:1px solid var(--border);border-radius:24px;padding:26px;
+margin-bottom:20px;box-shadow:0 18px 50px rgba(0,0,0,.24)
+}
+.questao{scroll-margin-top:190px}
+.questao-topo{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:18px}
+.badge{
+background:linear-gradient(135deg,var(--accent),var(--accent2));color:#00111f;font-weight:900;
+padding:7px 13px;border-radius:999px;display:inline-block
+}
+.disciplina-tag,.tipo-tag{
+display:inline-block;margin-left:8px;color:var(--muted);background:rgba(148,163,184,.10);
+border:1px solid rgba(148,163,184,.14);padding:6px 10px;border-radius:999px;font-size:12px
+}
+.tipo-tag{color:#ddd6fe;border-color:rgba(167,139,250,.25)}
+.status{color:var(--yellow);font-size:13px;white-space:nowrap}
+.enunciado{font-size:19px;margin:0 0 22px;letter-spacing:-.01em}
+.botoes{display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.btn{
+cursor:pointer;border:0;padding:12px 22px;border-radius:14px;color:white;font-weight:900;
+transition:.18s ease;letter-spacing:.02em
+}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.certo{background:rgba(34,197,94,.20);border:1px solid rgba(34,197,94,.42)}
+.btn.errado{background:rgba(239,68,68,.20);border:1px solid rgba(239,68,68,.42)}
+.btn.neutro{background:rgba(56,189,248,.16);color:var(--text);border:1px solid rgba(56,189,248,.32)}
+.feedback{
+display:none;background:rgba(2,6,23,.72);border:1px solid rgba(148,163,184,.16);
+border-left:5px solid var(--accent);padding:18px;border-radius:18px;margin-top:14px
+}
+.feedback.correto{border-left-color:var(--green)}
+.feedback.errado{border-left-color:var(--red)}
+.resultado{font-size:18px;font-weight:900;margin-top:0}
+.justificativa{margin-top:12px}
+.referencia{color:var(--muted);font-size:13px;margin-top:16px}
+.gabarito-certo{color:var(--green);font-weight:900}
+.gabarito-errado{color:var(--red);font-weight:900}
+.oculta{display:none}
+.sem-resultados{text-align:center;color:var(--muted);display:none;padding:30px}
+.grid-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
+.link-card{
+display:block;padding:20px;background:rgba(15,23,42,.95);border:1px solid rgba(148,163,184,.22);
+color:#e5e7eb;border-radius:22px;text-decoration:none;transition:.2s;box-shadow:0 14px 40px rgba(0,0,0,.22)
+}
+.link-card:hover{transform:translateY(-3px);border-color:#38bdf8}
+.link-card strong{display:block;font-size:17px;margin-bottom:8px}
+.link-card span{color:#94a3b8;font-size:13px}
+.index-tools{display:grid;grid-template-columns:1.5fr 1fr;gap:12px;margin-bottom:20px}
+@media(max-width:850px){
+.stats{grid-template-columns:repeat(2,1fr)}
+.filtros,.index-tools{grid-template-columns:1fr}
+.questao-topo{align-items:flex-start;flex-direction:column}
+.botoes{flex-direction:column}
+.enunciado{font-size:16px}
+.card{padding:20px}
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Simulado - RG - Civil</h1>
+<p>Repercussão Geral • Simulado interativo de CERTO ou ERRADO</p>
+</header>
+
+<div class="container">
+<div class="painel">
+<div class="stats">
+<div class="stat"><strong>30</strong><span>Total</span></div>
+<div class="stat"><strong id="visiveis">30</strong><span>Visíveis</span></div>
+<div class="stat"><strong id="respondidas">0</strong><span>Respondidas</span></div>
+<div class="stat"><strong id="acertos">0</strong><span>Acertos</span></div>
+<div class="stat"><strong id="erros">0</strong><span>Erros</span></div>
+</div>
+
+<div class="filtros">
+<input id="busca" type="search" placeholder="Buscar por palavra-chave..." oninput="filtrar()">
+<select id="disciplina" onchange="filtrar()">
+<option value="">Todas as disciplinas</option>
+<option value="ECA">ECA</option>
+<option value="N/I">N/I</option>
+</select>
+<select id="statusFiltro" onchange="filtrar()">
+<option value="">Todas</option>
+<option value="nao">Não respondidas</option>
+<option value="acerto">Acertos</option>
+<option value="erro">Erros</option>
+</select>
+<button class="btn neutro" onclick="reiniciar()">Reiniciar</button>
+</div>
+</div>
+
+<div id="sem-resultados" class="sem-resultados">Nenhuma questão encontrada com os filtros atuais.</div>
+
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a discussão acerca do dever de indenizar por danos morais e materiais decorrentes de manipulação de resultados de partidas de futebol integra a competência do supremo tribunal federal para apreciação por repercussão geral, por ostentar relevância jurídica e social que ultrapassa o interesse estrito das partes. o stf entendeu que a controvérsia sobre indenização por manipulação de resultados em partidas de futebol não preenche o requisito de repercussão geral previsto no art. 102, §3º, da cf, por ausentar relevância econômica, política, social ou jurídica que transcenda ao interesse das partes. assim, tais demandas não se prestam, em regra, a orientar o julgamento de múltiplas causas com repercussão geral, razão pela qual o tema foi considerado ausente de repercussão geral. tema 9 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 1</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-1">Não respondida</span>
+</div>
+
+<p class="enunciado">A discussão acerca do dever de indenizar por danos morais e materiais decorrentes de manipulação de resultados de partidas de futebol integra a competência do Supremo Tribunal Federal para apreciação por repercussão geral, por ostentar relevância jurídica e social que ultrapassa o interesse estrito das partes.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(1, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(1, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-1">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STF entendeu que a controvérsia sobre indenização por manipulação de resultados em partidas de futebol não preenche o requisito de repercussão geral previsto no art. 102, §3º, da CF, por ausentar relevância econômica, política, social ou jurídica que transcenda ao interesse das partes. Assim, tais demandas não se prestam, em regra, a orientar o julgamento de múltiplas causas com repercussão geral, razão pela qual o tema foi considerado ausente de repercussão geral.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 9 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="o artigo 13 da lei nº 8.620/1993, ao dispor sobre a responsabilidade solidária dos sócios de sociedade limitada pelos débitos previdenciários, é compatível com a constituição, não havendo declaração de inconstitucionalidade quanto ao dispositivo. o supremo declarou a inconstitucionalidade do art. 13 da lei 8.620/1993 na parte que impõe solidariedade aos sócios de limitada pelos débitos perante a seguridade social, por violar princípios constitucionais que regem a responsabilidade patrimonial e a proteção da empresa como pessoa jurídica, exigindo-se outros mecanismos de responsabilização que respeitem o devido processo e a ordem jurídica. tema 13 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 2</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-2">Não respondida</span>
+</div>
+
+<p class="enunciado">O artigo 13 da Lei nº 8.620/1993, ao dispor sobre a responsabilidade solidária dos sócios de sociedade limitada pelos débitos previdenciários, é compatível com a Constituição, não havendo declaração de inconstitucionalidade quanto ao dispositivo.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(2, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(2, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-2">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Supremo declarou a inconstitucionalidade do art. 13 da Lei 8.620/1993 na parte que impõe solidariedade aos sócios de limitada pelos débitos perante a Seguridade Social, por violar princípios constitucionais que regem a responsabilidade patrimonial e a proteção da empresa como pessoa jurídica, exigindo-se outros mecanismos de responsabilização que respeitem o devido processo e a ordem jurídica.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 13 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a medida provisória nº 2.170-36/2001, que autorizou a capitalização de juros com periodicidade inferior a um ano para instituições integrantes do sistema financeiro nacional, preencheu, segundo o supremo, os requisitos constitucionais de relevância e urgência do art. 62 da constituição. o stf reconheceu que a mp 2.170-36/2001 atendia aos requisitos formais do art. 62 (relevância e urgência), autorizando a capitalização de juros com periodicidade inferior a um ano nas operações das instituições do sistema financeiro, entendimento que sustenta a validade formal da edição da norma provisória em face da constituição. tema 33 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 3</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-3">Não respondida</span>
+</div>
+
+<p class="enunciado">A Medida Provisória nº 2.170-36/2001, que autorizou a capitalização de juros com periodicidade inferior a um ano para instituições integrantes do Sistema Financeiro Nacional, preencheu, segundo o Supremo, os requisitos constitucionais de relevância e urgência do art. 62 da Constituição.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(3, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(3, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-3">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STF reconheceu que a MP 2.170-36/2001 atendia aos requisitos formais do art. 62 (relevância e urgência), autorizando a capitalização de juros com periodicidade inferior a um ano nas operações das instituições do sistema financeiro, entendimento que sustenta a validade formal da edição da norma provisória em face da Constituição.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 33 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a limitação da taxa de juros reais a 12% ao ano prevista no §3º do art. 192 da constituição — norma revogada pela ec nº 40/2003 — era plenamente autoaplicável, cabendo ao poder judiciário aplicá-la sem necessidade de lei complementar reguladora. o enunciado original do tema 98 registra que a aplicação do dispositivo revogado estava condicionada à edição de lei complementar. logo, a limitação não era inteiramente autoaplicável: sua eficácia dependia de norma complementar para detalhar e regulamentar a incidência da limitação de juros reais ao patamar indicado. tema 98 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 4</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-4">Não respondida</span>
+</div>
+
+<p class="enunciado">A limitação da taxa de juros reais a 12% ao ano prevista no §3º do art. 192 da Constituição — norma revogada pela EC nº 40/2003 — era plenamente autoaplicável, cabendo ao Poder Judiciário aplicá-la sem necessidade de lei complementar reguladora.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(4, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(4, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-4">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O enunciado original do Tema 98 registra que a aplicação do dispositivo revogado estava condicionada à edição de lei complementar. Logo, a limitação não era inteiramente autoaplicável: sua eficácia dependia de norma complementar para detalhar e regulamentar a incidência da limitação de juros reais ao patamar indicado.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 98 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a responsabilidade civil objetiva prevista no art. 37, §6º, da constituição federal abrange as pessoas jurídicas de direito privado prestadoras de serviços públicos quanto às indenizações devidas a terceiros, independentemente de serem usuários ou não dos serviços. o stf consolidou a tese segundo a qual a responsabilidade dessas concessionárias e permissionárias é objetiva em relação a terceiros (usuários e não usuários), em consonância com o art. 37, §6º, cf, que afasta a necessidade de prova de culpa para o dever de reparar danos causados por serviços públicos e seus agentes. tema 130 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 5</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-5">Não respondida</span>
+</div>
+
+<p class="enunciado">A responsabilidade civil objetiva prevista no art. 37, §6º, da Constituição Federal abrange as pessoas jurídicas de direito privado prestadoras de serviços públicos quanto às indenizações devidas a terceiros, independentemente de serem usuários ou não dos serviços.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(5, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(5, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-5">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STF consolidou a tese segundo a qual a responsabilidade dessas concessionárias e permissionárias é objetiva em relação a terceiros (usuários e não usuários), em consonância com o art. 37, §6º, CF, que afasta a necessidade de prova de culpa para o dever de reparar danos causados por serviços públicos e seus agentes.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 130 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="o procedimento de execução extrajudicial previsto no decreto‑lei nº 70/1966 foi considerado, pelo supremo, incompatível com a constituição de 1988, estando, portanto, não recepcionado. o stf entendeu que o procedimento de execução extrajudicial do decreto‑lei nº 70/1966 foi recepcionado pela constituição de 1988, sendo, portanto, constitucional e apto a produzir efeitos na ordem jurídica vigente, salvo quando eventual aplicação conflitar com princípios constitucionais concretos. tema 249 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 6</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-6">Não respondida</span>
+</div>
+
+<p class="enunciado">O procedimento de execução extrajudicial previsto no Decreto‑lei nº 70/1966 foi considerado, pelo Supremo, incompatível com a Constituição de 1988, estando, portanto, não recepcionado.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(6, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(6, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-6">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STF entendeu que o procedimento de execução extrajudicial do Decreto‑lei nº 70/1966 foi recepcionado pela Constituição de 1988, sendo, portanto, constitucional e apto a produzir efeitos na ordem jurídica vigente, salvo quando eventual aplicação conflitar com princípios constitucionais concretos.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 249 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a penhora do imóvel residencial destinado à moradia do fiador, utilizada em garantia de contrato de locação, foi reputada pelo stf como vedada em qualquer hipótese, em razão da proteção constitucional do direito à moradia. o stf reconheceu a constitucionalidade da exceção ao bem de família no art. 3º, vii, da lei 8.009/1990, admitindo a penhora do bem de família do fiador em contrato de locação. por outro lado, entendeu ser compatível tal exceção com o direito fundamental à moradia (art. 6º), após a ec 26/2000, não proibindo categoricamente a constrição do imóvel do fiador. tema 295 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 7</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-7">Não respondida</span>
+</div>
+
+<p class="enunciado">A penhora do imóvel residencial destinado à moradia do fiador, utilizada em garantia de contrato de locação, foi reputada pelo STF como vedada em qualquer hipótese, em razão da proteção constitucional do direito à moradia.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(7, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(7, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-7">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STF reconheceu a constitucionalidade da exceção ao bem de família no art. 3º, VII, da Lei 8.009/1990, admitindo a penhora do bem de família do fiador em contrato de locação. Por outro lado, entendeu ser compatível tal exceção com o direito fundamental à moradia (art. 6º), após a EC 26/2000, não proibindo categoricamente a constrição do imóvel do fiador.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 295 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="admite‑se, conforme o entendimento do supremo, a repropositura de ação de investigação de paternidade quando a ação anterior foi julgada improcedente por insuficiência probatória em razão da impossibilidade de realização do exame de dna por incapacidade econômica do autor, cabendo relativizar a coisa julgada nesse contexto. o stf firmou que, quando a improcedência se deu por ausência de provas decorrente da impossibilidade econômica de produzir prova pericial (dna) e o estado não custeou o exame, é possível a réplica da ação e relativizar a coisa julgada, ante a importância da prova genética como elemento de alta segurança probatória e da necessidade de acesso à justiça. tema 392 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 8</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-8">Não respondida</span>
+</div>
+
+<p class="enunciado">Admite‑se, conforme o entendimento do Supremo, a repropositura de ação de investigação de paternidade quando a ação anterior foi julgada improcedente por insuficiência probatória em razão da impossibilidade de realização do exame de DNA por incapacidade econômica do autor, cabendo relativizar a coisa julgada nesse contexto.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(8, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(8, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-8">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STF firmou que, quando a improcedência se deu por ausência de provas decorrente da impossibilidade econômica de produzir prova pericial (DNA) e o Estado não custeou o exame, é possível a réplica da ação e relativizar a coisa julgada, ante a importância da prova genética como elemento de alta segurança probatória e da necessidade de acesso à justiça.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 392 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="até a edição da lei nº 13.465/2017, uma associação de proprietários de loteamento urbano fechada podia cobrar taxa de manutenção de qualquer proprietário não associado, mesmo que não houvesse registro do ato constitutivo da obrigação no registro de imóveis e independentemente de previsão legal municipal. o stf declarou a inconstitucionalidade de cobrança por associação não prevista em lei ou sem registro do ato constitutivo; a cobrança somente é legítima a partir da lei 13.465/2017 ou de lei municipal que discipline a matteria, e desde que presentes os requisitos (adesão de titular de lote ao ato constitutivo ou registro do ato que institui a obrigação para novos adquirentes). tema 492 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 9</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-9">Não respondida</span>
+</div>
+
+<p class="enunciado">Até a edição da Lei nº 13.465/2017, uma associação de proprietários de loteamento urbano fechada podia cobrar taxa de manutenção de qualquer proprietário não associado, mesmo que não houvesse registro do ato constitutivo da obrigação no registro de imóveis e independentemente de previsão legal municipal.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(9, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(9, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-9">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STF declarou a inconstitucionalidade de cobrança por associação não prevista em lei ou sem registro do ato constitutivo; a cobrança somente é legítima a partir da Lei 13.465/2017 ou de lei municipal que discipline a matteria, e desde que presentes os requisitos (adesão de titular de lote ao ato constitutivo ou registro do ato que institui a obrigação para novos adquirentes).</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 492 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="no sistema constitucional interpretado pelo stf, o regime sucessório entre cônjuges e companheiros deve ser distinto, sendo constitucional a diferenciação de regime prevista no código civil entre essas uniões. o supremo entendeu que é inconstitucional a diferenciação de regime sucessório entre cônjuges e companheiros e que ambos devem ser submetidos ao regime previsto no art. 1.829 do código civil, reconhecendo a equiparação sucessória entre casamento e união estável nas regras de herança. tema 498 stf (e tema 809 stf que repete a tese)">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 10</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-10">Não respondida</span>
+</div>
+
+<p class="enunciado">No sistema constitucional interpretado pelo STF, o regime sucessório entre cônjuges e companheiros deve ser distinto, sendo constitucional a diferenciação de regime prevista no Código Civil entre essas uniões.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(10, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(10, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-10">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Supremo entendeu que é inconstitucional a diferenciação de regime sucessório entre cônjuges e companheiros e que ambos devem ser submetidos ao regime previsto no art. 1.829 do Código Civil, reconhecendo a equiparação sucessória entre casamento e união estável nas regras de herança.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 498 STF (e Tema 809 STF que repete a tese)</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a existência prévia de casamento ou de união estável, salvo excepcionalidade prevista no §1º do art. 1.723 do código civil, impede o reconhecimento simultâneo de outro vínculo conjugal para o mesmo período, inclusive para efeitos previdenciários, em proteção à monogamia e ao dever de fidelidade. o stf assentou que a preexistência de outro vínculo conjugal ou de união estável obsta o reconhecimento de novo vínculo para o mesmo período, ressalvado o caso excepcional do art. 1.723, §1º, cc; tal entendimento visa proteger a monogamia e a fidelidade, com repercussões inclusive no campo previdenciário. tema 529 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 11</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-11">Não respondida</span>
+</div>
+
+<p class="enunciado">A existência prévia de casamento ou de união estável, salvo excepcionalidade prevista no §1º do art. 1.723 do Código Civil, impede o reconhecimento simultâneo de outro vínculo conjugal para o mesmo período, inclusive para efeitos previdenciários, em proteção à monogamia e ao dever de fidelidade.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(11, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(11, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-11">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STF assentou que a preexistência de outro vínculo conjugal ou de união estável obsta o reconhecimento de novo vínculo para o mesmo período, ressalvado o caso excepcional do art. 1.723, §1º, CC; tal entendimento visa proteger a monogamia e a fidelidade, com repercussões inclusive no campo previdenciário.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 529 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="o reconhecimento de paternidade socioafetiva, ainda que inscrita no registro civil, constitui óbice insuperável ao aparecimento posterior do vínculo de filiação biológica, impedindo a coexistência concomitante desses vínculos e seus efeitos jurídicos. o stf firmou que a paternidade socioafetiva não impede o reconhecimento da filiação baseada na origem biológica de modo concomitante; ambos os vínculos podem coexistir, produzindo efeitos jurídicos próprios (por exemplo, alimentares, sucessórios), salvo situações específicas de conflito que exijam ponderação. tema 622 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 12</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-12">Não respondida</span>
+</div>
+
+<p class="enunciado">O reconhecimento de paternidade socioafetiva, ainda que inscrita no registro civil, constitui óbice insuperável ao aparecimento posterior do vínculo de filiação biológica, impedindo a coexistência concomitante desses vínculos e seus efeitos jurídicos.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(12, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(12, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-12">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STF firmou que a paternidade socioafetiva não impede o reconhecimento da filiação baseada na origem biológica de modo concomitante; ambos os vínculos podem coexistir, produzindo efeitos jurídicos próprios (por exemplo, alimentares, sucessórios), salvo situações específicas de conflito que exijam ponderação.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 622 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="as ações de reparação de danos movidas contra a fazenda pública por ilícito civil estão sujeitas a prescrição, de modo que o direito de ação prescreve nos prazos aplicáveis, não sendo imprescritível por força da qualidade da parte demandada. o stf consolidou que a ação de reparação de danos contra a fazenda pública, quando decorrente de ilícito civil, é prescritível, estando submetida aos prazos prescricionais aplicáveis (consoante normas civis e administrativas pertinentes), afasta-se, portanto, a imprescritibilidade absoluta. tema 666 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 13</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-13">Não respondida</span>
+</div>
+
+<p class="enunciado">As ações de reparação de danos movidas contra a Fazenda Pública por ilícito civil estão sujeitas a prescrição, de modo que o direito de ação prescreve nos prazos aplicáveis, não sendo imprescritível por força da qualidade da parte demandada.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(13, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(13, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-13">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STF consolidou que a ação de reparação de danos contra a Fazenda Pública, quando decorrente de ilícito civil, é prescritível, estando submetida aos prazos prescricionais aplicáveis (consoante normas civis e administrativas pertinentes), afasta-se, portanto, a imprescritibilidade absoluta.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 666 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a constituição federal acolhe a teoria do “direito ao esquecimento” como regra geral, conferindo a quaisquer pessoas o poder de impedir a divulgação de fatos verdadeiros em razão do decurso do tempo, especialmente nas mídias digitais, de modo automático. o stf considerou incompatível com a constituição a ideia de um direito ao esquecimento entendido como vedação automática à divulgação de fatos verídicos em razão do tempo. eventuais restrições devem ser analisadas casuisticamente mediante ponderação entre liberdade de expressão/informação e direitos da personalidade (honra, imagem, privacidade), conforme parâmetros constitucionais e legislação penal/civil aplicável. tema 786 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 14</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-14">Não respondida</span>
+</div>
+
+<p class="enunciado">A Constituição Federal acolhe a teoria do “direito ao esquecimento” como regra geral, conferindo a quaisquer pessoas o poder de impedir a divulgação de fatos verdadeiros em razão do decurso do tempo, especialmente nas mídias digitais, de modo automático.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(14, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(14, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-14">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STF considerou incompatível com a Constituição a ideia de um direito ao esquecimento entendido como vedação automática à divulgação de fatos verídicos em razão do tempo. Eventuais restrições devem ser analisadas casuisticamente mediante ponderação entre liberdade de expressão/informação e direitos da personalidade (honra, imagem, privacidade), conforme parâmetros constitucionais e legislação penal/civil aplicável.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 786 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="o cabimento de recurso extraordinário em processos originados nos juizados especiais cíveis exige, além dos pressupostos genéricos, que o recorrente demonstre especificamente o prequestionamento constitucional e a relevância concreta da questão, sobrepondo-se à presunção de inexistência de repercussão geral dessas lides. o stf exigiu requisitos adicionais para recurso extraordinário interposto de causas processadas nos juizados especiais cíveis: (a) demonstração objetiva do prequestionamento (indicação do trecho do acórdão) e (b) fundamentação concreta da relevância capaz de afastar a presunção de ausência de repercussão geral para essas lides, unificando entendimento nos temas 797, 798 e 800. tema 800 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 15</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-15">Não respondida</span>
+</div>
+
+<p class="enunciado">O cabimento de recurso extraordinário em processos originados nos Juizados Especiais Cíveis exige, além dos pressupostos genéricos, que o recorrente demonstre especificamente o prequestionamento constitucional e a relevância concreta da questão, sobrepondo-se à presunção de inexistência de repercussão geral dessas lides.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(15, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(15, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-15">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STF exigiu requisitos adicionais para recurso extraordinário interposto de causas processadas nos Juizados Especiais Cíveis: (a) demonstração objetiva do prequestionamento (indicação do trecho do acórdão) e (b) fundamentação concreta da relevância capaz de afastar a presunção de ausência de repercussão geral para essas lides, unificando entendimento nos Temas 797, 798 e 800.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 800 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a tese de que o regime sucessório previsto no art. 1.829 do código civil aplica‑se também aos companheiros, sem distinção em relação aos cônjuges, foi rejeitada pelo supremo, mantendo‑se a diferenciação normativa. contrariamente à afirmação, o stf reconheceu a inconstitucionalidade da diferenciação de regime sucessório entre cônjuges e companheiros, devendo ambos ser alcançados pela regra do art. 1.829 do código civil, consagrando igualdade sucessória entre as formas de união. tema 809 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 16</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-16">Não respondida</span>
+</div>
+
+<p class="enunciado">A tese de que o regime sucessório previsto no art. 1.829 do Código Civil aplica‑se também aos companheiros, sem distinção em relação aos cônjuges, foi rejeitada pelo Supremo, mantendo‑se a diferenciação normativa.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(16, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(16, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-16">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Contrariamente à afirmação, o STF reconheceu a inconstitucionalidade da diferenciação de regime sucessório entre cônjuges e companheiros, devendo ambos ser alcançados pela regra do art. 1.829 do Código Civil, consagrando igualdade sucessória entre as formas de união.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 809 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="o exercício do direito à usucapião especial urbana previsto no art. 183 da constituição pode ser obstado por legislação infraconstitucional que imponha dimensões mínimas (módulos urbanos) para o lote, de modo a frustrar a aquisição vindicada pelo possuidor que preenche os pressupostos constitucionais. o stf firmou que, preenchidos os requisitos constitucionais do art. 183, a usucapião especial urbana não pode ser obstada por normas infraconstitucionais que estabeleçam módulos urbanos; a norma infraconstitucional não pode suprir ou restringir os direitos garantidos pela constituição quanto à usucapião especial urbana. tema 815 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 17</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-17">Não respondida</span>
+</div>
+
+<p class="enunciado">O exercício do direito à usucapião especial urbana previsto no art. 183 da Constituição pode ser obstado por legislação infraconstitucional que imponha dimensões mínimas (módulos urbanos) para o lote, de modo a frustrar a aquisição vindicada pelo possuidor que preenche os pressupostos constitucionais.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(17, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(17, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-17">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STF firmou que, preenchidos os requisitos constitucionais do art. 183, a usucapião especial urbana não pode ser obstada por normas infraconstitucionais que estabeleçam módulos urbanos; a norma infraconstitucional não pode suprir ou restringir os direitos garantidos pela Constituição quanto à usucapião especial urbana.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 815 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a utilização do salário‑mínimo como parâmetro de cálculo da pensão alimentícia ofende princípios constitucionais e, portanto, é vedada pelo supremo tribunal federal. o stf reconheceu que a utilização do salário‑mínimo como base de cálculo do valor de pensão alimentícia não viola a constituição, sendo aceitável sua utilização em razão de sua função de parâmetro social e de proteção, desde que observado o equilíbrio entre necessidades do alimentando e possibilidade do alimentante. tema 821 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 18</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-18">Não respondida</span>
+</div>
+
+<p class="enunciado">A utilização do salário‑mínimo como parâmetro de cálculo da pensão alimentícia ofende princípios constitucionais e, portanto, é vedada pelo Supremo Tribunal Federal.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(18, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(18, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-18">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STF reconheceu que a utilização do salário‑mínimo como base de cálculo do valor de pensão alimentícia não viola a Constituição, sendo aceitável sua utilização em razão de sua função de parâmetro social e de proteção, desde que observado o equilíbrio entre necessidades do alimentando e possibilidade do alimentante.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 821 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="é constitucional condicionar a desfiliação de associado ao pagamento de débitos de benefícios usufruídos ou ao pagamento de multa prevista nos estatutos, sendo tal prática compatível com a liberdade associativa reconhecida pela constituição. o stf declarou inconstitucional condicionar a desfiliação à quitação de débitos ou ao pagamento de multa, por violação à liberdade de associação (art. 5º, xvii, cf) e à autonomia do associado de se desligar da entidade sem imposição coercitiva de ônus pecuniários. tema 922 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 19</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-19">Não respondida</span>
+</div>
+
+<p class="enunciado">É constitucional condicionar a desfiliação de associado ao pagamento de débitos de benefícios usufruídos ou ao pagamento de multa prevista nos estatutos, sendo tal prática compatível com a liberdade associativa reconhecida pela Constituição.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(19, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(19, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-19">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STF declarou inconstitucional condicionar a desfiliação à quitação de débitos ou ao pagamento de multa, por violação à liberdade de associação (art. 5º, XVII, CF) e à autonomia do associado de se desligar da entidade sem imposição coercitiva de ônus pecuniários.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 922 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="conforme entendimento do stf, a exibição de fotografia para documentos oficiais pode admitir o uso de vestes ou adereços religiosos, desde que não impeçam a identificação facial do titular, sem que isso viole princípios constitucionais de laicidade. o supremo declarou constitucional a utilização de vestimentas ou acessórios religiosos nas fotos de documentos oficiais, desde que o rosto esteja visível e não haja impedimento à identificação individual, conciliando liberdade religiosa e segurança documental, sem afronta ao princípio da laicidade. tema 953 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 20</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-20">Não respondida</span>
+</div>
+
+<p class="enunciado">Conforme entendimento do STF, a exibição de fotografia para documentos oficiais pode admitir o uso de vestes ou adereços religiosos, desde que não impeçam a identificação facial do titular, sem que isso viole princípios constitucionais de laicidade.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(20, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(20, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-20">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Supremo declarou constitucional a utilização de vestimentas ou acessórios religiosos nas fotos de documentos oficiais, desde que o rosto esteja visível e não haja impedimento à identificação individual, conciliando liberdade religiosa e segurança documental, sem afronta ao princípio da laicidade.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 953 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a pequena propriedade rural de caráter familiar pode ser considerada impenhorável mesmo que constituída por mais de um terreno contíguo, desde que a área total seja inferior a quatro módulos fiscais do município, conforme entendimento consolidado pelo stf. o stf reconheceu a impenhorabilidade da pequena propriedade rural familiar composta por mais de um terreno desde que sejam contínuos e a soma da área seja inferior a quatro módulos fiscais do município onde se situa, preservando a função social e a subsistência familiar. tema 961 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 21</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-21">Não respondida</span>
+</div>
+
+<p class="enunciado">A pequena propriedade rural de caráter familiar pode ser considerada impenhorável mesmo que constituída por mais de um terreno contíguo, desde que a área total seja inferior a quatro módulos fiscais do município, conforme entendimento consolidado pelo STF.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(21, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(21, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-21">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STF reconheceu a impenhorabilidade da pequena propriedade rural familiar composta por mais de um terreno desde que sejam contínuos e a soma da área seja inferior a quatro módulos fiscais do município onde se situa, preservando a função social e a subsistência familiar.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 961 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="o procedimento de execução extrajudicial previsto na lei nº 9.514/1997 (alienação fiduciária) foi declarado inconstitucional pelo supremo, por violar garantias processuais fundamentais dos devedores. o stf considerou constitucional o procedimento previsto na lei nº 9.514/1997 para a execução extrajudicial da alienação fiduciária em garantia, por entender que a norma é compatível com as garantias processuais constitucionais, admitindo a sua utilização nos limites da lei. tema 982 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 22</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-22">Não respondida</span>
+</div>
+
+<p class="enunciado">O procedimento de execução extrajudicial previsto na Lei nº 9.514/1997 (alienação fiduciária) foi declarado inconstitucional pelo Supremo, por violar garantias processuais fundamentais dos devedores.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(22, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(22, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-22">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STF considerou constitucional o procedimento previsto na Lei nº 9.514/1997 para a execução extrajudicial da alienação fiduciária em garantia, por entender que a norma é compatível com as garantias processuais constitucionais, admitindo a sua utilização nos limites da lei.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 982 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="no caso de publicação de entrevista em que o entrevistado atribui falsamente prática de crime a terceiro, o veículo de comunicação será automaticamente responsabilizado civilmente, independentemente de prova de dolo ou culpa grave da empresa jornalística. o stf estabeleceu que a responsabilização civil da empresa jornalística depende da demonstração de má‑fé (dolo) ou de culpa grave (negligência evidente na apuração), exceto em transmissões ao vivo, quando a responsabilidade do veículo por ato exclusivo de terceiro é excluída desde que assegurado o direito de resposta; ainda, impõe‑se a remoção quando a imputação permanecer disponível online. tema 995 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 23</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-23">Não respondida</span>
+</div>
+
+<p class="enunciado">No caso de publicação de entrevista em que o entrevistado atribui falsamente prática de crime a terceiro, o veículo de comunicação será automaticamente responsabilizado civilmente, independentemente de prova de dolo ou culpa grave da empresa jornalística.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(23, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(23, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-23">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STF estabeleceu que a responsabilização civil da empresa jornalística depende da demonstração de má‑fé (dolo) ou de culpa grave (negligência evidente na apuração), exceto em transmissões ao vivo, quando a responsabilidade do veículo por ato exclusivo de terceiro é excluída desde que assegurado o direito de resposta; ainda, impõe‑se a remoção quando a imputação permanecer disponível online.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 995 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="com a promulgação da emenda constitucional nº 66/2010, a separação judicial deixou de existir como requisito para o divórcio, permanecendo, contudo, o instituto da separação como figura autônoma no ordenamento jurídico, plenamente operacional para novas demandas. o stf assinalou que a separação judicial deixou de subsistir como requisito para o divórcio e não subsiste mais como figura autônoma no ordenamento após a ec nº 66/2010; entretanto, preserva‑se o estado civil daqueles que já estavam separados por decisão judicial ou escritura pública, por se tratar de ato jurídico perfeito (art. 5º, xxxvi, cf). tema 1053 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 24</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-24">Não respondida</span>
+</div>
+
+<p class="enunciado">Com a promulgação da Emenda Constitucional nº 66/2010, a separação judicial deixou de existir como requisito para o divórcio, permanecendo, contudo, o instituto da separação como figura autônoma no ordenamento jurídico, plenamente operacional para novas demandas.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(24, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(24, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-24">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STF assinalou que a separação judicial deixou de subsistir como requisito para o divórcio e não subsiste mais como figura autônoma no ordenamento após a EC nº 66/2010; entretanto, preserva‑se o estado civil daqueles que já estavam separados por decisão judicial ou escritura pública, por se tratar de ato jurídico perfeito (art. 5º, XXXVI, CF).</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1053 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="o art. 2º, i, da lei nº 11.101/2005, ao excluir empresas públicas e sociedades de economia mista do regime de falências, mesmo quando atuem em mercado concorrencial, foi declarado pelo stf compatível com a constituição em razão do interesse público que justifica tal distinção. o stf julgou constitucional a inaplicabilidade do regime falimentar às empresas públicas e sociedades de economia mista, mesmo que concorram com a iniciativa privada, em face do interesse público/ coletivo e da necessidade de observância do princípio do paralelismo das formas, não se estendendo automaticamente o regime de falência a essas pessoas jurídicas. tema 1101 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 25</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-25">Não respondida</span>
+</div>
+
+<p class="enunciado">O art. 2º, I, da Lei nº 11.101/2005, ao excluir empresas públicas e sociedades de economia mista do regime de falências, mesmo quando atuem em mercado concorrencial, foi declarado pelo STF compatível com a Constituição em razão do interesse público que justifica tal distinção.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(25, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(25, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-25">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STF julgou constitucional a inaplicabilidade do regime falimentar às empresas públicas e sociedades de economia mista, mesmo que concorram com a iniciativa privada, em face do interesse público/ coletivo e da necessidade de observância do princípio do paralelismo das formas, não se estendendo automaticamente o regime de falência a essas pessoas jurídicas.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1101 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a obrigatoriedade de vacinação prevista em lei ou determinada por autoridade sanitária, para vacinas registradas e incluídas no pni ou com respaldo médico‑científico, foi reputada inconstitucional pelo stf por violar a liberdade de consciência e o poder familiar. o stf reconheceu a constitucionalidade da obrigatoriedade de vacinação nas hipóteses previstas (vacina registrada e incluída no pni, determinada em lei ou por autoridade com base em consenso médico‑científico), entendendo que tal obrigação não viola liberdade de consciência nem o poder familiar, quando fundada em normas legais e em evidência científica. tema 1103 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 26</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-26">Não respondida</span>
+</div>
+
+<p class="enunciado">A obrigatoriedade de vacinação prevista em lei ou determinada por autoridade sanitária, para vacinas registradas e incluídas no PNI ou com respaldo médico‑científico, foi reputada inconstitucional pelo STF por violar a liberdade de consciência e o poder familiar.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(26, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(26, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-26">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STF reconheceu a constitucionalidade da obrigatoriedade de vacinação nas hipóteses previstas (vacina registrada e incluída no PNI, determinada em lei ou por autoridade com base em consenso médico‑científico), entendendo que tal obrigação não viola liberdade de consciência nem o poder familiar, quando fundada em normas legais e em evidência científica.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1103 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="é constitucional, segundo o entendimento do stf, a penhora do bem de família do fiador de contrato de locação, independentemente de se tratar de imóvel residencial ou de destinação comercial. o stf consolidou a constitucionalidade da penhora do bem de família pertencente a fiador de contrato de locação, tanto para contratos residenciais quanto comerciais, afastando a proteção absoluta do bem de família quando o imóvel foi dado em garantia do débito locatício pelo fiador. tema 1127 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 27</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-27">Não respondida</span>
+</div>
+
+<p class="enunciado">É constitucional, segundo o entendimento do STF, a penhora do bem de família do fiador de contrato de locação, independentemente de se tratar de imóvel residencial ou de destinação comercial.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(27, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(27, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-27">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STF consolidou a constitucionalidade da penhora do bem de família pertencente a fiador de contrato de locação, tanto para contratos residenciais quanto comerciais, afastando a proteção absoluta do bem de família quando o imóvel foi dado em garantia do débito locatício pelo fiador.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1127 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a eleição do credor fiduciário como contribuinte ou responsável tributário do ipva incidente sobre veículo alienado fiduciariamente foi considerada constitucional pelo stf, sem reservas ou ressalvas quanto a consolidação da propriedade. o stf declarou inconstitucional a eleição do credor fiduciário como contribuinte ou responsável pelo ipva, ressalvando a hipótese em que haja consolidação da propriedade plena em nome do credor. além disso, houve modulação ex nunc dos efeitos da decisão quanto ao momento de vigência, com ressalvas para processos pendentes até marco temporal. tema 1153 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 28</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-28">Não respondida</span>
+</div>
+
+<p class="enunciado">A eleição do credor fiduciário como contribuinte ou responsável tributário do IPVA incidente sobre veículo alienado fiduciariamente foi considerada constitucional pelo STF, sem reservas ou ressalvas quanto a consolidação da propriedade.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(28, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(28, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-28">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STF declarou inconstitucional a eleição do credor fiduciário como contribuinte ou responsável pelo IPVA, ressalvando a hipótese em que haja consolidação da propriedade plena em nome do credor. Além disso, houve modulação ex nunc dos efeitos da decisão quanto ao momento de vigência, com ressalvas para processos pendentes até marco temporal.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1153 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a lei nº 14.230/2021, ao revogar a modalidade culposa do ato de improbidade administrativa, tem aplicação retroativa plena, beneficiando sentenças transitadas em julgado que tenham condenado por ato culposo. o stf firmou que: (i) os atos de improbidade administrativa dos arts. 9º, 10 e 11 exigem dolo; (ii) a revogação da modalidade culposa é benéfica, mas é irretroativa quanto às condenações com coisa julgada (art. 5º, xxxvi, cf) e processos de execução em curso; (iii) a nova lei aplica‑se a atos culposos que ainda não tenham transitado em julgado, devendo o juiz reexaminar eventual presença de dolo; (iv) o regime prescricional novo é também irretroativo, aplicando‑se a partir da publicação. tema 1199 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 29</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-29">Não respondida</span>
+</div>
+
+<p class="enunciado">A Lei nº 14.230/2021, ao revogar a modalidade culposa do ato de improbidade administrativa, tem aplicação retroativa plena, beneficiando sentenças transitadas em julgado que tenham condenado por ato culposo.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(29, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(29, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-29">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STF firmou que: (i) os atos de improbidade administrativa dos arts. 9º, 10 e 11 exigem dolo; (ii) a revogação da modalidade culposa é benéfica, mas é irretroativa quanto às condenações com coisa julgada (art. 5º, XXXVI, CF) e processos de execução em curso; (iii) a nova lei aplica‑se a atos culposos que ainda não tenham transitado em julgado, devendo o juiz reexaminar eventual presença de dolo; (iv) o regime prescricional novo é também irretroativo, aplicando‑se a partir da publicação.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1199 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="em casamentos ou uniões estáveis celebrados por maiores de 70 anos, o regime de separação obrigatória de bens previsto no art. 1.641, ii, do código civil é absoluto e não admite derrogação por vontade expressa das partes, nem mesmo por escritura pública. o stf assentou que, nos casamentos e uniões estáveis envolvendo pessoa maior de 70 anos, o regime de separação de bens previsto no art. 1.641, ii, do código civil pode ser afastado por manifestação expressa de vontade das partes formalizada por escritura pública, permitindo autonomia privada na definição do regime patrimonial. tema 1236 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 30</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-30">Não respondida</span>
+</div>
+
+<p class="enunciado">Em casamentos ou uniões estáveis celebrados por maiores de 70 anos, o regime de separação obrigatória de bens previsto no art. 1.641, II, do Código Civil é absoluto e não admite derrogação por vontade expressa das partes, nem mesmo por escritura pública.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(30, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(30, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-30">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STF assentou que, nos casamentos e uniões estáveis envolvendo pessoa maior de 70 anos, o regime de separação de bens previsto no art. 1.641, II, do Código Civil pode ser afastado por manifestação expressa de vontade das partes formalizada por escritura pública, permitindo autonomia privada na definição do regime patrimonial.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1236 STF</p>
+</div>
+</section>
+
+</div>
+
+<script>
+const storageKey = location.pathname + "_respostas";
+let respostas = JSON.parse(localStorage.getItem(storageKey) || "{}");
+
+function destacar(t){
+ if(t==="CERTO") return '<span class="gabarito-certo">CERTO</span>';
+ if(t==="ERRADO") return '<span class="gabarito-errado">ERRADO</span>';
+ return t;
+}
+
+function responder(numero, resposta){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const gabarito=card.dataset.gabarito;
+ const correto=resposta===gabarito;
+ respostas[numero]={resposta,correto};
+ localStorage.setItem(storageKey, JSON.stringify(respostas));
+ mostrarFeedback(numero);
+ atualizarPainel();
+ filtrar();
+}
+
+function mostrarFeedback(numero){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const feedback=document.getElementById("feedback-"+numero);
+ const status=document.getElementById("status-"+numero);
+ const resultado=feedback.querySelector(".resultado");
+ const gabarito=card.dataset.gabarito;
+ const dados=respostas[numero];
+ if(!dados) return;
+ feedback.style.display="block";
+ feedback.classList.remove("correto","errado");
+ if(dados.correto){
+   feedback.classList.add("correto");
+   resultado.innerHTML="Você acertou. A resposta é "+destacar(gabarito)+".";
+   status.textContent="Respondida — acerto";
+   status.style.color="var(--green)";
+ } else {
+   feedback.classList.add("errado");
+   resultado.innerHTML="Você errou. O gabarito é "+destacar(gabarito)+".";
+   status.textContent="Respondida — erro";
+   status.style.color="var(--red)";
+ }
+}
+
+function atualizarPainel(){
+ let respondidas=0, acertos=0, erros=0;
+ for(const k in respostas){
+   respondidas++;
+   if(respostas[k].correto) acertos++; else erros++;
+ }
+ document.getElementById("respondidas").textContent=respondidas;
+ document.getElementById("acertos").textContent=acertos;
+ document.getElementById("erros").textContent=erros;
+ document.getElementById("visiveis").textContent=document.querySelectorAll(".questao:not(.oculta)").length;
+}
+
+function filtrar(){
+ const busca=document.getElementById("busca").value.trim().toLowerCase();
+ const disciplina=document.getElementById("disciplina").value;
+ const statusFiltro=document.getElementById("statusFiltro").value;
+ const cards=Array.from(document.querySelectorAll(".questao"));
+ let vis=0;
+ cards.forEach((card,idx)=>{
+   const n=idx+1;
+   const texto=card.dataset.texto||"";
+   const disc=card.dataset.disciplina||"";
+   const r=respostas[n];
+   let passaStatus=true;
+   if(statusFiltro==="nao") passaStatus=!r;
+   if(statusFiltro==="acerto") passaStatus=r && r.correto;
+   if(statusFiltro==="erro") passaStatus=r && !r.correto;
+   const ok=(!busca||texto.includes(busca)) && (!disciplina||disc===disciplina) && passaStatus;
+   card.classList.toggle("oculta", !ok);
+   if(ok) vis++;
+ });
+ document.getElementById("sem-resultados").style.display=vis===0?"block":"none";
+ atualizarPainel();
+}
+
+function reiniciar(){
+ if(!confirm("Deseja reiniciar este simulado?")) return;
+ localStorage.removeItem(storageKey);
+ location.reload();
+}
+
+function restaurar(){
+ for(const k in respostas) mostrarFeedback(Number(k));
+ filtrar();
+ atualizarPainel();
+}
+
+restaurar();
+</script>
+</body>
+</html>

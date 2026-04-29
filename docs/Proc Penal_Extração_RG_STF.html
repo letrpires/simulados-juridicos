@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Simulado - Proc Penal_Extração_RG_STF</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+:root{
+--bg:#020617;--panel:rgba(15,23,42,.88);--card:rgba(15,23,42,.96);
+--card2:rgba(30,41,59,.92);--border:rgba(148,163,184,.22);
+--text:#e5e7eb;--muted:#94a3b8;--accent:#38bdf8;--accent2:#0ea5e9;
+--green:#22c55e;--red:#ef4444;--yellow:#facc15;--purple:#a78bfa;
+}
+*{box-sizing:border-box}
+body{
+margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+background:radial-gradient(circle at top left,rgba(56,189,248,.20),transparent 28%),
+radial-gradient(circle at top right,rgba(167,139,250,.15),transparent 28%),
+linear-gradient(135deg,#020617,#0f172a 50%,#020617);
+color:var(--text);line-height:1.65;
+}
+header{padding:44px 20px 32px;text-align:center;border-bottom:1px solid var(--border)}
+header h1{margin:0 0 10px;font-size:clamp(28px,4vw,46px);letter-spacing:-.05em}
+header p{color:var(--muted);margin:0;font-size:16px}
+.container{max-width:1160px;margin:0 auto;padding:26px 16px 80px}
+.painel{
+position:sticky;top:10px;z-index:10;background:var(--panel);backdrop-filter:blur(18px);
+border:1px solid var(--border);border-radius:26px;padding:16px;margin-bottom:22px;
+box-shadow:0 22px 70px rgba(0,0,0,.35)
+}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.stat{background:var(--card2);padding:14px;border-radius:18px;text-align:center;border:1px solid rgba(148,163,184,.12)}
+.stat strong{display:block;font-size:25px;color:var(--accent);line-height:1.1}
+.stat span{font-size:12px;color:var(--muted)}
+.filtros{display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:12px;margin-top:14px}
+input,select{
+width:100%;background:rgba(2,6,23,.78);color:var(--text);border:1px solid var(--border);
+border-radius:14px;padding:13px 14px;outline:none;font-size:14px
+}
+input:focus,select:focus{border-color:var(--accent)}
+.card{
+background:var(--card);border:1px solid var(--border);border-radius:24px;padding:26px;
+margin-bottom:20px;box-shadow:0 18px 50px rgba(0,0,0,.24)
+}
+.questao{scroll-margin-top:190px}
+.questao-topo{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:18px}
+.badge{
+background:linear-gradient(135deg,var(--accent),var(--accent2));color:#00111f;font-weight:900;
+padding:7px 13px;border-radius:999px;display:inline-block
+}
+.disciplina-tag,.tipo-tag{
+display:inline-block;margin-left:8px;color:var(--muted);background:rgba(148,163,184,.10);
+border:1px solid rgba(148,163,184,.14);padding:6px 10px;border-radius:999px;font-size:12px
+}
+.tipo-tag{color:#ddd6fe;border-color:rgba(167,139,250,.25)}
+.status{color:var(--yellow);font-size:13px;white-space:nowrap}
+.enunciado{font-size:19px;margin:0 0 22px;letter-spacing:-.01em}
+.botoes{display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.btn{
+cursor:pointer;border:0;padding:12px 22px;border-radius:14px;color:white;font-weight:900;
+transition:.18s ease;letter-spacing:.02em
+}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.certo{background:rgba(34,197,94,.20);border:1px solid rgba(34,197,94,.42)}
+.btn.errado{background:rgba(239,68,68,.20);border:1px solid rgba(239,68,68,.42)}
+.btn.neutro{background:rgba(56,189,248,.16);color:var(--text);border:1px solid rgba(56,189,248,.32)}
+.feedback{
+display:none;background:rgba(2,6,23,.72);border:1px solid rgba(148,163,184,.16);
+border-left:5px solid var(--accent);padding:18px;border-radius:18px;margin-top:14px
+}
+.feedback.correto{border-left-color:var(--green)}
+.feedback.errado{border-left-color:var(--red)}
+.resultado{font-size:18px;font-weight:900;margin-top:0}
+.justificativa{margin-top:12px}
+.referencia{color:var(--muted);font-size:13px;margin-top:16px}
+.gabarito-certo{color:var(--green);font-weight:900}
+.gabarito-errado{color:var(--red);font-weight:900}
+.oculta{display:none}
+.sem-resultados{text-align:center;color:var(--muted);display:none;padding:30px}
+.grid-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
+.link-card{
+display:block;padding:20px;background:rgba(15,23,42,.95);border:1px solid rgba(148,163,184,.22);
+color:#e5e7eb;border-radius:22px;text-decoration:none;transition:.2s;box-shadow:0 14px 40px rgba(0,0,0,.22)
+}
+.link-card:hover{transform:translateY(-3px);border-color:#38bdf8}
+.link-card strong{display:block;font-size:17px;margin-bottom:8px}
+.link-card span{color:#94a3b8;font-size:13px}
+.index-tools{display:grid;grid-template-columns:1.5fr 1fr;gap:12px;margin-bottom:20px}
+@media(max-width:850px){
+.stats{grid-template-columns:repeat(2,1fr)}
+.filtros,.index-tools{grid-template-columns:1fr}
+.questao-topo{align-items:flex-start;flex-direction:column}
+.botoes{flex-direction:column}
+.enunciado{font-size:16px}
+.card{padding:20px}
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Simulado - Proc Penal_Extração_RG_STF</h1>
+<p>Repercussão Geral • Simulado interativo de CERTO ou ERRADO</p>
+</header>
+
+<div class="container">
+<div class="painel">
+<div class="stats">
+<div class="stat"><strong>34</strong><span>Total</span></div>
+<div class="stat"><strong id="visiveis">34</strong><span>Visíveis</span></div>
+<div class="stat"><strong id="respondidas">0</strong><span>Respondidas</span></div>
+<div class="stat"><strong id="acertos">0</strong><span>Acertos</span></div>
+<div class="stat"><strong id="erros">0</strong><span>Erros</span></div>
+</div>
+
+<div class="filtros">
+<input id="busca" type="search" placeholder="Buscar por palavra-chave..." oninput="filtrar()">
+<select id="disciplina" onchange="filtrar()">
+<option value="">Todas as disciplinas</option>
+<option value="ECA">ECA</option>
+<option value="N/I">N/I</option>
+</select>
+<select id="statusFiltro" onchange="filtrar()">
+<option value="">Todas</option>
+<option value="nao">Não respondidas</option>
+<option value="acerto">Acertos</option>
+<option value="erro">Erros</option>
+</select>
+<button class="btn neutro" onclick="reiniciar()">Reiniciar</button>
+</div>
+</div>
+
+<div id="sem-resultados" class="sem-resultados">Nenhuma questão encontrada com os filtros atuais.</div>
+
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a alteração introduzida pela lei nº 11.464/2007, que elevou o tempo exigido para progressão de regime, não pode ser aplicada de forma retroativa para efeitos de progressão a condenados por crimes hediondos ou equiparados cuja conduta se consumou antes da entrada em vigor da norma. a aplicação temporal de normas penais mais gravosas encontra óbice no princípio da legalidade penal e no princípio da irretroatividade da lei penal mais gravosa. no caso, a corte firmou entendimento de que a majoração do tempo para progressão promovida pela lei 11.464/2007 não pode operar retroativamente para fatos praticados antes de sua vigência quando se trata de crime hediondo ou equiparado, sob pena de violação do direito adquirido e da segurança jurídica. tema 59 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 1</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-1">Não respondida</span>
+</div>
+
+<p class="enunciado">A alteração introduzida pela Lei nº 11.464/2007, que elevou o tempo exigido para progressão de regime, não pode ser aplicada de forma retroativa para efeitos de progressão a condenados por crimes hediondos ou equiparados cuja conduta se consumou antes da entrada em vigor da norma.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(1, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(1, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-1">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A aplicação temporal de normas penais mais gravosas encontra óbice no princípio da legalidade penal e no princípio da irretroatividade da lei penal mais gravosa. No caso, a Corte firmou entendimento de que a majoração do tempo para progressão promovida pela Lei 11.464/2007 não pode operar retroativamente para fatos praticados antes de sua vigência quando se trata de crime hediondo ou equiparado, sob pena de violação do direito adquirido e da segurança jurídica.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 59 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="decisão judicial que, em habeas corpus, determine a extinção do processo ou absolva sumariamente o acusado sempre configura usurpação do monopólio da ação penal pública e violação do princípio do juiz natural, porquanto apenas o ministério público pode, em definitivo, pôr termo à persecução penal. o supremo reconheceu que decisões judiciais que rejeitam denúncia, impronunciam, absolvem sumariamente ou decretam a extinção do processo em habeas corpus não ofendem o monopólio constitucional da ação penal pública nem o princípio do juiz natural. tais decisões representam exercício jurisdicional que controla eventuais ilegalidades ou ausência de justa causa, sem que se confunda com a atividade exclusiva de promoção da ação penal pelo mp. tema 154 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 2</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-2">Não respondida</span>
+</div>
+
+<p class="enunciado">Decisão judicial que, em habeas corpus, determine a extinção do processo ou absolva sumariamente o acusado sempre configura usurpação do monopólio da ação penal pública e violação do princípio do juiz natural, porquanto apenas o Ministério Público pode, em definitivo, pôr termo à persecução penal.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(2, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(2, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-2">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Supremo reconheceu que decisões judiciais que rejeitam denúncia, impronunciam, absolvem sumariamente ou decretam a extinção do processo em habeas corpus não ofendem o monopólio constitucional da ação penal pública nem o princípio do juiz natural. Tais decisões representam exercício jurisdicional que controla eventuais ilegalidades ou ausência de justa causa, sem que se confunda com a atividade exclusiva de promoção da ação penal pelo MP.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 154 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="o julgamento de apelação por órgão colegiado composto majoritariamente por juízes convocados (juízes substitutos/convocados na justiça federal), nos termos da lei nº 9.788/1999, não configura violação ao postulado constitucional do juiz natural. a jurisprudência do supremo acolheu a compatibilidade da composição majoritariamente com magistrados convocados na justiça federal com o princípio do juiz natural, desde que observadas as hipóteses legais de convocação e respeitados os demais pressupostos constitucionais do juízo imparcial e instituído por lei. tema 170 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 3</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-3">Não respondida</span>
+</div>
+
+<p class="enunciado">O julgamento de apelação por órgão colegiado composto majoritariamente por juízes convocados (juízes substitutos/convocados na Justiça Federal), nos termos da Lei nº 9.788/1999, não configura violação ao postulado constitucional do juiz natural.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(3, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(3, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-3">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A jurisprudência do Supremo acolheu a compatibilidade da composição majoritariamente com magistrados convocados na Justiça Federal com o princípio do juiz natural, desde que observadas as hipóteses legais de convocação e respeitados os demais pressupostos constitucionais do juízo imparcial e instituído por lei.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 170 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="o ministério público pode, de forma irrestrita e sem qualquer controle jurisdicional, conduzir investigações de natureza penal, inclusive praticando atos que impliquem reserva jurisdicional, desconsiderando as prerrogativas dos advogados e garantias do indiciado. embora o stf reconheça a competência do ministério público para promover investigações por seus próprios meios, tal prerrogativa está condicionada ao respeito às garantias fundamentais do investigado, às prerrogativas profissionais dos advogados e à observância das hipóteses de reserva constitucional de jurisdição. além disso, os atos investigatórios devem ser documentados e sujeitos a controle jurisdicional, conforme necessário, não sendo, portanto, irrestritos nem fora de qualquer supervisão. tema 184 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 4</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-4">Não respondida</span>
+</div>
+
+<p class="enunciado">O Ministério Público pode, de forma irrestrita e sem qualquer controle jurisdicional, conduzir investigações de natureza penal, inclusive praticando atos que impliquem reserva jurisdicional, desconsiderando as prerrogativas dos advogados e garantias do indiciado.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(4, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(4, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-4">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Embora o STF reconheça a competência do Ministério Público para promover investigações por seus próprios meios, tal prerrogativa está condicionada ao respeito às garantias fundamentais do investigado, às prerrogativas profissionais dos advogados e à observância das hipóteses de reserva constitucional de jurisdição. Além disso, os atos investigatórios devem ser documentados e sujeitos a controle jurisdicional, conforme necessário, não sendo, portanto, irrestritos nem fora de qualquer supervisão.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 184 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a homologação da transação penal prevista no art. 76 da lei nº 9.099/1995 não produz coisa julgada material; caso as cláusulas da transação sejam descumpridas, restabelece-se a situação anterior e o ministério público pode dar continuidade à persecução penal mediante oferecimento de denúncia ou requisição de inquérito. a súmula vinculante firmou que a transação penal homologada não gera coisa julgada material. a consequência prática é a possibilidade de retomada da persecução pelo mp quando houver inadimplemento das condições pactuadas, independentemente de se alegar reabertura de coisa julgada, pois não se consolidou extinção material do processo. tema 238 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 5</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-5">Não respondida</span>
+</div>
+
+<p class="enunciado">A homologação da transação penal prevista no art. 76 da Lei nº 9.099/1995 não produz coisa julgada material; caso as cláusulas da transação sejam descumpridas, restabelece-se a situação anterior e o Ministério Público pode dar continuidade à persecução penal mediante oferecimento de denúncia ou requisição de inquérito.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(5, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(5, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-5">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A súmula vinculante firmou que a transação penal homologada não gera coisa julgada material. A consequência prática é a possibilidade de retomada da persecução pelo MP quando houver inadimplemento das condições pactuadas, independentemente de se alegar reabertura de coisa julgada, pois não se consolidou extinção material do processo.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 238 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="ECA"
+data-texto="a ausência do réu preso na audiência de oitiva de testemunha por carta precatória, quando o preso não manifestou expressamente o desejo de participar, implica nulidade processual dos atos probatórios realizados na diligência precatória. o entendimento do stf é no sentido da inexistência de nulidade quando o réu preso não comparece à audiência determinada por carta precatória e não manifestou vontade de participar, pois tal ausência não importa, por si só, violação do contraditório nem do devido processo, desde que não haja demonstração de prejuízo concreto ou cerceamento de defesa. tema 240 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 6</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-6">Não respondida</span>
+</div>
+
+<p class="enunciado">A ausência do réu preso na audiência de oitiva de testemunha por carta precatória, quando o preso não manifestou expressamente o desejo de participar, implica nulidade processual dos atos probatórios realizados na diligência precatória.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(6, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(6, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-6">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O entendimento do STF é no sentido da inexistência de nulidade quando o réu preso não comparece à audiência determinada por carta precatória e não manifestou vontade de participar, pois tal ausência não importa, por si só, violação do contraditório nem do devido processo, desde que não haja demonstração de prejuízo concreto ou cerceamento de defesa.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 240 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a entrada forçada em domicílio durante o período noturno sem mandado judicial é lícita sempre que a autoridade policial alegue fundadas razões posteriormente; não há risco de responsabilização do agente mesmo se não houver indícios de flagrante delito. a jurisprudência é clara em que a entrada forçada sem mandado, inclusive à noite, só é legítima se houver fundadas razões que indiquem situação de flagrante, e tais razões devem ser devidamente justificadas a posteriori. na ausência de suporte probatório apto a caracterizar essa excepcionalidade, os atos são nulos e a autoridade pode responder disciplinar, civil e penalmente. tema 280 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 7</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-7">Não respondida</span>
+</div>
+
+<p class="enunciado">A entrada forçada em domicílio durante o período noturno sem mandado judicial é lícita sempre que a autoridade policial alegue fundadas razões posteriormente; não há risco de responsabilização do agente mesmo se não houver indícios de flagrante delito.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(7, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(7, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-7">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A jurisprudência é clara em que a entrada forçada sem mandado, inclusive à noite, só é legítima se houver fundadas razões que indiquem situação de flagrante, e tais razões devem ser devidamente justificadas a posteriori. Na ausência de suporte probatório apto a caracterizar essa excepcionalidade, os atos são nulos e a autoridade pode responder disciplinar, civil e penalmente.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 280 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="compete constitucionalmente ao tribunal, e não ao poder executivo, decidir sobre a perda do posto e da patente dos oficiais e da graduação das praças, não sendo admitida a declaração de reforma pela administração no caso de policial militar julgado inapto a permanecer nas fileiras. o supremo identificou competência específica do tribunal para deliberar sobre perda de posto e patente e sobre graduações das praças, nos termos do art. 125, §4º, da constituição, o que afasta a possibilidade de o judiciário conferir reforma administrativa que substitua a competência constitucionalmente atribuída ao tribunal militar competente. tema 358 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 8</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-8">Não respondida</span>
+</div>
+
+<p class="enunciado">Compete constitucionalmente ao tribunal, e não ao poder executivo, decidir sobre a perda do posto e da patente dos oficiais e da graduação das praças, não sendo admitida a declaração de reforma pela Administração no caso de policial militar julgado inapto a permanecer nas fileiras.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(8, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(8, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-8">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Supremo identificou competência específica do tribunal para deliberar sobre perda de posto e patente e sobre graduações das praças, nos termos do art. 125, §4º, da Constituição, o que afasta a possibilidade de o judiciário conferir reforma administrativa que substitua a competência constitucionalmente atribuída ao tribunal militar competente.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 358 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="quando a disponibilização ou aquisição de material pornográfico envolvendo criança ou adolescente se dá por meio da rede mundial de computadores, a competência para processar e julgar o delito é da justiça federal. o stf firmou que, se a conduta tipificada nos arts. 241, 241-a e 241-b do estatuto da criança e do adolescente é praticada por meio da internet, caracteriza-se competência da justiça federal, dada a natureza translocal e interestadual da circulação de conteúdos na rede mundial de computadores. tema 393 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 9</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-9">Não respondida</span>
+</div>
+
+<p class="enunciado">Quando a disponibilização ou aquisição de material pornográfico envolvendo criança ou adolescente se dá por meio da rede mundial de computadores, a competência para processar e julgar o delito é da Justiça Federal.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(9, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(9, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-9">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STF firmou que, se a conduta tipificada nos arts. 241, 241-A e 241-B do Estatuto da Criança e do Adolescente é praticada por meio da internet, caracteriza-se competência da Justiça Federal, dada a natureza translocal e interestadual da circulação de conteúdos na rede mundial de computadores.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 393 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a mera inexistência de estabelecimento penal adequado para cumprimento de regime autoriza a manutenção do condenado no regime prisional mais gravoso, enquanto se aguarda a criação de vagas, por razões de segurança e ordem pública. contrariamente à afirmação, o entendimento consolidado é que a falta de estabelecimento adequado não legitima a manutenção do condenado em regime mais gravoso do que aquele que lhe é cabível; cabe ao juiz da execução buscar medidas alternativas previstas, como saída antecipada, monitoramento eletrônico ou outras soluções, e somente em caráter transitório admitir prisão domiciliar até a estruturação das alternativas. tema 423 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 10</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-10">Não respondida</span>
+</div>
+
+<p class="enunciado">A mera inexistência de estabelecimento penal adequado para cumprimento de regime autoriza a manutenção do condenado no regime prisional mais gravoso, enquanto se aguarda a criação de vagas, por razões de segurança e ordem pública.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(10, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(10, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-10">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Contrariamente à afirmação, o entendimento consolidado é que a falta de estabelecimento adequado não legitima a manutenção do condenado em regime mais gravoso do que aquele que lhe é cabível; cabe ao juiz da execução buscar medidas alternativas previstas, como saída antecipada, monitoramento eletrônico ou outras soluções, e somente em caráter transitório admitir prisão domiciliar até a estruturação das alternativas.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 423 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a adoção, pela turma recursal dos juizados especiais, dos fundamentos constantes na sentença recorrida como razões de decidir não configura deficiência na motivação, sendo compatível com a lei nº 9.099/1995 e com o dever constitucional de motivação. o supremo reconheceu que a turma recursal pode, de forma legítima, adotar como fundamentação os motivos expendidos na decisão recorrida, sem afronta ao dever de motivação, especialmente no âmbito dos juizados especiais, onde a legislação prevê procedimento sumaríssimo de julgamento. tema 451 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 11</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-11">Não respondida</span>
+</div>
+
+<p class="enunciado">A adoção, pela Turma Recursal dos Juizados Especiais, dos fundamentos constantes na sentença recorrida como razões de decidir não configura deficiência na motivação, sendo compatível com a Lei nº 9.099/1995 e com o dever constitucional de motivação.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(11, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(11, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-11">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Supremo reconheceu que a Turma Recursal pode, de forma legítima, adotar como fundamentação os motivos expendidos na decisão recorrida, sem afronta ao dever de motivação, especialmente no âmbito dos Juizados Especiais, onde a legislação prevê procedimento sumaríssimo de julgamento.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 451 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="o foro por prerrogativa de função, referido como foro especial, estende-se aos magistrados mesmo após a aposentadoria, de modo que juízes aposentados mantêm a competência relativa às causas que lhes seriam afetas em atividade. o stf firmou que a prerrogativa de foro por função não se estende aos magistrados aposentados; a condição pessoal que justifica o foro especial cessa com a inatividade funcional, de modo que o magistrado aposentado não continua a fazer jus ao foro privilegiado. tema 453 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 12</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-12">Não respondida</span>
+</div>
+
+<p class="enunciado">O foro por prerrogativa de função, referido como foro especial, estende-se aos magistrados mesmo após a aposentadoria, de modo que juízes aposentados mantêm a competência relativa às causas que lhes seriam afetas em atividade.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(12, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(12, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-12">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STF firmou que a prerrogativa de foro por função não se estende aos magistrados aposentados; a condição pessoal que justifica o foro especial cessa com a inatividade funcional, de modo que o magistrado aposentado não continua a fazer jus ao foro privilegiado.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 453 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a revogação ou modificação do ato normativo que fundamentou a edição de súmula vinculante não impõe, em regra, a necessidade de revisão ou cancelamento da súmula pelo supremo tribunal federal; a súmula vinculante mantém eficácia automática independentemente de alteração legislativa. segundo o entendimento consolidado, a alteração ou revogação do ato normativo que serviu de fundamento à súmula vinculante, via de regra, gera a necessidade de revisão ou cancelamento da súmula pelo stf, na medida em que a base normativa da vinculação se altera, exigindo reavaliação pelo tribunal. tema 477 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 13</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-13">Não respondida</span>
+</div>
+
+<p class="enunciado">A revogação ou modificação do ato normativo que fundamentou a edição de súmula vinculante não impõe, em regra, a necessidade de revisão ou cancelamento da súmula pelo Supremo Tribunal Federal; a súmula vinculante mantém eficácia automática independentemente de alteração legislativa.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(13, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(13, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-13">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Segundo o entendimento consolidado, a alteração ou revogação do ato normativo que serviu de fundamento à súmula vinculante, via de regra, gera a necessidade de revisão ou cancelamento da súmula pelo STF, na medida em que a base normativa da vinculação se altera, exigindo reavaliação pelo Tribunal.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 477 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="o crime de violação de direito autoral que apresenta natureza transnacional, envolvendo elementos de extraterritorialidade ou alcance internacional, deve ser processado e julgado pela justiça federal, por envolver interesse da união e matérias de competência federal. o supremo delineou que a justiça federal é competente para processar e julgar delitos contra direitos autorais quando a sua prática apresentar caráter transnacional, dada a afetividade com normas e interesses que transcendem o âmbito estadual, justificando intervenção da justiça federal. tema 580 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 14</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-14">Não respondida</span>
+</div>
+
+<p class="enunciado">O crime de violação de direito autoral que apresenta natureza transnacional, envolvendo elementos de extraterritorialidade ou alcance internacional, deve ser processado e julgado pela Justiça Federal, por envolver interesse da União e matérias de competência federal.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(14, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(14, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-14">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Supremo delineou que a Justiça Federal é competente para processar e julgar delitos contra direitos autorais quando a sua prática apresentar caráter transnacional, dada a afetividade com normas e interesses que transcendem o âmbito estadual, justificando intervenção da Justiça Federal.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 580 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a citação por hora certa, nos termos do art. 362 do cpp, foi reconhecida como constitucional pelo stf, ao mesmo tempo em que a ocultação do réu para evitar a citação infringe o devido processo legal e os direitos ao acesso à justiça e à razoável duração do processo. o tribunal declarou constitucional a modalidade de citação por hora certa e, concomitantemente, entendeu que condutas de ocultação do réu que visem burlar a citação atentam contra cláusulas constitucionais do devido processo, do acesso à justiça e da razoável duração do processo, sendo, assim, vedadas. tema 613 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 15</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-15">Não respondida</span>
+</div>
+
+<p class="enunciado">A citação por hora certa, nos termos do art. 362 do CPP, foi reconhecida como constitucional pelo STF, ao mesmo tempo em que a ocultação do réu para evitar a citação infringe o devido processo legal e os direitos ao acesso à justiça e à razoável duração do processo.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(15, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(15, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-15">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Tribunal declarou constitucional a modalidade de citação por hora certa e, concomitantemente, entendeu que condutas de ocultação do réu que visem burlar a citação atentam contra cláusulas constitucionais do devido processo, do acesso à justiça e da razoável duração do processo, sendo, assim, vedadas.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 613 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="é constitucional a previsão legal que veda a conversão da pena privativa de liberdade em pena restritiva de direitos para os delitos abrangidos pela lei nº 11.343/2006 (lei de drogas), nos termos dos artigos 33, §4º, e 44 do diploma legal. o stf declarou inconstitucional a vedação legal à conversão da pena privativa em restritiva de direitos prevista na lei de drogas, por violar princípios constitucionais relacionados à individualização da pena e à vedação de restrições desproporcionais previstas em lei penal, de modo que a proibição prevista nos dispositivos mencionados não subsiste. tema 626 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 16</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-16">Não respondida</span>
+</div>
+
+<p class="enunciado">É constitucional a previsão legal que veda a conversão da pena privativa de liberdade em pena restritiva de direitos para os delitos abrangidos pela Lei nº 11.343/2006 (Lei de Drogas), nos termos dos artigos 33, §4º, e 44 do diploma legal.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(16, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(16, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-16">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STF declarou inconstitucional a vedação legal à conversão da pena privativa em restritiva de direitos prevista na Lei de Drogas, por violar princípios constitucionais relacionados à individualização da pena e à vedação de restrições desproporcionais previstas em lei penal, de modo que a proibição prevista nos dispositivos mencionados não subsiste.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 626 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="quando um crime ambiental de caráter transnacional envolve animais silvestres, espécies ameaçadas de extinção, espécimes exóticas ou proteção decorrente de compromissos internacionais assumidos pelo brasil, a competência para processamento e julgamento é da justiça federal. o supremo consolidou entendimento de que a justiça federal tem competência para crimes ambientais de caráter transnacional que envolvam tais espécies ou obrigações internacionais, dada a natureza suprarregional e o interesse da união na tutela de compromissos e espécies protegidas por normas internacionais. tema 648 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 17</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-17">Não respondida</span>
+</div>
+
+<p class="enunciado">Quando um crime ambiental de caráter transnacional envolve animais silvestres, espécies ameaçadas de extinção, espécimes exóticas ou proteção decorrente de compromissos internacionais assumidos pelo Brasil, a competência para processamento e julgamento é da Justiça Federal.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(17, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(17, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-17">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Supremo consolidou entendimento de que a Justiça Federal tem competência para crimes ambientais de caráter transnacional que envolvam tais espécies ou obrigações internacionais, dada a natureza suprarregional e o interesse da União na tutela de compromissos e espécies protegidas por normas internacionais.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 648 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="as sucessivas prorrogações de interceptação telefônica são admissíveis, desde que preenchidos os requisitos do art. 2º da lei nº 9.296/1996 e a decisão judicial que autoriza a medida e suas prorrogações contenham motivação adequada, fondeada em elementos concretos que justifiquem a necessidade e proporcionalidade, vedando-se motivações padronizadas. o stf assentou que a renovação sucessiva de interceptações é lícita desde que demonstrados, com base em elementos concretos e na complexidade investigativa, os requisitos legais e que as prorrogações sejam motivadas, não se admitindo justificativas genéricas ou meramente formulais. tema 661 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 18</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-18">Não respondida</span>
+</div>
+
+<p class="enunciado">As sucessivas prorrogações de interceptação telefônica são admissíveis, desde que preenchidos os requisitos do art. 2º da Lei nº 9.296/1996 e a decisão judicial que autoriza a medida e suas prorrogações contenham motivação adequada, fondeada em elementos concretos que justifiquem a necessidade e proporcionalidade, vedando-se motivações padronizadas.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(18, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(18, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-18">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STF assentou que a renovação sucessiva de interceptações é lícita desde que demonstrados, com base em elementos concretos e na complexidade investigativa, os requisitos legais e que as prorrogações sejam motivadas, não se admitindo justificativas genéricas ou meramente formulais.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 661 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="os delitos de lesão corporal praticados contra a mulher no âmbito doméstico e familiar enquadram-se como ação penal pública condicionada à representação da vítima, salvo quando houver circunstâncias qualificadoras que exijam ação pública incondicionada. o supremo concluiu que os crimes de lesão corporal contra mulher no contexto doméstico e familiar são de ação penal pública incondicionada, justamente para garantir proteção efetiva da vítima e atender à gravidade institucionalizada pela legislação e pela interpretação constitucional, afastando a necessidade de representação. tema 713 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 19</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-19">Não respondida</span>
+</div>
+
+<p class="enunciado">Os delitos de lesão corporal praticados contra a mulher no âmbito doméstico e familiar enquadram-se como ação penal pública condicionada à representação da vítima, salvo quando houver circunstâncias qualificadoras que exijam ação pública incondicionada.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(19, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(19, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-19">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Supremo concluiu que os crimes de lesão corporal contra mulher no contexto doméstico e familiar são de ação penal pública incondicionada, justamente para garantir proteção efetiva da vítima e atender à gravidade institucionalizada pela legislação e pela interpretação constitucional, afastando a necessidade de representação.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 713 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a propositura da ação penal privada pode ser exercida pela vítima mesmo após o decurso do prazo legal para que o ministério público ofereça denúncia, sendo irrelevante para essa possibilidade a prática de diligências internas pelo próprio ministério público; condutas posteriores do parquet não obstam o direito de queixa. o entendimento firmado prevê que o direito de queixa subsiste mesmo se o mp, após o decurso do prazo, oferecer denúncia, promover arquivamento ou requisitar diligências; diligências internas do parquet não afastam o direito de propositura da ação penal privada, que pode ser exercida após a inércia que não se traduza em atos externos capazes de obstar a queixa. tema 811 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 20</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-20">Não respondida</span>
+</div>
+
+<p class="enunciado">A propositura da ação penal privada pode ser exercida pela vítima mesmo após o decurso do prazo legal para que o Ministério Público ofereça denúncia, sendo irrelevante para essa possibilidade a prática de diligências internas pelo próprio Ministério Público; condutas posteriores do parquet não obstam o direito de queixa.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(20, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(20, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-20">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O entendimento firmado prevê que o direito de queixa subsiste mesmo se o MP, após o decurso do prazo, oferecer denúncia, promover arquivamento ou requisitar diligências; diligências internas do parquet não afastam o direito de propositura da ação penal privada, que pode ser exercida após a inércia que não se traduza em atos externos capazes de obstar a queixa.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 811 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a execução provisória de acórdão penal condenatório, proferido em grau recursal e passível de recurso especial ou extraordinário, viola o princípio constitucional da presunção de inocência previsto no art. 5º, lvii, da cf. o supremo firmou que a execução provisória de acórdão condenatório em grau recursal, ainda que sujeito a recurso especial ou extraordinário, não compromete o princípio da presunção de inocência, admitindo-se a sua imediata execução nas hipóteses e limites processuais previstos, diante do equilíbrio entre tutela dos bens jurídicos e a garantia constitucional. tema 925 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 21</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-21">Não respondida</span>
+</div>
+
+<p class="enunciado">A execução provisória de acórdão penal condenatório, proferido em grau recursal e passível de recurso especial ou extraordinário, viola o princípio constitucional da presunção de inocência previsto no art. 5º, LVII, da CF.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(21, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(21, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-21">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Supremo firmou que a execução provisória de acórdão condenatório em grau recursal, ainda que sujeito a recurso especial ou extraordinário, não compromete o princípio da presunção de inocência, admitindo-se a sua imediata execução nas hipóteses e limites processuais previstos, diante do equilíbrio entre tutela dos bens jurídicos e a garantia constitucional.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 925 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a oitiva do condenado em audiência de justificação perante o juízo da execução penal, com presença do defensor e do ministério público, substitui a necessidade de prévio procedimento administrativo disciplinar (pad) para fins de apuração de falta grave e supre eventual deficiência na defesa técnica do pad. o stf entendeu que a oitiva direta do condenado, nos termos indicados, pode suprir a exigência probatória para a persecução disciplinar no âmbito da execução, afastando a necessidade de prévio pad para efeitos de aplicação de determinadas sanções ou deliberações na execução, bem como mitigando, em parte, deficiências defensivas eventualmente ocorridas no pad. tema 941 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 22</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-22">Não respondida</span>
+</div>
+
+<p class="enunciado">A oitiva do condenado em audiência de justificação perante o Juízo da Execução Penal, com presença do defensor e do Ministério Público, substitui a necessidade de prévio Procedimento Administrativo Disciplinar (PAD) para fins de apuração de falta grave e supre eventual deficiência na defesa técnica do PAD.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(22, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(22, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-22">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STF entendeu que a oitiva direta do condenado, nos termos indicados, pode suprir a exigência probatória para a persecução disciplinar no âmbito da execução, afastando a necessidade de prévio PAD para efeitos de aplicação de determinadas sanções ou deliberações na execução, bem como mitigando, em parte, deficiências defensivas eventualmente ocorridas no PAD.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 941 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="os ministérios públicos dos estados e do distrito federal não possuem legitimidade para interpor recursos ou medidas de impugnação perante o stf e o stj em processos que tramitam nesses tribunais, devendo toda atuação recursal perante as cortes superiores ser exclusiva do ministério público federal. o stf reconheceu a legitimidade dos mp estaduais e do mp do df para propor e atuar em recursos e meios de impugnação em trâmite no stf e no stj, desde que oriundos de processos de sua atribuição, coexistindo tal atuação com a do ministério público federal, sem prejuízo deste último. tema 946 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 23</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-23">Não respondida</span>
+</div>
+
+<p class="enunciado">Os Ministérios Públicos dos Estados e do Distrito Federal não possuem legitimidade para interpor recursos ou medidas de impugnação perante o STF e o STJ em processos que tramitam nesses tribunais, devendo toda atuação recursal perante as Cortes Superiores ser exclusiva do Ministério Público Federal.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(23, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(23, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-23">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STF reconheceu a legitimidade dos MP estaduais e do MP do DF para propor e atuar em recursos e meios de impugnação em trâmite no STF e no STJ, desde que oriundos de processos de sua atribuição, coexistindo tal atuação com a do Ministério Público Federal, sem prejuízo deste último.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 946 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a expressão &quot;e liberdade provisória&quot;, constante do caput do artigo 44 da lei nº 11.343/2006, foi declarada constitucional pelo stf, por não acarretar qualquer violação a direitos fundamentais ou princípios penais. o supremo determinou a inconstitucionalidade da expressão referida, reconhecendo que a redação legislativa, ao prever de forma conjunta determinada consequência, violava preceitos constitucionais; por isso, a manutenção da expressão foi afastada. tema 959 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 24</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-24">Não respondida</span>
+</div>
+
+<p class="enunciado">A expressão &quot;e liberdade provisória&quot;, constante do caput do artigo 44 da Lei nº 11.343/2006, foi declarada constitucional pelo STF, por não acarretar qualquer violação a direitos fundamentais ou princípios penais.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(24, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(24, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-24">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O Supremo determinou a inconstitucionalidade da expressão referida, reconhecendo que a redação legislativa, ao prever de forma conjunta determinada consequência, violava preceitos constitucionais; por isso, a manutenção da expressão foi afastada.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 959 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a imposição, por força do art. 2º, §1º, da lei nº 8.072/1990 (lei dos crimes hediondos), de regime inicial fechado como regra absoluta e automática para os crimes hediondos é incompatível com a constituição, de modo que o juiz deve individualizar o regime inicial de cumprimento da pena conforme os parâmetros do art. 33 do código penal. o stf declarou inconstitucional a fixação ex lege do regime inicial fechado com base no dispositivo referido, determinando que o magistrado, ao condenar, deve observar os critérios do art. 33 do código penal para a fixação do regime inicial, atendendo à obrigatória individualização da pena. tema 972 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 25</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-25">Não respondida</span>
+</div>
+
+<p class="enunciado">A imposição, por força do art. 2º, §1º, da Lei nº 8.072/1990 (Lei dos Crimes Hediondos), de regime inicial fechado como regra absoluta e automática para os crimes hediondos é incompatível com a Constituição, de modo que o juiz deve individualizar o regime inicial de cumprimento da pena conforme os parâmetros do art. 33 do Código Penal.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(25, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(25, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-25">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STF declarou inconstitucional a fixação ex lege do regime inicial fechado com base no dispositivo referido, determinando que o magistrado, ao condenar, deve observar os critérios do art. 33 do Código Penal para a fixação do regime inicial, atendendo à obrigatória individualização da pena.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 972 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="no que se refere ao manuseio e acesso aos dados contidos em aparelhos celulares apreendidos, o stf entendeu que, quando o aparelho é apreendido na forma do art. 6º do cpp ou por ocasião de prisão em flagrante, o acesso ao seu conteúdo depende, em regra, do consentimento expresso do titular dos dados ou de prévia decisão judicial motivada, aplicando-se regras diferenciadas para achado fortuito e para preservação de dados. a corte estabeleceu condicionantes para o acesso a dados de celular apreendido: no achado fortuito, pode-se acessar dados para identificação ou autoria sem consentimento, desde que justificado posteriormente; já na apreensão em flagrante ou nos termos do art. 6º, em regra exige-se consentimento ou autorização judicial fundamentada, sendo admissível a adoção de providências de preservação de dados pela autoridade policial antes da autorização, com justificativa posterior. as teses têm eficácia prospectiva, com ressalvas. tema 977 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 26</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-26">Não respondida</span>
+</div>
+
+<p class="enunciado">No que se refere ao manuseio e acesso aos dados contidos em aparelhos celulares apreendidos, o STF entendeu que, quando o aparelho é apreendido na forma do art. 6º do CPP ou por ocasião de prisão em flagrante, o acesso ao seu conteúdo depende, em regra, do consentimento expresso do titular dos dados ou de prévia decisão judicial motivada, aplicando-se regras diferenciadas para achado fortuito e para preservação de dados.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(26, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(26, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-26">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A Corte estabeleceu condicionantes para o acesso a dados de celular apreendido: no achado fortuito, pode-se acessar dados para identificação ou autoria sem consentimento, desde que justificado posteriormente; já na apreensão em flagrante ou nos termos do art. 6º, em regra exige-se consentimento ou autorização judicial fundamentada, sendo admissível a adoção de providências de preservação de dados pela autoridade policial antes da autorização, com justificativa posterior. As teses têm eficácia prospectiva, com ressalvas.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 977 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="ECA"
+data-texto="o compartilhamento dos relatórios de inteligência financeira produzidos pela unidade de inteligência financeira (uif) e da íntegra do procedimento fiscalizatório da receita federal com órgãos de persecução penal, para fins criminais, é constitucional e pode ser realizado sem prévia autorização judicial, desde que haja formalização, sigilo e possibilidade de controle jurisdicional posterior. o stf assentou a constitucionalidade do compartilhamento desses elementos para fins de persecução penal sem autorização judicial prévia, condicionando-o, contudo, à formalização das comunicações, preservação do sigilo e sujeição a controle jurisdicional e administrativo posterior, com instrumentos de certificação e mecanismos de apuração de eventuais desvios. tema 990 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 27</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-27">Não respondida</span>
+</div>
+
+<p class="enunciado">O compartilhamento dos relatórios de inteligência financeira produzidos pela Unidade de Inteligência Financeira (UIF) e da íntegra do procedimento fiscalizatório da Receita Federal com órgãos de persecução penal, para fins criminais, é constitucional e pode ser realizado sem prévia autorização judicial, desde que haja formalização, sigilo e possibilidade de controle jurisdicional posterior.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(27, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(27, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-27">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STF assentou a constitucionalidade do compartilhamento desses elementos para fins de persecução penal sem autorização judicial prévia, condicionando-o, contudo, à formalização das comunicações, preservação do sigilo e sujeição a controle jurisdicional e administrativo posterior, com instrumentos de certificação e mecanismos de apuração de eventuais desvios.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 990 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a realização de revista íntima que, na prática, revista o corpo de pessoa detida de maneira vexatória e sem fim legítimo vulnera garantias constitucionais e foi objeto de restrição pela corte, devendo a modalidade vexatória ser vedada salvo hipóteses estritas previstas em lei e com observância da dignidade humana. embora o enunciado do tema recomende consulta detalhada, o julgamento orientou no sentido de que revistas íntimas praticadas de forma vexatória ferem direitos da pessoa humana e a dignidade, sendo ilegítimas quando não amparadas por finalidade legítima, proporcionalidade e formalidades legais; por isso, revistas íntimas com caráter vexatório são vedadas. tema 998 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 28</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-28">Não respondida</span>
+</div>
+
+<p class="enunciado">A realização de revista íntima que, na prática, revista o corpo de pessoa detida de maneira vexatória e sem fim legítimo vulnera garantias constitucionais e foi objeto de restrição pela Corte, devendo a modalidade vexatória ser vedada salvo hipóteses estritas previstas em lei e com observância da dignidade humana.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(28, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(28, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-28">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Embora o enunciado do tema recomende consulta detalhada, o julgamento orientou no sentido de que revistas íntimas praticadas de forma vexatória ferem direitos da pessoa humana e a dignidade, sendo ilegítimas quando não amparadas por finalidade legítima, proporcionalidade e formalidades legais; por isso, revistas íntimas com caráter vexatório são vedadas.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 998 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a prova obtida mediante abertura, sem autorização judicial e fora das hipóteses legais, de correspondência epistolar, telegrama, encomenda postal ou meio análogo é ilícita, salvo exceções expressamente reconhecidas, como a abertura em estabelecimento penitenciário mediante fundados indícios de atividades ilícitas; quanto às encomendas postais, também se exige indícios fundados para sua abertura. o stf consolidou entendimento de que a prova oriunda da abertura de correspondências e meios análogos sem autorização judicial é ilícita, com exceção para hipóteses restritas – notadamente em estabelecimento penitenciário, quando há indícios fundados de ilícito, e para encomendas postadas, desde que haja igualmente elementos indicativos de atividade ilícita e formalização das providências. tema 1041 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 29</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-29">Não respondida</span>
+</div>
+
+<p class="enunciado">A prova obtida mediante abertura, sem autorização judicial e fora das hipóteses legais, de correspondência epistolar, telegrama, encomenda postal ou meio análogo é ilícita, salvo exceções expressamente reconhecidas, como a abertura em estabelecimento penitenciário mediante fundados indícios de atividades ilícitas; quanto às encomendas postais, também se exige indícios fundados para sua abertura.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(29, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(29, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-29">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STF consolidou entendimento de que a prova oriunda da abertura de correspondências e meios análogos sem autorização judicial é ilícita, com exceção para hipóteses restritas – notadamente em estabelecimento penitenciário, quando há indícios fundados de ilícito, e para encomendas postadas, desde que haja igualmente elementos indicativos de atividade ilícita e formalização das providências.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1041 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a soberania dos veredictos do tribunal do júri autoriza a imediata execução da pena imposta pelo corpo de jurados, independentemente de considerar-se o quantum total da pena aplicada, de modo que eventual excessividade na dosimetria somente poderá ser revista em sede de recursos, não obstando a execução imediata. o stf reconheceu a soberania dos veredictos do júri e a possibilidade de execução imediata da condenação por força dessa soberania, ainda que subsista discussão sobre o total da pena a ser cumprido, admitindo-se a implementação imediata da pena imposta pelos jurados, com eventuais correções em sede recursal. tema 1068 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 30</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-30">Não respondida</span>
+</div>
+
+<p class="enunciado">A soberania dos veredictos do Tribunal do Júri autoriza a imediata execução da pena imposta pelo corpo de jurados, independentemente de considerar-se o quantum total da pena aplicada, de modo que eventual excessividade na dosimetria somente poderá ser revista em sede de recursos, não obstando a execução imediata.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(30, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(30, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-30">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STF reconheceu a soberania dos veredictos do Júri e a possibilidade de execução imediata da condenação por força dessa soberania, ainda que subsista discussão sobre o total da pena a ser cumprido, admitindo-se a implementação imediata da pena imposta pelos jurados, com eventuais correções em sede recursal.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1068 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="é incabível o recurso de apelação com fundamento no art. 593, iii, &quot;d&quot;, do cpp quando a acusação alegar que o veredicto do júri, baseado em quesito genérico, é manifesta e objetivamente contrária à prova dos autos; a legislação processual penal não permite tal insurgência recursal neste specific caso. o stf assentou que é cabível apelação com fundamento no art. 593, iii, &quot;d&quot; do cpp quando a acusação sustenta que o veredicto, amparado em quesito genérico, revela contrariedade manifesta à prova dos autos. ademais, o tribunal de apelação não determinará automaticamente novo júri quando houver, em ata, tese de clemência apresentada e acolhida pelos jurados, desde que compatível com a constituição e precedentes vinculantes. tema 1087 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 31</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-31">Não respondida</span>
+</div>
+
+<p class="enunciado">É incabível o recurso de apelação com fundamento no art. 593, III, &quot;d&quot;, do CPP quando a acusação alegar que o veredicto do Júri, baseado em quesito genérico, é manifesta e objetivamente contrária à prova dos autos; a legislação processual penal não permite tal insurgência recursal neste specific caso.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(31, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(31, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-31">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STF assentou que é cabível apelação com fundamento no art. 593, III, &quot;d&quot; do CPP quando a acusação sustenta que o veredicto, amparado em quesito genérico, revela contrariedade manifesta à prova dos autos. Ademais, o Tribunal de Apelação não determinará automaticamente novo Júri quando houver, em ata, tese de clemência apresentada e acolhida pelos jurados, desde que compatível com a Constituição e precedentes vinculantes.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1087 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a alteração legislativa promovida pela lei nº 13.964/2019 no art. 112 da lei de execução penal autoriza a incidência do percentual de 60% para progressão de regime aos condenados reincidentes não específicos por crime hediondo ou equiparado sem resultado morte, estando dispensada a aplicação analógica da regra anterior de 40%. em virtude do princípio da legalidade penal e da taxatividade normativa, o stf entendeu que a alteração não autoriza a aplicação do percentual de 60% aos reincidentes não específicos; diante da omissão legislativa, aplicou-se por analogia in bonam partem o percentual de 40% (inciso v do art. 112), inclusive com efeitos retroativos, para condenados por crime hediondo ou equiparado sem resultado morte. tema 1169 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 32</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-32">Não respondida</span>
+</div>
+
+<p class="enunciado">A alteração legislativa promovida pela Lei nº 13.964/2019 no art. 112 da Lei de Execução Penal autoriza a incidência do percentual de 60% para progressão de regime aos condenados reincidentes não específicos por crime hediondo ou equiparado sem resultado morte, estando dispensada a aplicação analógica da regra anterior de 40%.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(32, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(32, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-32">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Em virtude do princípio da legalidade penal e da taxatividade normativa, o STF entendeu que a alteração não autoriza a aplicação do percentual de 60% aos reincidentes não específicos; diante da omissão legislativa, aplicou-se por analogia in bonam partem o percentual de 40% (inciso V do art. 112), inclusive com efeitos retroativos, para condenados por crime hediondo ou equiparado sem resultado morte.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1169 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a estipulação, pelo legislador, de multa mínima no artigo 33 da lei nº 11.343/2006 configura opção legítima de política criminal para quantificação da pena pecuniária, sendo vedado ao poder judiciário alterar tal patamar com base em argumentos gerais de proporcionalidade, isonomia ou reinterpretação. o stf declarou que a previsão de multa mínima no dispositivo referido é uma opção legislativa válida, tratando-se de critério de quantificação da pena, não sendo competentes os juízes para reduzir ou afastar o mínimo legal sob o argumento de princípios da proporcionalidade ou isonomia, salvo hipótese de excepcional fundamentação que demonstre lesionamento constitucional concreto. tema 1178 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 33</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-33">Não respondida</span>
+</div>
+
+<p class="enunciado">A estipulação, pelo legislador, de multa mínima no artigo 33 da Lei nº 11.343/2006 configura opção legítima de política criminal para quantificação da pena pecuniária, sendo vedado ao Poder Judiciário alterar tal patamar com base em argumentos gerais de proporcionalidade, isonomia ou reinterpretação.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(33, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(33, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-33">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STF declarou que a previsão de multa mínima no dispositivo referido é uma opção legislativa válida, tratando-se de critério de quantificação da pena, não sendo competentes os juízes para reduzir ou afastar o mínimo legal sob o argumento de princípios da proporcionalidade ou isonomia, salvo hipótese de excepcional fundamentação que demonstre lesionamento constitucional concreto.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1178 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a suspensão dos direitos políticos decorrente de condenação criminal transitada em julgado impede, de forma absoluta e automática, a nomeação e a posse de candidato aprovado em concurso público, não cabendo qualquer avaliação judicial sobre a compatibilidade entre o exercício do cargo e a pena. o entendimento do stf é mais flexível: a suspensão dos direitos políticos não impede necessariamente a nomeação e posse, desde que não haja incompatibilidade com a infração penal praticada e observados os princípios da dignidade da pessoa humana e da reintegração social. o início do exercício do cargo pode ser condicionado ao regime da pena ou à manifestação do juízo de execuções que avaliaria a compatibilidade de horários e regime prisional. tema 1190 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 34</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repercussão Geral</span>
+  </div>
+  <span class="status" id="status-34">Não respondida</span>
+</div>
+
+<p class="enunciado">A suspensão dos direitos políticos decorrente de condenação criminal transitada em julgado impede, de forma absoluta e automática, a nomeação e a posse de candidato aprovado em concurso público, não cabendo qualquer avaliação judicial sobre a compatibilidade entre o exercício do cargo e a pena.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(34, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(34, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-34">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O entendimento do STF é mais flexível: a suspensão dos direitos políticos não impede necessariamente a nomeação e posse, desde que não haja incompatibilidade com a infração penal praticada e observados os princípios da dignidade da pessoa humana e da reintegração social. O início do exercício do cargo pode ser condicionado ao regime da pena ou à manifestação do juízo de execuções que avaliaria a compatibilidade de horários e regime prisional.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1190 STF</p>
+</div>
+</section>
+
+</div>
+
+<script>
+const storageKey = location.pathname + "_respostas";
+let respostas = JSON.parse(localStorage.getItem(storageKey) || "{}");
+
+function destacar(t){
+ if(t==="CERTO") return '<span class="gabarito-certo">CERTO</span>';
+ if(t==="ERRADO") return '<span class="gabarito-errado">ERRADO</span>';
+ return t;
+}
+
+function responder(numero, resposta){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const gabarito=card.dataset.gabarito;
+ const correto=resposta===gabarito;
+ respostas[numero]={resposta,correto};
+ localStorage.setItem(storageKey, JSON.stringify(respostas));
+ mostrarFeedback(numero);
+ atualizarPainel();
+ filtrar();
+}
+
+function mostrarFeedback(numero){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const feedback=document.getElementById("feedback-"+numero);
+ const status=document.getElementById("status-"+numero);
+ const resultado=feedback.querySelector(".resultado");
+ const gabarito=card.dataset.gabarito;
+ const dados=respostas[numero];
+ if(!dados) return;
+ feedback.style.display="block";
+ feedback.classList.remove("correto","errado");
+ if(dados.correto){
+   feedback.classList.add("correto");
+   resultado.innerHTML="Você acertou. A resposta é "+destacar(gabarito)+".";
+   status.textContent="Respondida — acerto";
+   status.style.color="var(--green)";
+ } else {
+   feedback.classList.add("errado");
+   resultado.innerHTML="Você errou. O gabarito é "+destacar(gabarito)+".";
+   status.textContent="Respondida — erro";
+   status.style.color="var(--red)";
+ }
+}
+
+function atualizarPainel(){
+ let respondidas=0, acertos=0, erros=0;
+ for(const k in respostas){
+   respondidas++;
+   if(respostas[k].correto) acertos++; else erros++;
+ }
+ document.getElementById("respondidas").textContent=respondidas;
+ document.getElementById("acertos").textContent=acertos;
+ document.getElementById("erros").textContent=erros;
+ document.getElementById("visiveis").textContent=document.querySelectorAll(".questao:not(.oculta)").length;
+}
+
+function filtrar(){
+ const busca=document.getElementById("busca").value.trim().toLowerCase();
+ const disciplina=document.getElementById("disciplina").value;
+ const statusFiltro=document.getElementById("statusFiltro").value;
+ const cards=Array.from(document.querySelectorAll(".questao"));
+ let vis=0;
+ cards.forEach((card,idx)=>{
+   const n=idx+1;
+   const texto=card.dataset.texto||"";
+   const disc=card.dataset.disciplina||"";
+   const r=respostas[n];
+   let passaStatus=true;
+   if(statusFiltro==="nao") passaStatus=!r;
+   if(statusFiltro==="acerto") passaStatus=r && r.correto;
+   if(statusFiltro==="erro") passaStatus=r && !r.correto;
+   const ok=(!busca||texto.includes(busca)) && (!disciplina||disc===disciplina) && passaStatus;
+   card.classList.toggle("oculta", !ok);
+   if(ok) vis++;
+ });
+ document.getElementById("sem-resultados").style.display=vis===0?"block":"none";
+ atualizarPainel();
+}
+
+function reiniciar(){
+ if(!confirm("Deseja reiniciar este simulado?")) return;
+ localStorage.removeItem(storageKey);
+ location.reload();
+}
+
+function restaurar(){
+ for(const k in respostas) mostrarFeedback(Number(k));
+ filtrar();
+ atualizarPainel();
+}
+
+restaurar();
+</script>
+</body>
+</html>

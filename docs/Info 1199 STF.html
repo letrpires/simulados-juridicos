@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Simulado - Info 1199 STF</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+:root{
+--bg:#020617;--panel:rgba(15,23,42,.88);--card:rgba(15,23,42,.96);
+--card2:rgba(30,41,59,.92);--border:rgba(148,163,184,.22);
+--text:#e5e7eb;--muted:#94a3b8;--accent:#38bdf8;--accent2:#0ea5e9;
+--green:#22c55e;--red:#ef4444;--yellow:#facc15;--purple:#a78bfa;
+}
+*{box-sizing:border-box}
+body{
+margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+background:radial-gradient(circle at top left,rgba(56,189,248,.20),transparent 28%),
+radial-gradient(circle at top right,rgba(167,139,250,.15),transparent 28%),
+linear-gradient(135deg,#020617,#0f172a 50%,#020617);
+color:var(--text);line-height:1.65;
+}
+header{padding:44px 20px 32px;text-align:center;border-bottom:1px solid var(--border)}
+header h1{margin:0 0 10px;font-size:clamp(28px,4vw,46px);letter-spacing:-.05em}
+header p{color:var(--muted);margin:0;font-size:16px}
+.container{max-width:1160px;margin:0 auto;padding:26px 16px 80px}
+.painel{
+position:sticky;top:10px;z-index:10;background:var(--panel);backdrop-filter:blur(18px);
+border:1px solid var(--border);border-radius:26px;padding:16px;margin-bottom:22px;
+box-shadow:0 22px 70px rgba(0,0,0,.35)
+}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.stat{background:var(--card2);padding:14px;border-radius:18px;text-align:center;border:1px solid rgba(148,163,184,.12)}
+.stat strong{display:block;font-size:25px;color:var(--accent);line-height:1.1}
+.stat span{font-size:12px;color:var(--muted)}
+.filtros{display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:12px;margin-top:14px}
+input,select{
+width:100%;background:rgba(2,6,23,.78);color:var(--text);border:1px solid var(--border);
+border-radius:14px;padding:13px 14px;outline:none;font-size:14px
+}
+input:focus,select:focus{border-color:var(--accent)}
+.card{
+background:var(--card);border:1px solid var(--border);border-radius:24px;padding:26px;
+margin-bottom:20px;box-shadow:0 18px 50px rgba(0,0,0,.24)
+}
+.questao{scroll-margin-top:190px}
+.questao-topo{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:18px}
+.badge{
+background:linear-gradient(135deg,var(--accent),var(--accent2));color:#00111f;font-weight:900;
+padding:7px 13px;border-radius:999px;display:inline-block
+}
+.disciplina-tag,.tipo-tag{
+display:inline-block;margin-left:8px;color:var(--muted);background:rgba(148,163,184,.10);
+border:1px solid rgba(148,163,184,.14);padding:6px 10px;border-radius:999px;font-size:12px
+}
+.tipo-tag{color:#ddd6fe;border-color:rgba(167,139,250,.25)}
+.status{color:var(--yellow);font-size:13px;white-space:nowrap}
+.enunciado{font-size:19px;margin:0 0 22px;letter-spacing:-.01em}
+.botoes{display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.btn{
+cursor:pointer;border:0;padding:12px 22px;border-radius:14px;color:white;font-weight:900;
+transition:.18s ease;letter-spacing:.02em
+}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.certo{background:rgba(34,197,94,.20);border:1px solid rgba(34,197,94,.42)}
+.btn.errado{background:rgba(239,68,68,.20);border:1px solid rgba(239,68,68,.42)}
+.btn.neutro{background:rgba(56,189,248,.16);color:var(--text);border:1px solid rgba(56,189,248,.32)}
+.feedback{
+display:none;background:rgba(2,6,23,.72);border:1px solid rgba(148,163,184,.16);
+border-left:5px solid var(--accent);padding:18px;border-radius:18px;margin-top:14px
+}
+.feedback.correto{border-left-color:var(--green)}
+.feedback.errado{border-left-color:var(--red)}
+.resultado{font-size:18px;font-weight:900;margin-top:0}
+.justificativa{margin-top:12px}
+.referencia{color:var(--muted);font-size:13px;margin-top:16px}
+.gabarito-certo{color:var(--green);font-weight:900}
+.gabarito-errado{color:var(--red);font-weight:900}
+.oculta{display:none}
+.sem-resultados{text-align:center;color:var(--muted);display:none;padding:30px}
+.grid-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
+.link-card{
+display:block;padding:20px;background:rgba(15,23,42,.95);border:1px solid rgba(148,163,184,.22);
+color:#e5e7eb;border-radius:22px;text-decoration:none;transition:.2s;box-shadow:0 14px 40px rgba(0,0,0,.22)
+}
+.link-card:hover{transform:translateY(-3px);border-color:#38bdf8}
+.link-card strong{display:block;font-size:17px;margin-bottom:8px}
+.link-card span{color:#94a3b8;font-size:13px}
+.index-tools{display:grid;grid-template-columns:1.5fr 1fr;gap:12px;margin-bottom:20px}
+@media(max-width:850px){
+.stats{grid-template-columns:repeat(2,1fr)}
+.filtros,.index-tools{grid-template-columns:1fr}
+.questao-topo{align-items:flex-start;flex-direction:column}
+.botoes{flex-direction:column}
+.enunciado{font-size:16px}
+.card{padding:20px}
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Simulado - Info 1199 STF</h1>
+<p>Informativos • Simulado interativo de CERTO ou ERRADO</p>
+</header>
+
+<div class="container">
+<div class="painel">
+<div class="stats">
+<div class="stat"><strong>4</strong><span>Total</span></div>
+<div class="stat"><strong id="visiveis">4</strong><span>Visíveis</span></div>
+<div class="stat"><strong id="respondidas">0</strong><span>Respondidas</span></div>
+<div class="stat"><strong id="acertos">0</strong><span>Acertos</span></div>
+<div class="stat"><strong id="erros">0</strong><span>Erros</span></div>
+</div>
+
+<div class="filtros">
+<input id="busca" type="search" placeholder="Buscar por palavra-chave..." oninput="filtrar()">
+<select id="disciplina" onchange="filtrar()">
+<option value="">Todas as disciplinas</option>
+<option value="ECA">ECA</option>
+<option value="N/I">N/I</option>
+</select>
+<select id="statusFiltro" onchange="filtrar()">
+<option value="">Todas</option>
+<option value="nao">Não respondidas</option>
+<option value="acerto">Acertos</option>
+<option value="erro">Erros</option>
+</select>
+<button class="btn neutro" onclick="reiniciar()">Reiniciar</button>
+</div>
+</div>
+
+<div id="sem-resultados" class="sem-resultados">Nenhuma questão encontrada com os filtros atuais.</div>
+
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="é formalmente constitucional lei distrital de iniciativa parlamentar que institua programa de captação de recursos privados para obras e manutenção de equipamentos públicos, ainda que preveja, como contrapartida aos investidores, incentivos tributários e a inclusão de categorias amplas e indeterminadas de bens públicos — a exemplo de hospitais, unidades básicas de saúde, delegacias e outros previstos em regulamento —, desde que a disciplina do tema não interfira diretamente na organização administrativa do poder executivo. a lei distrital que cria programa de parceria para financiamento de infraestrutura pública pode, em tese, ser formalmente válida mesmo quando proposta por parlamentar, porque a matéria não se insere, por si só, em reserva de iniciativa do chefe do poder executivo. contudo, o enunciado erra ao afirmar que seriam admissíveis, sem ressalvas, duas previsões que foram reputadas incompatíveis com a constituição.
+
+primeiro, a concessão de incentivos tributários como contrapartida em programas dessa natureza foi considerada inconstitucional. a razão é que tal previsão afronta a legalidade tributária e compromete, no caso concreto, os princípios da impessoalidade e da moralidade administrativa, pois cria benefício fiscal em favor de particulares em contexto de parceria pública sem a adequada conformação constitucional.
+
+segundo, também foram tidas por inconstitucionais as disposições que abrangem categorias genéricas ou sensíveis de equipamentos públicos, como hospitais, unidades básicas de saúde, delegacias, postos policiais e cláusulas abertas do tipo “outros previstos em regulamento”. esse tipo de abertura normativa viola a legalidade, a impessoalidade e a moralidade, pois permite seleção excessivamente discricionária de bens públicos sujeitos ao programa, sem delimitação normativa suficiente.
+
+além disso, a disciplina relativa à escolha de nome e identidade visual dos bens públicos não é livre e irrestrita: deve receber interpretação conforme à constituição para que sejam observadas as normas técnicas e as avaliações dos órgãos competentes de proteção ao patrimônio público, histórico e cultural. portanto, a assertiva é incorreta ao tratar como constitucional aquilo que foi expressamente limitado ou invalidado no julgamento. stf. plenário. re 1.536.640/df, rel. min. andré mendonça, julgado em 13/11/2025 (info 1199).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 1</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-1">Não respondida</span>
+</div>
+
+<p class="enunciado">É formalmente constitucional lei distrital de iniciativa parlamentar que institua programa de captação de recursos privados para obras e manutenção de equipamentos públicos, ainda que preveja, como contrapartida aos investidores, incentivos tributários e a inclusão de categorias amplas e indeterminadas de bens públicos — a exemplo de hospitais, unidades básicas de saúde, delegacias e outros previstos em regulamento —, desde que a disciplina do tema não interfira diretamente na organização administrativa do Poder Executivo.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(1, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(1, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-1">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A lei distrital que cria programa de parceria para financiamento de infraestrutura pública pode, em tese, ser formalmente válida mesmo quando proposta por parlamentar, porque a matéria não se insere, por si só, em reserva de iniciativa do chefe do Poder Executivo. Contudo, o enunciado erra ao afirmar que seriam admissíveis, sem ressalvas, duas previsões que foram reputadas incompatíveis com a Constituição.<br><br>Primeiro, a concessão de incentivos tributários como contrapartida em programas dessa natureza foi considerada inconstitucional. A razão é que tal previsão afronta a legalidade tributária e compromete, no caso concreto, os princípios da impessoalidade e da moralidade administrativa, pois cria benefício fiscal em favor de particulares em contexto de parceria pública sem a adequada conformação constitucional.<br><br>Segundo, também foram tidas por inconstitucionais as disposições que abrangem categorias genéricas ou sensíveis de equipamentos públicos, como hospitais, unidades básicas de saúde, delegacias, postos policiais e cláusulas abertas do tipo “outros previstos em regulamento”. Esse tipo de abertura normativa viola a legalidade, a impessoalidade e a moralidade, pois permite seleção excessivamente discricionária de bens públicos sujeitos ao programa, sem delimitação normativa suficiente.<br><br>Além disso, a disciplina relativa à escolha de nome e identidade visual dos bens públicos não é livre e irrestrita: deve receber interpretação conforme à Constituição para que sejam observadas as normas técnicas e as avaliações dos órgãos competentes de proteção ao patrimônio público, histórico e cultural. Portanto, a assertiva é incorreta ao tratar como constitucional aquilo que foi expressamente limitado ou invalidado no julgamento.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. RE 1.536.640/DF, Rel. Min. André Mendonça, julgado em 13/11/2025 (Info 1199).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="ECA"
+data-texto="a imposição, pela legislação que instituiu a política nacional de biocombustíveis, de metas compulsórias de descarbonização apenas aos distribuidores de combustíveis fósseis, com a correspondente necessidade de aquisição de créditos de descarbonização para comprovação do adimplemento, não viola a isonomia nem a livre iniciativa, pois a diferenciação normativa se apoia em critério objetivo diretamente relacionado à finalidade ambiental da medida, sem impor aos produtores de biocombustíveis dever jurídico de emissão ou alienação dos créditos. a assertiva está correta porque reproduz, em essência, a lógica constitucional validada no julgamento: o regime do renovabio estrutura-se sobre uma diferenciação normativa fundada na natureza da atividade econômica exercida. o ônus regulatório recai sobre os distribuidores de combustíveis fósseis, que são os agentes vinculados à cadeia mais intensiva em emissões, enquanto os produtores de biocombustíveis apenas podem emitir cbios, sem obrigação de fazê-lo. isso afasta alegação de tratamento arbitrário ou discriminatório, pois o critério eleito pelo legislador é objetivo e funcionalmente conectado à finalidade de redução de gases poluentes.
+
+também não há ofensa à livre iniciativa ou à livre concorrência, porque a política pública não cria privilégio setorial nem impõe restrição desproporcional à atividade econômica; ao contrário, estabelece um marco regulatório uniforme para todos os distribuidores de combustíveis fósseis, permitindo a internalização dos custos ambientais na cadeia econômica. nesse contexto, o princípio do poluidor-pagador é concretizado, já que o encargo econômico da política ambiental recai sobre quem explora atividade associada à emissão de poluentes, ainda que o repasse dos custos possa ocorrer ao consumidor final.
+
+além disso, o stf reconheceu que as sanções e mecanismos de cumprimento previstos na lei se inserem na margem de conformação do legislador e da administração para implementar políticas ambientais, inexistindo violação à proporcionalidade ou ao vedado confisco. a intervenção judicial, nesse campo, não pode substituir a escolha normativa do legislador, salvo hipótese de manifesta inconstitucionalidade, o que não se verificou. em síntese, a disciplina legal foi reputada compatível com o dever de proteção ambiental do art. 225 da constituição e com a promoção do desenvolvimento sustentável. stf. plenário. adi 7.617/df e adi 7.596/df, rel. min. nunes marques, julgados em 17/11/2025 (info 1199).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 2</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-2">Não respondida</span>
+</div>
+
+<p class="enunciado">A imposição, pela legislação que instituiu a política nacional de biocombustíveis, de metas compulsórias de descarbonização apenas aos distribuidores de combustíveis fósseis, com a correspondente necessidade de aquisição de créditos de descarbonização para comprovação do adimplemento, não viola a isonomia nem a livre iniciativa, pois a diferenciação normativa se apoia em critério objetivo diretamente relacionado à finalidade ambiental da medida, sem impor aos produtores de biocombustíveis dever jurídico de emissão ou alienação dos créditos.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(2, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(2, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-2">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz, em essência, a lógica constitucional validada no julgamento: o regime do RenovaBio estrutura-se sobre uma diferenciação normativa fundada na natureza da atividade econômica exercida. O ônus regulatório recai sobre os distribuidores de combustíveis fósseis, que são os agentes vinculados à cadeia mais intensiva em emissões, enquanto os produtores de biocombustíveis apenas podem emitir CBIOs, sem obrigação de fazê-lo. Isso afasta alegação de tratamento arbitrário ou discriminatório, pois o critério eleito pelo legislador é objetivo e funcionalmente conectado à finalidade de redução de gases poluentes.<br><br>Também não há ofensa à livre iniciativa ou à livre concorrência, porque a política pública não cria privilégio setorial nem impõe restrição desproporcional à atividade econômica; ao contrário, estabelece um marco regulatório uniforme para todos os distribuidores de combustíveis fósseis, permitindo a internalização dos custos ambientais na cadeia econômica. Nesse contexto, o princípio do poluidor-pagador é concretizado, já que o encargo econômico da política ambiental recai sobre quem explora atividade associada à emissão de poluentes, ainda que o repasse dos custos possa ocorrer ao consumidor final.<br><br>Além disso, o STF reconheceu que as sanções e mecanismos de cumprimento previstos na lei se inserem na margem de conformação do legislador e da Administração para implementar políticas ambientais, inexistindo violação à proporcionalidade ou ao vedado confisco. A intervenção judicial, nesse campo, não pode substituir a escolha normativa do legislador, salvo hipótese de manifesta inconstitucionalidade, o que não se verificou. Em síntese, a disciplina legal foi reputada compatível com o dever de proteção ambiental do art. 225 da Constituição e com a promoção do desenvolvimento sustentável.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.617/DF e ADI 7.596/DF, Rel. Min. Nunes Marques, julgados em 17/11/2025 (Info 1199).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="ECA"
+data-texto="no microssistema dos juizados especiais, a vedação legal à ação rescisória não impede que, na fase executiva, a parte executada suscite a inexigibilidade do título judicial por simples petição, inclusive quando a controvérsia envolver pronunciamento do supremo tribunal federal incompatível com a interpretação adotada no título, desde que observados o prazo decadencial de dois anos contado do trânsito em julgado da decisão do stf e, na ausência de disciplina expressa quanto aos efeitos temporais, o limite máximo de retroação de cinco anos. a assertiva está correta porque reproduz, em essência, a solução firmada para compatibilizar a estabilidade da coisa julgada nos juizados especiais com a supremacia da constituição e a autoridade dos precedentes do supremo tribunal federal. embora o art. 59 da lei 9.099/1995 vede a ação rescisória, essa proibição não impede a desconstituição da coisa julgada inconstitucional nem afasta a arguição de inexigibilidade do título judicial na fase de cumprimento/execução.
+
+o entendimento assentou que é admissível o manejo de simples petição para esse fim, em prazo equivalente ao da ação rescisória, isto é, decadencial de dois anos contados do trânsito em julgado da decisão do stf que tenha fixado a interpretação constitucional incompatível com o título. além disso, na ausência de manifestação expressa do supremo sobre os efeitos temporais do precedente vinculante, a eventual desconstituição da coisa julgada não pode retroagir além de cinco anos da data da apresentação da petição, preservando-se a segurança jurídica.
+
+a tese também admite a invocação da inexigibilidade quando houver pronunciamento jurisdicional do stf, em controle difuso ou concentrado, contrário ao que foi adotado no título executivo, e deixa claro que a decisão do supremo pode, em cada caso, modular os efeitos temporais e até afastar o cabimento da medida diante de grave risco à segurança jurídica ou ao interesse social. stf. plenário. adpf 615/df, rel. min. luís roberto barroso, redator do acórdão min. alexandre de moraes, julgado em 17/11/2025 (info 1199).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 3</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-3">Não respondida</span>
+</div>
+
+<p class="enunciado">No microssistema dos juizados especiais, a vedação legal à ação rescisória não impede que, na fase executiva, a parte executada suscite a inexigibilidade do título judicial por simples petição, inclusive quando a controvérsia envolver pronunciamento do Supremo Tribunal Federal incompatível com a interpretação adotada no título, desde que observados o prazo decadencial de dois anos contado do trânsito em julgado da decisão do STF e, na ausência de disciplina expressa quanto aos efeitos temporais, o limite máximo de retroação de cinco anos.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(3, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(3, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-3">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz, em essência, a solução firmada para compatibilizar a estabilidade da coisa julgada nos juizados especiais com a supremacia da Constituição e a autoridade dos precedentes do Supremo Tribunal Federal. Embora o art. 59 da Lei 9.099/1995 vede a ação rescisória, essa proibição não impede a desconstituição da coisa julgada inconstitucional nem afasta a arguição de inexigibilidade do título judicial na fase de cumprimento/execução.<br><br>O entendimento assentou que é admissível o manejo de simples petição para esse fim, em prazo equivalente ao da ação rescisória, isto é, decadencial de dois anos contados do trânsito em julgado da decisão do STF que tenha fixado a interpretação constitucional incompatível com o título. Além disso, na ausência de manifestação expressa do Supremo sobre os efeitos temporais do precedente vinculante, a eventual desconstituição da coisa julgada não pode retroagir além de cinco anos da data da apresentação da petição, preservando-se a segurança jurídica.<br><br>A tese também admite a invocação da inexigibilidade quando houver pronunciamento jurisdicional do STF, em controle difuso ou concentrado, contrário ao que foi adotado no título executivo, e deixa claro que a decisão do Supremo pode, em cada caso, modular os efeitos temporais e até afastar o cabimento da medida diante de grave risco à segurança jurídica ou ao interesse social.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADPF 615/DF, Rel. Min. Luís Roberto Barroso, redator do acórdão Min. Alexandre de Moraes, julgado em 17/11/2025 (Info 1199).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="na ausência de disciplina legal específica ou de ajuste coletivo em sentido diverso, o recreio escolar, na educação básica, e o intervalo entre aulas, na educação superior, presumem-se tempo à disposição do empregador e, por isso, integram a jornada do professor; essa presunção, contudo, não é absoluta, podendo ser afastada se a instituição de ensino demonstrar que, nesses períodos, o docente se dedicava a atividades estritamente pessoais, hipótese em que não haverá cômputo do tempo na jornada diária. o entendimento firmado reconhece, como regra, que o recreio escolar e o intervalo entre aulas constituem tempo à disposição do empregador, devendo ser computados na jornada do professor quando inexistirem previsão legal específica ou norma coletiva em sentido diverso. a razão é que, nesses períodos, o docente permanece vinculado ao ambiente e à dinâmica do trabalho, sem liberdade plena para dispor do tempo como entender.
+
+todavia, a presunção de que tais intervalos sempre integram a jornada não é absoluta. o ponto central do julgado é justamente afastar a ideia de automatismo irrebutável: cabe ao empregador demonstrar que, no caso concreto, o professor se dedicava a atividades estritamente pessoais durante o recreio ou o intervalo entre aulas. se essa prova for produzida, o tempo correspondente deixa de ser computado na jornada diária, nos termos do art. 4º, § 2º, da clt.
+
+além disso, o julgado ressalta que a matéria admite disciplina por negociação coletiva, em razão da validade constitucional da autonomia coletiva em temas de jornada e intervalo intrajornada. assim, convenção ou acordo coletivo podem estabelecer disciplina diversa da regra geral, inclusive em condições distintas das previstas em lei, desde que observados os limites constitucionais e legais pertinentes.
+
+a assertiva, portanto, está correta ao reproduzir a regra geral, a exceção probatória e a possibilidade de afastamento por ajuste coletivo. stf. plenário. adpf 1.058 mc-ref/df, rel. min. gilmar mendes, julgado em 13/11/2025 (info 1199).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 4</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-4">Não respondida</span>
+</div>
+
+<p class="enunciado">Na ausência de disciplina legal específica ou de ajuste coletivo em sentido diverso, o recreio escolar, na educação básica, e o intervalo entre aulas, na educação superior, presumem-se tempo à disposição do empregador e, por isso, integram a jornada do professor; essa presunção, contudo, não é absoluta, podendo ser afastada se a instituição de ensino demonstrar que, nesses períodos, o docente se dedicava a atividades estritamente pessoais, hipótese em que não haverá cômputo do tempo na jornada diária.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(4, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(4, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-4">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O entendimento firmado reconhece, como regra, que o recreio escolar e o intervalo entre aulas constituem tempo à disposição do empregador, devendo ser computados na jornada do professor quando inexistirem previsão legal específica ou norma coletiva em sentido diverso. A razão é que, nesses períodos, o docente permanece vinculado ao ambiente e à dinâmica do trabalho, sem liberdade plena para dispor do tempo como entender.<br><br>Todavia, a presunção de que tais intervalos sempre integram a jornada não é absoluta. O ponto central do julgado é justamente afastar a ideia de automatismo irrebutável: cabe ao empregador demonstrar que, no caso concreto, o professor se dedicava a atividades estritamente pessoais durante o recreio ou o intervalo entre aulas. Se essa prova for produzida, o tempo correspondente deixa de ser computado na jornada diária, nos termos do art. 4º, § 2º, da CLT.<br><br>Além disso, o julgado ressalta que a matéria admite disciplina por negociação coletiva, em razão da validade constitucional da autonomia coletiva em temas de jornada e intervalo intrajornada. Assim, convenção ou acordo coletivo podem estabelecer disciplina diversa da regra geral, inclusive em condições distintas das previstas em lei, desde que observados os limites constitucionais e legais pertinentes.<br><br>A assertiva, portanto, está correta ao reproduzir a regra geral, a exceção probatória e a possibilidade de afastamento por ajuste coletivo.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADPF 1.058 MC-Ref/DF, Rel. Min. Gilmar Mendes, julgado em 13/11/2025 (Info 1199).</p>
+</div>
+</section>
+
+</div>
+
+<script>
+const storageKey = location.pathname + "_respostas";
+let respostas = JSON.parse(localStorage.getItem(storageKey) || "{}");
+
+function destacar(t){
+ if(t==="CERTO") return '<span class="gabarito-certo">CERTO</span>';
+ if(t==="ERRADO") return '<span class="gabarito-errado">ERRADO</span>';
+ return t;
+}
+
+function responder(numero, resposta){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const gabarito=card.dataset.gabarito;
+ const correto=resposta===gabarito;
+ respostas[numero]={resposta,correto};
+ localStorage.setItem(storageKey, JSON.stringify(respostas));
+ mostrarFeedback(numero);
+ atualizarPainel();
+ filtrar();
+}
+
+function mostrarFeedback(numero){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const feedback=document.getElementById("feedback-"+numero);
+ const status=document.getElementById("status-"+numero);
+ const resultado=feedback.querySelector(".resultado");
+ const gabarito=card.dataset.gabarito;
+ const dados=respostas[numero];
+ if(!dados) return;
+ feedback.style.display="block";
+ feedback.classList.remove("correto","errado");
+ if(dados.correto){
+   feedback.classList.add("correto");
+   resultado.innerHTML="Você acertou. A resposta é "+destacar(gabarito)+".";
+   status.textContent="Respondida — acerto";
+   status.style.color="var(--green)";
+ } else {
+   feedback.classList.add("errado");
+   resultado.innerHTML="Você errou. O gabarito é "+destacar(gabarito)+".";
+   status.textContent="Respondida — erro";
+   status.style.color="var(--red)";
+ }
+}
+
+function atualizarPainel(){
+ let respondidas=0, acertos=0, erros=0;
+ for(const k in respostas){
+   respondidas++;
+   if(respostas[k].correto) acertos++; else erros++;
+ }
+ document.getElementById("respondidas").textContent=respondidas;
+ document.getElementById("acertos").textContent=acertos;
+ document.getElementById("erros").textContent=erros;
+ document.getElementById("visiveis").textContent=document.querySelectorAll(".questao:not(.oculta)").length;
+}
+
+function filtrar(){
+ const busca=document.getElementById("busca").value.trim().toLowerCase();
+ const disciplina=document.getElementById("disciplina").value;
+ const statusFiltro=document.getElementById("statusFiltro").value;
+ const cards=Array.from(document.querySelectorAll(".questao"));
+ let vis=0;
+ cards.forEach((card,idx)=>{
+   const n=idx+1;
+   const texto=card.dataset.texto||"";
+   const disc=card.dataset.disciplina||"";
+   const r=respostas[n];
+   let passaStatus=true;
+   if(statusFiltro==="nao") passaStatus=!r;
+   if(statusFiltro==="acerto") passaStatus=r && r.correto;
+   if(statusFiltro==="erro") passaStatus=r && !r.correto;
+   const ok=(!busca||texto.includes(busca)) && (!disciplina||disc===disciplina) && passaStatus;
+   card.classList.toggle("oculta", !ok);
+   if(ok) vis++;
+ });
+ document.getElementById("sem-resultados").style.display=vis===0?"block":"none";
+ atualizarPainel();
+}
+
+function reiniciar(){
+ if(!confirm("Deseja reiniciar este simulado?")) return;
+ localStorage.removeItem(storageKey);
+ location.reload();
+}
+
+function restaurar(){
+ for(const k in respostas) mostrarFeedback(Number(k));
+ filtrar();
+ atualizarPainel();
+}
+
+restaurar();
+</script>
+</body>
+</html>

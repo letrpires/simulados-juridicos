@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Simulado - Info 1178 STF</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+:root{
+--bg:#020617;--panel:rgba(15,23,42,.88);--card:rgba(15,23,42,.96);
+--card2:rgba(30,41,59,.92);--border:rgba(148,163,184,.22);
+--text:#e5e7eb;--muted:#94a3b8;--accent:#38bdf8;--accent2:#0ea5e9;
+--green:#22c55e;--red:#ef4444;--yellow:#facc15;--purple:#a78bfa;
+}
+*{box-sizing:border-box}
+body{
+margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+background:radial-gradient(circle at top left,rgba(56,189,248,.20),transparent 28%),
+radial-gradient(circle at top right,rgba(167,139,250,.15),transparent 28%),
+linear-gradient(135deg,#020617,#0f172a 50%,#020617);
+color:var(--text);line-height:1.65;
+}
+header{padding:44px 20px 32px;text-align:center;border-bottom:1px solid var(--border)}
+header h1{margin:0 0 10px;font-size:clamp(28px,4vw,46px);letter-spacing:-.05em}
+header p{color:var(--muted);margin:0;font-size:16px}
+.container{max-width:1160px;margin:0 auto;padding:26px 16px 80px}
+.painel{
+position:sticky;top:10px;z-index:10;background:var(--panel);backdrop-filter:blur(18px);
+border:1px solid var(--border);border-radius:26px;padding:16px;margin-bottom:22px;
+box-shadow:0 22px 70px rgba(0,0,0,.35)
+}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.stat{background:var(--card2);padding:14px;border-radius:18px;text-align:center;border:1px solid rgba(148,163,184,.12)}
+.stat strong{display:block;font-size:25px;color:var(--accent);line-height:1.1}
+.stat span{font-size:12px;color:var(--muted)}
+.filtros{display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:12px;margin-top:14px}
+input,select{
+width:100%;background:rgba(2,6,23,.78);color:var(--text);border:1px solid var(--border);
+border-radius:14px;padding:13px 14px;outline:none;font-size:14px
+}
+input:focus,select:focus{border-color:var(--accent)}
+.card{
+background:var(--card);border:1px solid var(--border);border-radius:24px;padding:26px;
+margin-bottom:20px;box-shadow:0 18px 50px rgba(0,0,0,.24)
+}
+.questao{scroll-margin-top:190px}
+.questao-topo{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:18px}
+.badge{
+background:linear-gradient(135deg,var(--accent),var(--accent2));color:#00111f;font-weight:900;
+padding:7px 13px;border-radius:999px;display:inline-block
+}
+.disciplina-tag,.tipo-tag{
+display:inline-block;margin-left:8px;color:var(--muted);background:rgba(148,163,184,.10);
+border:1px solid rgba(148,163,184,.14);padding:6px 10px;border-radius:999px;font-size:12px
+}
+.tipo-tag{color:#ddd6fe;border-color:rgba(167,139,250,.25)}
+.status{color:var(--yellow);font-size:13px;white-space:nowrap}
+.enunciado{font-size:19px;margin:0 0 22px;letter-spacing:-.01em}
+.botoes{display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.btn{
+cursor:pointer;border:0;padding:12px 22px;border-radius:14px;color:white;font-weight:900;
+transition:.18s ease;letter-spacing:.02em
+}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.certo{background:rgba(34,197,94,.20);border:1px solid rgba(34,197,94,.42)}
+.btn.errado{background:rgba(239,68,68,.20);border:1px solid rgba(239,68,68,.42)}
+.btn.neutro{background:rgba(56,189,248,.16);color:var(--text);border:1px solid rgba(56,189,248,.32)}
+.feedback{
+display:none;background:rgba(2,6,23,.72);border:1px solid rgba(148,163,184,.16);
+border-left:5px solid var(--accent);padding:18px;border-radius:18px;margin-top:14px
+}
+.feedback.correto{border-left-color:var(--green)}
+.feedback.errado{border-left-color:var(--red)}
+.resultado{font-size:18px;font-weight:900;margin-top:0}
+.justificativa{margin-top:12px}
+.referencia{color:var(--muted);font-size:13px;margin-top:16px}
+.gabarito-certo{color:var(--green);font-weight:900}
+.gabarito-errado{color:var(--red);font-weight:900}
+.oculta{display:none}
+.sem-resultados{text-align:center;color:var(--muted);display:none;padding:30px}
+.grid-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
+.link-card{
+display:block;padding:20px;background:rgba(15,23,42,.95);border:1px solid rgba(148,163,184,.22);
+color:#e5e7eb;border-radius:22px;text-decoration:none;transition:.2s;box-shadow:0 14px 40px rgba(0,0,0,.22)
+}
+.link-card:hover{transform:translateY(-3px);border-color:#38bdf8}
+.link-card strong{display:block;font-size:17px;margin-bottom:8px}
+.link-card span{color:#94a3b8;font-size:13px}
+.index-tools{display:grid;grid-template-columns:1.5fr 1fr;gap:12px;margin-bottom:20px}
+@media(max-width:850px){
+.stats{grid-template-columns:repeat(2,1fr)}
+.filtros,.index-tools{grid-template-columns:1fr}
+.questao-topo{align-items:flex-start;flex-direction:column}
+.botoes{flex-direction:column}
+.enunciado{font-size:16px}
+.card{padding:20px}
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Simulado - Info 1178 STF</h1>
+<p>Informativos • Simulado interativo de CERTO ou ERRADO</p>
+</header>
+
+<div class="container">
+<div class="painel">
+<div class="stats">
+<div class="stat"><strong>5</strong><span>Total</span></div>
+<div class="stat"><strong id="visiveis">5</strong><span>Visíveis</span></div>
+<div class="stat"><strong id="respondidas">0</strong><span>Respondidas</span></div>
+<div class="stat"><strong id="acertos">0</strong><span>Acertos</span></div>
+<div class="stat"><strong id="erros">0</strong><span>Erros</span></div>
+</div>
+
+<div class="filtros">
+<input id="busca" type="search" placeholder="Buscar por palavra-chave..." oninput="filtrar()">
+<select id="disciplina" onchange="filtrar()">
+<option value="">Todas as disciplinas</option>
+<option value="ECA">ECA</option>
+<option value="N/I">N/I</option>
+</select>
+<select id="statusFiltro" onchange="filtrar()">
+<option value="">Todas</option>
+<option value="nao">Não respondidas</option>
+<option value="acerto">Acertos</option>
+<option value="erro">Erros</option>
+</select>
+<button class="btn neutro" onclick="reiniciar()">Reiniciar</button>
+</div>
+</div>
+
+<div id="sem-resultados" class="sem-resultados">Nenhuma questão encontrada com os filtros atuais.</div>
+
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="é compatível com a constituição estadual norma que imponha ao governador e ao vice-governador a necessidade de autorização da assembleia legislativa para se ausentarem do estado ou do país por prazo superior a quinze dias, mas que não preveja, para a hipótese de descumprimento, a perda do cargo, por se tratar de opção legítima do constituinte estadual no exercício de sua autonomia organizatória. a assertiva está incorreta porque a autonomia constitucional dos estados-membros não autoriza afastamento do modelo federal quando a própria constituição da república estabelece parâmetro normativo de simetria para a disciplina da chefia do poder executivo local. a exigência de autorização legislativa para ausências prolongadas do governador e do vice-governador não pode ser dissociada da consequência jurídica prevista no art. 83 da constituição federal para o presidente e o vice-presidente da república, qual seja, a perda do cargo em caso de ausência do território nacional por período superior a quinze dias sem a devida autorização do congresso nacional.
+
+no caso examinado, a omissão da constituição estadual em prever a sanção de perda do cargo foi reputada incompatível com a constituição federal, por violar não apenas o princípio da simetria, mas também a separação dos poderes e o art. 25, caput, da cf, em conjunto com o art. 11 do adct. o entendimento firmado foi no sentido de que a constituição estadual deve reproduzir de forma completa o modelo federal, de modo que a licença para afastamento e a sanção pelo descumprimento integrem a mesma disciplina normativa.
+
+além disso, a decisão foi proferida com interpretação conforme à constituição federal e com efeitos ex nunc, fixando-se que a ausência do governador e do vice-governador do território estadual e nacional, por período superior a quinze dias, sem autorização da assembleia legislativa, implica perda do cargo, nos termos do art. 83 da cf/1988. portanto, não se trata de mera faculdade do constituinte estadual, mas de imposição constitucional vinculante. stf. plenário. adi 7.463/df, rel. min. andré mendonça, julgado em 19/05/2025 (info 1178).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 1</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-1">Não respondida</span>
+</div>
+
+<p class="enunciado">É compatível com a Constituição estadual norma que imponha ao governador e ao vice-governador a necessidade de autorização da Assembleia Legislativa para se ausentarem do Estado ou do País por prazo superior a quinze dias, mas que não preveja, para a hipótese de descumprimento, a perda do cargo, por se tratar de opção legítima do constituinte estadual no exercício de sua autonomia organizatória.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(1, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(1, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-1">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque a autonomia constitucional dos Estados-membros não autoriza afastamento do modelo federal quando a própria Constituição da República estabelece parâmetro normativo de simetria para a disciplina da chefia do Poder Executivo local. A exigência de autorização legislativa para ausências prolongadas do governador e do vice-governador não pode ser dissociada da consequência jurídica prevista no art. 83 da Constituição Federal para o Presidente e o Vice-Presidente da República, qual seja, a perda do cargo em caso de ausência do território nacional por período superior a quinze dias sem a devida autorização do Congresso Nacional.<br><br>No caso examinado, a omissão da Constituição estadual em prever a sanção de perda do cargo foi reputada incompatível com a Constituição Federal, por violar não apenas o princípio da simetria, mas também a separação dos Poderes e o art. 25, caput, da CF, em conjunto com o art. 11 do ADCT. O entendimento firmado foi no sentido de que a Constituição estadual deve reproduzir de forma completa o modelo federal, de modo que a licença para afastamento e a sanção pelo descumprimento integrem a mesma disciplina normativa.<br><br>Além disso, a decisão foi proferida com interpretação conforme à Constituição Federal e com efeitos ex nunc, fixando-se que a ausência do governador e do vice-governador do território estadual e nacional, por período superior a quinze dias, sem autorização da Assembleia Legislativa, implica perda do cargo, nos termos do art. 83 da CF/1988. Portanto, não se trata de mera faculdade do constituinte estadual, mas de imposição constitucional vinculante.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.463/DF, Rel. Min. André Mendonça, julgado em 19/05/2025 (Info 1178).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="é inconstitucional a exigência, prevista em provimento do conselho federal da oab, de que o advogado candidato à formação da lista sêxtupla destinada ao quinto constitucional comprove inscrição há mais de cinco anos na seccional correspondente à jurisdição do tribunal em que aberta a vaga, por se tratar de restrição territorial não prevista expressamente na constituição e incompatível com a isonomia entre os inscritos. a exigência é constitucional. embora a constituição discipline o quinto constitucional e preveja a participação da oab na formação da lista sêxtupla, a definição de critérios objetivos para a seleção dos candidatos integra a margem normativa conferida à própria entidade, desde que respeitados os parâmetros constitucionais e a finalidade do instituto.
+
+o requisito de inscrição há mais de cinco anos na seccional abrangida pela jurisdição do tribunal não foi considerado restrição arbitrária nem inovação ilegítima. ao contrário, foi reputado compatível com a lógica do quinto constitucional, porque busca assegurar maior vinculação do candidato com a realidade local e regional sobre a qual o tribunal exerce jurisdição, além de coibir candidaturas oportunistas e favorecer a seleção de profissionais com efetiva inserção na comunidade jurídica correspondente.
+
+também não procede a alegação de violação à isonomia. o critério é objetivo, previamente conhecido e relacionado de modo racional com a finalidade institucional do provimento das vagas, o que reforça, em vez de comprometer, os princípios da impessoalidade, da moralidade e da transparência no processo de escolha. assim, a diferenciação entre candidatos fundada na aderência territorial e temporal à seccional pertinente constitui discrímen constitucionalmente legítimo. stf. plenário. adi 6.810/df, rel. min. dias toffoli, redator do acórdão min. flávio dino, julgado em 19/05/2025 (info 1178).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 2</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-2">Não respondida</span>
+</div>
+
+<p class="enunciado">É inconstitucional a exigência, prevista em provimento do Conselho Federal da OAB, de que o advogado candidato à formação da lista sêxtupla destinada ao quinto constitucional comprove inscrição há mais de cinco anos na seccional correspondente à jurisdição do tribunal em que aberta a vaga, por se tratar de restrição territorial não prevista expressamente na Constituição e incompatível com a isonomia entre os inscritos.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(2, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(2, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-2">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A exigência é constitucional. Embora a Constituição discipline o quinto constitucional e preveja a participação da OAB na formação da lista sêxtupla, a definição de critérios objetivos para a seleção dos candidatos integra a margem normativa conferida à própria entidade, desde que respeitados os parâmetros constitucionais e a finalidade do instituto.<br><br>O requisito de inscrição há mais de cinco anos na seccional abrangida pela jurisdição do tribunal não foi considerado restrição arbitrária nem inovação ilegítima. Ao contrário, foi reputado compatível com a lógica do quinto constitucional, porque busca assegurar maior vinculação do candidato com a realidade local e regional sobre a qual o tribunal exerce jurisdição, além de coibir candidaturas oportunistas e favorecer a seleção de profissionais com efetiva inserção na comunidade jurídica correspondente.<br><br>Também não procede a alegação de violação à isonomia. O critério é objetivo, previamente conhecido e relacionado de modo racional com a finalidade institucional do provimento das vagas, o que reforça, em vez de comprometer, os princípios da impessoalidade, da moralidade e da transparência no processo de escolha. Assim, a diferenciação entre candidatos fundada na aderência territorial e temporal à seccional pertinente constitui discrímen constitucionalmente legítimo.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 6.810/DF, Rel. Min. Dias Toffoli, redator do acórdão Min. Flávio Dino, julgado em 19/05/2025 (Info 1178).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="no âmbito dos juizados especiais da fazenda pública, é juridicamente admissível impor à fazenda pública, para viabilizar o início da fase de cumprimento de sentença, o dever de apresentar os documentos e os cálculos necessários à apuração do quantum debeatur, em lógica semelhante à adotada nos juizados especiais federais, sem que isso represente, por si só, afronta ao regime processual aplicável à execução contra a fazenda. a assertiva está correta porque o entendimento firmado admite a chamada “execução invertida” também no âmbito dos juizados especiais da fazenda pública, isto é, a possibilidade de se atribuir ao ente público o ônus de apresentar a documentação e os cálculos indispensáveis ao início do cumprimento de sentença. a razão central é a compatibilização do procedimento executivo com a lógica dos juizados, especialmente diante da finalidade de simplificação, celeridade e efetividade da tutela jurisdicional.
+
+o ponto relevante para prova é que essa possibilidade não foi tratada como automática ou irrestrita em qualquer hipótese, mas como juridicamente admissível nos juizados especiais, em linha com a disciplina já reconhecida para os juizados especiais federais. além disso, a controvérsia foi qualificada como fática quanto à hipossuficiência do credor, o que reforça que a atribuição desse ônus à fazenda pública depende da conformação concreta do caso e da racionalidade do microssistema dos juizados, e não de uma vedação abstrata.
+
+em termos práticos, a tese afasta a ideia de que a fazenda pública jamais possa ser compelida a colaborar com a formação do demonstrativo do crédito na fase executiva. ao contrário, o stf assentou a possibilidade de exigir a apresentação de documentos e cálculos para o início do cumprimento de sentença nos juizados especiais, em harmonia com a orientação já existente na adpf 219. stf. plenário. are 1.528.097/sp, rel. min. luís roberto barroso, julgado em 17/05/2025 (repercussão geral – tema 1.396) (info 1178).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 3</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-3">Não respondida</span>
+</div>
+
+<p class="enunciado">No âmbito dos Juizados Especiais da Fazenda Pública, é juridicamente admissível impor à Fazenda Pública, para viabilizar o início da fase de cumprimento de sentença, o dever de apresentar os documentos e os cálculos necessários à apuração do quantum debeatur, em lógica semelhante à adotada nos Juizados Especiais Federais, sem que isso represente, por si só, afronta ao regime processual aplicável à execução contra a Fazenda.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(3, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(3, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-3">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque o entendimento firmado admite a chamada “execução invertida” também no âmbito dos Juizados Especiais da Fazenda Pública, isto é, a possibilidade de se atribuir ao ente público o ônus de apresentar a documentação e os cálculos indispensáveis ao início do cumprimento de sentença. A razão central é a compatibilização do procedimento executivo com a lógica dos juizados, especialmente diante da finalidade de simplificação, celeridade e efetividade da tutela jurisdicional.<br><br>O ponto relevante para prova é que essa possibilidade não foi tratada como automática ou irrestrita em qualquer hipótese, mas como juridicamente admissível nos juizados especiais, em linha com a disciplina já reconhecida para os Juizados Especiais Federais. Além disso, a controvérsia foi qualificada como fática quanto à hipossuficiência do credor, o que reforça que a atribuição desse ônus à Fazenda Pública depende da conformação concreta do caso e da racionalidade do microssistema dos juizados, e não de uma vedação abstrata.<br><br>Em termos práticos, a tese afasta a ideia de que a Fazenda Pública jamais possa ser compelida a colaborar com a formação do demonstrativo do crédito na fase executiva. Ao contrário, o STF assentou a possibilidade de exigir a apresentação de documentos e cálculos para o início do cumprimento de sentença nos juizados especiais, em harmonia com a orientação já existente na ADPF 219.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ARE 1.528.097/SP, Rel. Min. Luís Roberto Barroso, julgado em 17/05/2025 (Repercussão Geral – Tema 1.396) (Info 1178).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a previsão de indulto natalino para condenados por crime cuja pena privativa de liberdade máxima em abstrato não ultrapasse cinco anos, inclusive quando, em caso de concurso de crimes, a aferição desse limite seja feita individualmente para cada infração penal, não afronta a constituição federal, por se inserir na esfera de discricionariedade política do presidente da república e respeitar os limites formais e materiais incidentes sobre a clemência soberana. a assertiva está correta. o ponto central do entendimento é que o decreto presidencial que instituiu o indulto natalino no art. 5º, caput e parágrafo único, ao adotar como critério a pena privativa de liberdade máxima em abstrato não superior a cinco anos e, no concurso de crimes, a análise individualizada de cada infração penal, permaneceu dentro da moldura constitucional do indulto.
+
+o indulto é ato privativo do presidente da república, expressão de política criminal e de clemência estatal, cuja validade depende do respeito aos limites constitucionais e legais aplicáveis. no caso, o supremo assentou que a disciplina impugnada não extrapolou tais limites, pois contemplou hipóteses juridicamente autorizadas e moralmente admissíveis, sem violar a constituição. a opção por examinar, no concurso de crimes, cada infração penal separadamente também foi reputada compatível com o ordenamento, afastando a tese de que seria necessário somar as penas máximas abstratas para impedir a incidência do benefício.
+
+assim, não procede a alegação de inconstitucionalidade por suposta ampliação indevida do alcance do indulto. o decreto foi considerado constitucional justamente porque observou os parâmetros formais e materiais exigidos para a concessão da clemência presidencial. stf. plenário. re 1.450.100/df, rel. min. flávio dino, julgado em 19/05/2025 (repercussão geral – tema 1.267) (info 1178).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 4</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-4">Não respondida</span>
+</div>
+
+<p class="enunciado">A previsão de indulto natalino para condenados por crime cuja pena privativa de liberdade máxima em abstrato não ultrapasse cinco anos, inclusive quando, em caso de concurso de crimes, a aferição desse limite seja feita individualmente para cada infração penal, não afronta a Constituição Federal, por se inserir na esfera de discricionariedade política do Presidente da República e respeitar os limites formais e materiais incidentes sobre a clemência soberana.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(4, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(4, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-4">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta. O ponto central do entendimento é que o decreto presidencial que instituiu o indulto natalino no art. 5º, caput e parágrafo único, ao adotar como critério a pena privativa de liberdade máxima em abstrato não superior a cinco anos e, no concurso de crimes, a análise individualizada de cada infração penal, permaneceu dentro da moldura constitucional do indulto.<br><br>O indulto é ato privativo do Presidente da República, expressão de política criminal e de clemência estatal, cuja validade depende do respeito aos limites constitucionais e legais aplicáveis. No caso, o Supremo assentou que a disciplina impugnada não extrapolou tais limites, pois contemplou hipóteses juridicamente autorizadas e moralmente admissíveis, sem violar a Constituição. A opção por examinar, no concurso de crimes, cada infração penal separadamente também foi reputada compatível com o ordenamento, afastando a tese de que seria necessário somar as penas máximas abstratas para impedir a incidência do benefício.<br><br>Assim, não procede a alegação de inconstitucionalidade por suposta ampliação indevida do alcance do indulto. O decreto foi considerado constitucional justamente porque observou os parâmetros formais e materiais exigidos para a concessão da clemência presidencial.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. RE 1.450.100/DF, Rel. Min. Flávio Dino, julgado em 19/05/2025 (Repercussão Geral – Tema 1.267) (Info 1178).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="ECA"
+data-texto="a declaração de inconstitucionalidade do regime de parcelamento de precatórios instituído no art. 78 do adct impede a subsistência de pretensões fundadas nesse dispositivo, ressalvando-se, contudo, a preservação dos parcelamentos já formalizados com base nele até a data da concessão da medida cautelar na adi 2.356, em 25/11/2010, o que torna superada a controvérsia acerca da compensação de débitos tributários com precatórios de natureza alimentar. o enunciado está de acordo com a orientação firmada no julgamento, que reconheceu a inconstitucionalidade do regime de parcelamento de precatórios previsto no art. 78 do adct. a corte, porém, modulou os efeitos da decisão para resguardar os parcelamentos já realizados com fundamento nesse dispositivo até a concessão da medida cautelar na adi 2.356, em 25/11/2010.
+
+a consequência prática relevante é que a discussão sobre a possibilidade de compensação de débitos tributários com precatórios de natureza alimentar, quando amparada exclusivamente nesse regime do art. 78 do adct, fica superada pela própria invalidação constitucional do modelo. em outras palavras, não subsiste como fundamento autônomo para sustentar pretensões de compensação o regime declarado inconstitucional, sem prejuízo da preservação dos efeitos pretéritos dos parcelamentos já consolidados até o marco temporal fixado.
+
+o ponto sensível, e que costuma induzir erro em prova, está justamente na modulação: não se trata de invalidar retroativamente todos os parcelamentos já feitos, mas de reconhecer a inconstitucionalidade do regime com ressalva expressa aos parcelamentos realizados até 25/11/2010. assim, a assertiva combina corretamente a declaração de inconstitucionalidade com a preservação temporal dos atos já praticados, além de refletir a superação da controvérsia sobre a compensação com precatórios alimentares. stf. plenário. re 970.343/pr, rel. min. cristiano zanin, julgado em 19/05/2025 (repercussão geral – tema 111) (info 1178).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 5</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-5">Não respondida</span>
+</div>
+
+<p class="enunciado">A declaração de inconstitucionalidade do regime de parcelamento de precatórios instituído no art. 78 do ADCT impede a subsistência de pretensões fundadas nesse dispositivo, ressalvando-se, contudo, a preservação dos parcelamentos já formalizados com base nele até a data da concessão da medida cautelar na ADI 2.356, em 25/11/2010, o que torna superada a controvérsia acerca da compensação de débitos tributários com precatórios de natureza alimentar.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(5, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(5, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-5">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O enunciado está de acordo com a orientação firmada no julgamento, que reconheceu a inconstitucionalidade do regime de parcelamento de precatórios previsto no art. 78 do ADCT. A Corte, porém, modulou os efeitos da decisão para resguardar os parcelamentos já realizados com fundamento nesse dispositivo até a concessão da medida cautelar na ADI 2.356, em 25/11/2010.<br><br>A consequência prática relevante é que a discussão sobre a possibilidade de compensação de débitos tributários com precatórios de natureza alimentar, quando amparada exclusivamente nesse regime do art. 78 do ADCT, fica superada pela própria invalidação constitucional do modelo. Em outras palavras, não subsiste como fundamento autônomo para sustentar pretensões de compensação o regime declarado inconstitucional, sem prejuízo da preservação dos efeitos pretéritos dos parcelamentos já consolidados até o marco temporal fixado.<br><br>O ponto sensível, e que costuma induzir erro em prova, está justamente na modulação: não se trata de invalidar retroativamente todos os parcelamentos já feitos, mas de reconhecer a inconstitucionalidade do regime com ressalva expressa aos parcelamentos realizados até 25/11/2010. Assim, a assertiva combina corretamente a declaração de inconstitucionalidade com a preservação temporal dos atos já praticados, além de refletir a superação da controvérsia sobre a compensação com precatórios alimentares.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. RE 970.343/PR, Rel. Min. Cristiano Zanin, julgado em 19/05/2025 (Repercussão Geral – Tema 111) (Info 1178).</p>
+</div>
+</section>
+
+</div>
+
+<script>
+const storageKey = location.pathname + "_respostas";
+let respostas = JSON.parse(localStorage.getItem(storageKey) || "{}");
+
+function destacar(t){
+ if(t==="CERTO") return '<span class="gabarito-certo">CERTO</span>';
+ if(t==="ERRADO") return '<span class="gabarito-errado">ERRADO</span>';
+ return t;
+}
+
+function responder(numero, resposta){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const gabarito=card.dataset.gabarito;
+ const correto=resposta===gabarito;
+ respostas[numero]={resposta,correto};
+ localStorage.setItem(storageKey, JSON.stringify(respostas));
+ mostrarFeedback(numero);
+ atualizarPainel();
+ filtrar();
+}
+
+function mostrarFeedback(numero){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const feedback=document.getElementById("feedback-"+numero);
+ const status=document.getElementById("status-"+numero);
+ const resultado=feedback.querySelector(".resultado");
+ const gabarito=card.dataset.gabarito;
+ const dados=respostas[numero];
+ if(!dados) return;
+ feedback.style.display="block";
+ feedback.classList.remove("correto","errado");
+ if(dados.correto){
+   feedback.classList.add("correto");
+   resultado.innerHTML="Você acertou. A resposta é "+destacar(gabarito)+".";
+   status.textContent="Respondida — acerto";
+   status.style.color="var(--green)";
+ } else {
+   feedback.classList.add("errado");
+   resultado.innerHTML="Você errou. O gabarito é "+destacar(gabarito)+".";
+   status.textContent="Respondida — erro";
+   status.style.color="var(--red)";
+ }
+}
+
+function atualizarPainel(){
+ let respondidas=0, acertos=0, erros=0;
+ for(const k in respostas){
+   respondidas++;
+   if(respostas[k].correto) acertos++; else erros++;
+ }
+ document.getElementById("respondidas").textContent=respondidas;
+ document.getElementById("acertos").textContent=acertos;
+ document.getElementById("erros").textContent=erros;
+ document.getElementById("visiveis").textContent=document.querySelectorAll(".questao:not(.oculta)").length;
+}
+
+function filtrar(){
+ const busca=document.getElementById("busca").value.trim().toLowerCase();
+ const disciplina=document.getElementById("disciplina").value;
+ const statusFiltro=document.getElementById("statusFiltro").value;
+ const cards=Array.from(document.querySelectorAll(".questao"));
+ let vis=0;
+ cards.forEach((card,idx)=>{
+   const n=idx+1;
+   const texto=card.dataset.texto||"";
+   const disc=card.dataset.disciplina||"";
+   const r=respostas[n];
+   let passaStatus=true;
+   if(statusFiltro==="nao") passaStatus=!r;
+   if(statusFiltro==="acerto") passaStatus=r && r.correto;
+   if(statusFiltro==="erro") passaStatus=r && !r.correto;
+   const ok=(!busca||texto.includes(busca)) && (!disciplina||disc===disciplina) && passaStatus;
+   card.classList.toggle("oculta", !ok);
+   if(ok) vis++;
+ });
+ document.getElementById("sem-resultados").style.display=vis===0?"block":"none";
+ atualizarPainel();
+}
+
+function reiniciar(){
+ if(!confirm("Deseja reiniciar este simulado?")) return;
+ localStorage.removeItem(storageKey);
+ location.reload();
+}
+
+function restaurar(){
+ for(const k in respostas) mostrarFeedback(Number(k));
+ filtrar();
+ atualizarPainel();
+}
+
+restaurar();
+</script>
+</body>
+</html>

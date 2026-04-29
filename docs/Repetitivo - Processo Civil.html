@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Simulado - Repetitivo - Processo Civil</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+:root{
+--bg:#020617;--panel:rgba(15,23,42,.88);--card:rgba(15,23,42,.96);
+--card2:rgba(30,41,59,.92);--border:rgba(148,163,184,.22);
+--text:#e5e7eb;--muted:#94a3b8;--accent:#38bdf8;--accent2:#0ea5e9;
+--green:#22c55e;--red:#ef4444;--yellow:#facc15;--purple:#a78bfa;
+}
+*{box-sizing:border-box}
+body{
+margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+background:radial-gradient(circle at top left,rgba(56,189,248,.20),transparent 28%),
+radial-gradient(circle at top right,rgba(167,139,250,.15),transparent 28%),
+linear-gradient(135deg,#020617,#0f172a 50%,#020617);
+color:var(--text);line-height:1.65;
+}
+header{padding:44px 20px 32px;text-align:center;border-bottom:1px solid var(--border)}
+header h1{margin:0 0 10px;font-size:clamp(28px,4vw,46px);letter-spacing:-.05em}
+header p{color:var(--muted);margin:0;font-size:16px}
+.container{max-width:1160px;margin:0 auto;padding:26px 16px 80px}
+.painel{
+position:sticky;top:10px;z-index:10;background:var(--panel);backdrop-filter:blur(18px);
+border:1px solid var(--border);border-radius:26px;padding:16px;margin-bottom:22px;
+box-shadow:0 22px 70px rgba(0,0,0,.35)
+}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.stat{background:var(--card2);padding:14px;border-radius:18px;text-align:center;border:1px solid rgba(148,163,184,.12)}
+.stat strong{display:block;font-size:25px;color:var(--accent);line-height:1.1}
+.stat span{font-size:12px;color:var(--muted)}
+.filtros{display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:12px;margin-top:14px}
+input,select{
+width:100%;background:rgba(2,6,23,.78);color:var(--text);border:1px solid var(--border);
+border-radius:14px;padding:13px 14px;outline:none;font-size:14px
+}
+input:focus,select:focus{border-color:var(--accent)}
+.card{
+background:var(--card);border:1px solid var(--border);border-radius:24px;padding:26px;
+margin-bottom:20px;box-shadow:0 18px 50px rgba(0,0,0,.24)
+}
+.questao{scroll-margin-top:190px}
+.questao-topo{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:18px}
+.badge{
+background:linear-gradient(135deg,var(--accent),var(--accent2));color:#00111f;font-weight:900;
+padding:7px 13px;border-radius:999px;display:inline-block
+}
+.disciplina-tag,.tipo-tag{
+display:inline-block;margin-left:8px;color:var(--muted);background:rgba(148,163,184,.10);
+border:1px solid rgba(148,163,184,.14);padding:6px 10px;border-radius:999px;font-size:12px
+}
+.tipo-tag{color:#ddd6fe;border-color:rgba(167,139,250,.25)}
+.status{color:var(--yellow);font-size:13px;white-space:nowrap}
+.enunciado{font-size:19px;margin:0 0 22px;letter-spacing:-.01em}
+.botoes{display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.btn{
+cursor:pointer;border:0;padding:12px 22px;border-radius:14px;color:white;font-weight:900;
+transition:.18s ease;letter-spacing:.02em
+}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.certo{background:rgba(34,197,94,.20);border:1px solid rgba(34,197,94,.42)}
+.btn.errado{background:rgba(239,68,68,.20);border:1px solid rgba(239,68,68,.42)}
+.btn.neutro{background:rgba(56,189,248,.16);color:var(--text);border:1px solid rgba(56,189,248,.32)}
+.feedback{
+display:none;background:rgba(2,6,23,.72);border:1px solid rgba(148,163,184,.16);
+border-left:5px solid var(--accent);padding:18px;border-radius:18px;margin-top:14px
+}
+.feedback.correto{border-left-color:var(--green)}
+.feedback.errado{border-left-color:var(--red)}
+.resultado{font-size:18px;font-weight:900;margin-top:0}
+.justificativa{margin-top:12px}
+.referencia{color:var(--muted);font-size:13px;margin-top:16px}
+.gabarito-certo{color:var(--green);font-weight:900}
+.gabarito-errado{color:var(--red);font-weight:900}
+.oculta{display:none}
+.sem-resultados{text-align:center;color:var(--muted);display:none;padding:30px}
+.grid-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
+.link-card{
+display:block;padding:20px;background:rgba(15,23,42,.95);border:1px solid rgba(148,163,184,.22);
+color:#e5e7eb;border-radius:22px;text-decoration:none;transition:.2s;box-shadow:0 14px 40px rgba(0,0,0,.22)
+}
+.link-card:hover{transform:translateY(-3px);border-color:#38bdf8}
+.link-card strong{display:block;font-size:17px;margin-bottom:8px}
+.link-card span{color:#94a3b8;font-size:13px}
+.index-tools{display:grid;grid-template-columns:1.5fr 1fr;gap:12px;margin-bottom:20px}
+@media(max-width:850px){
+.stats{grid-template-columns:repeat(2,1fr)}
+.filtros,.index-tools{grid-template-columns:1fr}
+.questao-topo{align-items:flex-start;flex-direction:column}
+.botoes{flex-direction:column}
+.enunciado{font-size:16px}
+.card{padding:20px}
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Simulado - Repetitivo - Processo Civil</h1>
+<p>Repetitivos • Simulado interativo de CERTO ou ERRADO</p>
+</header>
+
+<div class="container">
+<div class="painel">
+<div class="stats">
+<div class="stat"><strong>10</strong><span>Total</span></div>
+<div class="stat"><strong id="visiveis">10</strong><span>Visíveis</span></div>
+<div class="stat"><strong id="respondidas">0</strong><span>Respondidas</span></div>
+<div class="stat"><strong id="acertos">0</strong><span>Acertos</span></div>
+<div class="stat"><strong id="erros">0</strong><span>Erros</span></div>
+</div>
+
+<div class="filtros">
+<input id="busca" type="search" placeholder="Buscar por palavra-chave..." oninput="filtrar()">
+<select id="disciplina" onchange="filtrar()">
+<option value="">Todas as disciplinas</option>
+<option value="ECA">ECA</option>
+<option value="N/I">N/I</option>
+</select>
+<select id="statusFiltro" onchange="filtrar()">
+<option value="">Todas</option>
+<option value="nao">Não respondidas</option>
+<option value="acerto">Acertos</option>
+<option value="erro">Erros</option>
+</select>
+<button class="btn neutro" onclick="reiniciar()">Reiniciar</button>
+</div>
+</div>
+
+<div id="sem-resultados" class="sem-resultados">Nenhuma questão encontrada com os filtros atuais.</div>
+
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="no processo de execução, a substituição processual do exequente originário pelo cessionário, decorrente de cessão de crédito, prescinde de prévia autorização ou anuência do devedor, bastando a comprovação documental da transferência do direito para que o cessionário passe ao polo ativo da demanda executiva. a tese firmada reconhece que a transferência do crédito (cessão) produz efeitos perante o juízo independentemente de consentimento do devedor, porquanto não altera a relação jurídica material do devedor com o crédito, apenas substitui o titular do direito de ação. assim, para fins de prosseguimento da execução, basta a demonstração da cessão válida do crédito e sua adequação formal, não exigindo autorização do executado. tema 1">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 1</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-1">Não respondida</span>
+</div>
+
+<p class="enunciado">No processo de execução, a substituição processual do exequente originário pelo cessionário, decorrente de cessão de crédito, prescinde de prévia autorização ou anuência do devedor, bastando a comprovação documental da transferência do direito para que o cessionário passe ao polo ativo da demanda executiva.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(1, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(1, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-1">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A tese firmada reconhece que a transferência do crédito (cessão) produz efeitos perante o juízo independentemente de consentimento do devedor, porquanto não altera a relação jurídica material do devedor com o crédito, apenas substitui o titular do direito de ação. Assim, para fins de prosseguimento da execução, basta a demonstração da cessão válida do crédito e sua adequação formal, não exigindo autorização do executado.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 1</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="ECA"
+data-texto="quando a cessão dos honorários advocatícios sucumbenciais é formalizada por escritura pública e o respectivo valor encontra-se discriminado no precatório, o cessionário tem legitimidade para habilitar-se no crédito consignado no precatório sem necessidade de ulterior autorização do devedor ou da fazenda devedora. a orientação consolidada admite a habilitação do cessionário perante o precatório se demonstrada a validade da cessão (escritura pública) e a discriminação do valor da verba honorária no próprio precatório. nessas condições, a legitimidade decorre da transmissão do direito de crédito, não dependendo de anuência da parte executada, razão pela qual o cessionário pode requerer habilitação para recebimento. tema 2">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 2</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-2">Não respondida</span>
+</div>
+
+<p class="enunciado">Quando a cessão dos honorários advocatícios sucumbenciais é formalizada por escritura pública e o respectivo valor encontra-se discriminado no precatório, o cessionário tem legitimidade para habilitar-se no crédito consignado no precatório sem necessidade de ulterior autorização do devedor ou da Fazenda devedora.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(2, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(2, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-2">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A orientação consolidada admite a habilitação do cessionário perante o precatório se demonstrada a validade da cessão (escritura pública) e a discriminação do valor da verba honorária no próprio precatório. Nessas condições, a legitimidade decorre da transmissão do direito de crédito, não dependendo de anuência da parte executada, razão pela qual o cessionário pode requerer habilitação para recebimento.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 2</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="o instituto nacional do seguro social (inss), por ostentar prerrogativas e privilégios da fazenda pública, está obrigado a efetuar depósito prévio do preparo recursal na mesma forma exigida para as pessoas físicas. a tese explicita a desobrigação do inss quanto ao depósito prévio do preparo, em razão de prerrogativas processuais reconhecidas às fazendas públicas, o que afasta a exigência do recolhimento antecipado do preparo que incide sobre litigantes comuns. logo, afirmar que o inss está obrigado ao preparo é contrariar a orientação. tema 16">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 3</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-3">Não respondida</span>
+</div>
+
+<p class="enunciado">O Instituto Nacional do Seguro Social (INSS), por ostentar prerrogativas e privilégios da Fazenda Pública, está obrigado a efetuar depósito prévio do preparo recursal na mesma forma exigida para as pessoas físicas.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(3, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(3, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-3">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A tese explicita a desobrigação do INSS quanto ao depósito prévio do preparo, em razão de prerrogativas processuais reconhecidas às Fazendas Públicas, o que afasta a exigência do recolhimento antecipado do preparo que incide sobre litigantes comuns. Logo, afirmar que o INSS está obrigado ao preparo é contrariar a orientação.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 16</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a dispensa do reexame necessário, prevista para hipóteses em que o valor da condenação seja inferior a sessenta salários mínimos, abrange igualmente sentenças ilíquidas, de modo que estas também ficam alcançadas pela desobrigação do reexame obrigatório quando o valor estimado for inferior ao teto. a orientação é expressa no sentido de que a exceção (dispensa) não se aplica às sentenças ilíquidas. sentença ilíquida não permite aferição objetiva do montante para fins de aplicação do critério dos sessenta salários mínimos, razão pela qual permanece a obrigatoriedade do reexame necessário quando a sentença for ilíquida. tema 17">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 4</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-4">Não respondida</span>
+</div>
+
+<p class="enunciado">A dispensa do reexame necessário, prevista para hipóteses em que o valor da condenação seja inferior a sessenta salários mínimos, abrange igualmente sentenças ilíquidas, de modo que estas também ficam alcançadas pela desobrigação do reexame obrigatório quando o valor estimado for inferior ao teto.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(4, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(4, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-4">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A orientação é expressa no sentido de que a exceção (dispensa) não se aplica às sentenças ilíquidas. Sentença ilíquida não permite aferição objetiva do montante para fins de aplicação do critério dos sessenta salários mínimos, razão pela qual permanece a obrigatoriedade do reexame necessário quando a sentença for ilíquida.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 17</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="ECA"
+data-texto="os saldos de débitos previdenciários remanescentes que tenham sido quitados mediante expedição de precatório devem, no cálculo para fins de liquidação, ser convertidos na unidade de referência oficial vigente (por exemplo, a ufir) à época da elaboração dos cálculos, para fins de atualização e quantificação do crédito. a tese dispõe que os débitos previdenciários remanescentes pagos por precatório devem ser convertidos, na data do cálculo, em unidade fiscal de referência (ufir) ou qualquer unidade substituta oficial, o que visa uniformizar a base de atualização monetária e permitir correta apuração do valor devido no momento da liquidação. tema 19">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 5</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-5">Não respondida</span>
+</div>
+
+<p class="enunciado">Os saldos de débitos previdenciários remanescentes que tenham sido quitados mediante expedição de precatório devem, no cálculo para fins de liquidação, ser convertidos na unidade de referência oficial vigente (por exemplo, a UFIR) à época da elaboração dos cálculos, para fins de atualização e quantificação do crédito.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(5, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(5, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-5">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A tese dispõe que os débitos previdenciários remanescentes pagos por precatório devem ser convertidos, na data do cálculo, em Unidade Fiscal de Referência (UFIR) ou qualquer unidade substituta oficial, o que visa uniformizar a base de atualização monetária e permitir correta apuração do valor devido no momento da liquidação.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 19</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="em pedido liminar para impedir inscrição ou manutenção do nome do devedor em cadastro de inadimplentes, é suficiente demonstrar apenas a existência de jurisprudência consolidada favorável ao devedor, dispensando-se o depósito da parcela incontroversa ou a prestação de caução. a orientação exige a presença cumulativa de três requisitos para concessão da abstenção: (i) ação fundada em contestação integral ou parcial do débito; (ii) demonstração da aparência do bom direito alicerçada em jurisprudência consolidada do stf ou stj; e (iii) depósito da parcela incontroversa ou prestação de caução nos termos do prudente arbítrio judicial. assim, a jurisprudência favorável não é isoladamente suficiente. tema 31">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 6</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-6">Não respondida</span>
+</div>
+
+<p class="enunciado">Em pedido liminar para impedir inscrição ou manutenção do nome do devedor em cadastro de inadimplentes, é suficiente demonstrar apenas a existência de jurisprudência consolidada favorável ao devedor, dispensando-se o depósito da parcela incontroversa ou a prestação de caução.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(6, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(6, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-6">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A orientação exige a presença cumulativa de três requisitos para concessão da abstenção: (i) ação fundada em contestação integral ou parcial do débito; (ii) demonstração da aparência do bom direito alicerçada em jurisprudência consolidada do STF ou STJ; e (iii) depósito da parcela incontroversa ou prestação de caução nos termos do prudente arbítrio judicial. Assim, a jurisprudência favorável não é isoladamente suficiente.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 31</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="quando a inscrição ou manutenção do nome do devedor em cadastro de inadimplentes é decidida na sentença ou no acórdão, tal inscrição observará o que for decidido no mérito; assim, se a mora for reconhecida na decisão de mérito, a inscrição ou manutenção do nome será legítima. a tese explicita que a decisão de mérito orientará a manutenção ou exclusão do registro do devedor em cadastros de inadimplentes e que, uma vez caracterizada a mora no julgamento do mérito, a inscrição/manutenção é correta e deve ser observada, afastando medidas lastreadas em decisões provisórias incompatíveis com o pronunciamento final. tema 32">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 7</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-7">Não respondida</span>
+</div>
+
+<p class="enunciado">Quando a inscrição ou manutenção do nome do devedor em cadastro de inadimplentes é decidida na sentença ou no acórdão, tal inscrição observará o que for decidido no mérito; assim, se a mora for reconhecida na decisão de mérito, a inscrição ou manutenção do nome será legítima.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(7, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(7, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-7">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A tese explicita que a decisão de mérito orientará a manutenção ou exclusão do registro do devedor em cadastros de inadimplentes e que, uma vez caracterizada a mora no julgamento do mérito, a inscrição/manutenção é correta e deve ser observada, afastando medidas lastreadas em decisões provisórias incompatíveis com o pronunciamento final.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 32</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a abstenção da inscrição em cadastro de inadimplentes, requerida em caráter cautelar ou em antecipação de tutela, pode ser deferida sem o depósito da parcela incontroversa sempre que haja dúvida razoável sobre a procedência do débito, independentemente da aparência do bom direito. a exigência é cumulativa: além do fundamento sobre a contestação integral ou parcial do débito e da aparência do bom direito com amparo em jurisprudência consolidada, impõe-se depósito da parcela incontroversa ou caução. portanto, dispensar o depósito sequer quando há dúvida razoável contraria a formulação consolidada. tema 33">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 8</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-8">Não respondida</span>
+</div>
+
+<p class="enunciado">A abstenção da inscrição em cadastro de inadimplentes, requerida em caráter cautelar ou em antecipação de tutela, pode ser deferida sem o depósito da parcela incontroversa sempre que haja dúvida razoável sobre a procedência do débito, independentemente da aparência do bom direito.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(8, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(8, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-8">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A exigência é cumulativa: além do fundamento sobre a contestação integral ou parcial do débito e da aparência do bom direito com amparo em jurisprudência consolidada, impõe-se depósito da parcela incontroversa ou caução. Portanto, dispensar o depósito sequer quando há dúvida razoável contraria a formulação consolidada.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 33</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="para que se afaste, em caráter liminar, a inscrição/manutenção em cadastro de inadimplentes, é imprescindível que a parte autora demonstre (i) que a ação questiona integral ou parcialmente o débito, (ii) a aparência do bom direito, preferencialmente com jurisprudência consolidada do stf ou stj, e (iii) a realização de depósito da parcela incontroversa ou a prestação de caução judicial fixada pelo juiz. a enunciação reproduz, de modo técnico, os requisitos cumulativos fixados na tese: existência de controvérsia sobre o débito, demonstração da aparência do bom direito com respaldo jurisprudencial e depósito ou caução. a conjunção desses elementos é condição para o deferimento da medida cautelar que impeça inscrição ou manutenção. tema 34">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 9</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-9">Não respondida</span>
+</div>
+
+<p class="enunciado">Para que se afaste, em caráter liminar, a inscrição/manutenção em cadastro de inadimplentes, é imprescindível que a parte autora demonstre (i) que a ação questiona integral ou parcialmente o débito, (ii) a aparência do bom direito, preferencialmente com jurisprudência consolidada do STF ou STJ, e (iii) a realização de depósito da parcela incontroversa ou a prestação de caução judicial fixada pelo juiz.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(9, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(9, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-9">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A enunciação reproduz, de modo técnico, os requisitos cumulativos fixados na tese: existência de controvérsia sobre o débito, demonstração da aparência do bom direito com respaldo jurisprudencial e depósito ou caução. A conjunção desses elementos é condição para o deferimento da medida cautelar que impeça inscrição ou manutenção.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 34</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a mera existência de ação cuja finalidade seja a declaração de nulidade de registro imobiliário torna inepta e ilegitimado o ajuizamento de ação reivindicatória fundada naquele mesmo registro, porque o ajuizamento da ação anulatória seculariza o direito de propriedade. a tese esclarece que a simples propositura de ação de anulação de registro imobiliário não é suficiente para concluir pela ilegitimidade de quem, com base no registro existente, ajuíza ação reivindicatória. a legitimidade ativa do autor da reivindicatória subsiste até que se apure, no mérito, a invalidade do registro; a existência da ação anulatória não extingue automaticamente a pretensão reivindicatória. tema 39">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 10</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Repetitivos</span>
+  </div>
+  <span class="status" id="status-10">Não respondida</span>
+</div>
+
+<p class="enunciado">A mera existência de ação cuja finalidade seja a declaração de nulidade de registro imobiliário torna inepta e ilegitimado o ajuizamento de ação reivindicatória fundada naquele mesmo registro, porque o ajuizamento da ação anulatória seculariza o direito de propriedade.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(10, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(10, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-10">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A tese esclarece que a simples propositura de ação de anulação de registro imobiliário não é suficiente para concluir pela ilegitimidade de quem, com base no registro existente, ajuíza ação reivindicatória. A legitimidade ativa do autor da reivindicatória subsiste até que se apure, no mérito, a invalidade do registro; a existência da ação anulatória não extingue automaticamente a pretensão reivindicatória.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Tema 39</p>
+</div>
+</section>
+
+</div>
+
+<script>
+const storageKey = location.pathname + "_respostas";
+let respostas = JSON.parse(localStorage.getItem(storageKey) || "{}");
+
+function destacar(t){
+ if(t==="CERTO") return '<span class="gabarito-certo">CERTO</span>';
+ if(t==="ERRADO") return '<span class="gabarito-errado">ERRADO</span>';
+ return t;
+}
+
+function responder(numero, resposta){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const gabarito=card.dataset.gabarito;
+ const correto=resposta===gabarito;
+ respostas[numero]={resposta,correto};
+ localStorage.setItem(storageKey, JSON.stringify(respostas));
+ mostrarFeedback(numero);
+ atualizarPainel();
+ filtrar();
+}
+
+function mostrarFeedback(numero){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const feedback=document.getElementById("feedback-"+numero);
+ const status=document.getElementById("status-"+numero);
+ const resultado=feedback.querySelector(".resultado");
+ const gabarito=card.dataset.gabarito;
+ const dados=respostas[numero];
+ if(!dados) return;
+ feedback.style.display="block";
+ feedback.classList.remove("correto","errado");
+ if(dados.correto){
+   feedback.classList.add("correto");
+   resultado.innerHTML="Você acertou. A resposta é "+destacar(gabarito)+".";
+   status.textContent="Respondida — acerto";
+   status.style.color="var(--green)";
+ } else {
+   feedback.classList.add("errado");
+   resultado.innerHTML="Você errou. O gabarito é "+destacar(gabarito)+".";
+   status.textContent="Respondida — erro";
+   status.style.color="var(--red)";
+ }
+}
+
+function atualizarPainel(){
+ let respondidas=0, acertos=0, erros=0;
+ for(const k in respostas){
+   respondidas++;
+   if(respostas[k].correto) acertos++; else erros++;
+ }
+ document.getElementById("respondidas").textContent=respondidas;
+ document.getElementById("acertos").textContent=acertos;
+ document.getElementById("erros").textContent=erros;
+ document.getElementById("visiveis").textContent=document.querySelectorAll(".questao:not(.oculta)").length;
+}
+
+function filtrar(){
+ const busca=document.getElementById("busca").value.trim().toLowerCase();
+ const disciplina=document.getElementById("disciplina").value;
+ const statusFiltro=document.getElementById("statusFiltro").value;
+ const cards=Array.from(document.querySelectorAll(".questao"));
+ let vis=0;
+ cards.forEach((card,idx)=>{
+   const n=idx+1;
+   const texto=card.dataset.texto||"";
+   const disc=card.dataset.disciplina||"";
+   const r=respostas[n];
+   let passaStatus=true;
+   if(statusFiltro==="nao") passaStatus=!r;
+   if(statusFiltro==="acerto") passaStatus=r && r.correto;
+   if(statusFiltro==="erro") passaStatus=r && !r.correto;
+   const ok=(!busca||texto.includes(busca)) && (!disciplina||disc===disciplina) && passaStatus;
+   card.classList.toggle("oculta", !ok);
+   if(ok) vis++;
+ });
+ document.getElementById("sem-resultados").style.display=vis===0?"block":"none";
+ atualizarPainel();
+}
+
+function reiniciar(){
+ if(!confirm("Deseja reiniciar este simulado?")) return;
+ localStorage.removeItem(storageKey);
+ location.reload();
+}
+
+function restaurar(){
+ for(const k in respostas) mostrarFeedback(Number(k));
+ filtrar();
+ atualizarPainel();
+}
+
+restaurar();
+</script>
+</body>
+</html>

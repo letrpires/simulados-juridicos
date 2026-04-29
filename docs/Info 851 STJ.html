@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Simulado - Info 851 STJ</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+:root{
+--bg:#020617;--panel:rgba(15,23,42,.88);--card:rgba(15,23,42,.96);
+--card2:rgba(30,41,59,.92);--border:rgba(148,163,184,.22);
+--text:#e5e7eb;--muted:#94a3b8;--accent:#38bdf8;--accent2:#0ea5e9;
+--green:#22c55e;--red:#ef4444;--yellow:#facc15;--purple:#a78bfa;
+}
+*{box-sizing:border-box}
+body{
+margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+background:radial-gradient(circle at top left,rgba(56,189,248,.20),transparent 28%),
+radial-gradient(circle at top right,rgba(167,139,250,.15),transparent 28%),
+linear-gradient(135deg,#020617,#0f172a 50%,#020617);
+color:var(--text);line-height:1.65;
+}
+header{padding:44px 20px 32px;text-align:center;border-bottom:1px solid var(--border)}
+header h1{margin:0 0 10px;font-size:clamp(28px,4vw,46px);letter-spacing:-.05em}
+header p{color:var(--muted);margin:0;font-size:16px}
+.container{max-width:1160px;margin:0 auto;padding:26px 16px 80px}
+.painel{
+position:sticky;top:10px;z-index:10;background:var(--panel);backdrop-filter:blur(18px);
+border:1px solid var(--border);border-radius:26px;padding:16px;margin-bottom:22px;
+box-shadow:0 22px 70px rgba(0,0,0,.35)
+}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.stat{background:var(--card2);padding:14px;border-radius:18px;text-align:center;border:1px solid rgba(148,163,184,.12)}
+.stat strong{display:block;font-size:25px;color:var(--accent);line-height:1.1}
+.stat span{font-size:12px;color:var(--muted)}
+.filtros{display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:12px;margin-top:14px}
+input,select{
+width:100%;background:rgba(2,6,23,.78);color:var(--text);border:1px solid var(--border);
+border-radius:14px;padding:13px 14px;outline:none;font-size:14px
+}
+input:focus,select:focus{border-color:var(--accent)}
+.card{
+background:var(--card);border:1px solid var(--border);border-radius:24px;padding:26px;
+margin-bottom:20px;box-shadow:0 18px 50px rgba(0,0,0,.24)
+}
+.questao{scroll-margin-top:190px}
+.questao-topo{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:18px}
+.badge{
+background:linear-gradient(135deg,var(--accent),var(--accent2));color:#00111f;font-weight:900;
+padding:7px 13px;border-radius:999px;display:inline-block
+}
+.disciplina-tag,.tipo-tag{
+display:inline-block;margin-left:8px;color:var(--muted);background:rgba(148,163,184,.10);
+border:1px solid rgba(148,163,184,.14);padding:6px 10px;border-radius:999px;font-size:12px
+}
+.tipo-tag{color:#ddd6fe;border-color:rgba(167,139,250,.25)}
+.status{color:var(--yellow);font-size:13px;white-space:nowrap}
+.enunciado{font-size:19px;margin:0 0 22px;letter-spacing:-.01em}
+.botoes{display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.btn{
+cursor:pointer;border:0;padding:12px 22px;border-radius:14px;color:white;font-weight:900;
+transition:.18s ease;letter-spacing:.02em
+}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.certo{background:rgba(34,197,94,.20);border:1px solid rgba(34,197,94,.42)}
+.btn.errado{background:rgba(239,68,68,.20);border:1px solid rgba(239,68,68,.42)}
+.btn.neutro{background:rgba(56,189,248,.16);color:var(--text);border:1px solid rgba(56,189,248,.32)}
+.feedback{
+display:none;background:rgba(2,6,23,.72);border:1px solid rgba(148,163,184,.16);
+border-left:5px solid var(--accent);padding:18px;border-radius:18px;margin-top:14px
+}
+.feedback.correto{border-left-color:var(--green)}
+.feedback.errado{border-left-color:var(--red)}
+.resultado{font-size:18px;font-weight:900;margin-top:0}
+.justificativa{margin-top:12px}
+.referencia{color:var(--muted);font-size:13px;margin-top:16px}
+.gabarito-certo{color:var(--green);font-weight:900}
+.gabarito-errado{color:var(--red);font-weight:900}
+.oculta{display:none}
+.sem-resultados{text-align:center;color:var(--muted);display:none;padding:30px}
+.grid-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
+.link-card{
+display:block;padding:20px;background:rgba(15,23,42,.95);border:1px solid rgba(148,163,184,.22);
+color:#e5e7eb;border-radius:22px;text-decoration:none;transition:.2s;box-shadow:0 14px 40px rgba(0,0,0,.22)
+}
+.link-card:hover{transform:translateY(-3px);border-color:#38bdf8}
+.link-card strong{display:block;font-size:17px;margin-bottom:8px}
+.link-card span{color:#94a3b8;font-size:13px}
+.index-tools{display:grid;grid-template-columns:1.5fr 1fr;gap:12px;margin-bottom:20px}
+@media(max-width:850px){
+.stats{grid-template-columns:repeat(2,1fr)}
+.filtros,.index-tools{grid-template-columns:1fr}
+.questao-topo{align-items:flex-start;flex-direction:column}
+.botoes{flex-direction:column}
+.enunciado{font-size:16px}
+.card{padding:20px}
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Simulado - Info 851 STJ</h1>
+<p>Informativos • Simulado interativo de CERTO ou ERRADO</p>
+</header>
+
+<div class="container">
+<div class="painel">
+<div class="stats">
+<div class="stat"><strong>11</strong><span>Total</span></div>
+<div class="stat"><strong id="visiveis">11</strong><span>Visíveis</span></div>
+<div class="stat"><strong id="respondidas">0</strong><span>Respondidas</span></div>
+<div class="stat"><strong id="acertos">0</strong><span>Acertos</span></div>
+<div class="stat"><strong id="erros">0</strong><span>Erros</span></div>
+</div>
+
+<div class="filtros">
+<input id="busca" type="search" placeholder="Buscar por palavra-chave..." oninput="filtrar()">
+<select id="disciplina" onchange="filtrar()">
+<option value="">Todas as disciplinas</option>
+<option value="ECA">ECA</option>
+<option value="N/I">N/I</option>
+</select>
+<select id="statusFiltro" onchange="filtrar()">
+<option value="">Todas</option>
+<option value="nao">Não respondidas</option>
+<option value="acerto">Acertos</option>
+<option value="erro">Erros</option>
+</select>
+<button class="btn neutro" onclick="reiniciar()">Reiniciar</button>
+</div>
+</div>
+
+<div id="sem-resultados" class="sem-resultados">Nenhuma questão encontrada com os filtros atuais.</div>
+
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="em ação de improbidade administrativa, a admissão da petição inicial sob a lógica do in dubio pro societate dispensa a individualização mínima da conduta atribuída a cada demandado, bastando a narrativa de ilegalidade na contratação pública e a vinculação formal do réu à pessoa jurídica beneficiada para justificar sua permanência no polo passivo, ainda que inexista descrição de ato doloso específico ou de participação concreta no suposto ilícito. a afirmação está incorreta porque, embora a fase de recebimento da inicial em ações de improbidade administrativa seja marcada por juízo de admissibilidade menos rigoroso, não se admite a instauração da demanda com base em imputação genérica ou meramente formal. o princípio do in dubio pro societate não elimina a necessidade de a petição inicial conter elementos mínimos que indiquem, ainda que em grau inicial, a presença do elemento subjetivo exigido para a configuração do ato ímprobo.
+
+no caso examinado, a controvérsia girou em torno da inclusão de sócia minoritária contra a qual não havia descrição de qualquer conduta específica. o entendimento firmado foi no sentido de que a mera condição de sócio, por si só, não autoriza a manutenção da pessoa no polo passivo de ação de improbidade, especialmente quando ausente narrativa concreta de participação dolosa no esquema fraudulento. a simples ilegalidade do ato administrativo ou a existência de contratação irregular não bastam para suprir a falta de imputação individualizada.
+
+além disso, a lógica da lei de improbidade administrativa, especialmente após as alterações legislativas que reforçaram a exigência de dolo para a responsabilização, impede que o processo seja instaurado sem lastro mínimo quanto à conduta e ao elemento subjetivo. assim, a inicial deve apontar fatos que permitam inferir a atuação dolosa do agente e, quando pertinente, o dano ao erário. sem isso, o recebimento da ação viola a necessidade de imputação minimamente individualizada e transforma a responsabilização em presunção incompatível com o regime jurídico da improbidade. stj. 2ª turma. aresp 2.080.146-sp, rel. min. francisco falcão, rel. acd. min. afrânio vilela, julgado em 20/5/2025 (info 851).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 1</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-1">Não respondida</span>
+</div>
+
+<p class="enunciado">Em ação de improbidade administrativa, a admissão da petição inicial sob a lógica do in dubio pro societate dispensa a individualização mínima da conduta atribuída a cada demandado, bastando a narrativa de ilegalidade na contratação pública e a vinculação formal do réu à pessoa jurídica beneficiada para justificar sua permanência no polo passivo, ainda que inexista descrição de ato doloso específico ou de participação concreta no suposto ilícito.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(1, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(1, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-1">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A afirmação está incorreta porque, embora a fase de recebimento da inicial em ações de improbidade administrativa seja marcada por juízo de admissibilidade menos rigoroso, não se admite a instauração da demanda com base em imputação genérica ou meramente formal. O princípio do in dubio pro societate não elimina a necessidade de a petição inicial conter elementos mínimos que indiquem, ainda que em grau inicial, a presença do elemento subjetivo exigido para a configuração do ato ímprobo.<br><br>No caso examinado, a controvérsia girou em torno da inclusão de sócia minoritária contra a qual não havia descrição de qualquer conduta específica. O entendimento firmado foi no sentido de que a mera condição de sócio, por si só, não autoriza a manutenção da pessoa no polo passivo de ação de improbidade, especialmente quando ausente narrativa concreta de participação dolosa no esquema fraudulento. A simples ilegalidade do ato administrativo ou a existência de contratação irregular não bastam para suprir a falta de imputação individualizada.<br><br>Além disso, a lógica da Lei de Improbidade Administrativa, especialmente após as alterações legislativas que reforçaram a exigência de dolo para a responsabilização, impede que o processo seja instaurado sem lastro mínimo quanto à conduta e ao elemento subjetivo. Assim, a inicial deve apontar fatos que permitam inferir a atuação dolosa do agente e, quando pertinente, o dano ao erário. Sem isso, o recebimento da ação viola a necessidade de imputação minimamente individualizada e transforma a responsabilização em presunção incompatível com o regime jurídico da improbidade.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 2ª Turma. AREsp 2.080.146-SP, Rel. Min. Francisco Falcão, Rel. Acd. Min. Afrânio Vilela, julgado em 20/5/2025 (Info 851).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a pensão especial de ex-combatente, por possuir disciplina legal específica, admite acumulação com benefício previdenciário de natureza militar ou civil, ainda que decorrente de fato gerador distinto, mas não autoriza a percepção simultânea de mais de um outro benefício, de modo que a vedação legal alcança apenas a tríplice acumulação quando houver identidade de origem entre as prestações. o art. 29 da lei n. 3.765/1960 estabelece limite objetivo à cumulação da pensão especial de ex-combatente: ela somente pode ser acumulada com **um** outro benefício previdenciário, seja ele de natureza militar ou civil. a restrição não depende de coincidência de fato gerador entre as prestações acumuladas, nem se condiciona à identidade de origem dos benefícios. assim, ainda que os benefícios tenham fatos geradores distintos, a percepção simultânea de três prestações é vedada.
+
+a assertiva erra ao sugerir que a proibição alcançaria apenas a tríplice acumulação quando houvesse identidade de origem entre as prestações, pois o critério relevante não é esse. o ponto central é a limitação quantitativa imposta pela lei: a pensão especial de ex-combatente pode ser acumulada com **apenas um** outro benefício previdenciário, independentemente de sua natureza ou do fato gerador. logo, a tríplice acumulação é vedada em qualquer hipótese. stj. 1ª turma. agint no resp 2.174.004-pe, rel. min. sérgio kukina, julgado em 7/4/2025 (info 851).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 2</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-2">Não respondida</span>
+</div>
+
+<p class="enunciado">A pensão especial de ex-combatente, por possuir disciplina legal específica, admite acumulação com benefício previdenciário de natureza militar ou civil, ainda que decorrente de fato gerador distinto, mas não autoriza a percepção simultânea de mais de um outro benefício, de modo que a vedação legal alcança apenas a tríplice acumulação quando houver identidade de origem entre as prestações.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(2, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(2, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-2">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O art. 29 da Lei n. 3.765/1960 estabelece limite objetivo à cumulação da pensão especial de ex-combatente: ela somente pode ser acumulada com <strong>um</strong> outro benefício previdenciário, seja ele de natureza militar ou civil. A restrição não depende de coincidência de fato gerador entre as prestações acumuladas, nem se condiciona à identidade de origem dos benefícios. Assim, ainda que os benefícios tenham fatos geradores distintos, a percepção simultânea de três prestações é vedada.<br><br>A assertiva erra ao sugerir que a proibição alcançaria apenas a tríplice acumulação quando houvesse identidade de origem entre as prestações, pois o critério relevante não é esse. O ponto central é a limitação quantitativa imposta pela lei: a pensão especial de ex-combatente pode ser acumulada com <strong>apenas um</strong> outro benefício previdenciário, independentemente de sua natureza ou do fato gerador. Logo, a tríplice acumulação é vedada em qualquer hipótese.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Turma. AgInt no REsp 2.174.004-PE, Rel. Min. Sérgio Kukina, julgado em 7/4/2025 (Info 851).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="em contrato de alienação fiduciária em garantia, a constituição em mora do devedor fiduciante pode ser comprovada por notificação extrajudicial encaminhada por meio eletrônico, inclusive e-mail, desde que a comunicação seja enviada ao endereço eletrônico expressamente indicado no instrumento contratual e haja prova de seu efetivo recebimento pelo destinatário, sendo desnecessária a remessa de correspondência física com aviso de recebimento. a mora do devedor fiduciante, para fins de consolidação da propriedade e demais efeitos típicos da alienação fiduciária, pode ser comprovada por notificação extrajudicial realizada por meio digital ou eletrônico. o ponto central do entendimento é que a forma eletrônica não é, por si só, inválida: ela é admitida como meio idôneo de comunicação, desde que observados dois requisitos cumulativos.
+
+o primeiro é que o e-mail utilizado seja aquele indicado no próprio contrato, o que preserva a segurança jurídica e a vinculação do devedor ao canal de comunicação previamente eleito. o segundo é a demonstração do efetivo recebimento da mensagem, elemento indispensável para que se considere atingida a finalidade da notificação, qual seja, dar ciência ao devedor acerca da constituição em mora.
+
+assim, não se exige, como condição absoluta, a remessa de correspondência física com aviso de recebimento, pois a formalidade relevante é a comprovação da ciência do devedor por meio idôneo. a validade da notificação eletrônica, contudo, não é irrestrita: ela depende da observância dos requisitos acima, de modo que o simples envio de e-mail, desacompanhado de prova de recebimento, não basta para comprovar a mora. stj. 2ª seção. resp 2.183.860-df, rel. min. antonio carlos ferreira, julgado em 8/5/2025 (info 851).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 3</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-3">Não respondida</span>
+</div>
+
+<p class="enunciado">Em contrato de alienação fiduciária em garantia, a constituição em mora do devedor fiduciante pode ser comprovada por notificação extrajudicial encaminhada por meio eletrônico, inclusive e-mail, desde que a comunicação seja enviada ao endereço eletrônico expressamente indicado no instrumento contratual e haja prova de seu efetivo recebimento pelo destinatário, sendo desnecessária a remessa de correspondência física com aviso de recebimento.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(3, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(3, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-3">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A mora do devedor fiduciante, para fins de consolidação da propriedade e demais efeitos típicos da alienação fiduciária, pode ser comprovada por notificação extrajudicial realizada por meio digital ou eletrônico. O ponto central do entendimento é que a forma eletrônica não é, por si só, inválida: ela é admitida como meio idôneo de comunicação, desde que observados dois requisitos cumulativos.<br><br>O primeiro é que o e-mail utilizado seja aquele indicado no próprio contrato, o que preserva a segurança jurídica e a vinculação do devedor ao canal de comunicação previamente eleito. O segundo é a demonstração do efetivo recebimento da mensagem, elemento indispensável para que se considere atingida a finalidade da notificação, qual seja, dar ciência ao devedor acerca da constituição em mora.<br><br>Assim, não se exige, como condição absoluta, a remessa de correspondência física com aviso de recebimento, pois a formalidade relevante é a comprovação da ciência do devedor por meio idôneo. A validade da notificação eletrônica, contudo, não é irrestrita: ela depende da observância dos requisitos acima, de modo que o simples envio de e-mail, desacompanhado de prova de recebimento, não basta para comprovar a mora.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 2ª Seção. REsp 2.183.860-DF, Rel. Min. Antonio Carlos Ferreira, julgado em 8/5/2025 (Info 851).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="na ausência de disciplina legal específica sobre o transporte aéreo de animais domésticos, é lícito às companhias aéreas estabelecer critérios próprios para o embarque na cabine, de modo que não se mostra abusiva a recusa de transporte de animal de suporte emocional que não se enquadre nos limites de peso, altura e acondicionamento fixados pela transportadora, nem se admite sua equiparação automática aos cães-guia, porquanto estes possuem regime jurídico próprio, com previsão normativa específica e requisitos de identificação e treinamento inexistentes para aqueles. o enunciado está correto porque reproduz a lógica central do entendimento firmado: inexistindo legislação específica que imponha às companhias aéreas a obrigação de transportar, na cabine, animais de suporte emocional, subsiste a liberdade regulatória da transportadora para fixar critérios de embarque de animais domésticos em voos nacionais e internacionais. isso inclui a possibilidade de exigir limites de peso e altura, bem como o acondicionamento em caixa própria, como condição para o transporte na cabine.
+
+a tese também afasta a equiparação entre animal de suporte emocional e cão-guia. a distinção é juridicamente relevante porque os cães-guia possuem disciplina normativa própria no brasil, com previsão na lei 11.126/2005 e no decreto 5.904/2006, além de passarem por treinamento específico, terem identificação própria e controle de comportamento compatível com a circulação em ambientes coletivos. já os animais de suporte emocional não contam com regulamentação equivalente, não se submetem a esse regime jurídico especial e, por isso, não podem ser tratados como se fossem cães-guia para fins de acesso irrestrito à cabine.
+
+o fundamento material do entendimento também envolve a proteção da segurança operacional do voo e dos demais passageiros. a admissão de animais fora dos padrões estabelecidos pela companhia aérea pode gerar riscos à segurança, o que reforça a legitimidade da restrição. assim, não há ilicitude na negativa de embarque quando o animal não atende aos critérios previamente fixados pela transportadora, especialmente se não se tratar de cão-guia. stj. 4ª turma. resp 2.188.156-pr, rel. min. maria isabel gallotti, julgado em 13/5/2025 (info 851).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 4</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-4">Não respondida</span>
+</div>
+
+<p class="enunciado">Na ausência de disciplina legal específica sobre o transporte aéreo de animais domésticos, é lícito às companhias aéreas estabelecer critérios próprios para o embarque na cabine, de modo que não se mostra abusiva a recusa de transporte de animal de suporte emocional que não se enquadre nos limites de peso, altura e acondicionamento fixados pela transportadora, nem se admite sua equiparação automática aos cães-guia, porquanto estes possuem regime jurídico próprio, com previsão normativa específica e requisitos de identificação e treinamento inexistentes para aqueles.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(4, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(4, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-4">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O enunciado está correto porque reproduz a lógica central do entendimento firmado: inexistindo legislação específica que imponha às companhias aéreas a obrigação de transportar, na cabine, animais de suporte emocional, subsiste a liberdade regulatória da transportadora para fixar critérios de embarque de animais domésticos em voos nacionais e internacionais. Isso inclui a possibilidade de exigir limites de peso e altura, bem como o acondicionamento em caixa própria, como condição para o transporte na cabine.<br><br>A tese também afasta a equiparação entre animal de suporte emocional e cão-guia. A distinção é juridicamente relevante porque os cães-guia possuem disciplina normativa própria no Brasil, com previsão na Lei 11.126/2005 e no Decreto 5.904/2006, além de passarem por treinamento específico, terem identificação própria e controle de comportamento compatível com a circulação em ambientes coletivos. Já os animais de suporte emocional não contam com regulamentação equivalente, não se submetem a esse regime jurídico especial e, por isso, não podem ser tratados como se fossem cães-guia para fins de acesso irrestrito à cabine.<br><br>O fundamento material do entendimento também envolve a proteção da segurança operacional do voo e dos demais passageiros. A admissão de animais fora dos padrões estabelecidos pela companhia aérea pode gerar riscos à segurança, o que reforça a legitimidade da restrição. Assim, não há ilicitude na negativa de embarque quando o animal não atende aos critérios previamente fixados pela transportadora, especialmente se não se tratar de cão-guia.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 4ª Turma. REsp 2.188.156-PR, Rel. Min. Maria Isabel Gallotti, julgado em 13/5/2025 (Info 851).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a supressão ilegal de vegetação nativa em área integrante da floresta amazônica, ainda que de extensão territorial reduzida e sem demonstração de abalo psíquico direto à coletividade, pode ensejar condenação autônoma por dano moral coletivo ambiental, por se tratar de lesão extrapatrimonial presumida, cuja configuração independe de prova específica do sofrimento social e não se afasta pela mera recomposição da área degradada. a assertiva está correta porque, em matéria de dano ambiental transindividual de natureza imaterial, a lesão não se submete à lógica clássica da prova de sofrimento, dor ou repercussão subjetiva típica do dano moral individual. quando a conduta atinge bem ambiental de uso comum e relevância constitucional qualificada — como a floresta amazônica, expressamente protegida como patrimônio nacional — a degradação já representa, por si, ofensa ao patrimônio jurídico difuso da coletividade.
+
+nessa perspectiva, o dano moral coletivo ambiental é tratado como **in re ipsa**, isto é, presumido a partir da própria ocorrência do ilícito ambiental, dispensando demonstração de abalo psicológico da sociedade. a recomposição material da área, embora necessária, não esgota a tutela jurisdicional, pois a reparação ambiental deve ser ampla e abranger também a dimensão extrapatrimonial da lesão, especialmente quando a conduta compromete a integridade de bioma especialmente protegido.
+
+além disso, a extensão física do desmatamento, isoladamente, não é critério suficiente para afastar a indenização por dano imaterial difuso. o exame deve considerar o impacto ecológico e a repercussão cumulativa e sinérgica da degradação sobre o bioma, de modo que a pequena proporção da área atingida não exclui, por si só, a existência de dano moral coletivo.
+
+por fim, em ações dessa natureza, incide a lógica de distribuição **pro natura** do ônus probatório, cabendo ao réu demonstrar a inexistência do dano, e não à coletividade provar um sofrimento que, por sua própria natureza difusa, é juridicamente presumido. stj. 1ª turma. resp 2.200.069-mt, rel. min. regina helena costa, julgado em 13/5/2025 (info 851).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 5</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-5">Não respondida</span>
+</div>
+
+<p class="enunciado">A supressão ilegal de vegetação nativa em área integrante da Floresta Amazônica, ainda que de extensão territorial reduzida e sem demonstração de abalo psíquico direto à coletividade, pode ensejar condenação autônoma por dano moral coletivo ambiental, por se tratar de lesão extrapatrimonial presumida, cuja configuração independe de prova específica do sofrimento social e não se afasta pela mera recomposição da área degradada.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(5, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(5, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-5">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque, em matéria de dano ambiental transindividual de natureza imaterial, a lesão não se submete à lógica clássica da prova de sofrimento, dor ou repercussão subjetiva típica do dano moral individual. Quando a conduta atinge bem ambiental de uso comum e relevância constitucional qualificada — como a Floresta Amazônica, expressamente protegida como patrimônio nacional — a degradação já representa, por si, ofensa ao patrimônio jurídico difuso da coletividade.<br><br>Nessa perspectiva, o dano moral coletivo ambiental é tratado como <strong>in re ipsa</strong>, isto é, presumido a partir da própria ocorrência do ilícito ambiental, dispensando demonstração de abalo psicológico da sociedade. A recomposição material da área, embora necessária, não esgota a tutela jurisdicional, pois a reparação ambiental deve ser ampla e abranger também a dimensão extrapatrimonial da lesão, especialmente quando a conduta compromete a integridade de bioma especialmente protegido.<br><br>Além disso, a extensão física do desmatamento, isoladamente, não é critério suficiente para afastar a indenização por dano imaterial difuso. O exame deve considerar o impacto ecológico e a repercussão cumulativa e sinérgica da degradação sobre o bioma, de modo que a pequena proporção da área atingida não exclui, por si só, a existência de dano moral coletivo.<br><br>Por fim, em ações dessa natureza, incide a lógica de distribuição <strong>pro natura</strong> do ônus probatório, cabendo ao réu demonstrar a inexistência do dano, e não à coletividade provar um sofrimento que, por sua própria natureza difusa, é juridicamente presumido.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Turma. REsp 2.200.069-MT, Rel. Min. Regina Helena Costa, julgado em 13/5/2025 (Info 851).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="em procedimento de apuração de ato infracional, a técnica de ampliação do julgamento prevista no art. 942 do cpc deve ser aplicada sempre que o acórdão não for unânime, ainda que a divergência tenha resultado em solução mais favorável ao adolescente, pois a regra processual civil incide integralmente no microssistema socioeducativo e assegura maior amplitude de cognição recursal. a assertiva está incorreta porque a técnica do art. 942 do cpc não deve ser acionada de modo automático em procedimento infracional quando a decisão não unânime for favorável ao menor infrator. nessa hipótese, a ampliação do julgamento poderia agravar indevidamente a posição processual do adolescente, submetendo-o a tratamento mais gravoso do que aquele conferido ao imputável maior de idade em situação equivalente, em afronta ao princípio da igualdade e ao dever de proteção integral.
+
+o entendimento firmado é no sentido de que a aplicação da técnica de julgamento ampliado, no âmbito da apuração de ato infracional, deve ocorrer apenas quando a divergência seja desfavorável ao adolescente. assim, se o resultado não unânime lhe for benéfico, não se justifica a incidência do art. 942 do cpc, justamente para evitar que a regra processual civil produza efeito incompatível com a lógica protetiva do eca.
+
+em síntese, a técnica de ampliação não é afastada por completo no procedimento infracional, mas sua incidência é condicionada ao sentido da divergência: somente se admite quando a solução não unânime for prejudicial ao adolescente. stj. 5ª turma. agrg no resp 2.200.245-rs, rel. min. joel ilan paciornik, julgado em 20/5/2025 (info 851).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 6</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-6">Não respondida</span>
+</div>
+
+<p class="enunciado">Em procedimento de apuração de ato infracional, a técnica de ampliação do julgamento prevista no art. 942 do CPC deve ser aplicada sempre que o acórdão não for unânime, ainda que a divergência tenha resultado em solução mais favorável ao adolescente, pois a regra processual civil incide integralmente no microssistema socioeducativo e assegura maior amplitude de cognição recursal.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(6, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(6, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-6">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque a técnica do art. 942 do CPC não deve ser acionada de modo automático em procedimento infracional quando a decisão não unânime for favorável ao menor infrator. Nessa hipótese, a ampliação do julgamento poderia agravar indevidamente a posição processual do adolescente, submetendo-o a tratamento mais gravoso do que aquele conferido ao imputável maior de idade em situação equivalente, em afronta ao princípio da igualdade e ao dever de proteção integral.<br><br>O entendimento firmado é no sentido de que a aplicação da técnica de julgamento ampliado, no âmbito da apuração de ato infracional, deve ocorrer apenas quando a divergência seja desfavorável ao adolescente. Assim, se o resultado não unânime lhe for benéfico, não se justifica a incidência do art. 942 do CPC, justamente para evitar que a regra processual civil produza efeito incompatível com a lógica protetiva do ECA.<br><br>Em síntese, a técnica de ampliação não é afastada por completo no procedimento infracional, mas sua incidência é condicionada ao sentido da divergência: somente se admite quando a solução não unânime for prejudicial ao adolescente.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 5ª Turma. AgRg no REsp 2.200.245-RS, Rel. Min. Joel Ilan Paciornik, julgado em 20/5/2025 (Info 851).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="em se tratando de fato praticado contra adolescente de 12 anos, posteriormente maior de idade, a demora da vítima em noticiar o crime e a ausência de representação no prazo de seis meses após completar 18 anos acarretam decadência do direito de ação, pois a superveniência da maioridade altera o regime de persecução penal e submete o estupro de vulnerável à regra geral de ação penal pública condicionada. a assertiva está incorreta porque, nos crimes de estupro de vulnerável praticados sob a disciplina do art. 217-a do código penal, a posterior maioridade da vítima não modifica a natureza da persecução penal nem cria exigência de representação. a conduta permanece submetida à ação penal pública incondicionada, de modo que não há falar em decadência do direito de representação.
+
+o ponto central é que a idade da vítima no momento do fato é o elemento juridicamente relevante para a configuração da vulnerabilidade e para a definição do regime de ação penal. assim, ainda que a vítima somente venha a comunicar o crime anos depois, inclusive já adulta, isso não transforma a persecução em condicionada nem faz incidir o prazo decadencial de seis meses previsto para hipóteses em que a lei exige representação.
+
+a tese defensiva de que a vítima, ao atingir a maioridade, deveria representar no prazo de seis meses foi afastada porque parte de premissa incompatível com a disciplina legal aplicável ao estupro de vulnerável. nesses casos, a persecução penal independe de manifestação de vontade da vítima, justamente em razão da proteção reforçada conferida à dignidade sexual de pessoa em condição de vulnerabilidade no momento da prática delitiva. stj. 6ª turma. rhc 206.752-pr, rel. min. sebastião reis júnior, julgado em 14/4/2025 (info 851).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 7</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-7">Não respondida</span>
+</div>
+
+<p class="enunciado">Em se tratando de fato praticado contra adolescente de 12 anos, posteriormente maior de idade, a demora da vítima em noticiar o crime e a ausência de representação no prazo de seis meses após completar 18 anos acarretam decadência do direito de ação, pois a superveniência da maioridade altera o regime de persecução penal e submete o estupro de vulnerável à regra geral de ação penal pública condicionada.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(7, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(7, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-7">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque, nos crimes de estupro de vulnerável praticados sob a disciplina do art. 217-A do Código Penal, a posterior maioridade da vítima não modifica a natureza da persecução penal nem cria exigência de representação. A conduta permanece submetida à ação penal pública incondicionada, de modo que não há falar em decadência do direito de representação.<br><br>O ponto central é que a idade da vítima no momento do fato é o elemento juridicamente relevante para a configuração da vulnerabilidade e para a definição do regime de ação penal. Assim, ainda que a vítima somente venha a comunicar o crime anos depois, inclusive já adulta, isso não transforma a persecução em condicionada nem faz incidir o prazo decadencial de seis meses previsto para hipóteses em que a lei exige representação.<br><br>A tese defensiva de que a vítima, ao atingir a maioridade, deveria representar no prazo de seis meses foi afastada porque parte de premissa incompatível com a disciplina legal aplicável ao estupro de vulnerável. Nesses casos, a persecução penal independe de manifestação de vontade da vítima, justamente em razão da proteção reforçada conferida à dignidade sexual de pessoa em condição de vulnerabilidade no momento da prática delitiva.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 6ª Turma. RHC 206.752-PR, Rel. Min. Sebastião Reis Júnior, julgado em 14/4/2025 (Info 851).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="a embriaguez voluntária e o estado de exaltação emocional do agente, por si sós, são aptos a afastar o dolo específico exigido para a configuração da injúria racial, ainda que as expressões empregadas revelem intenção de ofender a honra subjetiva da vítima com base em elementos ligados à sua cor de pele. a assertiva está incorreta porque a embriaguez voluntária e os ânimos exaltados não bastam, isoladamente, para excluir o dolo específico no crime de injúria racial. para a configuração desse delito, exige-se a intenção de ofender a honra subjetiva da vítima mediante elementos relacionados à raça, cor, etnia, religião, origem ou condição análoga. assim, se as palavras ou expressões utilizadas evidenciam essa finalidade discriminatória, a mera alegação de embriaguez voluntária ou de descontrole emocional não afasta a responsabilidade penal.
+
+em matéria penal, a exclusão do dolo não se presume a partir de estados emocionais transitórios ou da ingestão voluntária de álcool. ao contrário, a análise deve recair sobre o contexto fático e sobre o conteúdo das expressões proferidas. se delas se extrai a vontade dirigida a humilhar ou inferiorizar a vítima em razão de sua cor de pele, está presente o elemento subjetivo necessário ao tipo penal. portanto, a tese defensiva baseada apenas em embriaguez voluntária e exaltação não é suficiente para descaracterizar a injúria racial. stj. 5ª turma. aresp 2.835.056-mg, rel. min. reynaldo soares da fonseca, julgado em 20/5/2025 (info 851).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 8</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-8">Não respondida</span>
+</div>
+
+<p class="enunciado">A embriaguez voluntária e o estado de exaltação emocional do agente, por si sós, são aptos a afastar o dolo específico exigido para a configuração da injúria racial, ainda que as expressões empregadas revelem intenção de ofender a honra subjetiva da vítima com base em elementos ligados à sua cor de pele.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(8, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(8, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-8">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque a embriaguez voluntária e os ânimos exaltados não bastam, isoladamente, para excluir o dolo específico no crime de injúria racial. Para a configuração desse delito, exige-se a intenção de ofender a honra subjetiva da vítima mediante elementos relacionados à raça, cor, etnia, religião, origem ou condição análoga. Assim, se as palavras ou expressões utilizadas evidenciam essa finalidade discriminatória, a mera alegação de embriaguez voluntária ou de descontrole emocional não afasta a responsabilidade penal.<br><br>Em matéria penal, a exclusão do dolo não se presume a partir de estados emocionais transitórios ou da ingestão voluntária de álcool. Ao contrário, a análise deve recair sobre o contexto fático e sobre o conteúdo das expressões proferidas. Se delas se extrai a vontade dirigida a humilhar ou inferiorizar a vítima em razão de sua cor de pele, está presente o elemento subjetivo necessário ao tipo penal. Portanto, a tese defensiva baseada apenas em embriaguez voluntária e exaltação não é suficiente para descaracterizar a injúria racial.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 5ª Turma. AREsp 2.835.056-MG, Rel. Min. Reynaldo Soares da Fonseca, julgado em 20/5/2025 (Info 851).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="em se tratando de indébito tributário reconhecido por decisão judicial transitada em julgado, o prazo para o contribuinte exercer o direito à compensação é de cinco anos, contado do trânsito em julgado, admitindo-se apenas a suspensão desse lapso temporal entre o protocolo do pedido de habilitação do crédito e a ciência do despacho administrativo que o defere; por isso, a transmissão de cada per/dcomp deve ocorrer dentro desse quinquênio, não havendo ilegalidade nos atos infralegais que reproduzem essa limitação temporal. a assertiva está de acordo com o entendimento firmado no julgado. a premissa central é que o art. 168 do ctn estabelece prazo de cinco anos para o exercício do direito de pleitear a restituição do indébito, contado da extinção do crédito tributário. quando a extinção decorre de decisão judicial transitada em julgado, é desse marco que se inicia a contagem do prazo.
+
+no caso da compensação de crédito reconhecido judicialmente, a habilitação perante a receita federal não constitui, por si só, o exercício da compensação, mas uma etapa prévia destinada a confirmar a liquidez e a certeza do crédito. por essa razão, admite-se a suspensão do prazo prescricional no intervalo compreendido entre o pedido de habilitação e o respectivo deferimento, com fundamento na disciplina aplicável à suspensão da prescrição quando pendente a análise administrativa do crédito.
+
+além disso, o entendimento ressalta que o prazo de cinco anos deve ser observado em relação a cada transmissão de per/dcomp, pois é nesse momento que o contribuinte efetivamente exerce o direito de restituição/compensação do indébito. assim, não basta que o crédito tenha sido reconhecido judicialmente; a formalização da compensação também deve ocorrer dentro do quinquênio, ressalvada a suspensão no período de habilitação.
+
+por fim, os atos normativos da receita federal que fixaram prazo máximo de cinco anos para a transmissão da per/dcomp, contado do trânsito em julgado, foram reputados compatíveis com o sistema jurídico, porque não inovam na ordem jurídica nem extrapolam o poder regulamentar: apenas concretizam o que já decorre do ctn, da legislação de regência e da disciplina da compensação tributária. stj. 2ª turma. resp 2.178.201-rj, rel. min. francisco falcão, julgado em 13/5/2025 (info 851).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 9</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-9">Não respondida</span>
+</div>
+
+<p class="enunciado">Em se tratando de indébito tributário reconhecido por decisão judicial transitada em julgado, o prazo para o contribuinte exercer o direito à compensação é de cinco anos, contado do trânsito em julgado, admitindo-se apenas a suspensão desse lapso temporal entre o protocolo do pedido de habilitação do crédito e a ciência do despacho administrativo que o defere; por isso, a transmissão de cada PER/DCOMP deve ocorrer dentro desse quinquênio, não havendo ilegalidade nos atos infralegais que reproduzem essa limitação temporal.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(9, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(9, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-9">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está de acordo com o entendimento firmado no julgado. A premissa central é que o art. 168 do CTN estabelece prazo de cinco anos para o exercício do direito de pleitear a restituição do indébito, contado da extinção do crédito tributário. Quando a extinção decorre de decisão judicial transitada em julgado, é desse marco que se inicia a contagem do prazo.<br><br>No caso da compensação de crédito reconhecido judicialmente, a habilitação perante a Receita Federal não constitui, por si só, o exercício da compensação, mas uma etapa prévia destinada a confirmar a liquidez e a certeza do crédito. Por essa razão, admite-se a suspensão do prazo prescricional no intervalo compreendido entre o pedido de habilitação e o respectivo deferimento, com fundamento na disciplina aplicável à suspensão da prescrição quando pendente a análise administrativa do crédito.<br><br>Além disso, o entendimento ressalta que o prazo de cinco anos deve ser observado em relação a cada transmissão de PER/DCOMP, pois é nesse momento que o contribuinte efetivamente exerce o direito de restituição/compensação do indébito. Assim, não basta que o crédito tenha sido reconhecido judicialmente; a formalização da compensação também deve ocorrer dentro do quinquênio, ressalvada a suspensão no período de habilitação.<br><br>Por fim, os atos normativos da Receita Federal que fixaram prazo máximo de cinco anos para a transmissão da PER/DCOMP, contado do trânsito em julgado, foram reputados compatíveis com o sistema jurídico, porque não inovam na ordem jurídica nem extrapolam o poder regulamentar: apenas concretizam o que já decorre do CTN, da legislação de regência e da disciplina da compensação tributária.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 2ª Turma. REsp 2.178.201-RJ, Rel. Min. Francisco Falcão, julgado em 13/5/2025 (Info 851).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="em contrato de financiamento com liberação parcelada de recursos, o fato gerador do iof/crédito não se aperfeiçoa com a mera assinatura do instrumento contratual, mas apenas quando ocorre a efetiva disponibilização de cada parcela ao mutuário; por isso, a superveniência de decreto que revoga a alíquota zero anteriormente aplicável alcança validamente as liberações realizadas após sua vigência, ainda que o contrato tenha sido celebrado em momento anterior. o iof incidente sobre operações de crédito tem como aspecto temporal a efetiva entrega dos valores ao tomador, e não a simples formalização do contrato. essa conclusão decorre do art. 63, i, do ctn, bem como da disciplina regulamentar do imposto, que vincula a ocorrência do fato gerador à liberação dos recursos.
+
+em contratos com desembolso parcelado, cada liberação constitui um momento juridicamente relevante para fins de incidência tributária. assim, se havia previsão normativa de alíquota zero para operações com recursos do bndes e, posteriormente, essa benesse foi revogada por decreto, a nova disciplina incide sobre as parcelas liberadas após a revogação. não há, nesse cenário, cobrança retroativa sobre fato já consumado, pois a tributação alcança apenas eventos posteriores à alteração normativa.
+
+também não procede a alegação de que a assinatura do contrato consolidaria, por si só, o regime tributário aplicável a todo o financiamento. em operações fracionadas, o fato gerador se renova a cada disponibilização de recursos, de modo que a alteração normativa superveniente pode repercutir legitimamente sobre as liberações futuras. por isso, não se reconhece ilegalidade na exigência do iof sobre parcelas desembolsadas após a revogação da alíquota zero. stj. 1ª turma. resp 2.010.908-sp, rel. min. paulo sérgio domingues, julgado em 13/5/2025 (info 851).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 10</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-10">Não respondida</span>
+</div>
+
+<p class="enunciado">Em contrato de financiamento com liberação parcelada de recursos, o fato gerador do IOF/crédito não se aperfeiçoa com a mera assinatura do instrumento contratual, mas apenas quando ocorre a efetiva disponibilização de cada parcela ao mutuário; por isso, a superveniência de decreto que revoga a alíquota zero anteriormente aplicável alcança validamente as liberações realizadas após sua vigência, ainda que o contrato tenha sido celebrado em momento anterior.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(10, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(10, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-10">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O IOF incidente sobre operações de crédito tem como aspecto temporal a efetiva entrega dos valores ao tomador, e não a simples formalização do contrato. Essa conclusão decorre do art. 63, I, do CTN, bem como da disciplina regulamentar do imposto, que vincula a ocorrência do fato gerador à liberação dos recursos.<br><br>Em contratos com desembolso parcelado, cada liberação constitui um momento juridicamente relevante para fins de incidência tributária. Assim, se havia previsão normativa de alíquota zero para operações com recursos do BNDES e, posteriormente, essa benesse foi revogada por decreto, a nova disciplina incide sobre as parcelas liberadas após a revogação. Não há, nesse cenário, cobrança retroativa sobre fato já consumado, pois a tributação alcança apenas eventos posteriores à alteração normativa.<br><br>Também não procede a alegação de que a assinatura do contrato consolidaria, por si só, o regime tributário aplicável a todo o financiamento. Em operações fracionadas, o fato gerador se renova a cada disponibilização de recursos, de modo que a alteração normativa superveniente pode repercutir legitimamente sobre as liberações futuras. Por isso, não se reconhece ilegalidade na exigência do IOF sobre parcelas desembolsadas após a revogação da alíquota zero.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Turma. REsp 2.010.908-SP, Rel. Min. Paulo Sérgio Domingues, julgado em 13/5/2025 (Info 851).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a remuneração incidente pela taxa selic sobre depósitos compulsórios mantidos por instituição financeira junto ao banco central, por decorrer de imposição regulatória que restringe a disponibilidade do capital sem configurar ato ilícito ou mora, possui natureza indenizatória e, por isso, não integra a base de cálculo do irpj nem da csll, em distinção necessária em relação à selic aplicada na repetição de indébito tributário. a assertiva está incorreta porque inverte a natureza jurídica da remuneração dos depósitos compulsórios. nessa hipótese, a taxa selic não é tratada como mera recomposição de prejuízo ou indenização, mas como contraprestação pela indisponibilidade do capital da instituição financeira, imposta por norma legal no âmbito da política monetária e regulatória. por isso, há acréscimo patrimonial e ingresso de receita financeira, o que atrai a incidência do irpj e da csll.
+
+a distinção com a selic incidente na repetição de indébito tributário é relevante, mas o enunciado a utiliza de forma equivocada: naquela hipótese, a remuneração tem caráter indenizatório, pois recompõe o que foi indevidamente retido pelo fisco; já nos depósitos compulsórios, a retenção é lícita e decorre de disciplina normativa do sistema financeiro, sem ilicitude ou mora. assim, a remuneração auferida não se exclui da tributação por ausência de natureza indenizatória.
+
+além disso, o entendimento aproxima os depósitos compulsórios da lógica aplicada aos depósitos judiciais, cuja remuneração também é tratada como receita financeira sujeita à tributação pelo irpj e pela csll. em termos de art. 43 do ctn, a verba se enquadra como renda/provento de qualquer natureza, compondo o lucro da pessoa jurídica e integrando a base de cálculo dos tributos mencionados. stj. 2ª turma. resp 2.167.201-sp, rel. min. maria thereza de assis moura, julgado em 20/5/2025 (info 851).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 11</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-11">Não respondida</span>
+</div>
+
+<p class="enunciado">A remuneração incidente pela Taxa SELIC sobre depósitos compulsórios mantidos por instituição financeira junto ao Banco Central, por decorrer de imposição regulatória que restringe a disponibilidade do capital sem configurar ato ilícito ou mora, possui natureza indenizatória e, por isso, não integra a base de cálculo do IRPJ nem da CSLL, em distinção necessária em relação à SELIC aplicada na repetição de indébito tributário.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(11, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(11, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-11">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque inverte a natureza jurídica da remuneração dos depósitos compulsórios. Nessa hipótese, a Taxa SELIC não é tratada como mera recomposição de prejuízo ou indenização, mas como contraprestação pela indisponibilidade do capital da instituição financeira, imposta por norma legal no âmbito da política monetária e regulatória. Por isso, há acréscimo patrimonial e ingresso de receita financeira, o que atrai a incidência do IRPJ e da CSLL.<br><br>A distinção com a SELIC incidente na repetição de indébito tributário é relevante, mas o enunciado a utiliza de forma equivocada: naquela hipótese, a remuneração tem caráter indenizatório, pois recompõe o que foi indevidamente retido pelo Fisco; já nos depósitos compulsórios, a retenção é lícita e decorre de disciplina normativa do sistema financeiro, sem ilicitude ou mora. Assim, a remuneração auferida não se exclui da tributação por ausência de natureza indenizatória.<br><br>Além disso, o entendimento aproxima os depósitos compulsórios da lógica aplicada aos depósitos judiciais, cuja remuneração também é tratada como receita financeira sujeita à tributação pelo IRPJ e pela CSLL. Em termos de art. 43 do CTN, a verba se enquadra como renda/provento de qualquer natureza, compondo o lucro da pessoa jurídica e integrando a base de cálculo dos tributos mencionados.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 2ª Turma. REsp 2.167.201-SP, Rel. Min. Maria Thereza de Assis Moura, julgado em 20/5/2025 (Info 851).</p>
+</div>
+</section>
+
+</div>
+
+<script>
+const storageKey = location.pathname + "_respostas";
+let respostas = JSON.parse(localStorage.getItem(storageKey) || "{}");
+
+function destacar(t){
+ if(t==="CERTO") return '<span class="gabarito-certo">CERTO</span>';
+ if(t==="ERRADO") return '<span class="gabarito-errado">ERRADO</span>';
+ return t;
+}
+
+function responder(numero, resposta){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const gabarito=card.dataset.gabarito;
+ const correto=resposta===gabarito;
+ respostas[numero]={resposta,correto};
+ localStorage.setItem(storageKey, JSON.stringify(respostas));
+ mostrarFeedback(numero);
+ atualizarPainel();
+ filtrar();
+}
+
+function mostrarFeedback(numero){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const feedback=document.getElementById("feedback-"+numero);
+ const status=document.getElementById("status-"+numero);
+ const resultado=feedback.querySelector(".resultado");
+ const gabarito=card.dataset.gabarito;
+ const dados=respostas[numero];
+ if(!dados) return;
+ feedback.style.display="block";
+ feedback.classList.remove("correto","errado");
+ if(dados.correto){
+   feedback.classList.add("correto");
+   resultado.innerHTML="Você acertou. A resposta é "+destacar(gabarito)+".";
+   status.textContent="Respondida — acerto";
+   status.style.color="var(--green)";
+ } else {
+   feedback.classList.add("errado");
+   resultado.innerHTML="Você errou. O gabarito é "+destacar(gabarito)+".";
+   status.textContent="Respondida — erro";
+   status.style.color="var(--red)";
+ }
+}
+
+function atualizarPainel(){
+ let respondidas=0, acertos=0, erros=0;
+ for(const k in respostas){
+   respondidas++;
+   if(respostas[k].correto) acertos++; else erros++;
+ }
+ document.getElementById("respondidas").textContent=respondidas;
+ document.getElementById("acertos").textContent=acertos;
+ document.getElementById("erros").textContent=erros;
+ document.getElementById("visiveis").textContent=document.querySelectorAll(".questao:not(.oculta)").length;
+}
+
+function filtrar(){
+ const busca=document.getElementById("busca").value.trim().toLowerCase();
+ const disciplina=document.getElementById("disciplina").value;
+ const statusFiltro=document.getElementById("statusFiltro").value;
+ const cards=Array.from(document.querySelectorAll(".questao"));
+ let vis=0;
+ cards.forEach((card,idx)=>{
+   const n=idx+1;
+   const texto=card.dataset.texto||"";
+   const disc=card.dataset.disciplina||"";
+   const r=respostas[n];
+   let passaStatus=true;
+   if(statusFiltro==="nao") passaStatus=!r;
+   if(statusFiltro==="acerto") passaStatus=r && r.correto;
+   if(statusFiltro==="erro") passaStatus=r && !r.correto;
+   const ok=(!busca||texto.includes(busca)) && (!disciplina||disc===disciplina) && passaStatus;
+   card.classList.toggle("oculta", !ok);
+   if(ok) vis++;
+ });
+ document.getElementById("sem-resultados").style.display=vis===0?"block":"none";
+ atualizarPainel();
+}
+
+function reiniciar(){
+ if(!confirm("Deseja reiniciar este simulado?")) return;
+ localStorage.removeItem(storageKey);
+ location.reload();
+}
+
+function restaurar(){
+ for(const k in respostas) mostrarFeedback(Number(k));
+ filtrar();
+ atualizarPainel();
+}
+
+restaurar();
+</script>
+</body>
+</html>

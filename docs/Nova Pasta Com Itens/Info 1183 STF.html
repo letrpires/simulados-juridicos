@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Simulado - Info 1183 STF</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+    --bg: #0f172a;
+    --card: #111827;
+    --card2: #1f2937;
+    --text: #e5e7eb;
+    --muted: #9ca3af;
+    --accent: #38bdf8;
+    --green: #22c55e;
+    --red: #ef4444;
+    --yellow: #facc15;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #020617, #111827);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+header {
+    padding: 32px 20px;
+    text-align: center;
+    border-bottom: 1px solid #334155;
+}
+
+header h1 {
+    margin: 0 0 10px;
+    font-size: 28px;
+}
+
+header p {
+    color: var(--muted);
+    margin: 0;
+}
+
+.container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 24px 16px 80px;
+}
+
+.painel {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(8px);
+    border: 1px solid #334155;
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 24px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.stat {
+    background: var(--card2);
+    padding: 12px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.stat strong {
+    display: block;
+    font-size: 22px;
+    color: var(--accent);
+}
+
+.card {
+    background: rgba(17, 24, 39, 0.96);
+    border: 1px solid #334155;
+    border-radius: 18px;
+    padding: 22px;
+    margin-bottom: 20px;
+    box-shadow: 0 12px 30px rgba(0,0,0,.25);
+}
+
+.questao-topo {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.badge {
+    background: #0ea5e9;
+    color: #00111f;
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 999px;
+}
+
+.status {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.enunciado {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.botoes {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+button {
+    cursor: pointer;
+    border: 0;
+    padding: 12px 22px;
+    border-radius: 12px;
+    background: #334155;
+    color: white;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+button:hover {
+    transform: translateY(-1px);
+    background: #475569;
+}
+
+.feedback {
+    display: none;
+    background: #020617;
+    border-left: 4px solid var(--accent);
+    padding: 16px;
+    border-radius: 12px;
+    margin-top: 12px;
+}
+
+.feedback.correto {
+    border-left-color: var(--green);
+}
+
+.feedback.errado {
+    border-left-color: var(--red);
+}
+
+.resultado {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.referencia {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.acoes {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.acoes button {
+    background: #0ea5e9;
+    color: #00111f;
+}
+
+@media (max-width: 700px) {
+    .painel {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .botoes {
+        flex-direction: column;
+    }
+
+    header h1 {
+        font-size: 22px;
+    }
+
+    .enunciado {
+        font-size: 16px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Simulado - Info 1183 STF</h1>
+    <p>Simulado interativo de CERTO ou ERRADO</p>
+</header>
+
+<div class="container">
+
+    <div class="painel">
+        <div class="stat">
+            <strong id="total">2</strong>
+            Total
+        </div>
+        <div class="stat">
+            <strong id="respondidas">0</strong>
+            Respondidas
+        </div>
+        <div class="stat">
+            <strong id="acertos">0</strong>
+            Acertos
+        </div>
+        <div class="stat">
+            <strong id="erros">0</strong>
+            Erros
+        </div>
+    </div>
+
+    <div class="acoes">
+        <button onclick="reiniciar()">Reiniciar simulado</button>
+    </div>
+
+    
+        <section class="card questao" data-gabarito="CERTO">
+            <div class="questao-topo">
+                <span class="badge">Questão 1</span>
+                <span class="status" id="status-1">Não respondida</span>
+            </div>
+
+            <p class="enunciado">É constitucional lei estadual que, no exercício da competência normativa local voltada à proteção da saúde pública, vede a realização de exames optométricos, a manutenção de equipamentos de natureza médica e a comercialização de óculos de grau e lentes de contato sem prescrição médica no interior de óticas ou estabelecimentos congêneres, desde que tal restrição não alcance a atuação de profissionais optometristas com formação técnica de nível superior, aos quais não se pode impor a mesma proibição.</p>
+
+            <div class="botoes">
+                <button onclick="responder(1, 'CERTO')">CERTO</button>
+                <button onclick="responder(1, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-1">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> CERTO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz, em essência, o alcance do entendimento firmado no controle concentrado: é válida a lei estadual que restringe a atuação de óticas e estabelecimentos similares para impedir a realização de exames optométricos, a permanência de equipamentos médicos e a venda de óculos e lentes de contato sem prescrição médica, em proteção à saúde e à regularidade da atividade profissional.<br><br>O ponto sensível do julgado está na ressalva: a vedação não pode ser estendida de modo absoluto aos optometristas com formação técnica de nível superior. Em outras palavras, a norma estadual pode disciplinar e limitar a atividade comercial de óticas e congêneres, mas não pode suprimir, por via reflexa, o exercício profissional de optometristas habilitados em nível superior, sob pena de extrapolar os limites constitucionais da restrição à liberdade profissional.<br><br>A solução harmoniza a liberdade de exercício profissional com a possibilidade de o Estado impor condicionamentos razoáveis quando houver interesse público relevante, especialmente na área da saúde. Assim, a constitucionalidade da lei não decorre de uma autorização irrestrita para impedir toda e qualquer atividade optométrica, mas da compatibilidade da restrição com a proteção sanitária, preservada a atuação dos profissionais tecnicamente habilitados.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 4.268/GO, Rel. Min. Nunes Marques, julgado em 25/06/2025 (Info 1183).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="ERRADO">
+            <div class="questao-topo">
+                <span class="badge">Questão 2</span>
+                <span class="status" id="status-2">Não respondida</span>
+            </div>
+
+            <p class="enunciado">A edição de decreto presidencial para regulamentar o Estatuto do Desarmamento não pode impor restrições adicionais ao acesso a armas e munições, ainda que tais limitações se destinem a reverter flexibilização normativa anterior, sob pena de inovação indevida na ordem jurídica e violação ao princípio da legalidade estrita.</p>
+
+            <div class="botoes">
+                <button onclick="responder(2, 'CERTO')">CERTO</button>
+                <button onclick="responder(2, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-2">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> ERRADO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque os decretos regulamentares mencionados foram reputados constitucionais justamente por se manterem dentro da competência presidencial prevista no art. 84, caput e IV, da Constituição, isto é, para expedir regulamentos destinados à fiel execução da lei. No caso, entendeu-se que os Decretos nº 11.366/2023 e nº 11.615/2023 não extrapolaram o poder regulamentar, mas concretizaram e densificaram o Estatuto do Desarmamento (Lei nº 10.826/2003), com o objetivo de restabelecer um regime mais rigoroso de controle de armas e munições após período de flexibilização normativa.<br><br>A tese acolhida reconhece expressamente a constitucionalidade de medidas como: centralização do controle de armas no SINARM, sob responsabilidade da Polícia Federal; restrição quantitativa de armas e munições; exigência de demonstração concreta de necessidade para aquisição de arma de fogo de uso permitido; redução da validade dos registros de CACs com avaliação psicológica periódica; e limitação das atividades de tiro desportivo e caça. Também se destacou a existência de normas de transição voltadas à preservação da segurança jurídica, em atenção ao art. 5º, XXXVI, da CF/88.<br><br>Além disso, o entendimento afastou a premissa de que haveria direito fundamental ao acesso irrestrito a armas de fogo. Ao contrário, reafirmou-se a legitimidade de políticas públicas rigorosas de controle da violência armada, em consonância com os valores constitucionais e com a jurisprudência da Corte. Assim, não procede a afirmação de que o decreto não poderia impor restrições adicionais: desde que respeitados os limites legais e constitucionais, o regulamento pode estabelecer condicionamentos e critérios mais estritos para a execução da lei.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STF. 2ª Turma. HC 209.854 AgR/PR, Rel. Min. Edson Fachin, julgado em 17/06/2025 (Info 1183).</p>
+            </div>
+        </section>
+        
+
+</div>
+
+<script>
+const totalQuestoes = 2;
+let respostas = JSON.parse(localStorage.getItem(location.pathname + "_respostas") || "{}");
+
+function atualizarPainel() {
+    const respondidas = Object.keys(respostas).length;
+    let acertos = 0;
+    let erros = 0;
+
+    for (const key in respostas) {
+        if (respostas[key].correto) acertos++;
+        else erros++;
+    }
+
+    document.getElementById("respondidas").textContent = respondidas;
+    document.getElementById("acertos").textContent = acertos;
+    document.getElementById("erros").textContent = erros;
+}
+
+function responder(numero, resposta) {
+    const card = document.querySelectorAll(".questao")[numero - 1];
+    const gabarito = card.dataset.gabarito;
+    const correto = resposta === gabarito;
+
+    respostas[numero] = {
+        resposta,
+        correto
+    };
+
+    localStorage.setItem(location.pathname + "_respostas", JSON.stringify(respostas));
+
+    mostrarFeedback(numero);
+    atualizarPainel();
+}
+
+function mostrarFeedback(numero) {
+    const card = document.querySelectorAll(".questao")[numero - 1];
+    const feedback = document.getElementById("feedback-" + numero);
+    const status = document.getElementById("status-" + numero);
+    const resultado = feedback.querySelector(".resultado");
+
+    const dados = respostas[numero];
+
+    if (!dados) return;
+
+    feedback.style.display = "block";
+    feedback.classList.remove("correto", "errado");
+
+    if (dados.correto) {
+        feedback.classList.add("correto");
+        resultado.textContent = "Você acertou. A resposta é " + card.dataset.gabarito + ".";
+        status.textContent = "Respondida — acerto";
+        status.style.color = "var(--green)";
+    } else {
+        feedback.classList.add("errado");
+        resultado.textContent = "Você errou. O gabarito é " + card.dataset.gabarito + ".";
+        status.textContent = "Respondida — erro";
+        status.style.color = "var(--red)";
+    }
+}
+
+function restaurar() {
+    for (const key in respostas) {
+        mostrarFeedback(Number(key));
+    }
+    atualizarPainel();
+}
+
+function reiniciar() {
+    if (!confirm("Deseja reiniciar este simulado?")) return;
+    localStorage.removeItem(location.pathname + "_respostas");
+    location.reload();
+}
+
+restaurar();
+</script>
+
+</body>
+</html>

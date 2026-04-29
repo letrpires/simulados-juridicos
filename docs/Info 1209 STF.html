@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Simulado - Info 1209 STF</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+:root{
+--bg:#020617;--panel:rgba(15,23,42,.88);--card:rgba(15,23,42,.96);
+--card2:rgba(30,41,59,.92);--border:rgba(148,163,184,.22);
+--text:#e5e7eb;--muted:#94a3b8;--accent:#38bdf8;--accent2:#0ea5e9;
+--green:#22c55e;--red:#ef4444;--yellow:#facc15;--purple:#a78bfa;
+}
+*{box-sizing:border-box}
+body{
+margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+background:radial-gradient(circle at top left,rgba(56,189,248,.20),transparent 28%),
+radial-gradient(circle at top right,rgba(167,139,250,.15),transparent 28%),
+linear-gradient(135deg,#020617,#0f172a 50%,#020617);
+color:var(--text);line-height:1.65;
+}
+header{padding:44px 20px 32px;text-align:center;border-bottom:1px solid var(--border)}
+header h1{margin:0 0 10px;font-size:clamp(28px,4vw,46px);letter-spacing:-.05em}
+header p{color:var(--muted);margin:0;font-size:16px}
+.container{max-width:1160px;margin:0 auto;padding:26px 16px 80px}
+.painel{
+position:sticky;top:10px;z-index:10;background:var(--panel);backdrop-filter:blur(18px);
+border:1px solid var(--border);border-radius:26px;padding:16px;margin-bottom:22px;
+box-shadow:0 22px 70px rgba(0,0,0,.35)
+}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.stat{background:var(--card2);padding:14px;border-radius:18px;text-align:center;border:1px solid rgba(148,163,184,.12)}
+.stat strong{display:block;font-size:25px;color:var(--accent);line-height:1.1}
+.stat span{font-size:12px;color:var(--muted)}
+.filtros{display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:12px;margin-top:14px}
+input,select{
+width:100%;background:rgba(2,6,23,.78);color:var(--text);border:1px solid var(--border);
+border-radius:14px;padding:13px 14px;outline:none;font-size:14px
+}
+input:focus,select:focus{border-color:var(--accent)}
+.card{
+background:var(--card);border:1px solid var(--border);border-radius:24px;padding:26px;
+margin-bottom:20px;box-shadow:0 18px 50px rgba(0,0,0,.24)
+}
+.questao{scroll-margin-top:190px}
+.questao-topo{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:18px}
+.badge{
+background:linear-gradient(135deg,var(--accent),var(--accent2));color:#00111f;font-weight:900;
+padding:7px 13px;border-radius:999px;display:inline-block
+}
+.disciplina-tag,.tipo-tag{
+display:inline-block;margin-left:8px;color:var(--muted);background:rgba(148,163,184,.10);
+border:1px solid rgba(148,163,184,.14);padding:6px 10px;border-radius:999px;font-size:12px
+}
+.tipo-tag{color:#ddd6fe;border-color:rgba(167,139,250,.25)}
+.status{color:var(--yellow);font-size:13px;white-space:nowrap}
+.enunciado{font-size:19px;margin:0 0 22px;letter-spacing:-.01em}
+.botoes{display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.btn{
+cursor:pointer;border:0;padding:12px 22px;border-radius:14px;color:white;font-weight:900;
+transition:.18s ease;letter-spacing:.02em
+}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.certo{background:rgba(34,197,94,.20);border:1px solid rgba(34,197,94,.42)}
+.btn.errado{background:rgba(239,68,68,.20);border:1px solid rgba(239,68,68,.42)}
+.btn.neutro{background:rgba(56,189,248,.16);color:var(--text);border:1px solid rgba(56,189,248,.32)}
+.feedback{
+display:none;background:rgba(2,6,23,.72);border:1px solid rgba(148,163,184,.16);
+border-left:5px solid var(--accent);padding:18px;border-radius:18px;margin-top:14px
+}
+.feedback.correto{border-left-color:var(--green)}
+.feedback.errado{border-left-color:var(--red)}
+.resultado{font-size:18px;font-weight:900;margin-top:0}
+.justificativa{margin-top:12px}
+.referencia{color:var(--muted);font-size:13px;margin-top:16px}
+.gabarito-certo{color:var(--green);font-weight:900}
+.gabarito-errado{color:var(--red);font-weight:900}
+.oculta{display:none}
+.sem-resultados{text-align:center;color:var(--muted);display:none;padding:30px}
+.grid-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
+.link-card{
+display:block;padding:20px;background:rgba(15,23,42,.95);border:1px solid rgba(148,163,184,.22);
+color:#e5e7eb;border-radius:22px;text-decoration:none;transition:.2s;box-shadow:0 14px 40px rgba(0,0,0,.22)
+}
+.link-card:hover{transform:translateY(-3px);border-color:#38bdf8}
+.link-card strong{display:block;font-size:17px;margin-bottom:8px}
+.link-card span{color:#94a3b8;font-size:13px}
+.index-tools{display:grid;grid-template-columns:1.5fr 1fr;gap:12px;margin-bottom:20px}
+@media(max-width:850px){
+.stats{grid-template-columns:repeat(2,1fr)}
+.filtros,.index-tools{grid-template-columns:1fr}
+.questao-topo{align-items:flex-start;flex-direction:column}
+.botoes{flex-direction:column}
+.enunciado{font-size:16px}
+.card{padding:20px}
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Simulado - Info 1209 STF</h1>
+<p>Informativos • Simulado interativo de CERTO ou ERRADO</p>
+</header>
+
+<div class="container">
+<div class="painel">
+<div class="stats">
+<div class="stat"><strong>5</strong><span>Total</span></div>
+<div class="stat"><strong id="visiveis">5</strong><span>Visíveis</span></div>
+<div class="stat"><strong id="respondidas">0</strong><span>Respondidas</span></div>
+<div class="stat"><strong id="acertos">0</strong><span>Acertos</span></div>
+<div class="stat"><strong id="erros">0</strong><span>Erros</span></div>
+</div>
+
+<div class="filtros">
+<input id="busca" type="search" placeholder="Buscar por palavra-chave..." oninput="filtrar()">
+<select id="disciplina" onchange="filtrar()">
+<option value="">Todas as disciplinas</option>
+<option value="ECA">ECA</option>
+<option value="N/I">N/I</option>
+</select>
+<select id="statusFiltro" onchange="filtrar()">
+<option value="">Todas</option>
+<option value="nao">Não respondidas</option>
+<option value="acerto">Acertos</option>
+<option value="erro">Erros</option>
+</select>
+<button class="btn neutro" onclick="reiniciar()">Reiniciar</button>
+</div>
+</div>
+
+<div id="sem-resultados" class="sem-resultados">Nenhuma questão encontrada com os filtros atuais.</div>
+
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a lei nº 14.126/2021, ao classificar a visão monocular como deficiência sensorial do tipo visual para todos os efeitos legais, promoveu enquadramento automático e definitivo do respectivo titular como pessoa com deficiência, dispensando a avaliação biopsicossocial por equipe multiprofissional e interdisciplinar prevista na legislação de regência. a assertiva está incorreta porque a lei não institui presunção absoluta nem reconhecimento automático da condição de pessoa com deficiência. o que a norma faz é qualificar a visão monocular como deficiência sensorial do tipo visual para todos os efeitos legais, em compatibilidade com a constituição e com a convenção internacional sobre os direitos das pessoas com deficiência, que adotam concepção ampla, relacional e evolutiva de deficiência.
+
+isso não elimina, porém, a exigência do regime geral do estatuto da pessoa com deficiência. o reconhecimento jurídico da condição de pessoa com deficiência continua dependente de avaliação biopsicossocial, realizada por equipe multiprofissional e interdisciplinar, nos termos do art. 2º, §§ 1º a 3º, da lei nº 13.146/2015. em outras palavras, a lei amplia a proteção e o enquadramento normativo da visão monocular, mas não substitui o procedimento legal de aferição da deficiência em cada caso concreto.
+
+além disso, o entendimento prestigia a competência normativa da união para editar regras de proteção e integração social das pessoas com deficiência, bem como a adoção de políticas públicas inclusivas e medidas compensatórias voltadas à redução das barreiras sociais e das desvantagens delas decorrentes. assim, a norma é constitucional justamente porque se harmoniza com a igualdade material e com a solidariedade, sem criar automatismo incompatível com o modelo biopsicossocial de deficiência. stf. plenário. ado 87/ba, rel. min. dias toffoli, julgado em 24/03/2026 (info 1209).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 1</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-1">Não respondida</span>
+</div>
+
+<p class="enunciado">A Lei nº 14.126/2021, ao classificar a visão monocular como deficiência sensorial do tipo visual para todos os efeitos legais, promoveu enquadramento automático e definitivo do respectivo titular como pessoa com deficiência, dispensando a avaliação biopsicossocial por equipe multiprofissional e interdisciplinar prevista na legislação de regência.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(1, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(1, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-1">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque a lei não institui presunção absoluta nem reconhecimento automático da condição de pessoa com deficiência. O que a norma faz é qualificar a visão monocular como deficiência sensorial do tipo visual para todos os efeitos legais, em compatibilidade com a Constituição e com a Convenção Internacional sobre os Direitos das Pessoas com Deficiência, que adotam concepção ampla, relacional e evolutiva de deficiência.<br><br>Isso não elimina, porém, a exigência do regime geral do Estatuto da Pessoa com Deficiência. O reconhecimento jurídico da condição de pessoa com deficiência continua dependente de avaliação biopsicossocial, realizada por equipe multiprofissional e interdisciplinar, nos termos do art. 2º, §§ 1º a 3º, da Lei nº 13.146/2015. Em outras palavras, a lei amplia a proteção e o enquadramento normativo da visão monocular, mas não substitui o procedimento legal de aferição da deficiência em cada caso concreto.<br><br>Além disso, o entendimento prestigia a competência normativa da União para editar regras de proteção e integração social das pessoas com deficiência, bem como a adoção de políticas públicas inclusivas e medidas compensatórias voltadas à redução das barreiras sociais e das desvantagens delas decorrentes. Assim, a norma é constitucional justamente porque se harmoniza com a igualdade material e com a solidariedade, sem criar automatismo incompatível com o modelo biopsicossocial de deficiência.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADO 87/BA, Rel. Min. Dias Toffoli, julgado em 24/03/2026 (Info 1209).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="a outorga de concessão florestal, ainda que precedida de licitação e limitada à exploração de produtos e serviços florestais por prazo determinado, é compatível com a constituição quando recai sobre área pública ocupada por comunidade tradicional, desde que o edital preserve o uso consuetudinário local e não haja transferência da propriedade do imóvel ao particular. a assertiva está incorreta porque o vício de inconstitucionalidade não decorre apenas da eventual transferência dominial da área, mas da própria incompatibilidade entre a posição jurídica conferida ao concessionário e o regime constitucional de proteção especial dessas terras. a concessão florestal prevista na lei nº 11.284/2006 autoriza a delegação, ao particular, do direito de explorar produtos e serviços florestais em determinada área pública, por sua conta e risco, mediante licitação e por prazo certo.  
+
+ocorre que, quando a área estiver ocupada por povos indígenas, remanescentes de quilombos ou demais comunidades tradicionais, essa delegação não pode subsistir, ainda que sob cláusulas editalícias de salvaguarda do uso tradicional. isso porque:
+
+- aos povos indígenas, o art. 231 da constituição assegura a posse permanente e o usufruto exclusivo das terras tradicionalmente ocupadas;
+- aos remanescentes de quilombos, o art. 68 do adct reconhece a propriedade definitiva das terras que ocupam;
+- às comunidades tradicionais, aplica-se a proteção da convenção nº 169 da oit, incorporada ao direito brasileiro.
+
+assim, a concessão florestal cria uma posição jurídica incompatível com o usufruto exclusivo e com a proteção reforçada conferida a esses grupos. a vedação é estrutural: não basta preservar usos locais no edital, porque a própria presença de um concessionário explorando economicamente a área já compromete o regime constitucional e convencional de tutela dessas comunidades. stf. plenário. adi 7.394/df, rel. min. dias toffoli, julgado em 23/03/2026 (info 1209).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 2</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-2">Não respondida</span>
+</div>
+
+<p class="enunciado">A outorga de concessão florestal, ainda que precedida de licitação e limitada à exploração de produtos e serviços florestais por prazo determinado, é compatível com a Constituição quando recai sobre área pública ocupada por comunidade tradicional, desde que o edital preserve o uso consuetudinário local e não haja transferência da propriedade do imóvel ao particular.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(2, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(2, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-2">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque o vício de inconstitucionalidade não decorre apenas da eventual transferência dominial da área, mas da própria incompatibilidade entre a posição jurídica conferida ao concessionário e o regime constitucional de proteção especial dessas terras. A concessão florestal prevista na Lei nº 11.284/2006 autoriza a delegação, ao particular, do direito de explorar produtos e serviços florestais em determinada área pública, por sua conta e risco, mediante licitação e por prazo certo.  <br><br>Ocorre que, quando a área estiver ocupada por povos indígenas, remanescentes de quilombos ou demais comunidades tradicionais, essa delegação não pode subsistir, ainda que sob cláusulas editalícias de salvaguarda do uso tradicional. Isso porque:<br><br>- aos povos indígenas, o art. 231 da Constituição assegura a posse permanente e o usufruto exclusivo das terras tradicionalmente ocupadas;<br>- aos remanescentes de quilombos, o art. 68 do ADCT reconhece a propriedade definitiva das terras que ocupam;<br>- às comunidades tradicionais, aplica-se a proteção da Convenção nº 169 da OIT, incorporada ao direito brasileiro.<br><br>Assim, a concessão florestal cria uma posição jurídica incompatível com o usufruto exclusivo e com a proteção reforçada conferida a esses grupos. A vedação é estrutural: não basta preservar usos locais no edital, porque a própria presença de um concessionário explorando economicamente a área já compromete o regime constitucional e convencional de tutela dessas comunidades.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.394/DF, Rel. Min. Dias Toffoli, julgado em 23/03/2026 (Info 1209).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a incidência do imposto de importação sobre mercadoria nacional ou nacionalizada que, após exportação definitiva, retorna ao território aduaneiro brasileiro independe da origem fabril do bem e se legitima porque, nessa hipótese, o reingresso configura nova operação econômica de internalização no mercado nacional; por isso, é compatível com a constituição a norma infraconstitucional que a equipara a produto estrangeiro, ressalvadas as hipóteses excepcionais de retorno sem caráter definitivo, como a devolução por defeito técnico ou por motivo alheio à vontade do exportador. o enunciado está correto porque reproduz a lógica central do entendimento firmado: para fins de imposto de importação, o elemento decisivo não é a origem de fabricação da mercadoria, mas sua procedência do exterior e o efetivo ingresso no mercado brasileiro. quando um bem nacional ou nacionalizado é exportado em caráter definitivo, ele deixa de integrar o ciclo econômico interno; se posteriormente retorna ao país, há novo ingresso juridicamente relevante, apto a atrair a incidência do imposto de importação.
+
+a norma que equipara essa mercadoria a produto estrangeiro foi reputada compatível com a constituição, especialmente com o art. 153, i, que utiliza a expressão “produtos estrangeiros” em sentido ligado à procedência externa, e não à fabricação em território nacional. também não há violação aos contornos constitucionais de repartição de competência tributária, pois a disciplina do fato gerador do imposto de importação pode alcançar essa hipótese de reingresso após exportação definitiva.
+
+a ressalva mencionada no enunciado é importante: o julgado reconhece exceções para situações em que o retorno não traduz a mesma lógica econômica da exportação definitiva, como mercadoria enviada em consignação e não vendida, devolvida por defeito técnico ou que retorna por motivos alheios à vontade do exportador. nessas hipóteses, o tratamento jurídico pode ser distinto, justamente porque não se configura, em essência, a mesma operação de reintrodução definitiva no mercado nacional. stf. plenário. adpf 400/df, rel. min. nunes marques, julgado em 23/03/2026 (info 1209).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 3</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-3">Não respondida</span>
+</div>
+
+<p class="enunciado">A incidência do imposto de importação sobre mercadoria nacional ou nacionalizada que, após exportação definitiva, retorna ao território aduaneiro brasileiro independe da origem fabril do bem e se legitima porque, nessa hipótese, o reingresso configura nova operação econômica de internalização no mercado nacional; por isso, é compatível com a Constituição a norma infraconstitucional que a equipara a produto estrangeiro, ressalvadas as hipóteses excepcionais de retorno sem caráter definitivo, como a devolução por defeito técnico ou por motivo alheio à vontade do exportador.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(3, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(3, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-3">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O enunciado está correto porque reproduz a lógica central do entendimento firmado: para fins de imposto de importação, o elemento decisivo não é a origem de fabricação da mercadoria, mas sua procedência do exterior e o efetivo ingresso no mercado brasileiro. Quando um bem nacional ou nacionalizado é exportado em caráter definitivo, ele deixa de integrar o ciclo econômico interno; se posteriormente retorna ao País, há novo ingresso juridicamente relevante, apto a atrair a incidência do imposto de importação.<br><br>A norma que equipara essa mercadoria a produto estrangeiro foi reputada compatível com a Constituição, especialmente com o art. 153, I, que utiliza a expressão “produtos estrangeiros” em sentido ligado à procedência externa, e não à fabricação em território nacional. Também não há violação aos contornos constitucionais de repartição de competência tributária, pois a disciplina do fato gerador do imposto de importação pode alcançar essa hipótese de reingresso após exportação definitiva.<br><br>A ressalva mencionada no enunciado é importante: o julgado reconhece exceções para situações em que o retorno não traduz a mesma lógica econômica da exportação definitiva, como mercadoria enviada em consignação e não vendida, devolvida por defeito técnico ou que retorna por motivos alheios à vontade do exportador. Nessas hipóteses, o tratamento jurídico pode ser distinto, justamente porque não se configura, em essência, a mesma operação de reintrodução definitiva no mercado nacional.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADPF 400/DF, Rel. Min. Nunes Marques, julgado em 23/03/2026 (Info 1209).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a contribuição destinada ao seguro de acidente do trabalho, quando exigida sobre valores pagos por empresa a trabalhadores avulsos e a administradores sem vínculo empregatício, referentes a período anterior à ec nº 20/1998, somente poderia ser validamente instituída por lei complementar, pois a redação originária do art. 195, i, da constituição restringia a base de cálculo da contribuição social das empresas à folha de salários de empregados com vínculo de emprego. antes da ec nº 20/1998, a constituição autorizava a incidência das contribuições sociais das empresas sobre a “folha de salários”, expressão que, em interpretação estrita, não abrangia remunerações pagas a pessoas físicas sem vínculo empregatício, como autônomos, administradores e trabalhadores avulsos. assim, a tentativa de alcançar tais pagamentos por meio da contribuição ao sat extrapolava a base constitucional então vigente.
+
+nessa hipótese, a instituição da exação dependeria de exercício da competência residual da união, prevista no art. 195, § 4º, c/c art. 154, i, da constituição, o que exige lei complementar. como não houve edição de lei complementar apta a autorizar a incidência sobre essa base remuneratória no período anterior à ec nº 20/1998, a cobrança é inconstitucional.
+
+o ponto central do entendimento é que a ampliação posterior do texto constitucional, promovida pela ec nº 20/1998, é que passou a permitir a incidência sobre rendimentos do trabalho pagos a pessoas físicas, com vínculo ou sem vínculo de emprego, viabilizando a instituição por lei ordinária apenas a partir de então. logo, para o período anterior, a exigência sobre remuneração de não empregados não se sustenta. stf. plenário. re 1.073.380 agr-ed-edv/sp, rel. min. gilmar mendes, redator do acórdão min. alexandre de moraes, julgado em 12/03/2026 (info 1209).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 4</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-4">Não respondida</span>
+</div>
+
+<p class="enunciado">A contribuição destinada ao Seguro de Acidente do Trabalho, quando exigida sobre valores pagos por empresa a trabalhadores avulsos e a administradores sem vínculo empregatício, referentes a período anterior à EC nº 20/1998, somente poderia ser validamente instituída por lei complementar, pois a redação originária do art. 195, I, da Constituição restringia a base de cálculo da contribuição social das empresas à folha de salários de empregados com vínculo de emprego.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(4, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(4, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-4">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Antes da EC nº 20/1998, a Constituição autorizava a incidência das contribuições sociais das empresas sobre a “folha de salários”, expressão que, em interpretação estrita, não abrangia remunerações pagas a pessoas físicas sem vínculo empregatício, como autônomos, administradores e trabalhadores avulsos. Assim, a tentativa de alcançar tais pagamentos por meio da contribuição ao SAT extrapolava a base constitucional então vigente.<br><br>Nessa hipótese, a instituição da exação dependeria de exercício da competência residual da União, prevista no art. 195, § 4º, c/c art. 154, I, da Constituição, o que exige lei complementar. Como não houve edição de lei complementar apta a autorizar a incidência sobre essa base remuneratória no período anterior à EC nº 20/1998, a cobrança é inconstitucional.<br><br>O ponto central do entendimento é que a ampliação posterior do texto constitucional, promovida pela EC nº 20/1998, é que passou a permitir a incidência sobre rendimentos do trabalho pagos a pessoas físicas, com vínculo ou sem vínculo de emprego, viabilizando a instituição por lei ordinária apenas a partir de então. Logo, para o período anterior, a exigência sobre remuneração de não empregados não se sustenta.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. RE 1.073.380 AgR-ED-EDv/SP, Rel. Min. Gilmar Mendes, redator do acórdão Min. Alexandre de Moraes, julgado em 12/03/2026 (Info 1209).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a incidência de contribuição previdenciária sobre verbas pagas a empregados a título de participação nos lucros e resultados não pode ser afastada apenas com base na denominação formal conferida pela empresa, sendo indispensável a observância dos requisitos legais específicos para que a parcela seja efetivamente qualificada como plr, de modo que o descumprimento desses parâmetros autoriza sua inclusão na base de cálculo da exação. a participação nos lucros e resultados possui disciplina constitucional e legal própria, com natureza jurídica excepcional em relação à remuneração do trabalho. por isso, não basta que a verba seja rotulada como plr para que fique automaticamente imune à incidência de contribuição previdenciária: é necessário que a parcela observe os requisitos normativos que a distinguem de salário disfarçado.
+
+em matéria tributária e previdenciária, prevalece a análise da substância sobre a forma. assim, quando a parcela é paga sem o atendimento das exigências legais que condicionam sua caracterização como participação nos lucros e resultados, ela perde o regime jurídico diferenciado e pode integrar a base de cálculo da contribuição previdenciária patronal, por revelar natureza remuneratória.
+
+o ponto central do entendimento é justamente impedir que a simples nomenclatura adotada pelo empregador afaste a tributação de verbas que, na realidade, remuneram o trabalho. em outras palavras, a exclusão da incidência depende da efetiva conformidade do pagamento com o regime jurídico da plr, e não de mera previsão contratual ou contábil. stf. plenário. are 1.503.306 agr-edv-agr/sp, rel. min. cármen lúcia, julgado em 12/03/2026 (info 1209).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 5</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-5">Não respondida</span>
+</div>
+
+<p class="enunciado">A incidência de contribuição previdenciária sobre verbas pagas a empregados a título de participação nos lucros e resultados não pode ser afastada apenas com base na denominação formal conferida pela empresa, sendo indispensável a observância dos requisitos legais específicos para que a parcela seja efetivamente qualificada como PLR, de modo que o descumprimento desses parâmetros autoriza sua inclusão na base de cálculo da exação.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(5, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(5, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-5">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A participação nos lucros e resultados possui disciplina constitucional e legal própria, com natureza jurídica excepcional em relação à remuneração do trabalho. Por isso, não basta que a verba seja rotulada como PLR para que fique automaticamente imune à incidência de contribuição previdenciária: é necessário que a parcela observe os requisitos normativos que a distinguem de salário disfarçado.<br><br>Em matéria tributária e previdenciária, prevalece a análise da substância sobre a forma. Assim, quando a parcela é paga sem o atendimento das exigências legais que condicionam sua caracterização como participação nos lucros e resultados, ela perde o regime jurídico diferenciado e pode integrar a base de cálculo da contribuição previdenciária patronal, por revelar natureza remuneratória.<br><br>O ponto central do entendimento é justamente impedir que a simples nomenclatura adotada pelo empregador afaste a tributação de verbas que, na realidade, remuneram o trabalho. Em outras palavras, a exclusão da incidência depende da efetiva conformidade do pagamento com o regime jurídico da PLR, e não de mera previsão contratual ou contábil.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ARE 1.503.306 AgR-EDv-AgR/SP, Rel. Min. Cármen Lúcia, julgado em 12/03/2026 (Info 1209).</p>
+</div>
+</section>
+
+</div>
+
+<script>
+const storageKey = location.pathname + "_respostas";
+let respostas = JSON.parse(localStorage.getItem(storageKey) || "{}");
+
+function destacar(t){
+ if(t==="CERTO") return '<span class="gabarito-certo">CERTO</span>';
+ if(t==="ERRADO") return '<span class="gabarito-errado">ERRADO</span>';
+ return t;
+}
+
+function responder(numero, resposta){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const gabarito=card.dataset.gabarito;
+ const correto=resposta===gabarito;
+ respostas[numero]={resposta,correto};
+ localStorage.setItem(storageKey, JSON.stringify(respostas));
+ mostrarFeedback(numero);
+ atualizarPainel();
+ filtrar();
+}
+
+function mostrarFeedback(numero){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const feedback=document.getElementById("feedback-"+numero);
+ const status=document.getElementById("status-"+numero);
+ const resultado=feedback.querySelector(".resultado");
+ const gabarito=card.dataset.gabarito;
+ const dados=respostas[numero];
+ if(!dados) return;
+ feedback.style.display="block";
+ feedback.classList.remove("correto","errado");
+ if(dados.correto){
+   feedback.classList.add("correto");
+   resultado.innerHTML="Você acertou. A resposta é "+destacar(gabarito)+".";
+   status.textContent="Respondida — acerto";
+   status.style.color="var(--green)";
+ } else {
+   feedback.classList.add("errado");
+   resultado.innerHTML="Você errou. O gabarito é "+destacar(gabarito)+".";
+   status.textContent="Respondida — erro";
+   status.style.color="var(--red)";
+ }
+}
+
+function atualizarPainel(){
+ let respondidas=0, acertos=0, erros=0;
+ for(const k in respostas){
+   respondidas++;
+   if(respostas[k].correto) acertos++; else erros++;
+ }
+ document.getElementById("respondidas").textContent=respondidas;
+ document.getElementById("acertos").textContent=acertos;
+ document.getElementById("erros").textContent=erros;
+ document.getElementById("visiveis").textContent=document.querySelectorAll(".questao:not(.oculta)").length;
+}
+
+function filtrar(){
+ const busca=document.getElementById("busca").value.trim().toLowerCase();
+ const disciplina=document.getElementById("disciplina").value;
+ const statusFiltro=document.getElementById("statusFiltro").value;
+ const cards=Array.from(document.querySelectorAll(".questao"));
+ let vis=0;
+ cards.forEach((card,idx)=>{
+   const n=idx+1;
+   const texto=card.dataset.texto||"";
+   const disc=card.dataset.disciplina||"";
+   const r=respostas[n];
+   let passaStatus=true;
+   if(statusFiltro==="nao") passaStatus=!r;
+   if(statusFiltro==="acerto") passaStatus=r && r.correto;
+   if(statusFiltro==="erro") passaStatus=r && !r.correto;
+   const ok=(!busca||texto.includes(busca)) && (!disciplina||disc===disciplina) && passaStatus;
+   card.classList.toggle("oculta", !ok);
+   if(ok) vis++;
+ });
+ document.getElementById("sem-resultados").style.display=vis===0?"block":"none";
+ atualizarPainel();
+}
+
+function reiniciar(){
+ if(!confirm("Deseja reiniciar este simulado?")) return;
+ localStorage.removeItem(storageKey);
+ location.reload();
+}
+
+function restaurar(){
+ for(const k in respostas) mostrarFeedback(Number(k));
+ filtrar();
+ atualizarPainel();
+}
+
+restaurar();
+</script>
+</body>
+</html>

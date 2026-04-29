@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Simulado - Info 869 STJ</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+    --bg: #0f172a;
+    --card: #111827;
+    --card2: #1f2937;
+    --text: #e5e7eb;
+    --muted: #9ca3af;
+    --accent: #38bdf8;
+    --green: #22c55e;
+    --red: #ef4444;
+    --yellow: #facc15;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #020617, #111827);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+header {
+    padding: 32px 20px;
+    text-align: center;
+    border-bottom: 1px solid #334155;
+}
+
+header h1 {
+    margin: 0 0 10px;
+    font-size: 28px;
+}
+
+header p {
+    color: var(--muted);
+    margin: 0;
+}
+
+.container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 24px 16px 80px;
+}
+
+.painel {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(8px);
+    border: 1px solid #334155;
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 24px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.stat {
+    background: var(--card2);
+    padding: 12px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.stat strong {
+    display: block;
+    font-size: 22px;
+    color: var(--accent);
+}
+
+.card {
+    background: rgba(17, 24, 39, 0.96);
+    border: 1px solid #334155;
+    border-radius: 18px;
+    padding: 22px;
+    margin-bottom: 20px;
+    box-shadow: 0 12px 30px rgba(0,0,0,.25);
+}
+
+.questao-topo {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.badge {
+    background: #0ea5e9;
+    color: #00111f;
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 999px;
+}
+
+.status {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.enunciado {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.botoes {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+button {
+    cursor: pointer;
+    border: 0;
+    padding: 12px 22px;
+    border-radius: 12px;
+    background: #334155;
+    color: white;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+button:hover {
+    transform: translateY(-1px);
+    background: #475569;
+}
+
+.feedback {
+    display: none;
+    background: #020617;
+    border-left: 4px solid var(--accent);
+    padding: 16px;
+    border-radius: 12px;
+    margin-top: 12px;
+}
+
+.feedback.correto {
+    border-left-color: var(--green);
+}
+
+.feedback.errado {
+    border-left-color: var(--red);
+}
+
+.resultado {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.referencia {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.acoes {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.acoes button {
+    background: #0ea5e9;
+    color: #00111f;
+}
+
+@media (max-width: 700px) {
+    .painel {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .botoes {
+        flex-direction: column;
+    }
+
+    header h1 {
+        font-size: 22px;
+    }
+
+    .enunciado {
+        font-size: 16px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Simulado - Info 869 STJ</h1>
+    <p>Simulado interativo de CERTO ou ERRADO</p>
+</header>
+
+<div class="container">
+
+    <div class="painel">
+        <div class="stat">
+            <strong id="total">8</strong>
+            Total
+        </div>
+        <div class="stat">
+            <strong id="respondidas">0</strong>
+            Respondidas
+        </div>
+        <div class="stat">
+            <strong id="acertos">0</strong>
+            Acertos
+        </div>
+        <div class="stat">
+            <strong id="erros">0</strong>
+            Erros
+        </div>
+    </div>
+
+    <div class="acoes">
+        <button onclick="reiniciar()">Reiniciar simulado</button>
+    </div>
+
+    
+        <section class="card questao" data-gabarito="CERTO">
+            <div class="questao-topo">
+                <span class="badge">Questão 1</span>
+                <span class="status" id="status-1">Não respondida</span>
+            </div>
+
+            <p class="enunciado">Em ação penal por ameaça praticada no contexto de violência doméstica e familiar contra a mulher, a juntada, pela ofendida, de capturas de tela de conversas mantidas em aplicativo de mensagens, posteriormente confirmadas em juízo e desacompanhadas de qualquer elemento concreto de adulteração, não implica, por si só, quebra da cadeia de custódia prevista no art. 158-A do CPP, sendo possível atribuir-lhes valor probatório em conjunto com a palavra da vítima e demais elementos de convicção.</p>
+
+            <div class="botoes">
+                <button onclick="responder(1, 'CERTO')">CERTO</button>
+                <button onclick="responder(1, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-1">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> CERTO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está correta porque o entendimento firmado distingue a prova digital obtida por autoridade pública daquela apresentada por particular. Quando a coleta é realizada pela polícia ou por outro agente estatal, há maior exigência de preservação técnica e metodológica da integridade do vestígio, em atenção à cadeia de custódia do art. 158-A do CPP. Já na hipótese em que a própria ofendida obtém os prints e os leva aos autos, sem sinais concretos de manipulação, e o conteúdo é confirmado em juízo, não se reconhece automaticamente violação à cadeia de custódia.<br><br>O ponto central não é a mera ausência de formalismo na obtenção do arquivo, mas a inexistência de indícios de adulteração e a possibilidade de contraditório judicial sobre o conteúdo. Assim, os prints podem ser valorados como elemento probatório, especialmente quando corroborados por outros dados do processo.<br><br>Além disso, em crimes praticados no contexto de violência doméstica e familiar contra a mulher, a palavra da vítima possui especial relevância probatória, desde que coerente e harmônica com os demais elementos informativos ou probatórios. No caso descrito, a condenação foi mantida justamente porque as mensagens, associadas ao depoimento da ofendida, foram consideradas suficientes para sustentar o decreto condenatório.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 5ª Turma. AgRg no AREsp 2.967.267-SC, Rel. Min. Messod Azulay Neto, julgado em 21/10/2025 (Info 869).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="CERTO">
+            <div class="questao-topo">
+                <span class="badge">Questão 2</span>
+                <span class="status" id="status-2">Não respondida</span>
+            </div>
+
+            <p class="enunciado">A colaboração premiada, embora possa ser utilizada como elemento informativo relevante na fase investigatória e no oferecimento da denúncia, não autoriza, por si só, a condenação criminal, sendo indispensável a existência de prova judicializada externa e autônoma, apta a corroborar, com segurança, a autoria e a materialidade delitivas, em observância ao art. 4º, § 16, III, da Lei 12.850/2013.</p>
+
+            <div class="botoes">
+                <button onclick="responder(2, 'CERTO')">CERTO</button>
+                <button onclick="responder(2, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-2">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> CERTO</p>
+                <p><strong>Justificativa:</strong><br>O enunciado está correto porque reproduz a lógica central do entendimento firmado: a colaboração premiada tem valor probatório limitado e não pode, isoladamente, sustentar decreto condenatório. Ela é admitida como elemento de informação relevante para a investigação e para a formação da opinio delicti, mas a condenação penal exige um conjunto harmônico de provas judicializadas, produzidas sob contraditório e aptas a demonstrar, de modo seguro e inequívoco, a autoria e a materialidade do delito.<br><br>O ponto decisivo é que a lei expressamente veda a condenação fundada exclusivamente nas declarações do colaborador, exigindo corroboração por outros elementos probatórios. Isso se harmoniza com a exigência processual penal de prova robusta, suficiente para superar dúvida razoável, especialmente porque a colaboração premiada, por sua própria natureza, pode estar associada a interesses negociais do colaborador, o que reforça a necessidade de confirmação externa.<br><br>Assim, não basta a narrativa do colaborador, ainda que detalhada ou coerente: é imprescindível que haja prova autônoma e judicializada que a confirme. Sem esse suporte probatório independente, a condenação viola o regime legal da colaboração premiada e o standard probatório exigido para a responsabilização penal.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. Corte Especial. AgRg na APn 1.076-DF, Rel. Min. Nancy Andrighi, julgado em 3/9/2025 (Info 869).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="CERTO">
+            <div class="questao-topo">
+                <span class="badge">Questão 3</span>
+                <span class="status" id="status-3">Não respondida</span>
+            </div>
+
+            <p class="enunciado">Em ação penal submetida ao procedimento do Tribunal do Júri, a decisão do Conselho de Sentença que, por maioria, afasta a autoria delitiva em favor do acusado, ainda que exista confissão extrajudicial de corréu não confirmada em juízo e ausente qualquer menção ao réu por testemunhas presenciais, não autoriza o tribunal ad quem, em sede de apelação, a determinar a submissão do caso a novo julgamento popular sob o fundamento de que a absolvição seria manifestamente contrária à prova dos autos.</p>
+
+            <div class="botoes">
+                <button onclick="responder(3, 'CERTO')">CERTO</button>
+                <button onclick="responder(3, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-3">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> CERTO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está correta porque, no âmbito do Tribunal do Júri, a resposta negativa ao quesito de autoria, quando proferida pelo Conselho de Sentença, representa opção soberana dos jurados dentro do conjunto probatório produzido em plenário. Nessa hipótese, não se configura, por si só, julgamento manifestamente contrário às provas dos autos a justificar a cassação da decisão e a realização de novo júri.<br><br>O ponto central do entendimento é que a confissão de corréu prestada apenas na fase policial, sem confirmação em juízo, não possui força probatória suficiente para, isoladamente, sustentar condenação ou infirmar a conclusão absolutória dos jurados, especialmente quando inexistem elementos de corroboração idôneos. O regramento da corroboração exige suporte externo confiável para que a delação ou a imputação de corréu possa servir como fundamento seguro de responsabilização penal. Se as testemunhas oculares não indicam o acusado como coautor ou partícipe, enfraquece-se ainda mais a pretensão de desconstituir a decisão absolutória do Júri.<br><br>Além disso, o entendimento admite controle de convencionalidade em favor do réu, com aplicação analógica do art. 8º, item 4, da Convenção Americana de Direitos Humanos, que impede submeter novamente a julgamento quem já foi absolvido pelos mesmos fatos. Em tal contexto, prevalece a tutela da liberdade e a proteção contra nova persecução pelos mesmos fatos, o que reforça a impossibilidade de determinar novo júri quando a absolvição decorre de negativa de autoria coerente com a prova produzida.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 6ª Turma. AgRg no AREsp 2.733.963-PE, Rel. Min. Otávio de Almeida Toledo (Desembargador convocado do TJSP), julgado em 17/6/2025 (Info 869).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="CERTO">
+            <div class="questao-topo">
+                <span class="badge">Questão 4</span>
+                <span class="status" id="status-4">Não respondida</span>
+            </div>
+
+            <p class="enunciado">A remição ficta da pena pode ser reconhecida quando o apenado, embora regularmente inserido em atividade laboral no cárcere, fica impossibilitado de prosseguir no trabalho por doença grave e incapacitante, hipótese em que a previsão do art. 126, § 4º, da Lei de Execução Penal, embora mencione expressamente o acidente, admite interpretação extensiva para alcançar situação extraordinária em que a interrupção do labor decorra de causa alheia à vontade do reeducando.</p>
+
+            <div class="botoes">
+                <button onclick="responder(4, 'CERTO')">CERTO</button>
+                <button onclick="responder(4, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-4">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> CERTO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está correta porque a orientação firmada admite a remição ficta não apenas na hipótese literal de acidente prevista no art. 126, § 4º, da LEP, mas também quando a impossibilidade de trabalhar decorre de doença grave e incapacitante, desde que a situação seja extraordinária e impeça efetivamente o exercício da atividade laboral regular.<br><br>O ponto central do entendimento é a possibilidade de interpretação extensiva do dispositivo legal. Embora o texto mencione acidente, a finalidade da norma é evitar que o preso seja prejudicado por evento superveniente, involuntário e impeditivo do trabalho, especialmente quando não há culpa do reeducando e a interrupção decorre de circunstância que foge ao seu controle. Nessa linha, a doença grave incapacitante guarda afinidade com a ratio do § 4º do art. 126 da LEP, pois também impede o trabalho por motivo alheio à vontade do apenado.<br><br>Além disso, a solução foi vinculada a vetores constitucionais e executivos relevantes, como a individualização da pena, a dignidade da pessoa humana, a isonomia e a fraternidade. A ideia é impedir que o preso em condição de extrema vulnerabilidade seja tratado de forma mais gravosa do que outro reeducando que, por acidente, também ficou impossibilitado de trabalhar. Assim, a remição ficta funciona como mecanismo de preservação da igualdade material na execução penal.<br><br>Importa notar que o julgado não cria uma regra automática para qualquer enfermidade: a extensão depende de quadro de doença grave e incapacitante, com efetiva impossibilidade de exercício laboral. Portanto, a afirmação é correta ao restringir a hipótese a situação de impedimento real e extraordinário, sem ampliar indevidamente o benefício para meros afastamentos temporários ou enfermidades sem repercussão incapacitante.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 5ª Turma. AgRg no HC 1.001.270-BA, Rel. Min. Carlos Cini Marchionatti (Desembargador convocado do TJRS), Rel. para acórdão Min. Reynaldo Soares da Fonseca, julgado em 21/10/2025 (Info 869).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="CERTO">
+            <div class="questao-topo">
+                <span class="badge">Questão 5</span>
+                <span class="status" id="status-5">Não respondida</span>
+            </div>
+
+            <p class="enunciado">A mera transferência, aos herdeiros, da titularidade de cotas de fundo de investimento que integravam o patrimônio do falecido e estavam registradas, na última declaração de bens, pelo respectivo valor histórico de aquisição, sem resgate, alienação ou reavaliação a valor de mercado no inventário, não enseja incidência de Imposto de Renda, pois inexiste acréscimo patrimonial tributável; a exação somente poderia surgir se houvesse transmissão pelo valor de mercado, hipótese em que se apuraria eventual diferença positiva entre esse montante e o valor declarado.</p>
+
+            <div class="botoes">
+                <button onclick="responder(5, 'CERTO')">CERTO</button>
+                <button onclick="responder(5, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-5">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> CERTO</p>
+                <p><strong>Justificativa:</strong><br>O ponto central do entendimento é a inexistência de fato gerador do Imposto de Renda quando a sucessão causa mortis apenas substitui o titular jurídico do bem, sem realização de ganho econômico. O art. 43 do CTN exige acréscimo patrimonial para a incidência do imposto, o que não ocorre quando os herdeiros recebem cotas de fundos pelo mesmo valor histórico já constante da declaração do falecido, sem qualquer alienação, resgate ou valorização tributável no momento da transmissão.<br><br>A Lei 9.532/1997, art. 23, § 1º, reforça essa lógica ao prever que a tributação somente alcança a diferença positiva entre o valor de mercado e o valor declarado quando a transferência se dá por valor de mercado. Se a transmissão ocorre pelo valor histórico, não há ganho de capital a ser tributado, porque não se verifica ingresso novo de riqueza nem realização de acréscimo patrimonial. Em outras palavras, a simples mudança de titularidade, por si só, não basta para caracterizar fato gerador do IR.<br><br>A assertiva também é tecnicamente cuidadosa ao excluir hipóteses que poderiam alterar a conclusão, como resgate, venda ou reavaliação a mercado, situações em que poderia haver evento tributável. No caso julgado, porém, a herança foi transmitida mantendo-se o valor histórico, razão pela qual a cobrança do IR foi afastada.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 2ª Turma. REsp 1.736.600-RS, Rel. Min. Maria Thereza de Assis Moura, julgado em 16/10/2025 (Info 869).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="CERTO">
+            <div class="questao-topo">
+                <span class="badge">Questão 6</span>
+                <span class="status" id="status-6">Não respondida</span>
+            </div>
+
+            <p class="enunciado">A isenção de IPI prevista para a aquisição de veículo automotor por motorista profissional destinado à atividade de táxi pode ser reconhecida ao contribuinte que, embora ainda não tenha exercido anteriormente a profissão com veículo próprio, já disponha de autorização ou permissão do Poder Público para atuar como taxista, sendo indevida a exigência administrativa de comprovação de atividade pretérita como condição para o gozo do benefício fiscal.</p>
+
+            <div class="botoes">
+                <button onclick="responder(6, 'CERTO')">CERTO</button>
+                <button onclick="responder(6, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-6">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> CERTO</p>
+                <p><strong>Justificativa:</strong><br>A assertiva está correta porque o benefício fiscal em questão não exige, como requisito adicional não previsto em lei, que o interessado já tenha exercido anteriormente a atividade de taxista com veículo próprio. O ponto central do entendimento é que a norma da Lei nº 8.989/1995 condiciona a isenção à condição de motorista profissional que exerça, comprovadamente, atividade de condutor autônomo de passageiros, na qualidade de titular de autorização, permissão ou concessão do Poder Público, com destinação do automóvel à categoria de aluguel (táxi).<br><br>A interpretação administrativa que negava o benefício sob o argumento de inexistência de exercício anterior da atividade foi afastada porque cria restrição não contemplada pelo texto legal. Em matéria de isenção, o art. 111, II, do CTN impõe interpretação literal, mas isso não autoriza a Administração a restringir o alcance da norma por exigência não escrita. Aqui, a literalidade do dispositivo não conduz à conclusão de que apenas taxistas já em atividade, com histórico prévio de exploração da profissão, possam ser beneficiados.<br><br>Além disso, a finalidade da isenção é incentivar o exercício da profissão de taxista, inclusive por novos profissionais que necessitam justamente do primeiro veículo para iniciar a atividade. Assim, a existência prévia de autorização ou permissão do Poder Público é suficiente para demonstrar o enquadramento legal, sendo indevida a exigência de prova de atividade anterior como condição autônoma para fruição do benefício.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Turma. REsp 2.018.676-MG, Rel. Min. Paulo Sérgio Domingues, julgado em 14/10/2025 (Info 869).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="CERTO">
+            <div class="questao-topo">
+                <span class="badge">Questão 7</span>
+                <span class="status" id="status-7">Não respondida</span>
+            </div>
+
+            <p class="enunciado">A transferência da propriedade de veículo adquirido com isenção de IPI por pessoa com deficiência à seguradora, em razão de perda total decorrente de sinistro coberto por contrato de seguro e como condição para o pagamento da indenização integral, não se subsume à hipótese de alienação voluntária prevista na legislação de regência, de modo que não autoriza a exigência do imposto anteriormente dispensado.</p>
+
+            <div class="botoes">
+                <button onclick="responder(7, 'CERTO')">CERTO</button>
+                <button onclick="responder(7, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-7">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> CERTO</p>
+                <p><strong>Justificativa:</strong><br>A cobrança do IPI dispensado na aquisição do veículo isento pressupõe a ocorrência da hipótese legal de alienação antecipada do bem, isto é, a transferência voluntária do veículo, antes do prazo legal, a pessoa que não preencha os requisitos da isenção. Nessa linha, a norma de regência busca evitar a utilização indevida do benefício fiscal quando o veículo é voluntariamente repassado a terceiro sem as condições exigidas pela lei.<br><br>No caso de perda total do automóvel segurado, a transferência da sucata à seguradora não decorre de uma alienação voluntária do beneficiário da isenção, mas de cláusula contratual inerente ao seguro, vinculada ao pagamento da indenização integral. Trata-se de consequência jurídica do sinistro, e não de ato de disposição patrimonial livremente praticado para contornar a restrição legal da isenção.<br><br>Por isso, não se aplica a regra de reversão do benefício fiscal prevista para a alienação antecipada do veículo. A exigência do IPI anteriormente dispensado, nessa hipótese, desborda da finalidade e do alcance do art. 6º da Lei nº 8.989/1995, pois a transferência da sucata à seguradora não se confunde com a alienação voluntária do automóvel a terceiro estranho à relação securitária.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 2ª Turma. AREsp 2.694.218-SP, Rel. Min. Afrânio Vilela, julgado em 16/10/2025 (Info 869).</p>
+            </div>
+        </section>
+        
+        <section class="card questao" data-gabarito="ERRADO">
+            <div class="questao-topo">
+                <span class="badge">Questão 8</span>
+                <span class="status" id="status-8">Não respondida</span>
+            </div>
+
+            <p class="enunciado">A remuneração percebida por titular de serventia extrajudicial credenciado por órgão estadual de trânsito para executar atos como registro inicial de veículo, transferência de propriedade, troca de placas, licenciamento e alterações cadastrais integra a hipótese de incidência do ISS, por se tratar de serviço de registros públicos, notariais ou cartorários abrangido pelos itens 21 e 21.01 da LC n.º 116/2003, ainda que tais atividades sejam desempenhadas em regime de delegação administrativa vinculada à segurança do trânsito.</p>
+
+            <div class="botoes">
+                <button onclick="responder(8, 'CERTO')">CERTO</button>
+                <button onclick="responder(8, 'ERRADO')">ERRADO</button>
+            </div>
+
+            <div class="feedback" id="feedback-8">
+                <p class="resultado"></p>
+                <p><strong>Gabarito:</strong> ERRADO</p>
+                <p><strong>Justificativa:</strong><br>O enunciado está incorreto porque as atividades exercidas pelo titular da serventia extrajudicial, quando credenciado por órgão estadual de trânsito para operar como CRVA, não se qualificam como serviços de registros públicos, notariais ou cartorários para fins de incidência do ISS.<br><br>A razão central é que esses atos — registro inicial de veículo, transferência, troca de placas, licenciamento e providências correlatas — não produzem, em si, a típica função jurídica dos serviços notariais e registrais, consistente em conferir autenticidade, publicidade, eficácia e segurança jurídica a atos negociais entre particulares. Trata-se, antes, de atividades de natureza instrumental e material, vinculadas à execução de atribuições administrativas relacionadas ao poder de polícia de trânsito.<br><br>Por isso, ainda que desempenhadas por titular de serventia extrajudicial, tais tarefas não se enquadram nos itens 21 e 21.01 da LC n.º 116/2003, que alcançam serviços de registros públicos, cartorários e notariais propriamente ditos. O credenciamento perante o DETRAN não altera essa conclusão, pois não transforma a atividade em serviço notarial ou registral; representa apenas anuência estatal para que o particular execute, de forma auxiliar, tarefas administrativas de interesse público.<br><br>Em síntese, a incidência do ISS foi afastada porque o fato gerador pressupõe a prestação de serviço enquadrável na lista tributável, o que não ocorre quando o cartório atua como centro de registro de veículos em razão de convênio ou credenciamento com órgão de trânsito.</p>
+                <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Turma. REsp 2.125.340-RS, Rel. Min. Sérgio Kukina, Rel. para acórdão Min. Regina Helena Costa, julgado em 14/10/2025 (Info 869).</p>
+            </div>
+        </section>
+        
+
+</div>
+
+<script>
+const totalQuestoes = 8;
+let respostas = JSON.parse(localStorage.getItem(location.pathname + "_respostas") || "{}");
+
+function atualizarPainel() {
+    const respondidas = Object.keys(respostas).length;
+    let acertos = 0;
+    let erros = 0;
+
+    for (const key in respostas) {
+        if (respostas[key].correto) acertos++;
+        else erros++;
+    }
+
+    document.getElementById("respondidas").textContent = respondidas;
+    document.getElementById("acertos").textContent = acertos;
+    document.getElementById("erros").textContent = erros;
+}
+
+function responder(numero, resposta) {
+    const card = document.querySelectorAll(".questao")[numero - 1];
+    const gabarito = card.dataset.gabarito;
+    const correto = resposta === gabarito;
+
+    respostas[numero] = {
+        resposta,
+        correto
+    };
+
+    localStorage.setItem(location.pathname + "_respostas", JSON.stringify(respostas));
+
+    mostrarFeedback(numero);
+    atualizarPainel();
+}
+
+function mostrarFeedback(numero) {
+    const card = document.querySelectorAll(".questao")[numero - 1];
+    const feedback = document.getElementById("feedback-" + numero);
+    const status = document.getElementById("status-" + numero);
+    const resultado = feedback.querySelector(".resultado");
+
+    const dados = respostas[numero];
+
+    if (!dados) return;
+
+    feedback.style.display = "block";
+    feedback.classList.remove("correto", "errado");
+
+    if (dados.correto) {
+        feedback.classList.add("correto");
+        resultado.textContent = "Você acertou. A resposta é " + card.dataset.gabarito + ".";
+        status.textContent = "Respondida — acerto";
+        status.style.color = "var(--green)";
+    } else {
+        feedback.classList.add("errado");
+        resultado.textContent = "Você errou. O gabarito é " + card.dataset.gabarito + ".";
+        status.textContent = "Respondida — erro";
+        status.style.color = "var(--red)";
+    }
+}
+
+function restaurar() {
+    for (const key in respostas) {
+        mostrarFeedback(Number(key));
+    }
+    atualizarPainel();
+}
+
+function reiniciar() {
+    if (!confirm("Deseja reiniciar este simulado?")) return;
+    localStorage.removeItem(location.pathname + "_respostas");
+    location.reload();
+}
+
+restaurar();
+</script>
+
+</body>
+</html>

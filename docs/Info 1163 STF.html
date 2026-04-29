@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Simulado - Info 1163 STF</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+:root{
+--bg:#020617;--panel:rgba(15,23,42,.88);--card:rgba(15,23,42,.96);
+--card2:rgba(30,41,59,.92);--border:rgba(148,163,184,.22);
+--text:#e5e7eb;--muted:#94a3b8;--accent:#38bdf8;--accent2:#0ea5e9;
+--green:#22c55e;--red:#ef4444;--yellow:#facc15;--purple:#a78bfa;
+}
+*{box-sizing:border-box}
+body{
+margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+background:radial-gradient(circle at top left,rgba(56,189,248,.20),transparent 28%),
+radial-gradient(circle at top right,rgba(167,139,250,.15),transparent 28%),
+linear-gradient(135deg,#020617,#0f172a 50%,#020617);
+color:var(--text);line-height:1.65;
+}
+header{padding:44px 20px 32px;text-align:center;border-bottom:1px solid var(--border)}
+header h1{margin:0 0 10px;font-size:clamp(28px,4vw,46px);letter-spacing:-.05em}
+header p{color:var(--muted);margin:0;font-size:16px}
+.container{max-width:1160px;margin:0 auto;padding:26px 16px 80px}
+.painel{
+position:sticky;top:10px;z-index:10;background:var(--panel);backdrop-filter:blur(18px);
+border:1px solid var(--border);border-radius:26px;padding:16px;margin-bottom:22px;
+box-shadow:0 22px 70px rgba(0,0,0,.35)
+}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.stat{background:var(--card2);padding:14px;border-radius:18px;text-align:center;border:1px solid rgba(148,163,184,.12)}
+.stat strong{display:block;font-size:25px;color:var(--accent);line-height:1.1}
+.stat span{font-size:12px;color:var(--muted)}
+.filtros{display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:12px;margin-top:14px}
+input,select{
+width:100%;background:rgba(2,6,23,.78);color:var(--text);border:1px solid var(--border);
+border-radius:14px;padding:13px 14px;outline:none;font-size:14px
+}
+input:focus,select:focus{border-color:var(--accent)}
+.card{
+background:var(--card);border:1px solid var(--border);border-radius:24px;padding:26px;
+margin-bottom:20px;box-shadow:0 18px 50px rgba(0,0,0,.24)
+}
+.questao{scroll-margin-top:190px}
+.questao-topo{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:18px}
+.badge{
+background:linear-gradient(135deg,var(--accent),var(--accent2));color:#00111f;font-weight:900;
+padding:7px 13px;border-radius:999px;display:inline-block
+}
+.disciplina-tag,.tipo-tag{
+display:inline-block;margin-left:8px;color:var(--muted);background:rgba(148,163,184,.10);
+border:1px solid rgba(148,163,184,.14);padding:6px 10px;border-radius:999px;font-size:12px
+}
+.tipo-tag{color:#ddd6fe;border-color:rgba(167,139,250,.25)}
+.status{color:var(--yellow);font-size:13px;white-space:nowrap}
+.enunciado{font-size:19px;margin:0 0 22px;letter-spacing:-.01em}
+.botoes{display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.btn{
+cursor:pointer;border:0;padding:12px 22px;border-radius:14px;color:white;font-weight:900;
+transition:.18s ease;letter-spacing:.02em
+}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.certo{background:rgba(34,197,94,.20);border:1px solid rgba(34,197,94,.42)}
+.btn.errado{background:rgba(239,68,68,.20);border:1px solid rgba(239,68,68,.42)}
+.btn.neutro{background:rgba(56,189,248,.16);color:var(--text);border:1px solid rgba(56,189,248,.32)}
+.feedback{
+display:none;background:rgba(2,6,23,.72);border:1px solid rgba(148,163,184,.16);
+border-left:5px solid var(--accent);padding:18px;border-radius:18px;margin-top:14px
+}
+.feedback.correto{border-left-color:var(--green)}
+.feedback.errado{border-left-color:var(--red)}
+.resultado{font-size:18px;font-weight:900;margin-top:0}
+.justificativa{margin-top:12px}
+.referencia{color:var(--muted);font-size:13px;margin-top:16px}
+.gabarito-certo{color:var(--green);font-weight:900}
+.gabarito-errado{color:var(--red);font-weight:900}
+.oculta{display:none}
+.sem-resultados{text-align:center;color:var(--muted);display:none;padding:30px}
+.grid-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
+.link-card{
+display:block;padding:20px;background:rgba(15,23,42,.95);border:1px solid rgba(148,163,184,.22);
+color:#e5e7eb;border-radius:22px;text-decoration:none;transition:.2s;box-shadow:0 14px 40px rgba(0,0,0,.22)
+}
+.link-card:hover{transform:translateY(-3px);border-color:#38bdf8}
+.link-card strong{display:block;font-size:17px;margin-bottom:8px}
+.link-card span{color:#94a3b8;font-size:13px}
+.index-tools{display:grid;grid-template-columns:1.5fr 1fr;gap:12px;margin-bottom:20px}
+@media(max-width:850px){
+.stats{grid-template-columns:repeat(2,1fr)}
+.filtros,.index-tools{grid-template-columns:1fr}
+.questao-topo{align-items:flex-start;flex-direction:column}
+.botoes{flex-direction:column}
+.enunciado{font-size:16px}
+.card{padding:20px}
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Simulado - Info 1163 STF</h1>
+<p>Informativos • Simulado interativo de CERTO ou ERRADO</p>
+</header>
+
+<div class="container">
+<div class="painel">
+<div class="stats">
+<div class="stat"><strong>14</strong><span>Total</span></div>
+<div class="stat"><strong id="visiveis">14</strong><span>Visíveis</span></div>
+<div class="stat"><strong id="respondidas">0</strong><span>Respondidas</span></div>
+<div class="stat"><strong id="acertos">0</strong><span>Acertos</span></div>
+<div class="stat"><strong id="erros">0</strong><span>Erros</span></div>
+</div>
+
+<div class="filtros">
+<input id="busca" type="search" placeholder="Buscar por palavra-chave..." oninput="filtrar()">
+<select id="disciplina" onchange="filtrar()">
+<option value="">Todas as disciplinas</option>
+<option value="Direito Penal">Direito Penal</option>
+<option value="ECA">ECA</option>
+<option value="N/I">N/I</option>
+</select>
+<select id="statusFiltro" onchange="filtrar()">
+<option value="">Todas</option>
+<option value="nao">Não respondidas</option>
+<option value="acerto">Acertos</option>
+<option value="erro">Erros</option>
+</select>
+<button class="btn neutro" onclick="reiniciar()">Reiniciar</button>
+</div>
+</div>
+
+<div id="sem-resultados" class="sem-resultados">Nenhuma questão encontrada com os filtros atuais.</div>
+
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="ECA"
+data-texto="é formalmente inconstitucional lei estadual que, ao disciplinar o cadastramento e o recebimento de benefícios previdenciários do regime geral de previdência social, imponha às instituições financeiras a obrigação de realizar a prova de vida dos beneficiários, ainda que a norma local seja apresentada como medida de proteção ao usuário e de simplificação procedimental, pois a matéria se insere na competência privativa da união para legislar sobre seguridade social. a assertiva está correta. a imposição, por lei estadual, de dever às instituições financeiras para realizar a prova de vida de beneficiários do regime geral de previdência social invade competência legislativa privativa da união, prevista no art. 22, xxiii, da constituição federal, que abrange a disciplina de seguridade social.  
+
+o ponto central do entendimento é que não se trata de mera regra local sobre funcionamento de bancos, atendimento ao consumidor ou organização administrativa de serviços no âmbito estadual. a norma estadual, ao atribuir às instituições financeiras a responsabilidade pela prova de vida vinculada ao recebimento de benefício previdenciário federal, interfere diretamente em procedimento relacionado à seguridade social, matéria cuja disciplina normativa é reservada à união.  
+
+assim, ainda que a lei estadual invoque finalidade legítima, como facilitar o acesso do segurado ao benefício ou reduzir ônus burocráticos, isso não afasta o vício formal de inconstitucionalidade. em controle de competência, o exame recai sobre a repartição constitucional de atribuições legislativas, e não sobre a conveniência da medida. por isso, a lei estadual foi invalidada por usurpação da competência privativa da união. stf. plenário. adi 7.010/rj, rel. min. dias toffoli, julgado em 16/12/2024 (info 1163).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 1</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-1">Não respondida</span>
+</div>
+
+<p class="enunciado">É formalmente inconstitucional lei estadual que, ao disciplinar o cadastramento e o recebimento de benefícios previdenciários do Regime Geral de Previdência Social, imponha às instituições financeiras a obrigação de realizar a prova de vida dos beneficiários, ainda que a norma local seja apresentada como medida de proteção ao usuário e de simplificação procedimental, pois a matéria se insere na competência privativa da União para legislar sobre seguridade social.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(1, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(1, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-1">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta. A imposição, por lei estadual, de dever às instituições financeiras para realizar a prova de vida de beneficiários do Regime Geral de Previdência Social invade competência legislativa privativa da União, prevista no art. 22, XXIII, da Constituição Federal, que abrange a disciplina de seguridade social.  <br><br>O ponto central do entendimento é que não se trata de mera regra local sobre funcionamento de bancos, atendimento ao consumidor ou organização administrativa de serviços no âmbito estadual. A norma estadual, ao atribuir às instituições financeiras a responsabilidade pela prova de vida vinculada ao recebimento de benefício previdenciário federal, interfere diretamente em procedimento relacionado à seguridade social, matéria cuja disciplina normativa é reservada à União.  <br><br>Assim, ainda que a lei estadual invoque finalidade legítima, como facilitar o acesso do segurado ao benefício ou reduzir ônus burocráticos, isso não afasta o vício formal de inconstitucionalidade. Em controle de competência, o exame recai sobre a repartição constitucional de atribuições legislativas, e não sobre a conveniência da medida. Por isso, a lei estadual foi invalidada por usurpação da competência privativa da União.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.010/RJ, Rel. Min. Dias Toffoli, julgado em 16/12/2024 (Info 1163).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="é constitucional norma de constituição estadual que, ao disciplinar a escolha de conselheiros do tribunal de contas local indicados pela assembleia legislativa, exija aprovação por voto secreto, mas é inconstitucional a previsão de prazo peremptório de 20 dias para que o governador efetive a nomeação dos escolhidos, por ausência de parâmetro equivalente na constituição federal e incidência do princípio da simetria. a assertiva está correta porque reproduz a distinção central do entendimento firmado: a exigência de votação secreta pela assembleia legislativa, quando se trata da aprovação de nomes por ela indicados para o tribunal de contas estadual, é compatível com o modelo constitucional de controle e escolha de autoridades previsto para o âmbito federal, especialmente em razão da simetria com o art. 52, iii, “b”, da constituição federal. nessa hipótese, a norma estadual apenas reproduz técnica procedimental admitida no desenho constitucional.
+
+diversamente, a imposição de prazo de 20 dias para o governador nomear os conselheiros extrapola o modelo constitucional de referência. a constituição federal não fixa prazo para a nomeação dos indicados ao tribunal de contas da união, e os estados, ao organizarem seus tribunais de contas, devem observar o parâmetro federal do art. 75 da constituição, que impõe simetria com a disciplina da corte de contas da união. assim, a criação de prazo peremptório por emenda estadual, sem correspondência na constituição federal, viola essa simetria e é materialmente inconstitucional.
+
+em síntese, a norma estadual pode disciplinar o rito de aprovação com voto secreto, mas não pode inovar ao estabelecer prazo vinculante para a nomeação pelo chefe do executivo, por ausência de autorização constitucional equivalente. stf. plenário. adi 4.964/se, rel. min. nunes marques, julgado em 16/12/2024 (info 1163).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 2</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-2">Não respondida</span>
+</div>
+
+<p class="enunciado">É constitucional norma de Constituição estadual que, ao disciplinar a escolha de conselheiros do Tribunal de Contas local indicados pela Assembleia Legislativa, exija aprovação por voto secreto, mas é inconstitucional a previsão de prazo peremptório de 20 dias para que o Governador efetive a nomeação dos escolhidos, por ausência de parâmetro equivalente na Constituição Federal e incidência do princípio da simetria.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(2, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(2, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-2">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a distinção central do entendimento firmado: a exigência de votação secreta pela Assembleia Legislativa, quando se trata da aprovação de nomes por ela indicados para o Tribunal de Contas estadual, é compatível com o modelo constitucional de controle e escolha de autoridades previsto para o âmbito federal, especialmente em razão da simetria com o art. 52, III, “b”, da Constituição Federal. Nessa hipótese, a norma estadual apenas reproduz técnica procedimental admitida no desenho constitucional.<br><br>Diversamente, a imposição de prazo de 20 dias para o Governador nomear os conselheiros extrapola o modelo constitucional de referência. A Constituição Federal não fixa prazo para a nomeação dos indicados ao Tribunal de Contas da União, e os Estados, ao organizarem seus Tribunais de Contas, devem observar o parâmetro federal do art. 75 da Constituição, que impõe simetria com a disciplina da Corte de Contas da União. Assim, a criação de prazo peremptório por emenda estadual, sem correspondência na Constituição Federal, viola essa simetria e é materialmente inconstitucional.<br><br>Em síntese, a norma estadual pode disciplinar o rito de aprovação com voto secreto, mas não pode inovar ao estabelecer prazo vinculante para a nomeação pelo Chefe do Executivo, por ausência de autorização constitucional equivalente.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 4.964/SE, Rel. Min. Nunes Marques, julgado em 16/12/2024 (Info 1163).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="Direito Penal"
+data-texto="a resolução editada por ministério público estadual que disciplina a estrutura administrativa e as atribuições de grupo de atuação especial de combate ao crime organizado é formalmente constitucional, ainda que trate de organização interna e de cooperação institucional com órgãos do poder executivo, pois tais atos não invadem a competência privativa da união para legislar sobre direito penal ou processual penal, desde que não inovem em matéria tipicamente legislativa nem criem, por si sós, tipos penais, sanções ou regras processuais. o entendimento assentado reconhece a constitucionalidade formal de atos normativos expedidos por ministérios públicos estaduais que apenas organizam internamente a atuação do gaeco e definem suas atribuições administrativas e funcionais. a razão central é que tais atos não se confundem com lei em sentido formal sobre direito penal ou processual penal, nem disciplinam institutos reservados à competência legislativa privativa da união (art. 22, i, da cf/88).
+
+a delimitação é importante: o que se admite é a regulamentação da estrutura administrativa e da forma de atuação institucional do órgão especializado, dentro da autonomia funcional e administrativa do ministério público. também se reputa constitucional o decreto do poder executivo estadual que fixe diretrizes de cooperação institucional com o parquet local no âmbito do gaeco, desde que essa cooperação permaneça em plano administrativo e organizacional, sem extrapolar para inovação normativa em matéria penal ou processual.
+
+em prova, a armadilha costuma estar em sugerir que qualquer disciplina sobre atuação do gaeco implicaria invasão da competência da união. não é essa a conclusão. a vedação alcança a criação de normas materiais ou processuais penais por ato infralegal estadual, mas não impede a organização administrativa interna do ministério público nem a regulamentação de mecanismos de cooperação institucional entre órgãos estaduais, quando ausente inovação legislativa em matéria reservada. stf. plenário. adi 7.175/mg e adi 7.176/pr, rel. min. edson fachin, julgado em 16/12/2024 (info 1163).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 3</span>
+    <span class="disciplina-tag">Direito Penal</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-3">Não respondida</span>
+</div>
+
+<p class="enunciado">A resolução editada por Ministério Público estadual que disciplina a estrutura administrativa e as atribuições de Grupo de Atuação Especial de Combate ao Crime Organizado é formalmente constitucional, ainda que trate de organização interna e de cooperação institucional com órgãos do Poder Executivo, pois tais atos não invadem a competência privativa da União para legislar sobre direito penal ou processual penal, desde que não inovem em matéria tipicamente legislativa nem criem, por si sós, tipos penais, sanções ou regras processuais.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(3, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(3, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-3">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O entendimento assentado reconhece a constitucionalidade formal de atos normativos expedidos por Ministérios Públicos estaduais que apenas organizam internamente a atuação do Gaeco e definem suas atribuições administrativas e funcionais. A razão central é que tais atos não se confundem com lei em sentido formal sobre direito penal ou processual penal, nem disciplinam institutos reservados à competência legislativa privativa da União (art. 22, I, da CF/88).<br><br>A delimitação é importante: o que se admite é a regulamentação da estrutura administrativa e da forma de atuação institucional do órgão especializado, dentro da autonomia funcional e administrativa do Ministério Público. Também se reputa constitucional o decreto do Poder Executivo estadual que fixe diretrizes de cooperação institucional com o Parquet local no âmbito do Gaeco, desde que essa cooperação permaneça em plano administrativo e organizacional, sem extrapolar para inovação normativa em matéria penal ou processual.<br><br>Em prova, a armadilha costuma estar em sugerir que qualquer disciplina sobre atuação do Gaeco implicaria invasão da competência da União. Não é essa a conclusão. A vedação alcança a criação de normas materiais ou processuais penais por ato infralegal estadual, mas não impede a organização administrativa interna do Ministério Público nem a regulamentação de mecanismos de cooperação institucional entre órgãos estaduais, quando ausente inovação legislativa em matéria reservada.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.175/MG e ADI 7.176/PR, Rel. Min. Edson Fachin, julgado em 16/12/2024 (Info 1163).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="é constitucional a extensão de prêmio de desempenho fiscal, instituído como parcela variável vinculada à atividade de arrecadação tributária, a servidores aposentados e pensionistas, ainda que a verba seja paga também aos ativos, porque a exceção prevista para a administração tributária no art. 167, iv, da constituição alcança indistintamente todos os beneficiários do regime remuneratório correlato, inclusive os que já não exercem funções fiscais. a assertiva está incorreta porque a exceção constitucional à vedação de vinculação de receita de impostos não autoriza, de forma ampla e irrestrita, a extensão do prêmio aos inativos e pensionistas. o ponto central é que a parcela foi concebida como incentivo ao desempenho da atividade de arrecadação tributária, isto é, como vantagem funcional associada ao exercício atual de atribuições típicas da administração tributária.
+
+para os servidores ativos, a instituição do prêmio se harmoniza com a exceção do art. 167, iv, da constituição, pois a verba se conecta ao desempenho da atividade fiscal. já em relação aos aposentados e pensionistas, a extensão da vantagem rompe essa lógica, porque eles não exercem mais a função que justifica o pagamento. assim, não se pode tratar a verba como benefício automaticamente extensível a quem não participa da atividade que fundamenta a exceção constitucional.
+
+além disso, a decisão também destacou fundamento previdenciário relevante: a verba não sofreu contribuição previdenciária apta a permitir sua incorporação aos proventos, o que afronta a disciplina do art. 40 da constituição. logo, a inconstitucionalidade da extensão aos inativos e pensionistas decorre tanto da incompatibilidade com a lógica da não vinculação de receitas quanto da ausência de suporte previdenciário para repercussão nos proventos. stf. plenário. adi 3.516/ce, rel. min. edson fachin, julgado em 16/12/2024 (info 1163).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 4</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-4">Não respondida</span>
+</div>
+
+<p class="enunciado">É constitucional a extensão de prêmio de desempenho fiscal, instituído como parcela variável vinculada à atividade de arrecadação tributária, a servidores aposentados e pensionistas, ainda que a verba seja paga também aos ativos, porque a exceção prevista para a administração tributária no art. 167, IV, da Constituição alcança indistintamente todos os beneficiários do regime remuneratório correlato, inclusive os que já não exercem funções fiscais.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(4, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(4, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-4">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque a exceção constitucional à vedação de vinculação de receita de impostos não autoriza, de forma ampla e irrestrita, a extensão do prêmio aos inativos e pensionistas. O ponto central é que a parcela foi concebida como incentivo ao desempenho da atividade de arrecadação tributária, isto é, como vantagem funcional associada ao exercício atual de atribuições típicas da administração tributária.<br><br>Para os servidores ativos, a instituição do prêmio se harmoniza com a exceção do art. 167, IV, da Constituição, pois a verba se conecta ao desempenho da atividade fiscal. Já em relação aos aposentados e pensionistas, a extensão da vantagem rompe essa lógica, porque eles não exercem mais a função que justifica o pagamento. Assim, não se pode tratar a verba como benefício automaticamente extensível a quem não participa da atividade que fundamenta a exceção constitucional.<br><br>Além disso, a decisão também destacou fundamento previdenciário relevante: a verba não sofreu contribuição previdenciária apta a permitir sua incorporação aos proventos, o que afronta a disciplina do art. 40 da Constituição. Logo, a inconstitucionalidade da extensão aos inativos e pensionistas decorre tanto da incompatibilidade com a lógica da não vinculação de receitas quanto da ausência de suporte previdenciário para repercussão nos proventos.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 3.516/CE, Rel. Min. Edson Fachin, julgado em 16/12/2024 (Info 1163).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a extensão da estabilidade prevista no art. 79, § 1º, da lei nº 8.906/1994 a empregados da oab/rj admitidos originariamente sob o regime celetista, com fundamento em interpretação ampliativa de norma regimental local, é compatível com a autonomia institucional da entidade e com a disciplina constitucional transitória aplicável aos servidores públicos, desde que preservada a segurança jurídica e a continuidade do vínculo funcional. a assertiva está incorreta porque a estabilidade mencionada no art. 79, § 1º, da lei nº 8.906/1994 não alcança empregados da oab/rj que tenham sido originalmente contratados sob o regime celetista. o entendimento firmado foi no sentido de que essa estabilidade se restringe aos servidores da oab que, à época pertinente, estavam sujeitos ao regime da lei nº 8.112/1990 e puderam exercer a opção pelo regime trabalhista no prazo legal, no contexto da transição prevista na própria disciplina normativa.
+
+o ponto central é que não se admite criar, por interpretação de regimento interno local, uma hipótese extensiva de estabilidade para quem ingressou diretamente sob regime trabalhista, pois isso desborda do desenho normativo originário e afronta a autonomia constitucional da oab, a segurança jurídica e o art. 19 do adct. em outras palavras, a proteção conferida pela norma não pode ser ampliada para alcançar situação funcional não contemplada pelo regime de transição legal, sob pena de se converter uma regra excepcional em benefício geral e indevido.
+
+assim, a tese rechaça precisamente a concessão de estabilidade a empregados contratados em desacordo com as normas aplicáveis, ainda que se invoquem razões de continuidade do vínculo ou de preservação de expectativas funcionais. o critério decisivo é a origem do vínculo e a sujeição inicial ao regime estatutário, com a subsequente opção no prazo de 90 dias da vigência do regimento interno da oab/rj então vigente. stf. plenário. adpf 862/rj, rel. min. luiz fux, julgado em 16/12/2024 (info 1163).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 5</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-5">Não respondida</span>
+</div>
+
+<p class="enunciado">A extensão da estabilidade prevista no art. 79, § 1º, da Lei nº 8.906/1994 a empregados da OAB/RJ admitidos originariamente sob o regime celetista, com fundamento em interpretação ampliativa de norma regimental local, é compatível com a autonomia institucional da entidade e com a disciplina constitucional transitória aplicável aos servidores públicos, desde que preservada a segurança jurídica e a continuidade do vínculo funcional.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(5, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(5, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-5">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque a estabilidade mencionada no art. 79, § 1º, da Lei nº 8.906/1994 não alcança empregados da OAB/RJ que tenham sido originalmente contratados sob o regime celetista. O entendimento firmado foi no sentido de que essa estabilidade se restringe aos servidores da OAB que, à época pertinente, estavam sujeitos ao regime da Lei nº 8.112/1990 e puderam exercer a opção pelo regime trabalhista no prazo legal, no contexto da transição prevista na própria disciplina normativa.<br><br>O ponto central é que não se admite criar, por interpretação de regimento interno local, uma hipótese extensiva de estabilidade para quem ingressou diretamente sob regime trabalhista, pois isso desborda do desenho normativo originário e afronta a autonomia constitucional da OAB, a segurança jurídica e o art. 19 do ADCT. Em outras palavras, a proteção conferida pela norma não pode ser ampliada para alcançar situação funcional não contemplada pelo regime de transição legal, sob pena de se converter uma regra excepcional em benefício geral e indevido.<br><br>Assim, a tese rechaça precisamente a concessão de estabilidade a empregados contratados em desacordo com as normas aplicáveis, ainda que se invoquem razões de continuidade do vínculo ou de preservação de expectativas funcionais. O critério decisivo é a origem do vínculo e a sujeição inicial ao regime estatutário, com a subsequente opção no prazo de 90 dias da vigência do Regimento Interno da OAB/RJ então vigente.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADPF 862/RJ, Rel. Min. Luiz Fux, julgado em 16/12/2024 (Info 1163).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="é constitucional a imposição, por lei federal, de sanções ao ente federativo que descumprir critérios e exigências aplicáveis aos regimes próprios de previdência social, sendo admitido o controle judicial das exigências formuladas pela união no exercício da fiscalização; nessa hipótese, contudo, compete ao ente fiscalizado demonstrar tecnicamente, ou a inexistência do déficit atuarial apontado, ou, reconhecido o desequilíbrio, a inadequação das medidas impostas e a existência de plano alternativo capaz de assegurar, de modo equivalente, a sustentabilidade do regime. a assertiva reproduz a orientação firmada no julgamento, que reconheceu a constitucionalidade dos arts. 7º e 9º da lei 9.717/98, justamente por preverem medidas sancionatórias voltadas a compelir os entes federativos ao cumprimento dos critérios de equilíbrio atuarial dos regimes próprios de previdência social. o ponto central do entendimento é que a união pode, no exercício da fiscalização desses regimes, estabelecer exigências e consequências jurídicas para o descumprimento das regras de sustentabilidade previdenciária, sem que isso represente, por si só, violação à autonomia federativa.
+
+além disso, o julgado não afastou o controle judicial sobre tais exigências. ao contrário, admitiu-se a revisão judicial das medidas impostas, mas com um ônus argumentativo e probatório qualificado para o ente fiscalizado. não basta alegação genérica de ilegalidade ou de excesso fiscalizatório: o ente deve demonstrar tecnicamente, de um lado, que não existe o déficit atuarial apontado; ou, de outro, se reconhecer o desequilíbrio, que as medidas exigidas pela união são impertinentes e que há plano alternativo apto a assegurar, em nível equivalente, a sustentabilidade do regime.
+
+a formulação da questão explora justamente esse limite: o controle judicial é possível, mas não substitui a necessidade de prova técnica consistente nem autoriza a simples invalidação das exigências federais por conveniência administrativa do ente local. trata-se de entendimento relevante em matéria de previdência pública e equilíbrio atuarial, com forte impacto na relação entre autonomia federativa, fiscalização federal e responsabilidade na gestão dos regimes próprios. stf. plenário. re 1.007.271/pe, rel. min. edson fachin, redator do acórdão min. flávio dino, julgado em 19/12/2024 (repercussão geral – tema 968) (info 1163).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 6</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-6">Não respondida</span>
+</div>
+
+<p class="enunciado">É constitucional a imposição, por lei federal, de sanções ao ente federativo que descumprir critérios e exigências aplicáveis aos regimes próprios de previdência social, sendo admitido o controle judicial das exigências formuladas pela União no exercício da fiscalização; nessa hipótese, contudo, compete ao ente fiscalizado demonstrar tecnicamente, ou a inexistência do déficit atuarial apontado, ou, reconhecido o desequilíbrio, a inadequação das medidas impostas e a existência de plano alternativo capaz de assegurar, de modo equivalente, a sustentabilidade do regime.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(6, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(6, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-6">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva reproduz a orientação firmada no julgamento, que reconheceu a constitucionalidade dos arts. 7º e 9º da Lei 9.717/98, justamente por preverem medidas sancionatórias voltadas a compelir os entes federativos ao cumprimento dos critérios de equilíbrio atuarial dos regimes próprios de previdência social. O ponto central do entendimento é que a União pode, no exercício da fiscalização desses regimes, estabelecer exigências e consequências jurídicas para o descumprimento das regras de sustentabilidade previdenciária, sem que isso represente, por si só, violação à autonomia federativa.<br><br>Além disso, o julgado não afastou o controle judicial sobre tais exigências. Ao contrário, admitiu-se a revisão judicial das medidas impostas, mas com um ônus argumentativo e probatório qualificado para o ente fiscalizado. Não basta alegação genérica de ilegalidade ou de excesso fiscalizatório: o ente deve demonstrar tecnicamente, de um lado, que não existe o déficit atuarial apontado; ou, de outro, se reconhecer o desequilíbrio, que as medidas exigidas pela União são impertinentes e que há plano alternativo apto a assegurar, em nível equivalente, a sustentabilidade do regime.<br><br>A formulação da questão explora justamente esse limite: o controle judicial é possível, mas não substitui a necessidade de prova técnica consistente nem autoriza a simples invalidação das exigências federais por conveniência administrativa do ente local. Trata-se de entendimento relevante em matéria de previdência pública e equilíbrio atuarial, com forte impacto na relação entre autonomia federativa, fiscalização federal e responsabilidade na gestão dos regimes próprios.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. RE 1.007.271/PE, Rel. Min. Edson Fachin, redator do acórdão Min. Flávio Dino, julgado em 19/12/2024 (Repercussão Geral – Tema 968) (Info 1163).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a existência de ato infracional pretérito, por si só, não autoriza o afastamento da causa de diminuição de pena do art. 33, § 4º, da lei n.º 11.343/2006, sendo indispensável fundamentação concreta que evidencie circunstâncias excepcionais, a gravidade dos fatos anteriores devidamente comprovados nos autos e a razoável proximidade temporal entre esses antecedentes e o delito de tráfico apurado. a minorante do tráfico privilegiado exige, entre outros requisitos, que o agente não se dedique a atividades criminosas. o ponto central do entendimento é que o histórico infracional do réu não pode ser utilizado de forma automática ou abstrata para afastar o benefício. é necessária motivação individualizada, lastreada em elementos concretos do caso, aptos a demonstrar que os atos infracionais anteriores revelam efetiva inserção em contexto de reiteração delitiva, com gravidade suficiente e proximidade temporal relevante em relação ao fato em julgamento.
+
+assim, não basta a mera referência genérica a passagens pretéritas na adolescência. o afastamento da causa de diminuição demanda fundamentação idônea, com indicação de circunstâncias excepcionais que permitam concluir, de modo seguro, pela dedicação a atividades criminosas. em outras palavras, o histórico infracional pode ser valorado, mas não de maneira automática nem isolada: deve haver suporte concreto nos autos e análise da atualidade e da relevância dos fatos anteriores.
+
+esse raciocínio preserva a lógica do art. 33, § 4º, da lei de drogas, evitando que atos infracionais antigos, desacompanhados de outros elementos, sejam tratados como obstáculo suficiente à incidência da minorante. stj. 3ª turma. eresp 1.916.596-sp, rel. min. joel ilan paciornik, rel. acd. min. laurita vaz, julgado em 08/09/2021 (info 712).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 7</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-7">Não respondida</span>
+</div>
+
+<p class="enunciado">A existência de ato infracional pretérito, por si só, não autoriza o afastamento da causa de diminuição de pena do art. 33, § 4º, da Lei n.º 11.343/2006, sendo indispensável fundamentação concreta que evidencie circunstâncias excepcionais, a gravidade dos fatos anteriores devidamente comprovados nos autos e a razoável proximidade temporal entre esses antecedentes e o delito de tráfico apurado.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(7, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(7, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-7">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A minorante do tráfico privilegiado exige, entre outros requisitos, que o agente não se dedique a atividades criminosas. O ponto central do entendimento é que o histórico infracional do réu não pode ser utilizado de forma automática ou abstrata para afastar o benefício. É necessária motivação individualizada, lastreada em elementos concretos do caso, aptos a demonstrar que os atos infracionais anteriores revelam efetiva inserção em contexto de reiteração delitiva, com gravidade suficiente e proximidade temporal relevante em relação ao fato em julgamento.<br><br>Assim, não basta a mera referência genérica a passagens pretéritas na adolescência. O afastamento da causa de diminuição demanda fundamentação idônea, com indicação de circunstâncias excepcionais que permitam concluir, de modo seguro, pela dedicação a atividades criminosas. Em outras palavras, o histórico infracional pode ser valorado, mas não de maneira automática nem isolada: deve haver suporte concreto nos autos e análise da atualidade e da relevância dos fatos anteriores.<br><br>Esse raciocínio preserva a lógica do art. 33, § 4º, da Lei de Drogas, evitando que atos infracionais antigos, desacompanhados de outros elementos, sejam tratados como obstáculo suficiente à incidência da minorante.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. EREsp 1.916.596-SP, Rel. Min. Joel Ilan Paciornik, Rel. Acd. Min. Laurita Vaz, julgado em 08/09/2021 (Info 712).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a existência de registros pretéritos de atos infracionais praticados pelo agente, por si só, é fundamento idôneo para afastar a incidência da causa de diminuição de pena do tráfico privilegiado, ainda que ausentes condenações penais transitadas em julgado ou outros elementos concretos que evidenciem dedicação à atividade criminosa. o enunciado está incorreto porque o simples registro de atos infracionais pretéritos não basta, isoladamente, para impedir o reconhecimento da minorante prevista no art. 33, § 4º, da lei nº 11.343/2006. a lógica da causa de diminuição exige análise concreta dos requisitos legais, especialmente a inexistência de dedicação a atividades criminosas e de integração a organização criminosa.  
+
+embora atos infracionais possam ser considerados no exame global das circunstâncias do caso, eles não possuem, por si sós, aptidão automática para demonstrar dedicação habitual ao crime em sentido jurídico-penal, nem substituem condenação penal definitiva ou outros elementos probatórios consistentes. assim, a mera referência a histórico infracional pretérito não autoriza, de forma suficiente, afastar o tráfico privilegiado.  
+
+o ponto central do entendimento é justamente evitar que registros da adolescência, desacompanhados de prova concreta de reiteração criminosa na vida adulta ou de vínculo com organização criminosa, sejam utilizados como critério autônomo para negar a redução de pena. em termos práticos, a exclusão da minorante exige fundamentação individualizada e lastreada em dados objetivos do caso, não bastando a invocação genérica de atos infracionais anteriores. stf. 1ª turma. hc 214089 agr/sp, rel. min. rosa weber, julgado em 6/6/2022. stf. 2ª turma. hc 249.506/sp, rel. min. edson fachin, julgado em 10/12/2024 (info 1163).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 8</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-8">Não respondida</span>
+</div>
+
+<p class="enunciado">A existência de registros pretéritos de atos infracionais praticados pelo agente, por si só, é fundamento idôneo para afastar a incidência da causa de diminuição de pena do tráfico privilegiado, ainda que ausentes condenações penais transitadas em julgado ou outros elementos concretos que evidenciem dedicação à atividade criminosa.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(8, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(8, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-8">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O enunciado está incorreto porque o simples registro de atos infracionais pretéritos não basta, isoladamente, para impedir o reconhecimento da minorante prevista no art. 33, § 4º, da Lei nº 11.343/2006. A lógica da causa de diminuição exige análise concreta dos requisitos legais, especialmente a inexistência de dedicação a atividades criminosas e de integração a organização criminosa.  <br><br>Embora atos infracionais possam ser considerados no exame global das circunstâncias do caso, eles não possuem, por si sós, aptidão automática para demonstrar dedicação habitual ao crime em sentido jurídico-penal, nem substituem condenação penal definitiva ou outros elementos probatórios consistentes. Assim, a mera referência a histórico infracional pretérito não autoriza, de forma suficiente, afastar o tráfico privilegiado.  <br><br>O ponto central do entendimento é justamente evitar que registros da adolescência, desacompanhados de prova concreta de reiteração criminosa na vida adulta ou de vínculo com organização criminosa, sejam utilizados como critério autônomo para negar a redução de pena. Em termos práticos, a exclusão da minorante exige fundamentação individualizada e lastreada em dados objetivos do caso, não bastando a invocação genérica de atos infracionais anteriores.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. 1ª Turma. HC 214089 AgR/SP, Rel. Min. Rosa Weber, julgado em 6/6/2022. STF. 2ª Turma. HC 249.506/SP, Rel. Min. Edson Fachin, julgado em 10/12/2024 (Info 1163).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a alteração abrupta de direção, em via pública, ao perceber a aproximação de viatura policial, com nítida tentativa de evasão do local, pode constituir elemento objetivo apto a caracterizar fundada suspeita e a legitimar a busca pessoal sem mandado judicial, desde que a diligência observe os limites legais dos arts. 240 a 244 do cpp, não se exigindo, para tanto, a prévia visualização de objeto ilícito ou a indicação de circunstâncias adicionais necessariamente individualizadas. a assertiva está correta porque a busca pessoal, embora seja medida invasiva e excepcional, pode ser realizada sem ordem judicial quando houver fundada suspeita, nos termos dos arts. 240 a 244 do cpp. o ponto central do entendimento é que a suspeita não precisa decorrer de prova prévia da ilicitude nem da visualização imediata de arma, droga ou outro objeto ilícito; basta que haja elementos objetivos, concretos e verificáveis que, no caso, justifiquem a intervenção policial.
+
+a conduta descrita — mudança repentina de direção ao avistar a viatura, com tentativa de evasão — foi considerada apta, no caso concreto, a compor esse juízo objetivo de fundada suspeita. isso não significa, porém, que qualquer nervosismo ou simples reação à presença policial autorize automaticamente a revista. a legitimidade da medida depende da análise do contexto fático e da objetividade dos elementos que a motivaram, sob pena de transformar a exceção legal em regra e vulnerar a intimidade e a liberdade individual.
+
+assim, a busca pessoal sem mandado é válida quando lastreada em circunstâncias concretas que indiquem, de forma razoável, a necessidade da diligência, sendo a evasão repentina diante da aproximação da polícia um dado que pode, sim, integrar esse suporte fático. stf. 2ª turma. hc 249.506/sp, rel. min. edson fachin, julgado em 10/12/2024 (info 1163).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 9</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-9">Não respondida</span>
+</div>
+
+<p class="enunciado">A alteração abrupta de direção, em via pública, ao perceber a aproximação de viatura policial, com nítida tentativa de evasão do local, pode constituir elemento objetivo apto a caracterizar fundada suspeita e a legitimar a busca pessoal sem mandado judicial, desde que a diligência observe os limites legais dos arts. 240 a 244 do CPP, não se exigindo, para tanto, a prévia visualização de objeto ilícito ou a indicação de circunstâncias adicionais necessariamente individualizadas.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(9, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(9, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-9">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque a busca pessoal, embora seja medida invasiva e excepcional, pode ser realizada sem ordem judicial quando houver fundada suspeita, nos termos dos arts. 240 a 244 do CPP. O ponto central do entendimento é que a suspeita não precisa decorrer de prova prévia da ilicitude nem da visualização imediata de arma, droga ou outro objeto ilícito; basta que haja elementos objetivos, concretos e verificáveis que, no caso, justifiquem a intervenção policial.<br><br>A conduta descrita — mudança repentina de direção ao avistar a viatura, com tentativa de evasão — foi considerada apta, no caso concreto, a compor esse juízo objetivo de fundada suspeita. Isso não significa, porém, que qualquer nervosismo ou simples reação à presença policial autorize automaticamente a revista. A legitimidade da medida depende da análise do contexto fático e da objetividade dos elementos que a motivaram, sob pena de transformar a exceção legal em regra e vulnerar a intimidade e a liberdade individual.<br><br>Assim, a busca pessoal sem mandado é válida quando lastreada em circunstâncias concretas que indiquem, de forma razoável, a necessidade da diligência, sendo a evasão repentina diante da aproximação da polícia um dado que pode, sim, integrar esse suporte fático.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. 2ª Turma. HC 249.506/SP, Rel. Min. Edson Fachin, julgado em 10/12/2024 (Info 1163).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="ECA"
+data-texto="é formalmente inconstitucional lei estadual que, a pretexto de simplificar a apuração e coibir a sonegação fiscal, amplia para o setor de mineração a metodologia de cálculo do valor adicionado baseada em percentual fixo da receita bruta, para fins de repartição da parcela do icms pertencente aos municípios, porque a disciplina desse critério foi reservada pela constituição à lei complementar federal, não podendo o ente estadual inovar na matéria. a repartição do produto da arrecadação do icms aos municípios envolve, em regra, a parcela de 25% prevista no art. 158, iv, da constituição federal. desses recursos, 65% devem ser distribuídos proporcionalmente ao valor adicionado nas operações e prestações realizadas em cada território, ao passo que até 35% podem observar critérios definidos em lei estadual, observados os limites constitucionais e legais pertinentes.
+
+o ponto central do julgado é que o critério de apuração do valor adicionado não foi deixado à livre conformação dos estados. a constituição, em conjunto com a disciplina da lei complementar federal, reserva à união a definição dos parâmetros gerais dessa matéria, especialmente por meio da lc 63/1990, que estabelece a forma de cálculo do valor adicionado e prevê hipóteses específicas de simplificação, como a aplicação do percentual de 32% da receita bruta em situações delimitadas pela própria norma complementar.
+
+no caso examinado, a lei estadual paraense ampliou essa metodologia simplificada para empresas de mineração, criando hipótese não prevista na lei complementar federal. ainda que o objetivo declarado fosse facilitar a fiscalização e combater a sonegação, isso não afasta o vício formal: o estado não pode inovar em tema cuja disciplina foi reservada à lei complementar federal. assim, a norma estadual foi reputada formalmente inconstitucional por usurpação de competência legislativa da união.
+
+a assertiva está correta porque identifica precisamente o núcleo da decisão: não se tratou de mera opção administrativa ou de ajuste operacional do repasse, mas de alteração indevida do critério jurídico de cálculo do valor adicionado, com impacto direto na repartição constitucional de receitas tributárias. stf. plenário. adi 7.685/pa, rel. min. gilmar mendes, julgado em 16/12/2024 (info 1163).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 10</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-10">Não respondida</span>
+</div>
+
+<p class="enunciado">É formalmente inconstitucional lei estadual que, a pretexto de simplificar a apuração e coibir a sonegação fiscal, amplia para o setor de mineração a metodologia de cálculo do valor adicionado baseada em percentual fixo da receita bruta, para fins de repartição da parcela do ICMS pertencente aos municípios, porque a disciplina desse critério foi reservada pela Constituição à lei complementar federal, não podendo o ente estadual inovar na matéria.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(10, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(10, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-10">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A repartição do produto da arrecadação do ICMS aos municípios envolve, em regra, a parcela de 25% prevista no art. 158, IV, da Constituição Federal. Desses recursos, 65% devem ser distribuídos proporcionalmente ao valor adicionado nas operações e prestações realizadas em cada território, ao passo que até 35% podem observar critérios definidos em lei estadual, observados os limites constitucionais e legais pertinentes.<br><br>O ponto central do julgado é que o critério de apuração do valor adicionado não foi deixado à livre conformação dos Estados. A Constituição, em conjunto com a disciplina da lei complementar federal, reserva à União a definição dos parâmetros gerais dessa matéria, especialmente por meio da LC 63/1990, que estabelece a forma de cálculo do valor adicionado e prevê hipóteses específicas de simplificação, como a aplicação do percentual de 32% da receita bruta em situações delimitadas pela própria norma complementar.<br><br>No caso examinado, a lei estadual paraense ampliou essa metodologia simplificada para empresas de mineração, criando hipótese não prevista na lei complementar federal. Ainda que o objetivo declarado fosse facilitar a fiscalização e combater a sonegação, isso não afasta o vício formal: o Estado não pode inovar em tema cuja disciplina foi reservada à lei complementar federal. Assim, a norma estadual foi reputada formalmente inconstitucional por usurpação de competência legislativa da União.<br><br>A assertiva está correta porque identifica precisamente o núcleo da decisão: não se tratou de mera opção administrativa ou de ajuste operacional do repasse, mas de alteração indevida do critério jurídico de cálculo do valor adicionado, com impacto direto na repartição constitucional de receitas tributárias.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.685/PA, Rel. Min. Gilmar Mendes, julgado em 16/12/2024 (Info 1163).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a transferência aos beneficiários, em razão do falecimento do titular, de valores e direitos vinculados a plano vgbl ou pgbl não se submete à incidência do itcmd, ainda que a legislação estadual pretenda equiparar tais quantias a herança ou legado, por se tratar de contratação com natureza securitária e previdenciária complementar, o que afasta a materialidade do imposto sobre transmissão causa mortis. a assertiva está correta porque o entendimento firmado reconhece a inconstitucionalidade da incidência do itcmd sobre o repasse, aos beneficiários, de valores e direitos relativos aos planos vgbl e pgbl quando ocorre a morte do titular. o fundamento central é a natureza jurídica desses contratos, descrita como securitária e previdenciária complementar, o que impede sua equiparação, para fins de tributação estadual, a transmissão causa mortis de patrimônio hereditário.
+
+em outras palavras, embora o evento morte seja o gatilho para o pagamento aos beneficiários, isso não autoriza, por si só, a incidência do itcmd, pois o imposto exige transmissão causa mortis ou doação de bens e direitos, e o repasse decorrente desses planos não se enquadra nessa materialidade tributária. assim, eventual norma estadual que busque alcançar tais valores por mera equiparação não prevalece diante da vedação constitucional reconhecida.
+
+é importante não confundir essa hipótese com outras situações patrimoniais em que há efetiva transmissão gratuita de bens ou direitos, nem com o diferimento do itcmd em casos de doação com reserva de usufruto, tema que foi mencionado no julgado como constitucional, mas que não altera a conclusão específica sobre vgbl e pgbl. stf. plenário. re 1.363.013/rj, rel. min. dias toffoli, julgado em 16/12/2024 (repercussão geral – tema 1.214) (info 1163).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 11</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-11">Não respondida</span>
+</div>
+
+<p class="enunciado">A transferência aos beneficiários, em razão do falecimento do titular, de valores e direitos vinculados a plano VGBL ou PGBL não se submete à incidência do ITCMD, ainda que a legislação estadual pretenda equiparar tais quantias a herança ou legado, por se tratar de contratação com natureza securitária e previdenciária complementar, o que afasta a materialidade do imposto sobre transmissão causa mortis.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(11, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(11, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-11">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque o entendimento firmado reconhece a inconstitucionalidade da incidência do ITCMD sobre o repasse, aos beneficiários, de valores e direitos relativos aos planos VGBL e PGBL quando ocorre a morte do titular. O fundamento central é a natureza jurídica desses contratos, descrita como securitária e previdenciária complementar, o que impede sua equiparação, para fins de tributação estadual, a transmissão causa mortis de patrimônio hereditário.<br><br>Em outras palavras, embora o evento morte seja o gatilho para o pagamento aos beneficiários, isso não autoriza, por si só, a incidência do ITCMD, pois o imposto exige transmissão causa mortis ou doação de bens e direitos, e o repasse decorrente desses planos não se enquadra nessa materialidade tributária. Assim, eventual norma estadual que busque alcançar tais valores por mera equiparação não prevalece diante da vedação constitucional reconhecida.<br><br>É importante não confundir essa hipótese com outras situações patrimoniais em que há efetiva transmissão gratuita de bens ou direitos, nem com o diferimento do ITCMD em casos de doação com reserva de usufruto, tema que foi mencionado no julgado como constitucional, mas que não altera a conclusão específica sobre VGBL e PGBL.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. RE 1.363.013/RJ, Rel. Min. Dias Toffoli, julgado em 16/12/2024 (Repercussão Geral – Tema 1.214) (Info 1163).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="ECA"
+data-texto="a incidência de pis e cofins sobre os rendimentos auferidos em aplicações financeiras por entidade fechada de previdência complementar é compatível com a constituição, ainda que tais entidades não tenham finalidade lucrativa nem pratiquem atividade empresarial em sentido estrito, pois esses ingressos integram a dinâmica ordinária de captação e gestão dos recursos necessários ao custeio e à execução de sua atividade-fim; diversamente, as contribuições vertidas por participantes e patrocinadores submetem-se a disciplina específica, não se confundindo com tais rendimentos financeiros. a assertiva está correta porque reproduz a distinção central firmada no julgamento: a incidência de pis e cofins alcança os rendimentos obtidos em aplicações financeiras pelas entidades fechadas de previdência complementar, mesmo que elas não ostentem finalidade lucrativa e não se enquadrem no modelo clássico de empresa com faturamento tradicional.
+
+o ponto decisivo é que, para essas entidades, os rendimentos financeiros não são considerados mera consequência acessória ou estranha à sua atuação institucional. ao contrário, integram a estrutura de financiamento e de gestão dos recursos que viabilizam o cumprimento da atividade previdenciária complementar. por isso, o stf reconheceu que tais receitas podem ser submetidas à tributação pelas contribuições sociais em questão.
+
+ao mesmo tempo, o julgado ressalvou que as contribuições de participantes e patrocinadores não se confundem com os rendimentos de aplicações financeiras, pois possuem regramento próprio. essa distinção é relevante para evitar a indevida ampliação do alcance da tese: a constitucionalidade afirmada recai sobre os rendimentos financeiros, e não sobre as contribuições vertidas ao plano, que seguem disciplina específica.
+
+em síntese, a corte afastou a tese de imunidade ou de não incidência fundada exclusivamente na ausência de lucro ou de faturamento empresarial típico, assentando que a natureza da receita financeira, no contexto da atividade desenvolvida pela entidade, autoriza a incidência de pis e cofins. stf. plenário. re 722.528/rj, rel. min. dias toffoli, redator do acórdão min. gilmar mendes, julgado em 16/12/2024 (repercussão geral – tema 1.280) (info 1163).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 12</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-12">Não respondida</span>
+</div>
+
+<p class="enunciado">A incidência de PIS e COFINS sobre os rendimentos auferidos em aplicações financeiras por entidade fechada de previdência complementar é compatível com a Constituição, ainda que tais entidades não tenham finalidade lucrativa nem pratiquem atividade empresarial em sentido estrito, pois esses ingressos integram a dinâmica ordinária de captação e gestão dos recursos necessários ao custeio e à execução de sua atividade-fim; diversamente, as contribuições vertidas por participantes e patrocinadores submetem-se a disciplina específica, não se confundindo com tais rendimentos financeiros.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(12, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(12, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-12">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a distinção central firmada no julgamento: a incidência de PIS e COFINS alcança os rendimentos obtidos em aplicações financeiras pelas entidades fechadas de previdência complementar, mesmo que elas não ostentem finalidade lucrativa e não se enquadrem no modelo clássico de empresa com faturamento tradicional.<br><br>O ponto decisivo é que, para essas entidades, os rendimentos financeiros não são considerados mera consequência acessória ou estranha à sua atuação institucional. Ao contrário, integram a estrutura de financiamento e de gestão dos recursos que viabilizam o cumprimento da atividade previdenciária complementar. Por isso, o STF reconheceu que tais receitas podem ser submetidas à tributação pelas contribuições sociais em questão.<br><br>Ao mesmo tempo, o julgado ressalvou que as contribuições de participantes e patrocinadores não se confundem com os rendimentos de aplicações financeiras, pois possuem regramento próprio. Essa distinção é relevante para evitar a indevida ampliação do alcance da tese: a constitucionalidade afirmada recai sobre os rendimentos financeiros, e não sobre as contribuições vertidas ao plano, que seguem disciplina específica.<br><br>Em síntese, a Corte afastou a tese de imunidade ou de não incidência fundada exclusivamente na ausência de lucro ou de faturamento empresarial típico, assentando que a natureza da receita financeira, no contexto da atividade desenvolvida pela entidade, autoriza a incidência de PIS e COFINS.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. RE 722.528/RJ, Rel. Min. Dias Toffoli, redator do acórdão Min. Gilmar Mendes, julgado em 16/12/2024 (Repercussão Geral – Tema 1.280) (Info 1163).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="é formalmente constitucional lei estadual que imponha às instituições financeiras a obrigação de realizar, para fins de cadastramento e de manutenção do pagamento, a prova de vida de beneficiários do regime geral de previdência social, por se tratar de medida administrativa voltada à proteção do erário e à prevenção de fraudes, sem invasão da competência legislativa privativa da união. a assertiva está incorreta porque a disciplina normativa da prova de vida de beneficiários do regime geral de previdência social insere-se no âmbito da seguridade social, matéria cuja competência legislativa é privativa da união, nos termos do art. 22, xxiii, da constituição federal. ainda que a norma estadual se apresente como medida de organização administrativa ou de proteção contra fraudes, o seu conteúdo material interfere diretamente na disciplina jurídica do benefício previdenciário e na forma de comprovação da manutenção das condições para seu recebimento.
+
+no caso examinado, a lei estadual atribuiu às instituições financeiras a responsabilidade pela realização da prova de vida de beneficiários do rgps, criando obrigação específica relacionada ao regime previdenciário federal. isso configura invasão da competência legislativa da união, pois o estado-membro não pode inovar no regime jurídico da seguridade social nem impor deveres a agentes privados em matéria reservada ao legislador federal. assim, a inconstitucionalidade reconhecida foi formal, decorrente de vício de competência, e não de mero desacordo com política pública. stf. plenário. adi 7.010/rj, rel. min. dias toffoli, julgado em 16/12/2024 (info 1163).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 13</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-13">Não respondida</span>
+</div>
+
+<p class="enunciado">É formalmente constitucional lei estadual que imponha às instituições financeiras a obrigação de realizar, para fins de cadastramento e de manutenção do pagamento, a prova de vida de beneficiários do Regime Geral de Previdência Social, por se tratar de medida administrativa voltada à proteção do erário e à prevenção de fraudes, sem invasão da competência legislativa privativa da União.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(13, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(13, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-13">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque a disciplina normativa da prova de vida de beneficiários do Regime Geral de Previdência Social insere-se no âmbito da seguridade social, matéria cuja competência legislativa é privativa da União, nos termos do art. 22, XXIII, da Constituição Federal. Ainda que a norma estadual se apresente como medida de organização administrativa ou de proteção contra fraudes, o seu conteúdo material interfere diretamente na disciplina jurídica do benefício previdenciário e na forma de comprovação da manutenção das condições para seu recebimento.<br><br>No caso examinado, a lei estadual atribuiu às instituições financeiras a responsabilidade pela realização da prova de vida de beneficiários do RGPS, criando obrigação específica relacionada ao regime previdenciário federal. Isso configura invasão da competência legislativa da União, pois o estado-membro não pode inovar no regime jurídico da seguridade social nem impor deveres a agentes privados em matéria reservada ao legislador federal. Assim, a inconstitucionalidade reconhecida foi formal, decorrente de vício de competência, e não de mero desacordo com política pública.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.010/RJ, Rel. Min. Dias Toffoli, julgado em 16/12/2024 (Info 1163).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a disciplina legal do contrato de trabalho intermitente, ao admitir a prestação de serviços com alternância de períodos de atividade e inatividade, remunerados apenas quando houver convocação e efetiva prestação laboral, é incompatível com a constituição federal por reduzir indevidamente a proteção do trabalhador, vulnerar a isonomia e esvaziar a dignidade da pessoa humana, ainda que preservados critérios específicos de remuneração e direitos trabalhistas mínimos. a assertiva contraria o entendimento firmado no julgamento das ações diretas de inconstitucionalidade que examinaram os dispositivos da reforma trabalhista relativos ao contrato intermitente. a corte reconheceu a constitucionalidade da regulamentação, assentando que ela encontra fundamento de validade nos arts. 1º, iv, e 170, caput, da constituição federal, que consagram, respectivamente, a livre iniciativa e o valor social do trabalho.
+
+o ponto central do julgamento foi a compatibilidade entre a flexibilização legislativa e a ordem constitucional trabalhista. entendeu-se que a contratação intermitente, tal como estruturada pela lei, não representa supressão arbitrária de direitos, mas uma forma de organização do trabalho voltada à ampliação do mercado de emprego, sem afastar garantias mínimas. a corte destacou que o regime observa critérios específicos para remuneração e para a fruição de direitos trabalhistas, preservando a autonomia privada dentro dos limites da intervenção estatal.
+
+por isso, não se acolheu a tese de que o modelo, por si só, ofenderia a dignidade do trabalhador, a isonomia ou a proporcionalidade. ao contrário, a decisão assentou que a simples alternância entre períodos de atividade e inatividade, com pagamento vinculado à prestação efetiva, não torna o instituto inconstitucional, desde que respeitados os parâmetros legais estabelecidos. stf. plenário. adi 5.826/df, adi 5.829/df, adi 6.154/df, rel. min. edson fachin, redator do acórdão min. nunes marques, julgado em 16/12/2024 (info 1163).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 14</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-14">Não respondida</span>
+</div>
+
+<p class="enunciado">A disciplina legal do contrato de trabalho intermitente, ao admitir a prestação de serviços com alternância de períodos de atividade e inatividade, remunerados apenas quando houver convocação e efetiva prestação laboral, é incompatível com a Constituição Federal por reduzir indevidamente a proteção do trabalhador, vulnerar a isonomia e esvaziar a dignidade da pessoa humana, ainda que preservados critérios específicos de remuneração e direitos trabalhistas mínimos.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(14, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(14, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-14">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva contraria o entendimento firmado no julgamento das ações diretas de inconstitucionalidade que examinaram os dispositivos da Reforma Trabalhista relativos ao contrato intermitente. A Corte reconheceu a constitucionalidade da regulamentação, assentando que ela encontra fundamento de validade nos arts. 1º, IV, e 170, caput, da Constituição Federal, que consagram, respectivamente, a livre iniciativa e o valor social do trabalho.<br><br>O ponto central do julgamento foi a compatibilidade entre a flexibilização legislativa e a ordem constitucional trabalhista. Entendeu-se que a contratação intermitente, tal como estruturada pela lei, não representa supressão arbitrária de direitos, mas uma forma de organização do trabalho voltada à ampliação do mercado de emprego, sem afastar garantias mínimas. A Corte destacou que o regime observa critérios específicos para remuneração e para a fruição de direitos trabalhistas, preservando a autonomia privada dentro dos limites da intervenção estatal.<br><br>Por isso, não se acolheu a tese de que o modelo, por si só, ofenderia a dignidade do trabalhador, a isonomia ou a proporcionalidade. Ao contrário, a decisão assentou que a simples alternância entre períodos de atividade e inatividade, com pagamento vinculado à prestação efetiva, não torna o instituto inconstitucional, desde que respeitados os parâmetros legais estabelecidos.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 5.826/DF, ADI 5.829/DF, ADI 6.154/DF, Rel. Min. Edson Fachin, redator do acórdão Min. Nunes Marques, julgado em 16/12/2024 (Info 1163).</p>
+</div>
+</section>
+
+</div>
+
+<script>
+const storageKey = location.pathname + "_respostas";
+let respostas = JSON.parse(localStorage.getItem(storageKey) || "{}");
+
+function destacar(t){
+ if(t==="CERTO") return '<span class="gabarito-certo">CERTO</span>';
+ if(t==="ERRADO") return '<span class="gabarito-errado">ERRADO</span>';
+ return t;
+}
+
+function responder(numero, resposta){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const gabarito=card.dataset.gabarito;
+ const correto=resposta===gabarito;
+ respostas[numero]={resposta,correto};
+ localStorage.setItem(storageKey, JSON.stringify(respostas));
+ mostrarFeedback(numero);
+ atualizarPainel();
+ filtrar();
+}
+
+function mostrarFeedback(numero){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const feedback=document.getElementById("feedback-"+numero);
+ const status=document.getElementById("status-"+numero);
+ const resultado=feedback.querySelector(".resultado");
+ const gabarito=card.dataset.gabarito;
+ const dados=respostas[numero];
+ if(!dados) return;
+ feedback.style.display="block";
+ feedback.classList.remove("correto","errado");
+ if(dados.correto){
+   feedback.classList.add("correto");
+   resultado.innerHTML="Você acertou. A resposta é "+destacar(gabarito)+".";
+   status.textContent="Respondida — acerto";
+   status.style.color="var(--green)";
+ } else {
+   feedback.classList.add("errado");
+   resultado.innerHTML="Você errou. O gabarito é "+destacar(gabarito)+".";
+   status.textContent="Respondida — erro";
+   status.style.color="var(--red)";
+ }
+}
+
+function atualizarPainel(){
+ let respondidas=0, acertos=0, erros=0;
+ for(const k in respostas){
+   respondidas++;
+   if(respostas[k].correto) acertos++; else erros++;
+ }
+ document.getElementById("respondidas").textContent=respondidas;
+ document.getElementById("acertos").textContent=acertos;
+ document.getElementById("erros").textContent=erros;
+ document.getElementById("visiveis").textContent=document.querySelectorAll(".questao:not(.oculta)").length;
+}
+
+function filtrar(){
+ const busca=document.getElementById("busca").value.trim().toLowerCase();
+ const disciplina=document.getElementById("disciplina").value;
+ const statusFiltro=document.getElementById("statusFiltro").value;
+ const cards=Array.from(document.querySelectorAll(".questao"));
+ let vis=0;
+ cards.forEach((card,idx)=>{
+   const n=idx+1;
+   const texto=card.dataset.texto||"";
+   const disc=card.dataset.disciplina||"";
+   const r=respostas[n];
+   let passaStatus=true;
+   if(statusFiltro==="nao") passaStatus=!r;
+   if(statusFiltro==="acerto") passaStatus=r && r.correto;
+   if(statusFiltro==="erro") passaStatus=r && !r.correto;
+   const ok=(!busca||texto.includes(busca)) && (!disciplina||disc===disciplina) && passaStatus;
+   card.classList.toggle("oculta", !ok);
+   if(ok) vis++;
+ });
+ document.getElementById("sem-resultados").style.display=vis===0?"block":"none";
+ atualizarPainel();
+}
+
+function reiniciar(){
+ if(!confirm("Deseja reiniciar este simulado?")) return;
+ localStorage.removeItem(storageKey);
+ location.reload();
+}
+
+function restaurar(){
+ for(const k in respostas) mostrarFeedback(Number(k));
+ filtrar();
+ atualizarPainel();
+}
+
+restaurar();
+</script>
+</body>
+</html>

@@ -1,0 +1,2000 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Simulado - SV_STF</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+:root{
+--bg:#020617;--panel:rgba(15,23,42,.88);--card:rgba(15,23,42,.96);
+--card2:rgba(30,41,59,.92);--border:rgba(148,163,184,.22);
+--text:#e5e7eb;--muted:#94a3b8;--accent:#38bdf8;--accent2:#0ea5e9;
+--green:#22c55e;--red:#ef4444;--yellow:#facc15;--purple:#a78bfa;
+}
+*{box-sizing:border-box}
+body{
+margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+background:radial-gradient(circle at top left,rgba(56,189,248,.20),transparent 28%),
+radial-gradient(circle at top right,rgba(167,139,250,.15),transparent 28%),
+linear-gradient(135deg,#020617,#0f172a 50%,#020617);
+color:var(--text);line-height:1.65;
+}
+header{padding:44px 20px 32px;text-align:center;border-bottom:1px solid var(--border)}
+header h1{margin:0 0 10px;font-size:clamp(28px,4vw,46px);letter-spacing:-.05em}
+header p{color:var(--muted);margin:0;font-size:16px}
+.container{max-width:1160px;margin:0 auto;padding:26px 16px 80px}
+.painel{
+position:sticky;top:10px;z-index:10;background:var(--panel);backdrop-filter:blur(18px);
+border:1px solid var(--border);border-radius:26px;padding:16px;margin-bottom:22px;
+box-shadow:0 22px 70px rgba(0,0,0,.35)
+}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.stat{background:var(--card2);padding:14px;border-radius:18px;text-align:center;border:1px solid rgba(148,163,184,.12)}
+.stat strong{display:block;font-size:25px;color:var(--accent);line-height:1.1}
+.stat span{font-size:12px;color:var(--muted)}
+.filtros{display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:12px;margin-top:14px}
+input,select{
+width:100%;background:rgba(2,6,23,.78);color:var(--text);border:1px solid var(--border);
+border-radius:14px;padding:13px 14px;outline:none;font-size:14px
+}
+input:focus,select:focus{border-color:var(--accent)}
+.card{
+background:var(--card);border:1px solid var(--border);border-radius:24px;padding:26px;
+margin-bottom:20px;box-shadow:0 18px 50px rgba(0,0,0,.24)
+}
+.questao{scroll-margin-top:190px}
+.questao-topo{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:18px}
+.badge{
+background:linear-gradient(135deg,var(--accent),var(--accent2));color:#00111f;font-weight:900;
+padding:7px 13px;border-radius:999px;display:inline-block
+}
+.disciplina-tag,.tipo-tag{
+display:inline-block;margin-left:8px;color:var(--muted);background:rgba(148,163,184,.10);
+border:1px solid rgba(148,163,184,.14);padding:6px 10px;border-radius:999px;font-size:12px
+}
+.tipo-tag{color:#ddd6fe;border-color:rgba(167,139,250,.25)}
+.status{color:var(--yellow);font-size:13px;white-space:nowrap}
+.enunciado{font-size:19px;margin:0 0 22px;letter-spacing:-.01em}
+.botoes{display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.btn{
+cursor:pointer;border:0;padding:12px 22px;border-radius:14px;color:white;font-weight:900;
+transition:.18s ease;letter-spacing:.02em
+}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.certo{background:rgba(34,197,94,.20);border:1px solid rgba(34,197,94,.42)}
+.btn.errado{background:rgba(239,68,68,.20);border:1px solid rgba(239,68,68,.42)}
+.btn.neutro{background:rgba(56,189,248,.16);color:var(--text);border:1px solid rgba(56,189,248,.32)}
+.feedback{
+display:none;background:rgba(2,6,23,.72);border:1px solid rgba(148,163,184,.16);
+border-left:5px solid var(--accent);padding:18px;border-radius:18px;margin-top:14px
+}
+.feedback.correto{border-left-color:var(--green)}
+.feedback.errado{border-left-color:var(--red)}
+.resultado{font-size:18px;font-weight:900;margin-top:0}
+.justificativa{margin-top:12px}
+.referencia{color:var(--muted);font-size:13px;margin-top:16px}
+.gabarito-certo{color:var(--green);font-weight:900}
+.gabarito-errado{color:var(--red);font-weight:900}
+.oculta{display:none}
+.sem-resultados{text-align:center;color:var(--muted);display:none;padding:30px}
+.grid-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
+.link-card{
+display:block;padding:20px;background:rgba(15,23,42,.95);border:1px solid rgba(148,163,184,.22);
+color:#e5e7eb;border-radius:22px;text-decoration:none;transition:.2s;box-shadow:0 14px 40px rgba(0,0,0,.22)
+}
+.link-card:hover{transform:translateY(-3px);border-color:#38bdf8}
+.link-card strong{display:block;font-size:17px;margin-bottom:8px}
+.link-card span{color:#94a3b8;font-size:13px}
+.index-tools{display:grid;grid-template-columns:1.5fr 1fr;gap:12px;margin-bottom:20px}
+@media(max-width:850px){
+.stats{grid-template-columns:repeat(2,1fr)}
+.filtros,.index-tools{grid-template-columns:1fr}
+.questao-topo{align-items:flex-start;flex-direction:column}
+.botoes{flex-direction:column}
+.enunciado{font-size:16px}
+.card{padding:20px}
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Simulado - SV_STF</h1>
+<p>Súmulas • Simulado interativo de CERTO ou ERRADO</p>
+</header>
+
+<div class="container">
+<div class="painel">
+<div class="stats">
+<div class="stat"><strong>61</strong><span>Total</span></div>
+<div class="stat"><strong id="visiveis">61</strong><span>Visíveis</span></div>
+<div class="stat"><strong id="respondidas">0</strong><span>Respondidas</span></div>
+<div class="stat"><strong id="acertos">0</strong><span>Acertos</span></div>
+<div class="stat"><strong id="erros">0</strong><span>Erros</span></div>
+</div>
+
+<div class="filtros">
+<input id="busca" type="search" placeholder="Buscar por palavra-chave..." oninput="filtrar()">
+<select id="disciplina" onchange="filtrar()">
+<option value="">Todas as disciplinas</option>
+<option value="ECA">ECA</option>
+<option value="N/I">N/I</option>
+</select>
+<select id="statusFiltro" onchange="filtrar()">
+<option value="">Todas</option>
+<option value="nao">Não respondidas</option>
+<option value="acerto">Acertos</option>
+<option value="erro">Erros</option>
+</select>
+<button class="btn neutro" onclick="reiniciar()">Reiniciar</button>
+</div>
+</div>
+
+<div id="sem-resultados" class="sem-resultados">Nenhuma questão encontrada com os filtros atuais.</div>
+
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a incidência de parâmetros mais gravosos para fins de progressão de regime e de livramento condicional é afasta da aplicação quando o agente é reconhecido como praticante do chamado tráfico privilegiado previsto no art. 33, §4º, da lei 11.343/2006, porque essa causa de diminuição de pena obsta a qualificação do crime como hediondo. a jurisprudência consolidada do stf entende que a figura do tráfico privilegiado não se subsume ao rol de crimes hediondos, justamente por implicar redução da culpabilidade e pena. assim, não se aplicam automaticamente os parâmetros mais rigorosos previstos para hediondos na progressão de regime e no livramento condicional. essa interpretação afasta a estigmatização legal que teria efeitos diretos sobre a execução penal. súmula vinculante 63 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 1</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-1">Não respondida</span>
+</div>
+
+<p class="enunciado">A incidência de parâmetros mais gravosos para fins de progressão de regime e de livramento condicional é afasta da aplicação quando o agente é reconhecido como praticante do chamado tráfico privilegiado previsto no art. 33, §4º, da Lei 11.343/2006, porque essa causa de diminuição de pena obsta a qualificação do crime como hediondo.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(1, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(1, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-1">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A jurisprudência consolidada do STF entende que a figura do tráfico privilegiado não se subsume ao rol de crimes hediondos, justamente por implicar redução da culpabilidade e pena. Assim, não se aplicam automaticamente os parâmetros mais rigorosos previstos para hediondos na progressão de regime e no livramento condicional. Essa interpretação afasta a estigmatização legal que teria efeitos diretos sobre a execução penal.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 63 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="é inconstitucional a revogação da isenção prevista no art. 6º, ii, da lei complementar nº 70/1991 pelo art. 56 da lei nº 9.430/1996, pois a lc 70/1991 é materialmente normativa complementar e, portanto, imune à alteração por lei ordinária. o stf reconheceu a legitimidade da revogação porque, embora formalmente editada como lei complementar, a lc 70/1991 tem natureza material de lei ordinária no tocante à contribuição social que instituiu. assim, seu regramento pôde ser afetado por norma ordinária (lei 9.430/1996) sem violar hierarquia legislativa, razão pela qual a revogação foi considerada legítima. súmula vinculante 62 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 2</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-2">Não respondida</span>
+</div>
+
+<p class="enunciado">É inconstitucional a revogação da isenção prevista no art. 6º, II, da Lei Complementar nº 70/1991 pelo art. 56 da Lei nº 9.430/1996, pois a LC 70/1991 é materialmente normativa complementar e, portanto, imune à alteração por lei ordinária.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(2, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(2, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-2">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STF reconheceu a legitimidade da revogação porque, embora formalmente editada como lei complementar, a LC 70/1991 tem natureza material de lei ordinária no tocante à contribuição social que instituiu. Assim, seu regramento pôde ser afetado por norma ordinária (Lei 9.430/1996) sem violar hierarquia legislativa, razão pela qual a revogação foi considerada legítima.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 62 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a judicialização do fornecimento de fármacos registrados pela anvisa, porém não incorporados nas listas de dispensação do sus, deve ser processada de acordo com os parâmetros fixados no tema 6 de repercussão geral (re 566.471), inclusive quanto à verificação de eficácia e necessidade terapêutica. o entendimento do stf exige que decisões judiciais sobre medicamentos não incorporados ao sus observem o controle estabelecido no julgamento do tema 6 (re 566.471), que delimita critérios técnico-jurídicos para a concessão. isso inclui análise de registro na anvisa, eficácia, indicação terapêutica e limites da intervenção judicial nas políticas públicas de saúde. súmula vinculante 61 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 3</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-3">Não respondida</span>
+</div>
+
+<p class="enunciado">A judicialização do fornecimento de fármacos registrados pela ANVISA, porém não incorporados nas listas de dispensação do SUS, deve ser processada de acordo com os parâmetros fixados no Tema 6 de repercussão geral (RE 566.471), inclusive quanto à verificação de eficácia e necessidade terapêutica.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(3, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(3, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-3">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O entendimento do STF exige que decisões judiciais sobre medicamentos não incorporados ao SUS observem o controle estabelecido no julgamento do Tema 6 (RE 566.471), que delimita critérios técnico-jurídicos para a concessão. Isso inclui análise de registro na ANVISA, eficácia, indicação terapêutica e limites da intervenção judicial nas políticas públicas de saúde.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 61 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="os pedidos administrativos e o exame de incorporação de medicamentos pela rede pública, bem como as demandas judiciais correlatas, devem ignorar os acordos interfederativos homologados pelo stf no tema 1.234 (re 1.366.243), uma vez que eles possuem natureza meramente política e não vinculante. ao contrário, o stf determinou que a atuação administrativa e jurisdicional em matéria de judicialização da saúde observe os três acordos interfederativos homologados no tema 1.234, vinculando fluxos e governança colaborativa entre entes federados. esses acordos não são meramente políticos, mas parâmetros que devem orientar decisões administrativas e judiciais para uniformizar procedimentos e evitar decisões isoladas. súmula vinculante 60 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 4</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-4">Não respondida</span>
+</div>
+
+<p class="enunciado">Os pedidos administrativos e o exame de incorporação de medicamentos pela rede pública, bem como as demandas judiciais correlatas, devem ignorar os acordos interfederativos homologados pelo STF no Tema 1.234 (RE 1.366.243), uma vez que eles possuem natureza meramente política e não vinculante.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(4, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(4, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-4">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Ao contrário, o STF determinou que a atuação administrativa e jurisdicional em matéria de judicialização da saúde observe os três acordos interfederativos homologados no Tema 1.234, vinculando fluxos e governança colaborativa entre entes federados. Esses acordos não são meramente políticos, mas parâmetros que devem orientar decisões administrativas e judiciais para uniformizar procedimentos e evitar decisões isoladas.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 60 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="no reconhecimento do tráfico privilegiado (art. 33, §4º, lei 11.343/2006), havendo ausência de vetores negativos na primeira fase da dosimetria, o regime aberto deve ser fixado e eventual pena privativa substituída por restritiva de direitos, observado o art. 33, §2º, alínea &quot;c&quot;, e art. 44 do código penal. a súmula determina caráter impositivo à fixação do regime aberto e à substituição por penas restritivas quando preenchidos os requisitos legais do privilégio e inexistirem circunstâncias judiciais desfavoráveis na primeira fase (art. 59 cp). a aplicação do art. 33, §2º, alínea c e do art. 44 cp é condição para a substituição, de modo que a execução penal deve refletir essa orientação. súmula vinculante 59 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 5</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-5">Não respondida</span>
+</div>
+
+<p class="enunciado">No reconhecimento do tráfico privilegiado (art. 33, §4º, Lei 11.343/2006), havendo ausência de vetores negativos na primeira fase da dosimetria, o regime aberto deve ser fixado e eventual pena privativa substituída por restritiva de direitos, observado o art. 33, §2º, alínea &quot;c&quot;, e art. 44 do Código Penal.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(5, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(5, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-5">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A súmula determina caráter impositivo à fixação do regime aberto e à substituição por penas restritivas quando preenchidos os requisitos legais do privilégio e inexistirem circunstâncias judiciais desfavoráveis na primeira fase (art. 59 CP). A aplicação do art. 33, §2º, alínea c e do art. 44 CP é condição para a substituição, de modo que a execução penal deve refletir essa orientação.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 59 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="cabe a concessão de crédito presumido de ipi sobre insumos cuja entrada no estabelecimento seja isenta, sujeita à alíquota zero ou não tributável, por força do princípio da não cumulatividade, obrigando-se a administração a reconhecer tal crédito presumido. o stf firmou o entendimento de que não existe direito a crédito presumido de ipi relativamente à entrada desses insumos. o reconhecimento automático de crédito presumido nestes casos não se impõe, não havendo violação do princípio da não cumulatividade que permita tal pretensão. a sistemática do ipi e seus créditos exige previsão legal específica. súmula vinculante 58 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 6</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-6">Não respondida</span>
+</div>
+
+<p class="enunciado">Cabe a concessão de crédito presumido de IPI sobre insumos cuja entrada no estabelecimento seja isenta, sujeita à alíquota zero ou não tributável, por força do princípio da não cumulatividade, obrigando-se a administração a reconhecer tal crédito presumido.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(6, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(6, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-6">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STF firmou o entendimento de que não existe direito a crédito presumido de IPI relativamente à entrada desses insumos. O reconhecimento automático de crédito presumido nestes casos não se impõe, não havendo violação do princípio da não cumulatividade que permita tal pretensão. A sistemática do IPI e seus créditos exige previsão legal específica.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 58 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a imunidade prevista no art. 150, vi, d, da constituição aplica-se à importação e à comercialização de livros eletrônicos (e-books) e dos aparelhos destinados exclusivamente à sua fixação, mesmo quando esses dispositivos contenham funções acessórias não relacionadas à leitura. o stf estendeu a imunidade aos e-books e aos suportes exclusivamente utilizados para fixá-los (e-readers), ainda que possuam funcionalidades acessórias, afastando tributos nessas hipóteses por aplicação teleológica da norma constitucional que protege o livro enquanto meio de difusão do conhecimento. súmula vinculante 57 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 7</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-7">Não respondida</span>
+</div>
+
+<p class="enunciado">A imunidade prevista no art. 150, VI, d, da Constituição aplica-se à importação e à comercialização de livros eletrônicos (e-books) e dos aparelhos destinados exclusivamente à sua fixação, mesmo quando esses dispositivos contenham funções acessórias não relacionadas à leitura.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(7, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(7, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-7">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STF estendeu a imunidade aos e-books e aos suportes exclusivamente utilizados para fixá-los (e-readers), ainda que possuam funcionalidades acessórias, afastando tributos nessas hipóteses por aplicação teleológica da norma constitucional que protege o livro enquanto meio de difusão do conhecimento.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 57 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="a inexistência de estabelecimento penal adequado autoriza a manutenção do condenado em regime mais gravoso até que seja providenciada vaga compatível, sem observância de parâmetros específicos, porquanto se trata de decisão administrativa de execução penal. a súmula exige que, na falta de estabelecimento adequado, não se mantenha o condenado em regime mais gravoso; deve-se observar os parâmetros fixados no re 641.320/rs, que orientam a proteção dos direitos do apenado e a observância de critérios objetivos para alocação e progressão, evitando a precarização da execução penal. súmula vinculante 56 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 8</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-8">Não respondida</span>
+</div>
+
+<p class="enunciado">A inexistência de estabelecimento penal adequado autoriza a manutenção do condenado em regime mais gravoso até que seja providenciada vaga compatível, sem observância de parâmetros específicos, porquanto se trata de decisão administrativa de execução penal.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(8, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(8, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-8">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A súmula exige que, na falta de estabelecimento adequado, não se mantenha o condenado em regime mais gravoso; deve-se observar os parâmetros fixados no RE 641.320/RS, que orientam a proteção dos direitos do apenado e a observância de critérios objetivos para alocação e progressão, evitando a precarização da execução penal.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 56 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="o direito ao auxílio-alimentação, por sua natureza postulada de benefício pecuniário permanente, estende‑se automaticamente aos servidores públicos inativos, salvo vedação legal expressa. o stf firmou que o direito ao auxílio-alimentação não se estende aos servidores inativos; trata-se de vantagem vinculada ao exercício ativo do cargo e dependente de previsão legal ou normativa que a estenda, a qual, no entendimento consolidado, não existe de forma automática. súmula vinculante 55 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 9</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-9">Não respondida</span>
+</div>
+
+<p class="enunciado">O direito ao auxílio-alimentação, por sua natureza postulada de benefício pecuniário permanente, estende‑se automaticamente aos servidores públicos inativos, salvo vedação legal expressa.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(9, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(9, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-9">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STF firmou que o direito ao auxílio-alimentação não se estende aos servidores inativos; trata-se de vantagem vinculada ao exercício ativo do cargo e dependente de previsão legal ou normativa que a estenda, a qual, no entendimento consolidado, não existe de forma automática.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 55 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="até a emenda constitucional nº 32/2001, era admissível a reedição de medida provisória não apreciada pelo congresso dentro de seu prazo de eficácia de 30 dias, com efeitos legais retroagindo à primeira edição, preservando a continuidade dos atos normativos. antes da ec 32/2001, a prática de reedição dentro do prazo permitia manter os efeitos de lei desde a primeira edição; a alteração introduzida pela emenda vedou essa repetição automática. a súmula reflete essa compreensão histórica da validade das medidas provisórias antes da mudança constitucional. súmula vinculante 54 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 10</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-10">Não respondida</span>
+</div>
+
+<p class="enunciado">Até a Emenda Constitucional nº 32/2001, era admissível a reedição de medida provisória não apreciada pelo Congresso dentro de seu prazo de eficácia de 30 dias, com efeitos legais retroagindo à primeira edição, preservando a continuidade dos atos normativos.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(10, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(10, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-10">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Antes da EC 32/2001, a prática de reedição dentro do prazo permitia manter os efeitos de lei desde a primeira edição; a alteração introduzida pela emenda vedou essa repetição automática. A súmula reflete essa compreensão histórica da validade das medidas provisórias antes da mudança constitucional.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 54 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a justiça do trabalho é incompetente para efetivar, de ofício, a execução das contribuições previdenciárias relativas ao objeto das condenações e acordos homologados em suas sentenças e homologações, pois tal execução seria matéria exclusiva da fazenda pública. o stf consolidou que a competência da justiça do trabalho alcança a execução de ofício das contribuições previdenciárias vinculadas ao objeto das suas sentenças e acordos homologados (art. 114, viii, cf), autorizando atuação executória para garantir integral efetividade das decisões trabalhistas. súmula vinculante 53 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 11</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-11">Não respondida</span>
+</div>
+
+<p class="enunciado">A Justiça do Trabalho é incompetente para efetivar, de ofício, a execução das contribuições previdenciárias relativas ao objeto das condenações e acordos homologados em suas sentenças e homologações, pois tal execução seria matéria exclusiva da Fazenda Pública.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(11, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(11, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-11">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STF consolidou que a competência da Justiça do Trabalho alcança a execução de ofício das contribuições previdenciárias vinculadas ao objeto das suas sentenças e acordos homologados (art. 114, VIII, CF), autorizando atuação executória para garantir integral efetividade das decisões trabalhistas.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 53 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="imóvel de entidade sem fins lucrativos, beneficiária da imunidade do art. 150, vi, &quot;c&quot;, da cf/88, perde tal imunidade para fins de iptu quando locado a terceiros, mesmo que os valores locatícios sejam aplicados nas atividades institucionais. a súmula prevê que, mesmo quando alugado a terceiros, o imóvel permanece imune ao iptu desde que o produto dos aluguéis seja aplicado nas finalidades para as quais a entidade foi constituída. logo, a locação não é, por si só, causa de perda da imunidade se observada a exigência do emprego dos recursos. súmula vinculante 52 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 12</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-12">Não respondida</span>
+</div>
+
+<p class="enunciado">Imóvel de entidade sem fins lucrativos, beneficiária da imunidade do art. 150, VI, &quot;c&quot;, da CF/88, perde tal imunidade para fins de IPTU quando locado a terceiros, mesmo que os valores locatícios sejam aplicados nas atividades institucionais.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(12, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(12, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-12">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A súmula prevê que, mesmo quando alugado a terceiros, o imóvel permanece imune ao IPTU desde que o produto dos aluguéis seja aplicado nas finalidades para as quais a entidade foi constituída. Logo, a locação não é, por si só, causa de perda da imunidade se observada a exigência do emprego dos recursos.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 52 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="o reajuste de 28,86% conferido por leis específicas aos servidores militares em 1993 estende‑se aos servidores civis do poder executivo, observando-se compensações por reajustes anteriores concedidos a estes últimos, segundo entendimento vinculante do stf. o stf reconheceu que o reajuste ofertado aos militares estende‑se aos civis do poder executivo, mas com observância das compensações decorrentes de aumentos diferenciados já recebidos; trata‑se de equalização remuneratória condicionada a compensações legais. súmula vinculante 51 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 13</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-13">Não respondida</span>
+</div>
+
+<p class="enunciado">O reajuste de 28,86% conferido por leis específicas aos servidores militares em 1993 estende‑se aos servidores civis do Poder Executivo, observando-se compensações por reajustes anteriores concedidos a estes últimos, segundo entendimento vinculante do STF.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(13, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(13, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-13">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STF reconheceu que o reajuste ofertado aos militares estende‑se aos civis do Poder Executivo, mas com observância das compensações decorrentes de aumentos diferenciados já recebidos; trata‑se de equalização remuneratória condicionada a compensações legais.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 51 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="toda alteração legal que modifique o prazo de recolhimento de tributo fica submetida ao princípio da anterioridade, impedindo sua exigência no exercício em que for publicada. a súmula afirma que norma legal que altera o prazo de recolhimento não se submete ao princípio da anterioridade; o entendimento é de que prazo de pagamento não constitui aumento de tributo que acione a garantia constitucional da anterioridade, afastando‑se a aplicabilidade do instituto nesta hipótese. súmula vinculante 50 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 14</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-14">Não respondida</span>
+</div>
+
+<p class="enunciado">Toda alteração legal que modifique o prazo de recolhimento de tributo fica submetida ao princípio da anterioridade, impedindo sua exigência no exercício em que for publicada.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(14, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(14, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-14">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A súmula afirma que norma legal que altera o prazo de recolhimento não se submete ao princípio da anterioridade; o entendimento é de que prazo de pagamento não constitui aumento de tributo que acione a garantia constitucional da anterioridade, afastando‑se a aplicabilidade do instituto nesta hipótese.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 50 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="lei municipal que impede a instalação de estabelecimentos do mesmo ramo comercial em determinada área, com o objetivo de evitar concentração prejudicial à economia local, comete ofensa ao princípio constitucional da livre concorrência. o stf considera que legislação municipal que impede a instalação de comércios do mesmo ramo em determinada área ofende o princípio da livre concorrência (art. 170, cf), porque impõe restrições artificiais à entrada no mercado e prejudica a concorrência; salvo exceções razoáveis de ordem urbanística ou de saúde pública devidamente justificadas. súmula vinculante 49 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 15</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-15">Não respondida</span>
+</div>
+
+<p class="enunciado">Lei municipal que impede a instalação de estabelecimentos do mesmo ramo comercial em determinada área, com o objetivo de evitar concentração prejudicial à economia local, comete ofensa ao princípio constitucional da livre concorrência.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(15, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(15, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-15">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STF considera que legislação municipal que impede a instalação de comércios do mesmo ramo em determinada área ofende o princípio da livre concorrência (art. 170, CF), porque impõe restrições artificiais à entrada no mercado e prejudica a concorrência; salvo exceções razoáveis de ordem urbanística ou de saúde pública devidamente justificadas.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 49 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="na importação de mercadoria, o icms só pode ser exigido no momento da efetiva circulação da mercadoria no mercado interno, não sendo legítima sua cobrança no desembaraço aduaneiro. o entendimento do stf é que a cobrança do icms por ocasião do desembaraço aduaneiro é legítima, sendo esse momento considerado fato gerador para tributação estadual da mercadoria importada, não se exigindo espera pela circulação posterior. súmula vinculante 48 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 16</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-16">Não respondida</span>
+</div>
+
+<p class="enunciado">Na importação de mercadoria, o ICMS só pode ser exigido no momento da efetiva circulação da mercadoria no mercado interno, não sendo legítima sua cobrança no desembaraço aduaneiro.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(16, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(16, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-16">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O entendimento do STF é que a cobrança do ICMS por ocasião do desembaraço aduaneiro é legítima, sendo esse momento considerado fato gerador para tributação estadual da mercadoria importada, não se exigindo espera pela circulação posterior.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 48 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="ECA"
+data-texto="os honorários advocatícios reconhecidos em condenação, ainda que destacados do principal devido ao credor, têm natureza alimentícia e sua satisfação compete aos cofres públicos mediante expedição de precatório ou requisição de pequeno valor, observada ordem especial para tais créditos. o stf reconheceu a natureza alimentar dos honorários advocatícios incluídos ou destacados na condenação, determinando que sua satisfação se dê por tramite de precatório ou rpv e respeitando ordem especial restrita destinada a créditos dessa natureza, em obediência ao regime de preferência. súmula vinculante 47 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 17</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-17">Não respondida</span>
+</div>
+
+<p class="enunciado">Os honorários advocatícios reconhecidos em condenação, ainda que destacados do principal devido ao credor, têm natureza alimentícia e sua satisfação compete aos cofres públicos mediante expedição de precatório ou requisição de pequeno valor, observada ordem especial para tais créditos.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(17, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(17, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-17">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STF reconheceu a natureza alimentar dos honorários advocatícios incluídos ou destacados na condenação, determinando que sua satisfação se dê por tramite de precatório ou RPV e respeitando ordem especial restrita destinada a créditos dessa natureza, em obediência ao regime de preferência.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 47 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="é competência legislativa concorrente entre união, estados e municípios a definição dos crimes de responsabilidade e dos respectivos processos e julgamentos aplicáveis a seus agentes. a definição dos crimes de responsabilidade e o regime de processo e julgamento são competência legislativa privativa da união, nos termos da constituição, não sendo matéria sujeita à disciplina concorrente pelos demais entes. súmula vinculante 46 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 18</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-18">Não respondida</span>
+</div>
+
+<p class="enunciado">É competência legislativa concorrente entre União, Estados e Municípios a definição dos crimes de responsabilidade e dos respectivos processos e julgamentos aplicáveis a seus agentes.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(18, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(18, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-18">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A definição dos crimes de responsabilidade e o regime de processo e julgamento são competência legislativa privativa da União, nos termos da Constituição, não sendo matéria sujeita à disciplina concorrente pelos demais entes.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 46 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="no conflito entre a competência do tribunal do júri e foro por prerrogativa de função fixado exclusivamente pela constituição estadual, prevalece, em regra, a competência do tribunal do júri nos crimes dolosos contra a vida. a súmula estabelece que a competência do tribunal do júri prevalece sobre foro estadual por prerrogativa de função quando este for estabelecido exclusivamente pela constituição estadual, garantindo a competência típica do júri para crimes dolosos contra a vida. súmula vinculante 45 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 19</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-19">Não respondida</span>
+</div>
+
+<p class="enunciado">No conflito entre a competência do Tribunal do Júri e foro por prerrogativa de função fixado exclusivamente pela constituição estadual, prevalece, em regra, a competência do Tribunal do Júri nos crimes dolosos contra a vida.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(19, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(19, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-19">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A súmula estabelece que a competência do Tribunal do Júri prevalece sobre foro estadual por prerrogativa de função quando este for estabelecido exclusivamente pela Constituição estadual, garantindo a competência típica do júri para crimes dolosos contra a vida.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 45 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a exigência de lei para submeter candidato a cargo público a exame psicotécnico é absoluta; qualquer norma infralegal que imponha tal exame é inconstitucional. o stf firmou que somente por lei é possível sujeitar a habilitação de candidato a cargo público a exame psicotécnico, afastando a possibilidade de criação desse requisito por decreto ou regulamento, em respeito ao princípio da legalidade e das garantias do concurso público. súmula vinculante 44 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 20</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-20">Não respondida</span>
+</div>
+
+<p class="enunciado">A exigência de lei para submeter candidato a cargo público a exame psicotécnico é absoluta; qualquer norma infralegal que imponha tal exame é inconstitucional.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(20, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(20, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-20">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STF firmou que somente por lei é possível sujeitar a habilitação de candidato a cargo público a exame psicotécnico, afastando a possibilidade de criação desse requisito por decreto ou regulamento, em respeito ao princípio da legalidade e das garantias do concurso público.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 44 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="modalidades de provimento que permitam a investidura do servidor em outro cargo sem prévia aprovação em concurso são constitucionais sempre que a investidura ocorrer em cargo de mesma carreira. a súmula declara inconstitucional qualquer provimento que permita investir-se em cargo, sem prévia aprovação em concurso público, quando o cargo não integra a carreira na qual o servidor estava anteriormente investido. a regra protege a exigência de concurso público como requisito de investidura. súmula vinculante 43 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 21</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-21">Não respondida</span>
+</div>
+
+<p class="enunciado">Modalidades de provimento que permitam a investidura do servidor em outro cargo sem prévia aprovação em concurso são constitucionais sempre que a investidura ocorrer em cargo de mesma carreira.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(21, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(21, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-21">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A súmula declara inconstitucional qualquer provimento que permita investir-se em cargo, sem prévia aprovação em concurso público, quando o cargo não integra a carreira na qual o servidor estava anteriormente investido. A regra protege a exigência de concurso público como requisito de investidura.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 43 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a vinculação dos reajustes de vencimentos de servidores estaduais ou municipais a índices federais de correção monetária é constitucional, por assegurar uniformidade na recomposição remuneratória. o stf declarou inconstitucional a vinculação automática de reajustes de vencimentos estaduais ou municipais a índices federais de correção monetária, por ofensa à autonomia dos entes federados e à competência para estabelecer políticas remuneratórias locais. súmula vinculante 42 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 22</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-22">Não respondida</span>
+</div>
+
+<p class="enunciado">A vinculação dos reajustes de vencimentos de servidores estaduais ou municipais a índices federais de correção monetária é constitucional, por assegurar uniformidade na recomposição remuneratória.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(22, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(22, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-22">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STF declarou inconstitucional a vinculação automática de reajustes de vencimentos estaduais ou municipais a índices federais de correção monetária, por ofensa à autonomia dos entes federados e à competência para estabelecer políticas remuneratórias locais.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 42 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="ECA"
+data-texto="a cobrança de tarifa ou taxa para a prestação do serviço público de iluminação pública é vedada; tal serviço deve ser custeado mediante tributo não vinculado ou verba orçamentária, não admitindo taxa. a súmula afirma que o serviço de iluminação pública não pode ser remunerado mediante taxa, pois a natureza do serviço e a impossibilidade de individualização do benefício afastam a figura da taxa (art. 145, ii, cf), exigindo outro mecanismo de custeio. súmula vinculante 41 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 23</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-23">Não respondida</span>
+</div>
+
+<p class="enunciado">A cobrança de tarifa ou taxa para a prestação do serviço público de iluminação pública é vedada; tal serviço deve ser custeado mediante tributo não vinculado ou verba orçamentária, não admitindo taxa.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(23, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(23, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-23">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A súmula afirma que o serviço de iluminação pública não pode ser remunerado mediante taxa, pois a natureza do serviço e a impossibilidade de individualização do benefício afastam a figura da taxa (art. 145, II, CF), exigindo outro mecanismo de custeio.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 41 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a contribuição confederativa prevista no art. 8º, iv, da constituição só pode ser exigida dos filiados ao respectivo sindicato; a cobrança compulsória a todos os integrantes da categoria viola a norma. o stf consolidou que a contribuição confederativa só é exigível dos filiados ao sindicato respectivo, não podendo ser imposta compulsoriamente a todos os membros da categoria, respeitando-se a liberdade de associação e exigência constitucional. súmula vinculante 40 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 24</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-24">Não respondida</span>
+</div>
+
+<p class="enunciado">A contribuição confederativa prevista no art. 8º, IV, da Constituição só pode ser exigida dos filiados ao respectivo sindicato; a cobrança compulsória a todos os integrantes da categoria viola a norma.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(24, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(24, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-24">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STF consolidou que a contribuição confederativa só é exigível dos filiados ao sindicato respectivo, não podendo ser imposta compulsoriamente a todos os membros da categoria, respeitando-se a liberdade de associação e exigência constitucional.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 40 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a união detém competência privativa para legislar sobre vencimentos dos membros das polícias civil e militar e do corpo de bombeiros militar do distrito federal, em razão da organização federativa peculiar do distrito. a súmula estabelece competência privativa da união para legislar sobre vencimentos desses integrantes no âmbito do distrito federal, em razão da natureza federativa e da centralização constitucional das normas relativas à remuneração dessas categorias no df. súmula vinculante 39 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 25</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-25">Não respondida</span>
+</div>
+
+<p class="enunciado">A União detém competência privativa para legislar sobre vencimentos dos membros das polícias civil e militar e do corpo de bombeiros militar do Distrito Federal, em razão da organização federativa peculiar do Distrito.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(25, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(25, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-25">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A súmula estabelece competência privativa da União para legislar sobre vencimentos desses integrantes no âmbito do Distrito Federal, em razão da natureza federativa e da centralização constitucional das normas relativas à remuneração dessas categorias no DF.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 39 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="é vedado ao município fixar horário de funcionamento de estabelecimento comercial, por ser matéria exclusivamente regulada por leis estaduais de ordem econômica. o stf reconheceu competência municipal para fixar horários de funcionamento de estabelecimentos comerciais, como medida de polícia administrativa local, dentro dos limites constitucionais e legais, respeitadas as competências concorrentes. súmula vinculante 38 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 26</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-26">Não respondida</span>
+</div>
+
+<p class="enunciado">É vedado ao Município fixar horário de funcionamento de estabelecimento comercial, por ser matéria exclusivamente regulada por leis estaduais de ordem econômica.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(26, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(26, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-26">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STF reconheceu competência municipal para fixar horários de funcionamento de estabelecimentos comerciais, como medida de polícia administrativa local, dentro dos limites constitucionais e legais, respeitadas as competências concorrentes.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 38 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="o poder judiciário não pode, sob o fundamento de isonomia, aumentar vencimentos de servidores públicos, uma vez que tal atuação configuraria função legislativa indevida. a súmula é clara ao assinalar que o judiciário não tem função legislativa e, portanto, não cabe a ele aumentar vencimentos de servidores com fundamento em isonomia; qualquer alteração remuneratória deve advir da atividade legislativa competente. súmula vinculante 37 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 27</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-27">Não respondida</span>
+</div>
+
+<p class="enunciado">O Poder Judiciário não pode, sob o fundamento de isonomia, aumentar vencimentos de servidores públicos, uma vez que tal atuação configuraria função legislativa indevida.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(27, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(27, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-27">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A súmula é clara ao assinalar que o Judiciário não tem função legislativa e, portanto, não cabe a ele aumentar vencimentos de servidores com fundamento em isonomia; qualquer alteração remuneratória deve advir da atividade legislativa competente.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 37 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="a justiça federal comum é incompetente para processar e julgar crimes de falsificação quando a falsificação recai sobre documentos marítimos expedidos pela marinha do brasil, devendo a competência ser da justiça militar. a súmula determina que compete à justiça federal comum processar e julgar crimes de falsificação e uso de documento falso quando se tratar de falsificação da cir ou cha, ainda que expedidas pela marinha do brasil; portanto, a especialização não desloca a competência para a justiça militar. súmula vinculante 36 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 28</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-28">Não respondida</span>
+</div>
+
+<p class="enunciado">A Justiça Federal comum é incompetente para processar e julgar crimes de falsificação quando a falsificação recai sobre documentos marítimos expedidos pela Marinha do Brasil, devendo a competência ser da Justiça Militar.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(28, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(28, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-28">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A súmula determina que compete à Justiça Federal comum processar e julgar crimes de falsificação e uso de documento falso quando se tratar de falsificação da CIR ou CHA, ainda que expedidas pela Marinha do Brasil; portanto, a especialização não desloca a competência para a justiça militar.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 36 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a homologação da transação penal prevista no art. 76 da lei 9.099/1995 constitui coisa julgada material, impedindo que o ministério público retome a persecução penal em caso de descumprimento. conforme súmula, a homologação da transação penal não faz coisa julgada material; se suas cláusulas forem descumpridas, a situação retroage e o ministério público pode dar continuidade à persecução penal mediante oferecimento de denúncia ou requisição de inquérito. súmula vinculante 35 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 29</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-29">Não respondida</span>
+</div>
+
+<p class="enunciado">A homologação da transação penal prevista no art. 76 da Lei 9.099/1995 constitui coisa julgada material, impedindo que o Ministério Público retome a persecução penal em caso de descumprimento.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(29, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(29, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-29">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Conforme súmula, a homologação da transação penal não faz coisa julgada material; se suas cláusulas forem descumpridas, a situação retroage e o Ministério Público pode dar continuidade à persecução penal mediante oferecimento de denúncia ou requisição de inquérito.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 35 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a gratificação de desempenho de atividade de seguridade social e do trabalho (gdasst) instituída pela lei 10.483/2002 deve ser estendida aos inativos no montante de 60 pontos desde a edição da mp 198/2004, observando‑se a paridade constitucional aplicável. a súmula prevê a extensão da gdasst aos inativos no valor correspondente a 60 pontos desde a mp 198/2004 (convertida na lei 10.971/2004), quando esses inativos fazem jus à paridade constitucional em razão das emendas constitucionais citadas, assegurando a equiparação de benefícios. súmula vinculante 34 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 30</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-30">Não respondida</span>
+</div>
+
+<p class="enunciado">A Gratificação de Desempenho de Atividade de Seguridade Social e do Trabalho (GDASST) instituída pela Lei 10.483/2002 deve ser estendida aos inativos no montante de 60 pontos desde a edição da MP 198/2004, observando‑se a paridade constitucional aplicável.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(30, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(30, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-30">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A súmula prevê a extensão da GDASST aos inativos no valor correspondente a 60 pontos desde a MP 198/2004 (convertida na Lei 10.971/2004), quando esses inativos fazem jus à paridade constitucional em razão das emendas constitucionais citadas, assegurando a equiparação de benefícios.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 34 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="até a edição de lei complementar específica, aplicam‑se, ao servidor público, as regras do regime geral de previdência social sobre a aposentadoria especial prevista no artigo 40, §4º, iii, da constituição federal, no que couber. a súmula determina essa aplicação subsidiária do rgps até que lei complementar específica estabeleça regime próprio, permitindo a interpretação e aplicação das regras gerais quanto couberem, evitando lacuna normativa prejudicial ao segurado. súmula vinculante 33 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 31</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-31">Não respondida</span>
+</div>
+
+<p class="enunciado">Até a edição de lei complementar específica, aplicam‑se, ao servidor público, as regras do regime geral de previdência social sobre a aposentadoria especial prevista no artigo 40, §4º, III, da Constituição Federal, no que couber.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(31, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(31, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-31">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A súmula determina essa aplicação subsidiária do RGPS até que lei complementar específica estabeleça regime próprio, permitindo a interpretação e aplicação das regras gerais quanto couberem, evitando lacuna normativa prejudicial ao segurado.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 33 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="o icms incide sobre a alienação de salvados de sinistro promovida por seguradoras, por se tratar de circulação de mercadoria sujeita à operação tributável. o stf consolidou que o icms não incide sobre a alienação de salvados de sinistro pelas seguradoras, afastando a tributação nesse caso específico, por se tratar de operação que não integra a hipótese de incidência típica do imposto. súmula vinculante 32 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 32</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-32">Não respondida</span>
+</div>
+
+<p class="enunciado">O ICMS incide sobre a alienação de salvados de sinistro promovida por seguradoras, por se tratar de circulação de mercadoria sujeita à operação tributável.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(32, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(32, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-32">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STF consolidou que o ICMS não incide sobre a alienação de salvados de sinistro pelas seguradoras, afastando a tributação nesse caso específico, por se tratar de operação que não integra a hipótese de incidência típica do imposto.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 32 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="é constitucional a incidência do iss sobre operações de locação de bens móveis, uma vez que tal serviço pode ser prestado mediante intermediação de bens locados. a súmula declara inconstitucional a incidência do iss sobre operações de locação de bens móveis; a jurisprudência afasta a natureza de serviço tributável do contrato de locação, que se enquadra na competência tributária estadual/municipal de outro modo. súmula vinculante 31 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 33</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-33">Não respondida</span>
+</div>
+
+<p class="enunciado">É constitucional a incidência do ISS sobre operações de locação de bens móveis, uma vez que tal serviço pode ser prestado mediante intermediação de bens locados.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(33, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(33, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-33">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A súmula declara inconstitucional a incidência do ISS sobre operações de locação de bens móveis; a jurisprudência afasta a natureza de serviço tributável do contrato de locação, que se enquadra na competência tributária estadual/municipal de outro modo.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 31 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="quando a base de cálculo de uma taxa for formada por elementos que coincidem integralmente com a base de cálculo de um imposto, há ofensa à constituição; contudo, é constitucional que a taxa incorpore um ou mais elementos da base de um imposto, desde que não haja identidade integral entre ambas. o stf admitiu que, para o cálculo de taxa, se adotem elementos que também compõem a base de um imposto desde que não haja identidade integral entre as bases — o que preserva a distinção entre tributo e taxa e evita bis in idem tributário. súmula vinculante 29 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 34</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-34">Não respondida</span>
+</div>
+
+<p class="enunciado">Quando a base de cálculo de uma taxa for formada por elementos que coincidem integralmente com a base de cálculo de um imposto, há ofensa à Constituição; contudo, é constitucional que a taxa incorpore um ou mais elementos da base de um imposto, desde que não haja identidade integral entre ambas.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(34, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(34, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-34">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STF admitiu que, para o cálculo de taxa, se adotem elementos que também compõem a base de um imposto desde que não haja identidade integral entre as bases — o que preserva a distinção entre tributo e taxa e evita bis in idem tributário.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 29 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="é constitucional exigir, como condição de admissibilidade de ação judicial que discuta a exigibilidade de crédito tributário, o depósito prévio do valor integral do débito, sendo possível tal requisito por força do princípio do interesse processual do ente público. a súmula declara inconstitucional a exigência de depósito prévio como requisito de admissibilidade de ação que pretende discutir a exigibilidade do crédito tributário, por violar o amplo acesso ao judiciário e contrariar garantias processuais. súmula vinculante 28 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 35</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-35">Não respondida</span>
+</div>
+
+<p class="enunciado">É constitucional exigir, como condição de admissibilidade de ação judicial que discuta a exigibilidade de crédito tributário, o depósito prévio do valor integral do débito, sendo possível tal requisito por força do princípio do interesse processual do ente público.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(35, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(35, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-35">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A súmula declara inconstitucional a exigência de depósito prévio como requisito de admissibilidade de ação que pretende discutir a exigibilidade do crédito tributário, por violar o amplo acesso ao judiciário e contrariar garantias processuais.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 28 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="compete à justiça estadual processar e julgar causas entre consumidor e concessionária de telefonia quando a anatel não figure como litisconsorte passiva necessária, assistente ou opoente. o stf admitiu a competência estadual nesses casos, desde que a anatel não seja litisconsorte passiva necessária nem intervenha como assistente ou opoente, preservando a tutela jurisdicional local às demandas consumeristas contra concessionárias. súmula vinculante 27 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 36</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-36">Não respondida</span>
+</div>
+
+<p class="enunciado">Compete à Justiça estadual processar e julgar causas entre consumidor e concessionária de telefonia quando a ANATEL não figure como litisconsorte passiva necessária, assistente ou opoente.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(36, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(36, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-36">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STF admitiu a competência estadual nesses casos, desde que a ANATEL não seja litisconsorte passiva necessária nem intervenha como assistente ou opoente, preservando a tutela jurisdicional local às demandas consumeristas contra concessionárias.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 27 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="para fins de progressão de regime de agente condenado por crime hediondo ou equiparado, o juízo da execução deve ignorar a declaração de inconstitucionalidade do art. 2º da lei nº 8.072/1990 e aplicar rigidamente os critérios desse dispositivo. a súmula adverte que, ao apreciar progressão de regime em casos de crime hediondo, o juízo da execução observará a inconstitucionalidade do art. 2º da lei 8.072/1990, mas continuará a avaliar os requisitos objetivos e subjetivos do benefício, podendo determinar exames criminológicos para fundamentar decisão, não se sujeitando à aplicação automática do dispositivo declarado inconstitucional. súmula vinculante 26 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 37</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-37">Não respondida</span>
+</div>
+
+<p class="enunciado">Para fins de progressão de regime de agente condenado por crime hediondo ou equiparado, o juízo da execução deve ignorar a declaração de inconstitucionalidade do art. 2º da Lei nº 8.072/1990 e aplicar rigidamente os critérios desse dispositivo.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(37, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(37, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-37">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A súmula adverte que, ao apreciar progressão de regime em casos de crime hediondo, o juízo da execução observará a inconstitucionalidade do art. 2º da Lei 8.072/1990, mas continuará a avaliar os requisitos objetivos e subjetivos do benefício, podendo determinar exames criminológicos para fundamentar decisão, não se sujeitando à aplicação automática do dispositivo declarado inconstitucional.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 26 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a prisão civil do depositário infiel é admissível em razão da natureza da obrigação, sobretudo se houver prova de má‑fé, conforme entendimento jurisprudencial contemporâneo. a súmula é taxativa ao afirmar a ilicitude da prisão civil do depositário infiel, qualquer que seja a modalidade do depósito; a medida é incompatível com garantias constitucionais, não sendo admitida mesmo diante de conduta gravosa do devedor. súmula vinculante 25 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 38</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-38">Não respondida</span>
+</div>
+
+<p class="enunciado">A prisão civil do depositário infiel é admissível em razão da natureza da obrigação, sobretudo se houver prova de má‑fé, conforme entendimento jurisprudencial contemporâneo.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(38, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(38, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-38">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A súmula é taxativa ao afirmar a ilicitude da prisão civil do depositário infiel, qualquer que seja a modalidade do depósito; a medida é incompatível com garantias constitucionais, não sendo admitida mesmo diante de conduta gravosa do devedor.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 25 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="o crime material contra a ordem tributária previsto no art. 1º, i a iv, da lei nº 8.137/90 só se perfaz após o lançamento definitivo do tributo, de modo que atos anteriores ao lançamento não configuram o tipo penal. a súmula dispõe que não se tipifica o crime material contra a ordem tributária antes do lançamento definitivo do tributo, pois a consumação do tipo depende da exigibilidade definida no lançamento; assim, a pretensão penal exige a existência de crédito tributário devidamente lançado. súmula vinculante 24 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 39</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-39">Não respondida</span>
+</div>
+
+<p class="enunciado">O crime material contra a ordem tributária previsto no art. 1º, I a IV, da Lei nº 8.137/90 só se perfaz após o lançamento definitivo do tributo, de modo que atos anteriores ao lançamento não configuram o tipo penal.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(39, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(39, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-39">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A súmula dispõe que não se tipifica o crime material contra a ordem tributária antes do lançamento definitivo do tributo, pois a consumação do tipo depende da exigibilidade definida no lançamento; assim, a pretensão penal exige a existência de crédito tributário devidamente lançado.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 24 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a justiça do trabalho é incompetente para processar e julgar ação possessória ajuizada em razão do exercício do direito de greve por trabalhadores da iniciativa privada, por se tratar de matéria civil comum. o stf fixou competência da justiça do trabalho para processar e julgar ações possessórias relacionadas ao exercício do direito de greve pelos trabalhadores da iniciativa privada, por serem matérias diretamente vinculadas a direitos e interesses trabalhistas. súmula vinculante 23 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 40</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-40">Não respondida</span>
+</div>
+
+<p class="enunciado">A Justiça do Trabalho é incompetente para processar e julgar ação possessória ajuizada em razão do exercício do direito de greve por trabalhadores da iniciativa privada, por se tratar de matéria civil comum.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(40, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(40, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-40">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STF fixou competência da Justiça do Trabalho para processar e julgar ações possessórias relacionadas ao exercício do direito de greve pelos trabalhadores da iniciativa privada, por serem matérias diretamente vinculadas a direitos e interesses trabalhistas.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 23 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a justiça do trabalho é competente para ações de indenização por danos morais e patrimoniais resultantes de acidente de trabalho propostas pelo empregado contra o empregador, inclusive quando a ação foi ajuizada antes da ec 45/2004 e ainda não transitada em julgado naquele momento. a súmula firma a competência da justiça do trabalho para essas ações, inclusive para demandas pendentes de sentença de mérito à época da promulgação da ec 45/2004, consolidando a tutela integral dos efeitos decorrentes do acidente de trabalho no âmbito trabalhista. súmula vinculante 22 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 41</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-41">Não respondida</span>
+</div>
+
+<p class="enunciado">A Justiça do Trabalho é competente para ações de indenização por danos morais e patrimoniais resultantes de acidente de trabalho propostas pelo empregado contra o empregador, inclusive quando a ação foi ajuizada antes da EC 45/2004 e ainda não transitada em julgado naquele momento.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(41, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(41, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-41">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A súmula firma a competência da Justiça do Trabalho para essas ações, inclusive para demandas pendentes de sentença de mérito à época da promulgação da EC 45/2004, consolidando a tutela integral dos efeitos decorrentes do acidente de trabalho no âmbito trabalhista.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 22 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="é constitucional condicionar a admissibilidade de recurso administrativo à prévia realização de depósito ou arrolamento de dinheiro ou bens pelo recorrente. a súmula declara inconstitucional a exigência de depósito ou arrolamento prévios como condição de admissibilidade de recurso administrativo, por violar o direito de acesso aos meios de impugnação e princípios do devido processo administrativo. súmula vinculante 21 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 42</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-42">Não respondida</span>
+</div>
+
+<p class="enunciado">É constitucional condicionar a admissibilidade de recurso administrativo à prévia realização de depósito ou arrolamento de dinheiro ou bens pelo recorrente.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(42, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(42, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-42">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A súmula declara inconstitucional a exigência de depósito ou arrolamento prévios como condição de admissibilidade de recurso administrativo, por violar o direito de acesso aos meios de impugnação e princípios do devido processo administrativo.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 21 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a gratificação de desempenho de atividade técnico‑administrativa (gdata) instituída pela lei 10.404/2002 deve ser paga aos inativos nos valores correspondentes a 37,5 pontos no período de fevereiro a maio de 2002, e, a partir de junho de 2002 até efeitos do último ciclo de avaliação, passa a ser de 60 pontos conforme disposição normativa mencionada. a súmula determina a extensão da gdata aos inativos nos valores definidos temporalmente: 37,5 pontos no período indicado e 60 pontos a partir do marco temporal referido na legislação, ajustando os efeitos conforme o artigo 5º da lei citada e a mp 198/2004. súmula vinculante 20 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 43</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-43">Não respondida</span>
+</div>
+
+<p class="enunciado">A Gratificação de Desempenho de Atividade Técnico‑Administrativa (GDATA) instituída pela Lei 10.404/2002 deve ser paga aos inativos nos valores correspondentes a 37,5 pontos no período de fevereiro a maio de 2002, e, a partir de junho de 2002 até efeitos do último ciclo de avaliação, passa a ser de 60 pontos conforme disposição normativa mencionada.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(43, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(43, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-43">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A súmula determina a extensão da GDATA aos inativos nos valores definidos temporalmente: 37,5 pontos no período indicado e 60 pontos a partir do marco temporal referido na legislação, ajustando os efeitos conforme o artigo 5º da lei citada e a MP 198/2004.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 20 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a taxa cobrada exclusivamente pela prestação dos serviços públicos de coleta, remoção e tratamento de lixo provenientes de imóveis viola o artigo 145, ii, da constituição federal, por caracterizar tributo com destinação vinculada indevida. o stf entendeu que a taxa cobrada exclusivamente em razão dos serviços de coleta, remoção e tratamento de lixo não viola o artigo 145, ii; trata‑se de serviço público passível de taxação, desde que preenchidos os requisitos constitucionais da taxa (tributo vinculada à prestação estatal). súmula vinculante 19 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 44</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-44">Não respondida</span>
+</div>
+
+<p class="enunciado">A taxa cobrada exclusivamente pela prestação dos serviços públicos de coleta, remoção e tratamento de lixo provenientes de imóveis viola o artigo 145, II, da Constituição Federal, por caracterizar tributo com destinação vinculada indevida.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(44, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(44, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-44">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STF entendeu que a taxa cobrada exclusivamente em razão dos serviços de coleta, remoção e tratamento de lixo não viola o artigo 145, II; trata‑se de serviço público passível de taxação, desde que preenchidos os requisitos constitucionais da taxa (tributo vinculada à prestação estatal).</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 19 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a dissolução da sociedade conjugal no curso do mandato eletivo não elide a inelegibilidade prevista no §7º do art. 14 da constituição, de modo que o ex-cônjuge ainda pode sofrer os efeitos da inelegibilidade decorrente da união dissolvida. a súmula dispõe que a dissolução da sociedade conjugal ou vínculo no curso do mandato não afasta a inelegibilidade prevista, mantendo‑se os efeitos jurídicos eleitorais que decorreram da situação fática existente durante o período de vigência do mandato. súmula vinculante 18 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 45</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-45">Não respondida</span>
+</div>
+
+<p class="enunciado">A dissolução da sociedade conjugal no curso do mandato eletivo não elide a inelegibilidade prevista no §7º do art. 14 da Constituição, de modo que o ex-cônjuge ainda pode sofrer os efeitos da inelegibilidade decorrente da união dissolvida.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(45, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(45, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-45">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A súmula dispõe que a dissolução da sociedade conjugal ou vínculo no curso do mandato não afasta a inelegibilidade prevista, mantendo‑se os efeitos jurídicos eleitorais que decorreram da situação fática existente durante o período de vigência do mandato.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 18 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="durante o período de que trata o §1º do art. 100 da constituição, incidem juros de mora sobre os precatórios pagos nessa fase, devidamente calculados até a data do efetivo pagamento. a súmula interpreta que, no período previsto no §1º do art. 100 (quota/ordem de pagamentos), não incidem juros de mora sobre os precatórios pagos nesse lapso, em conformidade com o regime especial de pagamento e sua disciplina constitucional. súmula vinculante 17 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 46</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-46">Não respondida</span>
+</div>
+
+<p class="enunciado">Durante o período de que trata o §1º do art. 100 da Constituição, incidem juros de mora sobre os precatórios pagos nessa fase, devidamente calculados até a data do efetivo pagamento.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(46, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(46, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-46">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A súmula interpreta que, no período previsto no §1º do art. 100 (quota/ordem de pagamentos), não incidem juros de mora sobre os precatórios pagos nesse lapso, em conformidade com o regime especial de pagamento e sua disciplina constitucional.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 17 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="os dispositivos constitucionais empregados nos arts. 7º, iv e 39, §3º (na redação introduzida pela ec 19/98) referem‑se ao total da remuneração percebida pelo servidor público, não apenas a parcelas isoladas. a súmula esclarece que as expressões referidas nas normas tratam do total da remuneração do servidor, abrangendo a integralidade remuneratória para efeito de observância das garantias e limites constitucionais, evitando fragmentação indevida. súmula vinculante 16 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 47</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-47">Não respondida</span>
+</div>
+
+<p class="enunciado">Os dispositivos constitucionais empregados nos arts. 7º, IV e 39, §3º (na redação introduzida pela EC 19/98) referem‑se ao total da remuneração percebida pelo servidor público, não apenas a parcelas isoladas.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(47, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(47, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-47">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A súmula esclarece que as expressões referidas nas normas tratam do total da remuneração do servidor, abrangendo a integralidade remuneratória para efeito de observância das garantias e limites constitucionais, evitando fragmentação indevida.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 16 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="para o cálculo de gratificações e vantagens do servidor público, incide a mesma base de cálculo utilizada para atingir o salário mínimo por via de abono; assim, o abono integra a base para cálculo de vantagens. a súmula dispõe que o cálculo de gratificações e outras vantagens não incide sobre o abono utilizado para atingir o salário mínimo; o abono destinado a completar o vencimento até o mínimo não deve ser incorporado à base de cálculo de outras vantagens. súmula vinculante 15 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 48</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-48">Não respondida</span>
+</div>
+
+<p class="enunciado">Para o cálculo de gratificações e vantagens do servidor público, incide a mesma base de cálculo utilizada para atingir o salário mínimo por via de abono; assim, o abono integra a base para cálculo de vantagens.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(48, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(48, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-48">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A súmula dispõe que o cálculo de gratificações e outras vantagens não incide sobre o abono utilizado para atingir o salário mínimo; o abono destinado a completar o vencimento até o mínimo não deve ser incorporado à base de cálculo de outras vantagens.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 15 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="no interesse do representado, o defensor tem direito amplo de acesso aos elementos de prova já documentados em investigação conduzida por órgão de polícia judiciária, quando tais elementos digam respeito ao exercício do direito de defesa. a súmula assegura o direito de defesa a ter acesso amplo aos elementos de prova já documentados em investigação policial, quando pertinentes ao exercício da defesa, em respeito ao contraditório e à ampla defesa constitucionalmente garantidos. súmula vinculante 14 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 49</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-49">Não respondida</span>
+</div>
+
+<p class="enunciado">No interesse do representado, o defensor tem direito amplo de acesso aos elementos de prova já documentados em investigação conduzida por órgão de polícia judiciária, quando tais elementos digam respeito ao exercício do direito de defesa.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(49, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(49, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-49">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A súmula assegura o direito de defesa a ter acesso amplo aos elementos de prova já documentados em investigação policial, quando pertinentes ao exercício da defesa, em respeito ao contraditório e à ampla defesa constitucionalmente garantidos.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 14 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a nomeação de cônjuge, companheiro ou parente até o terceiro grau da autoridade nomeante para cargo em comissão ou função gratificada na administração pública é constitucional quando preenchidos os requisitos de moralidade e eficiência administrativa. a súmula é taxativa ao estabelecer que tal nepotismo viola a constituição; a nomeação de parentes até o terceiro grau para cargos em comissão ou função gratificada configura prática vedada independentemente de alegações genéricas de moralidade ou eficiência, por afrontar os princípios da impessoalidade e da moralidade administrativa. súmula vinculante 13 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 50</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-50">Não respondida</span>
+</div>
+
+<p class="enunciado">A nomeação de cônjuge, companheiro ou parente até o terceiro grau da autoridade nomeante para cargo em comissão ou função gratificada na administração pública é constitucional quando preenchidos os requisitos de moralidade e eficiência administrativa.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(50, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(50, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-50">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A súmula é taxativa ao estabelecer que tal nepotismo viola a Constituição; a nomeação de parentes até o terceiro grau para cargos em comissão ou função gratificada configura prática vedada independentemente de alegações genéricas de moralidade ou eficiência, por afrontar os princípios da impessoalidade e da moralidade administrativa.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 13 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a cobrança de taxa de matrícula nas universidades públicas, integrante de procedimento seletivo, é incompatível com o disposto no art. 206, iv, da constituição federal e, por isso, vedada. a súmula afirma que a cobrança de taxa de matrícula em universidades públicas viola o princípio constitucional do ensino público, gratuito e acessível (art. 206, iv), sendo, portanto, inconstitucional a exigência de tal taxa no estabelecimento do acesso ao ensino superior público. súmula vinculante 12 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 51</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-51">Não respondida</span>
+</div>
+
+<p class="enunciado">A cobrança de taxa de matrícula nas universidades públicas, integrante de procedimento seletivo, é incompatível com o disposto no art. 206, IV, da Constituição Federal e, por isso, vedada.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(51, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(51, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-51">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A súmula afirma que a cobrança de taxa de matrícula em universidades públicas viola o princípio constitucional do ensino público, gratuito e acessível (art. 206, IV), sendo, portanto, inconstitucional a exigência de tal taxa no estabelecimento do acesso ao ensino superior público.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 12 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="é sempre lícito o uso de algemas contra qualquer preso durante a prisão em flagrante, independentemente de resistência ou fundado receio de fuga, desde que haja justificativa posterior. a súmula restringe o uso de algemas a casos de resistência, fundado receio de fuga ou perigo à integridade física, exigindo justificativa escrita da excepcionalidade; o uso indiscriminado configura nulidade da prisão ou do ato processual e enseja responsabilidade do agente. súmula vinculante 11 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 52</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-52">Não respondida</span>
+</div>
+
+<p class="enunciado">É sempre lícito o uso de algemas contra qualquer preso durante a prisão em flagrante, independentemente de resistência ou fundado receio de fuga, desde que haja justificativa posterior.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(52, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(52, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-52">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A súmula restringe o uso de algemas a casos de resistência, fundado receio de fuga ou perigo à integridade física, exigindo justificativa escrita da excepcionalidade; o uso indiscriminado configura nulidade da prisão ou do ato processual e enseja responsabilidade do agente.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 11 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a decisão de órgão fracionário de tribunal que afasta a incidência de norma legal, sem declarar expressamente sua inconstitucionalidade, não viola a cláusula de reserva de plenário prevista no art. 97 da cf, pois não há declaração formal de inconstitucionalidade. a súmula estabelece que viola a cláusula de reserva de plenário a decisão de órgão fracionário que, ainda que não expresse declaração formal de inconstitucionalidade, afasta a incidência de lei ou ato normativo. tal matéria exige pronunciamento do plenário do tribunal, por implicar controle de constitucionalidade. súmula vinculante 10 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 53</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-53">Não respondida</span>
+</div>
+
+<p class="enunciado">A decisão de órgão fracionário de Tribunal que afasta a incidência de norma legal, sem declarar expressamente sua inconstitucionalidade, não viola a cláusula de reserva de plenário prevista no art. 97 da CF, pois não há declaração formal de inconstitucionalidade.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(53, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(53, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-53">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A súmula estabelece que viola a cláusula de reserva de plenário a decisão de órgão fracionário que, ainda que não expresse declaração formal de inconstitucionalidade, afasta a incidência de lei ou ato normativo. Tal matéria exige pronunciamento do plenário do tribunal, por implicar controle de constitucionalidade.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 10 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="são constitucionais o parágrafo único do art. 5º do decreto‑lei nº 1.569/1977 e os arts. 45 e 46 da lei nº 8.212/1991 no que se refere a prazos de prescrição e decadência de créditos tributários, não havendo óbice à sua aplicação. a súmula declara inconstitucionais esses dispositivos que tratam de prescrição e decadência de crédito tributário, tendo o stf reconhecido vícios formais ou materiais na fixação dos prazos, afastando sua aplicação. súmula vinculante 8 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 54</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-54">Não respondida</span>
+</div>
+
+<p class="enunciado">São constitucionais o parágrafo único do art. 5º do Decreto‑Lei nº 1.569/1977 e os arts. 45 e 46 da Lei nº 8.212/1991 no que se refere a prazos de prescrição e decadência de créditos tributários, não havendo óbice à sua aplicação.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(54, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(54, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-54">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A súmula declara inconstitucionais esses dispositivos que tratam de prescrição e decadência de crédito tributário, tendo o STF reconhecido vícios formais ou materiais na fixação dos prazos, afastando sua aplicação.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 8 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a norma do §3º do art. 192 da constituição que limite a taxa de juros reais a 12% ao ano tinha eficácia plena e independente, não dependendo de lei complementar para sua aplicabilidade. a súmula reconhece que a aplicação daquela norma estava condicionada à edição de lei complementar; logo, sem a lei complementar, a limitação não tinha eficácia imediata e plena, razão pela qual sua aplicabilidade dependia de regulamentação suplementar. súmula vinculante 7 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 55</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-55">Não respondida</span>
+</div>
+
+<p class="enunciado">A norma do §3º do art. 192 da Constituição que limite a taxa de juros reais a 12% ao ano tinha eficácia plena e independente, não dependendo de lei complementar para sua aplicabilidade.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(55, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(55, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-55">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A súmula reconhece que a aplicação daquela norma estava condicionada à edição de lei complementar; logo, sem a lei complementar, a limitação não tinha eficácia imediata e plena, razão pela qual sua aplicabilidade dependia de regulamentação suplementar.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 7 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="é constitucional o estabelecimento de remuneração inferior ao salário mínimo para praças no serviço militar inicial, em razão da natureza específica do serviço e da legislação própria das forças armadas. o stf entendeu que não viola a constituição a previsão de remuneração inferior ao salário mínimo para praças em início de serviço militar, dada a peculiaridade do regime jurídico militar e o estatuto próprio, afastando a aplicação direta do piso mínimo nessa hipótese. súmula vinculante 6 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 56</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-56">Não respondida</span>
+</div>
+
+<p class="enunciado">É constitucional o estabelecimento de remuneração inferior ao salário mínimo para praças no serviço militar inicial, em razão da natureza específica do serviço e da legislação própria das Forças Armadas.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(56, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(56, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-56">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O STF entendeu que não viola a Constituição a previsão de remuneração inferior ao salário mínimo para praças em início de serviço militar, dada a peculiaridade do regime jurídico militar e o estatuto próprio, afastando a aplicação direta do piso mínimo nessa hipótese.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 6 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a ausência de defesa técnica por advogado em processo administrativo disciplinar sempre configura violação constitucional ao direito de defesa e nulidade absoluta do procedimento. a súmula estabelece que a falta de defesa técnica por advogado no pad não ofende, por si só, a constituição; o stf admite a legitimidade do processo sem prejuízo automático, dependendo da gravidade das circunstâncias e da observância de outros direitos fundamentais no procedimento. súmula vinculante 5 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 57</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-57">Não respondida</span>
+</div>
+
+<p class="enunciado">A ausência de defesa técnica por advogado em processo administrativo disciplinar sempre configura violação constitucional ao direito de defesa e nulidade absoluta do procedimento.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(57, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(57, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-57">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A súmula estabelece que a falta de defesa técnica por advogado no PAD não ofende, por si só, a Constituição; o STF admite a legitimidade do processo sem prejuízo automático, dependendo da gravidade das circunstâncias e da observância de outros direitos fundamentais no procedimento.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 5 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="o salário mínimo, salvo nas hipóteses previstas na constituição, não pode ser utilizado como indexador de base de cálculo de vantagem do servidor público nem ser substituído por decisão judicial. a súmula proíbe, salvo exceções constitucionais, o uso do salário mínimo como índice de correção ou base de cálculo para vantagens de servidor, bem como sua substituição por decisão judicial, preservando o caráter do salário mínimo como mínimo existencial e não índice de remuneração. súmula vinculante 4 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 58</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-58">Não respondida</span>
+</div>
+
+<p class="enunciado">O salário mínimo, salvo nas hipóteses previstas na Constituição, não pode ser utilizado como indexador de base de cálculo de vantagem do servidor público nem ser substituído por decisão judicial.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(58, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(58, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-58">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A súmula proíbe, salvo exceções constitucionais, o uso do salário mínimo como índice de correção ou base de cálculo para vantagens de servidor, bem como sua substituição por decisão judicial, preservando o caráter do salário mínimo como mínimo existencial e não índice de remuneração.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 4 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="nos processos perante o tribunal de contas da união, o contraditório e a ampla defesa são assegurados sempre, inclusive quando a apreciação verbera sobre a legalidade do ato inicial de concessão de aposentadoria, reforma ou pensão. a súmula assegura contraditório e ampla defesa quando da possibilidade de anulação ou revogação de ato administrativo que beneficie o interessado, mas exclui essa garantia na apreciação da legalidade do ato inicial de concessão de aposentadoria, reforma e pensão, que tem rito próprio. súmula vinculante 3 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 59</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-59">Não respondida</span>
+</div>
+
+<p class="enunciado">Nos processos perante o Tribunal de Contas da União, o contraditório e a ampla defesa são assegurados sempre, inclusive quando a apreciação verbera sobre a legalidade do ato inicial de concessão de aposentadoria, reforma ou pensão.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(59, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(59, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-59">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A súmula assegura contraditório e ampla defesa quando da possibilidade de anulação ou revogação de ato administrativo que beneficie o interessado, mas exclui essa garantia na apreciação da legalidade do ato inicial de concessão de aposentadoria, reforma e pensão, que tem rito próprio.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 3 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="é constitucional a edição, por estado ou distrito federal, de lei ou ato normativo que regule sistemas de consórcios e sorteios, inclusive bingos e loterias, na ausência de legislação federal específica. a súmula declara inconstitucional lei ou ato normativo estadual ou distrital que disponha sobre sistemas de consórcios e sorteios, inclusive bingos e loterias, por ser matéria de competência federal, vedando a atuação local nesse campo. súmula vinculante 2 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 60</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-60">Não respondida</span>
+</div>
+
+<p class="enunciado">É constitucional a edição, por Estado ou Distrito Federal, de lei ou ato normativo que regule sistemas de consórcios e sorteios, inclusive bingos e loterias, na ausência de legislação federal específica.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(60, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(60, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-60">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A súmula declara inconstitucional lei ou ato normativo estadual ou distrital que disponha sobre sistemas de consórcios e sorteios, inclusive bingos e loterias, por ser matéria de competência federal, vedando a atuação local nesse campo.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 2 STF</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="ofende a garantia do ato jurídico perfeito a decisão que, sem ponderar circunstâncias concretas, desconsidere a validade de acordo integrante de termo de adesão instituído pela lei complementar nº 110/2001. a súmula protege o ato jurídico perfeito e veda decisões que, sem análise do caso concreto, desconsiderem a eficácia de acordos constantes de termo de adesão previstos na lc 110/2001, garantindo estabilidade jurídica às operações realizadas nos termos da lei. súmula vinculante 1 stf">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 61</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Súmulas</span>
+  </div>
+  <span class="status" id="status-61">Não respondida</span>
+</div>
+
+<p class="enunciado">Ofende a garantia do ato jurídico perfeito a decisão que, sem ponderar circunstâncias concretas, desconsidere a validade de acordo integrante de termo de adesão instituído pela Lei Complementar nº 110/2001.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(61, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(61, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-61">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A súmula protege o ato jurídico perfeito e veda decisões que, sem análise do caso concreto, desconsiderem a eficácia de acordos constantes de termo de adesão previstos na LC 110/2001, garantindo estabilidade jurídica às operações realizadas nos termos da lei.</div>
+  <p class="referencia"><strong>Referência:</strong><br>Súmula Vinculante 1 STF</p>
+</div>
+</section>
+
+</div>
+
+<script>
+const storageKey = location.pathname + "_respostas";
+let respostas = JSON.parse(localStorage.getItem(storageKey) || "{}");
+
+function destacar(t){
+ if(t==="CERTO") return '<span class="gabarito-certo">CERTO</span>';
+ if(t==="ERRADO") return '<span class="gabarito-errado">ERRADO</span>';
+ return t;
+}
+
+function responder(numero, resposta){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const gabarito=card.dataset.gabarito;
+ const correto=resposta===gabarito;
+ respostas[numero]={resposta,correto};
+ localStorage.setItem(storageKey, JSON.stringify(respostas));
+ mostrarFeedback(numero);
+ atualizarPainel();
+ filtrar();
+}
+
+function mostrarFeedback(numero){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const feedback=document.getElementById("feedback-"+numero);
+ const status=document.getElementById("status-"+numero);
+ const resultado=feedback.querySelector(".resultado");
+ const gabarito=card.dataset.gabarito;
+ const dados=respostas[numero];
+ if(!dados) return;
+ feedback.style.display="block";
+ feedback.classList.remove("correto","errado");
+ if(dados.correto){
+   feedback.classList.add("correto");
+   resultado.innerHTML="Você acertou. A resposta é "+destacar(gabarito)+".";
+   status.textContent="Respondida — acerto";
+   status.style.color="var(--green)";
+ } else {
+   feedback.classList.add("errado");
+   resultado.innerHTML="Você errou. O gabarito é "+destacar(gabarito)+".";
+   status.textContent="Respondida — erro";
+   status.style.color="var(--red)";
+ }
+}
+
+function atualizarPainel(){
+ let respondidas=0, acertos=0, erros=0;
+ for(const k in respostas){
+   respondidas++;
+   if(respostas[k].correto) acertos++; else erros++;
+ }
+ document.getElementById("respondidas").textContent=respondidas;
+ document.getElementById("acertos").textContent=acertos;
+ document.getElementById("erros").textContent=erros;
+ document.getElementById("visiveis").textContent=document.querySelectorAll(".questao:not(.oculta)").length;
+}
+
+function filtrar(){
+ const busca=document.getElementById("busca").value.trim().toLowerCase();
+ const disciplina=document.getElementById("disciplina").value;
+ const statusFiltro=document.getElementById("statusFiltro").value;
+ const cards=Array.from(document.querySelectorAll(".questao"));
+ let vis=0;
+ cards.forEach((card,idx)=>{
+   const n=idx+1;
+   const texto=card.dataset.texto||"";
+   const disc=card.dataset.disciplina||"";
+   const r=respostas[n];
+   let passaStatus=true;
+   if(statusFiltro==="nao") passaStatus=!r;
+   if(statusFiltro==="acerto") passaStatus=r && r.correto;
+   if(statusFiltro==="erro") passaStatus=r && !r.correto;
+   const ok=(!busca||texto.includes(busca)) && (!disciplina||disc===disciplina) && passaStatus;
+   card.classList.toggle("oculta", !ok);
+   if(ok) vis++;
+ });
+ document.getElementById("sem-resultados").style.display=vis===0?"block":"none";
+ atualizarPainel();
+}
+
+function reiniciar(){
+ if(!confirm("Deseja reiniciar este simulado?")) return;
+ localStorage.removeItem(storageKey);
+ location.reload();
+}
+
+function restaurar(){
+ for(const k in respostas) mostrarFeedback(Number(k));
+ filtrar();
+ atualizarPainel();
+}
+
+restaurar();
+</script>
+</body>
+</html>

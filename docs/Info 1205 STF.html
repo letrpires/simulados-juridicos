@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Simulado - Info 1205 STF</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+:root{
+--bg:#020617;--panel:rgba(15,23,42,.88);--card:rgba(15,23,42,.96);
+--card2:rgba(30,41,59,.92);--border:rgba(148,163,184,.22);
+--text:#e5e7eb;--muted:#94a3b8;--accent:#38bdf8;--accent2:#0ea5e9;
+--green:#22c55e;--red:#ef4444;--yellow:#facc15;--purple:#a78bfa;
+}
+*{box-sizing:border-box}
+body{
+margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+background:radial-gradient(circle at top left,rgba(56,189,248,.20),transparent 28%),
+radial-gradient(circle at top right,rgba(167,139,250,.15),transparent 28%),
+linear-gradient(135deg,#020617,#0f172a 50%,#020617);
+color:var(--text);line-height:1.65;
+}
+header{padding:44px 20px 32px;text-align:center;border-bottom:1px solid var(--border)}
+header h1{margin:0 0 10px;font-size:clamp(28px,4vw,46px);letter-spacing:-.05em}
+header p{color:var(--muted);margin:0;font-size:16px}
+.container{max-width:1160px;margin:0 auto;padding:26px 16px 80px}
+.painel{
+position:sticky;top:10px;z-index:10;background:var(--panel);backdrop-filter:blur(18px);
+border:1px solid var(--border);border-radius:26px;padding:16px;margin-bottom:22px;
+box-shadow:0 22px 70px rgba(0,0,0,.35)
+}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.stat{background:var(--card2);padding:14px;border-radius:18px;text-align:center;border:1px solid rgba(148,163,184,.12)}
+.stat strong{display:block;font-size:25px;color:var(--accent);line-height:1.1}
+.stat span{font-size:12px;color:var(--muted)}
+.filtros{display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:12px;margin-top:14px}
+input,select{
+width:100%;background:rgba(2,6,23,.78);color:var(--text);border:1px solid var(--border);
+border-radius:14px;padding:13px 14px;outline:none;font-size:14px
+}
+input:focus,select:focus{border-color:var(--accent)}
+.card{
+background:var(--card);border:1px solid var(--border);border-radius:24px;padding:26px;
+margin-bottom:20px;box-shadow:0 18px 50px rgba(0,0,0,.24)
+}
+.questao{scroll-margin-top:190px}
+.questao-topo{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:18px}
+.badge{
+background:linear-gradient(135deg,var(--accent),var(--accent2));color:#00111f;font-weight:900;
+padding:7px 13px;border-radius:999px;display:inline-block
+}
+.disciplina-tag,.tipo-tag{
+display:inline-block;margin-left:8px;color:var(--muted);background:rgba(148,163,184,.10);
+border:1px solid rgba(148,163,184,.14);padding:6px 10px;border-radius:999px;font-size:12px
+}
+.tipo-tag{color:#ddd6fe;border-color:rgba(167,139,250,.25)}
+.status{color:var(--yellow);font-size:13px;white-space:nowrap}
+.enunciado{font-size:19px;margin:0 0 22px;letter-spacing:-.01em}
+.botoes{display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.btn{
+cursor:pointer;border:0;padding:12px 22px;border-radius:14px;color:white;font-weight:900;
+transition:.18s ease;letter-spacing:.02em
+}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.certo{background:rgba(34,197,94,.20);border:1px solid rgba(34,197,94,.42)}
+.btn.errado{background:rgba(239,68,68,.20);border:1px solid rgba(239,68,68,.42)}
+.btn.neutro{background:rgba(56,189,248,.16);color:var(--text);border:1px solid rgba(56,189,248,.32)}
+.feedback{
+display:none;background:rgba(2,6,23,.72);border:1px solid rgba(148,163,184,.16);
+border-left:5px solid var(--accent);padding:18px;border-radius:18px;margin-top:14px
+}
+.feedback.correto{border-left-color:var(--green)}
+.feedback.errado{border-left-color:var(--red)}
+.resultado{font-size:18px;font-weight:900;margin-top:0}
+.justificativa{margin-top:12px}
+.referencia{color:var(--muted);font-size:13px;margin-top:16px}
+.gabarito-certo{color:var(--green);font-weight:900}
+.gabarito-errado{color:var(--red);font-weight:900}
+.oculta{display:none}
+.sem-resultados{text-align:center;color:var(--muted);display:none;padding:30px}
+.grid-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
+.link-card{
+display:block;padding:20px;background:rgba(15,23,42,.95);border:1px solid rgba(148,163,184,.22);
+color:#e5e7eb;border-radius:22px;text-decoration:none;transition:.2s;box-shadow:0 14px 40px rgba(0,0,0,.22)
+}
+.link-card:hover{transform:translateY(-3px);border-color:#38bdf8}
+.link-card strong{display:block;font-size:17px;margin-bottom:8px}
+.link-card span{color:#94a3b8;font-size:13px}
+.index-tools{display:grid;grid-template-columns:1.5fr 1fr;gap:12px;margin-bottom:20px}
+@media(max-width:850px){
+.stats{grid-template-columns:repeat(2,1fr)}
+.filtros,.index-tools{grid-template-columns:1fr}
+.questao-topo{align-items:flex-start;flex-direction:column}
+.botoes{flex-direction:column}
+.enunciado{font-size:16px}
+.card{padding:20px}
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Simulado - Info 1205 STF</h1>
+<p>Informativos • Simulado interativo de CERTO ou ERRADO</p>
+</header>
+
+<div class="container">
+<div class="painel">
+<div class="stats">
+<div class="stat"><strong>5</strong><span>Total</span></div>
+<div class="stat"><strong id="visiveis">5</strong><span>Visíveis</span></div>
+<div class="stat"><strong id="respondidas">0</strong><span>Respondidas</span></div>
+<div class="stat"><strong id="acertos">0</strong><span>Acertos</span></div>
+<div class="stat"><strong id="erros">0</strong><span>Erros</span></div>
+</div>
+
+<div class="filtros">
+<input id="busca" type="search" placeholder="Buscar por palavra-chave..." oninput="filtrar()">
+<select id="disciplina" onchange="filtrar()">
+<option value="">Todas as disciplinas</option>
+<option value="ECA">ECA</option>
+<option value="N/I">N/I</option>
+</select>
+<select id="statusFiltro" onchange="filtrar()">
+<option value="">Todas</option>
+<option value="nao">Não respondidas</option>
+<option value="acerto">Acertos</option>
+<option value="erro">Erros</option>
+</select>
+<button class="btn neutro" onclick="reiniciar()">Reiniciar</button>
+</div>
+</div>
+
+<div id="sem-resultados" class="sem-resultados">Nenhuma questão encontrada com os filtros atuais.</div>
+
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="ECA"
+data-texto="a divulgação, por associação da sociedade civil, de campanha pública destinada a desestimular patrocinadores de determinado evento a manterem apoio institucional, quando fundada em pauta de direitos fundamentais e em crítica a práticas reputadas lesivas, insere-se, em regra, no âmbito de proteção da liberdade de expressão; a responsabilização civil, com eventual imposição de retirada do conteúdo e cessação da campanha, somente se legitima se demonstrada má-fé, caracterizada pelo conhecimento prévio da falsidade da imputação ou por culpa grave consistente em evidente negligência na apuração da veracidade do fato. o enunciado reproduz a ratio decidendi firmada no julgamento: campanhas de mobilização social promovidas por entidades da sociedade civil, quando lastreadas em pautas de direitos fundamentais e voltadas a desestimular financiamento ou apoio institucional a eventos ou organizações, são, em princípio, protegidas pela liberdade de expressão, em especial à luz dos arts. 5º, iv e ix, e 220, §§ 1º e 2º, da constituição.
+
+o ponto central do precedente está em afastar a responsabilização civil automática pela mera associação crítica entre o evento e práticas reputadas incompatíveis com direitos fundamentais. a tutela judicial restritiva — inclusive com ordem de cessação da campanha e retirada de conteúdo de ambiente digital — não pode decorrer apenas do desconforto causado à organização ou aos patrocinadores. exige-se demonstração de má-fé, que o julgado delimitou de forma objetiva:  
+(i) dolo, quando houver conhecimento prévio da falsidade da declaração; ou  
+(ii) culpa grave, quando se evidenciar negligência manifesta na apuração da veracidade do fato.
+
+assim, a tese não protege a divulgação irresponsável de fatos sabidamente inverídicos, nem afasta a responsabilização quando a entidade age com manifesta desídia na checagem do que afirma. o que se veda é a imposição de sanções civis sem a prova qualificada da má-fé, sob pena de esvaziamento do debate público e da atuação de organizações da sociedade civil em temas de interesse coletivo. stf. plenário. re 662.055/sp, rel. min. roberto barroso, redator do acórdão min. alexandre de moraes, julgado em 11/02/2026 (repercussão geral – tema 837) (info 1205).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 1</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-1">Não respondida</span>
+</div>
+
+<p class="enunciado">A divulgação, por associação da sociedade civil, de campanha pública destinada a desestimular patrocinadores de determinado evento a manterem apoio institucional, quando fundada em pauta de direitos fundamentais e em crítica a práticas reputadas lesivas, insere-se, em regra, no âmbito de proteção da liberdade de expressão; a responsabilização civil, com eventual imposição de retirada do conteúdo e cessação da campanha, somente se legitima se demonstrada má-fé, caracterizada pelo conhecimento prévio da falsidade da imputação ou por culpa grave consistente em evidente negligência na apuração da veracidade do fato.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(1, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(1, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-1">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O enunciado reproduz a ratio decidendi firmada no julgamento: campanhas de mobilização social promovidas por entidades da sociedade civil, quando lastreadas em pautas de direitos fundamentais e voltadas a desestimular financiamento ou apoio institucional a eventos ou organizações, são, em princípio, protegidas pela liberdade de expressão, em especial à luz dos arts. 5º, IV e IX, e 220, §§ 1º e 2º, da Constituição.<br><br>O ponto central do precedente está em afastar a responsabilização civil automática pela mera associação crítica entre o evento e práticas reputadas incompatíveis com direitos fundamentais. A tutela judicial restritiva — inclusive com ordem de cessação da campanha e retirada de conteúdo de ambiente digital — não pode decorrer apenas do desconforto causado à organização ou aos patrocinadores. Exige-se demonstração de má-fé, que o julgado delimitou de forma objetiva:  <br>(i) dolo, quando houver conhecimento prévio da falsidade da declaração; ou  <br>(ii) culpa grave, quando se evidenciar negligência manifesta na apuração da veracidade do fato.<br><br>Assim, a tese não protege a divulgação irresponsável de fatos sabidamente inverídicos, nem afasta a responsabilização quando a entidade age com manifesta desídia na checagem do que afirma. O que se veda é a imposição de sanções civis sem a prova qualificada da má-fé, sob pena de esvaziamento do debate público e da atuação de organizações da sociedade civil em temas de interesse coletivo.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. RE 662.055/SP, Rel. Min. Roberto Barroso, redator do acórdão Min. Alexandre de Moraes, julgado em 11/02/2026 (Repercussão Geral – Tema 837) (Info 1205).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a limitação prevista no art. 6º, i, da lei nº 12.514/2011, que estabelece teto para o valor das anuidades cobradas pelos conselhos profissionais, alcança a ordem dos advogados do brasil, de modo que eventual cobrança superior ao parâmetro legal somente seria válida se houvesse lei posterior específica autorizando expressamente a majoração. a assertiva está incorreta porque a oab não se submete ao regime geral do art. 6º, i, da lei nº 12.514/2011, que disciplina os conselhos profissionais em geral. a fixação e a cobrança das contribuições anuais devidas pelos advogados são regidas por disciplina normativa própria, isto é, pelo estatuto da advocacia e da oab (lei nº 8.906/1994).
+
+o fundamento central do entendimento é a natureza institucional singular da oab. embora exerça funções corporativas, a entidade também desempenha finalidade institucional diretamente relacionada à administração da justiça, em razão da indispensabilidade da advocacia, prevista no art. 133 da constituição federal. por isso, a oab foi reconhecida como categoria jurídica ímpar, dotada de regime jurídico diferenciado, inclusive por exercer um serviço público independente.
+
+assim, não se aplica à oab o teto de anuidade previsto na lei nº 12.514/2011, nem se exige, para afastar esse limite, lei posterior específica autorizando majoração. o ponto decisivo não é a existência de autorização superveniente, mas a própria inaplicabilidade da norma geral à entidade, em razão de sua disciplina legal específica e de sua natureza institucional peculiar. stf. plenário. are 1.336.047/rj, rel. min. alexandre de moraes, julgado em 18/02/2026 (repercussão geral – tema 1.180) (info 1205).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 2</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-2">Não respondida</span>
+</div>
+
+<p class="enunciado">A limitação prevista no art. 6º, I, da Lei nº 12.514/2011, que estabelece teto para o valor das anuidades cobradas pelos conselhos profissionais, alcança a Ordem dos Advogados do Brasil, de modo que eventual cobrança superior ao parâmetro legal somente seria válida se houvesse lei posterior específica autorizando expressamente a majoração.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(2, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(2, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-2">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque a OAB não se submete ao regime geral do art. 6º, I, da Lei nº 12.514/2011, que disciplina os conselhos profissionais em geral. A fixação e a cobrança das contribuições anuais devidas pelos advogados são regidas por disciplina normativa própria, isto é, pelo Estatuto da Advocacia e da OAB (Lei nº 8.906/1994).<br><br>O fundamento central do entendimento é a natureza institucional singular da OAB. Embora exerça funções corporativas, a entidade também desempenha finalidade institucional diretamente relacionada à administração da Justiça, em razão da indispensabilidade da advocacia, prevista no art. 133 da Constituição Federal. Por isso, a OAB foi reconhecida como categoria jurídica ímpar, dotada de regime jurídico diferenciado, inclusive por exercer um serviço público independente.<br><br>Assim, não se aplica à OAB o teto de anuidade previsto na Lei nº 12.514/2011, nem se exige, para afastar esse limite, lei posterior específica autorizando majoração. O ponto decisivo não é a existência de autorização superveniente, mas a própria inaplicabilidade da norma geral à entidade, em razão de sua disciplina legal específica e de sua natureza institucional peculiar.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ARE 1.336.047/RJ, Rel. Min. Alexandre de Moraes, julgado em 18/02/2026 (Repercussão Geral – Tema 1.180) (Info 1205).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a mera elevação do limite mínimo da gratificação de desempenho de atividade do seguro social, ainda que implique ampliação do patamar remuneratório percebido por servidores em atividade, não descaracteriza a natureza pro labore faciendo da parcela nem autoriza sua extensão automática aos inativos, sendo o termo inicial do pagamento diferenciado entre ativos e aposentados fixado na homologação do resultado das avaliações, após a conclusão do primeiro ciclo avaliativo. a assertiva está correta porque reproduz a lógica central do entendimento firmado: gratificações de desempenho vinculadas a critérios institucionais e individuais não se convertem em vantagem geral, de caráter linear ou genérico, pelo simples fato de haver alteração do seu limite mínimo. a modificação do piso da gdass não altera sua essência jurídica, que permanece condicionada ao desempenho, isto é, mantém natureza **pro labore faciendo**.
+
+por essa razão, não se admite a extensão da parcela aos servidores inativos com base apenas nessa alteração normativa. a equiparação entre ativos e inativos, em matéria de gratificações de desempenho, depende da superação do caráter condicionado ao desempenho, o que não ocorre com mera redefinição do limite mínimo da vantagem.
+
+além disso, o enunciado também acerta ao mencionar o marco temporal do pagamento diferenciado entre ativos e inativos: o termo inicial é a **homologação do resultado das avaliações**, após a conclusão do primeiro ciclo avaliativo. esse ponto reafirma a orientação já consolidada no tema 983, segundo a qual a distinção remuneratória entre servidores em atividade e aposentados, no âmbito dessas gratificações, somente se legitima a partir da efetiva implementação do sistema de avaliação.
+
+em síntese, a alteração do piso da gdass não a transforma em parcela geral nem afasta sua vinculação ao desempenho, de modo que não há base para extensão automática aos inativos. stf. plenário. re 1.408.525/rj, rel. min. cármen lúcia, julgado em 18/02/2026 (repercussão geral – tema 1.289) (info 1205).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 3</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-3">Não respondida</span>
+</div>
+
+<p class="enunciado">A mera elevação do limite mínimo da Gratificação de Desempenho de Atividade do Seguro Social, ainda que implique ampliação do patamar remuneratório percebido por servidores em atividade, não descaracteriza a natureza pro labore faciendo da parcela nem autoriza sua extensão automática aos inativos, sendo o termo inicial do pagamento diferenciado entre ativos e aposentados fixado na homologação do resultado das avaliações, após a conclusão do primeiro ciclo avaliativo.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(3, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(3, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-3">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a lógica central do entendimento firmado: gratificações de desempenho vinculadas a critérios institucionais e individuais não se convertem em vantagem geral, de caráter linear ou genérico, pelo simples fato de haver alteração do seu limite mínimo. A modificação do piso da GDASS não altera sua essência jurídica, que permanece condicionada ao desempenho, isto é, mantém natureza <strong>pro labore faciendo</strong>.<br><br>Por essa razão, não se admite a extensão da parcela aos servidores inativos com base apenas nessa alteração normativa. A equiparação entre ativos e inativos, em matéria de gratificações de desempenho, depende da superação do caráter condicionado ao desempenho, o que não ocorre com mera redefinição do limite mínimo da vantagem.<br><br>Além disso, o enunciado também acerta ao mencionar o marco temporal do pagamento diferenciado entre ativos e inativos: o termo inicial é a <strong>homologação do resultado das avaliações</strong>, após a conclusão do primeiro ciclo avaliativo. Esse ponto reafirma a orientação já consolidada no Tema 983, segundo a qual a distinção remuneratória entre servidores em atividade e aposentados, no âmbito dessas gratificações, somente se legitima a partir da efetiva implementação do sistema de avaliação.<br><br>Em síntese, a alteração do piso da GDASS não a transforma em parcela geral nem afasta sua vinculação ao desempenho, de modo que não há base para extensão automática aos inativos.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. RE 1.408.525/RJ, Rel. Min. Cármen Lúcia, julgado em 18/02/2026 (Repercussão geral – Tema 1.289) (Info 1205).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a atuação jurisdicional em matéria ambiental, quando evidenciado desmonte inconstitucional de estruturas administrativas essenciais à proteção de biomas, pode assumir feição estrutural, com imposição de providências progressivas voltadas à recomposição da capacidade estatal de tutela, inclusive mediante determinação para que o ente federativo apresente plano com metas, cronograma e critérios de reposição de quadro técnico; nessa hipótese, a vedação ao retrocesso ambiental impede a supressão de conquistas normativas ou institucionais sem salvaguarda equivalente, sobretudo quando a medida comprometer o núcleo essencial do direito ao meio ambiente ecologicamente equilibrado. o enunciado está de acordo com a compreensão firmada no julgado. a controvérsia tratou de comprometimento das políticas públicas ambientais da união e do estado de são paulo voltadas à proteção dos biomas paulistas, situação em que se reconheceu a necessidade de atuação judicial para fazer cessar condutas incompatíveis com a ordem constitucional e preservar a utilidade do provimento jurisdicional.
+
+a decisão enfatiza que o processo estrutural não se confunde com o contencioso tradicional, pois não visa a uma solução única e definitiva, mas à implementação progressiva de um programa de reformas institucionais. esse modelo pressupõe: diagnóstico de violação massiva e sistêmica de direitos fundamentais; elaboração de planos com metas, cronogramas e responsabilidades; e monitoramento judicial contínuo, com decisões sucessivas ao longo do tempo.
+
+também foi reafirmada a incidência da vedação ao retrocesso ambiental, compreendida como impedimento de desmonte de conquistas normativas e institucionais de proteção sem substituição por proteção equivalente. quando a redução atinge o núcleo essencial do direito ao meio ambiente equilibrado e compromete a capacidade mínima do estado de cumprir seu dever constitucional, configura-se retrocesso inconstitucional.
+
+no caso concreto, o plenário referendou a cautelar que determinou ao estado de são paulo, entre outras providências, a apresentação de plano de recomposição do quadro de pesquisadores ambientais, com metas verificáveis, fases de execução, critérios de reposição, prazos para concursos públicos e reestruturação das carreiras técnicas. assim, a formulação do enunciado reproduz corretamente a lógica estrutural da decisão e os limites materiais impostos pela proteção ambiental constitucional. stf. plenário. adpf 1.201/sp, rel. min. flávio dino, julgado em 13/02/2026 (info 1205).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 4</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-4">Não respondida</span>
+</div>
+
+<p class="enunciado">A atuação jurisdicional em matéria ambiental, quando evidenciado desmonte inconstitucional de estruturas administrativas essenciais à proteção de biomas, pode assumir feição estrutural, com imposição de providências progressivas voltadas à recomposição da capacidade estatal de tutela, inclusive mediante determinação para que o ente federativo apresente plano com metas, cronograma e critérios de reposição de quadro técnico; nessa hipótese, a vedação ao retrocesso ambiental impede a supressão de conquistas normativas ou institucionais sem salvaguarda equivalente, sobretudo quando a medida comprometer o núcleo essencial do direito ao meio ambiente ecologicamente equilibrado.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(4, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(4, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-4">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O enunciado está de acordo com a compreensão firmada no julgado. A controvérsia tratou de comprometimento das políticas públicas ambientais da União e do Estado de São Paulo voltadas à proteção dos biomas paulistas, situação em que se reconheceu a necessidade de atuação judicial para fazer cessar condutas incompatíveis com a ordem constitucional e preservar a utilidade do provimento jurisdicional.<br><br>A decisão enfatiza que o processo estrutural não se confunde com o contencioso tradicional, pois não visa a uma solução única e definitiva, mas à implementação progressiva de um programa de reformas institucionais. Esse modelo pressupõe: diagnóstico de violação massiva e sistêmica de direitos fundamentais; elaboração de planos com metas, cronogramas e responsabilidades; e monitoramento judicial contínuo, com decisões sucessivas ao longo do tempo.<br><br>Também foi reafirmada a incidência da vedação ao retrocesso ambiental, compreendida como impedimento de desmonte de conquistas normativas e institucionais de proteção sem substituição por proteção equivalente. Quando a redução atinge o núcleo essencial do direito ao meio ambiente equilibrado e compromete a capacidade mínima do Estado de cumprir seu dever constitucional, configura-se retrocesso inconstitucional.<br><br>No caso concreto, o Plenário referendou a cautelar que determinou ao Estado de São Paulo, entre outras providências, a apresentação de plano de recomposição do quadro de pesquisadores ambientais, com metas verificáveis, fases de execução, critérios de reposição, prazos para concursos públicos e reestruturação das carreiras técnicas. Assim, a formulação do enunciado reproduz corretamente a lógica estrutural da decisão e os limites materiais impostos pela proteção ambiental constitucional.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADPF 1.201/SP, Rel. Min. Flávio Dino, julgado em 13/02/2026 (Info 1205).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="o exercício da atividade de vigilante, ainda que desempenhado com porte e uso habitual de arma de fogo e em contexto de exposição permanente a risco pessoal, não se enquadra, por si só, como atividade especial apta a ensejar aposentadoria especial com fundamento no art. 201, § 1º, da constituição, sendo insuficiente a mera periculosidade inerente à função para afastar a exigência de enquadramento nos critérios legalmente previstos para a concessão do benefício. a assertiva está correta porque o entendimento firmado foi no sentido de que a atividade de vigilante, independentemente de haver ou não uso de arma de fogo, não se caracteriza como especial para fins de aposentadoria especial constitucional. o ponto central do julgamento foi afastar a tese de que a periculosidade própria da função, por si só, bastaria para enquadrá-la como atividade especial no regime do art. 201, § 1º, da constituição.
+
+a decisão é relevante porque distingue a noção de risco ocupacional da disciplina constitucional da aposentadoria especial. não basta a existência de exposição a perigo, ainda que habitual ou permanente, nem o fato de o trabalhador exercer atividade socialmente reconhecida como arriscada. para a concessão do benefício, é necessário que a atividade se amolde aos critérios juridicamente estabelecidos para caracterização da especialidade, o que não ocorre com o vigilante apenas em razão da natureza perigosa do trabalho.
+
+assim, a tese afasta qualquer automatismo: nem o uso de arma de fogo, nem a exposição a violência, nem a periculosidade inerente à profissão autorizam, por si sós, o reconhecimento do tempo especial para fins de aposentadoria especial constitucional. stf. plenário. re 1.368.225/rs, rel. min. nunes marques, redator do acórdão min. alexandre de moraes, julgado em 18/02/2026 (repercussão geral – tema 1.209) (info 1205).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 5</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-5">Não respondida</span>
+</div>
+
+<p class="enunciado">O exercício da atividade de vigilante, ainda que desempenhado com porte e uso habitual de arma de fogo e em contexto de exposição permanente a risco pessoal, não se enquadra, por si só, como atividade especial apta a ensejar aposentadoria especial com fundamento no art. 201, § 1º, da Constituição, sendo insuficiente a mera periculosidade inerente à função para afastar a exigência de enquadramento nos critérios legalmente previstos para a concessão do benefício.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(5, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(5, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-5">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque o entendimento firmado foi no sentido de que a atividade de vigilante, independentemente de haver ou não uso de arma de fogo, não se caracteriza como especial para fins de aposentadoria especial constitucional. O ponto central do julgamento foi afastar a tese de que a periculosidade própria da função, por si só, bastaria para enquadrá-la como atividade especial no regime do art. 201, § 1º, da Constituição.<br><br>A decisão é relevante porque distingue a noção de risco ocupacional da disciplina constitucional da aposentadoria especial. Não basta a existência de exposição a perigo, ainda que habitual ou permanente, nem o fato de o trabalhador exercer atividade socialmente reconhecida como arriscada. Para a concessão do benefício, é necessário que a atividade se amolde aos critérios juridicamente estabelecidos para caracterização da especialidade, o que não ocorre com o vigilante apenas em razão da natureza perigosa do trabalho.<br><br>Assim, a tese afasta qualquer automatismo: nem o uso de arma de fogo, nem a exposição a violência, nem a periculosidade inerente à profissão autorizam, por si sós, o reconhecimento do tempo especial para fins de aposentadoria especial constitucional.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. RE 1.368.225/RS, Rel. Min. Nunes Marques, redator do acórdão Min. Alexandre de Moraes, julgado em 18/02/2026 (Repercussão Geral – Tema 1.209) (Info 1205).</p>
+</div>
+</section>
+
+</div>
+
+<script>
+const storageKey = location.pathname + "_respostas";
+let respostas = JSON.parse(localStorage.getItem(storageKey) || "{}");
+
+function destacar(t){
+ if(t==="CERTO") return '<span class="gabarito-certo">CERTO</span>';
+ if(t==="ERRADO") return '<span class="gabarito-errado">ERRADO</span>';
+ return t;
+}
+
+function responder(numero, resposta){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const gabarito=card.dataset.gabarito;
+ const correto=resposta===gabarito;
+ respostas[numero]={resposta,correto};
+ localStorage.setItem(storageKey, JSON.stringify(respostas));
+ mostrarFeedback(numero);
+ atualizarPainel();
+ filtrar();
+}
+
+function mostrarFeedback(numero){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const feedback=document.getElementById("feedback-"+numero);
+ const status=document.getElementById("status-"+numero);
+ const resultado=feedback.querySelector(".resultado");
+ const gabarito=card.dataset.gabarito;
+ const dados=respostas[numero];
+ if(!dados) return;
+ feedback.style.display="block";
+ feedback.classList.remove("correto","errado");
+ if(dados.correto){
+   feedback.classList.add("correto");
+   resultado.innerHTML="Você acertou. A resposta é "+destacar(gabarito)+".";
+   status.textContent="Respondida — acerto";
+   status.style.color="var(--green)";
+ } else {
+   feedback.classList.add("errado");
+   resultado.innerHTML="Você errou. O gabarito é "+destacar(gabarito)+".";
+   status.textContent="Respondida — erro";
+   status.style.color="var(--red)";
+ }
+}
+
+function atualizarPainel(){
+ let respondidas=0, acertos=0, erros=0;
+ for(const k in respostas){
+   respondidas++;
+   if(respostas[k].correto) acertos++; else erros++;
+ }
+ document.getElementById("respondidas").textContent=respondidas;
+ document.getElementById("acertos").textContent=acertos;
+ document.getElementById("erros").textContent=erros;
+ document.getElementById("visiveis").textContent=document.querySelectorAll(".questao:not(.oculta)").length;
+}
+
+function filtrar(){
+ const busca=document.getElementById("busca").value.trim().toLowerCase();
+ const disciplina=document.getElementById("disciplina").value;
+ const statusFiltro=document.getElementById("statusFiltro").value;
+ const cards=Array.from(document.querySelectorAll(".questao"));
+ let vis=0;
+ cards.forEach((card,idx)=>{
+   const n=idx+1;
+   const texto=card.dataset.texto||"";
+   const disc=card.dataset.disciplina||"";
+   const r=respostas[n];
+   let passaStatus=true;
+   if(statusFiltro==="nao") passaStatus=!r;
+   if(statusFiltro==="acerto") passaStatus=r && r.correto;
+   if(statusFiltro==="erro") passaStatus=r && !r.correto;
+   const ok=(!busca||texto.includes(busca)) && (!disciplina||disc===disciplina) && passaStatus;
+   card.classList.toggle("oculta", !ok);
+   if(ok) vis++;
+ });
+ document.getElementById("sem-resultados").style.display=vis===0?"block":"none";
+ atualizarPainel();
+}
+
+function reiniciar(){
+ if(!confirm("Deseja reiniciar este simulado?")) return;
+ localStorage.removeItem(storageKey);
+ location.reload();
+}
+
+function restaurar(){
+ for(const k in respostas) mostrarFeedback(Number(k));
+ filtrar();
+ atualizarPainel();
+}
+
+restaurar();
+</script>
+</body>
+</html>

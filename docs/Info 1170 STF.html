@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Simulado - Info 1170 STF</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+:root{
+--bg:#020617;--panel:rgba(15,23,42,.88);--card:rgba(15,23,42,.96);
+--card2:rgba(30,41,59,.92);--border:rgba(148,163,184,.22);
+--text:#e5e7eb;--muted:#94a3b8;--accent:#38bdf8;--accent2:#0ea5e9;
+--green:#22c55e;--red:#ef4444;--yellow:#facc15;--purple:#a78bfa;
+}
+*{box-sizing:border-box}
+body{
+margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+background:radial-gradient(circle at top left,rgba(56,189,248,.20),transparent 28%),
+radial-gradient(circle at top right,rgba(167,139,250,.15),transparent 28%),
+linear-gradient(135deg,#020617,#0f172a 50%,#020617);
+color:var(--text);line-height:1.65;
+}
+header{padding:44px 20px 32px;text-align:center;border-bottom:1px solid var(--border)}
+header h1{margin:0 0 10px;font-size:clamp(28px,4vw,46px);letter-spacing:-.05em}
+header p{color:var(--muted);margin:0;font-size:16px}
+.container{max-width:1160px;margin:0 auto;padding:26px 16px 80px}
+.painel{
+position:sticky;top:10px;z-index:10;background:var(--panel);backdrop-filter:blur(18px);
+border:1px solid var(--border);border-radius:26px;padding:16px;margin-bottom:22px;
+box-shadow:0 22px 70px rgba(0,0,0,.35)
+}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.stat{background:var(--card2);padding:14px;border-radius:18px;text-align:center;border:1px solid rgba(148,163,184,.12)}
+.stat strong{display:block;font-size:25px;color:var(--accent);line-height:1.1}
+.stat span{font-size:12px;color:var(--muted)}
+.filtros{display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:12px;margin-top:14px}
+input,select{
+width:100%;background:rgba(2,6,23,.78);color:var(--text);border:1px solid var(--border);
+border-radius:14px;padding:13px 14px;outline:none;font-size:14px
+}
+input:focus,select:focus{border-color:var(--accent)}
+.card{
+background:var(--card);border:1px solid var(--border);border-radius:24px;padding:26px;
+margin-bottom:20px;box-shadow:0 18px 50px rgba(0,0,0,.24)
+}
+.questao{scroll-margin-top:190px}
+.questao-topo{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:18px}
+.badge{
+background:linear-gradient(135deg,var(--accent),var(--accent2));color:#00111f;font-weight:900;
+padding:7px 13px;border-radius:999px;display:inline-block
+}
+.disciplina-tag,.tipo-tag{
+display:inline-block;margin-left:8px;color:var(--muted);background:rgba(148,163,184,.10);
+border:1px solid rgba(148,163,184,.14);padding:6px 10px;border-radius:999px;font-size:12px
+}
+.tipo-tag{color:#ddd6fe;border-color:rgba(167,139,250,.25)}
+.status{color:var(--yellow);font-size:13px;white-space:nowrap}
+.enunciado{font-size:19px;margin:0 0 22px;letter-spacing:-.01em}
+.botoes{display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.btn{
+cursor:pointer;border:0;padding:12px 22px;border-radius:14px;color:white;font-weight:900;
+transition:.18s ease;letter-spacing:.02em
+}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.certo{background:rgba(34,197,94,.20);border:1px solid rgba(34,197,94,.42)}
+.btn.errado{background:rgba(239,68,68,.20);border:1px solid rgba(239,68,68,.42)}
+.btn.neutro{background:rgba(56,189,248,.16);color:var(--text);border:1px solid rgba(56,189,248,.32)}
+.feedback{
+display:none;background:rgba(2,6,23,.72);border:1px solid rgba(148,163,184,.16);
+border-left:5px solid var(--accent);padding:18px;border-radius:18px;margin-top:14px
+}
+.feedback.correto{border-left-color:var(--green)}
+.feedback.errado{border-left-color:var(--red)}
+.resultado{font-size:18px;font-weight:900;margin-top:0}
+.justificativa{margin-top:12px}
+.referencia{color:var(--muted);font-size:13px;margin-top:16px}
+.gabarito-certo{color:var(--green);font-weight:900}
+.gabarito-errado{color:var(--red);font-weight:900}
+.oculta{display:none}
+.sem-resultados{text-align:center;color:var(--muted);display:none;padding:30px}
+.grid-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
+.link-card{
+display:block;padding:20px;background:rgba(15,23,42,.95);border:1px solid rgba(148,163,184,.22);
+color:#e5e7eb;border-radius:22px;text-decoration:none;transition:.2s;box-shadow:0 14px 40px rgba(0,0,0,.22)
+}
+.link-card:hover{transform:translateY(-3px);border-color:#38bdf8}
+.link-card strong{display:block;font-size:17px;margin-bottom:8px}
+.link-card span{color:#94a3b8;font-size:13px}
+.index-tools{display:grid;grid-template-columns:1.5fr 1fr;gap:12px;margin-bottom:20px}
+@media(max-width:850px){
+.stats{grid-template-columns:repeat(2,1fr)}
+.filtros,.index-tools{grid-template-columns:1fr}
+.questao-topo{align-items:flex-start;flex-direction:column}
+.botoes{flex-direction:column}
+.enunciado{font-size:16px}
+.card{padding:20px}
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Simulado - Info 1170 STF</h1>
+<p>Informativos • Simulado interativo de CERTO ou ERRADO</p>
+</header>
+
+<div class="container">
+<div class="painel">
+<div class="stats">
+<div class="stat"><strong>4</strong><span>Total</span></div>
+<div class="stat"><strong id="visiveis">4</strong><span>Visíveis</span></div>
+<div class="stat"><strong id="respondidas">0</strong><span>Respondidas</span></div>
+<div class="stat"><strong id="acertos">0</strong><span>Acertos</span></div>
+<div class="stat"><strong id="erros">0</strong><span>Erros</span></div>
+</div>
+
+<div class="filtros">
+<input id="busca" type="search" placeholder="Buscar por palavra-chave..." oninput="filtrar()">
+<select id="disciplina" onchange="filtrar()">
+<option value="">Todas as disciplinas</option>
+<option value="ECA">ECA</option>
+<option value="N/I">N/I</option>
+</select>
+<select id="statusFiltro" onchange="filtrar()">
+<option value="">Todas</option>
+<option value="nao">Não respondidas</option>
+<option value="acerto">Acertos</option>
+<option value="erro">Erros</option>
+</select>
+<button class="btn neutro" onclick="reiniciar()">Reiniciar</button>
+</div>
+</div>
+
+<div id="sem-resultados" class="sem-resultados">Nenhuma questão encontrada com os filtros atuais.</div>
+
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="em entrevista jornalística posteriormente publicada em plataforma digital, a empresa de comunicação somente responde civilmente pela falsa imputação de crime feita pelo entrevistado a terceiro se demonstrada sua má-fé, a qual pode decorrer do conhecimento prévio da falsidade da declaração ou de culpa grave consistente em evidente negligência na apuração da veracidade do fato e na divulgação ao público sem prévia busca de contraditório ou de resposta do ofendido; se a entrevista tiver sido realizada e transmitida ao vivo, afasta-se a responsabilidade do veículo pelo ato exclusivo de terceiro, sem prejuízo do dever de assegurar direito de resposta em iguais condições, espaço e destaque, bem como de remover a imputação falsa, de ofício ou mediante notificação da vítima, das plataformas digitais em que permanecer disponível. a assertiva reproduz, em essência, a solução firmada para a responsabilização civil da empresa jornalística em hipóteses de falsa imputação de crime feita por entrevistado a terceiro. o ponto central do entendimento é que não há responsabilidade automática do veículo pela simples divulgação da entrevista: exige-se a demonstração de má-fé, caracterizada por dolo — quando há conhecimento prévio da falsidade — ou por culpa grave, traduzida em negligência evidente na apuração da veracidade e na divulgação da informação sem a adoção mínima de cautelas, como a busca de contraditório ou de resposta do suposto ofendido.
+
+além disso, a tese distingue a entrevista publicada de forma geral da entrevista realizada e transmitida ao vivo. nesta última hipótese, a responsabilidade do veículo é afastada quando o fato lesivo decorre exclusivamente da conduta de terceiro, mas isso não elimina os deveres correlatos de tutela dos direitos da personalidade: o veículo deve assegurar o direito de resposta em iguais condições, espaço e destaque, sob pena de responsabilidade, em harmonia com os incisos v e x do art. 5º da constituição. também permanece o dever de remoção do conteúdo falso das plataformas digitais, de ofício ou por notificação da vítima, sempre que a falsidade for constatada.
+
+a questão é tecnicamente correta porque contempla os dois regimes definidos: o da publicação de entrevista e o da transmissão ao vivo, sem confundir exclusão de responsabilidade com imunidade absoluta do veículo. a responsabilidade civil pode subsistir na hipótese de má-fé, e, no caso de conteúdo ainda disponível online, a remoção é medida imposta para cessar a perpetuação da ofensa. stf. plenário. re 1.075.412 ed/pe, rel. min. edson fachin, julgado em 20/03/2025 (repercussão geral – tema 995) (info 1170).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 1</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-1">Não respondida</span>
+</div>
+
+<p class="enunciado">Em entrevista jornalística posteriormente publicada em plataforma digital, a empresa de comunicação somente responde civilmente pela falsa imputação de crime feita pelo entrevistado a terceiro se demonstrada sua má-fé, a qual pode decorrer do conhecimento prévio da falsidade da declaração ou de culpa grave consistente em evidente negligência na apuração da veracidade do fato e na divulgação ao público sem prévia busca de contraditório ou de resposta do ofendido; se a entrevista tiver sido realizada e transmitida ao vivo, afasta-se a responsabilidade do veículo pelo ato exclusivo de terceiro, sem prejuízo do dever de assegurar direito de resposta em iguais condições, espaço e destaque, bem como de remover a imputação falsa, de ofício ou mediante notificação da vítima, das plataformas digitais em que permanecer disponível.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(1, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(1, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-1">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva reproduz, em essência, a solução firmada para a responsabilização civil da empresa jornalística em hipóteses de falsa imputação de crime feita por entrevistado a terceiro. O ponto central do entendimento é que não há responsabilidade automática do veículo pela simples divulgação da entrevista: exige-se a demonstração de má-fé, caracterizada por dolo — quando há conhecimento prévio da falsidade — ou por culpa grave, traduzida em negligência evidente na apuração da veracidade e na divulgação da informação sem a adoção mínima de cautelas, como a busca de contraditório ou de resposta do suposto ofendido.<br><br>Além disso, a tese distingue a entrevista publicada de forma geral da entrevista realizada e transmitida ao vivo. Nesta última hipótese, a responsabilidade do veículo é afastada quando o fato lesivo decorre exclusivamente da conduta de terceiro, mas isso não elimina os deveres correlatos de tutela dos direitos da personalidade: o veículo deve assegurar o direito de resposta em iguais condições, espaço e destaque, sob pena de responsabilidade, em harmonia com os incisos V e X do art. 5º da Constituição. Também permanece o dever de remoção do conteúdo falso das plataformas digitais, de ofício ou por notificação da vítima, sempre que a falsidade for constatada.<br><br>A questão é tecnicamente correta porque contempla os dois regimes definidos: o da publicação de entrevista e o da transmissão ao vivo, sem confundir exclusão de responsabilidade com imunidade absoluta do veículo. A responsabilidade civil pode subsistir na hipótese de má-fé, e, no caso de conteúdo ainda disponível online, a remoção é medida imposta para cessar a perpetuação da ofensa.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. RE 1.075.412 ED/PE, Rel. Min. Edson Fachin, julgado em 20/03/2025 (Repercussão Geral – Tema 995) (Info 1170).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="é formalmente compatível com a constituição estadual que, a pretexto de disciplinar o compartilhamento de infraestrutura no setor de energia elétrica, o ente federado fixe valores máximos de remuneração, imponha encargos adicionais às concessionárias e estabeleça regras procedimentais e contratuais próprias, desde que não haja supressão integral da disciplina federal nem alteração expressa do regime de concessão. a assertiva está incorreta porque a matéria relativa à infraestrutura dos serviços públicos de energia elétrica, inclusive a disciplina do compartilhamento de infraestrutura, insere-se na esfera de competência privativa da união, tanto sob o prisma administrativo quanto legislativo. a constituição atribui à união a exploração dos serviços e instalações de energia elétrica e também a competência para legislar sobre energia e regime de concessões e permissões, o que abrange os aspectos procedimentais, contratuais e tarifários relacionados ao setor.
+
+não é necessário que a lei estadual suprima integralmente a disciplina federal ou declare expressamente sua intenção de alterar o regime de concessão para que se configure a inconstitucionalidade. basta que, ao regular matéria reservada à união, a norma estadual interfira na política tarifária, imponha encargos adicionais ou fixe tetos remuneratórios capazes de afetar o equilíbrio econômico-financeiro dos contratos federais de concessão. esse tipo de ingerência extrapola a competência normativa estadual e compromete a uniformidade regulatória do setor elétrico, cuja disciplina é centralizada constitucionalmente.
+
+em outras palavras, ainda que a lei estadual se apresente como norma de organização ou de proteção local, ela não pode avançar sobre elementos estruturais do serviço público de energia elétrica, especialmente quando cria obrigações econômicas e contratuais para concessionárias submetidas a regime federal. a inconstitucionalidade decorre justamente da invasão de competência e da interferência indevida na política tarifária nacional. stf. plenário. adi 7.722/go, rel. min. alexandre de moraes, julgado em 24/03/2025 (info 1170).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 2</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-2">Não respondida</span>
+</div>
+
+<p class="enunciado">É formalmente compatível com a Constituição estadual que, a pretexto de disciplinar o compartilhamento de infraestrutura no setor de energia elétrica, o ente federado fixe valores máximos de remuneração, imponha encargos adicionais às concessionárias e estabeleça regras procedimentais e contratuais próprias, desde que não haja supressão integral da disciplina federal nem alteração expressa do regime de concessão.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(2, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(2, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-2">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque a matéria relativa à infraestrutura dos serviços públicos de energia elétrica, inclusive a disciplina do compartilhamento de infraestrutura, insere-se na esfera de competência privativa da União, tanto sob o prisma administrativo quanto legislativo. A Constituição atribui à União a exploração dos serviços e instalações de energia elétrica e também a competência para legislar sobre energia e regime de concessões e permissões, o que abrange os aspectos procedimentais, contratuais e tarifários relacionados ao setor.<br><br>Não é necessário que a lei estadual suprima integralmente a disciplina federal ou declare expressamente sua intenção de alterar o regime de concessão para que se configure a inconstitucionalidade. Basta que, ao regular matéria reservada à União, a norma estadual interfira na política tarifária, imponha encargos adicionais ou fixe tetos remuneratórios capazes de afetar o equilíbrio econômico-financeiro dos contratos federais de concessão. Esse tipo de ingerência extrapola a competência normativa estadual e compromete a uniformidade regulatória do setor elétrico, cuja disciplina é centralizada constitucionalmente.<br><br>Em outras palavras, ainda que a lei estadual se apresente como norma de organização ou de proteção local, ela não pode avançar sobre elementos estruturais do serviço público de energia elétrica, especialmente quando cria obrigações econômicas e contratuais para concessionárias submetidas a regime federal. A inconstitucionalidade decorre justamente da invasão de competência e da interferência indevida na política tarifária nacional.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.722/GO, Rel. Min. Alexandre de Moraes, julgado em 24/03/2025 (Info 1170).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="é constitucional lei estadual de iniciativa do poder executivo que, ao disciplinar a assistência judiciária no âmbito da defensoria pública, reserve parcela fixa e permanente do orçamento da instituição para custear atuação suplementar de advogados privados, ainda que a medida seja apresentada como mecanismo de ampliação do acesso à justiça e de complementação da atuação defensiva. a assertiva está incorreta porque a imposição, por norma de iniciativa do executivo, de destinação obrigatória de percentual do orçamento da defensoria pública para assistência judiciária suplementar por advogados privados afronta a autonomia administrativa, orçamentária e funcional da instituição. a defensoria pública possui regime constitucional próprio, com desenho institucional voltado à prestação de assistência jurídica integral e gratuita por órgão público especializado, sendo incompatível a fixação, de modo permanente e compulsório, de um modelo misto com repasse orçamentário obrigatório para advogados dativos ou conveniados, quando isso decorre de iniciativa legislativa inadequada.
+
+além do vício formal, há também vício material: a constituição estrutura a assistência jurídica gratuita em torno das defensorias públicas, de modo que a substituição ou esvaziamento dessa centralidade por arranjo permanente de suplementação privada compromete o modelo constitucional. no caso examinado, a norma estadual destinava 40% do orçamento da defensoria pública, por meio do faj, à assistência jurídica suplementar por advogados privados, o que foi reputado inconstitucional por violar a iniciativa privativa do defensor público-geral e por impor, por iniciativa do executivo, vinculação orçamentária incompatível com a autonomia institucional da defensoria. stf. plenário. adi 7.273/df e adi 7.345/df, rel. min. gilmar mendes, julgados em 24/03/2025 (info 1170).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 3</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-3">Não respondida</span>
+</div>
+
+<p class="enunciado">É constitucional lei estadual de iniciativa do Poder Executivo que, ao disciplinar a assistência judiciária no âmbito da Defensoria Pública, reserve parcela fixa e permanente do orçamento da instituição para custear atuação suplementar de advogados privados, ainda que a medida seja apresentada como mecanismo de ampliação do acesso à justiça e de complementação da atuação defensiva.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(3, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(3, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-3">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque a imposição, por norma de iniciativa do Executivo, de destinação obrigatória de percentual do orçamento da Defensoria Pública para assistência judiciária suplementar por advogados privados afronta a autonomia administrativa, orçamentária e funcional da instituição. A Defensoria Pública possui regime constitucional próprio, com desenho institucional voltado à prestação de assistência jurídica integral e gratuita por órgão público especializado, sendo incompatível a fixação, de modo permanente e compulsório, de um modelo misto com repasse orçamentário obrigatório para advogados dativos ou conveniados, quando isso decorre de iniciativa legislativa inadequada.<br><br>Além do vício formal, há também vício material: a Constituição estrutura a assistência jurídica gratuita em torno das Defensorias Públicas, de modo que a substituição ou esvaziamento dessa centralidade por arranjo permanente de suplementação privada compromete o modelo constitucional. No caso examinado, a norma estadual destinava 40% do orçamento da Defensoria Pública, por meio do FAJ, à assistência jurídica suplementar por advogados privados, o que foi reputado inconstitucional por violar a iniciativa privativa do Defensor Público-Geral e por impor, por iniciativa do Executivo, vinculação orçamentária incompatível com a autonomia institucional da Defensoria.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.273/DF e ADI 7.345/DF, Rel. Min. Gilmar Mendes, julgados em 24/03/2025 (Info 1170).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a revogação de benefício fiscal que, embora não altere formalmente a alíquota ou a base de cálculo do tributo, produza elevação indireta da carga tributária suportada pelo contribuinte submete-se, em regra, às anterioridades anual e nonagesimal, devendo-se ainda observar as exceções constitucionais específicas aplicáveis ao tributo em questão. a assertiva está correta porque a proteção conferida pelo princípio da anterioridade tributária não se limita às hipóteses de criação de tributo ou de majoração expressa de alíquota/base de cálculo. quando a retirada, redução ou supressão de incentivo fiscal repercute economicamente como aumento da carga tributária — isto é, gera majoração indireta do tributo — incidem as anterioridades geral e nonagesimal, salvo se houver exceção constitucional própria do tributo.
+
+o ponto central do entendimento é evitar que o poder público contorne as garantias constitucionais do contribuinte por meio de técnica indireta: em vez de elevar formalmente o tributo, elimina-se benefício fiscal que integrava o regime de tributação anteriormente vigente, com o mesmo efeito prático de onerar mais o sujeito passivo. nessa hipótese, a alteração normativa não pode produzir efeitos imediatos se o tributo estiver submetido às anterioridades, devendo respeitar o prazo constitucional correspondente.
+
+além disso, a incidência dessas anterioridades não é absoluta: devem ser observadas as exceções constitucionais previstas para cada espécie tributária. assim, a conclusão depende da disciplina constitucional específica do tributo envolvido, mas a regra geral é a submissão da redução ou supressão de benefício fiscal às anterioridades quando houver majoração indireta. stf. plenário. re 1.473.645/pa, rel. min. luiz roberto barroso, julgado em 24/03/2025 (repercussão geral – tema 1.383) (info 1170).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 4</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-4">Não respondida</span>
+</div>
+
+<p class="enunciado">A revogação de benefício fiscal que, embora não altere formalmente a alíquota ou a base de cálculo do tributo, produza elevação indireta da carga tributária suportada pelo contribuinte submete-se, em regra, às anterioridades anual e nonagesimal, devendo-se ainda observar as exceções constitucionais específicas aplicáveis ao tributo em questão.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(4, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(4, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-4">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque a proteção conferida pelo princípio da anterioridade tributária não se limita às hipóteses de criação de tributo ou de majoração expressa de alíquota/base de cálculo. Quando a retirada, redução ou supressão de incentivo fiscal repercute economicamente como aumento da carga tributária — isto é, gera majoração indireta do tributo — incidem as anterioridades geral e nonagesimal, salvo se houver exceção constitucional própria do tributo.<br><br>O ponto central do entendimento é evitar que o Poder Público contorne as garantias constitucionais do contribuinte por meio de técnica indireta: em vez de elevar formalmente o tributo, elimina-se benefício fiscal que integrava o regime de tributação anteriormente vigente, com o mesmo efeito prático de onerar mais o sujeito passivo. Nessa hipótese, a alteração normativa não pode produzir efeitos imediatos se o tributo estiver submetido às anterioridades, devendo respeitar o prazo constitucional correspondente.<br><br>Além disso, a incidência dessas anterioridades não é absoluta: devem ser observadas as exceções constitucionais previstas para cada espécie tributária. Assim, a conclusão depende da disciplina constitucional específica do tributo envolvido, mas a regra geral é a submissão da redução ou supressão de benefício fiscal às anterioridades quando houver majoração indireta.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. RE 1.473.645/PA, Rel. Min. Luiz Roberto Barroso, julgado em 24/03/2025 (Repercussão Geral – Tema 1.383) (Info 1170).</p>
+</div>
+</section>
+
+</div>
+
+<script>
+const storageKey = location.pathname + "_respostas";
+let respostas = JSON.parse(localStorage.getItem(storageKey) || "{}");
+
+function destacar(t){
+ if(t==="CERTO") return '<span class="gabarito-certo">CERTO</span>';
+ if(t==="ERRADO") return '<span class="gabarito-errado">ERRADO</span>';
+ return t;
+}
+
+function responder(numero, resposta){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const gabarito=card.dataset.gabarito;
+ const correto=resposta===gabarito;
+ respostas[numero]={resposta,correto};
+ localStorage.setItem(storageKey, JSON.stringify(respostas));
+ mostrarFeedback(numero);
+ atualizarPainel();
+ filtrar();
+}
+
+function mostrarFeedback(numero){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const feedback=document.getElementById("feedback-"+numero);
+ const status=document.getElementById("status-"+numero);
+ const resultado=feedback.querySelector(".resultado");
+ const gabarito=card.dataset.gabarito;
+ const dados=respostas[numero];
+ if(!dados) return;
+ feedback.style.display="block";
+ feedback.classList.remove("correto","errado");
+ if(dados.correto){
+   feedback.classList.add("correto");
+   resultado.innerHTML="Você acertou. A resposta é "+destacar(gabarito)+".";
+   status.textContent="Respondida — acerto";
+   status.style.color="var(--green)";
+ } else {
+   feedback.classList.add("errado");
+   resultado.innerHTML="Você errou. O gabarito é "+destacar(gabarito)+".";
+   status.textContent="Respondida — erro";
+   status.style.color="var(--red)";
+ }
+}
+
+function atualizarPainel(){
+ let respondidas=0, acertos=0, erros=0;
+ for(const k in respostas){
+   respondidas++;
+   if(respostas[k].correto) acertos++; else erros++;
+ }
+ document.getElementById("respondidas").textContent=respondidas;
+ document.getElementById("acertos").textContent=acertos;
+ document.getElementById("erros").textContent=erros;
+ document.getElementById("visiveis").textContent=document.querySelectorAll(".questao:not(.oculta)").length;
+}
+
+function filtrar(){
+ const busca=document.getElementById("busca").value.trim().toLowerCase();
+ const disciplina=document.getElementById("disciplina").value;
+ const statusFiltro=document.getElementById("statusFiltro").value;
+ const cards=Array.from(document.querySelectorAll(".questao"));
+ let vis=0;
+ cards.forEach((card,idx)=>{
+   const n=idx+1;
+   const texto=card.dataset.texto||"";
+   const disc=card.dataset.disciplina||"";
+   const r=respostas[n];
+   let passaStatus=true;
+   if(statusFiltro==="nao") passaStatus=!r;
+   if(statusFiltro==="acerto") passaStatus=r && r.correto;
+   if(statusFiltro==="erro") passaStatus=r && !r.correto;
+   const ok=(!busca||texto.includes(busca)) && (!disciplina||disc===disciplina) && passaStatus;
+   card.classList.toggle("oculta", !ok);
+   if(ok) vis++;
+ });
+ document.getElementById("sem-resultados").style.display=vis===0?"block":"none";
+ atualizarPainel();
+}
+
+function reiniciar(){
+ if(!confirm("Deseja reiniciar este simulado?")) return;
+ localStorage.removeItem(storageKey);
+ location.reload();
+}
+
+function restaurar(){
+ for(const k in respostas) mostrarFeedback(Number(k));
+ filtrar();
+ atualizarPainel();
+}
+
+restaurar();
+</script>
+</body>
+</html>

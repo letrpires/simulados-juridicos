@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Simulado - Info 861 STJ</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+:root{
+--bg:#020617;--panel:rgba(15,23,42,.88);--card:rgba(15,23,42,.96);
+--card2:rgba(30,41,59,.92);--border:rgba(148,163,184,.22);
+--text:#e5e7eb;--muted:#94a3b8;--accent:#38bdf8;--accent2:#0ea5e9;
+--green:#22c55e;--red:#ef4444;--yellow:#facc15;--purple:#a78bfa;
+}
+*{box-sizing:border-box}
+body{
+margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+background:radial-gradient(circle at top left,rgba(56,189,248,.20),transparent 28%),
+radial-gradient(circle at top right,rgba(167,139,250,.15),transparent 28%),
+linear-gradient(135deg,#020617,#0f172a 50%,#020617);
+color:var(--text);line-height:1.65;
+}
+header{padding:44px 20px 32px;text-align:center;border-bottom:1px solid var(--border)}
+header h1{margin:0 0 10px;font-size:clamp(28px,4vw,46px);letter-spacing:-.05em}
+header p{color:var(--muted);margin:0;font-size:16px}
+.container{max-width:1160px;margin:0 auto;padding:26px 16px 80px}
+.painel{
+position:sticky;top:10px;z-index:10;background:var(--panel);backdrop-filter:blur(18px);
+border:1px solid var(--border);border-radius:26px;padding:16px;margin-bottom:22px;
+box-shadow:0 22px 70px rgba(0,0,0,.35)
+}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.stat{background:var(--card2);padding:14px;border-radius:18px;text-align:center;border:1px solid rgba(148,163,184,.12)}
+.stat strong{display:block;font-size:25px;color:var(--accent);line-height:1.1}
+.stat span{font-size:12px;color:var(--muted)}
+.filtros{display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:12px;margin-top:14px}
+input,select{
+width:100%;background:rgba(2,6,23,.78);color:var(--text);border:1px solid var(--border);
+border-radius:14px;padding:13px 14px;outline:none;font-size:14px
+}
+input:focus,select:focus{border-color:var(--accent)}
+.card{
+background:var(--card);border:1px solid var(--border);border-radius:24px;padding:26px;
+margin-bottom:20px;box-shadow:0 18px 50px rgba(0,0,0,.24)
+}
+.questao{scroll-margin-top:190px}
+.questao-topo{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:18px}
+.badge{
+background:linear-gradient(135deg,var(--accent),var(--accent2));color:#00111f;font-weight:900;
+padding:7px 13px;border-radius:999px;display:inline-block
+}
+.disciplina-tag,.tipo-tag{
+display:inline-block;margin-left:8px;color:var(--muted);background:rgba(148,163,184,.10);
+border:1px solid rgba(148,163,184,.14);padding:6px 10px;border-radius:999px;font-size:12px
+}
+.tipo-tag{color:#ddd6fe;border-color:rgba(167,139,250,.25)}
+.status{color:var(--yellow);font-size:13px;white-space:nowrap}
+.enunciado{font-size:19px;margin:0 0 22px;letter-spacing:-.01em}
+.botoes{display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.btn{
+cursor:pointer;border:0;padding:12px 22px;border-radius:14px;color:white;font-weight:900;
+transition:.18s ease;letter-spacing:.02em
+}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.certo{background:rgba(34,197,94,.20);border:1px solid rgba(34,197,94,.42)}
+.btn.errado{background:rgba(239,68,68,.20);border:1px solid rgba(239,68,68,.42)}
+.btn.neutro{background:rgba(56,189,248,.16);color:var(--text);border:1px solid rgba(56,189,248,.32)}
+.feedback{
+display:none;background:rgba(2,6,23,.72);border:1px solid rgba(148,163,184,.16);
+border-left:5px solid var(--accent);padding:18px;border-radius:18px;margin-top:14px
+}
+.feedback.correto{border-left-color:var(--green)}
+.feedback.errado{border-left-color:var(--red)}
+.resultado{font-size:18px;font-weight:900;margin-top:0}
+.justificativa{margin-top:12px}
+.referencia{color:var(--muted);font-size:13px;margin-top:16px}
+.gabarito-certo{color:var(--green);font-weight:900}
+.gabarito-errado{color:var(--red);font-weight:900}
+.oculta{display:none}
+.sem-resultados{text-align:center;color:var(--muted);display:none;padding:30px}
+.grid-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
+.link-card{
+display:block;padding:20px;background:rgba(15,23,42,.95);border:1px solid rgba(148,163,184,.22);
+color:#e5e7eb;border-radius:22px;text-decoration:none;transition:.2s;box-shadow:0 14px 40px rgba(0,0,0,.22)
+}
+.link-card:hover{transform:translateY(-3px);border-color:#38bdf8}
+.link-card strong{display:block;font-size:17px;margin-bottom:8px}
+.link-card span{color:#94a3b8;font-size:13px}
+.index-tools{display:grid;grid-template-columns:1.5fr 1fr;gap:12px;margin-bottom:20px}
+@media(max-width:850px){
+.stats{grid-template-columns:repeat(2,1fr)}
+.filtros,.index-tools{grid-template-columns:1fr}
+.questao-topo{align-items:flex-start;flex-direction:column}
+.botoes{flex-direction:column}
+.enunciado{font-size:16px}
+.card{padding:20px}
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Simulado - Info 861 STJ</h1>
+<p>Informativos • Simulado interativo de CERTO ou ERRADO</p>
+</header>
+
+<div class="container">
+<div class="painel">
+<div class="stats">
+<div class="stat"><strong>14</strong><span>Total</span></div>
+<div class="stat"><strong id="visiveis">14</strong><span>Visíveis</span></div>
+<div class="stat"><strong id="respondidas">0</strong><span>Respondidas</span></div>
+<div class="stat"><strong id="acertos">0</strong><span>Acertos</span></div>
+<div class="stat"><strong id="erros">0</strong><span>Erros</span></div>
+</div>
+
+<div class="filtros">
+<input id="busca" type="search" placeholder="Buscar por palavra-chave..." oninput="filtrar()">
+<select id="disciplina" onchange="filtrar()">
+<option value="">Todas as disciplinas</option>
+<option value="ECA">ECA</option>
+<option value="N/I">N/I</option>
+</select>
+<select id="statusFiltro" onchange="filtrar()">
+<option value="">Todas</option>
+<option value="nao">Não respondidas</option>
+<option value="acerto">Acertos</option>
+<option value="erro">Erros</option>
+</select>
+<button class="btn neutro" onclick="reiniciar()">Reiniciar</button>
+</div>
+</div>
+
+<div id="sem-resultados" class="sem-resultados">Nenhuma questão encontrada com os filtros atuais.</div>
+
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="em concurso público para carreira de segurança pública, a fase de investigação social pode legitimar a eliminação do candidato quando apurada a prática de condutas morais e sociais incompatíveis com as atribuições do cargo, ainda que inexista condenação penal transitada em julgado, desde que a exigência de idoneidade moral esteja prevista no regime jurídico aplicável e se mostre compatível com a constituição. a assertiva está correta porque, nas carreiras de segurança pública, a investigação social não se limita à verificação de antecedentes criminais com condenação definitiva. esse этапo do certame pode alcançar elementos da vida pregressa do candidato que revelem incompatibilidade moral e social com as funções típicas do cargo, especialmente quando a legislação e o edital exigem idoneidade moral como requisito de ingresso.
+
+o ponto central é que a administração, ao selecionar agentes estatais investidos de funções sensíveis, pode adotar critérios mais rigorosos de aferição da aptidão subjetiva do candidato, desde que haja base normativa e observância dos parâmetros constitucionais. nessa lógica, a ausência de condenação penal transitada em julgado não impede, por si só, a eliminação na fase de investigação social, porque o juízo administrativo não se confunde com juízo penal de culpabilidade. o que se examina é a compatibilidade da conduta do candidato com o padrão ético exigido para o exercício da função pública de segurança.
+
+a exigência de idoneidade moral, nesse contexto, é considerada legítima e compatível com a constituição, justamente porque se relaciona à proteção da confiança social, da disciplina institucional e da própria finalidade das carreiras de segurança pública. assim, não se trata de punição antecipada, mas de avaliação de aptidão para ingresso em cargo que demanda especial probidade e retidão de conduta. stj. 2ª turma. rms 70.921-pa, rel. min. marco aurélio bellizze, julgado em 2/9/2025 (info 861).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 1</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-1">Não respondida</span>
+</div>
+
+<p class="enunciado">Em concurso público para carreira de segurança pública, a fase de investigação social pode legitimar a eliminação do candidato quando apurada a prática de condutas morais e sociais incompatíveis com as atribuições do cargo, ainda que inexista condenação penal transitada em julgado, desde que a exigência de idoneidade moral esteja prevista no regime jurídico aplicável e se mostre compatível com a Constituição.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(1, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(1, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-1">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque, nas carreiras de segurança pública, a investigação social não se limita à verificação de antecedentes criminais com condenação definitiva. Esse этапo do certame pode alcançar elementos da vida pregressa do candidato que revelem incompatibilidade moral e social com as funções típicas do cargo, especialmente quando a legislação e o edital exigem idoneidade moral como requisito de ingresso.<br><br>O ponto central é que a Administração, ao selecionar agentes estatais investidos de funções sensíveis, pode adotar critérios mais rigorosos de aferição da aptidão subjetiva do candidato, desde que haja base normativa e observância dos parâmetros constitucionais. Nessa lógica, a ausência de condenação penal transitada em julgado não impede, por si só, a eliminação na fase de investigação social, porque o juízo administrativo não se confunde com juízo penal de culpabilidade. O que se examina é a compatibilidade da conduta do candidato com o padrão ético exigido para o exercício da função pública de segurança.<br><br>A exigência de idoneidade moral, nesse contexto, é considerada legítima e compatível com a Constituição, justamente porque se relaciona à proteção da confiança social, da disciplina institucional e da própria finalidade das carreiras de segurança pública. Assim, não se trata de punição antecipada, mas de avaliação de aptidão para ingresso em cargo que demanda especial probidade e retidão de conduta.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 2ª Turma. RMS 70.921-PA, Rel. Min. Marco Aurélio Bellizze, julgado em 2/9/2025 (Info 861).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a alteração legislativa que apenas modifica a base de cálculo dos adicionais de insalubridade e de periculosidade incidentes sobre a remuneração de servidores públicos, sem suprimir formalmente tais parcelas, não afronta a garantia constitucional da irredutibilidade de vencimentos, ainda que reste comprovado decréscimo nominal da remuneração e permaneçam inalteradas as condições de trabalho que justificavam o pagamento dos adicionais. a assertiva está incorreta porque a garantia da irredutibilidade de vencimentos não é afastada pelo simples fato de a administração ou o legislador manterem formalmente a rubrica do adicional, se a mudança normativa na base de cálculo produzir redução efetiva da remuneração do servidor. o ponto central do entendimento é que a proteção constitucional alcança não apenas a supressão expressa de parcelas remuneratórias, mas também a redução indireta ou reflexa do valor percebido, quando não há alteração das condições fáticas que legitimam o pagamento.
+
+no caso dos adicionais de insalubridade e periculosidade, se o servidor continua exercendo as mesmas atividades em idênticas condições de risco, a modificação dos critérios de cálculo que resulte em diminuição comprovada da remuneração configura ofensa ao princípio da irredutibilidade de vencimentos. trata-se de violação indireta, pois a redução não decorre de mudança na realidade laboral nem de cessação do fato gerador do adicional, mas de alteração normativa que repercute negativamente na remuneração.
+
+assim, não basta afirmar que a parcela não foi extinta formalmente: se houve redução nominal do que o servidor efetivamente recebe, e persistem as mesmas condições de trabalho, há afronta à garantia constitucional. a tese, portanto, prestigia a proteção remuneratória do servidor contra diminuições reais disfarçadas de mera reorganização da forma de cálculo. stj. 1ª turma. rms 72.765-ro, rel. min. gurgel de faria, julgado em 19/8/2025 (info 861).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 2</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-2">Não respondida</span>
+</div>
+
+<p class="enunciado">A alteração legislativa que apenas modifica a base de cálculo dos adicionais de insalubridade e de periculosidade incidentes sobre a remuneração de servidores públicos, sem suprimir formalmente tais parcelas, não afronta a garantia constitucional da irredutibilidade de vencimentos, ainda que reste comprovado decréscimo nominal da remuneração e permaneçam inalteradas as condições de trabalho que justificavam o pagamento dos adicionais.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(2, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(2, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-2">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque a garantia da irredutibilidade de vencimentos não é afastada pelo simples fato de a Administração ou o legislador manterem formalmente a rubrica do adicional, se a mudança normativa na base de cálculo produzir redução efetiva da remuneração do servidor. O ponto central do entendimento é que a proteção constitucional alcança não apenas a supressão expressa de parcelas remuneratórias, mas também a redução indireta ou reflexa do valor percebido, quando não há alteração das condições fáticas que legitimam o pagamento.<br><br>No caso dos adicionais de insalubridade e periculosidade, se o servidor continua exercendo as mesmas atividades em idênticas condições de risco, a modificação dos critérios de cálculo que resulte em diminuição comprovada da remuneração configura ofensa ao princípio da irredutibilidade de vencimentos. Trata-se de violação indireta, pois a redução não decorre de mudança na realidade laboral nem de cessação do fato gerador do adicional, mas de alteração normativa que repercute negativamente na remuneração.<br><br>Assim, não basta afirmar que a parcela não foi extinta formalmente: se houve redução nominal do que o servidor efetivamente recebe, e persistem as mesmas condições de trabalho, há afronta à garantia constitucional. A tese, portanto, prestigia a proteção remuneratória do servidor contra diminuições reais disfarçadas de mera reorganização da forma de cálculo.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Turma. RMS 72.765-RO, Rel. Min. Gurgel de Faria, julgado em 19/8/2025 (Info 861).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="no regime jurídico do serviço militar temporário, o limite de 96 meses previsto em lei deve ser aferido apenas em relação às prorrogações voluntárias do vínculo, de modo que o período de prestação inicial correspondente ao serviço militar obrigatório não integra esse cômputo para fins de verificação do teto máximo de permanência nas forças armadas. o enunciado está incorreto porque o prazo máximo de 96 meses de serviço militar temporário, previsto no art. 27, § 3º, da lei nº 4.375/1964, abrange o tempo total de permanência do militar como temporário em qualquer força armada, sem distinção entre período obrigatório e prorrogações voluntárias. a norma é expressa ao estabelecer que o serviço temporário “não poderá ultrapassar 96 (noventa e seis) meses, contínuos ou não, como militar, em qualquer força armada”, o que impede interpretação restritiva para excluir o tempo de serviço militar obrigatório.
+
+a consequência prática é relevante: os 12 meses iniciais de serviço militar obrigatório devem ser computados no total de 96 meses. assim, se o militar já cumpriu o período obrigatório, esse lapso integra o cômputo global e reduz o tempo remanescente disponível para eventual prorrogação do vínculo temporário voluntário. em outras palavras, não existe base legal para tratar o serviço obrigatório como tempo “neutro” ou apartado do teto máximo de permanência.
+
+esse entendimento preserva a literalidade do dispositivo e evita a criação de uma distinção não prevista em lei entre serviço obrigatório e serviço voluntário para fins de contagem do limite temporal. o critério legal é objetivo: soma-se todo o tempo de serviço militar temporário prestado, independentemente da origem do vínculo, até o máximo de 96 meses. stj. 2ª turma. resp 2.217.618-df, rel. min. francisco falcão, julgado em 2/9/2025 (info 861).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 3</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-3">Não respondida</span>
+</div>
+
+<p class="enunciado">No regime jurídico do serviço militar temporário, o limite de 96 meses previsto em lei deve ser aferido apenas em relação às prorrogações voluntárias do vínculo, de modo que o período de prestação inicial correspondente ao serviço militar obrigatório não integra esse cômputo para fins de verificação do teto máximo de permanência nas Forças Armadas.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(3, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(3, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-3">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O enunciado está incorreto porque o prazo máximo de 96 meses de serviço militar temporário, previsto no art. 27, § 3º, da Lei nº 4.375/1964, abrange o tempo total de permanência do militar como temporário em qualquer Força Armada, sem distinção entre período obrigatório e prorrogações voluntárias. A norma é expressa ao estabelecer que o serviço temporário “não poderá ultrapassar 96 (noventa e seis) meses, contínuos ou não, como militar, em qualquer Força Armada”, o que impede interpretação restritiva para excluir o tempo de serviço militar obrigatório.<br><br>A consequência prática é relevante: os 12 meses iniciais de serviço militar obrigatório devem ser computados no total de 96 meses. Assim, se o militar já cumpriu o período obrigatório, esse lapso integra o cômputo global e reduz o tempo remanescente disponível para eventual prorrogação do vínculo temporário voluntário. Em outras palavras, não existe base legal para tratar o serviço obrigatório como tempo “neutro” ou apartado do teto máximo de permanência.<br><br>Esse entendimento preserva a literalidade do dispositivo e evita a criação de uma distinção não prevista em lei entre serviço obrigatório e serviço voluntário para fins de contagem do limite temporal. O critério legal é objetivo: soma-se todo o tempo de serviço militar temporário prestado, independentemente da origem do vínculo, até o máximo de 96 meses.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 2ª Turma. REsp 2.217.618-DF, Rel. Min. Francisco Falcão, julgado em 2/9/2025 (Info 861).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a abertura de inventário e a ausência de partilha formal do único imóvel deixado pelo de cujus não afastam, por si sós, a proteção da impenhorabilidade quando o bem, à época da constrição, permanece destinado à moradia da entidade familiar, de modo que a morte do titular não extingue automaticamente a qualificação jurídica do imóvel como bem de família nem autoriza sua penhora em execução fiscal para satisfação de dívida tributária do falecido. a assertiva está correta porque a proteção conferida ao bem de família não se dissolve automaticamente com o falecimento do proprietário. o ponto central do entendimento é que a morte do devedor não converte, por si só, o imóvel residencial em bem livremente penhorável para pagamento de credores do espólio. se o imóvel continua servindo de residência à entidade familiar, preserva-se a sua natureza de bem de família, ainda que o bem esteja submetido a inventário e ainda não tenha havido partilha.
+
+no caso examinado, o imóvel era o único bem deixado pelo falecido e continuava sendo ocupado pela filha que com ele residia, circunstância suficiente para manter a proteção legal contra a constrição judicial. a execução fiscal proposta contra o espólio não afasta essa proteção, pois a impenhorabilidade incide sobre o bem enquanto presente a destinação residencial protegida pelo ordenamento.
+
+a tese também é compatível com a lógica de tutela da moradia e da dignidade da família sobrevivente: a sucessão causa a transmissão patrimonial, mas não elimina automaticamente as limitações legais incidentes sobre o bem. assim, a existência de inventário, por si só, não legitima a penhora do imóvel se ele permanece qualificado como residência familiar. stj. 1ª turma. agint no resp 2.168.820-rs, rel. min. benedito gonçalves, julgado em 18/8/2025 (info 861).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 4</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-4">Não respondida</span>
+</div>
+
+<p class="enunciado">A abertura de inventário e a ausência de partilha formal do único imóvel deixado pelo de cujus não afastam, por si sós, a proteção da impenhorabilidade quando o bem, à época da constrição, permanece destinado à moradia da entidade familiar, de modo que a morte do titular não extingue automaticamente a qualificação jurídica do imóvel como bem de família nem autoriza sua penhora em execução fiscal para satisfação de dívida tributária do falecido.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(4, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(4, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-4">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque a proteção conferida ao bem de família não se dissolve automaticamente com o falecimento do proprietário. O ponto central do entendimento é que a morte do devedor não converte, por si só, o imóvel residencial em bem livremente penhorável para pagamento de credores do espólio. Se o imóvel continua servindo de residência à entidade familiar, preserva-se a sua natureza de bem de família, ainda que o bem esteja submetido a inventário e ainda não tenha havido partilha.<br><br>No caso examinado, o imóvel era o único bem deixado pelo falecido e continuava sendo ocupado pela filha que com ele residia, circunstância suficiente para manter a proteção legal contra a constrição judicial. A execução fiscal proposta contra o espólio não afasta essa proteção, pois a impenhorabilidade incide sobre o bem enquanto presente a destinação residencial protegida pelo ordenamento.<br><br>A tese também é compatível com a lógica de tutela da moradia e da dignidade da família sobrevivente: a sucessão causa a transmissão patrimonial, mas não elimina automaticamente as limitações legais incidentes sobre o bem. Assim, a existência de inventário, por si só, não legitima a penhora do imóvel se ele permanece qualificado como residência familiar.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Turma. AgInt no REsp 2.168.820-RS, Rel. Min. Benedito Gonçalves, julgado em 18/8/2025 (Info 861).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a quantia já resgatada pelo próprio segurado em contrato de seguro de vida resgatável não se beneficia, por si só, da impenhorabilidade prevista para o seguro de vida no art. 833, vi, do cpc, pois, uma vez destacado do regime securitário e convertido em disponibilidade patrimonial assemelhada a investimento, o numerário pode ser alcançado por execução, sem prejuízo de eventual incidência da proteção do art. 833, x, do cpc, se demonstrada a natureza de reserva de subsistência e observado o limite legal. a proteção do art. 833, vi, do cpc alcança o seguro de vida em sua feição típica, isto é, como contrato voltado à cobertura de risco e pagamento de indenização em caso de sinistro, preservando-se a finalidade alimentar e protetiva da avença. contudo, o seguro de vida resgatável possui estrutura híbrida: parte do prêmio remunera a cobertura securitária, mas outra parcela é capitalizada/investida e pode ser resgatada pelo segurado em vida, após o prazo de carência, com nítida aproximação de produto de investimento.
+
+por essa razão, o valor já resgatado não permanece acobertado pela impenhorabilidade específica do seguro de vida, porque deixa de integrar a reserva securitária protegida e passa a compor o patrimônio disponível do devedor. a consequência prática é que a regra do art. 833, vi, do cpc não se aplica automaticamente ao montante resgatado.
+
+isso não significa, porém, penhorabilidade irrestrita em qualquer hipótese. o julgado ressalva que pode haver exame da proteção do art. 833, x, do cpc, relativa à quantia depositada em caderneta de poupança até 40 salários mínimos, desde que demonstrada a finalidade de subsistência. assim, a impenhorabilidade não decorre da natureza de seguro de vida resgatável, mas eventualmente de outra hipótese legal, se preenchidos seus requisitos.
+
+em síntese: o que é protegido pelo art. 833, vi, é o seguro de vida tradicional; o valor já resgatado do seguro de vida resgatável perde essa blindagem específica e pode ser penhorado, salvo eventual enquadramento em outra regra legal de impenhorabilidade. stj. 3ª turma. resp 2.176.434-df, rel. min. ricardo villas bôas cueva, julgado em 2/9/2025 (info 861).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 5</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-5">Não respondida</span>
+</div>
+
+<p class="enunciado">A quantia já resgatada pelo próprio segurado em contrato de seguro de vida resgatável não se beneficia, por si só, da impenhorabilidade prevista para o seguro de vida no art. 833, VI, do CPC, pois, uma vez destacado do regime securitário e convertido em disponibilidade patrimonial assemelhada a investimento, o numerário pode ser alcançado por execução, sem prejuízo de eventual incidência da proteção do art. 833, X, do CPC, se demonstrada a natureza de reserva de subsistência e observado o limite legal.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(5, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(5, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-5">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A proteção do art. 833, VI, do CPC alcança o seguro de vida em sua feição típica, isto é, como contrato voltado à cobertura de risco e pagamento de indenização em caso de sinistro, preservando-se a finalidade alimentar e protetiva da avença. Contudo, o seguro de vida resgatável possui estrutura híbrida: parte do prêmio remunera a cobertura securitária, mas outra parcela é capitalizada/investida e pode ser resgatada pelo segurado em vida, após o prazo de carência, com nítida aproximação de produto de investimento.<br><br>Por essa razão, o valor já resgatado não permanece acobertado pela impenhorabilidade específica do seguro de vida, porque deixa de integrar a reserva securitária protegida e passa a compor o patrimônio disponível do devedor. A consequência prática é que a regra do art. 833, VI, do CPC não se aplica automaticamente ao montante resgatado.<br><br>Isso não significa, porém, penhorabilidade irrestrita em qualquer hipótese. O julgado ressalva que pode haver exame da proteção do art. 833, X, do CPC, relativa à quantia depositada em caderneta de poupança até 40 salários mínimos, desde que demonstrada a finalidade de subsistência. Assim, a impenhorabilidade não decorre da natureza de seguro de vida resgatável, mas eventualmente de outra hipótese legal, se preenchidos seus requisitos.<br><br>Em síntese: o que é protegido pelo art. 833, VI, é o seguro de vida tradicional; o valor já resgatado do seguro de vida resgatável perde essa blindagem específica e pode ser penhorado, salvo eventual enquadramento em outra regra legal de impenhorabilidade.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.176.434-DF, Rel. Min. Ricardo Villas Bôas Cueva, julgado em 2/9/2025 (Info 861).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a ausência de registro da transferência de veículo automotor no órgão de trânsito, por si só, não basta para imputar ao antigo proprietário a responsabilidade civil por acidente ocorrido após a tradição do bem, desde que fique efetivamente comprovada a alienação, hipótese em que se afasta a incidência de responsabilidade do alienante por fatos posteriores decorrentes da utilização do veículo. a responsabilidade civil do alienante não subsiste automaticamente apenas porque a transferência do veículo não foi formalizada perante o órgão de trânsito. o ponto decisivo é a efetiva tradição do bem, isto é, a comprovação de que houve alienação real do veículo a terceiro antes do evento danoso. nessa hipótese, os danos causados posteriormente pela utilização do automóvel não podem ser imputados ao antigo proprietário, pois ele já não exercia a posse nem a disponibilidade fática sobre o bem.
+
+o entendimento preserva a orientação consolidada na súmula 132 do stj, segundo a qual a ausência de registro da transferência não implica, por si, a responsabilidade do antigo proprietário por dano resultante de acidente envolvendo o veículo alienado. contudo, a aplicação dessa diretriz não é automática: exige prova efetiva da alienação/tradição. sem essa comprovação, não se afasta a possibilidade de responsabilização do suposto alienante, especialmente quando persistirem dúvidas sobre a real transferência da titularidade fática do veículo.
+
+assim, o elemento central não é o registro administrativo, mas a demonstração concreta de que o veículo já havia sido alienado antes do acidente. stj. 4ª turma. agint no aresp 2.330.842-df, rel. min. joão otávio de noronha, julgado em 25/8/2025 (info 861).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 6</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-6">Não respondida</span>
+</div>
+
+<p class="enunciado">A ausência de registro da transferência de veículo automotor no órgão de trânsito, por si só, não basta para imputar ao antigo proprietário a responsabilidade civil por acidente ocorrido após a tradição do bem, desde que fique efetivamente comprovada a alienação, hipótese em que se afasta a incidência de responsabilidade do alienante por fatos posteriores decorrentes da utilização do veículo.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(6, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(6, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-6">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A responsabilidade civil do alienante não subsiste automaticamente apenas porque a transferência do veículo não foi formalizada perante o órgão de trânsito. O ponto decisivo é a efetiva tradição do bem, isto é, a comprovação de que houve alienação real do veículo a terceiro antes do evento danoso. Nessa hipótese, os danos causados posteriormente pela utilização do automóvel não podem ser imputados ao antigo proprietário, pois ele já não exercia a posse nem a disponibilidade fática sobre o bem.<br><br>O entendimento preserva a orientação consolidada na Súmula 132 do STJ, segundo a qual a ausência de registro da transferência não implica, por si, a responsabilidade do antigo proprietário por dano resultante de acidente envolvendo o veículo alienado. Contudo, a aplicação dessa diretriz não é automática: exige prova efetiva da alienação/tradição. Sem essa comprovação, não se afasta a possibilidade de responsabilização do suposto alienante, especialmente quando persistirem dúvidas sobre a real transferência da titularidade fática do veículo.<br><br>Assim, o elemento central não é o registro administrativo, mas a demonstração concreta de que o veículo já havia sido alienado antes do acidente.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 4ª Turma. AgInt no AREsp 2.330.842-DF, Rel. Min. João Otávio de Noronha, julgado em 25/8/2025 (Info 861).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a bolsa de valores responde objetivamente pelos prejuízos suportados por investidores em razão da liquidação extrajudicial de corretora credenciada, bastando a demonstração de que a intermediária permaneceu operando no mercado apesar de desenquadrada dos requisitos mínimos de funcionamento, ainda que a entidade administradora tenha instaurado procedimentos administrativos, aplicado sanções regulamentares e divulgado os respectivos resultados. a responsabilização civil da bolsa de valores, nessa hipótese, não decorre automaticamente do simples fato de a corretora ter sido posteriormente submetida à liquidação extrajudicial nem da constatação de que ela operava em situação irregular. o ponto central é que a imputação de dever de indenizar depende da demonstração de falha no dever de fiscalização que incumbe à entidade administradora do mercado, nos termos da disciplina legal e regulamentar aplicável.
+
+no caso examinado, a atuação da bolsa não foi omissa nem negligente: houve instauração de processos administrativos, aplicação das sanções previstas nas normas de regência e divulgação dos resultados, sem que se evidenciasse desproporcionalidade manifesta ou inércia fiscalizatória. assim, ausente o elemento de culpa/falha do serviço de fiscalização, não se reconhece o dever de indenizar.
+
+em outras palavras, o prejuízo do investidor, por si só, não basta para transferir à bolsa a responsabilidade pelos danos decorrentes da liquidação extrajudicial da corretora. é indispensável demonstrar que a entidade administradora deixou de cumprir adequadamente seu dever legal de supervisão, o que não ocorreu no caso concreto. stj. 3ª turma. resp 2.157.955-pr, rel. min. nancy andrighi, julgado em 19/8/2025 (info 861).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 7</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-7">Não respondida</span>
+</div>
+
+<p class="enunciado">A bolsa de valores responde objetivamente pelos prejuízos suportados por investidores em razão da liquidação extrajudicial de corretora credenciada, bastando a demonstração de que a intermediária permaneceu operando no mercado apesar de desenquadrada dos requisitos mínimos de funcionamento, ainda que a entidade administradora tenha instaurado procedimentos administrativos, aplicado sanções regulamentares e divulgado os respectivos resultados.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(7, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(7, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-7">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A responsabilização civil da bolsa de valores, nessa hipótese, não decorre automaticamente do simples fato de a corretora ter sido posteriormente submetida à liquidação extrajudicial nem da constatação de que ela operava em situação irregular. O ponto central é que a imputação de dever de indenizar depende da demonstração de falha no dever de fiscalização que incumbe à entidade administradora do mercado, nos termos da disciplina legal e regulamentar aplicável.<br><br>No caso examinado, a atuação da bolsa não foi omissa nem negligente: houve instauração de processos administrativos, aplicação das sanções previstas nas normas de regência e divulgação dos resultados, sem que se evidenciasse desproporcionalidade manifesta ou inércia fiscalizatória. Assim, ausente o elemento de culpa/falha do serviço de fiscalização, não se reconhece o dever de indenizar.<br><br>Em outras palavras, o prejuízo do investidor, por si só, não basta para transferir à bolsa a responsabilidade pelos danos decorrentes da liquidação extrajudicial da corretora. É indispensável demonstrar que a entidade administradora deixou de cumprir adequadamente seu dever legal de supervisão, o que não ocorreu no caso concreto.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.157.955-PR, Rel. Min. Nancy Andrighi, julgado em 19/8/2025 (Info 861).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a anulação, pelo superior tribunal de justiça, do acórdão proferido em embargos de declaração por ausência de intimação da parte contrária para contrarrazões impõe, como regra, a redistribuição do feito a novo relator, sendo ilegítima a remessa ao relator originário, ainda que o regimento interno do tribunal de origem preveja o retorno do processo ao estado anterior à decisão invalidada. a assertiva está incorreta porque a anulação do julgamento dos embargos de declaração, por vício processual consistente na ausência de intimação da parte adversa para contrarrazões, não gera, por si só, imposição de redistribuição a novo relator. ao contrário, é juridicamente válida a determinação de retorno dos autos ao relator originário quando essa providência estiver amparada no regimento interno do tribunal e decorrer da restauração da fase processual anterior à decisão anulada.
+
+no caso, a lógica adotada foi a de que a invalidação do acórdão dos embargos faz com que o processo retorne ao momento em que ainda subsistia a relatoria originária do agravo de instrumento. assim, se o regimento interno do tribunal prevê a redistribuição ao gabinete do relator originário para novo exame da matéria, não há ofensa ao princípio do juiz natural nem violação a direito líquido e certo. a redistribuição, nessa hipótese, não representa escolha arbitrária do julgador, mas simples recomposição da marcha processual após a anulação do ato decisório.
+
+também não procede a ideia de que a anulação do acórdão exigiria, necessariamente, a designação de novo relator. o entendimento prestigia a autonomia regimental dos tribunais para disciplinar a distribuição interna dos feitos, desde que respeitados os parâmetros constitucionais e processuais aplicáveis. assim, a remessa ao relator originário é legítima quando compatível com a disciplina interna e com a necessidade de refazer o julgamento invalidado. stj. 4ª turma. agint nos edcl no rms 74.656-pr, rel. min. joão otávio de noronha, julgado em 18/8/2025 (info 861).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 8</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-8">Não respondida</span>
+</div>
+
+<p class="enunciado">A anulação, pelo Superior Tribunal de Justiça, do acórdão proferido em embargos de declaração por ausência de intimação da parte contrária para contrarrazões impõe, como regra, a redistribuição do feito a novo relator, sendo ilegítima a remessa ao relator originário, ainda que o regimento interno do tribunal de origem preveja o retorno do processo ao estado anterior à decisão invalidada.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(8, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(8, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-8">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque a anulação do julgamento dos embargos de declaração, por vício processual consistente na ausência de intimação da parte adversa para contrarrazões, não gera, por si só, imposição de redistribuição a novo relator. Ao contrário, é juridicamente válida a determinação de retorno dos autos ao relator originário quando essa providência estiver amparada no regimento interno do tribunal e decorrer da restauração da fase processual anterior à decisão anulada.<br><br>No caso, a lógica adotada foi a de que a invalidação do acórdão dos embargos faz com que o processo retorne ao momento em que ainda subsistia a relatoria originária do agravo de instrumento. Assim, se o regimento interno do tribunal prevê a redistribuição ao gabinete do relator originário para novo exame da matéria, não há ofensa ao princípio do juiz natural nem violação a direito líquido e certo. A redistribuição, nessa hipótese, não representa escolha arbitrária do julgador, mas simples recomposição da marcha processual após a anulação do ato decisório.<br><br>Também não procede a ideia de que a anulação do acórdão exigiria, necessariamente, a designação de novo relator. O entendimento prestigia a autonomia regimental dos tribunais para disciplinar a distribuição interna dos feitos, desde que respeitados os parâmetros constitucionais e processuais aplicáveis. Assim, a remessa ao relator originário é legítima quando compatível com a disciplina interna e com a necessidade de refazer o julgamento invalidado.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 4ª Turma. AgInt nos EDcl no RMS 74.656-PR, Rel. Min. João Otávio de Noronha, julgado em 18/8/2025 (Info 861).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a inclusão dos sócios no polo passivo de execução ajuizada contra sociedade empresária, com fundamento em sucessão processual, exige demonstração de que a pessoa jurídica foi efetivamente dissolvida e teve extinta a sua personalidade jurídica, sendo insuficientes, por si sós, a alteração do endereço cadastral da empresa e a anotação de “inapta” no cnpj para autorizar a equiparação do encerramento das atividades à morte da pessoa natural. a sucessão processual prevista para a hipótese de extinção de sujeito processual pressupõe a perda da personalidade jurídica da parte originária, situação que, no caso de sociedade empresária, somente se equipara à morte da pessoa natural quando há prova de sua dissolução e da consequente extinção da personalidade jurídica. não basta a mera dificuldade de localização da empresa, a mudança de endereço cadastral ou a existência de registro de “inapta” no cnpj, pois tais circunstâncias podem revelar irregularidade cadastral, inatividade fática ou ocultação patrimonial, mas não demonstram, por si, o desaparecimento jurídico da sociedade.
+
+esse ponto é relevante porque a sucessão processual não se confunde com outras técnicas de responsabilização patrimonial ou de redirecionamento da execução. para que os sócios ingressem no polo passivo por sucessão, é indispensável a prova de que a sociedade deixou de existir juridicamente. na ausência dessa prova, não se pode presumir a extinção da personalidade apenas a partir de indícios externos de encerramento das atividades empresariais. stj. 3ª turma. resp 2.179.688-rs, rel. min. ricardo villas bôas cueva, julgado em 2/9/2025 (info 861).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 9</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-9">Não respondida</span>
+</div>
+
+<p class="enunciado">A inclusão dos sócios no polo passivo de execução ajuizada contra sociedade empresária, com fundamento em sucessão processual, exige demonstração de que a pessoa jurídica foi efetivamente dissolvida e teve extinta a sua personalidade jurídica, sendo insuficientes, por si sós, a alteração do endereço cadastral da empresa e a anotação de “inapta” no CNPJ para autorizar a equiparação do encerramento das atividades à morte da pessoa natural.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(9, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(9, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-9">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A sucessão processual prevista para a hipótese de extinção de sujeito processual pressupõe a perda da personalidade jurídica da parte originária, situação que, no caso de sociedade empresária, somente se equipara à morte da pessoa natural quando há prova de sua dissolução e da consequente extinção da personalidade jurídica. Não basta a mera dificuldade de localização da empresa, a mudança de endereço cadastral ou a existência de registro de “inapta” no CNPJ, pois tais circunstâncias podem revelar irregularidade cadastral, inatividade fática ou ocultação patrimonial, mas não demonstram, por si, o desaparecimento jurídico da sociedade.<br><br>Esse ponto é relevante porque a sucessão processual não se confunde com outras técnicas de responsabilização patrimonial ou de redirecionamento da execução. Para que os sócios ingressem no polo passivo por sucessão, é indispensável a prova de que a sociedade deixou de existir juridicamente. Na ausência dessa prova, não se pode presumir a extinção da personalidade apenas a partir de indícios externos de encerramento das atividades empresariais.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.179.688-RS, Rel. Min. Ricardo Villas Bôas Cueva, julgado em 2/9/2025 (Info 861).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="na execução extinta por abandono da causa após reiteradas diligências infrutíferas para localização de bens penhoráveis do executado, a imposição de honorários advocatícios sucumbenciais ao exequente não se justifica pelo simples encerramento do processo sem satisfação do crédito, pois, nessa hipótese, a distribuição dos ônus deve observar o princípio da causalidade, imputando-se a verba ao devedor que deu causa à instauração da demanda executiva e à sua frustração superveniente, ainda que a extinção decorra formalmente de desídia do credor. a assertiva está correta porque reproduz a lógica decisória aplicada ao caso: embora a execução tenha sido extinta por abandono da causa, o critério determinante para a fixação dos honorários não é, de modo automático, a sucumbência formal do exequente, mas sim a causalidade. se a execução foi proposta em razão do inadimplemento do devedor e, no curso do feito, restou frustrada a localização de bens passíveis de penhora, não é juridicamente adequado transferir ao credor, além da insatisfação do crédito, também o ônus sucumbencial.
+
+o entendimento afasta a aplicação mecânica do princípio da sucumbência em hipóteses em que a extinção do processo executivo decorre, em última análise, da impossibilidade de satisfação do crédito por ausência de patrimônio penhorável do executado. nessa situação, o devedor não apenas deu causa ao ajuizamento da execução, como também contribuiu para a sua inutilidade prática, de modo que seria indevido beneficiá-lo com honorários em seu favor apenas porque o exequente, diante da persistente frustração das diligências, abandonou a demanda.
+
+em síntese, a extinção por abandono não altera, por si só, a regra de imputação dos ônus quando a causa eficiente da demanda e de sua frustração é o inadimplemento do executado. assim, os honorários sucumbenciais devem ser suportados pelo devedor, em observância ao princípio da causalidade. stj. 4ª turma. agint no aresp 2.007.859-pr, rel. min. antonio carlos ferreira, rel. para acórdão min. raul araújo, julgado em 10/6/2025 (info 861).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 10</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-10">Não respondida</span>
+</div>
+
+<p class="enunciado">Na execução extinta por abandono da causa após reiteradas diligências infrutíferas para localização de bens penhoráveis do executado, a imposição de honorários advocatícios sucumbenciais ao exequente não se justifica pelo simples encerramento do processo sem satisfação do crédito, pois, nessa hipótese, a distribuição dos ônus deve observar o princípio da causalidade, imputando-se a verba ao devedor que deu causa à instauração da demanda executiva e à sua frustração superveniente, ainda que a extinção decorra formalmente de desídia do credor.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(10, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(10, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-10">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a lógica decisória aplicada ao caso: embora a execução tenha sido extinta por abandono da causa, o critério determinante para a fixação dos honorários não é, de modo automático, a sucumbência formal do exequente, mas sim a causalidade. Se a execução foi proposta em razão do inadimplemento do devedor e, no curso do feito, restou frustrada a localização de bens passíveis de penhora, não é juridicamente adequado transferir ao credor, além da insatisfação do crédito, também o ônus sucumbencial.<br><br>O entendimento afasta a aplicação mecânica do princípio da sucumbência em hipóteses em que a extinção do processo executivo decorre, em última análise, da impossibilidade de satisfação do crédito por ausência de patrimônio penhorável do executado. Nessa situação, o devedor não apenas deu causa ao ajuizamento da execução, como também contribuiu para a sua inutilidade prática, de modo que seria indevido beneficiá-lo com honorários em seu favor apenas porque o exequente, diante da persistente frustração das diligências, abandonou a demanda.<br><br>Em síntese, a extinção por abandono não altera, por si só, a regra de imputação dos ônus quando a causa eficiente da demanda e de sua frustração é o inadimplemento do executado. Assim, os honorários sucumbenciais devem ser suportados pelo devedor, em observância ao princípio da causalidade.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 4ª Turma. AgInt no AREsp 2.007.859-PR, Rel. Min. Antonio Carlos Ferreira, Rel. para acórdão Min. Raul Araújo, julgado em 10/6/2025 (Info 861).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="nas hipóteses em que o tipo penal comina, de forma alternativa, pena privativa de liberdade ou multa, a escolha pela sanção pecuniária deve prevalecer sempre que se revelar mais branda ao réu, por força de uma suposta hierarquia legal entre as espécies sancionatórias, de modo que o magistrado fica vinculado à opção menos gravosa, ainda que a substituição não seja expressamente imposta pelo legislador. a assertiva está incorreta porque a existência de cominação alternativa entre pena privativa de liberdade e multa não cria, por si só, uma preferência legal automática pela multa. nos crimes em que o legislador prevê mais de uma resposta penal possível, a escolha da sanção aplicável integra o espaço de discricionariedade judicial, que deve ser exercido com fundamentação e à luz das circunstâncias do caso concreto.
+
+no delito de ameaça, por exemplo, o art. 147 do código penal prevê detenção de 1 a 6 meses, ou multa. isso não significa que a multa seja obrigatoriamente imposta por ser “mais branda” em abstrato. o ponto central é que não há hierarquia normativa entre as alternativas cominadas; cabe ao julgador selecionar, de maneira motivada, a pena que melhor se ajuste à reprovação e à prevenção do fato, observados os critérios legais de individualização da pena.
+
+a tese defensiva de que a opção menos gravosa deveria prevalecer automaticamente foi rejeitada justamente porque transformaria uma faculdade legal do juiz em imposição vinculada sem amparo no texto legal. assim, a mera existência da alternativa de multa não autoriza concluir que ela deva ser aplicada sempre, nem que a pena privativa de liberdade só possa ser escolhida em caráter excepcionalíssimo por previsão expressa. stj. 6ª turma. resp 2.052.237-sc, rel. min. sebastião reis júnior, julgado em 20/8/2025 (info 861).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 11</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-11">Não respondida</span>
+</div>
+
+<p class="enunciado">Nas hipóteses em que o tipo penal comina, de forma alternativa, pena privativa de liberdade ou multa, a escolha pela sanção pecuniária deve prevalecer sempre que se revelar mais branda ao réu, por força de uma suposta hierarquia legal entre as espécies sancionatórias, de modo que o magistrado fica vinculado à opção menos gravosa, ainda que a substituição não seja expressamente imposta pelo legislador.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(11, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(11, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-11">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque a existência de cominação alternativa entre pena privativa de liberdade e multa não cria, por si só, uma preferência legal automática pela multa. Nos crimes em que o legislador prevê mais de uma resposta penal possível, a escolha da sanção aplicável integra o espaço de discricionariedade judicial, que deve ser exercido com fundamentação e à luz das circunstâncias do caso concreto.<br><br>No delito de ameaça, por exemplo, o art. 147 do Código Penal prevê detenção de 1 a 6 meses, ou multa. Isso não significa que a multa seja obrigatoriamente imposta por ser “mais branda” em abstrato. O ponto central é que não há hierarquia normativa entre as alternativas cominadas; cabe ao julgador selecionar, de maneira motivada, a pena que melhor se ajuste à reprovação e à prevenção do fato, observados os critérios legais de individualização da pena.<br><br>A tese defensiva de que a opção menos gravosa deveria prevalecer automaticamente foi rejeitada justamente porque transformaria uma faculdade legal do juiz em imposição vinculada sem amparo no texto legal. Assim, a mera existência da alternativa de multa não autoriza concluir que ela deva ser aplicada sempre, nem que a pena privativa de liberdade só possa ser escolhida em caráter excepcionalíssimo por previsão expressa.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 6ª Turma. REsp 2.052.237-SC, Rel. Min. Sebastião Reis Júnior, julgado em 20/8/2025 (Info 861).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a nomeação do sócio-administrador como depositário judicial de bens penhorados pertencentes à sociedade empresária afasta a tipicidade do art. 168, § 1º, ii, do código penal, pois a existência de vínculo societário impede a caracterização de “coisa alheia” e, por conseguinte, exclui a responsabilização penal pela não restituição ou pela destinação irregular desses bens. a assertiva está incorreta porque a relação societária não descaracteriza a alheiedade dos bens da pessoa jurídica nem impede a incidência da apropriação indébita qualificada quando o agente, na condição de depositário judicial, se apropria, desvia ou deixa de restituir bens penhorados.
+
+o ponto central do entendimento é que os bens pertencentes à sociedade empresária continuam sendo juridicamente “coisa alheia” em relação ao sócio-administrador, ainda que ele exerça poderes de administração sobre o patrimônio social. a posse exercida em razão do depósito judicial é posse qualificada, com dever específico de guarda e restituição, de modo que a violação dessa obrigação pode configurar o tipo do art. 168, § 1º, ii, do código penal.
+
+além disso, a responsabilização penal não é afastada pela mera circunstância de o agente integrar o quadro societário da empresa. o que importa é a destinação irregular dos bens penhorados, sob custódia judicial, por quem detinha a posse em razão do encargo de depositário. assim, se o sócio-administrador, nomeado depositário, se apropria ou deixa de restituir os bens, a conduta subsume-se ao tipo penal, independentemente de eventuais vínculos societários.
+
+em síntese, a tese firmada reconhece que:
+- os bens da pessoa jurídica são alheios ao sócio para fins penais;
+- a nomeação como depositário judicial cria dever jurídico de guarda e restituição;
+- a violação desse dever pode caracterizar apropriação indébita qualificada. stj. 5ª turma. resp 2.215.933-sc, rel. min. ribeiro dantas, julgado em 2/9/2025 (info 861).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 12</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-12">Não respondida</span>
+</div>
+
+<p class="enunciado">A nomeação do sócio-administrador como depositário judicial de bens penhorados pertencentes à sociedade empresária afasta a tipicidade do art. 168, § 1º, II, do Código Penal, pois a existência de vínculo societário impede a caracterização de “coisa alheia” e, por conseguinte, exclui a responsabilização penal pela não restituição ou pela destinação irregular desses bens.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(12, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(12, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-12">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque a relação societária não descaracteriza a alheiedade dos bens da pessoa jurídica nem impede a incidência da apropriação indébita qualificada quando o agente, na condição de depositário judicial, se apropria, desvia ou deixa de restituir bens penhorados.<br><br>O ponto central do entendimento é que os bens pertencentes à sociedade empresária continuam sendo juridicamente “coisa alheia” em relação ao sócio-administrador, ainda que ele exerça poderes de administração sobre o patrimônio social. A posse exercida em razão do depósito judicial é posse qualificada, com dever específico de guarda e restituição, de modo que a violação dessa obrigação pode configurar o tipo do art. 168, § 1º, II, do Código Penal.<br><br>Além disso, a responsabilização penal não é afastada pela mera circunstância de o agente integrar o quadro societário da empresa. O que importa é a destinação irregular dos bens penhorados, sob custódia judicial, por quem detinha a posse em razão do encargo de depositário. Assim, se o sócio-administrador, nomeado depositário, se apropria ou deixa de restituir os bens, a conduta subsume-se ao tipo penal, independentemente de eventuais vínculos societários.<br><br>Em síntese, a tese firmada reconhece que:<br>- os bens da pessoa jurídica são alheios ao sócio para fins penais;<br>- a nomeação como depositário judicial cria dever jurídico de guarda e restituição;<br>- a violação desse dever pode caracterizar apropriação indébita qualificada.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 5ª Turma. REsp 2.215.933-SC, Rel. Min. Ribeiro Dantas, julgado em 2/9/2025 (Info 861).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="ECA"
+data-texto="em investigação de crime praticado pela internet contra criança residente no brasil, é legítima a determinação judicial dirigida a empresa multinacional que atua no país para que forneça dados telemáticos do usuário investigado, sendo desnecessária a instauração de cooperação jurídica internacional apenas porque a conta indicada apresenta vínculos ou atividades em outro país; nessa hipótese, a imposição de multa diária pelo descumprimento da ordem é admissível, desde que fixada com observância da proporcionalidade e da razoabilidade. a assertiva está correta porque reproduz a lógica central do entendimento firmado: empresas multinacionais que exploram serviços no brasil submetem-se à jurisdição brasileira e às ordens judiciais regularmente expedidas no âmbito de investigação criminal, inclusive para fornecimento de dados telemáticos necessários à identificação de autor de delito praticado pela internet. o fato de haver indícios de que a conta investigada tenha atividades em outro país não desloca, por si só, a exigência para o plano da cooperação jurídica internacional, quando a providência é dirigida à empresa que atua no território nacional e possui capacidade de cumprir a determinação.
+
+o ponto relevante é que a cooperação internacional não é condição automática para toda e qualquer requisição de dados quando a ordem judicial incide sobre pessoa jurídica com atuação no brasil. em outras palavras, a existência de elementos transnacionais no caso não impede a atuação da jurisdição brasileira sobre a empresa que mantém operação no país, especialmente quando a medida é instrumental à persecução penal e à proteção de vítima criança.
+
+além disso, a multa diária pelo descumprimento da ordem judicial é admitida como meio de coerção ao cumprimento, desde que o seu valor e a sua incidência respeitem os critérios de proporcionalidade e razoabilidade. assim, a sanção não é vedada em tese; o controle judicial recai sobre sua adequação e moderação no caso concreto. stj. 6ª turma. agrg no rms 74.604-to, rel. min. otávio de almeida toledo (desembargador convocado do tjsp), julgado em 2/9/2025 (info 861).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 13</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-13">Não respondida</span>
+</div>
+
+<p class="enunciado">Em investigação de crime praticado pela internet contra criança residente no Brasil, é legítima a determinação judicial dirigida a empresa multinacional que atua no país para que forneça dados telemáticos do usuário investigado, sendo desnecessária a instauração de cooperação jurídica internacional apenas porque a conta indicada apresenta vínculos ou atividades em outro país; nessa hipótese, a imposição de multa diária pelo descumprimento da ordem é admissível, desde que fixada com observância da proporcionalidade e da razoabilidade.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(13, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(13, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-13">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a lógica central do entendimento firmado: empresas multinacionais que exploram serviços no Brasil submetem-se à jurisdição brasileira e às ordens judiciais regularmente expedidas no âmbito de investigação criminal, inclusive para fornecimento de dados telemáticos necessários à identificação de autor de delito praticado pela internet. O fato de haver indícios de que a conta investigada tenha atividades em outro país não desloca, por si só, a exigência para o plano da cooperação jurídica internacional, quando a providência é dirigida à empresa que atua no território nacional e possui capacidade de cumprir a determinação.<br><br>O ponto relevante é que a cooperação internacional não é condição automática para toda e qualquer requisição de dados quando a ordem judicial incide sobre pessoa jurídica com atuação no Brasil. Em outras palavras, a existência de elementos transnacionais no caso não impede a atuação da jurisdição brasileira sobre a empresa que mantém operação no país, especialmente quando a medida é instrumental à persecução penal e à proteção de vítima criança.<br><br>Além disso, a multa diária pelo descumprimento da ordem judicial é admitida como meio de coerção ao cumprimento, desde que o seu valor e a sua incidência respeitem os critérios de proporcionalidade e razoabilidade. Assim, a sanção não é vedada em tese; o controle judicial recai sobre sua adequação e moderação no caso concreto.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 6ª Turma. AgRg no RMS 74.604-TO, Rel. Min. Otávio de Almeida Toledo (Desembargador convocado do TJSP), julgado em 2/9/2025 (Info 861).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="em processo penal, a contagem do prazo de 10 dias para consulta de intimação eletrônica inicia-se na data do envio da comunicação ao portal, sendo irrelevante a ocorrência de feriados ou dias não úteis no período, de modo que, não havendo consulta dentro desse interregno, a intimação reputa-se automaticamente realizada ao término do prazo de acesso, nos termos da disciplina legal aplicável. a assertiva está correta porque reproduz a lógica da intimação eletrônica prevista na lei n. 11.419/2006: o prazo de 10 dias corridos para consulta conta-se a partir do envio da intimação ao sistema eletrônico, sem suspensão por feriados ou dias não úteis, já que se trata de prazo material de disponibilização da comunicação no ambiente eletrônico, e não de prazo processual sujeito à contagem apenas em dias úteis. decorrido integralmente o período sem consulta pelo destinatário, a intimação é considerada automaticamente realizada no último dia do prazo, por força do art. 5º, § 3º, da lei n. 11.419/2006. em matéria penal, esse marco é relevante para a definição do termo inicial de prazos recursais e demais providências processuais subsequentes, razão pela qual a contagem deve observar exatamente o período de disponibilização eletrônica, independentemente de eventual coincidência com feriados ou dias não úteis. stj. 5ª turma. agrg no aresp 2.492.606-df, rel. min. messod azulay neto, julgado em 5/8/2025 (info 861).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 14</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-14">Não respondida</span>
+</div>
+
+<p class="enunciado">Em processo penal, a contagem do prazo de 10 dias para consulta de intimação eletrônica inicia-se na data do envio da comunicação ao portal, sendo irrelevante a ocorrência de feriados ou dias não úteis no período, de modo que, não havendo consulta dentro desse interregno, a intimação reputa-se automaticamente realizada ao término do prazo de acesso, nos termos da disciplina legal aplicável.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(14, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(14, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-14">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a lógica da intimação eletrônica prevista na Lei n. 11.419/2006: o prazo de 10 dias corridos para consulta conta-se a partir do envio da intimação ao sistema eletrônico, sem suspensão por feriados ou dias não úteis, já que se trata de prazo material de disponibilização da comunicação no ambiente eletrônico, e não de prazo processual sujeito à contagem apenas em dias úteis. Decorrido integralmente o período sem consulta pelo destinatário, a intimação é considerada automaticamente realizada no último dia do prazo, por força do art. 5º, § 3º, da Lei n. 11.419/2006. Em matéria penal, esse marco é relevante para a definição do termo inicial de prazos recursais e demais providências processuais subsequentes, razão pela qual a contagem deve observar exatamente o período de disponibilização eletrônica, independentemente de eventual coincidência com feriados ou dias não úteis.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 5ª Turma. AgRg no AREsp 2.492.606-DF, Rel. Min. Messod Azulay Neto, julgado em 5/8/2025 (Info 861).</p>
+</div>
+</section>
+
+</div>
+
+<script>
+const storageKey = location.pathname + "_respostas";
+let respostas = JSON.parse(localStorage.getItem(storageKey) || "{}");
+
+function destacar(t){
+ if(t==="CERTO") return '<span class="gabarito-certo">CERTO</span>';
+ if(t==="ERRADO") return '<span class="gabarito-errado">ERRADO</span>';
+ return t;
+}
+
+function responder(numero, resposta){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const gabarito=card.dataset.gabarito;
+ const correto=resposta===gabarito;
+ respostas[numero]={resposta,correto};
+ localStorage.setItem(storageKey, JSON.stringify(respostas));
+ mostrarFeedback(numero);
+ atualizarPainel();
+ filtrar();
+}
+
+function mostrarFeedback(numero){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const feedback=document.getElementById("feedback-"+numero);
+ const status=document.getElementById("status-"+numero);
+ const resultado=feedback.querySelector(".resultado");
+ const gabarito=card.dataset.gabarito;
+ const dados=respostas[numero];
+ if(!dados) return;
+ feedback.style.display="block";
+ feedback.classList.remove("correto","errado");
+ if(dados.correto){
+   feedback.classList.add("correto");
+   resultado.innerHTML="Você acertou. A resposta é "+destacar(gabarito)+".";
+   status.textContent="Respondida — acerto";
+   status.style.color="var(--green)";
+ } else {
+   feedback.classList.add("errado");
+   resultado.innerHTML="Você errou. O gabarito é "+destacar(gabarito)+".";
+   status.textContent="Respondida — erro";
+   status.style.color="var(--red)";
+ }
+}
+
+function atualizarPainel(){
+ let respondidas=0, acertos=0, erros=0;
+ for(const k in respostas){
+   respondidas++;
+   if(respostas[k].correto) acertos++; else erros++;
+ }
+ document.getElementById("respondidas").textContent=respondidas;
+ document.getElementById("acertos").textContent=acertos;
+ document.getElementById("erros").textContent=erros;
+ document.getElementById("visiveis").textContent=document.querySelectorAll(".questao:not(.oculta)").length;
+}
+
+function filtrar(){
+ const busca=document.getElementById("busca").value.trim().toLowerCase();
+ const disciplina=document.getElementById("disciplina").value;
+ const statusFiltro=document.getElementById("statusFiltro").value;
+ const cards=Array.from(document.querySelectorAll(".questao"));
+ let vis=0;
+ cards.forEach((card,idx)=>{
+   const n=idx+1;
+   const texto=card.dataset.texto||"";
+   const disc=card.dataset.disciplina||"";
+   const r=respostas[n];
+   let passaStatus=true;
+   if(statusFiltro==="nao") passaStatus=!r;
+   if(statusFiltro==="acerto") passaStatus=r && r.correto;
+   if(statusFiltro==="erro") passaStatus=r && !r.correto;
+   const ok=(!busca||texto.includes(busca)) && (!disciplina||disc===disciplina) && passaStatus;
+   card.classList.toggle("oculta", !ok);
+   if(ok) vis++;
+ });
+ document.getElementById("sem-resultados").style.display=vis===0?"block":"none";
+ atualizarPainel();
+}
+
+function reiniciar(){
+ if(!confirm("Deseja reiniciar este simulado?")) return;
+ localStorage.removeItem(storageKey);
+ location.reload();
+}
+
+function restaurar(){
+ for(const k in respostas) mostrarFeedback(Number(k));
+ filtrar();
+ atualizarPainel();
+}
+
+restaurar();
+</script>
+</body>
+</html>

@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Simulado - Info 1185 STF</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+:root{
+--bg:#020617;--panel:rgba(15,23,42,.88);--card:rgba(15,23,42,.96);
+--card2:rgba(30,41,59,.92);--border:rgba(148,163,184,.22);
+--text:#e5e7eb;--muted:#94a3b8;--accent:#38bdf8;--accent2:#0ea5e9;
+--green:#22c55e;--red:#ef4444;--yellow:#facc15;--purple:#a78bfa;
+}
+*{box-sizing:border-box}
+body{
+margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+background:radial-gradient(circle at top left,rgba(56,189,248,.20),transparent 28%),
+radial-gradient(circle at top right,rgba(167,139,250,.15),transparent 28%),
+linear-gradient(135deg,#020617,#0f172a 50%,#020617);
+color:var(--text);line-height:1.65;
+}
+header{padding:44px 20px 32px;text-align:center;border-bottom:1px solid var(--border)}
+header h1{margin:0 0 10px;font-size:clamp(28px,4vw,46px);letter-spacing:-.05em}
+header p{color:var(--muted);margin:0;font-size:16px}
+.container{max-width:1160px;margin:0 auto;padding:26px 16px 80px}
+.painel{
+position:sticky;top:10px;z-index:10;background:var(--panel);backdrop-filter:blur(18px);
+border:1px solid var(--border);border-radius:26px;padding:16px;margin-bottom:22px;
+box-shadow:0 22px 70px rgba(0,0,0,.35)
+}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.stat{background:var(--card2);padding:14px;border-radius:18px;text-align:center;border:1px solid rgba(148,163,184,.12)}
+.stat strong{display:block;font-size:25px;color:var(--accent);line-height:1.1}
+.stat span{font-size:12px;color:var(--muted)}
+.filtros{display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:12px;margin-top:14px}
+input,select{
+width:100%;background:rgba(2,6,23,.78);color:var(--text);border:1px solid var(--border);
+border-radius:14px;padding:13px 14px;outline:none;font-size:14px
+}
+input:focus,select:focus{border-color:var(--accent)}
+.card{
+background:var(--card);border:1px solid var(--border);border-radius:24px;padding:26px;
+margin-bottom:20px;box-shadow:0 18px 50px rgba(0,0,0,.24)
+}
+.questao{scroll-margin-top:190px}
+.questao-topo{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:18px}
+.badge{
+background:linear-gradient(135deg,var(--accent),var(--accent2));color:#00111f;font-weight:900;
+padding:7px 13px;border-radius:999px;display:inline-block
+}
+.disciplina-tag,.tipo-tag{
+display:inline-block;margin-left:8px;color:var(--muted);background:rgba(148,163,184,.10);
+border:1px solid rgba(148,163,184,.14);padding:6px 10px;border-radius:999px;font-size:12px
+}
+.tipo-tag{color:#ddd6fe;border-color:rgba(167,139,250,.25)}
+.status{color:var(--yellow);font-size:13px;white-space:nowrap}
+.enunciado{font-size:19px;margin:0 0 22px;letter-spacing:-.01em}
+.botoes{display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.btn{
+cursor:pointer;border:0;padding:12px 22px;border-radius:14px;color:white;font-weight:900;
+transition:.18s ease;letter-spacing:.02em
+}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.certo{background:rgba(34,197,94,.20);border:1px solid rgba(34,197,94,.42)}
+.btn.errado{background:rgba(239,68,68,.20);border:1px solid rgba(239,68,68,.42)}
+.btn.neutro{background:rgba(56,189,248,.16);color:var(--text);border:1px solid rgba(56,189,248,.32)}
+.feedback{
+display:none;background:rgba(2,6,23,.72);border:1px solid rgba(148,163,184,.16);
+border-left:5px solid var(--accent);padding:18px;border-radius:18px;margin-top:14px
+}
+.feedback.correto{border-left-color:var(--green)}
+.feedback.errado{border-left-color:var(--red)}
+.resultado{font-size:18px;font-weight:900;margin-top:0}
+.justificativa{margin-top:12px}
+.referencia{color:var(--muted);font-size:13px;margin-top:16px}
+.gabarito-certo{color:var(--green);font-weight:900}
+.gabarito-errado{color:var(--red);font-weight:900}
+.oculta{display:none}
+.sem-resultados{text-align:center;color:var(--muted);display:none;padding:30px}
+.grid-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
+.link-card{
+display:block;padding:20px;background:rgba(15,23,42,.95);border:1px solid rgba(148,163,184,.22);
+color:#e5e7eb;border-radius:22px;text-decoration:none;transition:.2s;box-shadow:0 14px 40px rgba(0,0,0,.22)
+}
+.link-card:hover{transform:translateY(-3px);border-color:#38bdf8}
+.link-card strong{display:block;font-size:17px;margin-bottom:8px}
+.link-card span{color:#94a3b8;font-size:13px}
+.index-tools{display:grid;grid-template-columns:1.5fr 1fr;gap:12px;margin-bottom:20px}
+@media(max-width:850px){
+.stats{grid-template-columns:repeat(2,1fr)}
+.filtros,.index-tools{grid-template-columns:1fr}
+.questao-topo{align-items:flex-start;flex-direction:column}
+.botoes{flex-direction:column}
+.enunciado{font-size:16px}
+.card{padding:20px}
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Simulado - Info 1185 STF</h1>
+<p>Informativos • Simulado interativo de CERTO ou ERRADO</p>
+</header>
+
+<div class="container">
+<div class="painel">
+<div class="stats">
+<div class="stat"><strong>10</strong><span>Total</span></div>
+<div class="stat"><strong id="visiveis">10</strong><span>Visíveis</span></div>
+<div class="stat"><strong id="respondidas">0</strong><span>Respondidas</span></div>
+<div class="stat"><strong id="acertos">0</strong><span>Acertos</span></div>
+<div class="stat"><strong id="erros">0</strong><span>Erros</span></div>
+</div>
+
+<div class="filtros">
+<input id="busca" type="search" placeholder="Buscar por palavra-chave..." oninput="filtrar()">
+<select id="disciplina" onchange="filtrar()">
+<option value="">Todas as disciplinas</option>
+<option value="ECA">ECA</option>
+<option value="N/I">N/I</option>
+</select>
+<select id="statusFiltro" onchange="filtrar()">
+<option value="">Todas</option>
+<option value="nao">Não respondidas</option>
+<option value="acerto">Acertos</option>
+<option value="erro">Erros</option>
+</select>
+<button class="btn neutro" onclick="reiniciar()">Reiniciar</button>
+</div>
+</div>
+
+<div id="sem-resultados" class="sem-resultados">Nenhuma questão encontrada com os filtros atuais.</div>
+
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="ECA"
+data-texto="é constitucional lei municipal que institua programa social voltado a desempregados residentes no município, com oferta de ocupação, renda e qualificação profissional, ainda que a medida tenha caráter assistencial e temporário, desde que não haja criação de vínculo empregatício ou estatutário com a administração e que o programa não se destine a suprir necessidade permanente do serviço público, hipótese em que não se configura burla à exigência de concurso público nem contratação temporária nos termos do art. 37, ix, da constituição federal. a assertiva está correta porque reproduz a lógica central do entendimento firmado: programas municipais de auxílio ao desempregado, quando estruturados com finalidade assistencial, temporária e formativa, não se confundem com provimento de cargos, empregos ou funções públicas, nem com contratação temporária para atender necessidade excepcional da administração.
+
+o ponto decisivo é a natureza da medida. se o programa não visa suprir demanda permanente da máquina administrativa, mas sim oferecer ocupação, renda e qualificação profissional a pessoas em situação de vulnerabilidade social, inexiste afronta ao art. 37, ii, da constituição, pois não há ingresso em vínculo funcional típico com o poder público. também não se aplica o art. 37, ix, porque a hipótese não é de contratação temporária para atender necessidade temporária de excepcional interesse público, mas de política pública assistencial voltada à subsistência e reinserção social de desempregados.
+
+além disso, o entendimento ressalta que a iniciativa não interfere na estrutura administrativa nem cria mecanismo disfarçado de provimento de pessoal. ao contrário, possui caráter excepcional e formativo, compatível com a proteção da dignidade da pessoa humana e com a atuação municipal em políticas sociais de interesse local. assim, a existência de remuneração ou auxílio não descaracteriza, por si só, a natureza assistencial do programa, desde que ausentes os elementos típicos da relação estatutária ou empregatícia. stf. plenário. re 1.551.780/sp, rel. min. gilmar mendes, julgado em 12/08/2025 (info 1185).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 1</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-1">Não respondida</span>
+</div>
+
+<p class="enunciado">É constitucional lei municipal que institua programa social voltado a desempregados residentes no município, com oferta de ocupação, renda e qualificação profissional, ainda que a medida tenha caráter assistencial e temporário, desde que não haja criação de vínculo empregatício ou estatutário com a Administração e que o programa não se destine a suprir necessidade permanente do serviço público, hipótese em que não se configura burla à exigência de concurso público nem contratação temporária nos termos do art. 37, IX, da Constituição Federal.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(1, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(1, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-1">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a lógica central do entendimento firmado: programas municipais de auxílio ao desempregado, quando estruturados com finalidade assistencial, temporária e formativa, não se confundem com provimento de cargos, empregos ou funções públicas, nem com contratação temporária para atender necessidade excepcional da Administração.<br><br>O ponto decisivo é a natureza da medida. Se o programa não visa suprir demanda permanente da máquina administrativa, mas sim oferecer ocupação, renda e qualificação profissional a pessoas em situação de vulnerabilidade social, inexiste afronta ao art. 37, II, da Constituição, pois não há ingresso em vínculo funcional típico com o Poder Público. Também não se aplica o art. 37, IX, porque a hipótese não é de contratação temporária para atender necessidade temporária de excepcional interesse público, mas de política pública assistencial voltada à subsistência e reinserção social de desempregados.<br><br>Além disso, o entendimento ressalta que a iniciativa não interfere na estrutura administrativa nem cria mecanismo disfarçado de provimento de pessoal. Ao contrário, possui caráter excepcional e formativo, compatível com a proteção da dignidade da pessoa humana e com a atuação municipal em políticas sociais de interesse local. Assim, a existência de remuneração ou auxílio não descaracteriza, por si só, a natureza assistencial do programa, desde que ausentes os elementos típicos da relação estatutária ou empregatícia.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. RE 1.551.780/SP, Rel. Min. Gilmar Mendes, julgado em 12/08/2025 (Info 1185).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a autonomia constitucionalmente assegurada às entidades desportivas impede, em qualquer hipótese, a atuação do ministério público na seara esportiva, de modo que a celebração de termo de ajustamento de conduta e o ajuizamento de ação civil pública em matéria relacionada à prática desportiva seriam incompatíveis com a reserva de autogoverno das agremiações, ainda que presentes interesses difusos, coletivos ou individuais homogêneos e eventual violação à ordem jurídica. a assertiva está incorreta porque parte de uma premissa excessiva sobre o alcance da autonomia das entidades desportivas. a proteção constitucional ao autogoverno e à autonormação das entidades esportivas não é absoluta. quando a controvérsia ultrapassa o âmbito meramente interno da agremiação e alcança direitos difusos, coletivos ou individuais homogêneos ligados à prática desportiva, especialmente em contexto de relevante interesse social, admite-se a atuação institucional do ministério público.
+
+nessa hipótese, a função constitucional do ministério público de defesa da ordem jurídica e dos interesses sociais e individuais indisponíveis legitima tanto a celebração autônoma de termo de ajustamento de conduta quanto o ajuizamento de ação civil pública em matéria desportiva. o ponto de contenção está nas questões estritamente interna corporis, isto é, naquelas que dizem respeito apenas à organização interna, à disciplina associativa e ao autogoverno das entidades, sem repercussão externa relevante.
+
+além disso, a vedação à intervenção estatal não alcança situações em que haja afronta à constituição federal ou à legislação infraconstitucional, nem impede a atuação fundada em investigação de ilícitos penais ou administrativos. assim, o erro central do enunciado consiste em transformar uma autonomia relativa em imunidade absoluta contra a atuação ministerial, o que não se compatibiliza com o regime constitucional do esporte. stf. plenário. adi 7.580 mc-ref/df, rel. min. gilmar mendes, julgado em 12/08/2025 (info 1185).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 2</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-2">Não respondida</span>
+</div>
+
+<p class="enunciado">A autonomia constitucionalmente assegurada às entidades desportivas impede, em qualquer hipótese, a atuação do Ministério Público na seara esportiva, de modo que a celebração de termo de ajustamento de conduta e o ajuizamento de ação civil pública em matéria relacionada à prática desportiva seriam incompatíveis com a reserva de autogoverno das agremiações, ainda que presentes interesses difusos, coletivos ou individuais homogêneos e eventual violação à ordem jurídica.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(2, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(2, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-2">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque parte de uma premissa excessiva sobre o alcance da autonomia das entidades desportivas. A proteção constitucional ao autogoverno e à autonormação das entidades esportivas não é absoluta. Quando a controvérsia ultrapassa o âmbito meramente interno da agremiação e alcança direitos difusos, coletivos ou individuais homogêneos ligados à prática desportiva, especialmente em contexto de relevante interesse social, admite-se a atuação institucional do Ministério Público.<br><br>Nessa hipótese, a função constitucional do Ministério Público de defesa da ordem jurídica e dos interesses sociais e individuais indisponíveis legitima tanto a celebração autônoma de termo de ajustamento de conduta quanto o ajuizamento de ação civil pública em matéria desportiva. O ponto de contenção está nas questões estritamente interna corporis, isto é, naquelas que dizem respeito apenas à organização interna, à disciplina associativa e ao autogoverno das entidades, sem repercussão externa relevante.<br><br>Além disso, a vedação à intervenção estatal não alcança situações em que haja afronta à Constituição Federal ou à legislação infraconstitucional, nem impede a atuação fundada em investigação de ilícitos penais ou administrativos. Assim, o erro central do enunciado consiste em transformar uma autonomia relativa em imunidade absoluta contra a atuação ministerial, o que não se compatibiliza com o regime constitucional do esporte.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.580 MC-Ref/DF, Rel. Min. Gilmar Mendes, julgado em 12/08/2025 (Info 1185).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a ausência, no momento da abertura da vaga, de auditor ou de membro do ministério público junto ao tribunal de contas apto à nomeação não autoriza o chefe do poder executivo a preencher livremente, por escolha discricionária, cargo de conselheiro reservado constitucionalmente a uma dessas carreiras, pois tal solução desnatura a composição técnica e heterogênea da corte de contas e viola a simetria constitucional exigida para o provimento dessas cadeiras. a constituição estabelece um modelo específico de composição dos tribunais de contas, com vagas reservadas a determinadas origens funcionais, entre elas auditor e membro do ministério público junto ao tribunal de contas. nessas hipóteses, a nomeação não é livre: o provimento deve respeitar estritamente a carreira de origem prevista para a cadeira.
+
+o ponto central do julgado é justamente afastar a tese de que a inexistência, no momento, de integrantes aptos nessas carreiras permitiria ao governador preencher a vaga por livre escolha. essa interpretação foi reputada incompatível com o desenho constitucional, porque transforma uma vaga vinculada em vaga de livre provimento, subvertendo a lógica de composição técnica e plural das cortes de contas.
+
+além disso, o tribunal assentou que a omissão estatal no provimento dos cargos de auditor e de membros do ministério público junto ao tribunal de contas também é inconstitucional, pois compromete o funcionamento regular do modelo constitucional e não pode servir de fundamento para flexibilizar a regra de origem funcional. em outras palavras, a falta de candidatos aptos não autoriza solução excepcional de nomeação discricionária; ao contrário, evidencia um dever estatal de estruturar adequadamente essas carreiras.
+
+portanto, é incorreta qualquer leitura que admita preenchimento livre da vaga reservada, ainda que temporariamente não haja integrantes disponíveis nas carreiras indicadas. stf. plenário. adi 7.053/df, rel. min. nunes marques, redator do acórdão min. gilmar mendes, julgado em 13/08/2025 (info 1185).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 3</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-3">Não respondida</span>
+</div>
+
+<p class="enunciado">A ausência, no momento da abertura da vaga, de Auditor ou de membro do Ministério Público junto ao Tribunal de Contas apto à nomeação não autoriza o Chefe do Poder Executivo a preencher livremente, por escolha discricionária, cargo de Conselheiro reservado constitucionalmente a uma dessas carreiras, pois tal solução desnatura a composição técnica e heterogênea da Corte de Contas e viola a simetria constitucional exigida para o provimento dessas cadeiras.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(3, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(3, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-3">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A Constituição estabelece um modelo específico de composição dos Tribunais de Contas, com vagas reservadas a determinadas origens funcionais, entre elas Auditor e membro do Ministério Público junto ao Tribunal de Contas. Nessas hipóteses, a nomeação não é livre: o provimento deve respeitar estritamente a carreira de origem prevista para a cadeira.<br><br>O ponto central do julgado é justamente afastar a tese de que a inexistência, no momento, de integrantes aptos nessas carreiras permitiria ao Governador preencher a vaga por livre escolha. Essa interpretação foi reputada incompatível com o desenho constitucional, porque transforma uma vaga vinculada em vaga de livre provimento, subvertendo a lógica de composição técnica e plural das Cortes de Contas.<br><br>Além disso, o Tribunal assentou que a omissão estatal no provimento dos cargos de Auditor e de membros do Ministério Público junto ao Tribunal de Contas também é inconstitucional, pois compromete o funcionamento regular do modelo constitucional e não pode servir de fundamento para flexibilizar a regra de origem funcional. Em outras palavras, a falta de candidatos aptos não autoriza solução excepcional de nomeação discricionária; ao contrário, evidencia um dever estatal de estruturar adequadamente essas carreiras.<br><br>Portanto, é incorreta qualquer leitura que admita preenchimento livre da vaga reservada, ainda que temporariamente não haja integrantes disponíveis nas carreiras indicadas.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.053/DF, Rel. Min. Nunes Marques, redator do acórdão Min. Gilmar Mendes, julgado em 13/08/2025 (Info 1185).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a inexistência de parecer prévio emitido pelo tribunal de contas estadual acerca das contas anuais do chefe do poder executivo local inviabiliza o julgamento político-administrativo pela assembleia legislativa, pois a manifestação da corte de contas possui natureza vinculante e funciona como condição de procedibilidade para a apreciação parlamentar. o enunciado está incorreto porque atribui ao parecer prévio do tribunal de contas natureza vinculante e efeito impeditivo do julgamento legislativo, o que não se sustenta. a orientação firmada é no sentido de que a ausência desse parecer não obsta o exame das contas do governador pela assembleia legislativa.
+
+o ponto central é a preservação da autonomia do poder legislativo no exercício da competência constitucional de julgar as contas do chefe do executivo estadual. embora o tribunal de contas atue como órgão técnico de auxílio, sua manifestação tem caráter opinativo, e não vinculante. assim, a falta de parecer prévio não pode ser convertida em obstáculo absoluto ao exercício da competência parlamentar, sob pena de impor restrição desproporcional à atuação da assembleia.
+
+em termos práticos, a função do parecer é subsidiar o controle externo, mas não substituir a deliberação política do parlamento. logo, ainda que o tribunal de contas não tenha emitido parecer, a assembleia legislativa permanece apta a apreciar e julgar as contas do governador, não havendo nulidade automática nem condicionamento indispensável à prévia manifestação da corte de contas. stf. plenário. adpf 434/al, rel. min. nunes marques, julgado em 12/08/2025 (info 1185).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 4</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-4">Não respondida</span>
+</div>
+
+<p class="enunciado">A inexistência de parecer prévio emitido pelo Tribunal de Contas estadual acerca das contas anuais do chefe do Poder Executivo local inviabiliza o julgamento político-administrativo pela Assembleia Legislativa, pois a manifestação da Corte de Contas possui natureza vinculante e funciona como condição de procedibilidade para a apreciação parlamentar.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(4, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(4, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-4">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O enunciado está incorreto porque atribui ao parecer prévio do Tribunal de Contas natureza vinculante e efeito impeditivo do julgamento legislativo, o que não se sustenta. A orientação firmada é no sentido de que a ausência desse parecer não obsta o exame das contas do governador pela Assembleia Legislativa.<br><br>O ponto central é a preservação da autonomia do Poder Legislativo no exercício da competência constitucional de julgar as contas do chefe do Executivo estadual. Embora o Tribunal de Contas atue como órgão técnico de auxílio, sua manifestação tem caráter opinativo, e não vinculante. Assim, a falta de parecer prévio não pode ser convertida em obstáculo absoluto ao exercício da competência parlamentar, sob pena de impor restrição desproporcional à atuação da Assembleia.<br><br>Em termos práticos, a função do parecer é subsidiar o controle externo, mas não substituir a deliberação política do Parlamento. Logo, ainda que o Tribunal de Contas não tenha emitido parecer, a Assembleia Legislativa permanece apta a apreciar e julgar as contas do governador, não havendo nulidade automática nem condicionamento indispensável à prévia manifestação da Corte de Contas.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADPF 434/AL, Rel. Min. Nunes Marques, julgado em 12/08/2025 (Info 1185).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="a criação de cargos em comissão destinados ao desempenho de atividades técnicas ou operacionais, ainda que inseridos em quadro suplementar de pessoal e mesmo que a lei lhes atribua nomenclatura compatível com a estrutura administrativa do órgão, é constitucional quando a norma instituidora não detalha expressamente suas atribuições, pois, nessa hipótese, presume-se o caráter de direção, chefia ou assessoramento; todavia, uma vez reconhecida a inconstitucionalidade da previsão legal, a extinção desses cargos pode ser diferida para preservar a continuidade do serviço público, sem possibilidade de recriação da mesma estrutura funcional. a assertiva está incorreta porque parte de premissas incompatíveis com a disciplina constitucional dos cargos em comissão. cargos comissionados somente se legitimam para atribuições de direção, chefia e assessoramento, nos termos dos arts. 37, ii e v, da constituição federal. não se admite sua criação para atividades de natureza técnica ou operacional, como datilografia, digitação, condução, eletricidade, fotografia, mecanografia ou inspeção de obras/despesas, pois tais tarefas não se confundem com funções de confiança típicas de livre nomeação e exoneração.
+
+além disso, a ausência de descrição clara e objetiva das atribuições na lei instituidora impede o controle de constitucionalidade material, porque inviabiliza a verificação da compatibilidade entre o conteúdo funcional do cargo e o regime excepcional dos cargos em comissão. não há presunção de legitimidade com base apenas na nomenclatura do cargo.
+
+no caso examinado, a corte reconheceu a inconstitucionalidade da previsão normativa relativa aos cargos comissionados do quadro suplementar do tce/go, mas modulou os efeitos da decisão para resguardar a continuidade dos serviços públicos e a segurança jurídica. assim, a declaração de inconstitucionalidade passou a produzir efeitos apenas a partir da publicação da ata do julgamento. ainda assim, a consequência fixada foi a extinção dos cargos após a aposentadoria dos atuais servidores, vedada sua recriação, justamente para evitar a perpetuação de estrutura funcional incompatível com a constituição. stf. plenário. adi 6.918/go, rel. min. edson fachin, julgado em 07/08/2025 (info 1185).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 5</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-5">Não respondida</span>
+</div>
+
+<p class="enunciado">A criação de cargos em comissão destinados ao desempenho de atividades técnicas ou operacionais, ainda que inseridos em quadro suplementar de pessoal e mesmo que a lei lhes atribua nomenclatura compatível com a estrutura administrativa do órgão, é constitucional quando a norma instituidora não detalha expressamente suas atribuições, pois, nessa hipótese, presume-se o caráter de direção, chefia ou assessoramento; todavia, uma vez reconhecida a inconstitucionalidade da previsão legal, a extinção desses cargos pode ser diferida para preservar a continuidade do serviço público, sem possibilidade de recriação da mesma estrutura funcional.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(5, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(5, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-5">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque parte de premissas incompatíveis com a disciplina constitucional dos cargos em comissão. Cargos comissionados somente se legitimam para atribuições de direção, chefia e assessoramento, nos termos dos arts. 37, II e V, da Constituição Federal. Não se admite sua criação para atividades de natureza técnica ou operacional, como datilografia, digitação, condução, eletricidade, fotografia, mecanografia ou inspeção de obras/despesas, pois tais tarefas não se confundem com funções de confiança típicas de livre nomeação e exoneração.<br><br>Além disso, a ausência de descrição clara e objetiva das atribuições na lei instituidora impede o controle de constitucionalidade material, porque inviabiliza a verificação da compatibilidade entre o conteúdo funcional do cargo e o regime excepcional dos cargos em comissão. Não há presunção de legitimidade com base apenas na nomenclatura do cargo.<br><br>No caso examinado, a Corte reconheceu a inconstitucionalidade da previsão normativa relativa aos cargos comissionados do quadro suplementar do TCE/GO, mas modulou os efeitos da decisão para resguardar a continuidade dos serviços públicos e a segurança jurídica. Assim, a declaração de inconstitucionalidade passou a produzir efeitos apenas a partir da publicação da ata do julgamento. Ainda assim, a consequência fixada foi a extinção dos cargos após a aposentadoria dos atuais servidores, vedada sua recriação, justamente para evitar a perpetuação de estrutura funcional incompatível com a Constituição.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 6.918/GO, Rel. Min. Edson Fachin, julgado em 07/08/2025 (Info 1185).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a instituição das federações partidárias pela lei nº 14.208/2021 é compatível com a constituição federal, por não representar mera reedição das coligações proporcionais, mas o prazo diferenciado para sua constituição e registro perante a justiça eleitoral, em relação ao aplicável aos partidos políticos, afronta a isonomia, a igualdade de chances no processo eleitoral e o direito à informação do eleitorado; por isso, nas eleições de 2022, admitiu-se excepcionalmente a formação de federações até 31 de maio, e, no caso das federações constituídas naquele ano, é possível que os partidos integrantes alterem sua composição ou formem nova federação antes do decurso do prazo de quatro anos, sem incidência das sanções legais, a fim de viabilizar o cumprimento do requisito de constituição até seis meses antes do pleito de 2026. a assertiva está correta porque reproduz, em essência, os dois núcleos decisórios do julgamento: (i) a validade constitucional das federações partidárias como instituto distinto das coligações proporcionais, por não implicarem retorno disfarçado desse modelo e por favorecerem maior estabilidade institucional entre agremiações; e (ii) a inconstitucionalidade do tratamento desigual conferido ao prazo de constituição e registro das federações perante o tse, por ofensa à isonomia, à igualdade de chances no processo eleitoral e ao direito de informação do eleitorado.
+
+o enunciado também acerta ao mencionar a modulação/solução excepcional para as eleições de 2022, quando se admitiu a prorrogação do prazo para constituição das federações até 31 de maio daquele ano. além disso, está fiel à tese fixada quanto às federações constituídas em 2022: para as eleições de 2026, admite-se que os partidos que as integraram alterem sua composição ou formem nova federação antes do prazo de quatro anos, sem incidência das sanções do art. 11-a, § 4º, da lei nº 9.096/1995, justamente para compatibilizar a disciplina legal com o requisito de constituição da federação até seis meses antes do pleito.
+
+em síntese, a questão explora corretamente a distinção entre a constitucionalidade da federação partidária em si e a invalidade do regime desigual de prazo, além da solução excepcional conferida ao ciclo eleitoral de 2022 e seus efeitos projetados para 2026. stf. plenário. adi 7.021/df, rel. min. luís roberto barroso, julgado em 06/08/2025 (info 1185).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 6</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-6">Não respondida</span>
+</div>
+
+<p class="enunciado">A instituição das federações partidárias pela Lei nº 14.208/2021 é compatível com a Constituição Federal, por não representar mera reedição das coligações proporcionais, mas o prazo diferenciado para sua constituição e registro perante a Justiça Eleitoral, em relação ao aplicável aos partidos políticos, afronta a isonomia, a igualdade de chances no processo eleitoral e o direito à informação do eleitorado; por isso, nas eleições de 2022, admitiu-se excepcionalmente a formação de federações até 31 de maio, e, no caso das federações constituídas naquele ano, é possível que os partidos integrantes alterem sua composição ou formem nova federação antes do decurso do prazo de quatro anos, sem incidência das sanções legais, a fim de viabilizar o cumprimento do requisito de constituição até seis meses antes do pleito de 2026.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(6, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(6, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-6">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz, em essência, os dois núcleos decisórios do julgamento: (i) a validade constitucional das federações partidárias como instituto distinto das coligações proporcionais, por não implicarem retorno disfarçado desse modelo e por favorecerem maior estabilidade institucional entre agremiações; e (ii) a inconstitucionalidade do tratamento desigual conferido ao prazo de constituição e registro das federações perante o TSE, por ofensa à isonomia, à igualdade de chances no processo eleitoral e ao direito de informação do eleitorado.<br><br>O enunciado também acerta ao mencionar a modulação/solução excepcional para as eleições de 2022, quando se admitiu a prorrogação do prazo para constituição das federações até 31 de maio daquele ano. Além disso, está fiel à tese fixada quanto às federações constituídas em 2022: para as eleições de 2026, admite-se que os partidos que as integraram alterem sua composição ou formem nova federação antes do prazo de quatro anos, sem incidência das sanções do art. 11-A, § 4º, da Lei nº 9.096/1995, justamente para compatibilizar a disciplina legal com o requisito de constituição da federação até seis meses antes do pleito.<br><br>Em síntese, a questão explora corretamente a distinção entre a constitucionalidade da federação partidária em si e a invalidade do regime desigual de prazo, além da solução excepcional conferida ao ciclo eleitoral de 2022 e seus efeitos projetados para 2026.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.021/DF, Rel. Min. Luís Roberto Barroso, julgado em 06/08/2025 (Info 1185).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="é constitucional norma estadual que, sob o argumento de instituir regime transitório para a implementação da polícia penal após a ec 104/2019, autoriza a contratação por tempo determinado de agentes de segurança penitenciária para o exercício das atribuições típicas da nova carreira, desde que a medida seja limitada ao período de transição e destinada a atender necessidade temporária de excepcional interesse público. a assertiva está incorreta porque a disciplina constitucional introduzida pela ec 104/2019 não admite que as atividades próprias das polícias penais sejam desempenhadas por contratação temporária, ainda que sob a roupagem de “regime transitório”. o art. 4º da emenda estabelece que o provimento dos cargos da polícia penal deve ocorrer por concurso público e, quando cabível, por transformação de cargos, não por contratação precária.
+
+o ponto central é que a tentativa de justificar a contratação temporária com base na necessidade de transição legislativa ou administrativa não afasta a vedação constitucional. a norma estadual, ao permitir a admissão por tempo determinado para funções equivalentes às de policial penal, contorna a exigência do art. 37, ii, da constituição e esvazia a regra específica do art. 4º da ec 104/2019. em outras palavras, não se trata de hipótese legítima de contratação excepcional para suprir demanda temporária, mas de substituição indevida do concurso público por vínculo precário em atividade permanente e típica de carreira de estado.
+
+além disso, a própria lógica da decisão afasta a ideia de que a transitoriedade legislativa autorize flexibilização do modelo constitucional. o período de implementação da nova estrutura não cria uma exceção à regra do concurso; ao contrário, a transição deve observar os mecanismos constitucionalmente previstos, especialmente o provimento por concurso e a transformação de cargos, sem contratação temporária para o desempenho das atribuições da polícia penal. stf. plenário. adi 7.505/mg, rel. min. luiz fux, julgado em 12/08/2025 (info 1185).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 7</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-7">Não respondida</span>
+</div>
+
+<p class="enunciado">É constitucional norma estadual que, sob o argumento de instituir regime transitório para a implementação da Polícia Penal após a EC 104/2019, autoriza a contratação por tempo determinado de agentes de segurança penitenciária para o exercício das atribuições típicas da nova carreira, desde que a medida seja limitada ao período de transição e destinada a atender necessidade temporária de excepcional interesse público.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(7, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(7, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-7">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque a disciplina constitucional introduzida pela EC 104/2019 não admite que as atividades próprias das polícias penais sejam desempenhadas por contratação temporária, ainda que sob a roupagem de “regime transitório”. O art. 4º da emenda estabelece que o provimento dos cargos da polícia penal deve ocorrer por concurso público e, quando cabível, por transformação de cargos, não por contratação precária.<br><br>O ponto central é que a tentativa de justificar a contratação temporária com base na necessidade de transição legislativa ou administrativa não afasta a vedação constitucional. A norma estadual, ao permitir a admissão por tempo determinado para funções equivalentes às de policial penal, contorna a exigência do art. 37, II, da Constituição e esvazia a regra específica do art. 4º da EC 104/2019. Em outras palavras, não se trata de hipótese legítima de contratação excepcional para suprir demanda temporária, mas de substituição indevida do concurso público por vínculo precário em atividade permanente e típica de carreira de Estado.<br><br>Além disso, a própria lógica da decisão afasta a ideia de que a transitoriedade legislativa autorize flexibilização do modelo constitucional. O período de implementação da nova estrutura não cria uma exceção à regra do concurso; ao contrário, a transição deve observar os mecanismos constitucionalmente previstos, especialmente o provimento por concurso e a transformação de cargos, sem contratação temporária para o desempenho das atribuições da polícia penal.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.505/MG, Rel. Min. Luiz Fux, julgado em 12/08/2025 (Info 1185).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="a previsão legal de que empregados públicos de autarquia estadual percebam remuneração automaticamente igual à dos servidores efetivos que exerçam a mesma denominação funcional, ainda que a norma não institua aumento nominal imediato, é compatível com a constituição, pois se limita a reconhecer equivalência de atribuições e preserva a isonomia material entre categorias que desempenham funções idênticas. a assertiva está incorreta porque a constituição veda a vinculação remuneratória entre categorias distintas de agentes públicos, ainda que haja identidade ou equivalência de funções. o ponto central não é apenas a existência de aumento nominal imediato, mas a criação de um mecanismo de reajuste automático por arrastamento, sem lei específica para cada alteração remuneratória.
+
+no caso examinado, a norma estadual determinava que empregados públicos de autarquia recebessem salários iguais aos dos servidores efetivos de mesma denominação e função. essa técnica normativa foi reputada incompatível com o art. 37, xiii, da constituição federal, justamente porque produz equiparação remuneratória entre categorias juridicamente distintas e permite atualização automática da remuneração de um grupo em razão de alterações concedidas a outro.
+
+a vedação constitucional alcança tanto a equiparação direta quanto a vinculação indireta, pois o constituinte buscou impedir que a remuneração de uma carreira ou vínculo seja indexada à de outra, o que esvazia a exigência de disciplina remuneratória por lei específica e compromete a autonomia do regime jurídico de cada categoria. assim, ainda que as funções sejam equivalentes, isso não autoriza a remuneração idêntica por simples remissão legal automática. stf. plenário. adi 7.746/go, rel. min. cristiano zanin, julgado em 12/08/2025 (info 1185).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 8</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-8">Não respondida</span>
+</div>
+
+<p class="enunciado">A previsão legal de que empregados públicos de autarquia estadual percebam remuneração automaticamente igual à dos servidores efetivos que exerçam a mesma denominação funcional, ainda que a norma não institua aumento nominal imediato, é compatível com a Constituição, pois se limita a reconhecer equivalência de atribuições e preserva a isonomia material entre categorias que desempenham funções idênticas.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(8, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(8, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-8">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque a Constituição veda a vinculação remuneratória entre categorias distintas de agentes públicos, ainda que haja identidade ou equivalência de funções. O ponto central não é apenas a existência de aumento nominal imediato, mas a criação de um mecanismo de reajuste automático por arrastamento, sem lei específica para cada alteração remuneratória.<br><br>No caso examinado, a norma estadual determinava que empregados públicos de autarquia recebessem salários iguais aos dos servidores efetivos de mesma denominação e função. Essa técnica normativa foi reputada incompatível com o art. 37, XIII, da Constituição Federal, justamente porque produz equiparação remuneratória entre categorias juridicamente distintas e permite atualização automática da remuneração de um grupo em razão de alterações concedidas a outro.<br><br>A vedação constitucional alcança tanto a equiparação direta quanto a vinculação indireta, pois o constituinte buscou impedir que a remuneração de uma carreira ou vínculo seja indexada à de outra, o que esvazia a exigência de disciplina remuneratória por lei específica e compromete a autonomia do regime jurídico de cada categoria. Assim, ainda que as funções sejam equivalentes, isso não autoriza a remuneração idêntica por simples remissão legal automática.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.746/GO, Rel. Min. Cristiano Zanin, julgado em 12/08/2025 (Info 1185).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="é constitucional lei municipal que institui vantagem pecuniária em favor de servidores públicos, desde que remeta ao chefe do poder executivo e à mesa diretora da câmara municipal a definição discricionária do valor atualizado do benefício, pois a disciplina remuneratória pode ser complementada por ato infralegal quando a norma instituidora apenas traça a previsão genérica da vantagem. a assertiva contraria a exigência de **reserva absoluta de lei** para a instituição e a disciplina de vantagens pecuniárias de servidores públicos. em matéria remuneratória, não basta a lei criar genericamente o benefício e transferir aos órgãos do executivo e do legislativo local a liberdade para fixar, atualizar ou modular o respectivo valor. é necessário que o próprio legislador estabeleça **critérios mínimos, objetivos e verificáveis** para o cálculo e a aferição da gratificação ou vantagem, de modo a impedir que a definição do quantum fique ao arbítrio da administração.
+
+no caso examinado, a inconstitucionalidade decorre justamente do fato de a lei municipal ter instituído a vantagem pecuniária sem densidade normativa suficiente, conferindo ao chefe do poder executivo e à mesa diretora da câmara municipal a liberalidade para fixar o valor atualizado do benefício. essa delegação viola o art. 61, § 1º, ii, a, da constituição, que reserva à lei a disciplina da remuneração e das vantagens de servidores, especialmente quando se trata de criação de despesa com pessoal.
+
+a lógica do julgado é que a lei pode até prever a vantagem, mas não pode esvaziar sua própria função normativa a ponto de deixar a definição do conteúdo econômico essencial do benefício para ato posterior discricionário. a atuação administrativa, nesse campo, deve limitar-se à execução da lei, e não à complementação livre de seus elementos centrais. stf. plenário. are 1.539.801/sp, rel. min. gilmar mendes, julgado em 12/08/2025 (info 1185).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 9</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-9">Não respondida</span>
+</div>
+
+<p class="enunciado">É constitucional lei municipal que institui vantagem pecuniária em favor de servidores públicos, desde que remeta ao chefe do Poder Executivo e à Mesa Diretora da Câmara Municipal a definição discricionária do valor atualizado do benefício, pois a disciplina remuneratória pode ser complementada por ato infralegal quando a norma instituidora apenas traça a previsão genérica da vantagem.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(9, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(9, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-9">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva contraria a exigência de <strong>reserva absoluta de lei</strong> para a instituição e a disciplina de vantagens pecuniárias de servidores públicos. Em matéria remuneratória, não basta a lei criar genericamente o benefício e transferir aos órgãos do Executivo e do Legislativo local a liberdade para fixar, atualizar ou modular o respectivo valor. É necessário que o próprio legislador estabeleça <strong>critérios mínimos, objetivos e verificáveis</strong> para o cálculo e a aferição da gratificação ou vantagem, de modo a impedir que a definição do quantum fique ao arbítrio da Administração.<br><br>No caso examinado, a inconstitucionalidade decorre justamente do fato de a lei municipal ter instituído a vantagem pecuniária sem densidade normativa suficiente, conferindo ao chefe do Poder Executivo e à Mesa Diretora da Câmara Municipal a liberalidade para fixar o valor atualizado do benefício. Essa delegação viola o art. 61, § 1º, II, a, da Constituição, que reserva à lei a disciplina da remuneração e das vantagens de servidores, especialmente quando se trata de criação de despesa com pessoal.<br><br>A lógica do julgado é que a lei pode até prever a vantagem, mas não pode esvaziar sua própria função normativa a ponto de deixar a definição do conteúdo econômico essencial do benefício para ato posterior discricionário. A atuação administrativa, nesse campo, deve limitar-se à execução da lei, e não à complementação livre de seus elementos centrais.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ARE 1.539.801/SP, Rel. Min. Gilmar Mendes, julgado em 12/08/2025 (Info 1185).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a circunstância de as guardas municipais integrarem o sistema único de segurança pública não autoriza, por si só, o reconhecimento de aposentadoria especial com fundamento no art. 40, § 4º-b, da constituição federal, pois a emenda constitucional nº 103/2019 instituiu, nesse dispositivo, um rol taxativo de categorias beneficiadas, cuja ampliação por interpretação judicial descaracterizaria a opção constitucional do constituinte derivado; ademais, também não se mostra possível enquadrá-las automaticamente na regra do art. 40, § 4º-c, que exige efetiva exposição a agentes nocivos e veda a concessão por mera categoria profissional. a assertiva está correta porque reproduz a lógica central do entendimento firmado: o simples fato de as guardas municipais integrarem o sistema único de segurança pública não implica isonomia integral com os demais órgãos de segurança pública para fins previdenciários. o ponto decisivo é que a ec 103/2019, ao disciplinar a aposentadoria especial no art. 40, § 4º-b, adotou um recorte normativo fechado, com enumeração taxativa das categorias contempladas. nessa moldura, não cabe ao intérprete ampliar o alcance do benefício para incluir agentes não expressamente mencionados, sob pena de esvaziar a própria taxatividade do texto constitucional.
+
+a assertiva também acerta ao afastar a incidência automática do art. 40, § 4º-c. esse dispositivo não cria aposentadoria especial por simples pertencimento a determinada carreira ou função; ao contrário, condiciona o benefício à comprovação de efetiva exposição a agentes químicos, físicos ou biológicos prejudiciais à saúde e veda expressamente a caracterização por categoria profissional ou ocupação. assim, a condição de guarda municipal, por si só, não basta para enquadramento nessa hipótese constitucional.
+
+em síntese, o julgado distingue a inserção das guardas municipais no susp — relevante para a organização da segurança pública — da disciplina previdenciária específica da aposentadoria especial, que permanece vinculada ao rol taxativo do art. 40, § 4º-b, sem extensão judicial por analogia ou isonomia. stf. plenário. adpf 1.095/df, rel. min. gilmar mendes, julgado em 12/08/2025 (info 1185).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 10</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-10">Não respondida</span>
+</div>
+
+<p class="enunciado">A circunstância de as guardas municipais integrarem o Sistema Único de Segurança Pública não autoriza, por si só, o reconhecimento de aposentadoria especial com fundamento no art. 40, § 4º-B, da Constituição Federal, pois a Emenda Constitucional nº 103/2019 instituiu, nesse dispositivo, um rol taxativo de categorias beneficiadas, cuja ampliação por interpretação judicial descaracterizaria a opção constitucional do constituinte derivado; ademais, também não se mostra possível enquadrá-las automaticamente na regra do art. 40, § 4º-C, que exige efetiva exposição a agentes nocivos e veda a concessão por mera categoria profissional.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(10, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(10, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-10">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a lógica central do entendimento firmado: o simples fato de as guardas municipais integrarem o Sistema Único de Segurança Pública não implica isonomia integral com os demais órgãos de segurança pública para fins previdenciários. O ponto decisivo é que a EC 103/2019, ao disciplinar a aposentadoria especial no art. 40, § 4º-B, adotou um recorte normativo fechado, com enumeração taxativa das categorias contempladas. Nessa moldura, não cabe ao intérprete ampliar o alcance do benefício para incluir agentes não expressamente mencionados, sob pena de esvaziar a própria taxatividade do texto constitucional.<br><br>A assertiva também acerta ao afastar a incidência automática do art. 40, § 4º-C. Esse dispositivo não cria aposentadoria especial por simples pertencimento a determinada carreira ou função; ao contrário, condiciona o benefício à comprovação de efetiva exposição a agentes químicos, físicos ou biológicos prejudiciais à saúde e veda expressamente a caracterização por categoria profissional ou ocupação. Assim, a condição de guarda municipal, por si só, não basta para enquadramento nessa hipótese constitucional.<br><br>Em síntese, o julgado distingue a inserção das guardas municipais no SUSP — relevante para a organização da segurança pública — da disciplina previdenciária específica da aposentadoria especial, que permanece vinculada ao rol taxativo do art. 40, § 4º-B, sem extensão judicial por analogia ou isonomia.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADPF 1.095/DF, Rel. Min. Gilmar Mendes, julgado em 12/08/2025 (Info 1185).</p>
+</div>
+</section>
+
+</div>
+
+<script>
+const storageKey = location.pathname + "_respostas";
+let respostas = JSON.parse(localStorage.getItem(storageKey) || "{}");
+
+function destacar(t){
+ if(t==="CERTO") return '<span class="gabarito-certo">CERTO</span>';
+ if(t==="ERRADO") return '<span class="gabarito-errado">ERRADO</span>';
+ return t;
+}
+
+function responder(numero, resposta){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const gabarito=card.dataset.gabarito;
+ const correto=resposta===gabarito;
+ respostas[numero]={resposta,correto};
+ localStorage.setItem(storageKey, JSON.stringify(respostas));
+ mostrarFeedback(numero);
+ atualizarPainel();
+ filtrar();
+}
+
+function mostrarFeedback(numero){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const feedback=document.getElementById("feedback-"+numero);
+ const status=document.getElementById("status-"+numero);
+ const resultado=feedback.querySelector(".resultado");
+ const gabarito=card.dataset.gabarito;
+ const dados=respostas[numero];
+ if(!dados) return;
+ feedback.style.display="block";
+ feedback.classList.remove("correto","errado");
+ if(dados.correto){
+   feedback.classList.add("correto");
+   resultado.innerHTML="Você acertou. A resposta é "+destacar(gabarito)+".";
+   status.textContent="Respondida — acerto";
+   status.style.color="var(--green)";
+ } else {
+   feedback.classList.add("errado");
+   resultado.innerHTML="Você errou. O gabarito é "+destacar(gabarito)+".";
+   status.textContent="Respondida — erro";
+   status.style.color="var(--red)";
+ }
+}
+
+function atualizarPainel(){
+ let respondidas=0, acertos=0, erros=0;
+ for(const k in respostas){
+   respondidas++;
+   if(respostas[k].correto) acertos++; else erros++;
+ }
+ document.getElementById("respondidas").textContent=respondidas;
+ document.getElementById("acertos").textContent=acertos;
+ document.getElementById("erros").textContent=erros;
+ document.getElementById("visiveis").textContent=document.querySelectorAll(".questao:not(.oculta)").length;
+}
+
+function filtrar(){
+ const busca=document.getElementById("busca").value.trim().toLowerCase();
+ const disciplina=document.getElementById("disciplina").value;
+ const statusFiltro=document.getElementById("statusFiltro").value;
+ const cards=Array.from(document.querySelectorAll(".questao"));
+ let vis=0;
+ cards.forEach((card,idx)=>{
+   const n=idx+1;
+   const texto=card.dataset.texto||"";
+   const disc=card.dataset.disciplina||"";
+   const r=respostas[n];
+   let passaStatus=true;
+   if(statusFiltro==="nao") passaStatus=!r;
+   if(statusFiltro==="acerto") passaStatus=r && r.correto;
+   if(statusFiltro==="erro") passaStatus=r && !r.correto;
+   const ok=(!busca||texto.includes(busca)) && (!disciplina||disc===disciplina) && passaStatus;
+   card.classList.toggle("oculta", !ok);
+   if(ok) vis++;
+ });
+ document.getElementById("sem-resultados").style.display=vis===0?"block":"none";
+ atualizarPainel();
+}
+
+function reiniciar(){
+ if(!confirm("Deseja reiniciar este simulado?")) return;
+ localStorage.removeItem(storageKey);
+ location.reload();
+}
+
+function restaurar(){
+ for(const k in respostas) mostrarFeedback(Number(k));
+ filtrar();
+ atualizarPainel();
+}
+
+restaurar();
+</script>
+</body>
+</html>

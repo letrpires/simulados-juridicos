@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Simulado - Info 1204 STF</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+:root{
+--bg:#020617;--panel:rgba(15,23,42,.88);--card:rgba(15,23,42,.96);
+--card2:rgba(30,41,59,.92);--border:rgba(148,163,184,.22);
+--text:#e5e7eb;--muted:#94a3b8;--accent:#38bdf8;--accent2:#0ea5e9;
+--green:#22c55e;--red:#ef4444;--yellow:#facc15;--purple:#a78bfa;
+}
+*{box-sizing:border-box}
+body{
+margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+background:radial-gradient(circle at top left,rgba(56,189,248,.20),transparent 28%),
+radial-gradient(circle at top right,rgba(167,139,250,.15),transparent 28%),
+linear-gradient(135deg,#020617,#0f172a 50%,#020617);
+color:var(--text);line-height:1.65;
+}
+header{padding:44px 20px 32px;text-align:center;border-bottom:1px solid var(--border)}
+header h1{margin:0 0 10px;font-size:clamp(28px,4vw,46px);letter-spacing:-.05em}
+header p{color:var(--muted);margin:0;font-size:16px}
+.container{max-width:1160px;margin:0 auto;padding:26px 16px 80px}
+.painel{
+position:sticky;top:10px;z-index:10;background:var(--panel);backdrop-filter:blur(18px);
+border:1px solid var(--border);border-radius:26px;padding:16px;margin-bottom:22px;
+box-shadow:0 22px 70px rgba(0,0,0,.35)
+}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.stat{background:var(--card2);padding:14px;border-radius:18px;text-align:center;border:1px solid rgba(148,163,184,.12)}
+.stat strong{display:block;font-size:25px;color:var(--accent);line-height:1.1}
+.stat span{font-size:12px;color:var(--muted)}
+.filtros{display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:12px;margin-top:14px}
+input,select{
+width:100%;background:rgba(2,6,23,.78);color:var(--text);border:1px solid var(--border);
+border-radius:14px;padding:13px 14px;outline:none;font-size:14px
+}
+input:focus,select:focus{border-color:var(--accent)}
+.card{
+background:var(--card);border:1px solid var(--border);border-radius:24px;padding:26px;
+margin-bottom:20px;box-shadow:0 18px 50px rgba(0,0,0,.24)
+}
+.questao{scroll-margin-top:190px}
+.questao-topo{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:18px}
+.badge{
+background:linear-gradient(135deg,var(--accent),var(--accent2));color:#00111f;font-weight:900;
+padding:7px 13px;border-radius:999px;display:inline-block
+}
+.disciplina-tag,.tipo-tag{
+display:inline-block;margin-left:8px;color:var(--muted);background:rgba(148,163,184,.10);
+border:1px solid rgba(148,163,184,.14);padding:6px 10px;border-radius:999px;font-size:12px
+}
+.tipo-tag{color:#ddd6fe;border-color:rgba(167,139,250,.25)}
+.status{color:var(--yellow);font-size:13px;white-space:nowrap}
+.enunciado{font-size:19px;margin:0 0 22px;letter-spacing:-.01em}
+.botoes{display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.btn{
+cursor:pointer;border:0;padding:12px 22px;border-radius:14px;color:white;font-weight:900;
+transition:.18s ease;letter-spacing:.02em
+}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.certo{background:rgba(34,197,94,.20);border:1px solid rgba(34,197,94,.42)}
+.btn.errado{background:rgba(239,68,68,.20);border:1px solid rgba(239,68,68,.42)}
+.btn.neutro{background:rgba(56,189,248,.16);color:var(--text);border:1px solid rgba(56,189,248,.32)}
+.feedback{
+display:none;background:rgba(2,6,23,.72);border:1px solid rgba(148,163,184,.16);
+border-left:5px solid var(--accent);padding:18px;border-radius:18px;margin-top:14px
+}
+.feedback.correto{border-left-color:var(--green)}
+.feedback.errado{border-left-color:var(--red)}
+.resultado{font-size:18px;font-weight:900;margin-top:0}
+.justificativa{margin-top:12px}
+.referencia{color:var(--muted);font-size:13px;margin-top:16px}
+.gabarito-certo{color:var(--green);font-weight:900}
+.gabarito-errado{color:var(--red);font-weight:900}
+.oculta{display:none}
+.sem-resultados{text-align:center;color:var(--muted);display:none;padding:30px}
+.grid-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
+.link-card{
+display:block;padding:20px;background:rgba(15,23,42,.95);border:1px solid rgba(148,163,184,.22);
+color:#e5e7eb;border-radius:22px;text-decoration:none;transition:.2s;box-shadow:0 14px 40px rgba(0,0,0,.22)
+}
+.link-card:hover{transform:translateY(-3px);border-color:#38bdf8}
+.link-card strong{display:block;font-size:17px;margin-bottom:8px}
+.link-card span{color:#94a3b8;font-size:13px}
+.index-tools{display:grid;grid-template-columns:1.5fr 1fr;gap:12px;margin-bottom:20px}
+@media(max-width:850px){
+.stats{grid-template-columns:repeat(2,1fr)}
+.filtros,.index-tools{grid-template-columns:1fr}
+.questao-topo{align-items:flex-start;flex-direction:column}
+.botoes{flex-direction:column}
+.enunciado{font-size:16px}
+.card{padding:20px}
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Simulado - Info 1204 STF</h1>
+<p>Informativos • Simulado interativo de CERTO ou ERRADO</p>
+</header>
+
+<div class="container">
+<div class="painel">
+<div class="stats">
+<div class="stat"><strong>4</strong><span>Total</span></div>
+<div class="stat"><strong id="visiveis">4</strong><span>Visíveis</span></div>
+<div class="stat"><strong id="respondidas">0</strong><span>Respondidas</span></div>
+<div class="stat"><strong id="acertos">0</strong><span>Acertos</span></div>
+<div class="stat"><strong id="erros">0</strong><span>Erros</span></div>
+</div>
+
+<div class="filtros">
+<input id="busca" type="search" placeholder="Buscar por palavra-chave..." oninput="filtrar()">
+<select id="disciplina" onchange="filtrar()">
+<option value="">Todas as disciplinas</option>
+<option value="N/I">N/I</option>
+</select>
+<select id="statusFiltro" onchange="filtrar()">
+<option value="">Todas</option>
+<option value="nao">Não respondidas</option>
+<option value="acerto">Acertos</option>
+<option value="erro">Erros</option>
+</select>
+<button class="btn neutro" onclick="reiniciar()">Reiniciar</button>
+</div>
+</div>
+
+<div id="sem-resultados" class="sem-resultados">Nenhuma questão encontrada com os filtros atuais.</div>
+
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="na apuração da antiguidade para fins de promoção por merecimento ou por antiguidade na magistratura estadual, esgotados os critérios de tempo de serviço na entrância e de tempo de serviço como magistrado, a preferência deve ser definida pela idade do magistrado, pois a ordem de classificação no concurso de ingresso somente tem relevância para a nomeação inicial, não incidindo como critério de desempate na carreira. a assertiva está incorreta porque inverte a ordem dos critérios de desempate aplicáveis à antiguidade na magistratura estadual. quando dois magistrados permanecem empatados após a análise do tempo de serviço na entrância e do tempo de serviço como magistrado, não se passa diretamente à idade. antes dela, deve ser observada a ordem de classificação no concurso de ingresso na magistratura, critério extraído do art. 93, i, da constituição federal, que determina que as nomeações obedeçam à ordem de classificação no certame.
+
+o entendimento consolidado no julgamento dos embargos de declaração esclareceu justamente que a classificação no concurso não se limita à fase de provimento inicial do cargo: ela também funciona como critério de desempate na aferição da antiguidade entre magistrados, quando houver igualdade nos critérios anteriores. assim, a sequência correta, no âmbito da magistratura estadual, é: 1) tempo de serviço na entrância; 2) tempo de serviço como magistrado; 3) ordem de classificação no concurso de ingresso; e 4) idade.
+
+a idade, portanto, é critério subsidiário e residual, somente acionado se persistir o empate após a consideração da posição no concurso. a assertiva, ao afirmar o contrário, contraria a lógica constitucional da carreira da magistratura e o próprio fundamento do julgado. stf. plenário. adi 4.462 ed/to, rel. min. cristiano zanin, julgado em 05/02/2026 (info 1204).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 1</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-1">Não respondida</span>
+</div>
+
+<p class="enunciado">Na apuração da antiguidade para fins de promoção por merecimento ou por antiguidade na magistratura estadual, esgotados os critérios de tempo de serviço na entrância e de tempo de serviço como magistrado, a preferência deve ser definida pela idade do magistrado, pois a ordem de classificação no concurso de ingresso somente tem relevância para a nomeação inicial, não incidindo como critério de desempate na carreira.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(1, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(1, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-1">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque inverte a ordem dos critérios de desempate aplicáveis à antiguidade na magistratura estadual. Quando dois magistrados permanecem empatados após a análise do tempo de serviço na entrância e do tempo de serviço como magistrado, não se passa diretamente à idade. Antes dela, deve ser observada a ordem de classificação no concurso de ingresso na magistratura, critério extraído do art. 93, I, da Constituição Federal, que determina que as nomeações obedeçam à ordem de classificação no certame.<br><br>O entendimento consolidado no julgamento dos embargos de declaração esclareceu justamente que a classificação no concurso não se limita à fase de provimento inicial do cargo: ela também funciona como critério de desempate na aferição da antiguidade entre magistrados, quando houver igualdade nos critérios anteriores. Assim, a sequência correta, no âmbito da magistratura estadual, é: 1) tempo de serviço na entrância; 2) tempo de serviço como magistrado; 3) ordem de classificação no concurso de ingresso; e 4) idade.<br><br>A idade, portanto, é critério subsidiário e residual, somente acionado se persistir o empate após a consideração da posição no concurso. A assertiva, ao afirmar o contrário, contraria a lógica constitucional da carreira da magistratura e o próprio fundamento do julgado.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 4.462 ED/TO, Rel. Min. Cristiano Zanin, julgado em 05/02/2026 (Info 1204).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="para fins de pensão por morte submetida ao art. 40, § 7º, da constituição federal, na redação dada pela ec 41/2003, a base de cálculo deve corresponder à integralidade da remuneração ou dos proventos do instituidor, ainda que parte desses valores tenha sido apenas nominalmente atribuída ao servidor, mas não efetivamente percebida em razão da incidência do teto remuneratório do art. 37, xi, da constituição, pois a limitação constitucional ao pagamento não afasta a consideração do montante bruto para a definição do benefício previdenciário. a assertiva contraria a lógica constitucional adotada no julgamento. a base de cálculo da pensão por morte, nas regras do art. 40, § 7º, da cf, com a redação da ec 41/2003, deve levar em conta apenas os valores efetivamente percebidos pelo servidor ativo ou aposentado, isto é, aquilo que de fato integrou sua remuneração ou proventos após a incidência do teto ou subteto remuneratório do art. 37, xi, da constituição.
+
+o ponto central do entendimento é a exigência de congruência entre custeio e benefício: não se pode incluir, no cálculo da pensão, parcelas sobre as quais não houve contribuição previdenciária. se o excedente ao teto foi apenas nominalmente previsto, mas não pago ao servidor em razão do “abate-teto”, esse montante não compõe a base da pensão. em outras palavras, o que importa é a remuneração/proventos efetivamente recebidos, e não o valor bruto teórico que ultrapassava o limite constitucional.
+
+assim, a tese afasta precisamente a pretensão de usar o valor integral “no papel” quando parte dele foi excluída pelo teto remuneratório e, por isso, não integrou a base contributiva. a incidência do art. 37, xi, da cf repercute diretamente no cálculo da pensão, porque o benefício previdenciário deve refletir apenas as parcelas efetivamente submetidas ao regime de custeio. stf. plenário. are 1.314.490/sp, rel. min. flávio dino, julgado em 09/02/2026 (repercussão geral – tema 1.167) (info 1204).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 2</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-2">Não respondida</span>
+</div>
+
+<p class="enunciado">Para fins de pensão por morte submetida ao art. 40, § 7º, da Constituição Federal, na redação dada pela EC 41/2003, a base de cálculo deve corresponder à integralidade da remuneração ou dos proventos do instituidor, ainda que parte desses valores tenha sido apenas nominalmente atribuída ao servidor, mas não efetivamente percebida em razão da incidência do teto remuneratório do art. 37, XI, da Constituição, pois a limitação constitucional ao pagamento não afasta a consideração do montante bruto para a definição do benefício previdenciário.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(2, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(2, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-2">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva contraria a lógica constitucional adotada no julgamento. A base de cálculo da pensão por morte, nas regras do art. 40, § 7º, da CF, com a redação da EC 41/2003, deve levar em conta apenas os valores efetivamente percebidos pelo servidor ativo ou aposentado, isto é, aquilo que de fato integrou sua remuneração ou proventos após a incidência do teto ou subteto remuneratório do art. 37, XI, da Constituição.<br><br>O ponto central do entendimento é a exigência de congruência entre custeio e benefício: não se pode incluir, no cálculo da pensão, parcelas sobre as quais não houve contribuição previdenciária. Se o excedente ao teto foi apenas nominalmente previsto, mas não pago ao servidor em razão do “abate-teto”, esse montante não compõe a base da pensão. Em outras palavras, o que importa é a remuneração/proventos efetivamente recebidos, e não o valor bruto teórico que ultrapassava o limite constitucional.<br><br>Assim, a tese afasta precisamente a pretensão de usar o valor integral “no papel” quando parte dele foi excluída pelo teto remuneratório e, por isso, não integrou a base contributiva. A incidência do art. 37, XI, da CF repercute diretamente no cálculo da pensão, porque o benefício previdenciário deve refletir apenas as parcelas efetivamente submetidas ao regime de custeio.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ARE 1.314.490/SP, Rel. Min. Flávio Dino, julgado em 09/02/2026 (Repercussão Geral – Tema 1.167) (Info 1204).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a instauração de ação de improbidade administrativa fundada em suposto “caixa dois” eleitoral não configura bis in idem em relação à eventual persecução penal pelo art. 350 do código eleitoral, ainda que os mesmos fatos sejam utilizados como suporte fático de ambas as imputações; contudo, se a justiça eleitoral reconhecer a inexistência do fato ou a negativa de autoria, tal pronunciamento deverá irradiar efeitos sobre a esfera administrativa, sem que isso implique deslocamento da competência para a justiça eleitoral. a assertiva está correta porque reproduz, com precisão técnica, a lógica firmada no julgamento: a coexistência de responsabilização por crime eleitoral e por improbidade administrativa não viola, por si só, a vedação ao bis in idem. isso ocorre porque as esferas penal e de improbidade possuem fundamentos, finalidades e regimes sancionatórios distintos, sendo compatível a incidência de consequências jurídicas diversas sobre um mesmo núcleo fático, desde que cada instância aprecie a conduta sob seu próprio regime de responsabilização.
+
+o ponto sensível do entendimento está na ressalva quanto à comunicabilidade entre instâncias. a decisão da justiça eleitoral somente repercute na seara administrativa em hipóteses específicas e restritas: quando houver reconhecimento da inexistência do fato ou negativa de autoria. nesses casos, a conclusão judicial afasta a própria base fática ou a imputação pessoal, o que impede a subsistência da responsabilização em outra esfera com suporte no mesmo evento. fora dessas hipóteses, não há automática vinculação entre as instâncias.
+
+além disso, o julgado também afasta a tese de competência da justiça eleitoral para processar e julgar a ação de improbidade administrativa apenas porque os fatos também podem caracterizar irregularidade eleitoral. a competência para a ação de improbidade permanece na justiça comum, ainda que a conduta investigada também possa configurar crime eleitoral. assim, a existência de possível repercussão eleitoral não desloca, por si só, a competência cível-administrativa. stf. plenário. are 1.428.742/sp, rel. min. alexandre de moraes, julgado em 09/02/2026 (repercussão geral – tema 1.260) (info 1204).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 3</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-3">Não respondida</span>
+</div>
+
+<p class="enunciado">A instauração de ação de improbidade administrativa fundada em suposto “caixa dois” eleitoral não configura bis in idem em relação à eventual persecução penal pelo art. 350 do Código Eleitoral, ainda que os mesmos fatos sejam utilizados como suporte fático de ambas as imputações; contudo, se a Justiça Eleitoral reconhecer a inexistência do fato ou a negativa de autoria, tal pronunciamento deverá irradiar efeitos sobre a esfera administrativa, sem que isso implique deslocamento da competência para a Justiça Eleitoral.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(3, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(3, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-3">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz, com precisão técnica, a lógica firmada no julgamento: a coexistência de responsabilização por crime eleitoral e por improbidade administrativa não viola, por si só, a vedação ao bis in idem. Isso ocorre porque as esferas penal e de improbidade possuem fundamentos, finalidades e regimes sancionatórios distintos, sendo compatível a incidência de consequências jurídicas diversas sobre um mesmo núcleo fático, desde que cada instância aprecie a conduta sob seu próprio regime de responsabilização.<br><br>O ponto sensível do entendimento está na ressalva quanto à comunicabilidade entre instâncias. A decisão da Justiça Eleitoral somente repercute na seara administrativa em hipóteses específicas e restritas: quando houver reconhecimento da inexistência do fato ou negativa de autoria. Nesses casos, a conclusão judicial afasta a própria base fática ou a imputação pessoal, o que impede a subsistência da responsabilização em outra esfera com suporte no mesmo evento. Fora dessas hipóteses, não há automática vinculação entre as instâncias.<br><br>Além disso, o julgado também afasta a tese de competência da Justiça Eleitoral para processar e julgar a ação de improbidade administrativa apenas porque os fatos também podem caracterizar irregularidade eleitoral. A competência para a ação de improbidade permanece na Justiça Comum, ainda que a conduta investigada também possa configurar crime eleitoral. Assim, a existência de possível repercussão eleitoral não desloca, por si só, a competência cível-administrativa.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ARE 1.428.742/SP, Rel. Min. Alexandre de Moraes, julgado em 09/02/2026 (Repercussão Geral – Tema 1.260) (Info 1204).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="é inconstitucional a causa de aumento de pena prevista no art. 141, ii, do código penal quando aplicada aos crimes contra a honra praticados contra funcionário público, ainda que a ofensa tenha relação direta com o exercício da função, por supostamente restringir de forma desproporcional a liberdade de expressão e o pluralismo político. a assertiva está incorreta porque a norma foi reputada compatível com a constituição. o aumento de um terço previsto no art. 141, ii, do código penal para calúnia, difamação e injúria praticadas contra funcionário público em razão de suas funções foi considerado constitucional.
+
+o fundamento central é que a liberdade de expressão, embora essencial ao regime democrático, não possui caráter absoluto e não ampara a prática de crimes contra a honra. a majorante não incide sobre crítica legítima ao poder público, mas apenas sobre condutas que já ultrapassaram o âmbito da manifestação protegida e ingressaram no campo da ilicitude penal.
+
+além disso, a elevação da pena foi justificada pela maior reprovabilidade e lesividade da conduta: a ofensa não atinge apenas a honra subjetiva do agente público, mas também a dignidade e a credibilidade da própria função pública perante a coletividade. por isso, não há violação ao pluralismo político nem ao princípio da isonomia.
+
+importa destacar, ainda, que a incidência da majorante não é automática em qualquer ofensa dirigida a servidor público: exige-se nexo causal entre a imputação ofensiva e o exercício funcional. sem essa vinculação, a causa de aumento não se aplica. stf. plenário. adpf 338/df, rel. min. luís roberto barroso, redator do acórdão min. flávio dino, julgado em 02/02/2026 (info 1204).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 4</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-4">Não respondida</span>
+</div>
+
+<p class="enunciado">É inconstitucional a causa de aumento de pena prevista no art. 141, II, do Código Penal quando aplicada aos crimes contra a honra praticados contra funcionário público, ainda que a ofensa tenha relação direta com o exercício da função, por supostamente restringir de forma desproporcional a liberdade de expressão e o pluralismo político.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(4, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(4, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-4">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque a norma foi reputada compatível com a Constituição. O aumento de um terço previsto no art. 141, II, do Código Penal para calúnia, difamação e injúria praticadas contra funcionário público em razão de suas funções foi considerado constitucional.<br><br>O fundamento central é que a liberdade de expressão, embora essencial ao regime democrático, não possui caráter absoluto e não ampara a prática de crimes contra a honra. A majorante não incide sobre crítica legítima ao poder público, mas apenas sobre condutas que já ultrapassaram o âmbito da manifestação protegida e ingressaram no campo da ilicitude penal.<br><br>Além disso, a elevação da pena foi justificada pela maior reprovabilidade e lesividade da conduta: a ofensa não atinge apenas a honra subjetiva do agente público, mas também a dignidade e a credibilidade da própria função pública perante a coletividade. Por isso, não há violação ao pluralismo político nem ao princípio da isonomia.<br><br>Importa destacar, ainda, que a incidência da majorante não é automática em qualquer ofensa dirigida a servidor público: exige-se nexo causal entre a imputação ofensiva e o exercício funcional. Sem essa vinculação, a causa de aumento não se aplica.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADPF 338/DF, Rel. Min. Luís Roberto Barroso, redator do acórdão Min. Flávio Dino, julgado em 02/02/2026 (Info 1204).</p>
+</div>
+</section>
+
+</div>
+
+<script>
+const storageKey = location.pathname + "_respostas";
+let respostas = JSON.parse(localStorage.getItem(storageKey) || "{}");
+
+function destacar(t){
+ if(t==="CERTO") return '<span class="gabarito-certo">CERTO</span>';
+ if(t==="ERRADO") return '<span class="gabarito-errado">ERRADO</span>';
+ return t;
+}
+
+function responder(numero, resposta){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const gabarito=card.dataset.gabarito;
+ const correto=resposta===gabarito;
+ respostas[numero]={resposta,correto};
+ localStorage.setItem(storageKey, JSON.stringify(respostas));
+ mostrarFeedback(numero);
+ atualizarPainel();
+ filtrar();
+}
+
+function mostrarFeedback(numero){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const feedback=document.getElementById("feedback-"+numero);
+ const status=document.getElementById("status-"+numero);
+ const resultado=feedback.querySelector(".resultado");
+ const gabarito=card.dataset.gabarito;
+ const dados=respostas[numero];
+ if(!dados) return;
+ feedback.style.display="block";
+ feedback.classList.remove("correto","errado");
+ if(dados.correto){
+   feedback.classList.add("correto");
+   resultado.innerHTML="Você acertou. A resposta é "+destacar(gabarito)+".";
+   status.textContent="Respondida — acerto";
+   status.style.color="var(--green)";
+ } else {
+   feedback.classList.add("errado");
+   resultado.innerHTML="Você errou. O gabarito é "+destacar(gabarito)+".";
+   status.textContent="Respondida — erro";
+   status.style.color="var(--red)";
+ }
+}
+
+function atualizarPainel(){
+ let respondidas=0, acertos=0, erros=0;
+ for(const k in respostas){
+   respondidas++;
+   if(respostas[k].correto) acertos++; else erros++;
+ }
+ document.getElementById("respondidas").textContent=respondidas;
+ document.getElementById("acertos").textContent=acertos;
+ document.getElementById("erros").textContent=erros;
+ document.getElementById("visiveis").textContent=document.querySelectorAll(".questao:not(.oculta)").length;
+}
+
+function filtrar(){
+ const busca=document.getElementById("busca").value.trim().toLowerCase();
+ const disciplina=document.getElementById("disciplina").value;
+ const statusFiltro=document.getElementById("statusFiltro").value;
+ const cards=Array.from(document.querySelectorAll(".questao"));
+ let vis=0;
+ cards.forEach((card,idx)=>{
+   const n=idx+1;
+   const texto=card.dataset.texto||"";
+   const disc=card.dataset.disciplina||"";
+   const r=respostas[n];
+   let passaStatus=true;
+   if(statusFiltro==="nao") passaStatus=!r;
+   if(statusFiltro==="acerto") passaStatus=r && r.correto;
+   if(statusFiltro==="erro") passaStatus=r && !r.correto;
+   const ok=(!busca||texto.includes(busca)) && (!disciplina||disc===disciplina) && passaStatus;
+   card.classList.toggle("oculta", !ok);
+   if(ok) vis++;
+ });
+ document.getElementById("sem-resultados").style.display=vis===0?"block":"none";
+ atualizarPainel();
+}
+
+function reiniciar(){
+ if(!confirm("Deseja reiniciar este simulado?")) return;
+ localStorage.removeItem(storageKey);
+ location.reload();
+}
+
+function restaurar(){
+ for(const k in respostas) mostrarFeedback(Number(k));
+ filtrar();
+ atualizarPainel();
+}
+
+restaurar();
+</script>
+</body>
+</html>
