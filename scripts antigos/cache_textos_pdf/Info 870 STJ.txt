@@ -1,0 +1,650 @@
+ 
+Informativo 870-STJ (11/11/2025) – Márcio André Lopes Cavalcante   |  1 
+ 
+Informativo comentado: 
+Informativo 870-STJ (RESUMIDO) 
+Márcio André Lopes Cavalcante 
+ 
+ 
+ 
+DIREITO ADMINISTRATIVO 
+ 
+IMPROBIDADE ADMINISTRATIVA 
+É possível a conversão da sanção de perda da função pública em cassação de aposentadoria na 
+fase de cumprimento de sentença em ação por improbidade administrativa 
+ 
+ODS 16 
+Em consonância com a atual jurisprudência do STF, é possível a conversão da pena de perda 
+de cargo público em cassação de aposentadoria na fase de cumprimento de sentença de ação 
+por improbidade administrativa.  
+É válida a aplicação da cassação de aposentadoria, por equivalência à pena de perda do cargo 
+público, quando o agente já se encontra inativo no momento da execução da sentença 
+condenatória por improbidade administrativa. 
+STJ. 1ª Seção. EREsp 1781874-DF, Rel. Min. Paulo Sérgio Domingues, julgado em 2/10/2025 (Info 
+870). 
+ 
+ 
+DIREITO CIVIL 
+ 
+RESPONSABILIDADE CIVIL 
+As declarações proferidas durante trote universitário, dirigidas a grupo específico e 
+posteriormente divulgadas em redes sociais, não configuram dano moral coletivo 
+ 
+Importante!!! 
+ 
+ODS 16 
+Caso adaptado: Marcelo, estudante de Medicina, participou de um trote universitário no qual 
+apresentou aos calouros um suposto hino da instituição que, na verdade, era um juramento 
+com conteúdo machista e sexualizado. O juramento objetificava mulheres, incitava 
+comportamentos desrespeitosos e foi repetido pelos calouros em meio a risadas e aplausos. A 
+cena foi filmada e ganhou grande repercussão nacional, gerando críticas de veículos de 
+imprensa e movimentos feministas, que apontaram o episódio como ofensivo à dignidade 
+feminina e perpetuador da cultura do estupro. 
+Diante disso, o Ministério Público ajuizou ação civil pública contra Marcelo, pedindo 
+indenização por danos morais coletivos e danos sociais. O juiz julgou o pedido improcedente, 
+entendendo que, embora imoral, o discurso não atingiu a coletividade das mulheres, pois foi 
+restrito a um grupo limitado. O Tribunal de Justiça manteve a decisão, afirmando que as falas 
+ocorreram em tom de brincadeira e foram repetidas voluntariamente pelos calouros, o que 
+afastaria a gravidade necessária para caracterizar dano coletivo. 
+O STJ manteve o acórdão do TJ que negou a indenização. 
+
+                                                          Informativo                       
+comentado 
+ 
+ 
+Informativo 870-STJ (11/11/2025) – Márcio André Lopes Cavalcante   |  2 
+A configuração do dano moral coletivo exige demonstração de conduta antijurídica, lesão a 
+interesse transindividual, nexo de causalidade e gravidade objetiva da lesão. 
+A repercussão negativa em redes sociais não constitui, por si, parâmetro juridicamente idôneo 
+para caracterizar dano moral coletivo. 
+STJ. 4ª Turma. REsp 2.060.852-SP, Rel. Min. Antonio Carlos Ferreira, julgado em 14/10/2025 (Info 
+870). 
+ 
+CONTRATOS > SEGURO 
+A conduta da roleta-russa, embora temerária, quando comprovadamente realizada sem a 
+intenção suicida e sob o efeito de embriaguez, não é causa para a perda de indenização do 
+seguro de vida 
+ 
+Importante!!! 
+ 
+ODS 16 
+Caso hipotético: João, embriagado e acreditando que sua arma antiga não funcionava, fez 
+roleta-russa, disparando contra a sua própria cabeça. Na segunda vez, a arma disparou e ele 
+morreu. A seguradora se recusou a pagar a indenização do seguro de vida em favor da 
+viúva/beneficiária (Regina).  
+Regina ingressou com ação contra a seguradora. 
+O juiz negou o pedido argumentando que houve suicídio e que havia menos de 2 anos de 
+vigência do contrato (Súmula 610 do STJ). 
+O Tribunal de Justiça manteve a improcedência, mas sob o outro fundamento: não houve 
+suicídio, mas João agravou intencionalmente o risco do contrato ao apontar a arma para a 
+própria cabeça, aplicando o art. 768 do Código Civil. 
+Ao julgar recurso especial, o STJ afastou esse entendimento, reconhecendo que não houve 
+intenção de agravar o risco nem de provocar o sinistro, pois João, embriagado e confiante de 
+que a arma não funcionava, não tinha propósito doloso. Assim, o STJ concluiu que Regina tinha 
+direito à indenização securitária. 
+Mesmo que o segurado tenha atirado contra si próprio, se a ação foi praticada em estado de 
+embriaguez e sem o propósito deliberado de morrer, não se aplica o art. 768 do CC, devendo a 
+indenização securitária ser paga. 
+STJ. 3ª Turma. REsp 2.204.888-PR, Rel. Min. Nancy Andrighi, julgado em 4/11/2025 (Info 870). 
+ 
+CONTRATOS > LOCAÇÃO DE BENS IMÓVEIS URBANOS 
+As prestações periódicas relativas aos encargos locatícios vencidos após o ingresso em juízo até 
+a efetiva desocupação do imóvel devem ser incluídas na condenação, independentemente de 
+pedido pormenorizado do autor na inicial ou no curso da demanda 
+ 
+ODS 16 
+Caso hipotético: João alugou um imóvel comercial para Pedro, que deveria pagar aluguel e 
+todas as despesas ordinárias previstas na Cláusula Quinta do contrato. Após alguns meses, 
+Pedro deixou de pagar os aluguéis, o IPTU e o seguro contra incêndio, levando João a propor 
+ação de despejo cumulada com cobrança. Na inicial, João pediu a condenação do locatário por 
+todas as obrigações vencidas e vincendas até a desocupação, fazendo referência expressa ao 
+contrato. O juiz determinou o despejo e condenou Pedro apenas pelos aluguéis vencidos e 
+vincendos, sem incluir os demais encargos locatícios.  
+João apelou, mas o Tribunal de Justiça negou provimento ao recurso, entendendo que seria 
+necessário discriminar detalhadamente, na inicial, cada uma das despesas além do aluguel, 
+
+                                                          Informativo                       
+comentado 
+ 
+ 
+Informativo 870-STJ (11/11/2025) – Márcio André Lopes Cavalcante   |  3 
+IPTU e seguro, pois não seria possível uma condenação genérica, conforme exigem os arts. 322 
+e 324 do CPC (pedido certo e determinado). 
+No recurso especial, João sustentou que, por se tratar de obrigações periódicas, o art. 323 do 
+CPC determina a inclusão automática das parcelas vencidas no curso do processo.  
+O STJ concordou com essa tese e deu razão ao autor, reconhecendo que os encargos locatícios 
+previstos no contrato, por serem prestações sucessivas, devem ser incluídos na condenação 
+mesmo sem discriminação individualizada na petição inicial. 
+É cabível a inclusão, na condenação, de todos os encargos locatícios vencidos e vincendos até 
+a efetiva desocupação do imóvel, mesmo que não tenham sido discriminados 
+pormenorizadamente na petição inicial, desde que haja referência expressa às obrigações 
+contratuais assumidas pelo locatário. 
+A petição inicial deve ser interpretada de forma lógico-sistemática, considerando todo o seu 
+conteúdo e não apenas o capítulo dos pedidos. Sendo o contrato de locação uma obrigação de 
+trato sucessivo, aplica-se o art. 323 do CPC, que permite a inclusão automática das prestações 
+periódicas vencidas no curso da demanda, independentemente de declaração expressa. 
+STJ. 3ª Turma. REsp 2.091.358-DF, Rel. Min. Ricardo Villas Bôas Cueva, julgado em 16/9/2025 (Info 
+870). 
+ 
+ALIMENTOS 
+Alimentos vencidos e não pagos são transmitidos aos herdeiros do credor falecido,  
+podendo a execução prosseguir em sucessão processual 
+ 
+ODS 16 
+Caso hipotético: Pedro deixou de pagar por vários meses a pensão alimentícia devida ao filho 
+Gabriel, acumulando dívida superior a R$ 30.000,00. Gabriel, representado por sua mãe 
+Mariana, ajuizou ação de execução para cobrar os valores atrasados. Durante o andamento do 
+processo, porém, Gabriel faleceu aos 11 anos de idade. 
+Após o óbito, Mariana pediu para continuar a execução, argumentando que as parcelas 
+vencidas já haviam se incorporado ao patrimônio de Gabriel e, portanto, poderiam ser 
+transmitidas aos seus herdeiros. O que decidiu o STJ? É possível o prosseguimento dessa 
+execução pelos herdeiros de Gabriel? Sim. 
+Os alimentos vencidos e não pagos no curso da execução configuram crédito concreto do 
+alimentado, incorporando-se ao seu patrimônio, sendo, portanto, transmissíveis aos seus 
+herdeiros. 
+Embora a obrigação alimentar seja personalíssima e, portanto, intransmissível, as prestações 
+alimentares vencidas e não pagas adquirem natureza patrimonial, podendo ser transmitidas 
+aos herdeiros do alimentando, pois já integravam seu acervo no momento do falecimento. 
+Os alimentos vencidos e não pagos no curso da execução configuram crédito concreto do 
+alimentado e podem ser objeto de sucessão, nos termos do art. 1.784 do Código Civil. 
+STJ. 4ª Turma. REsp 2.010.219-MG, Rel. Min. Maria Isabel Gallotti, julgado em 14/10/2025 (Info 870). 
+Cuidado: há julgados em sentido contrário.  
+ 
+ 
+DIREITO DO CONSUMIDOR 
+ 
+PLANO DE SAÚDE 
+Plano de saúde deve cobrir Neocate (fórmula à base de aminoácidos) para tratamento de alergia 
+à proteína do leite de vaca (APLV) em crianças de até dois anos 
+
+                                                          Informativo                       
+comentado 
+ 
+ 
+Informativo 870-STJ (11/11/2025) – Márcio André Lopes Cavalcante   |  4 
+ 
+Importante!!! 
+ 
+ODS 3 E 16 
+Caso hipotético: Mariana, um bebê de 6 meses, foi diagnosticada com APLV (alergia à proteína 
+do leite de vaca) em grau severo, exigindo o uso exclusivo do Neocate (fórmula à base de 
+aminoácidos livres) já que nenhum outro tipo de leite ou fórmula é tolerado. Sua mãe solicitou 
+ao plano de saúde o custeio do produto, considerado essencial para o tratamento nutricional 
+da criança, mas o pedido foi negado sob alegações de que o Neocate seria apenas um alimento, 
+não constaria no Rol da ANS e teria finalidade social devido ao alto custo. 
+A questão chegou ao STJ, que decidiu que o plano de saúde é obrigado a fornecer o Neocate 
+para crianças com APLV grave.  
+A operadora do plano de saúde é obrigada a cobrir a fórmula à base de aminoácidos (Neocate) 
+para o tratamento de crianças com alergia à proteína do leite de vaca, conforme recomendação 
+da Conitec e incorporação da tecnologia ao SUS, limitada até os dois anos de idade. 
+A fórmula à base de aminoácidos, embora não seja medicamento, constitui tecnologia em 
+saúde recomendada pela Conitec e incorporada ao SUS, sendo de cobertura obrigatória pelos 
+planos de saúde para o tratamento de crianças de até dois anos diagnosticadas com alergia à 
+proteína do leite de vaca, desde que comprovada sua necessidade médica. 
+STJ. 3ª Turma. REsp 2.204.902-RJ, Rel. Min. Nancy Andrighi, julgado em 4/11/2025 (Info 870). 
+ 
+ 
+ECA 
+ 
+ASPECTOS PROCESSUAIS 
+A Defensoria Pública tem direito ao prazo em dobro também nos procedimentos  
+regulados pelo Estatuto da Criança e do Adolescente 
+ 
+Importante!!! 
+ 
+ODS 16 
+A Defensoria Pública tem direito ao prazo em dobro nos procedimentos previstos no ECA, pois 
+a vedação expressa do art. 152, § 2º, limita-se à Fazenda Pública e ao Ministério Público, sendo 
+este silêncio legislativo interpretado como escolha deliberada de manter a prerrogativa para 
+a Defensoria: § 2º Os prazos estabelecidos nesta Lei e aplicáveis aos seus procedimentos são 
+contados em dias corridos, excluído o dia do começo e incluído o dia do vencimento, vedado o 
+prazo em dobro para a Fazenda Pública e o Ministério Público. (Incluído pela Lei nº 13.509, de 
+2017) 
+A Defensoria Pública, diferentemente de outras instituições estatais, enfrenta sobrecarga de 
+trabalho decorrente do princípio da indeclinabilidade, o que justifica a concessão de prazos 
+diferenciados como instrumento de efetivação da isonomia material e do acesso à justiça. 
+A celeridade exigida pelo ECA não pode suprimir o direito fundamental à ampla defesa e ao 
+contraditório, sendo legítimo o acréscimo de prazo à Defensoria como medida que harmoniza 
+a prioridade da infância com a paridade de armas no processo. 
+STJ. 3ª Turma. REsp 2.212.651/PR, Rel. Min. Ricardo Villas Bôas Cueva, julgado em 15/9/2025. 
+STJ. 4ª Turma. Resp 2.139.217-PR, Rel. Min. Antonio Carlos Ferreira, julgado em 27/10/2025 (Info 
+870). 
+ 
+ 
+ 
+ 
+
+                                                          Informativo                       
+comentado 
+ 
+ 
+Informativo 870-STJ (11/11/2025) – Márcio André Lopes Cavalcante   |  5 
+APURAÇÃO DE ATOS INFRACIONAIS 
+Adolescente em procedimento de apuração de ato infracional tem direito ao interrogatório ao 
+final da instrução, aplicando-se subsidiariamente o art. 400 do CPP ao rito do ECA 
+ 
+ODS 16 
+No rito especial que visa apurar a prática de ato infracional, além da audiência de 
+apresentação do adolescente prevista no art. 184 do ECA, aplica-se subsidiariamente o art. 400 
+do CPP, de modo que, em acréscimo, é preciso garantir ao adolescente o interrogatório ao final 
+da instrução.  
+A inobservância desse procedimento implicará nulidade se o prejuízo à autodefesa for 
+informado pela parte na primeira oportunidade que tiver para se manifestar nos autos, sob 
+pena de preclusão.  
+O entendimento é aplicável aos feitos com instrução encerrada após 3/3/2016. 
+STJ. 3ª Seção. REsp 2.088.626-RS e REsp 2.100.005-RS, Rel. Min. Rogerio Schietti Cruz, julgados em 
+8/10/2025 (Recurso Repetitivo - Tema 1269) (Info 870). 
+ 
+ 
+DIREITO PROCESSUAL CIVIL 
+ 
+COMPETÊNCIA 
+Ação indenizatória contra município envolvendo criança deve seguir a regra geral de 
+competência territorial, não se aplicando a competência absoluta do Juízo da Infância e da 
+Juventude quando a demanda tiver cunho estritamente patrimonial 
+ 
+ODS 16 
+Caso hipotético: uma criança de 7 anos vítima de abusos sexuais em escola municipal no Rio 
+Grande do Sul. A criança, representada pela mãe, ajuizou ação indenizatória contra o 
+Município na comarca A, onde residiam e onde ocorreram os fatos. Durante a tramitação, mãe 
+e filha mudaram-se para a comarca B, em Santa Catarina. 
+O juízo da comarca A declinou da competência em favor da comarca B, fundamentando-se no 
+princípio do juízo imediato do art. 147, I, do ECA, que determina a competência pelo domicílio 
+dos pais ou responsável. O juízo da comarca B, entretanto, suscitou conflito negativo de 
+competência perante o STJ, argumentando que a ação é estritamente indenizatória, não se 
+enquadrando nas hipóteses de competência absoluta do Juízo da Infância e Juventude, além 
+de invocar a regra da perpetuação da jurisdição do art. 43 do CPC/2015. 
+O STJ decidiu que a competência é do juízo da comarca A, prevalecendo o entendimento de que 
+a regra da perpetuação da jurisdição se aplica ao caso, tornando irrelevante a mudança de 
+domicílio posterior ao ajuizamento da ação. 
+Teses de julgamento: 
+1. A competência do Juízo da Infância e da Juventude não se aplica a ações de cunho 
+patrimonial ou obrigacional que não estejam intimamente ligadas à proteção de direitos 
+fundamentais de crianças e adolescentes. 
+2. A regra geral de competência territorial deve prevalecer em ações indenizatórias contra 
+municípios, salvo prova de efetivo prejuízo ao contraditório. 
+STJ. 1ª Seção. CC 215.093-SC, Rel. Min. Marco Aurélio Bellizze, julgado em 2/10/2025 (Info 870). 
+ 
+ 
+ 
+ 
+
+                                                          Informativo                       
+comentado 
+ 
+ 
+Informativo 870-STJ (11/11/2025) – Márcio André Lopes Cavalcante   |  6 
+COMPETÊNCIA 
+Compete à Justiça Comum Estadual julgar ação decorrente de bloqueio de conta em plataforma 
+digital (ex: Uber, Ifood etc.) quando não houver pedido de reconhecimento de vínculo 
+empregatício 
+ 
+Importante!!! 
+ 
+ODS 16 
+Caso hipotético: João, entregador de um aplicativo de entregas, teve sua conta bloqueada sem 
+prévio aviso ou justificativa, ficando impossibilitado de trabalhar. Ele quer ingressar  com 
+ação pedindo a reativação da conta, indenização por danos morais e materiais e pagamento 
+de lucros cessantes. Ele não quer pedir o reconhecimento de vínculo empregatício nem verbas 
+trabalhistas. A competência para julgar essa ação é da Justiça Estadual (não é da Justiça do 
+Trabalho). 
+Compete à Justiça Comum Estadual (e não à Justiça do Trabalho) o julgamento da demanda 
+relativa a bloqueio de conta em plataforma digital de delivery, se não houver pedido de 
+reconhecimento de vínculo trabalhista ou verbas típicas da relação de trabalho.   
+STJ. 2ª Seção. CC 214.451-SP, Rel. Min. Daniela Teixeira, julgado em 16/9/2025 (Info 870). 
+ 
+PROVAS 
+Em comarcas onde houver sala passiva, cabe ao juiz deprecado apenas viabilizar a estrutura 
+física e logística para a audiência, devendo o juiz que processa ouvir as partes e as testemunhas 
+diretamente por meio de videoconferência 
+ 
+Importante!!! 
+ 
+ODS 16 
+Caso hipotético: Regina, trabalhadora rural de Apiaí (SP), ajuizou ação no Juizado Especial 
+Federal de Itapeva (SP) pedindo aposentadoria rural. A ação foi proposta em Itapeva porque 
+na sua cidade não há vara federal, estando ela sob jurisdição daquela subseção.  
+O juiz federal de Itapeva expediu carta precatória ao juízo estadual de Apiaí para ouvir 
+testemunhas residentes no município. No entanto, o juiz estadual recusou-se a realizar a 
+oitiva, alegando que existia na comarca uma sala passiva que permitiria ao próprio 
+magistrado federal conduzir a audiência por videoconferência. 
+A sala passiva é um espaço instalado no fórum, equipado com tecnologia de videoconferência 
+e operado por servidor do fórum, permitindo que o juiz deprecante conduza diretamente 
+audiências à distância. Essa estrutura visa preservar a identidade física do juiz e facilitar o 
+acesso à Justiça, evitando deslocamentos desnecessários.  
+Diante disso, o juiz estadual sustentou que a oitiva deveria ser feita por videoconferência pelo 
+juiz federal, e não por meio de carta precatória delegando a condução do ato. 
+O STJ concordou com o juízo estadual. 
+Existindo sala passiva de videoconferência na comarca onde reside a testemunha, o juiz do 
+local onde tramita o processo não pode expedir carta precatória para que o juiz estadual 
+realize a oitiva.  
+Nos locais em que existente sala passiva, a deprecação há de limitar-se à disponibilização 
+desta em data e hora previamente agendada, intimação de quem necessário e demais atos 
+preparatórios de modo que o magistrado efetivamente competente cumpra, sequencialmente, 
+seu dever de oitiva das partes e testemunhas.   
+STJ. 1ª Seção. EDcl no AgInt no CC 196.645-SP, Rel. Min. Afrânio Vilela, julgado em 14/10/2025 (Info 
+870). 
+ 
+
+                                                          Informativo                       
+comentado 
+ 
+ 
+Informativo 870-STJ (11/11/2025) – Márcio André Lopes Cavalcante   |  7 
+EXECUÇÃO > EMBARGOS À EXECUÇÃO 
+A apresentação de embargos à execução diretamente nos autos da execução contraria o art. 
+914, §1º, do CPC, mas constitui vício sanável, desde que cumpra sua finalidade e seja corrigido 
+em prazo razoável, sem causar prejuízo ao contraditório 
+ 
+ODS 16 
+Caso hipotético: Pedro, executado em ação movida por João, apresentou embargos à execução 
+dentro do prazo legal de 15 dias, mas o fez de forma incorreta: protocolou apenas uma petição 
+nos autos da execução, em vez de distribuir a ação autônoma de embargos, como exige o art. 
+914, §1º, do CPC. Após ser advertido pelo juiz, ele então promoveu a distribuição correta, já 
+fora do prazo de 15 dias. João alegou que os embargos eram intempestivos, pois a mera petição 
+não substitui a distribuição da ação autônoma e o prazo preclusivo teria expirado sem que 
+Pedro exercesse validamente seu direito de defesa. O juiz afastou esse argumento, entendendo 
+que o erro cometido era escusável e que deveria prevalecer a finalidade do ato, nos termos do 
+art. 277 do CPC: Quando a lei prescrever determinada forma, o juiz considerará válido o ato 
+se, realizado de outro modo, lhe alcançar a finalidade. O STJ concordou com o magistrado. 
+Teses de julgamento: 
+1. A protocolização de embargos à execução nos autos da ação executiva, em desconformidade 
+com o art. 914, § 1º, do CPC, configura vício sanável, desde que o ato alcance sua finalidade 
+essencial e seja posteriormente regularizado em prazo razoável, sem prejuízo ao 
+contraditório. 
+2. O princípio da instrumentalidade das formas autoriza o aproveitamento de atos processuais 
+formalmente irregulares que não comprometam a substância do procedimento e não causem 
+prejuízo às partes. 
+STJ. 4ª Turma. REsp 2.206.445-SP, Rel. Min. Antonio Carlos Ferreira, julgado em 14/10/2025 (Info 
+870). 
+ 
+ 
+DIREITO PENAL 
+ 
+LEI MARIA DA PENHA 
+A palavra da vítima, corroborada por outras provas, tem especial relevância  
+em crimes de violência doméstica, e o dano moral é presumido nesses casos 
+ 
+Importante!!! 
+ 
+ODS 5 E 16 
+1. O Superior Tribunal de Justiça é competente para julgar desembargadores em crimes sem 
+relação com o cargo, de modo a garantir a imparcialidade do julgamento.  
+2. A palavra da vítima, corroborada por provas periciais e testemunhais, possui relevante 
+valor probatório em crimes de violência doméstica.  
+3. A tese de autolesão e interesse patrimonial da vítima não encontra suporte nas provas e 
+reforça estereótipos de gênero ultrapassados. 
+4. Natureza in re ipsa do dano moral decorrente de atos de violência doméstica e familiar 
+contra a mulher.  
+5. Indenização por danos morais arbitrada em valor razoável, de modo a preservar a dupla 
+finalidade da condenação, qual seja, punir o ato ilícito cometido e reparar o sofrimento 
+experimentado pela vítima, sem perder de vista a vulnerabilidade e a hipossuficiência da 
+parte ofendida, considerando as peculiaridades subjetivas do caso. 
+STJ. Corte Especial. APn 1.079-DF, Rel. Min. Antonio Carlos Ferreira, julgado em 15/10/2025 (Info 
+870). 
+
+                                                          Informativo                       
+comentado 
+ 
+ 
+Informativo 870-STJ (11/11/2025) – Márcio André Lopes Cavalcante   |  8 
+ 
+DIREITO PROCESSUAL PENAL 
+ 
+CADEIA DE CUSTÓDIA 
+É nulo o laudo pericial baseado em mídias cujo conteúdo integral se tornou inacessível à defesa 
+por falha de armazenamento ao longo da cadeia de custódia 
+ 
+ODS 16 
+Caso hipotético: João se envolveu em um acidente de trânsito que resultou na morte de um 
+pedestre. A Polícia Civil analisou imagens de câmeras de segurança e realizou simulações no 
+local, produzindo dois laudos que apontaram que ele conduzia o veículo em alta velocidade. 
+Durante a instrução processual, a defesa solicitou acesso às mídias originais para verificar a 
+metodologia pericial e produzir contraprova, mas os CDs estavam danificados e as gravações 
+originais haviam sido extraviadas. Diante disso, a defesa pediu o desentranhamento dos 
+laudos, alegando quebra da cadeia de custódia e prejuízo ao contraditório, já que era 
+impossível conferir a autenticidade e integridade das imagens e dos experimentos. O STJ 
+acolheu o pedido da defesa e determinou a exclusão dos laudos periciais do processo. 
+A cadeia de custódia é essencial para assegurar a autenticidade, integridade e confiabilidade 
+da prova penal (arts. 158-A a 158-F do CPP).  
+A quebra da cadeia de custódia ocorre quando há falhas no rastreamento, controle e 
+preservação da prova, o que pode comprometer sua validade. 
+A ausência de gravações e simulações utilizadas para a elaboração de laudos periciais impede 
+a análise técnica da prova, inviabiliza a contraprova e compromete o contraditório e a ampla 
+defesa, caracterizando quebra da cadeia de custódia. 
+A falha no armazenamento das mídias periciais e o consequente extravio do material original 
+justifica a nulidade dos laudos periciais produzidos com base nesses elementos, sendo 
+necessário seu desentranhamento dos autos. 
+STJ. 6ª Turma. RHC 218.358-PI, Rel. Min. Sebastião Reis Júnior, julgado em 4/11/2025 (Info 870). 
+ 
+PROVAS 
+A polícia pode usar software de ronda virtual CRC para identificar IPs em redes P2P de 
+compartilhamento de pornografia infantil e requisitar diretamente aos provedores de internet 
+os dados cadastrais do usuário, sem necessidade de autorização judicial prévia 
+ 
+Importante!!! 
+ 
+ODS 16 
+Caso hipotético: a Delegacia Especializada de Proteção à Criança e ao Adolescente utilizou o 
+software de ronda virtual CRC, fornecido pela Child Rescue Coalition, para monitorar redes de 
+compartilhamento P2P em busca de pornografia infantil. O programa funciona pesquisando 
+termos e hashes associados a esse tipo de conteúdo e registrando os endereços IP que 
+respondem positivamente às buscas. Durante uma dessas rondas, foi identificado fluxo de 
+dados ilícitos proveniente de um IP vinculado a uma clínica de saúde cadastrada em nome de 
+Fulano de Tal.  
+Com os dados cadastrais obtidos junto à operadora Vivo, a autoridade policial representou 
+pela expedição de mandado de busca e apreensão e pelo afastamento do sigilo telemático, 
+sendo ambos deferidos pelo juízo. Na busca, foram encontrados arquivos de pornografia 
+infantil no computador de uso exclusivo do investigado, que foi preso em flagrante e 
+denunciado pelo Ministério Público com base no art. 241-B do ECA (armazenamento de 
+material pornográfico envolvendo crianças e adolescentes). 
+
+                                                          Informativo                       
+comentado 
+ 
+ 
+Informativo 870-STJ (11/11/2025) – Márcio André Lopes Cavalcante   |  9 
+A defesa impetrou habeas corpus argumentando que o uso do software CRC equivaleria à 
+infiltração de agentes prevista no art. 190-A do ECA, exigindo, portanto, autorização judicial 
+prévia.  
+O STJ não acolheu os argumentos da defesa. 
+O uso de software de ronda virtual para a localização de material relacionado a pornografia 
+infantil, como o da Child Rescue Coalition (CRC), não se confunde com o instituto da infiltração 
+de agentes de polícia na internet, prevista no art. 190-A do ECA e prescinde de autorização 
+judicial prévia. 
+ A utilização de software policial de ronda virtual para localizar material relacionado à 
+pornografia infantil em redes de compartilhamento ponto a ponto (P2P) é lícita e dispensa 
+autorização judicial prévia, pois envolve coleta de informações disponíveis em ambiente 
+virtualmente público, onde os usuários voluntariamente compartilham arquivos e IPs. 
+Essa técnica de investigação não se confunde com a infiltração de agentes prevista no art. 190-
+A do ECA, por não envolver ocultação de identidade nem direcionamento a suspeitos 
+determinados. 
+STJ. 6ª Turma. RHC 199.047-MS, Rel. Min. Rogerio Schietti Cruz, julgado em 14/10/2025 (Info 870). 
+ 
+TRIBUNAL DO JÚRI 
+A nova decisão de pronúncia não reabre prazo recursal para  
+capítulos inalterados da decisão anterior, já alcançados pela preclusão 
+ 
+Importante!!! 
+ 
+ODS 16 
+Caso hipotético: João foi denunciado por homicídio qualificado e tráfico de drogas. O juiz 
+proferiu decisão de pronúncia pronunciando o réu apenas pelo homicídio qualificado. A 
+defesa não recorreu. O Ministério Público interpôs recurso em sentido estrito e o Tribunal de 
+Justiça determinou a reinclusão do crime de tráfico, ordenando nova decisão de pronúncia. 
+O juiz proferiu nova decisão de pronúncia, repetindo a parte referente ao homicídio e 
+acrescentando apenas a fundamentação sobre o tráfico.  
+A defesa interpôs recurso em sentido estrito pedindo o reconhecimento da legítima defesa 
+quanto ao homicídio, a desclassificação para homicídio culposo e o afastamento da 
+qualificadora. Esse recurso em sentido estrito não pode ser conhecido em razão da preclusão. 
+A nova decisão de pronúncia, proferida em cumprimento a acórdão que reinclui crime conexo, 
+não autoriza a impugnação de capítulos inalterados da decisão originária, já alcançados pela 
+preclusão temporal.  
+A eficácia substitutiva da nova pronúncia é restrita aos pontos efetivamente modificados, 
+permanecendo intocados e estabilizados os demais capítulos.  
+A unidade da pronúncia não afasta o regime de preclusão, devendo prevalecer a segurança 
+jurídica e a lealdade processual. 
+Em palavras mais simples: a nova decisão de pronúncia apenas substitui os pontos que foram 
+efetivamente alterados (no caso, a inclusão do tráfico). As partes da decisão que foram 
+repetidas sem mudança (como a qualificadora do homicídio) já estavam cobertas pela 
+preclusão temporal. A nova decisão de pronúncia não reabre o prazo para recorrer de temas 
+que a defesa deixou de recorrer na primeira oportunidade. 
+STJ. 5ª Turma. REsp 2.197.114-MG, Rel. Min. Ribeiro Dantas, julgado em 4/11/2025 (Info 870). 
+ 
+ 
+ 
+ 
+
+                                                          Informativo                       
+comentado 
+ 
+ 
+Informativo 870-STJ (11/11/2025) – Márcio André Lopes Cavalcante   |  10 
+TRIBUNAL DO JÚRI 
+A carta psicografada não pode ser admitida como prova no processo judicial, mesmo no Júri 
+ 
+Importante!!! 
+ 
+ODS 16 
+No sistema de livre apreciação da prova, não há hierarquia prévia entre os meios de prova. No 
+entanto, para que uma prova seja admitida no processo judicial, ela deve, além de ser lícita, 
+apresentar confiabilidade epistemológica e possuir um mínimo de capacidade para esclarecer 
+o fato alegado. 
+Nos processos submetidos ao júri, é fundamental que o juiz presidente faça uma filtragem 
+rigorosa das provas constantes dos autos, excluindo aquelas que sejam logicamente 
+irrelevantes ou epistemicamente inadequadas, para evitar que os jurados sejam levados a 
+conclusões irracionais ou equivocadas no julgamento do mérito. 
+A inadmissibilidade de uma prova não depende de quem a requereu, pois nenhuma das partes 
+tem o direito de produzir elementos impertinentes, irrelevantes ou epistemicamente 
+inidôneos. Nem mesmo a garantia constitucional da plenitude de defesa autoriza flexibilizar 
+esses critérios de admissibilidade. 
+A carta psicografada não pode ser admitida como prova no processo judicial, por se tratar de 
+meio desprovido de mínima idoneidade epistêmica para a corroboração racional de 
+enunciados fáticos. A crença na psicografia consiste em um ato de fé, o qual, por definição, 
+prescinde de demonstração racional. Os atos de fé são diametralmente opostos aos atos de 
+prova, que visam justamente à demonstração racional e objetiva dos fatos alegados no 
+processo. 
+Embora seja epistemicamente inidônea e, portanto, irrelevante como prova, a carta 
+psicografada não é ilícita, já que sua obtenção não viola normas de direito material. Assim, por 
+não se tratar de prova ilícita, não há aplicação do art. 157, § 1º, do CPP quanto à eventual 
+contaminação de provas derivadas da análise de seu conteúdo.  
+STJ. 6ª Turma. RHC 167.478-MS, Rel. Min. Rogerio Schietti Cruz, julgado dia 21/10/2025 (Info 870). 
+ 
+TRIBUNAL DO JÚRI 
+Réu foi absolvido pelo Júri; TJ deu provimento à apelação para a realização de novo júri porque 
+a decisão dos jurados foi manifestamente contrária à prova dos autos; neste novo júri, não se 
+pode arrolar testemunhas diferentes do primeiro 
+ 
+Importante!!! 
+ 
+ODS 16 
+Caso hipotético: Carlos foi acusado de homicídio qualificado e levado a júri popular. Ele foi 
+absolvido pela tese de negativa de autoria. O Ministério Público apelou alegando que a decisão 
+dos jurados contrariava as provas. O Tribunal de Justiça deu provimento e determinou novo 
+julgamento. Antes do segundo júri, surgiu uma testemunha ocular até então desconhecida, e o 
+MP pediu sua oitiva no plenário do novo julgamento. Esse pedido não pode ser acolhido. 
+Em novo julgamento pelo Tribunal de Júri, pelo fato do primeiro veredito ter sido considerado 
+manifestamente contrário à prova dos autos, não se pode admitir inovação no conjunto 
+probatório que será levado ao conhecimento do novo Conselho de Sentença.   
+Em caso de anulação de julgamento pelo Tribunal do Júri por veredicto manifestamente 
+contrário à prova dos autos, o novo julgamento deve se limitar às provas anteriormente 
+apresentadas, sendo vedada a inclusão de novas testemunhas, ainda que surgidas após o 
+primeiro julgamento. Tal inovação compromete a paridade de armas e infringe o disposto no 
+art. 593, III, d, § 3º, do CPP, que permite apenas uma apelação por esse fundamento. 
+STJ. 6ª Turma. REsp 2.225.331-RJ, Rel. Min. Antonio Saldanha Palheiro, julgado em 04/11/2025 (Info 
+870). 
+
+                                                          Informativo                       
+comentado 
+ 
+ 
+Informativo 870-STJ (11/11/2025) – Márcio André Lopes Cavalcante   |  11 
+ 
+SENTENÇA E OUTRAS DECISÕES 
+Não basta que o pedido de fixação de indenização por danos morais esteja expressamente 
+formulado na denúncia; para que seja fixada a indenização do art. 387, IV, do CPP, é necessário 
+que se indique o valor pretendido, sob pena de afronta ao princípio do contraditório 
+ 
+Importante!!! 
+ 
+ODS 16 
+Caso hipotético: João invadiu a casa de Regina e furtou diversos objetos, causando-lhe não 
+apenas prejuízo material, mas também intenso abalo emocional. O Ministério Público 
+denunciou João por furto qualificado e pediu a fixação de valor mínimo para danos morais, 
+mas sem indicar qualquer quantia específica na denúncia. Durante o processo, não houve 
+produção de prova direcionada à extensão do dano moral. Na sentença, o juiz condenou João 
+e fixou indenização mínima de R$ 3.000,00 por danos morais, entendendo que o abalo 
+decorrente da invasão de domicílio seria presumido. A defesa recorreu alegando violação ao 
+contraditório e à ampla defesa, já que não havia sido estipulado valor na denúncia. 
+O STJ concordou com a defesa. 
+A fixação de indenização por danos morais, nos termos do art. 387, IV, do CPP, exige pedido 
+expresso e indicação do valor pretendido na denúncia.  
+A ausência de indicação do valor pretendido inviabiliza a fixação da indenização, por violar o 
+princípio do contraditório e o sistema acusatório. 
+STJ. 5ª Turma. AgRg no REsp 2.217.743-RS, Rel. Min. Ribeiro Dantas, julgado em 15/10/2025 (Info 
+870). 
+ 
+ 
+DIREITO TRIBUTÁRIO 
+ 
+TEMAS DIVERSOS 
+O art. 166 do CTN não se aplica à repetição de indébito de tributos diretos, como a Taxa de 
+Coleta e Destinação Final de Resíduos Sólidos, que não comportam transferência do encargo 
+financeiro 
+ 
+ODS 16 
+Caso hipotético: o condomínio ajuizou ação contra o Município alegando que a Taxa de Coleta 
+e Destinação Final de Resíduos Sólidos (TCDR) estava sendo cobrada de forma ilegal, pois o 
+tributo deveria recair sobre cada condômino individualmente, e não sobre o condomínio.  
+O juiz reconheceu a irregularidade, mas negou a restituição dos valores pagos, aplicando o art. 
+166 do CTN e exigindo que o condomínio comprovasse não ter repassado o valor da taxa aos 
+condôminos nas cotas mensais: 
+Art. 166. A restituição de tributos que comportem, por sua natureza, transferência do 
+respectivo encargo financeiro somente será feita a quem prove haver assumido o referido 
+encargo, ou, no caso de tê-lo transferido a terceiro, estar por este expressamente autorizado 
+a recebê-la. 
+No recurso especial, o condomínio sustentou que a TCDR é um tributo direto e, portanto, não 
+se enquadra na regra do art. 166, aplicável apenas a tributos indiretos que admitem repasse 
+do encargo financeiro.  
+O STJ concordou com o condomínio. 
+
+                                                          Informativo                       
+comentado 
+ 
+ 
+Informativo 870-STJ (11/11/2025) – Márcio André Lopes Cavalcante   |  12 
+O art. 166 do CTN não se aplica à repetição de indébito de tributos diretos, como a Taxa de 
+Coleta e Destinação Final de Resíduos Sólidos, pois esses tributos não comportam, por sua 
+natureza, a transferência do respectivo encargo financeiro. 
+A relação entre o condomínio e os condôminos, baseada no rateio de despesas, não caracteriza 
+transferência econômica do tributo, o que afasta a exigência de comprovação prevista no art. 
+166 do CTN. 
+STJ. 2ª Turma. REsp 2.117.022-RS, Rel. Min. Afrânio Vilela, julgado em 4/11/2025 (Info 870). 
+ 
+IPI 
+Pessoa com deficiência comprou um carro com isenção de IPI (Lei 8.989/1995); houve perda 
+total desse carro em um acidente; a pessoa com deficiência pode comprar um novo carro com 
+nova isenção de IPI mesmo não tendo se passado mais de 2 anos da compra anterior 
+ 
+Importante!!! 
+ 
+ODS 16 
+Caso hipotético: Regina, pessoa com deficiência física, adquiriu em 2020 um veículo com 
+isenção de IPI (art. 1º, IV, da Lei nº 8.989/1995). Ela se envolveu em um acidente de trânsito e 
+o carro sofreu perda total. A seguradora pagou a indenização e passou os salvados (veículo 
+danificado – sucata) para seu nome para mitigar o próprio prejuízo. 
+A transferência à seguradora do veículo em razão do acidente não configura alienação 
+voluntária com intuito lucrativo. Logo, a Receita Federal não pode exigir o pagamento do IPI 
+da seguradora. 
+Além disso, a pessoa com deficiência possui direito de comprar um novo carro com nova 
+isenção de IPI, mesmo sendo essa compra antes do prazo de 2 anos previsto no art. 2º da Lei 
+nº 8.989/1995: Art. 2º A isenção do Imposto sobre Produtos Industrializados - IPI de que trata 
+o art. 1º desta Lei somente poderá ser utilizada uma vez, salvo se o veículo tiver sido adquirido 
+há mais de 2 (dois) anos. 
+Em suma: nos casos em que o veículo adquirido com isenção fiscal envolver-se em acidente 
+que implique sua perda total ou for objeto de furto ou roubo, o beneficiário possui direito a 
+nova isenção para a compra de outro veículo, ainda que não ultrapassado o prazo de 2 anos 
+previsto no art. 2º da Lei nº 8.989/1995, não havendo, ainda, que falar na cobrança do tributo 
+da seguradora.   
+STJ. 1ª Turma. AREsp 2.849.743-SP, Rel. Min. Gurgel de Faria, julgado em 7/10/2025 (Info 870). 
+ 

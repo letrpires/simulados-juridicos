@@ -1070,12 +1070,12 @@ Tema 1094
 
 A conduta de frustrar a licitude do processo licitatório ou dispensá‑lo indevidamente, por sua própria natureza, sempre configura ato de improbidade que causa dano presumido ao erário (in re ipsa), dispensando a prova do efetivo prejuízo.
 
-**Gabarito:** INDEFINIDO (A tese indica debate)
 
-**Gabarito oficial:** ERRADO
+**Gabarito:** ERRADO
 
 **Justificativa:**
 Tema 1096 indica a necessidade de definir se tal conduta configura dano presumido in re ipsa; não há afirmativa conclusiva no enunciado do tema. Assim, não se pode afirmar categoricamente que sempre configura dano presumido; a caracterização depende da análise fática e do elemento de lesão ao patrimônio.
+(A tese indica debate)
 
 **Referência:**
 Tema 1096

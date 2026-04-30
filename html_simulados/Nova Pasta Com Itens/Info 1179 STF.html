@@ -4,497 +4,525 @@
 <meta charset="UTF-8">
 <title>Simulado - Info 1179 STF</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <style>
-:root {
-    --bg: #0f172a;
-    --card: #111827;
-    --card2: #1f2937;
-    --text: #e5e7eb;
-    --muted: #9ca3af;
-    --accent: #38bdf8;
-    --green: #22c55e;
-    --red: #ef4444;
-    --yellow: #facc15;
+:root{
+--bg:#020617;--panel:rgba(15,23,42,.88);--card:rgba(15,23,42,.96);
+--card2:rgba(30,41,59,.92);--border:rgba(148,163,184,.22);
+--text:#e5e7eb;--muted:#94a3b8;--accent:#38bdf8;--accent2:#0ea5e9;
+--green:#22c55e;--red:#ef4444;--yellow:#facc15;--purple:#a78bfa;
 }
-
-* {
-    box-sizing: border-box;
+*{box-sizing:border-box}
+body{
+margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+background:radial-gradient(circle at top left,rgba(56,189,248,.20),transparent 28%),
+radial-gradient(circle at top right,rgba(167,139,250,.15),transparent 28%),
+linear-gradient(135deg,#020617,#0f172a 50%,#020617);
+color:var(--text);line-height:1.65;
 }
-
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(135deg, #020617, #111827);
-    color: var(--text);
-    line-height: 1.6;
+header{padding:44px 20px 32px;text-align:center;border-bottom:1px solid var(--border)}
+header h1{margin:0 0 10px;font-size:clamp(28px,4vw,46px);letter-spacing:-.05em}
+header p{color:var(--muted);margin:0;font-size:16px}
+.container{max-width:1160px;margin:0 auto;padding:26px 16px 80px}
+.painel{
+position:sticky;top:10px;z-index:10;background:var(--panel);backdrop-filter:blur(18px);
+border:1px solid var(--border);border-radius:26px;padding:16px;margin-bottom:22px;
+box-shadow:0 22px 70px rgba(0,0,0,.35)
 }
-
-header {
-    padding: 32px 20px;
-    text-align: center;
-    border-bottom: 1px solid #334155;
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.stat{background:var(--card2);padding:14px;border-radius:18px;text-align:center;border:1px solid rgba(148,163,184,.12)}
+.stat strong{display:block;font-size:25px;color:var(--accent);line-height:1.1}
+.stat span{font-size:12px;color:var(--muted)}
+.filtros{display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:12px;margin-top:14px}
+input,select{
+width:100%;background:rgba(2,6,23,.78);color:var(--text);border:1px solid var(--border);
+border-radius:14px;padding:13px 14px;outline:none;font-size:14px
 }
-
-header h1 {
-    margin: 0 0 10px;
-    font-size: 28px;
+input:focus,select:focus{border-color:var(--accent)}
+.card{
+background:var(--card);border:1px solid var(--border);border-radius:24px;padding:26px;
+margin-bottom:20px;box-shadow:0 18px 50px rgba(0,0,0,.24)
 }
-
-header p {
-    color: var(--muted);
-    margin: 0;
+.questao{scroll-margin-top:190px}
+.questao-topo{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:18px}
+.badge{
+background:linear-gradient(135deg,var(--accent),var(--accent2));color:#00111f;font-weight:900;
+padding:7px 13px;border-radius:999px;display:inline-block
 }
-
-.container {
-    max-width: 980px;
-    margin: 0 auto;
-    padding: 24px 16px 80px;
+.disciplina-tag,.tipo-tag{
+display:inline-block;margin-left:8px;color:var(--muted);background:rgba(148,163,184,.10);
+border:1px solid rgba(148,163,184,.14);padding:6px 10px;border-radius:999px;font-size:12px
 }
-
-.painel {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    background: rgba(15, 23, 42, 0.95);
-    backdrop-filter: blur(8px);
-    border: 1px solid #334155;
-    border-radius: 16px;
-    padding: 16px;
-    margin-bottom: 24px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
+.tipo-tag{color:#ddd6fe;border-color:rgba(167,139,250,.25)}
+.status{color:var(--yellow);font-size:13px;white-space:nowrap}
+.enunciado{font-size:19px;margin:0 0 22px;letter-spacing:-.01em}
+.botoes{display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.btn{
+cursor:pointer;border:0;padding:12px 22px;border-radius:14px;color:white;font-weight:900;
+transition:.18s ease;letter-spacing:.02em
 }
-
-.stat {
-    background: var(--card2);
-    padding: 12px;
-    border-radius: 12px;
-    text-align: center;
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.certo{background:rgba(34,197,94,.20);border:1px solid rgba(34,197,94,.42)}
+.btn.errado{background:rgba(239,68,68,.20);border:1px solid rgba(239,68,68,.42)}
+.btn.neutro{background:rgba(56,189,248,.16);color:var(--text);border:1px solid rgba(56,189,248,.32)}
+.feedback{
+display:none;background:rgba(2,6,23,.72);border:1px solid rgba(148,163,184,.16);
+border-left:5px solid var(--accent);padding:18px;border-radius:18px;margin-top:14px
 }
-
-.stat strong {
-    display: block;
-    font-size: 22px;
-    color: var(--accent);
+.feedback.correto{border-left-color:var(--green)}
+.feedback.errado{border-left-color:var(--red)}
+.resultado{font-size:18px;font-weight:900;margin-top:0}
+.justificativa{margin-top:12px}
+.referencia{color:var(--muted);font-size:13px;margin-top:16px}
+.gabarito-certo{color:var(--green);font-weight:900}
+.gabarito-errado{color:var(--red);font-weight:900}
+.oculta{display:none}
+.sem-resultados{text-align:center;color:var(--muted);display:none;padding:30px}
+.grid-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
+.link-card{
+display:block;padding:20px;background:rgba(15,23,42,.95);border:1px solid rgba(148,163,184,.22);
+color:#e5e7eb;border-radius:22px;text-decoration:none;transition:.2s;box-shadow:0 14px 40px rgba(0,0,0,.22)
 }
-
-.card {
-    background: rgba(17, 24, 39, 0.96);
-    border: 1px solid #334155;
-    border-radius: 18px;
-    padding: 22px;
-    margin-bottom: 20px;
-    box-shadow: 0 12px 30px rgba(0,0,0,.25);
-}
-
-.questao-topo {
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
-    align-items: center;
-    margin-bottom: 16px;
-}
-
-.badge {
-    background: #0ea5e9;
-    color: #00111f;
-    font-weight: bold;
-    padding: 6px 12px;
-    border-radius: 999px;
-}
-
-.status {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-.enunciado {
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-
-.botoes {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 18px;
-}
-
-button {
-    cursor: pointer;
-    border: 0;
-    padding: 12px 22px;
-    border-radius: 12px;
-    background: #334155;
-    color: white;
-    font-weight: bold;
-    transition: 0.2s;
-}
-
-button:hover {
-    transform: translateY(-1px);
-    background: #475569;
-}
-
-.feedback {
-    display: none;
-    background: #020617;
-    border-left: 4px solid var(--accent);
-    padding: 16px;
-    border-radius: 12px;
-    margin-top: 12px;
-}
-
-.feedback.correto {
-    border-left-color: var(--green);
-}
-
-.feedback.errado {
-    border-left-color: var(--red);
-}
-
-.resultado {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.referencia {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-.acoes {
-    text-align: center;
-    margin: 30px 0;
-}
-
-.acoes button {
-    background: #0ea5e9;
-    color: #00111f;
-}
-
-@media (max-width: 700px) {
-    .painel {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .botoes {
-        flex-direction: column;
-    }
-
-    header h1 {
-        font-size: 22px;
-    }
-
-    .enunciado {
-        font-size: 16px;
-    }
+.link-card:hover{transform:translateY(-3px);border-color:#38bdf8}
+.link-card strong{display:block;font-size:17px;margin-bottom:8px}
+.link-card span{color:#94a3b8;font-size:13px}
+.index-tools{display:grid;grid-template-columns:1.5fr 1fr;gap:12px;margin-bottom:20px}
+@media(max-width:850px){
+.stats{grid-template-columns:repeat(2,1fr)}
+.filtros,.index-tools{grid-template-columns:1fr}
+.questao-topo{align-items:flex-start;flex-direction:column}
+.botoes{flex-direction:column}
+.enunciado{font-size:16px}
+.card{padding:20px}
 }
 </style>
 </head>
-
 <body>
-
 <header>
-    <h1>Simulado - Info 1179 STF</h1>
-    <p>Simulado interativo de CERTO ou ERRADO</p>
+<h1>Simulado - Info 1179 STF</h1>
+<p>Informativos • Simulado interativo de CERTO ou ERRADO</p>
 </header>
 
 <div class="container">
+<div class="painel">
+<div class="stats">
+<div class="stat"><strong>9</strong><span>Total</span></div>
+<div class="stat"><strong id="visiveis">9</strong><span>Visíveis</span></div>
+<div class="stat"><strong id="respondidas">0</strong><span>Respondidas</span></div>
+<div class="stat"><strong id="acertos">0</strong><span>Acertos</span></div>
+<div class="stat"><strong id="erros">0</strong><span>Erros</span></div>
+</div>
 
-    <div class="painel">
-        <div class="stat">
-            <strong id="total">9</strong>
-            Total
-        </div>
-        <div class="stat">
-            <strong id="respondidas">0</strong>
-            Respondidas
-        </div>
-        <div class="stat">
-            <strong id="acertos">0</strong>
-            Acertos
-        </div>
-        <div class="stat">
-            <strong id="erros">0</strong>
-            Erros
-        </div>
-    </div>
+<div class="filtros">
+<input id="busca" type="search" placeholder="Buscar por palavra-chave..." oninput="filtrar()">
+<select id="disciplina" onchange="filtrar()">
+<option value="">Todas as disciplinas</option>
+<option value="ECA">ECA</option>
+<option value="N/I">N/I</option>
+</select>
+<select id="statusFiltro" onchange="filtrar()">
+<option value="">Todas</option>
+<option value="nao">Não respondidas</option>
+<option value="acerto">Acertos</option>
+<option value="erro">Erros</option>
+</select>
+<button class="btn neutro" onclick="reiniciar()">Reiniciar</button>
+</div>
+</div>
 
-    <div class="acoes">
-        <button onclick="reiniciar()">Reiniciar simulado</button>
-    </div>
+<div id="sem-resultados" class="sem-resultados">Nenhuma questão encontrada com os filtros atuais.</div>
 
-    
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 1</span>
-                <span class="status" id="status-1">Não respondida</span>
-            </div>
 
-            <p class="enunciado">A previsão constitucional de que a retenção dolosa do salário constitui crime impõe ao legislador ordinário um dever de tipificação penal específica, de modo que a mera existência de tipos penais genéricos, como o da apropriação indébita, não afasta a omissão inconstitucional; ademais, a tramitação de projetos de lei sobre a matéria, por si só, não descaracteriza a mora legislativa quando já transcorrido lapso temporal excessivo desde a promulgação da Constituição.</p>
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a previsão constitucional de que a retenção dolosa do salário constitui crime impõe ao legislador ordinário um dever de tipificação penal específica, de modo que a mera existência de tipos penais genéricos, como o da apropriação indébita, não afasta a omissão inconstitucional; ademais, a tramitação de projetos de lei sobre a matéria, por si só, não descaracteriza a mora legislativa quando já transcorrido lapso temporal excessivo desde a promulgação da constituição. o enunciado reproduz, em essência, o entendimento firmado no controle concentrado de omissão: a parte final do art. 7º, x, da constituição não contém mera diretriz programática, mas verdadeiro mandado constitucional de criminalização, dotado de natureza vinculante. isso significa que o legislador ordinário não dispõe de ampla discricionariedade para simplesmente deixar de tipificar a conduta, pois a constituição determinou a proteção do salário “na forma da lei” e, de modo expresso, qualificou como crime sua retenção dolosa.
 
-            <div class="botoes">
-                <button onclick="responder(1, 'CERTO')">CERTO</button>
-                <button onclick="responder(1, 'ERRADO')">ERRADO</button>
-            </div>
+no caso examinado, o stf assentou que a ausência de lei específica configura omissão inconstitucional e que a existência de projetos legislativos em tramitação não basta para afastar a mora, sobretudo diante do longo período transcorrido desde 1988. também foi destacado que o tipo penal de apropriação indébita, previsto no art. 168 do código penal, não alcança adequadamente a particularidade da retenção dolosa de salário, razão pela qual se exige tipificação própria, por imposição constitucional.
 
-            <div class="feedback" id="feedback-1">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>O enunciado reproduz, em essência, o entendimento firmado no controle concentrado de omissão: a parte final do art. 7º, X, da Constituição não contém mera diretriz programática, mas verdadeiro mandado constitucional de criminalização, dotado de natureza vinculante. Isso significa que o legislador ordinário não dispõe de ampla discricionariedade para simplesmente deixar de tipificar a conduta, pois a Constituição determinou a proteção do salário “na forma da lei” e, de modo expresso, qualificou como crime sua retenção dolosa.<br><br>No caso examinado, o STF assentou que a ausência de lei específica configura omissão inconstitucional e que a existência de projetos legislativos em tramitação não basta para afastar a mora, sobretudo diante do longo período transcorrido desde 1988. Também foi destacado que o tipo penal de apropriação indébita, previsto no art. 168 do Código Penal, não alcança adequadamente a particularidade da retenção dolosa de salário, razão pela qual se exige tipificação própria, por imposição constitucional.<br><br>A consequência prática foi o reconhecimento da mora legislativa do Congresso Nacional e a fixação de prazo de 180 dias para saneamento da omissão, reforçando a natureza vinculante do comando constitucional.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 6.844/DF, Rel. Min. Luiz Fux, julgado em 26/05/2025 (Info 1179).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 2</span>
-                <span class="status" id="status-2">Não respondida</span>
-            </div>
+a consequência prática foi o reconhecimento da mora legislativa do congresso nacional e a fixação de prazo de 180 dias para saneamento da omissão, reforçando a natureza vinculante do comando constitucional. stf. plenário. adi 6.844/df, rel. min. luiz fux, julgado em 26/05/2025 (info 1179).">
 
-            <p class="enunciado">A emenda parlamentar que, durante a tramitação de projeto de lei de iniciativa privativa do Procurador-Geral da República, passou a exigir diploma de nível superior para o cargo de técnico do MPU e do CNMP, bem como a qualificar os cargos de analista e técnico como essenciais à atividade jurisdicional, é incompatível com a Constituição por importar alteração substancial do regime jurídico de carreiras do Ministério Público da União sem observância da reserva de iniciativa do chefe da instituição.</p>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 1</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-1">Não respondida</span>
+</div>
 
-            <div class="botoes">
-                <button onclick="responder(2, 'CERTO')">CERTO</button>
-                <button onclick="responder(2, 'ERRADO')">ERRADO</button>
-            </div>
+<p class="enunciado">A previsão constitucional de que a retenção dolosa do salário constitui crime impõe ao legislador ordinário um dever de tipificação penal específica, de modo que a mera existência de tipos penais genéricos, como o da apropriação indébita, não afasta a omissão inconstitucional; ademais, a tramitação de projetos de lei sobre a matéria, por si só, não descaracteriza a mora legislativa quando já transcorrido lapso temporal excessivo desde a promulgação da Constituição.</p>
 
-            <div class="feedback" id="feedback-2">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque parte de uma premissa mais ampla do que a efetivamente acolhida no julgamento: nem toda emenda parlamentar incidente sobre projeto de iniciativa reservada é inconstitucional. O ponto decisivo é verificar se a emenda guarda pertinência temática com a proposição originária e se desfigura, ou não, o núcleo do projeto.<br><br>No caso examinado, o projeto encaminhado pelo Procurador-Geral da República tratava de reorganização de cargos no âmbito do Ministério Público Militar, matéria inserida na esfera de organização e regime jurídico do quadro funcional do Ministério Público da União. Nesse contexto, a exigência de nível superior para o cargo de técnico do MPU e do CNMP foi considerada compatível com o objeto da proposição, pois se relaciona intrinsecamente à estruturação e ao regime jurídico dos cargos. Do mesmo modo, o reconhecimento dos cargos de analista e técnico como essenciais à atividade jurisdicional foi reputado amplamente conectado ao conteúdo do projeto original.<br><br>Assim, não se reconheceu violação aos arts. 127, § 2º, e 128, § 5º, da Constituição Federal, porque as emendas não inovaram em tema estranho à iniciativa privativa nem desfiguraram a proposta legislativa. O controle de constitucionalidade, nesse ponto, não se orienta por uma vedação absoluta a emendas parlamentares em projetos de iniciativa reservada, mas pela aferição de pertinência temática e de eventual extrapolação do objeto originalmente submetido ao Legislativo.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.710/DF, Rel. Min. Dias Toffoli, julgado em 26/05/2025 (Info 1179).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 3</span>
-                <span class="status" id="status-3">Não respondida</span>
-            </div>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(1, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(1, 'ERRADO')">ERRADO</button>
+</div>
 
-            <p class="enunciado">A adoção dos planos econômicos Bresser, Verão, Collor I e Collor II foi reputada compatível com a Constituição por se tratar de medida legítima de política econômica voltada à preservação da ordem monetária; contudo, a solução consensual homologada para os expurgos inflacionários não afasta, por si só, o direito dos poupadores à recomposição dos valores não creditados, razão pela qual a eficácia do ajuste coletivo alcança as demandas individuais e coletivas correlatas, sem exigir a anuência individual de todos os interessados.</p>
+<div class="feedback" id="feedback-1">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O enunciado reproduz, em essência, o entendimento firmado no controle concentrado de omissão: a parte final do art. 7º, X, da Constituição não contém mera diretriz programática, mas verdadeiro mandado constitucional de criminalização, dotado de natureza vinculante. Isso significa que o legislador ordinário não dispõe de ampla discricionariedade para simplesmente deixar de tipificar a conduta, pois a Constituição determinou a proteção do salário “na forma da lei” e, de modo expresso, qualificou como crime sua retenção dolosa.<br><br>No caso examinado, o STF assentou que a ausência de lei específica configura omissão inconstitucional e que a existência de projetos legislativos em tramitação não basta para afastar a mora, sobretudo diante do longo período transcorrido desde 1988. Também foi destacado que o tipo penal de apropriação indébita, previsto no art. 168 do Código Penal, não alcança adequadamente a particularidade da retenção dolosa de salário, razão pela qual se exige tipificação própria, por imposição constitucional.<br><br>A consequência prática foi o reconhecimento da mora legislativa do Congresso Nacional e a fixação de prazo de 180 dias para saneamento da omissão, reforçando a natureza vinculante do comando constitucional.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 6.844/DF, Rel. Min. Luiz Fux, julgado em 26/05/2025 (Info 1179).</p>
+</div>
+</section>
 
-            <div class="botoes">
-                <button onclick="responder(3, 'CERTO')">CERTO</button>
-                <button onclick="responder(3, 'ERRADO')">ERRADO</button>
-            </div>
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="a emenda parlamentar que, durante a tramitação de projeto de lei de iniciativa privativa do procurador-geral da república, passou a exigir diploma de nível superior para o cargo de técnico do mpu e do cnmp, bem como a qualificar os cargos de analista e técnico como essenciais à atividade jurisdicional, é incompatível com a constituição por importar alteração substancial do regime jurídico de carreiras do ministério público da união sem observância da reserva de iniciativa do chefe da instituição. a assertiva está incorreta porque parte de uma premissa mais ampla do que a efetivamente acolhida no julgamento: nem toda emenda parlamentar incidente sobre projeto de iniciativa reservada é inconstitucional. o ponto decisivo é verificar se a emenda guarda pertinência temática com a proposição originária e se desfigura, ou não, o núcleo do projeto.
 
-            <div class="feedback" id="feedback-3">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>O enunciado está correto porque reproduz a lógica central do julgamento: os planos econômicos em questão foram considerados constitucionais, na medida em que constituíram providências estatais voltadas ao enfrentamento da hiperinflação e à tutela da ordem econômica e monetária. Ao mesmo tempo, o STF reconheceu que a validade constitucional desses planos não elimina os efeitos patrimoniais danosos produzidos sobre contratos de caderneta de poupança em curso, especialmente pela alteração dos critérios de correção monetária, o que gerou os chamados expurgos inflacionários.<br><br>A Corte também assentou a legitimidade da autocomposição em litígios de massa e complexos, inclusive no âmbito da jurisdição constitucional, admitindo a homologação de acordo coletivo como instrumento apto a solucionar, de forma uniforme, as controvérsias individuais e coletivas relacionadas aos expurgos. Por isso, a eficácia do ajuste não depende da manifestação individual de cada poupador, desde que observados os parâmetros do acordo e os sujeitos por ele abrangidos.<br><br>O ponto de atenção, para fins de prova, é que a constitucionalidade dos planos não significou afastamento automático de toda pretensão indenizatória: a validade da política econômica convive com a recomposição dos prejuízos decorrentes da execução concreta dos planos sobre relações jurídicas já estabelecidas. Assim, a tese combina dois vetores: legitimidade constitucional da medida macroeconômica e preservação da tutela reparatória dos lesados, agora canalizada por solução consensual homologada judicialmente.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADPF 165/DF, Rel. Min. Cristiano Zanin, julgado em 26/05/2025 (Info 1179).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 4</span>
-                <span class="status" id="status-4">Não respondida</span>
-            </div>
+no caso examinado, o projeto encaminhado pelo procurador-geral da república tratava de reorganização de cargos no âmbito do ministério público militar, matéria inserida na esfera de organização e regime jurídico do quadro funcional do ministério público da união. nesse contexto, a exigência de nível superior para o cargo de técnico do mpu e do cnmp foi considerada compatível com o objeto da proposição, pois se relaciona intrinsecamente à estruturação e ao regime jurídico dos cargos. do mesmo modo, o reconhecimento dos cargos de analista e técnico como essenciais à atividade jurisdicional foi reputado amplamente conectado ao conteúdo do projeto original.
 
-            <p class="enunciado">É constitucional norma estadual que, a pretexto de disciplinar a organização da Defensoria Pública local, substitua o modelo previsto na lei orgânica nacional e estabeleça forma diversa de escolha do Defensor Público-Geral, ainda que preserve a participação da carreira e a nomeação final pelo Governador, por se tratar de matéria de autonomia federativa do Estado-membro.</p>
+assim, não se reconheceu violação aos arts. 127, § 2º, e 128, § 5º, da constituição federal, porque as emendas não inovaram em tema estranho à iniciativa privativa nem desfiguraram a proposta legislativa. o controle de constitucionalidade, nesse ponto, não se orienta por uma vedação absoluta a emendas parlamentares em projetos de iniciativa reservada, mas pela aferição de pertinência temática e de eventual extrapolação do objeto originalmente submetido ao legislativo. stf. plenário. adi 7.710/df, rel. min. dias toffoli, julgado em 26/05/2025 (info 1179).">
 
-            <div class="botoes">
-                <button onclick="responder(4, 'CERTO')">CERTO</button>
-                <button onclick="responder(4, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 2</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-2">Não respondida</span>
+</div>
 
-            <div class="feedback" id="feedback-4">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está errada porque a disciplina da organização da Defensoria Pública dos Estados não pode ser livremente remodelada por legislação estadual em desconformidade com as normas gerais editadas pela União. A Constituição atribui à União competência privativa para editar normas gerais sobre a organização da Defensoria Pública, e a Lei Complementar nº 80/1994, com natureza de norma geral, fixa parâmetros obrigatórios para a nomeação do Defensor Público-Geral nos Estados.<br><br>Entre esses parâmetros, destacam-se a formação de lista tríplice, a votação plurinominal, direta, secreta e obrigatória, além da nomeação pelo Governador. Assim, ainda que a lei estadual mantenha algum grau de participação da carreira ou preserve a etapa final de nomeação pelo Chefe do Executivo, ela não pode instituir critérios diversos dos previstos na lei orgânica nacional, sob pena de violar a repartição constitucional de competências.<br><br>O ponto central do entendimento é justamente a vedação de inovação estadual incompatível com a disciplina geral federal. Não se trata de mera opção legislativa local nem de espaço de conformação ilimitado do Estado-membro, mas de matéria submetida a balizas nacionais vinculantes. Por isso, é inconstitucional a norma estadual que estabeleça critérios para a escolha do Defensor Público-Geral diferentes daqueles previstos na LC 80/1994.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.677/DF, Rel. Min. Alexandre de Moraes, julgado em 21/05/2025 (Info 1179).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 5</span>
-                <span class="status" id="status-5">Não respondida</span>
-            </div>
+<p class="enunciado">A emenda parlamentar que, durante a tramitação de projeto de lei de iniciativa privativa do Procurador-Geral da República, passou a exigir diploma de nível superior para o cargo de técnico do MPU e do CNMP, bem como a qualificar os cargos de analista e técnico como essenciais à atividade jurisdicional, é incompatível com a Constituição por importar alteração substancial do regime jurídico de carreiras do Ministério Público da União sem observância da reserva de iniciativa do chefe da instituição.</p>
 
-            <p class="enunciado">A criação de cargos em comissão prescinde de descrição legal minuciosa das respectivas atribuições, bastando que a lei os rotule como de direção, chefia ou assessoramento, ainda que, na prática, suas funções se aproximem de atividades técnicas ou ordinárias, desde que haja vínculo de confiança entre o ocupante e a autoridade nomeante.</p>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(2, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(2, 'ERRADO')">ERRADO</button>
+</div>
 
-            <div class="botoes">
-                <button onclick="responder(5, 'CERTO')">CERTO</button>
-                <button onclick="responder(5, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="feedback" id="feedback-2">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque parte de uma premissa mais ampla do que a efetivamente acolhida no julgamento: nem toda emenda parlamentar incidente sobre projeto de iniciativa reservada é inconstitucional. O ponto decisivo é verificar se a emenda guarda pertinência temática com a proposição originária e se desfigura, ou não, o núcleo do projeto.<br><br>No caso examinado, o projeto encaminhado pelo Procurador-Geral da República tratava de reorganização de cargos no âmbito do Ministério Público Militar, matéria inserida na esfera de organização e regime jurídico do quadro funcional do Ministério Público da União. Nesse contexto, a exigência de nível superior para o cargo de técnico do MPU e do CNMP foi considerada compatível com o objeto da proposição, pois se relaciona intrinsecamente à estruturação e ao regime jurídico dos cargos. Do mesmo modo, o reconhecimento dos cargos de analista e técnico como essenciais à atividade jurisdicional foi reputado amplamente conectado ao conteúdo do projeto original.<br><br>Assim, não se reconheceu violação aos arts. 127, § 2º, e 128, § 5º, da Constituição Federal, porque as emendas não inovaram em tema estranho à iniciativa privativa nem desfiguraram a proposta legislativa. O controle de constitucionalidade, nesse ponto, não se orienta por uma vedação absoluta a emendas parlamentares em projetos de iniciativa reservada, mas pela aferição de pertinência temática e de eventual extrapolação do objeto originalmente submetido ao Legislativo.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.710/DF, Rel. Min. Dias Toffoli, julgado em 26/05/2025 (Info 1179).</p>
+</div>
+</section>
 
-            <div class="feedback" id="feedback-5">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>O enunciado está incorreto porque a validade constitucional dos cargos em comissão não se satisfaz com a mera nomenclatura legal nem com a simples existência de relação de confiança com a autoridade nomeante. A Constituição admite cargos em comissão apenas para atribuições de direção, chefia e assessoramento, em caráter excepcional, justamente por se afastarem da regra do concurso público.<br><br>Além disso, não basta que a lei atribua genericamente essa natureza ao cargo: é necessário que as funções estejam efetivamente vinculadas a essas atividades típicas e que suas atribuições sejam descritas de modo claro na própria lei, permitindo controle objetivo de compatibilidade com o art. 37, II e V, da Constituição. A ausência dessa delimitação normativa fragiliza o controle de constitucionalidade e pode encobrir provimento de funções permanentes por via comissionada, o que viola o regime constitucional de acesso aos cargos públicos.<br><br>No caso examinado, a Corte reconheceu justamente a inconstitucionalidade de dispositivos de lei estadual que criavam cargos em comissão sem a necessária descrição legal das atribuições e sem demonstração de que se destinavam, de fato, a funções de direção, chefia ou assessoramento. Assim, a confiança é requisito relevante, mas não suficiente: ela deve coexistir com a natureza constitucionalmente restrita das atribuições e com sua adequada previsão legal.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 6.887/SP, Rel. Min. Edson Fachin, redator do acórdão Min. Alexandre de Moraes, julgado em 22/05/2025 (Info 1179).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 6</span>
-                <span class="status" id="status-6">Não respondida</span>
-            </div>
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a adoção dos planos econômicos bresser, verão, collor i e collor ii foi reputada compatível com a constituição por se tratar de medida legítima de política econômica voltada à preservação da ordem monetária; contudo, a solução consensual homologada para os expurgos inflacionários não afasta, por si só, o direito dos poupadores à recomposição dos valores não creditados, razão pela qual a eficácia do ajuste coletivo alcança as demandas individuais e coletivas correlatas, sem exigir a anuência individual de todos os interessados. o enunciado está correto porque reproduz a lógica central do julgamento: os planos econômicos em questão foram considerados constitucionais, na medida em que constituíram providências estatais voltadas ao enfrentamento da hiperinflação e à tutela da ordem econômica e monetária. ao mesmo tempo, o stf reconheceu que a validade constitucional desses planos não elimina os efeitos patrimoniais danosos produzidos sobre contratos de caderneta de poupança em curso, especialmente pela alteração dos critérios de correção monetária, o que gerou os chamados expurgos inflacionários.
 
-            <p class="enunciado">A modulação dos efeitos da declaração de inconstitucionalidade da incorporação de quintos no período compreendido entre a Lei nº 9.624/1998 e a MP nº 2.225-45/2001 preserva, em nome da segurança jurídica, não apenas a continuidade do pagamento aos servidores que já percebiam a vantagem em 18/12/2019, mas também o direito subjetivo daqueles que, embora tivessem o reconhecimento administrativo da verba antes dessa data, não chegaram a recebê-la por ausência de implementação financeira, hipótese em que seria possível exigir o pagamento retroativo das parcelas não quitadas.</p>
+a corte também assentou a legitimidade da autocomposição em litígios de massa e complexos, inclusive no âmbito da jurisdição constitucional, admitindo a homologação de acordo coletivo como instrumento apto a solucionar, de forma uniforme, as controvérsias individuais e coletivas relacionadas aos expurgos. por isso, a eficácia do ajuste não depende da manifestação individual de cada poupador, desde que observados os parâmetros do acordo e os sujeitos por ele abrangidos.
 
-            <div class="botoes">
-                <button onclick="responder(6, 'CERTO')">CERTO</button>
-                <button onclick="responder(6, 'ERRADO')">ERRADO</button>
-            </div>
+o ponto de atenção, para fins de prova, é que a constitucionalidade dos planos não significou afastamento automático de toda pretensão indenizatória: a validade da política econômica convive com a recomposição dos prejuízos decorrentes da execução concreta dos planos sobre relações jurídicas já estabelecidas. assim, a tese combina dois vetores: legitimidade constitucional da medida macroeconômica e preservação da tutela reparatória dos lesados, agora canalizada por solução consensual homologada judicialmente. stf. plenário. adpf 165/df, rel. min. cristiano zanin, julgado em 26/05/2025 (info 1179).">
 
-            <div class="feedback" id="feedback-6">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva amplia indevidamente o alcance da modulação fixada para a controvérsia dos quintos. O ponto central do entendimento é que a proteção conferida pela modulação alcança apenas os servidores que já estavam efetivamente recebendo a parcela até 18/12/2019, data do julgamento dos embargos de declaração no RE 638.115.<br><br>Não basta, portanto, o mero reconhecimento administrativo do direito à incorporação. A existência de ato administrativo favorável, desacompanhado da efetiva implantação e do pagamento da vantagem até a data-limite, não gera direito à percepção posterior, tampouco autoriza cobrança retroativa. Em outras palavras, a modulação não preservou uma expectativa ou um crédito em abstrato; preservou apenas situações jurídicas concretizadas pelo efetivo pagamento da verba.<br><br>Esse recorte é relevante porque evita a indevida ampliação da exceção criada pela modulação. Após a declaração de inconstitucionalidade da incorporação dos quintos no período controvertido, a regra passou a ser a cessação do pagamento, inclusive em relação a reconhecimentos administrativos pretéritos que não se converteram em pagamento efetivo até 18/12/2019. Assim, a tese não autoriza a execução de parcelas não pagas nem a manutenção de vantagem apenas reconhecida formalmente pela Administração.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. 2ª Turma. RE 1.393.330 AgR/RS, Rel. Min. André Mendonça, julgado em 20/05/2025 (Info 1179).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 7</span>
-                <span class="status" id="status-7">Não respondida</span>
-            </div>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 3</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-3">Não respondida</span>
+</div>
 
-            <p class="enunciado">É constitucional lei estadual que, ao regulamentar a gratuidade de justiça e a interposição de recursos, estabeleça: (i) pagamento mínimo obrigatório de custas pela parte beneficiária da gratuidade; e (ii) comprovação do recolhimento das custas no ato de protocolização do recurso perante o juízo de primeiro grau, desde que a disciplina local não suprima integralmente o acesso à jurisdição nem inviabilize a recorribilidade.</p>
+<p class="enunciado">A adoção dos planos econômicos Bresser, Verão, Collor I e Collor II foi reputada compatível com a Constituição por se tratar de medida legítima de política econômica voltada à preservação da ordem monetária; contudo, a solução consensual homologada para os expurgos inflacionários não afasta, por si só, o direito dos poupadores à recomposição dos valores não creditados, razão pela qual a eficácia do ajuste coletivo alcança as demandas individuais e coletivas correlatas, sem exigir a anuência individual de todos os interessados.</p>
 
-            <div class="botoes">
-                <button onclick="responder(7, 'CERTO')">CERTO</button>
-                <button onclick="responder(7, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(3, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(3, 'ERRADO')">ERRADO</button>
+</div>
 
-            <div class="feedback" id="feedback-7">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque a disciplina estadual descrita invade matéria reservada à União. Ao fixar valor mínimo a ser pago pela parte no âmbito da gratuidade de justiça, a norma estadual não apenas organiza aspecto administrativo local, mas interfere diretamente em instituto de processo civil, cuja competência legislativa é privativa da União. A gratuidade de justiça, ainda que possa ser operacionalizada por normas locais, não pode ser parcialmente restringida por lei estadual com imposição de piso obrigatório de pagamento, sob pena de violação da repartição constitucional de competências.<br><br>Também é inconstitucional a exigência de comprovação do recolhimento das custas no ato da interposição do recurso no juízo de primeiro grau. Trata-se de regra de caráter processual geral, relativa ao modo de processamento da recorribilidade, cuja disciplina cabe à União, e não aos Estados. A exigência local cria condicionamento processual indevido ao exercício do direito de recorrer, extrapolando a competência normativa estadual.<br><br>O entendimento também reafirma que é válida a vinculação das custas ao valor da causa, desde que observados parâmetros de razoabilidade, sem necessidade de comprovação minuciosa entre o montante cobrado e o custo exato do serviço prestado. Contudo, isso não autoriza o Estado a impor restrições incompatíveis com a competência federal em matéria processual.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. RE 1.326.178/SC, Rel. Min. Cristiano Zanin, julgado em 26/05/2025 (Repercussão Geral – Tema 1.156) (Info 1179).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 8</span>
-                <span class="status" id="status-8">Não respondida</span>
-            </div>
+<div class="feedback" id="feedback-3">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O enunciado está correto porque reproduz a lógica central do julgamento: os planos econômicos em questão foram considerados constitucionais, na medida em que constituíram providências estatais voltadas ao enfrentamento da hiperinflação e à tutela da ordem econômica e monetária. Ao mesmo tempo, o STF reconheceu que a validade constitucional desses planos não elimina os efeitos patrimoniais danosos produzidos sobre contratos de caderneta de poupança em curso, especialmente pela alteração dos critérios de correção monetária, o que gerou os chamados expurgos inflacionários.<br><br>A Corte também assentou a legitimidade da autocomposição em litígios de massa e complexos, inclusive no âmbito da jurisdição constitucional, admitindo a homologação de acordo coletivo como instrumento apto a solucionar, de forma uniforme, as controvérsias individuais e coletivas relacionadas aos expurgos. Por isso, a eficácia do ajuste não depende da manifestação individual de cada poupador, desde que observados os parâmetros do acordo e os sujeitos por ele abrangidos.<br><br>O ponto de atenção, para fins de prova, é que a constitucionalidade dos planos não significou afastamento automático de toda pretensão indenizatória: a validade da política econômica convive com a recomposição dos prejuízos decorrentes da execução concreta dos planos sobre relações jurídicas já estabelecidas. Assim, a tese combina dois vetores: legitimidade constitucional da medida macroeconômica e preservação da tutela reparatória dos lesados, agora canalizada por solução consensual homologada judicialmente.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADPF 165/DF, Rel. Min. Cristiano Zanin, julgado em 26/05/2025 (Info 1179).</p>
+</div>
+</section>
 
-            <p class="enunciado">A redução do percentual de crédito apurado no âmbito do REINTEGRA, por implicar majoração apenas indireta da carga tributária incidente sobre o contribuinte, submete-se exclusivamente à anterioridade nonagesimal prevista para as contribuições sociais, sendo inaplicável, nessa hipótese, a anterioridade anual do art. 150, III, b, da Constituição Federal.</p>
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="é constitucional norma estadual que, a pretexto de disciplinar a organização da defensoria pública local, substitua o modelo previsto na lei orgânica nacional e estabeleça forma diversa de escolha do defensor público-geral, ainda que preserve a participação da carreira e a nomeação final pelo governador, por se tratar de matéria de autonomia federativa do estado-membro. a assertiva está errada porque a disciplina da organização da defensoria pública dos estados não pode ser livremente remodelada por legislação estadual em desconformidade com as normas gerais editadas pela união. a constituição atribui à união competência privativa para editar normas gerais sobre a organização da defensoria pública, e a lei complementar nº 80/1994, com natureza de norma geral, fixa parâmetros obrigatórios para a nomeação do defensor público-geral nos estados.
 
-            <div class="botoes">
-                <button onclick="responder(8, 'CERTO')">CERTO</button>
-                <button onclick="responder(8, 'ERRADO')">ERRADO</button>
-            </div>
+entre esses parâmetros, destacam-se a formação de lista tríplice, a votação plurinominal, direta, secreta e obrigatória, além da nomeação pelo governador. assim, ainda que a lei estadual mantenha algum grau de participação da carreira ou preserve a etapa final de nomeação pelo chefe do executivo, ela não pode instituir critérios diversos dos previstos na lei orgânica nacional, sob pena de violar a repartição constitucional de competências.
 
-            <div class="feedback" id="feedback-8">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está correta porque a diminuição ou revogação do benefício fiscal do REINTEGRA não cria, formalmente, novo tributo nem altera diretamente a alíquota do PIS/COFINS; contudo, produz efeito econômico-jurídico equivalente a uma majoração indireta dessas contribuições, na medida em que reduz o crédito fiscal aproveitável pelo contribuinte. Nessa situação, a disciplina constitucional aplicável é a do art. 195, § 6º, da Constituição Federal, que exige a observância da anterioridade nonagesimal para contribuições sociais.<br><br>O ponto central do entendimento é que, embora haja aumento da carga tributária por via reflexa, os tributos atingidos continuam sendo contribuições sociais, e não impostos. Por isso, não se aplica a anterioridade geral ou de exercício do art. 150, III, b, da Constituição Federal, reservada às hipóteses em que a própria Constituição assim o determina para determinados tributos. Assim, a exigência temporal é apenas a noventena, sem necessidade de aguardar o exercício financeiro seguinte.<br><br>Em termos de prova, a armadilha costuma consistir em confundir a majoração indireta com hipótese de incidência da anterioridade anual. O julgado afasta essa leitura e fixa que, nas reduções do percentual de crédito do REINTEGRA, a limitação temporal é exclusivamente a anterioridade nonagesimal.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ARE 1.285.177/ES, Rel. Min. Cristiano Zanin, julgado em 26/05/2025 (Repercussão Geral – Tema 1.108) (Info 1179).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 9</span>
-                <span class="status" id="status-9">Não respondida</span>
-            </div>
+o ponto central do entendimento é justamente a vedação de inovação estadual incompatível com a disciplina geral federal. não se trata de mera opção legislativa local nem de espaço de conformação ilimitado do estado-membro, mas de matéria submetida a balizas nacionais vinculantes. por isso, é inconstitucional a norma estadual que estabeleça critérios para a escolha do defensor público-geral diferentes daqueles previstos na lc 80/1994. stf. plenário. adi 7.677/df, rel. min. alexandre de moraes, julgado em 21/05/2025 (info 1179).">
 
-            <p class="enunciado">É incompatível com a Constituição Federal a lei municipal que institui taxas e, sem estabelecer critérios objetivos, limites máximos ou qualquer parâmetro normativo para a quantificação do tributo, delega ao prefeito, por decreto, a definição dos respectivos valores, pois tal técnica normativa permite a fixação ou majoração da exação sem lei em sentido estrito, em afronta à legalidade tributária.</p>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 4</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-4">Não respondida</span>
+</div>
 
-            <div class="botoes">
-                <button onclick="responder(9, 'CERTO')">CERTO</button>
-                <button onclick="responder(9, 'ERRADO')">ERRADO</button>
-            </div>
+<p class="enunciado">É constitucional norma estadual que, a pretexto de disciplinar a organização da Defensoria Pública local, substitua o modelo previsto na lei orgânica nacional e estabeleça forma diversa de escolha do Defensor Público-Geral, ainda que preserve a participação da carreira e a nomeação final pelo Governador, por se tratar de matéria de autonomia federativa do Estado-membro.</p>
 
-            <div class="feedback" id="feedback-9">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está correta porque a Constituição Federal, ao consagrar a legalidade tributária no art. 150, I, veda a exigência ou o aumento de tributo sem lei que o estabeleça. No caso de taxas municipais, a lei pode até disciplinar a hipótese de incidência e os elementos essenciais da exação, mas não pode transferir ao Chefe do Executivo local, de forma aberta e sem parâmetros, o poder de definir os valores por decreto.<br><br>O ponto central do entendimento é que a delegação legislativa foi excessiva e incompatível com a reserva legal tributária: não basta a lei criar a taxa em abstrato se ela entrega ao Executivo a escolha livre do quantum devido, sem teto, fórmula, critério de cálculo ou balizas objetivas. Nessa hipótese, o decreto deixa de exercer mera função regulamentar e passa a inovar na ordem jurídica tributária, o que é vedado.<br><br>A inconstitucionalidade decorre justamente da ausência de lei em sentido estrito apta a fixar os elementos essenciais da cobrança, especialmente o montante exigível ou os critérios suficientes para sua determinação. Por isso, dispositivos municipais que conferem ao prefeito poder discricionário para definir o valor das taxas, sem qualquer contenção normativa, não se harmonizam com a Constituição de 1988.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADPF 351/SP, Rel. Min. Nunes Marques, julgado em 26/05/2025 (Info 1179).</p>
-            </div>
-        </section>
-        
+<div class="botoes">
+  <button class="btn certo" onclick="responder(4, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(4, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-4">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está errada porque a disciplina da organização da Defensoria Pública dos Estados não pode ser livremente remodelada por legislação estadual em desconformidade com as normas gerais editadas pela União. A Constituição atribui à União competência privativa para editar normas gerais sobre a organização da Defensoria Pública, e a Lei Complementar nº 80/1994, com natureza de norma geral, fixa parâmetros obrigatórios para a nomeação do Defensor Público-Geral nos Estados.<br><br>Entre esses parâmetros, destacam-se a formação de lista tríplice, a votação plurinominal, direta, secreta e obrigatória, além da nomeação pelo Governador. Assim, ainda que a lei estadual mantenha algum grau de participação da carreira ou preserve a etapa final de nomeação pelo Chefe do Executivo, ela não pode instituir critérios diversos dos previstos na lei orgânica nacional, sob pena de violar a repartição constitucional de competências.<br><br>O ponto central do entendimento é justamente a vedação de inovação estadual incompatível com a disciplina geral federal. Não se trata de mera opção legislativa local nem de espaço de conformação ilimitado do Estado-membro, mas de matéria submetida a balizas nacionais vinculantes. Por isso, é inconstitucional a norma estadual que estabeleça critérios para a escolha do Defensor Público-Geral diferentes daqueles previstos na LC 80/1994.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.677/DF, Rel. Min. Alexandre de Moraes, julgado em 21/05/2025 (Info 1179).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a criação de cargos em comissão prescinde de descrição legal minuciosa das respectivas atribuições, bastando que a lei os rotule como de direção, chefia ou assessoramento, ainda que, na prática, suas funções se aproximem de atividades técnicas ou ordinárias, desde que haja vínculo de confiança entre o ocupante e a autoridade nomeante. o enunciado está incorreto porque a validade constitucional dos cargos em comissão não se satisfaz com a mera nomenclatura legal nem com a simples existência de relação de confiança com a autoridade nomeante. a constituição admite cargos em comissão apenas para atribuições de direção, chefia e assessoramento, em caráter excepcional, justamente por se afastarem da regra do concurso público.
+
+além disso, não basta que a lei atribua genericamente essa natureza ao cargo: é necessário que as funções estejam efetivamente vinculadas a essas atividades típicas e que suas atribuições sejam descritas de modo claro na própria lei, permitindo controle objetivo de compatibilidade com o art. 37, ii e v, da constituição. a ausência dessa delimitação normativa fragiliza o controle de constitucionalidade e pode encobrir provimento de funções permanentes por via comissionada, o que viola o regime constitucional de acesso aos cargos públicos.
+
+no caso examinado, a corte reconheceu justamente a inconstitucionalidade de dispositivos de lei estadual que criavam cargos em comissão sem a necessária descrição legal das atribuições e sem demonstração de que se destinavam, de fato, a funções de direção, chefia ou assessoramento. assim, a confiança é requisito relevante, mas não suficiente: ela deve coexistir com a natureza constitucionalmente restrita das atribuições e com sua adequada previsão legal. stf. plenário. adi 6.887/sp, rel. min. edson fachin, redator do acórdão min. alexandre de moraes, julgado em 22/05/2025 (info 1179).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 5</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-5">Não respondida</span>
+</div>
+
+<p class="enunciado">A criação de cargos em comissão prescinde de descrição legal minuciosa das respectivas atribuições, bastando que a lei os rotule como de direção, chefia ou assessoramento, ainda que, na prática, suas funções se aproximem de atividades técnicas ou ordinárias, desde que haja vínculo de confiança entre o ocupante e a autoridade nomeante.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(5, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(5, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-5">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O enunciado está incorreto porque a validade constitucional dos cargos em comissão não se satisfaz com a mera nomenclatura legal nem com a simples existência de relação de confiança com a autoridade nomeante. A Constituição admite cargos em comissão apenas para atribuições de direção, chefia e assessoramento, em caráter excepcional, justamente por se afastarem da regra do concurso público.<br><br>Além disso, não basta que a lei atribua genericamente essa natureza ao cargo: é necessário que as funções estejam efetivamente vinculadas a essas atividades típicas e que suas atribuições sejam descritas de modo claro na própria lei, permitindo controle objetivo de compatibilidade com o art. 37, II e V, da Constituição. A ausência dessa delimitação normativa fragiliza o controle de constitucionalidade e pode encobrir provimento de funções permanentes por via comissionada, o que viola o regime constitucional de acesso aos cargos públicos.<br><br>No caso examinado, a Corte reconheceu justamente a inconstitucionalidade de dispositivos de lei estadual que criavam cargos em comissão sem a necessária descrição legal das atribuições e sem demonstração de que se destinavam, de fato, a funções de direção, chefia ou assessoramento. Assim, a confiança é requisito relevante, mas não suficiente: ela deve coexistir com a natureza constitucionalmente restrita das atribuições e com sua adequada previsão legal.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 6.887/SP, Rel. Min. Edson Fachin, redator do acórdão Min. Alexandre de Moraes, julgado em 22/05/2025 (Info 1179).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a modulação dos efeitos da declaração de inconstitucionalidade da incorporação de quintos no período compreendido entre a lei nº 9.624/1998 e a mp nº 2.225-45/2001 preserva, em nome da segurança jurídica, não apenas a continuidade do pagamento aos servidores que já percebiam a vantagem em 18/12/2019, mas também o direito subjetivo daqueles que, embora tivessem o reconhecimento administrativo da verba antes dessa data, não chegaram a recebê-la por ausência de implementação financeira, hipótese em que seria possível exigir o pagamento retroativo das parcelas não quitadas. a assertiva amplia indevidamente o alcance da modulação fixada para a controvérsia dos quintos. o ponto central do entendimento é que a proteção conferida pela modulação alcança apenas os servidores que já estavam efetivamente recebendo a parcela até 18/12/2019, data do julgamento dos embargos de declaração no re 638.115.
+
+não basta, portanto, o mero reconhecimento administrativo do direito à incorporação. a existência de ato administrativo favorável, desacompanhado da efetiva implantação e do pagamento da vantagem até a data-limite, não gera direito à percepção posterior, tampouco autoriza cobrança retroativa. em outras palavras, a modulação não preservou uma expectativa ou um crédito em abstrato; preservou apenas situações jurídicas concretizadas pelo efetivo pagamento da verba.
+
+esse recorte é relevante porque evita a indevida ampliação da exceção criada pela modulação. após a declaração de inconstitucionalidade da incorporação dos quintos no período controvertido, a regra passou a ser a cessação do pagamento, inclusive em relação a reconhecimentos administrativos pretéritos que não se converteram em pagamento efetivo até 18/12/2019. assim, a tese não autoriza a execução de parcelas não pagas nem a manutenção de vantagem apenas reconhecida formalmente pela administração. stf. 2ª turma. re 1.393.330 agr/rs, rel. min. andré mendonça, julgado em 20/05/2025 (info 1179).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 6</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-6">Não respondida</span>
+</div>
+
+<p class="enunciado">A modulação dos efeitos da declaração de inconstitucionalidade da incorporação de quintos no período compreendido entre a Lei nº 9.624/1998 e a MP nº 2.225-45/2001 preserva, em nome da segurança jurídica, não apenas a continuidade do pagamento aos servidores que já percebiam a vantagem em 18/12/2019, mas também o direito subjetivo daqueles que, embora tivessem o reconhecimento administrativo da verba antes dessa data, não chegaram a recebê-la por ausência de implementação financeira, hipótese em que seria possível exigir o pagamento retroativo das parcelas não quitadas.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(6, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(6, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-6">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva amplia indevidamente o alcance da modulação fixada para a controvérsia dos quintos. O ponto central do entendimento é que a proteção conferida pela modulação alcança apenas os servidores que já estavam efetivamente recebendo a parcela até 18/12/2019, data do julgamento dos embargos de declaração no RE 638.115.<br><br>Não basta, portanto, o mero reconhecimento administrativo do direito à incorporação. A existência de ato administrativo favorável, desacompanhado da efetiva implantação e do pagamento da vantagem até a data-limite, não gera direito à percepção posterior, tampouco autoriza cobrança retroativa. Em outras palavras, a modulação não preservou uma expectativa ou um crédito em abstrato; preservou apenas situações jurídicas concretizadas pelo efetivo pagamento da verba.<br><br>Esse recorte é relevante porque evita a indevida ampliação da exceção criada pela modulação. Após a declaração de inconstitucionalidade da incorporação dos quintos no período controvertido, a regra passou a ser a cessação do pagamento, inclusive em relação a reconhecimentos administrativos pretéritos que não se converteram em pagamento efetivo até 18/12/2019. Assim, a tese não autoriza a execução de parcelas não pagas nem a manutenção de vantagem apenas reconhecida formalmente pela Administração.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. 2ª Turma. RE 1.393.330 AgR/RS, Rel. Min. André Mendonça, julgado em 20/05/2025 (Info 1179).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="é constitucional lei estadual que, ao regulamentar a gratuidade de justiça e a interposição de recursos, estabeleça: (i) pagamento mínimo obrigatório de custas pela parte beneficiária da gratuidade; e (ii) comprovação do recolhimento das custas no ato de protocolização do recurso perante o juízo de primeiro grau, desde que a disciplina local não suprima integralmente o acesso à jurisdição nem inviabilize a recorribilidade. a assertiva está incorreta porque a disciplina estadual descrita invade matéria reservada à união. ao fixar valor mínimo a ser pago pela parte no âmbito da gratuidade de justiça, a norma estadual não apenas organiza aspecto administrativo local, mas interfere diretamente em instituto de processo civil, cuja competência legislativa é privativa da união. a gratuidade de justiça, ainda que possa ser operacionalizada por normas locais, não pode ser parcialmente restringida por lei estadual com imposição de piso obrigatório de pagamento, sob pena de violação da repartição constitucional de competências.
+
+também é inconstitucional a exigência de comprovação do recolhimento das custas no ato da interposição do recurso no juízo de primeiro grau. trata-se de regra de caráter processual geral, relativa ao modo de processamento da recorribilidade, cuja disciplina cabe à união, e não aos estados. a exigência local cria condicionamento processual indevido ao exercício do direito de recorrer, extrapolando a competência normativa estadual.
+
+o entendimento também reafirma que é válida a vinculação das custas ao valor da causa, desde que observados parâmetros de razoabilidade, sem necessidade de comprovação minuciosa entre o montante cobrado e o custo exato do serviço prestado. contudo, isso não autoriza o estado a impor restrições incompatíveis com a competência federal em matéria processual. stf. plenário. re 1.326.178/sc, rel. min. cristiano zanin, julgado em 26/05/2025 (repercussão geral – tema 1.156) (info 1179).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 7</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-7">Não respondida</span>
+</div>
+
+<p class="enunciado">É constitucional lei estadual que, ao regulamentar a gratuidade de justiça e a interposição de recursos, estabeleça: (i) pagamento mínimo obrigatório de custas pela parte beneficiária da gratuidade; e (ii) comprovação do recolhimento das custas no ato de protocolização do recurso perante o juízo de primeiro grau, desde que a disciplina local não suprima integralmente o acesso à jurisdição nem inviabilize a recorribilidade.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(7, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(7, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-7">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque a disciplina estadual descrita invade matéria reservada à União. Ao fixar valor mínimo a ser pago pela parte no âmbito da gratuidade de justiça, a norma estadual não apenas organiza aspecto administrativo local, mas interfere diretamente em instituto de processo civil, cuja competência legislativa é privativa da União. A gratuidade de justiça, ainda que possa ser operacionalizada por normas locais, não pode ser parcialmente restringida por lei estadual com imposição de piso obrigatório de pagamento, sob pena de violação da repartição constitucional de competências.<br><br>Também é inconstitucional a exigência de comprovação do recolhimento das custas no ato da interposição do recurso no juízo de primeiro grau. Trata-se de regra de caráter processual geral, relativa ao modo de processamento da recorribilidade, cuja disciplina cabe à União, e não aos Estados. A exigência local cria condicionamento processual indevido ao exercício do direito de recorrer, extrapolando a competência normativa estadual.<br><br>O entendimento também reafirma que é válida a vinculação das custas ao valor da causa, desde que observados parâmetros de razoabilidade, sem necessidade de comprovação minuciosa entre o montante cobrado e o custo exato do serviço prestado. Contudo, isso não autoriza o Estado a impor restrições incompatíveis com a competência federal em matéria processual.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. RE 1.326.178/SC, Rel. Min. Cristiano Zanin, julgado em 26/05/2025 (Repercussão Geral – Tema 1.156) (Info 1179).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a redução do percentual de crédito apurado no âmbito do reintegra, por implicar majoração apenas indireta da carga tributária incidente sobre o contribuinte, submete-se exclusivamente à anterioridade nonagesimal prevista para as contribuições sociais, sendo inaplicável, nessa hipótese, a anterioridade anual do art. 150, iii, b, da constituição federal. a assertiva está correta porque a diminuição ou revogação do benefício fiscal do reintegra não cria, formalmente, novo tributo nem altera diretamente a alíquota do pis/cofins; contudo, produz efeito econômico-jurídico equivalente a uma majoração indireta dessas contribuições, na medida em que reduz o crédito fiscal aproveitável pelo contribuinte. nessa situação, a disciplina constitucional aplicável é a do art. 195, § 6º, da constituição federal, que exige a observância da anterioridade nonagesimal para contribuições sociais.
+
+o ponto central do entendimento é que, embora haja aumento da carga tributária por via reflexa, os tributos atingidos continuam sendo contribuições sociais, e não impostos. por isso, não se aplica a anterioridade geral ou de exercício do art. 150, iii, b, da constituição federal, reservada às hipóteses em que a própria constituição assim o determina para determinados tributos. assim, a exigência temporal é apenas a noventena, sem necessidade de aguardar o exercício financeiro seguinte.
+
+em termos de prova, a armadilha costuma consistir em confundir a majoração indireta com hipótese de incidência da anterioridade anual. o julgado afasta essa leitura e fixa que, nas reduções do percentual de crédito do reintegra, a limitação temporal é exclusivamente a anterioridade nonagesimal. stf. plenário. are 1.285.177/es, rel. min. cristiano zanin, julgado em 26/05/2025 (repercussão geral – tema 1.108) (info 1179).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 8</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-8">Não respondida</span>
+</div>
+
+<p class="enunciado">A redução do percentual de crédito apurado no âmbito do REINTEGRA, por implicar majoração apenas indireta da carga tributária incidente sobre o contribuinte, submete-se exclusivamente à anterioridade nonagesimal prevista para as contribuições sociais, sendo inaplicável, nessa hipótese, a anterioridade anual do art. 150, III, b, da Constituição Federal.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(8, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(8, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-8">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque a diminuição ou revogação do benefício fiscal do REINTEGRA não cria, formalmente, novo tributo nem altera diretamente a alíquota do PIS/COFINS; contudo, produz efeito econômico-jurídico equivalente a uma majoração indireta dessas contribuições, na medida em que reduz o crédito fiscal aproveitável pelo contribuinte. Nessa situação, a disciplina constitucional aplicável é a do art. 195, § 6º, da Constituição Federal, que exige a observância da anterioridade nonagesimal para contribuições sociais.<br><br>O ponto central do entendimento é que, embora haja aumento da carga tributária por via reflexa, os tributos atingidos continuam sendo contribuições sociais, e não impostos. Por isso, não se aplica a anterioridade geral ou de exercício do art. 150, III, b, da Constituição Federal, reservada às hipóteses em que a própria Constituição assim o determina para determinados tributos. Assim, a exigência temporal é apenas a noventena, sem necessidade de aguardar o exercício financeiro seguinte.<br><br>Em termos de prova, a armadilha costuma consistir em confundir a majoração indireta com hipótese de incidência da anterioridade anual. O julgado afasta essa leitura e fixa que, nas reduções do percentual de crédito do REINTEGRA, a limitação temporal é exclusivamente a anterioridade nonagesimal.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ARE 1.285.177/ES, Rel. Min. Cristiano Zanin, julgado em 26/05/2025 (Repercussão Geral – Tema 1.108) (Info 1179).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="é incompatível com a constituição federal a lei municipal que institui taxas e, sem estabelecer critérios objetivos, limites máximos ou qualquer parâmetro normativo para a quantificação do tributo, delega ao prefeito, por decreto, a definição dos respectivos valores, pois tal técnica normativa permite a fixação ou majoração da exação sem lei em sentido estrito, em afronta à legalidade tributária. a assertiva está correta porque a constituição federal, ao consagrar a legalidade tributária no art. 150, i, veda a exigência ou o aumento de tributo sem lei que o estabeleça. no caso de taxas municipais, a lei pode até disciplinar a hipótese de incidência e os elementos essenciais da exação, mas não pode transferir ao chefe do executivo local, de forma aberta e sem parâmetros, o poder de definir os valores por decreto.
+
+o ponto central do entendimento é que a delegação legislativa foi excessiva e incompatível com a reserva legal tributária: não basta a lei criar a taxa em abstrato se ela entrega ao executivo a escolha livre do quantum devido, sem teto, fórmula, critério de cálculo ou balizas objetivas. nessa hipótese, o decreto deixa de exercer mera função regulamentar e passa a inovar na ordem jurídica tributária, o que é vedado.
+
+a inconstitucionalidade decorre justamente da ausência de lei em sentido estrito apta a fixar os elementos essenciais da cobrança, especialmente o montante exigível ou os critérios suficientes para sua determinação. por isso, dispositivos municipais que conferem ao prefeito poder discricionário para definir o valor das taxas, sem qualquer contenção normativa, não se harmonizam com a constituição de 1988. stf. plenário. adpf 351/sp, rel. min. nunes marques, julgado em 26/05/2025 (info 1179).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 9</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-9">Não respondida</span>
+</div>
+
+<p class="enunciado">É incompatível com a Constituição Federal a lei municipal que institui taxas e, sem estabelecer critérios objetivos, limites máximos ou qualquer parâmetro normativo para a quantificação do tributo, delega ao prefeito, por decreto, a definição dos respectivos valores, pois tal técnica normativa permite a fixação ou majoração da exação sem lei em sentido estrito, em afronta à legalidade tributária.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(9, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(9, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-9">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque a Constituição Federal, ao consagrar a legalidade tributária no art. 150, I, veda a exigência ou o aumento de tributo sem lei que o estabeleça. No caso de taxas municipais, a lei pode até disciplinar a hipótese de incidência e os elementos essenciais da exação, mas não pode transferir ao Chefe do Executivo local, de forma aberta e sem parâmetros, o poder de definir os valores por decreto.<br><br>O ponto central do entendimento é que a delegação legislativa foi excessiva e incompatível com a reserva legal tributária: não basta a lei criar a taxa em abstrato se ela entrega ao Executivo a escolha livre do quantum devido, sem teto, fórmula, critério de cálculo ou balizas objetivas. Nessa hipótese, o decreto deixa de exercer mera função regulamentar e passa a inovar na ordem jurídica tributária, o que é vedado.<br><br>A inconstitucionalidade decorre justamente da ausência de lei em sentido estrito apta a fixar os elementos essenciais da cobrança, especialmente o montante exigível ou os critérios suficientes para sua determinação. Por isso, dispositivos municipais que conferem ao prefeito poder discricionário para definir o valor das taxas, sem qualquer contenção normativa, não se harmonizam com a Constituição de 1988.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADPF 351/SP, Rel. Min. Nunes Marques, julgado em 26/05/2025 (Info 1179).</p>
+</div>
+</section>
 
 </div>
 
 <script>
-const totalQuestoes = 9;
-let respostas = JSON.parse(localStorage.getItem(location.pathname + "_respostas") || "{}");
+const storageKey = location.pathname + "_respostas";
+let respostas = JSON.parse(localStorage.getItem(storageKey) || "{}");
 
-function atualizarPainel() {
-    const respondidas = Object.keys(respostas).length;
-    let acertos = 0;
-    let erros = 0;
-
-    for (const key in respostas) {
-        if (respostas[key].correto) acertos++;
-        else erros++;
-    }
-
-    document.getElementById("respondidas").textContent = respondidas;
-    document.getElementById("acertos").textContent = acertos;
-    document.getElementById("erros").textContent = erros;
+function destacar(t){
+ if(t==="CERTO") return '<span class="gabarito-certo">CERTO</span>';
+ if(t==="ERRADO") return '<span class="gabarito-errado">ERRADO</span>';
+ return t;
 }
 
-function responder(numero, resposta) {
-    const card = document.querySelectorAll(".questao")[numero - 1];
-    const gabarito = card.dataset.gabarito;
-    const correto = resposta === gabarito;
-
-    respostas[numero] = {
-        resposta,
-        correto
-    };
-
-    localStorage.setItem(location.pathname + "_respostas", JSON.stringify(respostas));
-
-    mostrarFeedback(numero);
-    atualizarPainel();
+function responder(numero, resposta){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const gabarito=card.dataset.gabarito;
+ const correto=resposta===gabarito;
+ respostas[numero]={resposta,correto};
+ localStorage.setItem(storageKey, JSON.stringify(respostas));
+ mostrarFeedback(numero);
+ atualizarPainel();
+ filtrar();
 }
 
-function mostrarFeedback(numero) {
-    const card = document.querySelectorAll(".questao")[numero - 1];
-    const feedback = document.getElementById("feedback-" + numero);
-    const status = document.getElementById("status-" + numero);
-    const resultado = feedback.querySelector(".resultado");
-
-    const dados = respostas[numero];
-
-    if (!dados) return;
-
-    feedback.style.display = "block";
-    feedback.classList.remove("correto", "errado");
-
-    if (dados.correto) {
-        feedback.classList.add("correto");
-        resultado.textContent = "Você acertou. A resposta é " + card.dataset.gabarito + ".";
-        status.textContent = "Respondida — acerto";
-        status.style.color = "var(--green)";
-    } else {
-        feedback.classList.add("errado");
-        resultado.textContent = "Você errou. O gabarito é " + card.dataset.gabarito + ".";
-        status.textContent = "Respondida — erro";
-        status.style.color = "var(--red)";
-    }
+function mostrarFeedback(numero){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const feedback=document.getElementById("feedback-"+numero);
+ const status=document.getElementById("status-"+numero);
+ const resultado=feedback.querySelector(".resultado");
+ const gabarito=card.dataset.gabarito;
+ const dados=respostas[numero];
+ if(!dados) return;
+ feedback.style.display="block";
+ feedback.classList.remove("correto","errado");
+ if(dados.correto){
+   feedback.classList.add("correto");
+   resultado.innerHTML="Você acertou. A resposta é "+destacar(gabarito)+".";
+   status.textContent="Respondida — acerto";
+   status.style.color="var(--green)";
+ } else {
+   feedback.classList.add("errado");
+   resultado.innerHTML="Você errou. O gabarito é "+destacar(gabarito)+".";
+   status.textContent="Respondida — erro";
+   status.style.color="var(--red)";
+ }
 }
 
-function restaurar() {
-    for (const key in respostas) {
-        mostrarFeedback(Number(key));
-    }
-    atualizarPainel();
+function atualizarPainel(){
+ let respondidas=0, acertos=0, erros=0;
+ for(const k in respostas){
+   respondidas++;
+   if(respostas[k].correto) acertos++; else erros++;
+ }
+ document.getElementById("respondidas").textContent=respondidas;
+ document.getElementById("acertos").textContent=acertos;
+ document.getElementById("erros").textContent=erros;
+ document.getElementById("visiveis").textContent=document.querySelectorAll(".questao:not(.oculta)").length;
 }
 
-function reiniciar() {
-    if (!confirm("Deseja reiniciar este simulado?")) return;
-    localStorage.removeItem(location.pathname + "_respostas");
-    location.reload();
+function filtrar(){
+ const busca=document.getElementById("busca").value.trim().toLowerCase();
+ const disciplina=document.getElementById("disciplina").value;
+ const statusFiltro=document.getElementById("statusFiltro").value;
+ const cards=Array.from(document.querySelectorAll(".questao"));
+ let vis=0;
+ cards.forEach((card,idx)=>{
+   const n=idx+1;
+   const texto=card.dataset.texto||"";
+   const disc=card.dataset.disciplina||"";
+   const r=respostas[n];
+   let passaStatus=true;
+   if(statusFiltro==="nao") passaStatus=!r;
+   if(statusFiltro==="acerto") passaStatus=r && r.correto;
+   if(statusFiltro==="erro") passaStatus=r && !r.correto;
+   const ok=(!busca||texto.includes(busca)) && (!disciplina||disc===disciplina) && passaStatus;
+   card.classList.toggle("oculta", !ok);
+   if(ok) vis++;
+ });
+ document.getElementById("sem-resultados").style.display=vis===0?"block":"none";
+ atualizarPainel();
+}
+
+function reiniciar(){
+ if(!confirm("Deseja reiniciar este simulado?")) return;
+ localStorage.removeItem(storageKey);
+ location.reload();
+}
+
+function restaurar(){
+ for(const k in respostas) mostrarFeedback(Number(k));
+ filtrar();
+ atualizarPainel();
 }
 
 restaurar();
 </script>
-
 </body>
 </html>

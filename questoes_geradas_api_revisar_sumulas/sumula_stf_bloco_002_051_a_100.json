@@ -1,0 +1,856 @@
+{
+  "itens": [
+    {
+      "id_origem": "sumula_51_stf",
+      "titulo": "Súmula 51 STF",
+      "tipo": "Súmula",
+      "numero": "51",
+      "tribunal": "STF",
+      "enunciado": "Militar não tem direito a mais de duas promoções na passagem para a inatividade, ainda que por motivos diversos.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_002_051_a_100.md"
+    },
+    {
+      "id_origem": "sumula_52_stf",
+      "titulo": "Súmula 52 STF",
+      "tipo": "Súmula",
+      "numero": "52",
+      "tribunal": "STF",
+      "enunciado": "A promoção de militar, vinculada à inatividade, pode ser feita, quando couber, a pôsto inexistente no quadro.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_002_051_a_100.md"
+    },
+    {
+      "id_origem": "sumula_53_stf",
+      "titulo": "Súmula 53 STF",
+      "tipo": "Súmula",
+      "numero": "53",
+      "tribunal": "STF",
+      "enunciado": "A promoção de professor militar, vinculada à sua reforma, pode ser feita, quando couber, a pôsto inexistente no quadro.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_002_051_a_100.md"
+    },
+    {
+      "id_origem": "sumula_54_stf",
+      "titulo": "Súmula 54 STF",
+      "tipo": "Súmula",
+      "numero": "54",
+      "tribunal": "STF",
+      "enunciado": "A reserva ativa do magistério militar não confere vantagens vinculadas à efetiva passagem para a inatividade.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_002_051_a_100.md"
+    },
+    {
+      "id_origem": "sumula_55_stf",
+      "titulo": "Súmula 55 STF",
+      "tipo": "Súmula",
+      "numero": "55",
+      "tribunal": "STF",
+      "enunciado": "Militar da reserva está sujeito à pena disciplinar.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_002_051_a_100.md"
+    },
+    {
+      "id_origem": "sumula_56_stf",
+      "titulo": "Súmula 56 STF",
+      "tipo": "Súmula",
+      "numero": "56",
+      "tribunal": "STF",
+      "enunciado": "Militar reformado não está sujeito à pena disciplinar. 21",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_002_051_a_100.md"
+    },
+    {
+      "id_origem": "sumula_57_stf",
+      "titulo": "Súmula 57 STF",
+      "tipo": "Súmula",
+      "numero": "57",
+      "tribunal": "STF",
+      "enunciado": "Militar inativo não tem direito ao uso do uniforme fora dos casos previstos em lei ou regulamento.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_002_051_a_100.md"
+    },
+    {
+      "id_origem": "sumula_58_stf",
+      "titulo": "Súmula 58 STF",
+      "tipo": "Súmula",
+      "numero": "58",
+      "tribunal": "STF",
+      "enunciado": "É válida a exigência de média superior a quatro para aprovação em estabelecimento de ensino superior, consoante o respectivo regimento.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_002_051_a_100.md"
+    },
+    {
+      "id_origem": "sumula_59_stf",
+      "titulo": "Súmula 59 STF",
+      "tipo": "Súmula",
+      "numero": "59",
+      "tribunal": "STF",
+      "enunciado": "Imigrante pode trazer, sem licença prévia, automóvel que lhe pertença desde mais de seis meses antes do seu embarque para o Brasil.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_002_051_a_100.md"
+    },
+    {
+      "id_origem": "sumula_60_stf",
+      "titulo": "Súmula 60 STF",
+      "tipo": "Súmula",
+      "numero": "60",
+      "tribunal": "STF",
+      "enunciado": "Não pode o estrangeiro trazer automóvel quando não comprovada a transferência definitiva de sua residência para o Brasil.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_002_051_a_100.md"
+    },
+    {
+      "id_origem": "sumula_61_stf",
+      "titulo": "Súmula 61 STF",
+      "tipo": "Súmula",
+      "numero": "61",
+      "tribunal": "STF",
+      "enunciado": "Brasileiro domiciliado no estrangeiro, que se transfere definitivamente para o Brasil, pode trazer automóvel licenciado em seu nome há mais de seis meses.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_002_051_a_100.md"
+    },
+    {
+      "id_origem": "sumula_62_stf",
+      "titulo": "Súmula 62 STF",
+      "tipo": "Súmula",
+      "numero": "62",
+      "tribunal": "STF",
+      "enunciado": "Não basta a simples estada no estrangeiro por mais de seis meses, para dar direito à trazida de automóvel com fundamento em transferência de residência.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_002_051_a_100.md"
+    },
+    {
+      "id_origem": "sumula_63_stf",
+      "titulo": "Súmula 63 STF",
+      "tipo": "Súmula",
+      "numero": "63",
+      "tribunal": "STF",
+      "enunciado": "É indispensável, para trazida de automóvel, a prova do licenciamento há mais de seis meses no país de origem.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_002_051_a_100.md"
+    },
+    {
+      "id_origem": "sumula_64_stf",
+      "titulo": "Súmula 64 STF",
+      "tipo": "Súmula",
+      "numero": "64",
+      "tribunal": "STF",
+      "enunciado": "É permitido trazer do estrangeiro, como bagagem, objetos de uso pessoal e doméstico, desde que, por sua quantidade e natureza, não induzam finalidade comercial. 22",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_002_051_a_100.md"
+    },
+    {
+      "id_origem": "sumula_65_stf",
+      "titulo": "Súmula 65 STF",
+      "tipo": "Súmula",
+      "numero": "65",
+      "tribunal": "STF",
+      "enunciado": "A cláusula de aluguel progressivo anterior à L. 3.494, de 19.12.58, continua em vigor em caso de prorrogação legal ou convencional da locação.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_002_051_a_100.md"
+    },
+    {
+      "id_origem": "sumula_66_stf",
+      "titulo": "Súmula 66 STF",
+      "tipo": "Súmula",
+      "numero": "66",
+      "tribunal": "STF",
+      "enunciado": "É legítima a cobrança do tributo que houver sido aumentado após o orçamento, mas antes do início do respectivo exercício financeiro.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_002_051_a_100.md"
+    },
+    {
+      "id_origem": "sumula_67_stf",
+      "titulo": "Súmula 67 STF",
+      "tipo": "Súmula",
+      "numero": "67",
+      "tribunal": "STF",
+      "enunciado": "É inconstitucional a cobrança do tributo que houver sido criado ou aumentado no mesmo exercício financeiro.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_002_051_a_100.md"
+    },
+    {
+      "id_origem": "sumula_68_stf",
+      "titulo": "Súmula 68 STF",
+      "tipo": "Súmula",
+      "numero": "68",
+      "tribunal": "STF",
+      "enunciado": "É legítima a cobrança, pelos Municípios, no exercício de 1961, de tributo estadual, regularmente criado ou aumentado, e que lhes foi transferido pela Emenda Constitucional nº 5, de 21.11.61.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_002_051_a_100.md"
+    },
+    {
+      "id_origem": "sumula_69_stf",
+      "titulo": "Súmula 69 STF",
+      "tipo": "Súmula",
+      "numero": "69",
+      "tribunal": "STF",
+      "enunciado": "A Constituição estadual não pode estabelecer limite para o aumento de tributos municipais.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_002_051_a_100.md"
+    },
+    {
+      "id_origem": "sumula_70_stf",
+      "titulo": "Súmula 70 STF",
+      "tipo": "Súmula",
+      "numero": "70",
+      "tribunal": "STF",
+      "enunciado": "É inadmissível a interdição de estabelecimento como meio coercitivo para cobrança de tributo.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_002_051_a_100.md"
+    },
+    {
+      "id_origem": "sumula_71_stf",
+      "titulo": "Súmula 71 STF",
+      "tipo": "Súmula",
+      "numero": "71",
+      "tribunal": "STF",
+      "enunciado": "Embora pago indevidamente, não cabe restituição de tributo indireto.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_002_051_a_100.md"
+    },
+    {
+      "id_origem": "sumula_72_stf",
+      "titulo": "Súmula 72 STF",
+      "tipo": "Súmula",
+      "numero": "72",
+      "tribunal": "STF",
+      "enunciado": "No julgamento de questão constitucional, vinculada a decisão do Tribunal Superior Eleitoral, não estão impedidos os Ministros do Supremo Tribunal Federal que ali tenham funcionado no mesmo processo, ou no processo originário. 23",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_002_051_a_100.md"
+    },
+    {
+      "id_origem": "sumula_73_stf",
+      "titulo": "Súmula 73 STF",
+      "tipo": "Súmula",
+      "numero": "73",
+      "tribunal": "STF",
+      "enunciado": "A imunidade das autarquias, implicitamente contida no art. 31, V, a, da Constituição Federal, abrange tributos estaduais e municipais.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_002_051_a_100.md"
+    },
+    {
+      "id_origem": "sumula_74_stf",
+      "titulo": "Súmula 74 STF",
+      "tipo": "Súmula",
+      "numero": "74",
+      "tribunal": "STF",
+      "enunciado": "O imóvel transcrito em nome de autarquia, embora objeto de promessa de venda a particulares, continua imune de impostos locais.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_002_051_a_100.md"
+    },
+    {
+      "id_origem": "sumula_75_stf",
+      "titulo": "Súmula 75 STF",
+      "tipo": "Súmula",
+      "numero": "75",
+      "tribunal": "STF",
+      "enunciado": "Sendo vendedora uma autarquia, a sua imunidade fiscal não compreende o impôsto de transmissão inter vivos, que é encargo do comprador.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_002_051_a_100.md"
+    },
+    {
+      "id_origem": "sumula_76_stf",
+      "titulo": "Súmula 76 STF",
+      "tipo": "Súmula",
+      "numero": "76",
+      "tribunal": "STF",
+      "enunciado": "As sociedades de economia mista não estão protegidas pela imunidade fiscal do art. 31, V, a, Constituição Federal.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_002_051_a_100.md"
+    },
+    {
+      "id_origem": "sumula_77_stf",
+      "titulo": "Súmula 77 STF",
+      "tipo": "Súmula",
+      "numero": "77",
+      "tribunal": "STF",
+      "enunciado": "Está isenta de impostos federais a aquisição de bens pela Rêde Ferroviária Federal.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_002_051_a_100.md"
+    },
+    {
+      "id_origem": "sumula_78_stf",
+      "titulo": "Súmula 78 STF",
+      "tipo": "Súmula",
+      "numero": "78",
+      "tribunal": "STF",
+      "enunciado": "Estão isentas de impostos locais as emprêsas de energia elétrica, no que respeita às suas atividades específicas.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_002_051_a_100.md"
+    },
+    {
+      "id_origem": "sumula_79_stf",
+      "titulo": "Súmula 79 STF",
+      "tipo": "Súmula",
+      "numero": "79",
+      "tribunal": "STF",
+      "enunciado": "O Banco do Brasil não tem isenção de tributos locais.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_002_051_a_100.md"
+    },
+    {
+      "id_origem": "sumula_80_stf",
+      "titulo": "Súmula 80 STF",
+      "tipo": "Súmula",
+      "numero": "80",
+      "tribunal": "STF",
+      "enunciado": "Para a retomada de prédio situado fora do domicílio do locador exige-se a prova da necessidade. 24",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_002_051_a_100.md"
+    },
+    {
+      "id_origem": "sumula_81_stf",
+      "titulo": "Súmula 81 STF",
+      "tipo": "Súmula",
+      "numero": "81",
+      "tribunal": "STF",
+      "enunciado": "As cooperativas não gozam de isenção de impostos locais, com fundamento na Constituição e nas leis federais.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_002_051_a_100.md"
+    },
+    {
+      "id_origem": "sumula_82_stf",
+      "titulo": "Súmula 82 STF",
+      "tipo": "Súmula",
+      "numero": "82",
+      "tribunal": "STF",
+      "enunciado": "São inconstitucionais o impôsto de cessão e a taxa sôbre inscrição de promessa de venda de imóvel, substitutivos do impôsto de transmissão, por incidirem sôbre ato que não transfere o domínio.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_002_051_a_100.md"
+    },
+    {
+      "id_origem": "sumula_83_stf",
+      "titulo": "Súmula 83 STF",
+      "tipo": "Súmula",
+      "numero": "83",
+      "tribunal": "STF",
+      "enunciado": "Os ágios de importação incluem-se no valor dos artigos importados para incidência do impôsto de consumo.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_002_051_a_100.md"
+    },
+    {
+      "id_origem": "sumula_84_stf",
+      "titulo": "Súmula 84 STF",
+      "tipo": "Súmula",
+      "numero": "84",
+      "tribunal": "STF",
+      "enunciado": "Não estão isentos do impôsto de consumo os produtos importados pelas cooperativas.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_002_051_a_100.md"
+    },
+    {
+      "id_origem": "sumula_85_stf",
+      "titulo": "Súmula 85 STF",
+      "tipo": "Súmula",
+      "numero": "85",
+      "tribunal": "STF",
+      "enunciado": "Não estão sujeitos ao impôsto de consumo os bens de uso pessoal e doméstico trazidos, como bagagem, do exterior.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_002_051_a_100.md"
+    },
+    {
+      "id_origem": "sumula_86_stf",
+      "titulo": "Súmula 86 STF",
+      "tipo": "Súmula",
+      "numero": "86",
+      "tribunal": "STF",
+      "enunciado": "Não está sujeito ao impôsto de consumo automóvel usado, trazido do exterior pelo proprietário.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_002_051_a_100.md"
+    },
+    {
+      "id_origem": "sumula_87_stf",
+      "titulo": "Súmula 87 STF",
+      "tipo": "Súmula",
+      "numero": "87",
+      "tribunal": "STF",
+      "enunciado": "Somente no que não colidirem com a L. 3.244, de 14.8.57, são aplicáveis acordos tarifários anteriores.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_002_051_a_100.md"
+    },
+    {
+      "id_origem": "sumula_88_stf",
+      "titulo": "Súmula 88 STF",
+      "tipo": "Súmula",
+      "numero": "88",
+      "tribunal": "STF",
+      "enunciado": "É válida a majoração da tarifa alfandegária, resultante da L. 3.244, de 14.8.57, que modificou o Acordo Geral sôbre Tarifas Aduaneiras e Comércio (GATT), aprovado pela L. 313, de 30.7.48. 25",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_002_051_a_100.md"
+    },
+    {
+      "id_origem": "sumula_89_stf",
+      "titulo": "Súmula 89 STF",
+      "tipo": "Súmula",
+      "numero": "89",
+      "tribunal": "STF",
+      "enunciado": "Estão isentas do impôsto de importação frutas importadas da Argentina, do Chile, da Espanha e de Portugal, enquanto vigentes os respectivos acordos comerciais.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_002_051_a_100.md"
+    },
+    {
+      "id_origem": "sumula_90_stf",
+      "titulo": "Súmula 90 STF",
+      "tipo": "Súmula",
+      "numero": "90",
+      "tribunal": "STF",
+      "enunciado": "É legítima a lei local que faça incidir o impôsto de indústrias e profissões com base no movimento econômico do contribuinte.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_002_051_a_100.md"
+    },
+    {
+      "id_origem": "sumula_91_stf",
+      "titulo": "Súmula 91 STF",
+      "tipo": "Súmula",
+      "numero": "91",
+      "tribunal": "STF",
+      "enunciado": "A incidência do impôsto único não isenta o comerciante de combustíveis do impôsto de indústrias e profissões.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_002_051_a_100.md"
+    },
+    {
+      "id_origem": "sumula_92_stf",
+      "titulo": "Súmula 92 STF",
+      "tipo": "Súmula",
+      "numero": "92",
+      "tribunal": "STF",
+      "enunciado": "É constitucional o art. 100, nº II, da L. 4.563, de 20.2.57, do Município de Recife, que faz variar o impôsto de licença em função do aumento do capital do contribuinte.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_002_051_a_100.md"
+    },
+    {
+      "id_origem": "sumula_93_stf",
+      "titulo": "Súmula 93 STF",
+      "tipo": "Súmula",
+      "numero": "93",
+      "tribunal": "STF",
+      "enunciado": "Não está isenta do impôsto de renda a atividade profissional do arquiteto.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_002_051_a_100.md"
+    },
+    {
+      "id_origem": "sumula_94_stf",
+      "titulo": "Súmula 94 STF",
+      "tipo": "Súmula",
+      "numero": "94",
+      "tribunal": "STF",
+      "enunciado": "É competente a autoridade alfandegária para o desconto, na fonte, do impôsto de renda correspondente às comissões dos despachantes aduaneiros.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_002_051_a_100.md"
+    },
+    {
+      "id_origem": "sumula_95_stf",
+      "titulo": "Súmula 95 STF",
+      "tipo": "Súmula",
+      "numero": "95",
+      "tribunal": "STF",
+      "enunciado": "Para cálculo do impôsto de lucro extraordinário, incluem-se no capital as reservas do ano-base, apuradas em balanço.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_002_051_a_100.md"
+    },
+    {
+      "id_origem": "sumula_96_stf",
+      "titulo": "Súmula 96 STF",
+      "tipo": "Súmula",
+      "numero": "96",
+      "tribunal": "STF",
+      "enunciado": "O impôsto de lucro imobiliário incide sôbre a venda de imóvel da meação do cônjuge sobrevivente, ainda que aberta a sucessão antes da vigência da L. 3.470, de 28.11.58. 26",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_002_051_a_100.md"
+    },
+    {
+      "id_origem": "sumula_97_stf",
+      "titulo": "Súmula 97 STF",
+      "tipo": "Súmula",
+      "numero": "97",
+      "tribunal": "STF",
+      "enunciado": "É devida a alíquota anterior do impôsto de lucro imobiliário, quando a promessa de venda houver sido celebrada antes da vigência da lei que a tiver elevado.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_002_051_a_100.md"
+    },
+    {
+      "id_origem": "sumula_98_stf",
+      "titulo": "Súmula 98 STF",
+      "tipo": "Súmula",
+      "numero": "98",
+      "tribunal": "STF",
+      "enunciado": "Sendo o imóvel alienado na vigência da L. 3.470, de 28.11.58, ainda que adquirido por herança, usucapião ou a título gratuito, é devido o impôsto de lucro imobiliário.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_002_051_a_100.md"
+    },
+    {
+      "id_origem": "sumula_99_stf",
+      "titulo": "Súmula 99 STF",
+      "tipo": "Súmula",
+      "numero": "99",
+      "tribunal": "STF",
+      "enunciado": "Não é devido o impôsto de lucro imobiliário, quando a alienação de imóvel adquirido por herança, ou a título gratuito, tiver sido anterior à vigência da L. 3.470, de 28.11.58.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_002_051_a_100.md"
+    },
+    {
+      "id_origem": "sumula_100_stf",
+      "titulo": "Súmula 100 STF",
+      "tipo": "Súmula",
+      "numero": "100",
+      "tribunal": "STF",
+      "enunciado": "Não é devido o impôsto de lucro imobiliário, quando a alienação de imóvel, adquirido por usucapião, tiver sido anterior à vigência da L. 3.470, de 28.11.58.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_002_051_a_100.md"
+    }
+  ],
+  "questoes": [
+    {
+      "id_origem": "sumula_51_stf",
+      "titulo_origem": "Súmula 51 STF",
+      "questao": "É possível que um militar receba mais de duas promoções na passagem para a inatividade, desde que as promoções sejam concedidas por motivos distintos.",
+      "gabarito": "ERRADO",
+      "justificativa": "A jurisprudência do STF estabelece que o militar não pode receber mais de duas promoções na passagem para a inatividade, independentemente dos motivos que justifiquem as promoções. Ou seja, o limite máximo é de duas promoções, não sendo possível ultrapassá-lo mesmo que as promoções tenham fundamentos diversos."
+    },
+    {
+      "id_origem": "sumula_52_stf",
+      "titulo_origem": "Súmula 52 STF",
+      "questao": "A promoção de militar na inatividade pode ser realizada para um posto que não exista no quadro da força militar correspondente.",
+      "gabarito": "CERTO",
+      "justificativa": "A jurisprudência do STF admite que a promoção de militar vinculada à inatividade seja feita, quando aplicável, a posto inexistente no quadro, pois a inatividade não impede a concessão da promoção, mesmo que o posto não esteja previsto no quadro atual da força militar."
+    },
+    {
+      "id_origem": "sumula_53_stf",
+      "titulo_origem": "Súmula 53 STF",
+      "questao": "A promoção de professor militar, vinculada à sua reforma, somente pode ocorrer para posto existente no quadro da corporação.",
+      "gabarito": "ERRADO",
+      "justificativa": "A promoção de professor militar vinculada à sua reforma pode ser feita para posto inexistente no quadro, desde que seja cabível. Isso significa que, em situações específicas, a lei permite a promoção para posto que não consta no quadro atual da corporação, garantindo o direito do militar à promoção mesmo que o posto não esteja formalmente previsto."
+    },
+    {
+      "id_origem": "sumula_54_stf",
+      "titulo_origem": "Súmula 54 STF",
+      "questao": "A passagem para a reserva ativa do magistério militar assegura automaticamente as vantagens remuneratórias que são exclusivas da inatividade.",
+      "gabarito": "ERRADO",
+      "justificativa": "A passagem para a reserva ativa do magistério militar não implica a concessão das vantagens que são vinculadas exclusivamente à efetiva passagem para a inatividade. Ou seja, tais vantagens só são devidas quando o militar se aposenta, não bastando a simples reserva ativa para sua fruição."
+    },
+    {
+      "id_origem": "sumula_55_stf",
+      "titulo_origem": "Súmula 55 STF",
+      "questao": "Militar da reserva pode ser responsabilizado por infrações disciplinares e, portanto, está sujeito à aplicação de penalidades previstas no regime disciplinar militar.",
+      "gabarito": "CERTO",
+      "justificativa": "O militar da reserva, embora não esteja em atividade, permanece vinculado ao regime disciplinar militar, podendo ser submetido a penalidades disciplinares em razão de infrações cometidas, conforme entendimento consolidado pelo Supremo Tribunal Federal."
+    },
+    {
+      "id_origem": "sumula_56_stf",
+      "titulo_origem": "Súmula 56 STF",
+      "questao": "Militar reformado pode ser submetido a penalidade disciplinar decorrente de infração cometida após sua reforma.",
+      "gabarito": "ERRADO",
+      "justificativa": "A reforma do militar implica a sua saída da atividade militar, extinguindo a sujeição às normas disciplinares militares. Assim, o militar reformado não está sujeito à pena disciplinar por fatos ocorridos após a sua reforma, conforme entendimento consolidado pelo STF."
+    },
+    {
+      "id_origem": "sumula_57_stf",
+      "titulo_origem": "Súmula 57 STF",
+      "questao": "Militar inativo pode usar o uniforme militar livremente, independentemente de previsão legal ou regulamentar.",
+      "gabarito": "ERRADO",
+      "justificativa": "O uso do uniforme por militar inativo é restrito aos casos expressamente previstos em lei ou regulamento. A utilização fora dessas hipóteses configura infração, conforme entendimento consolidado pelo Supremo Tribunal Federal."
+    },
+    {
+      "id_origem": "sumula_58_stf",
+      "titulo_origem": "Súmula 58 STF",
+      "questao": "Em instituição de ensino superior, é legítima a fixação pelo regimento interno de média mínima para aprovação superior a quatro, desde que respeitados os princípios gerais do ensino.",
+      "gabarito": "CERTO",
+      "justificativa": "A jurisprudência do STF reconhece que as instituições de ensino superior podem estabelecer, por meio de seus regimentos internos, critérios de aprovação que exijam média superior a quatro, desde que tais critérios estejam previstos no regimento e não contrariem normas superiores. Isso decorre da autonomia didático-científica das instituições de ensino, que lhes permite definir parâmetros para avaliação acadêmica."
+    },
+    {
+      "id_origem": "sumula_59_stf",
+      "titulo_origem": "Súmula 59 STF",
+      "questao": "É permitido ao imigrante trazer para o Brasil um automóvel de sua propriedade adquirido há mais de seis meses antes do embarque, sem necessidade de licença prévia.",
+      "gabarito": "CERTO",
+      "justificativa": "A jurisprudência do STF reconhece que o imigrante pode importar seu automóvel sem licença prévia, desde que seja proprietário do veículo há mais de seis meses antes do embarque para o Brasil, o que dispensa a autorização administrativa prévia para a entrada do bem no país."
+    },
+    {
+      "id_origem": "sumula_60_stf",
+      "titulo_origem": "Súmula 60 STF",
+      "questao": "É permitido ao estrangeiro importar automóvel para uso pessoal no Brasil sem a necessidade de comprovar a transferência definitiva de sua residência para o país.",
+      "gabarito": "ERRADO",
+      "justificativa": "A importação de automóvel por estrangeiro para uso pessoal no Brasil exige a comprovação da transferência definitiva de residência para o país, conforme entendimento consolidado pelo STF. Sem essa comprovação, o ingresso do veículo não é autorizado, visando evitar importações temporárias ou abusivas que não se enquadram na legislação aduaneira brasileira."
+    },
+    {
+      "id_origem": "sumula_61_stf",
+      "titulo_origem": "Súmula 61 STF",
+      "questao": "É permitido que brasileiro que reside no exterior e retorna definitivamente ao Brasil importe veículo automotor registrado em seu nome há mais de seis meses, sem necessidade de cumprir novos requisitos para o licenciamento.",
+      "gabarito": "CERTO",
+      "justificativa": "A jurisprudência do STF reconhece que o brasileiro domiciliado no estrangeiro que retorna definitivamente ao Brasil pode trazer consigo automóvel licenciado em seu nome há mais de seis meses, dispensando a necessidade de novo registro ou licenciamento, pois o veículo é considerado bem pessoal do importador, conforme entendimento consolidado na Súmula 61."
+    },
+    {
+      "id_origem": "sumula_62_stf",
+      "titulo_origem": "Súmula 62 STF",
+      "questao": "A permanência no exterior por período superior a seis meses, por si só, confere ao indivíduo o direito de importar veículo automotor com base na alegação de transferência de residência.",
+      "gabarito": "ERRADO",
+      "justificativa": "A simples estada no exterior por mais de seis meses não é suficiente para caracterizar transferência de residência para fins de importação de automóvel. É necessário comprovar efetiva mudança de domicílio, com intenção de residir permanentemente no exterior, para que o direito à trazida do veículo seja reconhecido."
+    },
+    {
+      "id_origem": "sumula_63_stf",
+      "titulo_origem": "Súmula 63 STF",
+      "questao": "Para que um automóvel importado seja admitido no país, é dispensável comprovar que seu licenciamento no país de origem tenha ocorrido há mais de seis meses.",
+      "gabarito": "ERRADO",
+      "justificativa": "A comprovação do licenciamento do automóvel no país de origem por período superior a seis meses é requisito indispensável para a sua admissão no país, conforme entendimento consolidado, garantindo a regularidade e a segurança jurídica na importação do veículo."
+    },
+    {
+      "id_origem": "sumula_64_stf",
+      "titulo_origem": "Súmula 64 STF",
+      "questao": "É vedado importar do exterior, como bagagem, objetos de uso pessoal e doméstico, ainda que em quantidade e natureza que não indiquem finalidade comercial.",
+      "gabarito": "ERRADO",
+      "justificativa": "A importação de objetos de uso pessoal e doméstico como bagagem é permitida desde que a quantidade e a natureza desses objetos não indiquem finalidade comercial. A vedação ocorre apenas quando há indícios de comércio, o que não é o caso quando os bens são compatíveis com uso pessoal ou doméstico."
+    },
+    {
+      "id_origem": "sumula_65_stf",
+      "titulo_origem": "Súmula 65 STF",
+      "questao": "Em contratos de locação com cláusula de aluguel progressivo firmados antes da Lei nº 3.494/1958, essa cláusula permanece válida e aplicável mesmo quando a locação é prorrogada por força de lei ou acordo entre as partes.",
+      "gabarito": "CERTO",
+      "justificativa": "A cláusula de aluguel progressivo prevista em contratos anteriores à Lei nº 3.494/1958 mantém sua eficácia nas prorrogações legais ou convencionais da locação, conforme entendimento consolidado pelo STF. Isso ocorre porque a lei não revogou expressamente tais cláusulas, permitindo sua continuidade para preservar a segurança jurídica e a autonomia das partes."
+    },
+    {
+      "id_origem": "sumula_66_stf",
+      "titulo_origem": "Súmula 66 STF",
+      "questao": "A majoração de tributo ocorrida após a aprovação da lei orçamentária anual, mas antes do início do exercício financeiro a que se refere o orçamento, não pode ser cobrada no referido exercício.",
+      "gabarito": "ERRADO",
+      "justificativa": "A cobrança do tributo é legítima mesmo que o aumento tenha ocorrido após a aprovação do orçamento, desde que tenha sido antes do início do exercício financeiro. Isso decorre do entendimento de que a lei que aumenta tributo, se vigente no início do exercício, autoriza a cobrança no exercício, independentemente do momento da aprovação do orçamento."
+    },
+    {
+      "id_origem": "sumula_67_stf",
+      "titulo_origem": "Súmula 67 STF",
+      "questao": "É constitucional a instituição de um tributo com aumento de alíquota no mesmo exercício financeiro em que foi criado, desde que respeitados os princípios gerais do direito tributário.",
+      "gabarito": "ERRADO",
+      "justificativa": "A Constituição Federal proíbe a criação ou aumento de tributo no mesmo exercício financeiro, pois tal prática viola o princípio da anterioridade, que visa garantir segurança jurídica e previsibilidade ao contribuinte. A súmula 67 do STF reforça essa vedação, declarando inconstitucional a cobrança de tributo criado ou majorado no mesmo exercício financeiro."
+    },
+    {
+      "id_origem": "sumula_68_stf",
+      "titulo_origem": "Súmula 68 STF",
+      "questao": "No exercício financeiro de 1961, os Municípios não possuem legitimidade para cobrar tributos estaduais, mesmo que estes tenham sido regularmente criados ou aumentados e transferidos pela Emenda Constitucional nº 5, de 21 de novembro de 1961.",
+      "gabarito": "ERRADO",
+      "justificativa": "A Emenda Constitucional nº 5, de 21 de novembro de 1961, transferiu aos Municípios a competência para cobrar tributos estaduais regularmente criados ou aumentados no exercício de 1961. Portanto, é legítima a cobrança desses tributos pelos Municípios naquele exercício financeiro, conforme entendimento consolidado pelo STF."
+    },
+    {
+      "id_origem": "sumula_69_stf",
+      "titulo_origem": "Súmula 69 STF",
+      "questao": "É possível que uma Constituição estadual imponha restrições ao aumento de tributos instituídos por municípios dentro do seu território.",
+      "gabarito": "ERRADO",
+      "justificativa": "A Constituição estadual não pode estabelecer limites para o aumento de tributos municipais, pois a competência tributária municipal é autônoma e protegida pela Constituição Federal, que veda interferência das Constituições estaduais sobre essa autonomia."
+    },
+    {
+      "id_origem": "sumula_70_stf",
+      "titulo_origem": "Súmula 70 STF",
+      "questao": "A autoridade administrativa pode interditar estabelecimento comercial como medida coercitiva para forçar o pagamento de tributos em atraso.",
+      "gabarito": "ERRADO",
+      "justificativa": "A interdição de estabelecimento não pode ser utilizada como meio coercitivo para a cobrança de tributos, pois tal medida viola o princípio da legalidade e os direitos do contribuinte. A jurisprudência consolidada do STF estabelece que a cobrança de tributos deve ocorrer por meios legais específicos, como a execução fiscal, e não por sanções administrativas que impliquem fechamento do estabelecimento."
+    },
+    {
+      "id_origem": "sumula_71_stf",
+      "titulo_origem": "Súmula 71 STF",
+      "questao": "É possível a restituição do valor pago a título de tributo indireto, ainda que tenha ocorrido pagamento indevido.",
+      "gabarito": "ERRADO",
+      "justificativa": "A jurisprudência do STF estabelece que não cabe restituição de tributo indireto, mesmo que o pagamento tenha sido indevido, pois o tributo indireto é incorporado ao preço do produto ou serviço, tornando inviável a devolução ao contribuinte final."
+    },
+    {
+      "id_origem": "sumula_72_stf",
+      "titulo_origem": "Súmula 72 STF",
+      "questao": "Ministros do Supremo Tribunal Federal que participaram do julgamento de um processo no Tribunal Superior Eleitoral ou do processo originário estão impedidos de julgar questões constitucionais vinculadas a essa decisão.",
+      "gabarito": "ERRADO",
+      "justificativa": "A Súmula 72 do STF estabelece que, em julgamento de questão constitucional vinculada a decisão do Tribunal Superior Eleitoral, não há impedimento para os Ministros do STF que tenham atuado no mesmo processo ou no processo originário. Portanto, a participação anterior não configura causa de impedimento."
+    },
+    {
+      "id_origem": "sumula_73_stf",
+      "titulo_origem": "Súmula 73 STF",
+      "questao": "A imunidade tributária das autarquias federais alcança também os tributos estaduais e municipais, conforme previsto no artigo 31, inciso V, alínea 'a', da Constituição Federal.",
+      "gabarito": "CERTO",
+      "justificativa": "O artigo 31, inciso V, alínea 'a', da Constituição Federal estabelece a imunidade tributária das autarquias, que abrange não apenas tributos federais, mas também estaduais e municipais. Isso significa que as autarquias estão imunes ao pagamento desses tributos, conforme entendimento consolidado pelo Supremo Tribunal Federal, garantindo a proteção constitucional contra a tributação por entes federativos distintos da União."
+    },
+    {
+      "id_origem": "sumula_74_stf",
+      "titulo_origem": "Súmula 74 STF",
+      "questao": "Imóvel registrado em nome de autarquia permanece isento do pagamento de impostos municipais mesmo que tenha sido firmado contrato de promessa de venda com particulares.",
+      "gabarito": "CERTO",
+      "justificativa": "A imunidade tributária prevista para imóveis pertencentes a autarquias decorre do princípio da imunidade recíproca entre entes federativos, que protege o patrimônio público destinado às suas finalidades institucionais. A existência de promessa de venda a particulares não altera a titularidade do imóvel, que permanece registrado em nome da autarquia, mantendo, assim, a imunidade em relação aos impostos locais."
+    },
+    {
+      "id_origem": "sumula_75_stf",
+      "titulo_origem": "Súmula 75 STF",
+      "questao": "Quando uma autarquia atua como vendedora de um bem imóvel, ela está isenta do pagamento do imposto de transmissão inter vivos, que recai integralmente sobre o comprador.",
+      "gabarito": "ERRADO",
+      "justificativa": "A imunidade fiscal das autarquias não se estende ao imposto de transmissão inter vivos (ITBI) quando atuam como vendedoras. Nesse caso, o encargo do pagamento do ITBI é do comprador, não da autarquia. Portanto, a autarquia não é isenta desse imposto na condição de vendedora."
+    },
+    {
+      "id_origem": "sumula_76_stf",
+      "titulo_origem": "Súmula 76 STF",
+      "questao": "As sociedades de economia mista gozam de imunidade fiscal prevista no artigo 31, inciso V, alínea 'a', da Constituição Federal.",
+      "gabarito": "ERRADO",
+      "justificativa": "As sociedades de economia mista não são abrangidas pela imunidade fiscal prevista no artigo 31, V, alínea 'a', da Constituição Federal. Essa imunidade é restrita às autarquias e fundações públicas, não se estendendo às sociedades de economia mista, que possuem personalidade jurídica de direito privado e, portanto, estão sujeitas à tributação."
+    },
+    {
+      "id_origem": "sumula_77_stf",
+      "titulo_origem": "Súmula 77 STF",
+      "questao": "A Rede Ferroviária Federal está sujeita à incidência de impostos federais na aquisição de bens destinados à sua atividade operacional.",
+      "gabarito": "ERRADO",
+      "justificativa": "A Rede Ferroviária Federal é isenta do pagamento de impostos federais na aquisição de bens, conforme entendimento consolidado pelo Supremo Tribunal Federal, que reconhece a imunidade tributária para tais operações, visando garantir a continuidade e eficiência dos serviços públicos ferroviários."
+    },
+    {
+      "id_origem": "sumula_78_stf",
+      "titulo_origem": "Súmula 78 STF",
+      "questao": "Empresas que atuam no setor de energia elétrica estão obrigadas ao pagamento de impostos locais sobre suas atividades específicas.",
+      "gabarito": "ERRADO",
+      "justificativa": "As empresas de energia elétrica são isentas de impostos locais no que se refere às suas atividades específicas, conforme entendimento consolidado pelo Supremo Tribunal Federal, que reconhece a imunidade tributária para esse setor, evitando a incidência de tributos municipais e estaduais sobre essas atividades."
+    },
+    {
+      "id_origem": "sumula_79_stf",
+      "titulo_origem": "Súmula 79 STF",
+      "questao": "O Banco do Brasil possui imunidade tributária que o isenta do pagamento de tributos municipais e estaduais.",
+      "gabarito": "ERRADO",
+      "justificativa": "O Banco do Brasil, apesar de ser uma empresa pública, não goza de imunidade ou isenção tributária em relação aos tributos locais, como os municipais e estaduais. A súmula do STF estabelece que não há isenção de tributos locais para essa instituição, o que significa que ela está sujeita ao pagamento desses tributos normalmente."
+    },
+    {
+      "id_origem": "sumula_80_stf",
+      "titulo_origem": "Súmula 80 STF",
+      "questao": "Para que o locador possa retomar um imóvel situado fora de seu domicílio, é dispensável a demonstração da necessidade da retomada.",
+      "gabarito": "ERRADO",
+      "justificativa": "A retomada de imóvel locado situado fora do domicílio do locador exige a prova da necessidade da retomada, conforme entendimento consolidado pelo STF. Essa exigência visa proteger o locatário contra retomadas arbitrárias e garantir que a medida seja justificada por motivos legítimos."
+    },
+    {
+      "id_origem": "sumula_81_stf",
+      "titulo_origem": "Súmula 81 STF",
+      "questao": "As cooperativas estão dispensadas do pagamento de impostos municipais, estaduais ou distritais, em razão de imunidade prevista na Constituição Federal e nas leis federais.",
+      "gabarito": "ERRADO",
+      "justificativa": "As cooperativas não possuem imunidade ou isenção automática em relação aos impostos locais, conforme entendimento consolidado pelo Supremo Tribunal Federal. A Constituição Federal e as leis federais não conferem tal benefício, razão pela qual as cooperativas devem cumprir as obrigações tributárias municipais, estaduais e distritais normalmente."
+    },
+    {
+      "id_origem": "sumula_82_stf",
+      "titulo_origem": "Súmula 82 STF",
+      "questao": "É constitucional a cobrança de imposto sobre a cessão de direitos e de taxa sobre a inscrição de promessa de venda de imóvel, mesmo que tais atos não transfiram o domínio do bem.",
+      "gabarito": "ERRADO",
+      "justificativa": "O Supremo Tribunal Federal entende que o imposto de cessão e a taxa sobre inscrição de promessa de venda de imóvel são inconstitucionais, pois incidem sobre atos que não transferem o domínio do imóvel, configurando substitutivos indevidos do imposto de transmissão. A incidência tributária deve recair sobre a transmissão da propriedade, não sobre atos preparatórios ou acessórios."
+    },
+    {
+      "id_origem": "sumula_83_stf",
+      "titulo_origem": "Súmula 83 STF",
+      "questao": "Para fins de cálculo do imposto de consumo incidente sobre mercadorias importadas, os valores referentes ao ágio de importação devem ser excluídos do valor aduaneiro dos artigos importados.",
+      "gabarito": "ERRADO",
+      "justificativa": "O ágio de importação integra o valor dos artigos importados para fins de incidência do imposto de consumo, conforme entendimento consolidado pelo STF. Portanto, o ágio não deve ser excluído do valor aduaneiro para cálculo do tributo, mas sim incluído."
+    },
+    {
+      "id_origem": "sumula_84_stf",
+      "titulo_origem": "Súmula 84 STF",
+      "questao": "Produtos importados por cooperativas estão sujeitos à incidência do imposto de consumo, não sendo aplicável qualquer isenção em razão da natureza da entidade importadora.",
+      "gabarito": "CERTO",
+      "justificativa": "A jurisprudência do STF estabelece que a condição de cooperativa não confere isenção do imposto de consumo sobre produtos importados. Assim, a incidência do tributo independe da pessoa jurídica importadora, aplicando-se normalmente às cooperativas, conforme entendimento consolidado na Súmula 84."
+    },
+    {
+      "id_origem": "sumula_85_stf",
+      "titulo_origem": "Súmula 85 STF",
+      "questao": "Bens de uso pessoal e doméstico trazidos do exterior como bagagem estão sujeitos ao pagamento do imposto de consumo.",
+      "gabarito": "ERRADO",
+      "justificativa": "Os bens de uso pessoal e doméstico trazidos do exterior como bagagem não estão sujeitos ao imposto de consumo, conforme entendimento consolidado pelo STF, que reconhece a isenção para esses bens em razão de sua natureza e finalidade, evitando a tributação excessiva sobre itens de uso cotidiano do viajante."
+    },
+    {
+      "id_origem": "sumula_86_stf",
+      "titulo_origem": "Súmula 86 STF",
+      "questao": "A importação de automóvel usado pelo seu próprio proprietário está sujeita ao pagamento do imposto de consumo.",
+      "gabarito": "ERRADO",
+      "justificativa": "A jurisprudência do STF estabelece que o automóvel usado trazido do exterior pelo seu proprietário não está sujeito ao imposto de consumo, pois a operação não configura fato gerador do tributo, evitando-se a tributação em duplicidade e respeitando o princípio da capacidade contributiva."
+    },
+    {
+      "id_origem": "sumula_87_stf",
+      "titulo_origem": "Súmula 87 STF",
+      "questao": "É possível aplicar acordos tarifários anteriores à Lei 3.244/1957 mesmo quando houver conflito entre eles e essa lei.",
+      "gabarito": "ERRADO",
+      "justificativa": "A aplicação de acordos tarifários anteriores à Lei 3.244/1957 está condicionada à ausência de conflito com essa lei. Quando houver colisão, prevalece a Lei 3.244/1957, tornando inaplicáveis os acordos anteriores que conflitarem com seu conteúdo."
+    },
+    {
+      "id_origem": "sumula_88_stf",
+      "titulo_origem": "Súmula 88 STF",
+      "questao": "A majoração da tarifa alfandegária decorrente da Lei 3.244/1957, que alterou o Acordo Geral sobre Tarifas Aduaneiras e Comércio (GATT) aprovado pela Lei 313/1948, não possui validade jurídica, pois contraria normas internacionais ratificadas pelo Brasil.",
+      "gabarito": "ERRADO",
+      "justificativa": "A majoração da tarifa alfandegária resultante da Lei 3.244/1957, que modificou o GATT aprovado pela Lei 313/1948, é válida. O Supremo Tribunal Federal reconhece que essa alteração legislativa tem eficácia jurídica, mesmo que modifique compromissos internacionais, pois foi aprovada pelo Congresso Nacional, conferindo-lhe legitimidade e validade no ordenamento jurídico brasileiro."
+    },
+    {
+      "id_origem": "sumula_89_stf",
+      "titulo_origem": "Súmula 89 STF",
+      "questao": "Frutas importadas da Argentina, do Chile, da Espanha e de Portugal estão sujeitas ao imposto de importação mesmo durante a vigência dos acordos comerciais firmados entre o Brasil e esses países.",
+      "gabarito": "ERRADO",
+      "justificativa": "As frutas importadas desses países estão isentas do imposto de importação enquanto os respectivos acordos comerciais estiverem vigentes, conforme entendimento consolidado pelo STF. Portanto, a incidência do imposto não ocorre durante a vigência desses acordos."
+    },
+    {
+      "id_origem": "sumula_90_stf",
+      "titulo_origem": "Súmula 90 STF",
+      "questao": "É constitucional a incidência do imposto sobre indústrias e profissões por meio de lei estadual que considere o movimento econômico do contribuinte como base de cálculo.",
+      "gabarito": "CERTO",
+      "justificativa": "A jurisprudência do Supremo Tribunal Federal reconhece a legitimidade da lei local que institui o imposto sobre indústrias e profissões utilizando como base de cálculo o movimento econômico do contribuinte, entendendo que tal critério é compatível com o sistema tributário nacional e não viola os princípios constitucionais tributários."
+    },
+    {
+      "id_origem": "sumula_91_stf",
+      "titulo_origem": "Súmula 91 STF",
+      "questao": "A cobrança do imposto único sobre combustíveis exclui a incidência do imposto sobre indústrias e profissões para o comerciante desse produto.",
+      "gabarito": "ERRADO",
+      "justificativa": "A incidência do imposto único sobre combustíveis não afasta a cobrança do imposto sobre indústrias e profissões (IPI) para o comerciante. Ou seja, a existência do imposto único não implica isenção do IPI, pois são tributos distintos que incidem sobre fatos geradores diferentes, conforme entendimento consolidado pelo Supremo Tribunal Federal."
+    },
+    {
+      "id_origem": "sumula_92_stf",
+      "titulo_origem": "Súmula 92 STF",
+      "questao": "É inconstitucional a cobrança de imposto de licença que varia conforme o aumento do capital social do contribuinte, por violar o princípio da capacidade contributiva.",
+      "gabarito": "ERRADO",
+      "justificativa": "O Supremo Tribunal Federal reconheceu a constitucionalidade do artigo 100, nº II, da Lei nº 4.563/1957 do Município de Recife, que permite a variação do imposto de licença em função do aumento do capital do contribuinte. Essa norma não viola o princípio da capacidade contributiva, pois o aumento do capital social pode refletir maior potencial econômico, justificando a majoração do tributo."
+    },
+    {
+      "id_origem": "sumula_93_stf",
+      "titulo_origem": "Súmula 93 STF",
+      "questao": "A atividade profissional exercida por arquiteto está isenta do pagamento do imposto de renda.",
+      "gabarito": "ERRADO",
+      "justificativa": "A atividade profissional do arquiteto não é isenta do imposto de renda, conforme entendimento consolidado pelo Supremo Tribunal Federal. Portanto, os rendimentos provenientes dessa atividade devem ser tributados normalmente pelo imposto de renda."
+    },
+    {
+      "id_origem": "sumula_94_stf",
+      "titulo_origem": "Súmula 94 STF",
+      "questao": "A autoridade alfandegária possui competência para efetuar o desconto do imposto de renda na fonte sobre as comissões pagas aos despachantes aduaneiros.",
+      "gabarito": "CERTO",
+      "justificativa": "A autoridade alfandegária é responsável pela retenção do imposto de renda na fonte referente às comissões dos despachantes aduaneiros, conforme entendimento consolidado pelo Supremo Tribunal Federal, que reconhece essa competência para garantir a arrecadação tributária no âmbito das operações aduaneiras."
+    },
+    {
+      "id_origem": "sumula_95_stf",
+      "titulo_origem": "Súmula 95 STF",
+      "questao": "No cálculo do imposto sobre lucro extraordinário, as reservas do ano-base apuradas em balanço devem ser excluídas do capital para efeito de apuração.",
+      "gabarito": "ERRADO",
+      "justificativa": "Para o cálculo do imposto sobre lucro extraordinário, as reservas do ano-base apuradas em balanço são incluídas no capital, conforme entendimento consolidado, pois essas reservas representam parte integrante do patrimônio que serve de base para a tributação."
+    },
+    {
+      "id_origem": "sumula_96_stf",
+      "titulo_origem": "Súmula 96 STF",
+      "questao": "A venda do imóvel pertencente à meação do cônjuge sobrevivente está sujeita ao imposto de lucro imobiliário, mesmo que a sucessão tenha sido aberta antes da vigência da Lei nº 3.470/1958.",
+      "gabarito": "CERTO",
+      "justificativa": "O imposto sobre o lucro imobiliário incide sobre a venda do imóvel da meação do cônjuge sobrevivente independentemente da data de abertura da sucessão, inclusive se esta ocorreu antes da vigência da Lei nº 3.470, de 28 de novembro de 1958. Isso decorre do entendimento consolidado pelo STF, que afasta qualquer imunidade ou isenção baseada na data da abertura da sucessão, garantindo a tributação do ganho de capital na alienação do bem."
+    },
+    {
+      "id_origem": "sumula_97_stf",
+      "titulo_origem": "Súmula 97 STF",
+      "questao": "A alteração da alíquota do imposto sobre o lucro imobiliário não pode ser aplicada a promessa de venda celebrada antes da vigência da lei que a elevou.",
+      "gabarito": "CERTO",
+      "justificativa": "A súmula estabelece que, para a promessa de venda realizada antes da vigência da lei que aumentou a alíquota do imposto sobre o lucro imobiliário, deve ser aplicada a alíquota anterior. Isso decorre do princípio da legalidade e da segurança jurídica, que impedem a aplicação retroativa de normas tributárias que agravem a situação do contribuinte."
+    },
+    {
+      "id_origem": "sumula_98_stf",
+      "titulo_origem": "Súmula 98 STF",
+      "questao": "Imóvel adquirido por herança durante a vigência da Lei nº 3.470/1958 está isento do imposto sobre o lucro imobiliário em eventual alienação posterior.",
+      "gabarito": "ERRADO",
+      "justificativa": "Durante a vigência da Lei nº 3.470/1958, o imposto sobre o lucro imobiliário é devido na alienação do imóvel, independentemente da forma de aquisição, inclusive quando o imóvel foi adquirido por herança, usucapião ou a título gratuito. Portanto, a alienação de imóvel nessas condições não está isenta do imposto."
+    },
+    {
+      "id_origem": "sumula_99_stf",
+      "titulo_origem": "Súmula 99 STF",
+      "questao": "A incidência do imposto sobre o lucro imobiliário é devida quando a alienação de imóvel adquirido por herança ocorrer antes da vigência da Lei nº 3.470, de 28 de novembro de 1958.",
+      "gabarito": "ERRADO",
+      "justificativa": "O imposto sobre o lucro imobiliário não é devido quando a alienação do imóvel adquirido por herança ou a título gratuito ocorrer antes da vigência da Lei nº 3.470/1958, conforme entendimento consolidado pelo Supremo Tribunal Federal. Isso porque a lei que instituiu o imposto não tinha efeito retroativo para tais casos."
+    },
+    {
+      "id_origem": "sumula_100_stf",
+      "titulo_origem": "Súmula 100 STF",
+      "questao": "O imposto sobre o ganho de capital na alienação de imóvel adquirido por usucapião não é devido se a aquisição tiver ocorrido antes da vigência da Lei nº 3.470, de 28 de novembro de 1958.",
+      "gabarito": "CERTO",
+      "justificativa": "A Súmula 100 do STF estabelece que o imposto sobre o lucro imobiliário não incide quando a alienação de imóvel adquirido por usucapião ocorreu antes da entrada em vigor da Lei nº 3.470/1958, pois a norma tributária que instituiu o imposto não retroage para alcançar fatos geradores anteriores à sua vigência."
+    }
+  ]
+}

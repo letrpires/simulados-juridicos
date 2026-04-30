@@ -4,392 +4,362 @@
 <meta charset="UTF-8">
 <title>Simulado - Info 1187 STF</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <style>
-:root {
-    --bg: #0f172a;
-    --card: #111827;
-    --card2: #1f2937;
-    --text: #e5e7eb;
-    --muted: #9ca3af;
-    --accent: #38bdf8;
-    --green: #22c55e;
-    --red: #ef4444;
-    --yellow: #facc15;
+:root{
+--bg:#020617;--panel:rgba(15,23,42,.88);--card:rgba(15,23,42,.96);
+--card2:rgba(30,41,59,.92);--border:rgba(148,163,184,.22);
+--text:#e5e7eb;--muted:#94a3b8;--accent:#38bdf8;--accent2:#0ea5e9;
+--green:#22c55e;--red:#ef4444;--yellow:#facc15;--purple:#a78bfa;
 }
-
-* {
-    box-sizing: border-box;
+*{box-sizing:border-box}
+body{
+margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+background:radial-gradient(circle at top left,rgba(56,189,248,.20),transparent 28%),
+radial-gradient(circle at top right,rgba(167,139,250,.15),transparent 28%),
+linear-gradient(135deg,#020617,#0f172a 50%,#020617);
+color:var(--text);line-height:1.65;
 }
-
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(135deg, #020617, #111827);
-    color: var(--text);
-    line-height: 1.6;
+header{padding:44px 20px 32px;text-align:center;border-bottom:1px solid var(--border)}
+header h1{margin:0 0 10px;font-size:clamp(28px,4vw,46px);letter-spacing:-.05em}
+header p{color:var(--muted);margin:0;font-size:16px}
+.container{max-width:1160px;margin:0 auto;padding:26px 16px 80px}
+.painel{
+position:sticky;top:10px;z-index:10;background:var(--panel);backdrop-filter:blur(18px);
+border:1px solid var(--border);border-radius:26px;padding:16px;margin-bottom:22px;
+box-shadow:0 22px 70px rgba(0,0,0,.35)
 }
-
-header {
-    padding: 32px 20px;
-    text-align: center;
-    border-bottom: 1px solid #334155;
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.stat{background:var(--card2);padding:14px;border-radius:18px;text-align:center;border:1px solid rgba(148,163,184,.12)}
+.stat strong{display:block;font-size:25px;color:var(--accent);line-height:1.1}
+.stat span{font-size:12px;color:var(--muted)}
+.filtros{display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:12px;margin-top:14px}
+input,select{
+width:100%;background:rgba(2,6,23,.78);color:var(--text);border:1px solid var(--border);
+border-radius:14px;padding:13px 14px;outline:none;font-size:14px
 }
-
-header h1 {
-    margin: 0 0 10px;
-    font-size: 28px;
+input:focus,select:focus{border-color:var(--accent)}
+.card{
+background:var(--card);border:1px solid var(--border);border-radius:24px;padding:26px;
+margin-bottom:20px;box-shadow:0 18px 50px rgba(0,0,0,.24)
 }
-
-header p {
-    color: var(--muted);
-    margin: 0;
+.questao{scroll-margin-top:190px}
+.questao-topo{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:18px}
+.badge{
+background:linear-gradient(135deg,var(--accent),var(--accent2));color:#00111f;font-weight:900;
+padding:7px 13px;border-radius:999px;display:inline-block
 }
-
-.container {
-    max-width: 980px;
-    margin: 0 auto;
-    padding: 24px 16px 80px;
+.disciplina-tag,.tipo-tag{
+display:inline-block;margin-left:8px;color:var(--muted);background:rgba(148,163,184,.10);
+border:1px solid rgba(148,163,184,.14);padding:6px 10px;border-radius:999px;font-size:12px
 }
-
-.painel {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    background: rgba(15, 23, 42, 0.95);
-    backdrop-filter: blur(8px);
-    border: 1px solid #334155;
-    border-radius: 16px;
-    padding: 16px;
-    margin-bottom: 24px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
+.tipo-tag{color:#ddd6fe;border-color:rgba(167,139,250,.25)}
+.status{color:var(--yellow);font-size:13px;white-space:nowrap}
+.enunciado{font-size:19px;margin:0 0 22px;letter-spacing:-.01em}
+.botoes{display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.btn{
+cursor:pointer;border:0;padding:12px 22px;border-radius:14px;color:white;font-weight:900;
+transition:.18s ease;letter-spacing:.02em
 }
-
-.stat {
-    background: var(--card2);
-    padding: 12px;
-    border-radius: 12px;
-    text-align: center;
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.certo{background:rgba(34,197,94,.20);border:1px solid rgba(34,197,94,.42)}
+.btn.errado{background:rgba(239,68,68,.20);border:1px solid rgba(239,68,68,.42)}
+.btn.neutro{background:rgba(56,189,248,.16);color:var(--text);border:1px solid rgba(56,189,248,.32)}
+.feedback{
+display:none;background:rgba(2,6,23,.72);border:1px solid rgba(148,163,184,.16);
+border-left:5px solid var(--accent);padding:18px;border-radius:18px;margin-top:14px
 }
-
-.stat strong {
-    display: block;
-    font-size: 22px;
-    color: var(--accent);
+.feedback.correto{border-left-color:var(--green)}
+.feedback.errado{border-left-color:var(--red)}
+.resultado{font-size:18px;font-weight:900;margin-top:0}
+.justificativa{margin-top:12px}
+.referencia{color:var(--muted);font-size:13px;margin-top:16px}
+.gabarito-certo{color:var(--green);font-weight:900}
+.gabarito-errado{color:var(--red);font-weight:900}
+.oculta{display:none}
+.sem-resultados{text-align:center;color:var(--muted);display:none;padding:30px}
+.grid-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
+.link-card{
+display:block;padding:20px;background:rgba(15,23,42,.95);border:1px solid rgba(148,163,184,.22);
+color:#e5e7eb;border-radius:22px;text-decoration:none;transition:.2s;box-shadow:0 14px 40px rgba(0,0,0,.22)
 }
-
-.card {
-    background: rgba(17, 24, 39, 0.96);
-    border: 1px solid #334155;
-    border-radius: 18px;
-    padding: 22px;
-    margin-bottom: 20px;
-    box-shadow: 0 12px 30px rgba(0,0,0,.25);
-}
-
-.questao-topo {
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
-    align-items: center;
-    margin-bottom: 16px;
-}
-
-.badge {
-    background: #0ea5e9;
-    color: #00111f;
-    font-weight: bold;
-    padding: 6px 12px;
-    border-radius: 999px;
-}
-
-.status {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-.enunciado {
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-
-.botoes {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 18px;
-}
-
-button {
-    cursor: pointer;
-    border: 0;
-    padding: 12px 22px;
-    border-radius: 12px;
-    background: #334155;
-    color: white;
-    font-weight: bold;
-    transition: 0.2s;
-}
-
-button:hover {
-    transform: translateY(-1px);
-    background: #475569;
-}
-
-.feedback {
-    display: none;
-    background: #020617;
-    border-left: 4px solid var(--accent);
-    padding: 16px;
-    border-radius: 12px;
-    margin-top: 12px;
-}
-
-.feedback.correto {
-    border-left-color: var(--green);
-}
-
-.feedback.errado {
-    border-left-color: var(--red);
-}
-
-.resultado {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.referencia {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-.acoes {
-    text-align: center;
-    margin: 30px 0;
-}
-
-.acoes button {
-    background: #0ea5e9;
-    color: #00111f;
-}
-
-@media (max-width: 700px) {
-    .painel {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .botoes {
-        flex-direction: column;
-    }
-
-    header h1 {
-        font-size: 22px;
-    }
-
-    .enunciado {
-        font-size: 16px;
-    }
+.link-card:hover{transform:translateY(-3px);border-color:#38bdf8}
+.link-card strong{display:block;font-size:17px;margin-bottom:8px}
+.link-card span{color:#94a3b8;font-size:13px}
+.index-tools{display:grid;grid-template-columns:1.5fr 1fr;gap:12px;margin-bottom:20px}
+@media(max-width:850px){
+.stats{grid-template-columns:repeat(2,1fr)}
+.filtros,.index-tools{grid-template-columns:1fr}
+.questao-topo{align-items:flex-start;flex-direction:column}
+.botoes{flex-direction:column}
+.enunciado{font-size:16px}
+.card{padding:20px}
 }
 </style>
 </head>
-
 <body>
-
 <header>
-    <h1>Simulado - Info 1187 STF</h1>
-    <p>Simulado interativo de CERTO ou ERRADO</p>
+<h1>Simulado - Info 1187 STF</h1>
+<p>Informativos • Simulado interativo de CERTO ou ERRADO</p>
 </header>
 
 <div class="container">
+<div class="painel">
+<div class="stats">
+<div class="stat"><strong>4</strong><span>Total</span></div>
+<div class="stat"><strong id="visiveis">4</strong><span>Visíveis</span></div>
+<div class="stat"><strong id="respondidas">0</strong><span>Respondidas</span></div>
+<div class="stat"><strong id="acertos">0</strong><span>Acertos</span></div>
+<div class="stat"><strong id="erros">0</strong><span>Erros</span></div>
+</div>
 
-    <div class="painel">
-        <div class="stat">
-            <strong id="total">4</strong>
-            Total
-        </div>
-        <div class="stat">
-            <strong id="respondidas">0</strong>
-            Respondidas
-        </div>
-        <div class="stat">
-            <strong id="acertos">0</strong>
-            Acertos
-        </div>
-        <div class="stat">
-            <strong id="erros">0</strong>
-            Erros
-        </div>
-    </div>
+<div class="filtros">
+<input id="busca" type="search" placeholder="Buscar por palavra-chave..." oninput="filtrar()">
+<select id="disciplina" onchange="filtrar()">
+<option value="">Todas as disciplinas</option>
+<option value="ECA">ECA</option>
+<option value="N/I">N/I</option>
+</select>
+<select id="statusFiltro" onchange="filtrar()">
+<option value="">Todas</option>
+<option value="nao">Não respondidas</option>
+<option value="acerto">Acertos</option>
+<option value="erro">Erros</option>
+</select>
+<button class="btn neutro" onclick="reiniciar()">Reiniciar</button>
+</div>
+</div>
 
-    <div class="acoes">
-        <button onclick="reiniciar()">Reiniciar simulado</button>
-    </div>
+<div id="sem-resultados" class="sem-resultados">Nenhuma questão encontrada com os filtros atuais.</div>
 
-    
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 1</span>
-                <span class="status" id="status-1">Não respondida</span>
-            </div>
 
-            <p class="enunciado">É constitucional lei estadual que, a pretexto de disciplinar a fiscalização das receitas decorrentes da exploração de recursos naturais, institua regras sobre lançamento, parcelamento e cobrança das compensações financeiras devidas, desde que tais disposições se limitem a estabelecer mecanismos de controle e não alterem a disciplina material da obrigação principal.</p>
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="é constitucional lei estadual que, a pretexto de disciplinar a fiscalização das receitas decorrentes da exploração de recursos naturais, institua regras sobre lançamento, parcelamento e cobrança das compensações financeiras devidas, desde que tais disposições se limitem a estabelecer mecanismos de controle e não alterem a disciplina material da obrigação principal. a distinção central está entre **obrigações principais** e **obrigações acessórias/instrumentais**. a disciplina de **lançamento, arrecadação, parcelamento e cobrança** das compensações e participações financeiras devidas pela exploração de recursos naturais integra o núcleo da obrigação principal e, por isso, não pode ser objeto de legislação estadual, pois isso importaria invasão da competência legislativa da união.
 
-            <div class="botoes">
-                <button onclick="responder(1, 'CERTO')">CERTO</button>
-                <button onclick="responder(1, 'ERRADO')">ERRADO</button>
-            </div>
+o fato de a norma estadual afirmar que pretende apenas “fiscalizar” ou “controlar” as receitas não é suficiente para validar comandos que, na substância, regulem a própria dinâmica de constituição, exigibilidade e satisfação do crédito. o entendimento admitido é mais restrito: os estados podem editar normas voltadas a **obrigações acessórias e deveres instrumentais**, como medidas de acompanhamento, transparência, fiscalização e controle das receitas oriundas da exploração de recursos minerais, hídricos, petróleo e gás natural. contudo, não podem avançar para a disciplina material da arrecadação e cobrança dessas compensações.
 
-            <div class="feedback" id="feedback-1">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A distinção central está entre <strong>obrigações principais</strong> e <strong>obrigações acessórias/instrumentais</strong>. A disciplina de <strong>lançamento, arrecadação, parcelamento e cobrança</strong> das compensações e participações financeiras devidas pela exploração de recursos naturais integra o núcleo da obrigação principal e, por isso, não pode ser objeto de legislação estadual, pois isso importaria invasão da competência legislativa da União.<br><br>O fato de a norma estadual afirmar que pretende apenas “fiscalizar” ou “controlar” as receitas não é suficiente para validar comandos que, na substância, regulem a própria dinâmica de constituição, exigibilidade e satisfação do crédito. O entendimento admitido é mais restrito: os Estados podem editar normas voltadas a <strong>obrigações acessórias e deveres instrumentais</strong>, como medidas de acompanhamento, transparência, fiscalização e controle das receitas oriundas da exploração de recursos minerais, hídricos, petróleo e gás natural. Contudo, não podem avançar para a disciplina material da arrecadação e cobrança dessas compensações.<br><br>Assim, a assertiva está errada porque confunde o espaço legítimo de atuação estadual em matéria de fiscalização com a vedação constitucional de legislar sobre os elementos centrais da obrigação principal.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 5.335/AM, Rel. Min. Nunes Marques, julgado em 25/08/2025 (Info 1187).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 2</span>
-                <span class="status" id="status-2">Não respondida</span>
-            </div>
+assim, a assertiva está errada porque confunde o espaço legítimo de atuação estadual em matéria de fiscalização com a vedação constitucional de legislar sobre os elementos centrais da obrigação principal. stf. plenário. adi 5.335/am, rel. min. nunes marques, julgado em 25/08/2025 (info 1187).">
 
-            <p class="enunciado">É inconstitucional norma regimental de Assembleia Legislativa que, ao disciplinar a formação de blocos parlamentares e a escolha de lideranças, exija representatividade mínima das agremiações, ainda que o critério adotado seja razoável e não suprima o núcleo essencial do funcionamento parlamentar, pois a definição dessas regras estaria submetida a controle judicial amplo por envolver diretamente o pluralismo político e a igualdade entre partidos.</p>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 1</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-1">Não respondida</span>
+</div>
 
-            <div class="botoes">
-                <button onclick="responder(2, 'CERTO')">CERTO</button>
-                <button onclick="responder(2, 'ERRADO')">ERRADO</button>
-            </div>
+<p class="enunciado">É constitucional lei estadual que, a pretexto de disciplinar a fiscalização das receitas decorrentes da exploração de recursos naturais, institua regras sobre lançamento, parcelamento e cobrança das compensações financeiras devidas, desde que tais disposições se limitem a estabelecer mecanismos de controle e não alterem a disciplina material da obrigação principal.</p>
 
-            <div class="feedback" id="feedback-2">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque a disciplina da formação de blocos parlamentares e da escolha de lideranças, quando veiculada por norma regimental da Assembleia Legislativa, insere-se no âmbito da autonomia organizacional e do funcionamento interno da Casa, caracterizando matéria interna corporis. Nessa hipótese, é legítima a fixação de critério de representatividade mínima, inclusive com uso de cláusulas de desempenho como fator de discrímen entre agremiações partidárias, desde que a medida observe a razoabilidade e não esvazie o núcleo essencial do direito ao funcionamento parlamentar.<br><br>O ponto central do entendimento é que não há vedação constitucional absoluta à exigência de representatividade mínima para fins de organização interna do Parlamento estadual. Ao contrário, a Constituição admite que as Casas Legislativas estruturem seu funcionamento por meio de regras regimentais próprias, respeitados os limites constitucionais. Assim, o controle judicial não é amplo nem substitutivo da deliberação parlamentar: ele somente se legitima em caso de flagrante ofensa à Constituição. Fora dessa hipótese excepcional, prevalece a deferência à autonomia do ente legislativo para disciplinar sua organização interna.<br><br>Portanto, é equivocada a premissa de que qualquer exigência de representatividade mínima seria, por si só, inconstitucional. Também é incorreta a afirmação de que a matéria estaria sujeita a controle judicial amplo apenas por envolver pluralismo político e igualdade entre partidos, pois o entendimento reconhece justamente a constitucionalidade da norma regimental, desde que preservados a razoabilidade e o núcleo essencial do funcionamento parlamentar.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.649/MA, Rel. Min. Edson Fachin, julgado em 25/08/2025 (Info 1187).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 3</span>
-                <span class="status" id="status-3">Não respondida</span>
-            </div>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(1, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(1, 'ERRADO')">ERRADO</button>
+</div>
 
-            <p class="enunciado">A competência absoluta dos Juizados Especiais Federais, prevista no art. 3º, § 3º, da Lei 10.259/2001, alcança não apenas o critério do valor da causa, mas também a escolha do foro, de modo que, proposta a demanda contra a União em local diverso daquele indicado no art. 109, § 2º, da Constituição Federal, a remessa ao Juizado Especial Federal competente é obrigatória, ainda que o valor da causa não ultrapasse sessenta salários-mínimos e não incida qualquer hipótese legal de exclusão.</p>
+<div class="feedback" id="feedback-1">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A distinção central está entre <strong>obrigações principais</strong> e <strong>obrigações acessórias/instrumentais</strong>. A disciplina de <strong>lançamento, arrecadação, parcelamento e cobrança</strong> das compensações e participações financeiras devidas pela exploração de recursos naturais integra o núcleo da obrigação principal e, por isso, não pode ser objeto de legislação estadual, pois isso importaria invasão da competência legislativa da União.<br><br>O fato de a norma estadual afirmar que pretende apenas “fiscalizar” ou “controlar” as receitas não é suficiente para validar comandos que, na substância, regulem a própria dinâmica de constituição, exigibilidade e satisfação do crédito. O entendimento admitido é mais restrito: os Estados podem editar normas voltadas a <strong>obrigações acessórias e deveres instrumentais</strong>, como medidas de acompanhamento, transparência, fiscalização e controle das receitas oriundas da exploração de recursos minerais, hídricos, petróleo e gás natural. Contudo, não podem avançar para a disciplina material da arrecadação e cobrança dessas compensações.<br><br>Assim, a assertiva está errada porque confunde o espaço legítimo de atuação estadual em matéria de fiscalização com a vedação constitucional de legislar sobre os elementos centrais da obrigação principal.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 5.335/AM, Rel. Min. Nunes Marques, julgado em 25/08/2025 (Info 1187).</p>
+</div>
+</section>
 
-            <div class="botoes">
-                <button onclick="responder(3, 'CERTO')">CERTO</button>
-                <button onclick="responder(3, 'ERRADO')">ERRADO</button>
-            </div>
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="é inconstitucional norma regimental de assembleia legislativa que, ao disciplinar a formação de blocos parlamentares e a escolha de lideranças, exija representatividade mínima das agremiações, ainda que o critério adotado seja razoável e não suprima o núcleo essencial do funcionamento parlamentar, pois a definição dessas regras estaria submetida a controle judicial amplo por envolver diretamente o pluralismo político e a igualdade entre partidos. a assertiva está incorreta porque a disciplina da formação de blocos parlamentares e da escolha de lideranças, quando veiculada por norma regimental da assembleia legislativa, insere-se no âmbito da autonomia organizacional e do funcionamento interno da casa, caracterizando matéria interna corporis. nessa hipótese, é legítima a fixação de critério de representatividade mínima, inclusive com uso de cláusulas de desempenho como fator de discrímen entre agremiações partidárias, desde que a medida observe a razoabilidade e não esvazie o núcleo essencial do direito ao funcionamento parlamentar.
 
-            <div class="feedback" id="feedback-3">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>O enunciado está incorreto porque confunde dois planos distintos de competência: o critério de definição do foro e o critério de fixação da competência do microssistema dos Juizados Especiais Federais.<br><br>O art. 109, § 2º, da Constituição Federal foi concebido para ampliar o acesso à Justiça, conferindo ao autor, nas ações contra a União e entidades da Administração Indireta Federal, a faculdade de escolher entre foros constitucionalmente autorizados: o foro da Justiça Federal no domicílio do autor, o local do ato ou fato, o local da coisa litigiosa ou o Distrito Federal. Essa prerrogativa não é eliminada pela Lei 10.259/2001.<br><br>Já o art. 3º, § 3º, da Lei 10.259/2001 deve ser interpretado em conformidade com a Constituição. A competência absoluta dos Juizados Especiais Federais não incide sobre a escolha do foro, mas apenas sobre o valor da causa, além das hipóteses legais de exclusão previstas no § 1º do mesmo artigo. Assim, uma vez eleito validamente o foro pelo demandante nos termos constitucionais, e existindo Juizado Especial Federal instalado, a ação deverá ser proposta nesse Juizado se o valor não exceder 60 salários-mínimos e se a matéria não estiver excluída do microssistema.<br><br>Portanto, não é correto afirmar que a escolha do foro fica submetida à competência absoluta dos JEFs, nem que a simples eleição de foro diverso daquele indicado no art. 109, § 2º, da CF imponha, por si só, a remessa obrigatória ao Juizado competente. A interpretação adequada preserva a faculdade de escolha do autor e limita a competência absoluta dos JEFs ao critério econômico.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. RE 1.426.083/PI, relator Min. Alexandre de Moraes, julgado em 25/08/2025 (Repercussão Geral – Tema 1.277) (Info 1187).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 4</span>
-                <span class="status" id="status-4">Não respondida</span>
-            </div>
+o ponto central do entendimento é que não há vedação constitucional absoluta à exigência de representatividade mínima para fins de organização interna do parlamento estadual. ao contrário, a constituição admite que as casas legislativas estruturem seu funcionamento por meio de regras regimentais próprias, respeitados os limites constitucionais. assim, o controle judicial não é amplo nem substitutivo da deliberação parlamentar: ele somente se legitima em caso de flagrante ofensa à constituição. fora dessa hipótese excepcional, prevalece a deferência à autonomia do ente legislativo para disciplinar sua organização interna.
 
-            <p class="enunciado">É constitucional a instituição, por lei estadual, de regime especial de fiscalização aplicável a contribuintes reiteradamente inadimplentes de ICMS, ainda que tal disciplina preveja medidas como alteração de prazos de recolhimento e intensificação do controle fiscal, desde que haja critérios objetivos para a caracterização da contumácia e sejam preservados a proporcionalidade, a razoabilidade e a continuidade da atividade empresarial; nessa hipótese, não se exige lei complementar federal, nem se configura sanção política ou violação à legalidade tributária, à liberdade de trabalho e comércio ou à igualdade tributária.</p>
+portanto, é equivocada a premissa de que qualquer exigência de representatividade mínima seria, por si só, inconstitucional. também é incorreta a afirmação de que a matéria estaria sujeita a controle judicial amplo apenas por envolver pluralismo político e igualdade entre partidos, pois o entendimento reconhece justamente a constitucionalidade da norma regimental, desde que preservados a razoabilidade e o núcleo essencial do funcionamento parlamentar. stf. plenário. adi 7.649/ma, rel. min. edson fachin, julgado em 25/08/2025 (info 1187).">
 
-            <div class="botoes">
-                <button onclick="responder(4, 'CERTO')">CERTO</button>
-                <button onclick="responder(4, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 2</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-2">Não respondida</span>
+</div>
 
-            <div class="feedback" id="feedback-4">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a orientação firmada no julgamento: o Regime Especial de Fiscalização (REF), quando instituído por norma estadual com parâmetros objetivos para identificar o devedor contumaz, é instrumento legítimo de controle tributário e não meio coercitivo de cobrança vedado pelas tradicionais súmulas sobre sanções políticas. A Corte assentou que a submissão do contribuinte reiteradamente inadimplente a regime fiscal diferenciado não configura, por si só, sanção política, desde que as medidas adotadas sejam proporcionais e razoáveis e não inviabilizem o exercício da atividade econômica.<br><br>Também foi afastada a necessidade de lei complementar federal, porque o REF não disciplina elementos essenciais do tributo nem invade matéria reservada à lei complementar; trata-se de mecanismo de fiscalização e de cumprimento de obrigações acessórias, inserido na competência normativa estadual para organizar o controle do ICMS. Por isso, a norma estadual não afronta a legalidade tributária do art. 150, I, da Constituição.<br><br>Além disso, o entendimento reconheceu que medidas como alteração de prazos de recolhimento e intensificação da fiscalização podem ser compatíveis com o regime, justamente por se tratarem de providências voltadas à tutela do erário e à eficiência da arrecadação, sem caráter confiscatório ou impeditivo da atividade empresarial. Também não há violação à liberdade de trabalho e comércio nem à igualdade tributária, pois a diferenciação entre contribuintes adimplentes e devedores contumazes se apoia em critério objetivo e constitucionalmente legítimo de proteção da administração tributária.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 4.854/RS, Rel. Min. Nunes Marques, julgado em 25/08/2025 (Info 1187).</p>
-            </div>
-        </section>
-        
+<p class="enunciado">É inconstitucional norma regimental de Assembleia Legislativa que, ao disciplinar a formação de blocos parlamentares e a escolha de lideranças, exija representatividade mínima das agremiações, ainda que o critério adotado seja razoável e não suprima o núcleo essencial do funcionamento parlamentar, pois a definição dessas regras estaria submetida a controle judicial amplo por envolver diretamente o pluralismo político e a igualdade entre partidos.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(2, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(2, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-2">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque a disciplina da formação de blocos parlamentares e da escolha de lideranças, quando veiculada por norma regimental da Assembleia Legislativa, insere-se no âmbito da autonomia organizacional e do funcionamento interno da Casa, caracterizando matéria interna corporis. Nessa hipótese, é legítima a fixação de critério de representatividade mínima, inclusive com uso de cláusulas de desempenho como fator de discrímen entre agremiações partidárias, desde que a medida observe a razoabilidade e não esvazie o núcleo essencial do direito ao funcionamento parlamentar.<br><br>O ponto central do entendimento é que não há vedação constitucional absoluta à exigência de representatividade mínima para fins de organização interna do Parlamento estadual. Ao contrário, a Constituição admite que as Casas Legislativas estruturem seu funcionamento por meio de regras regimentais próprias, respeitados os limites constitucionais. Assim, o controle judicial não é amplo nem substitutivo da deliberação parlamentar: ele somente se legitima em caso de flagrante ofensa à Constituição. Fora dessa hipótese excepcional, prevalece a deferência à autonomia do ente legislativo para disciplinar sua organização interna.<br><br>Portanto, é equivocada a premissa de que qualquer exigência de representatividade mínima seria, por si só, inconstitucional. Também é incorreta a afirmação de que a matéria estaria sujeita a controle judicial amplo apenas por envolver pluralismo político e igualdade entre partidos, pois o entendimento reconhece justamente a constitucionalidade da norma regimental, desde que preservados a razoabilidade e o núcleo essencial do funcionamento parlamentar.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.649/MA, Rel. Min. Edson Fachin, julgado em 25/08/2025 (Info 1187).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a competência absoluta dos juizados especiais federais, prevista no art. 3º, § 3º, da lei 10.259/2001, alcança não apenas o critério do valor da causa, mas também a escolha do foro, de modo que, proposta a demanda contra a união em local diverso daquele indicado no art. 109, § 2º, da constituição federal, a remessa ao juizado especial federal competente é obrigatória, ainda que o valor da causa não ultrapasse sessenta salários-mínimos e não incida qualquer hipótese legal de exclusão. o enunciado está incorreto porque confunde dois planos distintos de competência: o critério de definição do foro e o critério de fixação da competência do microssistema dos juizados especiais federais.
+
+o art. 109, § 2º, da constituição federal foi concebido para ampliar o acesso à justiça, conferindo ao autor, nas ações contra a união e entidades da administração indireta federal, a faculdade de escolher entre foros constitucionalmente autorizados: o foro da justiça federal no domicílio do autor, o local do ato ou fato, o local da coisa litigiosa ou o distrito federal. essa prerrogativa não é eliminada pela lei 10.259/2001.
+
+já o art. 3º, § 3º, da lei 10.259/2001 deve ser interpretado em conformidade com a constituição. a competência absoluta dos juizados especiais federais não incide sobre a escolha do foro, mas apenas sobre o valor da causa, além das hipóteses legais de exclusão previstas no § 1º do mesmo artigo. assim, uma vez eleito validamente o foro pelo demandante nos termos constitucionais, e existindo juizado especial federal instalado, a ação deverá ser proposta nesse juizado se o valor não exceder 60 salários-mínimos e se a matéria não estiver excluída do microssistema.
+
+portanto, não é correto afirmar que a escolha do foro fica submetida à competência absoluta dos jefs, nem que a simples eleição de foro diverso daquele indicado no art. 109, § 2º, da cf imponha, por si só, a remessa obrigatória ao juizado competente. a interpretação adequada preserva a faculdade de escolha do autor e limita a competência absoluta dos jefs ao critério econômico. stf. plenário. re 1.426.083/pi, relator min. alexandre de moraes, julgado em 25/08/2025 (repercussão geral – tema 1.277) (info 1187).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 3</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-3">Não respondida</span>
+</div>
+
+<p class="enunciado">A competência absoluta dos Juizados Especiais Federais, prevista no art. 3º, § 3º, da Lei 10.259/2001, alcança não apenas o critério do valor da causa, mas também a escolha do foro, de modo que, proposta a demanda contra a União em local diverso daquele indicado no art. 109, § 2º, da Constituição Federal, a remessa ao Juizado Especial Federal competente é obrigatória, ainda que o valor da causa não ultrapasse sessenta salários-mínimos e não incida qualquer hipótese legal de exclusão.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(3, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(3, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-3">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O enunciado está incorreto porque confunde dois planos distintos de competência: o critério de definição do foro e o critério de fixação da competência do microssistema dos Juizados Especiais Federais.<br><br>O art. 109, § 2º, da Constituição Federal foi concebido para ampliar o acesso à Justiça, conferindo ao autor, nas ações contra a União e entidades da Administração Indireta Federal, a faculdade de escolher entre foros constitucionalmente autorizados: o foro da Justiça Federal no domicílio do autor, o local do ato ou fato, o local da coisa litigiosa ou o Distrito Federal. Essa prerrogativa não é eliminada pela Lei 10.259/2001.<br><br>Já o art. 3º, § 3º, da Lei 10.259/2001 deve ser interpretado em conformidade com a Constituição. A competência absoluta dos Juizados Especiais Federais não incide sobre a escolha do foro, mas apenas sobre o valor da causa, além das hipóteses legais de exclusão previstas no § 1º do mesmo artigo. Assim, uma vez eleito validamente o foro pelo demandante nos termos constitucionais, e existindo Juizado Especial Federal instalado, a ação deverá ser proposta nesse Juizado se o valor não exceder 60 salários-mínimos e se a matéria não estiver excluída do microssistema.<br><br>Portanto, não é correto afirmar que a escolha do foro fica submetida à competência absoluta dos JEFs, nem que a simples eleição de foro diverso daquele indicado no art. 109, § 2º, da CF imponha, por si só, a remessa obrigatória ao Juizado competente. A interpretação adequada preserva a faculdade de escolha do autor e limita a competência absoluta dos JEFs ao critério econômico.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. RE 1.426.083/PI, relator Min. Alexandre de Moraes, julgado em 25/08/2025 (Repercussão Geral – Tema 1.277) (Info 1187).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="ECA"
+data-texto="é constitucional a instituição, por lei estadual, de regime especial de fiscalização aplicável a contribuintes reiteradamente inadimplentes de icms, ainda que tal disciplina preveja medidas como alteração de prazos de recolhimento e intensificação do controle fiscal, desde que haja critérios objetivos para a caracterização da contumácia e sejam preservados a proporcionalidade, a razoabilidade e a continuidade da atividade empresarial; nessa hipótese, não se exige lei complementar federal, nem se configura sanção política ou violação à legalidade tributária, à liberdade de trabalho e comércio ou à igualdade tributária. a assertiva está correta porque reproduz a orientação firmada no julgamento: o regime especial de fiscalização (ref), quando instituído por norma estadual com parâmetros objetivos para identificar o devedor contumaz, é instrumento legítimo de controle tributário e não meio coercitivo de cobrança vedado pelas tradicionais súmulas sobre sanções políticas. a corte assentou que a submissão do contribuinte reiteradamente inadimplente a regime fiscal diferenciado não configura, por si só, sanção política, desde que as medidas adotadas sejam proporcionais e razoáveis e não inviabilizem o exercício da atividade econômica.
+
+também foi afastada a necessidade de lei complementar federal, porque o ref não disciplina elementos essenciais do tributo nem invade matéria reservada à lei complementar; trata-se de mecanismo de fiscalização e de cumprimento de obrigações acessórias, inserido na competência normativa estadual para organizar o controle do icms. por isso, a norma estadual não afronta a legalidade tributária do art. 150, i, da constituição.
+
+além disso, o entendimento reconheceu que medidas como alteração de prazos de recolhimento e intensificação da fiscalização podem ser compatíveis com o regime, justamente por se tratarem de providências voltadas à tutela do erário e à eficiência da arrecadação, sem caráter confiscatório ou impeditivo da atividade empresarial. também não há violação à liberdade de trabalho e comércio nem à igualdade tributária, pois a diferenciação entre contribuintes adimplentes e devedores contumazes se apoia em critério objetivo e constitucionalmente legítimo de proteção da administração tributária. stf. plenário. adi 4.854/rs, rel. min. nunes marques, julgado em 25/08/2025 (info 1187).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 4</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-4">Não respondida</span>
+</div>
+
+<p class="enunciado">É constitucional a instituição, por lei estadual, de regime especial de fiscalização aplicável a contribuintes reiteradamente inadimplentes de ICMS, ainda que tal disciplina preveja medidas como alteração de prazos de recolhimento e intensificação do controle fiscal, desde que haja critérios objetivos para a caracterização da contumácia e sejam preservados a proporcionalidade, a razoabilidade e a continuidade da atividade empresarial; nessa hipótese, não se exige lei complementar federal, nem se configura sanção política ou violação à legalidade tributária, à liberdade de trabalho e comércio ou à igualdade tributária.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(4, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(4, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-4">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a orientação firmada no julgamento: o Regime Especial de Fiscalização (REF), quando instituído por norma estadual com parâmetros objetivos para identificar o devedor contumaz, é instrumento legítimo de controle tributário e não meio coercitivo de cobrança vedado pelas tradicionais súmulas sobre sanções políticas. A Corte assentou que a submissão do contribuinte reiteradamente inadimplente a regime fiscal diferenciado não configura, por si só, sanção política, desde que as medidas adotadas sejam proporcionais e razoáveis e não inviabilizem o exercício da atividade econômica.<br><br>Também foi afastada a necessidade de lei complementar federal, porque o REF não disciplina elementos essenciais do tributo nem invade matéria reservada à lei complementar; trata-se de mecanismo de fiscalização e de cumprimento de obrigações acessórias, inserido na competência normativa estadual para organizar o controle do ICMS. Por isso, a norma estadual não afronta a legalidade tributária do art. 150, I, da Constituição.<br><br>Além disso, o entendimento reconheceu que medidas como alteração de prazos de recolhimento e intensificação da fiscalização podem ser compatíveis com o regime, justamente por se tratarem de providências voltadas à tutela do erário e à eficiência da arrecadação, sem caráter confiscatório ou impeditivo da atividade empresarial. Também não há violação à liberdade de trabalho e comércio nem à igualdade tributária, pois a diferenciação entre contribuintes adimplentes e devedores contumazes se apoia em critério objetivo e constitucionalmente legítimo de proteção da administração tributária.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 4.854/RS, Rel. Min. Nunes Marques, julgado em 25/08/2025 (Info 1187).</p>
+</div>
+</section>
 
 </div>
 
 <script>
-const totalQuestoes = 4;
-let respostas = JSON.parse(localStorage.getItem(location.pathname + "_respostas") || "{}");
+const storageKey = location.pathname + "_respostas";
+let respostas = JSON.parse(localStorage.getItem(storageKey) || "{}");
 
-function atualizarPainel() {
-    const respondidas = Object.keys(respostas).length;
-    let acertos = 0;
-    let erros = 0;
-
-    for (const key in respostas) {
-        if (respostas[key].correto) acertos++;
-        else erros++;
-    }
-
-    document.getElementById("respondidas").textContent = respondidas;
-    document.getElementById("acertos").textContent = acertos;
-    document.getElementById("erros").textContent = erros;
+function destacar(t){
+ if(t==="CERTO") return '<span class="gabarito-certo">CERTO</span>';
+ if(t==="ERRADO") return '<span class="gabarito-errado">ERRADO</span>';
+ return t;
 }
 
-function responder(numero, resposta) {
-    const card = document.querySelectorAll(".questao")[numero - 1];
-    const gabarito = card.dataset.gabarito;
-    const correto = resposta === gabarito;
-
-    respostas[numero] = {
-        resposta,
-        correto
-    };
-
-    localStorage.setItem(location.pathname + "_respostas", JSON.stringify(respostas));
-
-    mostrarFeedback(numero);
-    atualizarPainel();
+function responder(numero, resposta){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const gabarito=card.dataset.gabarito;
+ const correto=resposta===gabarito;
+ respostas[numero]={resposta,correto};
+ localStorage.setItem(storageKey, JSON.stringify(respostas));
+ mostrarFeedback(numero);
+ atualizarPainel();
+ filtrar();
 }
 
-function mostrarFeedback(numero) {
-    const card = document.querySelectorAll(".questao")[numero - 1];
-    const feedback = document.getElementById("feedback-" + numero);
-    const status = document.getElementById("status-" + numero);
-    const resultado = feedback.querySelector(".resultado");
-
-    const dados = respostas[numero];
-
-    if (!dados) return;
-
-    feedback.style.display = "block";
-    feedback.classList.remove("correto", "errado");
-
-    if (dados.correto) {
-        feedback.classList.add("correto");
-        resultado.textContent = "Você acertou. A resposta é " + card.dataset.gabarito + ".";
-        status.textContent = "Respondida — acerto";
-        status.style.color = "var(--green)";
-    } else {
-        feedback.classList.add("errado");
-        resultado.textContent = "Você errou. O gabarito é " + card.dataset.gabarito + ".";
-        status.textContent = "Respondida — erro";
-        status.style.color = "var(--red)";
-    }
+function mostrarFeedback(numero){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const feedback=document.getElementById("feedback-"+numero);
+ const status=document.getElementById("status-"+numero);
+ const resultado=feedback.querySelector(".resultado");
+ const gabarito=card.dataset.gabarito;
+ const dados=respostas[numero];
+ if(!dados) return;
+ feedback.style.display="block";
+ feedback.classList.remove("correto","errado");
+ if(dados.correto){
+   feedback.classList.add("correto");
+   resultado.innerHTML="Você acertou. A resposta é "+destacar(gabarito)+".";
+   status.textContent="Respondida — acerto";
+   status.style.color="var(--green)";
+ } else {
+   feedback.classList.add("errado");
+   resultado.innerHTML="Você errou. O gabarito é "+destacar(gabarito)+".";
+   status.textContent="Respondida — erro";
+   status.style.color="var(--red)";
+ }
 }
 
-function restaurar() {
-    for (const key in respostas) {
-        mostrarFeedback(Number(key));
-    }
-    atualizarPainel();
+function atualizarPainel(){
+ let respondidas=0, acertos=0, erros=0;
+ for(const k in respostas){
+   respondidas++;
+   if(respostas[k].correto) acertos++; else erros++;
+ }
+ document.getElementById("respondidas").textContent=respondidas;
+ document.getElementById("acertos").textContent=acertos;
+ document.getElementById("erros").textContent=erros;
+ document.getElementById("visiveis").textContent=document.querySelectorAll(".questao:not(.oculta)").length;
 }
 
-function reiniciar() {
-    if (!confirm("Deseja reiniciar este simulado?")) return;
-    localStorage.removeItem(location.pathname + "_respostas");
-    location.reload();
+function filtrar(){
+ const busca=document.getElementById("busca").value.trim().toLowerCase();
+ const disciplina=document.getElementById("disciplina").value;
+ const statusFiltro=document.getElementById("statusFiltro").value;
+ const cards=Array.from(document.querySelectorAll(".questao"));
+ let vis=0;
+ cards.forEach((card,idx)=>{
+   const n=idx+1;
+   const texto=card.dataset.texto||"";
+   const disc=card.dataset.disciplina||"";
+   const r=respostas[n];
+   let passaStatus=true;
+   if(statusFiltro==="nao") passaStatus=!r;
+   if(statusFiltro==="acerto") passaStatus=r && r.correto;
+   if(statusFiltro==="erro") passaStatus=r && !r.correto;
+   const ok=(!busca||texto.includes(busca)) && (!disciplina||disc===disciplina) && passaStatus;
+   card.classList.toggle("oculta", !ok);
+   if(ok) vis++;
+ });
+ document.getElementById("sem-resultados").style.display=vis===0?"block":"none";
+ atualizarPainel();
+}
+
+function reiniciar(){
+ if(!confirm("Deseja reiniciar este simulado?")) return;
+ localStorage.removeItem(storageKey);
+ location.reload();
+}
+
+function restaurar(){
+ for(const k in respostas) mostrarFeedback(Number(k));
+ filtrar();
+ atualizarPainel();
 }
 
 restaurar();
 </script>
-
 </body>
 </html>

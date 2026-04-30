@@ -1,0 +1,223 @@
+{
+  "categoria": "INFORMATIVO",
+  "item": "Info 1184 STF",
+  "status_auditoria": "FALTA_GERAR_QUESTOES",
+  "fonte": "/Users/letrpires/Documents/SIMULADOS/projeto - cópia/pdfs/Info 1184 STF.pdf",
+  "esperado_auditoria": null,
+  "itens_extraidos": 8,
+  "questoes_geradas": 8,
+  "status_final": "OK_VALIDADO",
+  "observacao": "",
+  "logs_lotes": [
+    {
+      "lote": 1,
+      "ids_enviados": [
+        "BLOCO-0001"
+      ],
+      "ok": true,
+      "observacao": "OK",
+      "resposta": {
+        "questoes": [
+          {
+            "id": "BLOCO-0001",
+            "titulo_origem": "DIREITO CONSTITUCIONAL",
+            "questao": "É constitucional que Tribunais de Contas estaduais adotem, em seus regimentos internos, procedimentos de análise prévia de seletividade por unidade técnica para priorizar denúncias com base em critérios como risco, relevância e materialidade, desde que a decisão final permaneça sob responsabilidade dos conselheiros do Tribunal.",
+            "gabarito": "CERTO",
+            "justificativa": "A análise prévia de seletividade por unidade técnica visa otimizar recursos e priorizar denúncias com maior impacto, alinhando a atuação do controle externo ao princípio da eficiência, sem renunciar à competência fiscalizatória, que permanece com os conselheiros. Essa prática é constitucional e guarda simetria com procedimentos do Tribunal de Contas da União, conforme entendimento do STF no julgamento da ADI 7.459/ES."
+          }
+        ]
+      }
+    },
+    {
+      "lote": 2,
+      "ids_enviados": [
+        "BLOCO-0002"
+      ],
+      "ok": true,
+      "observacao": "OK",
+      "resposta": {
+        "questoes": [
+          {
+            "id": "BLOCO-0002",
+            "titulo_origem": "DIREITO ADMINISTRATIVO",
+            "questao": "No contexto do Plano Collor I, não é devido o pagamento de diferenças de correção monetária relativas a depósitos em cadernetas de poupança bloqueados pelo Banco Central, uma vez que tais valores não foram incluídos no acordo coletivo homologado pelo STF na ADPF 165.",
+            "gabarito": "CERTO",
+            "justificativa": "O Supremo Tribunal Federal, ao declarar a constitucionalidade do Plano Collor I na ADPF 165, homologou um acordo coletivo que não abrangeu as diferenças de correção monetária sobre depósitos em cadernetas de poupança bloqueadas pelo Banco Central. Dessa forma, tais diferenças não são devidas, pois não integram o acordo homologado, afastando qualquer obrigação de pagamento dessas correções."
+          }
+        ]
+      }
+    },
+    {
+      "lote": 3,
+      "ids_enviados": [
+        "BLOCO-0003"
+      ],
+      "ok": true,
+      "observacao": "OK",
+      "resposta": {
+        "questoes": [
+          {
+            "id": "BLOCO-0003",
+            "titulo_origem": "direito a diferenças de correção monetária de depósitos em cadernetas de poupança, por",
+            "questao": "O direito a diferenças de correção monetária de depósitos em cadernetas de poupança, decorrentes de alegados expurgos inflacionários do plano econômico discutido na ADPF 165, está condicionado à adesão ao acordo coletivo homologado no âmbito da referida ação, devendo essa adesão ocorrer no prazo de 24 meses contados da publicação da ata de julgamento.",
+            "gabarito": "CERTO",
+            "justificativa": "A jurisprudência do STF estabeleceu que o reconhecimento do direito às diferenças de correção monetária em depósitos de poupança, em razão dos expurgos inflacionários dos planos econômicos discutidos na ADPF 165, depende da adesão ao acordo coletivo homologado no âmbito da ação, respeitando o prazo de 24 meses da publicação da ata de julgamento. Essa medida visa garantir segurança jurídica e evitar multiplicidade de demandas, vedando também a propositura de ação rescisória ou arguição de inexigibilidade do título com base na constitucionalidade dos planos."
+          }
+        ]
+      }
+    },
+    {
+      "lote": 4,
+      "ids_enviados": [
+        "BLOCO-0004"
+      ],
+      "ok": true,
+      "observacao": "OK",
+      "resposta": {
+        "questoes": [
+          {
+            "id": "BLOCO-0004",
+            "titulo_origem": "processos já transitados em julgado.",
+            "questao": "É possível a reabertura de processos já transitados em julgado para reexame de matéria constitucional, desde que haja repercussão geral reconhecida pelo Supremo Tribunal Federal.",
+            "gabarito": "ERRADO",
+            "justificativa": "O trânsito em julgado confere definitividade à decisão judicial, impedindo sua rediscussão em sede de recursos ordinários. A repercussão geral, embora relevante para a uniformização da jurisprudência, não autoriza a reabertura de processos já transitados em julgado, salvo hipóteses excepcionais previstas em lei, como ações rescisórias, que possuem requisitos próprios e não se confundem com simples reexame da matéria constitucional."
+          }
+        ]
+      }
+    },
+    {
+      "lote": 5,
+      "ids_enviados": [
+        "BLOCO-0005"
+      ],
+      "ok": true,
+      "observacao": "OK",
+      "resposta": {
+        "questoes": [
+          {
+            "id": "BLOCO-0005",
+            "titulo_origem": "DIREITO CIVIL",
+            "questao": "A responsabilização civil dos provedores de aplicações de internet por danos decorrentes de conteúdos gerados por terceiros pode ocorrer independentemente de ordem judicial específica, especialmente nos casos de conteúdos relacionados a crimes graves previstos em rol taxativo, como terrorismo, crimes contra a honra e incitação à discriminação, desde que o provedor não tenha promovido a remoção imediata do conteúdo ilícito.",
+            "gabarito": "CERTO",
+            "justificativa": "O entendimento é que o art. 19 do Marco Civil da Internet, que exige ordem judicial para responsabilização, é parcialmente inconstitucional por omissão, pois não protege adequadamente direitos fundamentais. Assim, os provedores podem ser responsabilizados civilmente sem ordem judicial específica em casos de conteúdos relacionados a crimes graves listados, quando não promovem a remoção imediata. Para crimes contra a honra, aplica-se o art. 19, mas com possibilidade de remoção por notificação extrajudicial. A responsabilidade decorre da falha sistêmica do provedor em adotar medidas adequadas de prevenção ou remoção, configurando violação do dever de cuidado."
+          }
+        ]
+      }
+    },
+    {
+      "lote": 6,
+      "ids_enviados": [
+        "BLOCO-0006"
+      ],
+      "ok": true,
+      "observacao": "OK",
+      "resposta": {
+        "questoes": [
+          {
+            "id": "BLOCO-0006",
+            "titulo_origem": "execução dos créditos garantidos por hipoteca e de execução da garantia imobiliária em",
+            "questao": "Nas diligências para localização e apreensão do bem móvel dado em garantia fiduciária, previstas no Decreto-Lei nº 911/69, é permitido o uso da violência privada para garantir a efetividade da apreensão, mesmo que isso viole a inviolabilidade do domicílio e os direitos à vida privada, à honra e à imagem do devedor.",
+            "gabarito": "ERRADO",
+            "justificativa": "O entendimento é que nas diligências para localização e apreensão do bem móvel dado em garantia fiduciária, devem ser assegurados os direitos à vida privada, à honra e à imagem do devedor, a inviolabilidade do sigilo de dados, a vedação ao uso privado da violência, a inviolabilidade do domicílio, a dignidade da pessoa humana e a autonomia da vontade. Portanto, o uso da violência privada e a violação desses direitos são vedados."
+          }
+        ]
+      }
+    },
+    {
+      "lote": 7,
+      "ids_enviados": [
+        "BLOCO-0007"
+      ],
+      "ok": true,
+      "observacao": "OK",
+      "resposta": {
+        "questoes": [
+          {
+            "id": "BLOCO-0007",
+            "titulo_origem": "DIREITO PROCESSUAL PENAL",
+            "questao": "A apreensão de aparelho celular realizada nos termos do art. 6º do CPP ou em flagrante delito permite o acesso imediato e irrestrito aos dados nele contidos pela autoridade policial, independentemente de consentimento do titular ou decisão judicial prévia.",
+            "gabarito": "ERRADO",
+            "justificativa": "Embora a apreensão do celular não exija ordem judicial, o acesso aos dados contidos no aparelho apreendido nos termos do art. 6º do CPP ou em flagrante depende do consentimento expresso e livre do titular ou de prévia decisão judicial que justifique a medida com base em elementos concretos, respeitando direitos fundamentais como a intimidade, privacidade e proteção dos dados pessoais (art. 7º, III, CF/88 e art. 10, § 2º, da Lei nº 12.965/2014). O acesso irrestrito e imediato sem essas condições viola tais garantias."
+          }
+        ]
+      }
+    },
+    {
+      "lote": 8,
+      "ids_enviados": [
+        "BLOCO-0008"
+      ],
+      "ok": true,
+      "observacao": "OK",
+      "resposta": {
+        "questoes": [
+          {
+            "id": "BLOCO-0008",
+            "titulo_origem": "DIREITO TRIBUTÁRIO",
+            "questao": "É constitucional a cobrança de taxa por serviços de policiamento ostensivo e vigilância prestados por órgãos de segurança pública, pois esses serviços são específicos e divisíveis.",
+            "gabarito": "ERRADO",
+            "justificativa": "A segurança pública é considerada um serviço geral e indivisível, que deve ser financiado por meio de impostos, não por taxas. Serviços como policiamento ostensivo e vigilância são inerentes à segurança pública e, portanto, não podem ser remunerados por taxas. Apenas serviços individualizados e mensuráveis, como segurança preventiva em eventos com cobrança de ingresso ou emissão de certidões não relacionadas à defesa de direitos, podem ser objeto de taxa."
+          }
+        ]
+      }
+    }
+  ],
+  "questoes": [
+    {
+      "id": "BLOCO-0001",
+      "titulo_origem": "DIREITO CONSTITUCIONAL",
+      "questao": "É constitucional que Tribunais de Contas estaduais adotem, em seus regimentos internos, procedimentos de análise prévia de seletividade por unidade técnica para priorizar denúncias com base em critérios como risco, relevância e materialidade, desde que a decisão final permaneça sob responsabilidade dos conselheiros do Tribunal.",
+      "gabarito": "CERTO",
+      "justificativa": "A análise prévia de seletividade por unidade técnica visa otimizar recursos e priorizar denúncias com maior impacto, alinhando a atuação do controle externo ao princípio da eficiência, sem renunciar à competência fiscalizatória, que permanece com os conselheiros. Essa prática é constitucional e guarda simetria com procedimentos do Tribunal de Contas da União, conforme entendimento do STF no julgamento da ADI 7.459/ES."
+    },
+    {
+      "id": "BLOCO-0002",
+      "titulo_origem": "DIREITO ADMINISTRATIVO",
+      "questao": "No contexto do Plano Collor I, não é devido o pagamento de diferenças de correção monetária relativas a depósitos em cadernetas de poupança bloqueados pelo Banco Central, uma vez que tais valores não foram incluídos no acordo coletivo homologado pelo STF na ADPF 165.",
+      "gabarito": "CERTO",
+      "justificativa": "O Supremo Tribunal Federal, ao declarar a constitucionalidade do Plano Collor I na ADPF 165, homologou um acordo coletivo que não abrangeu as diferenças de correção monetária sobre depósitos em cadernetas de poupança bloqueadas pelo Banco Central. Dessa forma, tais diferenças não são devidas, pois não integram o acordo homologado, afastando qualquer obrigação de pagamento dessas correções."
+    },
+    {
+      "id": "BLOCO-0003",
+      "titulo_origem": "direito a diferenças de correção monetária de depósitos em cadernetas de poupança, por",
+      "questao": "O direito a diferenças de correção monetária de depósitos em cadernetas de poupança, decorrentes de alegados expurgos inflacionários do plano econômico discutido na ADPF 165, está condicionado à adesão ao acordo coletivo homologado no âmbito da referida ação, devendo essa adesão ocorrer no prazo de 24 meses contados da publicação da ata de julgamento.",
+      "gabarito": "CERTO",
+      "justificativa": "A jurisprudência do STF estabeleceu que o reconhecimento do direito às diferenças de correção monetária em depósitos de poupança, em razão dos expurgos inflacionários dos planos econômicos discutidos na ADPF 165, depende da adesão ao acordo coletivo homologado no âmbito da ação, respeitando o prazo de 24 meses da publicação da ata de julgamento. Essa medida visa garantir segurança jurídica e evitar multiplicidade de demandas, vedando também a propositura de ação rescisória ou arguição de inexigibilidade do título com base na constitucionalidade dos planos."
+    },
+    {
+      "id": "BLOCO-0004",
+      "titulo_origem": "processos já transitados em julgado.",
+      "questao": "É possível a reabertura de processos já transitados em julgado para reexame de matéria constitucional, desde que haja repercussão geral reconhecida pelo Supremo Tribunal Federal.",
+      "gabarito": "ERRADO",
+      "justificativa": "O trânsito em julgado confere definitividade à decisão judicial, impedindo sua rediscussão em sede de recursos ordinários. A repercussão geral, embora relevante para a uniformização da jurisprudência, não autoriza a reabertura de processos já transitados em julgado, salvo hipóteses excepcionais previstas em lei, como ações rescisórias, que possuem requisitos próprios e não se confundem com simples reexame da matéria constitucional."
+    },
+    {
+      "id": "BLOCO-0005",
+      "titulo_origem": "DIREITO CIVIL",
+      "questao": "A responsabilização civil dos provedores de aplicações de internet por danos decorrentes de conteúdos gerados por terceiros pode ocorrer independentemente de ordem judicial específica, especialmente nos casos de conteúdos relacionados a crimes graves previstos em rol taxativo, como terrorismo, crimes contra a honra e incitação à discriminação, desde que o provedor não tenha promovido a remoção imediata do conteúdo ilícito.",
+      "gabarito": "CERTO",
+      "justificativa": "O entendimento é que o art. 19 do Marco Civil da Internet, que exige ordem judicial para responsabilização, é parcialmente inconstitucional por omissão, pois não protege adequadamente direitos fundamentais. Assim, os provedores podem ser responsabilizados civilmente sem ordem judicial específica em casos de conteúdos relacionados a crimes graves listados, quando não promovem a remoção imediata. Para crimes contra a honra, aplica-se o art. 19, mas com possibilidade de remoção por notificação extrajudicial. A responsabilidade decorre da falha sistêmica do provedor em adotar medidas adequadas de prevenção ou remoção, configurando violação do dever de cuidado."
+    },
+    {
+      "id": "BLOCO-0006",
+      "titulo_origem": "execução dos créditos garantidos por hipoteca e de execução da garantia imobiliária em",
+      "questao": "Nas diligências para localização e apreensão do bem móvel dado em garantia fiduciária, previstas no Decreto-Lei nº 911/69, é permitido o uso da violência privada para garantir a efetividade da apreensão, mesmo que isso viole a inviolabilidade do domicílio e os direitos à vida privada, à honra e à imagem do devedor.",
+      "gabarito": "ERRADO",
+      "justificativa": "O entendimento é que nas diligências para localização e apreensão do bem móvel dado em garantia fiduciária, devem ser assegurados os direitos à vida privada, à honra e à imagem do devedor, a inviolabilidade do sigilo de dados, a vedação ao uso privado da violência, a inviolabilidade do domicílio, a dignidade da pessoa humana e a autonomia da vontade. Portanto, o uso da violência privada e a violação desses direitos são vedados."
+    },
+    {
+      "id": "BLOCO-0007",
+      "titulo_origem": "DIREITO PROCESSUAL PENAL",
+      "questao": "A apreensão de aparelho celular realizada nos termos do art. 6º do CPP ou em flagrante delito permite o acesso imediato e irrestrito aos dados nele contidos pela autoridade policial, independentemente de consentimento do titular ou decisão judicial prévia.",
+      "gabarito": "ERRADO",
+      "justificativa": "Embora a apreensão do celular não exija ordem judicial, o acesso aos dados contidos no aparelho apreendido nos termos do art. 6º do CPP ou em flagrante depende do consentimento expresso e livre do titular ou de prévia decisão judicial que justifique a medida com base em elementos concretos, respeitando direitos fundamentais como a intimidade, privacidade e proteção dos dados pessoais (art. 7º, III, CF/88 e art. 10, § 2º, da Lei nº 12.965/2014). O acesso irrestrito e imediato sem essas condições viola tais garantias."
+    },
+    {
+      "id": "BLOCO-0008",
+      "titulo_origem": "DIREITO TRIBUTÁRIO",
+      "questao": "É constitucional a cobrança de taxa por serviços de policiamento ostensivo e vigilância prestados por órgãos de segurança pública, pois esses serviços são específicos e divisíveis.",
+      "gabarito": "ERRADO",
+      "justificativa": "A segurança pública é considerada um serviço geral e indivisível, que deve ser financiado por meio de impostos, não por taxas. Serviços como policiamento ostensivo e vigilância são inerentes à segurança pública e, portanto, não podem ser remunerados por taxas. Apenas serviços individualizados e mensuráveis, como segurança preventiva em eventos com cobrança de ingresso ou emissão de certidões não relacionadas à defesa de direitos, podem ser objeto de taxa."
+    }
+  ]
+}

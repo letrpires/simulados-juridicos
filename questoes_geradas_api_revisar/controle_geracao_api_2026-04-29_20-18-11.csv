@@ -1,0 +1,2 @@
+﻿categoria,item,status_auditoria,fonte,esperado_auditoria,itens_extraidos,questoes_geradas,status_final,observacao,arquivo_saida_md,arquivo_saida_json
+INFORMATIVO,Info 1184 STF,FALTA_GERAR_QUESTOES,/Users/letrpires/Documents/SIMULADOS/projeto - cópia/pdfs/Info 1184 STF.pdf,,8,8,OK_VALIDADO,,/Users/letrpires/Documents/SIMULADOS/projeto - cópia/questoes_geradas_api_revisar/informativo_info_1184_stf.md,/Users/letrpires/Documents/SIMULADOS/projeto - cópia/questoes_geradas_api_revisar/informativo_info_1184_stf.json

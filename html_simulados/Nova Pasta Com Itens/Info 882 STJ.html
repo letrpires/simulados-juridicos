@@ -4,518 +4,568 @@
 <meta charset="UTF-8">
 <title>Simulado - Info 882 STJ</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <style>
-:root {
-    --bg: #0f172a;
-    --card: #111827;
-    --card2: #1f2937;
-    --text: #e5e7eb;
-    --muted: #9ca3af;
-    --accent: #38bdf8;
-    --green: #22c55e;
-    --red: #ef4444;
-    --yellow: #facc15;
+:root{
+--bg:#020617;--panel:rgba(15,23,42,.88);--card:rgba(15,23,42,.96);
+--card2:rgba(30,41,59,.92);--border:rgba(148,163,184,.22);
+--text:#e5e7eb;--muted:#94a3b8;--accent:#38bdf8;--accent2:#0ea5e9;
+--green:#22c55e;--red:#ef4444;--yellow:#facc15;--purple:#a78bfa;
 }
-
-* {
-    box-sizing: border-box;
+*{box-sizing:border-box}
+body{
+margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+background:radial-gradient(circle at top left,rgba(56,189,248,.20),transparent 28%),
+radial-gradient(circle at top right,rgba(167,139,250,.15),transparent 28%),
+linear-gradient(135deg,#020617,#0f172a 50%,#020617);
+color:var(--text);line-height:1.65;
 }
-
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(135deg, #020617, #111827);
-    color: var(--text);
-    line-height: 1.6;
+header{padding:44px 20px 32px;text-align:center;border-bottom:1px solid var(--border)}
+header h1{margin:0 0 10px;font-size:clamp(28px,4vw,46px);letter-spacing:-.05em}
+header p{color:var(--muted);margin:0;font-size:16px}
+.container{max-width:1160px;margin:0 auto;padding:26px 16px 80px}
+.painel{
+position:sticky;top:10px;z-index:10;background:var(--panel);backdrop-filter:blur(18px);
+border:1px solid var(--border);border-radius:26px;padding:16px;margin-bottom:22px;
+box-shadow:0 22px 70px rgba(0,0,0,.35)
 }
-
-header {
-    padding: 32px 20px;
-    text-align: center;
-    border-bottom: 1px solid #334155;
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.stat{background:var(--card2);padding:14px;border-radius:18px;text-align:center;border:1px solid rgba(148,163,184,.12)}
+.stat strong{display:block;font-size:25px;color:var(--accent);line-height:1.1}
+.stat span{font-size:12px;color:var(--muted)}
+.filtros{display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:12px;margin-top:14px}
+input,select{
+width:100%;background:rgba(2,6,23,.78);color:var(--text);border:1px solid var(--border);
+border-radius:14px;padding:13px 14px;outline:none;font-size:14px
 }
-
-header h1 {
-    margin: 0 0 10px;
-    font-size: 28px;
+input:focus,select:focus{border-color:var(--accent)}
+.card{
+background:var(--card);border:1px solid var(--border);border-radius:24px;padding:26px;
+margin-bottom:20px;box-shadow:0 18px 50px rgba(0,0,0,.24)
 }
-
-header p {
-    color: var(--muted);
-    margin: 0;
+.questao{scroll-margin-top:190px}
+.questao-topo{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:18px}
+.badge{
+background:linear-gradient(135deg,var(--accent),var(--accent2));color:#00111f;font-weight:900;
+padding:7px 13px;border-radius:999px;display:inline-block
 }
-
-.container {
-    max-width: 980px;
-    margin: 0 auto;
-    padding: 24px 16px 80px;
+.disciplina-tag,.tipo-tag{
+display:inline-block;margin-left:8px;color:var(--muted);background:rgba(148,163,184,.10);
+border:1px solid rgba(148,163,184,.14);padding:6px 10px;border-radius:999px;font-size:12px
 }
-
-.painel {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    background: rgba(15, 23, 42, 0.95);
-    backdrop-filter: blur(8px);
-    border: 1px solid #334155;
-    border-radius: 16px;
-    padding: 16px;
-    margin-bottom: 24px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
+.tipo-tag{color:#ddd6fe;border-color:rgba(167,139,250,.25)}
+.status{color:var(--yellow);font-size:13px;white-space:nowrap}
+.enunciado{font-size:19px;margin:0 0 22px;letter-spacing:-.01em}
+.botoes{display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.btn{
+cursor:pointer;border:0;padding:12px 22px;border-radius:14px;color:white;font-weight:900;
+transition:.18s ease;letter-spacing:.02em
 }
-
-.stat {
-    background: var(--card2);
-    padding: 12px;
-    border-radius: 12px;
-    text-align: center;
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.certo{background:rgba(34,197,94,.20);border:1px solid rgba(34,197,94,.42)}
+.btn.errado{background:rgba(239,68,68,.20);border:1px solid rgba(239,68,68,.42)}
+.btn.neutro{background:rgba(56,189,248,.16);color:var(--text);border:1px solid rgba(56,189,248,.32)}
+.feedback{
+display:none;background:rgba(2,6,23,.72);border:1px solid rgba(148,163,184,.16);
+border-left:5px solid var(--accent);padding:18px;border-radius:18px;margin-top:14px
 }
-
-.stat strong {
-    display: block;
-    font-size: 22px;
-    color: var(--accent);
+.feedback.correto{border-left-color:var(--green)}
+.feedback.errado{border-left-color:var(--red)}
+.resultado{font-size:18px;font-weight:900;margin-top:0}
+.justificativa{margin-top:12px}
+.referencia{color:var(--muted);font-size:13px;margin-top:16px}
+.gabarito-certo{color:var(--green);font-weight:900}
+.gabarito-errado{color:var(--red);font-weight:900}
+.oculta{display:none}
+.sem-resultados{text-align:center;color:var(--muted);display:none;padding:30px}
+.grid-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
+.link-card{
+display:block;padding:20px;background:rgba(15,23,42,.95);border:1px solid rgba(148,163,184,.22);
+color:#e5e7eb;border-radius:22px;text-decoration:none;transition:.2s;box-shadow:0 14px 40px rgba(0,0,0,.22)
 }
-
-.card {
-    background: rgba(17, 24, 39, 0.96);
-    border: 1px solid #334155;
-    border-radius: 18px;
-    padding: 22px;
-    margin-bottom: 20px;
-    box-shadow: 0 12px 30px rgba(0,0,0,.25);
-}
-
-.questao-topo {
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
-    align-items: center;
-    margin-bottom: 16px;
-}
-
-.badge {
-    background: #0ea5e9;
-    color: #00111f;
-    font-weight: bold;
-    padding: 6px 12px;
-    border-radius: 999px;
-}
-
-.status {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-.enunciado {
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-
-.botoes {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 18px;
-}
-
-button {
-    cursor: pointer;
-    border: 0;
-    padding: 12px 22px;
-    border-radius: 12px;
-    background: #334155;
-    color: white;
-    font-weight: bold;
-    transition: 0.2s;
-}
-
-button:hover {
-    transform: translateY(-1px);
-    background: #475569;
-}
-
-.feedback {
-    display: none;
-    background: #020617;
-    border-left: 4px solid var(--accent);
-    padding: 16px;
-    border-radius: 12px;
-    margin-top: 12px;
-}
-
-.feedback.correto {
-    border-left-color: var(--green);
-}
-
-.feedback.errado {
-    border-left-color: var(--red);
-}
-
-.resultado {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.referencia {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-.acoes {
-    text-align: center;
-    margin: 30px 0;
-}
-
-.acoes button {
-    background: #0ea5e9;
-    color: #00111f;
-}
-
-@media (max-width: 700px) {
-    .painel {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .botoes {
-        flex-direction: column;
-    }
-
-    header h1 {
-        font-size: 22px;
-    }
-
-    .enunciado {
-        font-size: 16px;
-    }
+.link-card:hover{transform:translateY(-3px);border-color:#38bdf8}
+.link-card strong{display:block;font-size:17px;margin-bottom:8px}
+.link-card span{color:#94a3b8;font-size:13px}
+.index-tools{display:grid;grid-template-columns:1.5fr 1fr;gap:12px;margin-bottom:20px}
+@media(max-width:850px){
+.stats{grid-template-columns:repeat(2,1fr)}
+.filtros,.index-tools{grid-template-columns:1fr}
+.questao-topo{align-items:flex-start;flex-direction:column}
+.botoes{flex-direction:column}
+.enunciado{font-size:16px}
+.card{padding:20px}
 }
 </style>
 </head>
-
 <body>
-
 <header>
-    <h1>Simulado - Info 882 STJ</h1>
-    <p>Simulado interativo de CERTO ou ERRADO</p>
+<h1>Simulado - Info 882 STJ</h1>
+<p>Informativos • Simulado interativo de CERTO ou ERRADO</p>
 </header>
 
 <div class="container">
+<div class="painel">
+<div class="stats">
+<div class="stat"><strong>10</strong><span>Total</span></div>
+<div class="stat"><strong id="visiveis">10</strong><span>Visíveis</span></div>
+<div class="stat"><strong id="respondidas">0</strong><span>Respondidas</span></div>
+<div class="stat"><strong id="acertos">0</strong><span>Acertos</span></div>
+<div class="stat"><strong id="erros">0</strong><span>Erros</span></div>
+</div>
 
-    <div class="painel">
-        <div class="stat">
-            <strong id="total">10</strong>
-            Total
-        </div>
-        <div class="stat">
-            <strong id="respondidas">0</strong>
-            Respondidas
-        </div>
-        <div class="stat">
-            <strong id="acertos">0</strong>
-            Acertos
-        </div>
-        <div class="stat">
-            <strong id="erros">0</strong>
-            Erros
-        </div>
-    </div>
+<div class="filtros">
+<input id="busca" type="search" placeholder="Buscar por palavra-chave..." oninput="filtrar()">
+<select id="disciplina" onchange="filtrar()">
+<option value="">Todas as disciplinas</option>
+<option value="ECA">ECA</option>
+<option value="N/I">N/I</option>
+</select>
+<select id="statusFiltro" onchange="filtrar()">
+<option value="">Todas</option>
+<option value="nao">Não respondidas</option>
+<option value="acerto">Acertos</option>
+<option value="erro">Erros</option>
+</select>
+<button class="btn neutro" onclick="reiniciar()">Reiniciar</button>
+</div>
+</div>
 
-    <div class="acoes">
-        <button onclick="reiniciar()">Reiniciar simulado</button>
-    </div>
+<div id="sem-resultados" class="sem-resultados">Nenhuma questão encontrada com os filtros atuais.</div>
 
-    
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 1</span>
-                <span class="status" id="status-1">Não respondida</span>
-            </div>
 
-            <p class="enunciado">Em procedimento administrativo sancionador ambiental, se a norma infralegal estabelece que o autuado pode, no mesmo prazo da defesa, requerer acordo escrito de saneamento do dano apto a ensejar redução da multa, a prorrogação deferida pela Administração para apresentação da defesa alcança automaticamente o prazo para formulação do pedido de acordo, de modo que a recusa de seu processamento por intempestividade, quando apresentado dentro do prazo prorrogado, viola a proteção da confiança legítima.</p>
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="em procedimento administrativo sancionador ambiental, se a norma infralegal estabelece que o autuado pode, no mesmo prazo da defesa, requerer acordo escrito de saneamento do dano apto a ensejar redução da multa, a prorrogação deferida pela administração para apresentação da defesa alcança automaticamente o prazo para formulação do pedido de acordo, de modo que a recusa de seu processamento por intempestividade, quando apresentado dentro do prazo prorrogado, viola a proteção da confiança legítima. a assertiva está correta porque parte da premissa de que o pedido de acordo escrito e a defesa administrativa estão submetidos ao mesmo marco temporal, extraído da interpretação conjunta da norma distrital e da instrução normativa aplicável. nessa hipótese, a prorrogação do prazo deferida pela administração para a defesa não pode ser artificialmente cindida para excluir o pedido de acordo, pois ambos integram a mesma janela procedimental conferida ao autuado para reação à autuação.
 
-            <div class="botoes">
-                <button onclick="responder(1, 'CERTO')">CERTO</button>
-                <button onclick="responder(1, 'ERRADO')">ERRADO</button>
-            </div>
+o ponto central do entendimento é a vedação de comportamento administrativo contraditório: ao prorrogar o prazo de defesa, a administração cria expectativa legítima de que o prazo correlato, previsto para a mesma fase procedimental e com a mesma base temporal, também foi estendido. negar eficácia à prorrogação quanto ao pedido de acordo, embora formulado dentro do prazo prorrogado, frustra a confiança legitimamente depositada pelo administrado e compromete a segurança jurídica.
 
-            <div class="feedback" id="feedback-1">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está correta porque parte da premissa de que o pedido de acordo escrito e a defesa administrativa estão submetidos ao mesmo marco temporal, extraído da interpretação conjunta da norma distrital e da instrução normativa aplicável. Nessa hipótese, a prorrogação do prazo deferida pela Administração para a defesa não pode ser artificialmente cindida para excluir o pedido de acordo, pois ambos integram a mesma janela procedimental conferida ao autuado para reação à autuação.<br><br>O ponto central do entendimento é a vedação de comportamento administrativo contraditório: ao prorrogar o prazo de defesa, a Administração cria expectativa legítima de que o prazo correlato, previsto para a mesma fase procedimental e com a mesma base temporal, também foi estendido. Negar eficácia à prorrogação quanto ao pedido de acordo, embora formulado dentro do prazo prorrogado, frustra a confiança legitimamente depositada pelo administrado e compromete a segurança jurídica.<br><br>Além disso, a solução prestigia uma leitura sistemática do processo administrativo sancionador, evitando formalismo excessivo incompatível com a finalidade do instituto negocial, que é propiciar saneamento do dano e eventual redução da penalidade. Assim, não se trata de ampliar indevidamente prazo por analogia, mas de reconhecer que a prorrogação já deferida para a defesa alcança, por consequência lógica e normativa, o requerimento que a própria disciplina regulamentar vincula ao mesmo prazo.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Turma. RMS 75.112-DF, Rel. Min. Paulo Sérgio Domingues, julgado em 3/3/2026 (Info 882).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 2</span>
-                <span class="status" id="status-2">Não respondida</span>
-            </div>
+além disso, a solução prestigia uma leitura sistemática do processo administrativo sancionador, evitando formalismo excessivo incompatível com a finalidade do instituto negocial, que é propiciar saneamento do dano e eventual redução da penalidade. assim, não se trata de ampliar indevidamente prazo por analogia, mas de reconhecer que a prorrogação já deferida para a defesa alcança, por consequência lógica e normativa, o requerimento que a própria disciplina regulamentar vincula ao mesmo prazo. stj. 1ª turma. rms 75.112-df, rel. min. paulo sérgio domingues, julgado em 3/3/2026 (info 882).">
 
-            <p class="enunciado">Na usucapião ordinária, o requisito do justo título não se restringe a instrumento formalmente apto à transferência dominial, sendo admissível, para esse fim, o recibo de compra e venda do imóvel desacompanhado de escritura pública e de registro, desde que evidenciada a intenção de alienação e preenchidos os demais pressupostos legais, como a posse mansa e pacífica e a boa-fé.</p>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 1</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-1">Não respondida</span>
+</div>
 
-            <div class="botoes">
-                <button onclick="responder(2, 'CERTO')">CERTO</button>
-                <button onclick="responder(2, 'ERRADO')">ERRADO</button>
-            </div>
+<p class="enunciado">Em procedimento administrativo sancionador ambiental, se a norma infralegal estabelece que o autuado pode, no mesmo prazo da defesa, requerer acordo escrito de saneamento do dano apto a ensejar redução da multa, a prorrogação deferida pela Administração para apresentação da defesa alcança automaticamente o prazo para formulação do pedido de acordo, de modo que a recusa de seu processamento por intempestividade, quando apresentado dentro do prazo prorrogado, viola a proteção da confiança legítima.</p>
 
-            <div class="feedback" id="feedback-2">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A usucapião ordinária, prevista no art. 1.242 do Código Civil, exige, em regra, posse contínua e incontestada por dez anos, com justo título e boa-fé. O ponto central do entendimento é a interpretação material do requisito do justo título: ele não se limita a documento formalmente perfeito ou capaz, por si só, de operar a transferência da propriedade.<br><br>Nesse contexto, o recibo de compra e venda, embora não substitua a escritura pública nem o registro imobiliário, pode ser considerado suficiente para caracterizar justo título quando revelar a existência de negócio jurídico apto a demonstrar a intenção de transmissão da propriedade. A lógica adotada preserva a função social da propriedade e evita esvaziar a utilidade prática da usucapião ordinária, que não pode ser reduzida a mecanismo supérfluo diante de outras vias de regularização dominial.<br><br>Assim, a ausência de escritura pública e de registro não impede, por si só, o reconhecimento do justo título, desde que o conjunto fático-probatório evidencie aquisição informal, posse qualificada e boa-fé. O entendimento também é compatível com a distinção entre título hábil para fins possessórios/usucapionais e título hábil para imediata transferência do domínio, que são categorias distintas.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.215.421-SE, Rel. Min. Nancy Andrighi, julgado em 10/3/2026 (Info 882).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 3</span>
-                <span class="status" id="status-3">Não respondida</span>
-            </div>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(1, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(1, 'ERRADO')">ERRADO</button>
+</div>
 
-            <p class="enunciado">A remoção, por provedor de aplicação de internet, de canal que reiteradamente divulga trechos de partidas de futebol sem autorização dos titulares dos direitos autorais, após sucessivos avisos de infração e com base em cláusulas dos termos de serviço, não configura violação ao regime do art. 19 do Marco Civil da Internet, sendo lícita a atuação unilateral da plataforma como medida de compliance interno, ainda que ausente ordem judicial específica.</p>
+<div class="feedback" id="feedback-1">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque parte da premissa de que o pedido de acordo escrito e a defesa administrativa estão submetidos ao mesmo marco temporal, extraído da interpretação conjunta da norma distrital e da instrução normativa aplicável. Nessa hipótese, a prorrogação do prazo deferida pela Administração para a defesa não pode ser artificialmente cindida para excluir o pedido de acordo, pois ambos integram a mesma janela procedimental conferida ao autuado para reação à autuação.<br><br>O ponto central do entendimento é a vedação de comportamento administrativo contraditório: ao prorrogar o prazo de defesa, a Administração cria expectativa legítima de que o prazo correlato, previsto para a mesma fase procedimental e com a mesma base temporal, também foi estendido. Negar eficácia à prorrogação quanto ao pedido de acordo, embora formulado dentro do prazo prorrogado, frustra a confiança legitimamente depositada pelo administrado e compromete a segurança jurídica.<br><br>Além disso, a solução prestigia uma leitura sistemática do processo administrativo sancionador, evitando formalismo excessivo incompatível com a finalidade do instituto negocial, que é propiciar saneamento do dano e eventual redução da penalidade. Assim, não se trata de ampliar indevidamente prazo por analogia, mas de reconhecer que a prorrogação já deferida para a defesa alcança, por consequência lógica e normativa, o requerimento que a própria disciplina regulamentar vincula ao mesmo prazo.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Turma. RMS 75.112-DF, Rel. Min. Paulo Sérgio Domingues, julgado em 3/3/2026 (Info 882).</p>
+</div>
+</section>
 
-            <div class="botoes">
-                <button onclick="responder(3, 'CERTO')">CERTO</button>
-                <button onclick="responder(3, 'ERRADO')">ERRADO</button>
-            </div>
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="ECA"
+data-texto="na usucapião ordinária, o requisito do justo título não se restringe a instrumento formalmente apto à transferência dominial, sendo admissível, para esse fim, o recibo de compra e venda do imóvel desacompanhado de escritura pública e de registro, desde que evidenciada a intenção de alienação e preenchidos os demais pressupostos legais, como a posse mansa e pacífica e a boa-fé. a usucapião ordinária, prevista no art. 1.242 do código civil, exige, em regra, posse contínua e incontestada por dez anos, com justo título e boa-fé. o ponto central do entendimento é a interpretação material do requisito do justo título: ele não se limita a documento formalmente perfeito ou capaz, por si só, de operar a transferência da propriedade.
 
-            <div class="feedback" id="feedback-3">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>O enunciado está correto porque o entendimento firmado é no sentido de que o art. 19 do Marco Civil da Internet não institui uma vedação absoluta à moderação privada de conteúdo por iniciativa do próprio provedor. A norma disciplina, em regra, a responsabilidade civil por conteúdo gerado por terceiros e a necessidade de ordem judicial para fins de responsabilização por não remoção, mas não impede que a plataforma, no exercício de sua autonomia contratual e de sua política interna de conformidade, retire conteúdos que violem seus termos de uso ou a legislação aplicável.<br><br>No caso examinado, a exclusão do canal decorreu de reiteração de condutas infratoras, com sucessivos “strikes”, e de violação a direitos autorais, o que reforça a legitimidade da providência. A atuação da plataforma foi qualificada como exercício regular de direito e como atividade de compliance interno, não se confundindo com censura nem com abuso, desde que ausente extrapolação dos limites contratuais ou lesão a direito.<br><br>É importante notar a distinção entre: (i) a hipótese do art. 19 do Marco Civil, que trata da responsabilização civil por conteúdo de terceiros e da exigência de ordem judicial em determinadas situações; e (ii) a faculdade do provedor de, por iniciativa própria, moderar, restringir ou remover conteúdo incompatível com seus termos de serviço ou com a legislação especial, como a Lei de Direitos Autorais. Assim, a remoção voluntária, quando fundada em violação contratual e legal, é juridicamente admissível.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 4ª Turma. AREsp 2.294.622-SP, Rel. Min. Raul Araújo, julgado em 17/3/2026 (Info 882).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 4</span>
-                <span class="status" id="status-4">Não respondida</span>
-            </div>
+nesse contexto, o recibo de compra e venda, embora não substitua a escritura pública nem o registro imobiliário, pode ser considerado suficiente para caracterizar justo título quando revelar a existência de negócio jurídico apto a demonstrar a intenção de transmissão da propriedade. a lógica adotada preserva a função social da propriedade e evita esvaziar a utilidade prática da usucapião ordinária, que não pode ser reduzida a mecanismo supérfluo diante de outras vias de regularização dominial.
 
-            <p class="enunciado">É válida a cláusula contratual ou a norma regulatória que, em plano de saúde, imponha teto anual de sessões de psicologia, fonoaudiologia, fisioterapia e terapia ocupacional prescritas a paciente com transtorno do espectro autista, desde que não haja exclusão expressa da cobertura e que o tratamento permaneça formalmente disponível na rede credenciada.</p>
+assim, a ausência de escritura pública e de registro não impede, por si só, o reconhecimento do justo título, desde que o conjunto fático-probatório evidencie aquisição informal, posse qualificada e boa-fé. o entendimento também é compatível com a distinção entre título hábil para fins possessórios/usucapionais e título hábil para imediata transferência do domínio, que são categorias distintas. stj. 3ª turma. resp 2.215.421-se, rel. min. nancy andrighi, julgado em 10/3/2026 (info 882).">
 
-            <div class="botoes">
-                <button onclick="responder(4, 'CERTO')">CERTO</button>
-                <button onclick="responder(4, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 2</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-2">Não respondida</span>
+</div>
 
-            <div class="feedback" id="feedback-4">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque a limitação quantitativa de sessões de terapia multidisciplinar prescritas a paciente com TEA é considerada abusiva, ainda que o contrato ou a regulação não excluam totalmente a cobertura. O ponto central é que a restrição do número de atendimentos funciona como limitação indireta do próprio custeio do tratamento, esvaziando a cobertura assistencial devida ao beneficiário.<br><br>O entendimento firmado reconhece que a previsão contratual ou regulatória que estabeleça número máximo de sessões viola o art. 1º, I, da Lei n. 9.656/1998, com a redação dada pela MP n. 2.177-44/2001, pois esse dispositivo veda a imposição de limite financeiro às coberturas dos planos de saúde. Assim, não basta afirmar que o tratamento está “formalmente disponível” ou que não houve exclusão expressa: a restrição quantitativa, por si, é incompatível com a cobertura integral prescrita ao paciente com TEA.<br><br>Além disso, a regulamentação da ANS evoluiu no sentido de afastar essas restrições, culminando na RN nº 541/2022, que eliminou o limite de forma geral para sessões de psicologia, fonoaudiologia, fisioterapia e terapia ocupacional. Portanto, a operadora não pode invocar teto anual de sessões para reduzir o alcance da cobertura de tratamento multidisciplinar indicado ao paciente com TEA.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 2ª Seção. REsp 2.167.050-SP e REsp 2.153.672-SP, Rel. Min. Antonio Carlos Ferreira, julgados em 11/3/2026 (Recurso Repetitivo - Tema 1295) (Info 882).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 5</span>
-                <span class="status" id="status-5">Não respondida</span>
-            </div>
+<p class="enunciado">Na usucapião ordinária, o requisito do justo título não se restringe a instrumento formalmente apto à transferência dominial, sendo admissível, para esse fim, o recibo de compra e venda do imóvel desacompanhado de escritura pública e de registro, desde que evidenciada a intenção de alienação e preenchidos os demais pressupostos legais, como a posse mansa e pacífica e a boa-fé.</p>
 
-            <p class="enunciado">Na execução de medidas socioeducativas, a coexistência de liberdade assistida e internação imposta em processos distintos não impede a unificação das medidas, sendo juridicamente admissível que a internação, por sua maior abrangência pedagógica, absorva a medida em meio aberto e os atos infracionais anteriores; por outro lado, é ilícita a suspensão da liberdade assistida apenas para aguardar o término da internação, quando inexistente previsão legal específica para essa solução.</p>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(2, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(2, 'ERRADO')">ERRADO</button>
+</div>
 
-            <div class="botoes">
-                <button onclick="responder(5, 'CERTO')">CERTO</button>
-                <button onclick="responder(5, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="feedback" id="feedback-2">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A usucapião ordinária, prevista no art. 1.242 do Código Civil, exige, em regra, posse contínua e incontestada por dez anos, com justo título e boa-fé. O ponto central do entendimento é a interpretação material do requisito do justo título: ele não se limita a documento formalmente perfeito ou capaz, por si só, de operar a transferência da propriedade.<br><br>Nesse contexto, o recibo de compra e venda, embora não substitua a escritura pública nem o registro imobiliário, pode ser considerado suficiente para caracterizar justo título quando revelar a existência de negócio jurídico apto a demonstrar a intenção de transmissão da propriedade. A lógica adotada preserva a função social da propriedade e evita esvaziar a utilidade prática da usucapião ordinária, que não pode ser reduzida a mecanismo supérfluo diante de outras vias de regularização dominial.<br><br>Assim, a ausência de escritura pública e de registro não impede, por si só, o reconhecimento do justo título, desde que o conjunto fático-probatório evidencie aquisição informal, posse qualificada e boa-fé. O entendimento também é compatível com a distinção entre título hábil para fins possessórios/usucapionais e título hábil para imediata transferência do domínio, que são categorias distintas.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.215.421-SE, Rel. Min. Nancy Andrighi, julgado em 10/3/2026 (Info 882).</p>
+</div>
+</section>
 
-            <div class="feedback" id="feedback-5">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está correta porque a lógica da execução socioeducativa não é a da soma aritmética de sanções, como ocorre em certos contextos da execução penal, mas a da unificação orientada pela finalidade pedagógica e pelo melhor interesse do adolescente. A Lei nº 12.594/2012 admite que a medida mais gravosa, a internação, tenha aptidão para absorver providências anteriores ou concomitantes, inclusive de natureza diversa, desde que isso se mostre compatível com a sistemática legal.<br><br>O ponto central é que não existe vedação legal à unificação de medidas socioeducativas de espécies distintas. Ao contrário, a disciplina normativa permite compreender a internação como medida de maior densidade e abrangência pedagógica, capaz de englobar os fins das demais medidas. Por isso, não se sustenta solução judicial que, sem base normativa, simplesmente suspenda a execução da liberdade assistida para aguardar o cumprimento da internação. Essa providência cria um regime de paralisação da medida em meio aberto sem amparo legal, inovando em prejuízo do adolescente.<br><br>Além disso, a interpretação deve ser compatível com os princípios do direito sancionador juvenil, especialmente a legalidade, a intervenção mínima e o melhor interesse do adolescente. Se a própria estrutura da lei autoriza a absorção das medidas menos gravosas pela internação, a resposta judicial adequada é a unificação, e não a manutenção artificial e sucessiva de execuções paralelas ou suspensas.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 5ª Turma. HC 1.049.276-SC, Rel. Min. Messod Azulay Neto, julgado em 3/3/2026 (Info 882).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 6</span>
-                <span class="status" id="status-6">Não respondida</span>
-            </div>
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a remoção, por provedor de aplicação de internet, de canal que reiteradamente divulga trechos de partidas de futebol sem autorização dos titulares dos direitos autorais, após sucessivos avisos de infração e com base em cláusulas dos termos de serviço, não configura violação ao regime do art. 19 do marco civil da internet, sendo lícita a atuação unilateral da plataforma como medida de compliance interno, ainda que ausente ordem judicial específica. o enunciado está correto porque o entendimento firmado é no sentido de que o art. 19 do marco civil da internet não institui uma vedação absoluta à moderação privada de conteúdo por iniciativa do próprio provedor. a norma disciplina, em regra, a responsabilidade civil por conteúdo gerado por terceiros e a necessidade de ordem judicial para fins de responsabilização por não remoção, mas não impede que a plataforma, no exercício de sua autonomia contratual e de sua política interna de conformidade, retire conteúdos que violem seus termos de uso ou a legislação aplicável.
 
-            <p class="enunciado">A oferta, por instituição de ensino credenciada apenas para cursos presenciais específicos em sua sede, de supostos cursos superiores por intermédio de empresas privadas não credenciadas, com divulgação enganosa de que haveria reconhecimento pelo MEC ou possibilidade de posterior conversão em graduação, pode caracterizar lesão extrapatrimonial transindividual, sendo desnecessária a demonstração de abalo moral concreto da coletividade para a configuração do dano moral coletivo; ademais, a reparação integral do ilícito pode admitir, em tese, a divulgação da sentença condenatória em veículos de grande circulação, sem prejuízo da indenização pecuniária.</p>
+no caso examinado, a exclusão do canal decorreu de reiteração de condutas infratoras, com sucessivos “strikes”, e de violação a direitos autorais, o que reforça a legitimidade da providência. a atuação da plataforma foi qualificada como exercício regular de direito e como atividade de compliance interno, não se confundindo com censura nem com abuso, desde que ausente extrapolação dos limites contratuais ou lesão a direito.
 
-            <div class="botoes">
-                <button onclick="responder(6, 'CERTO')">CERTO</button>
-                <button onclick="responder(6, 'ERRADO')">ERRADO</button>
-            </div>
+é importante notar a distinção entre: (i) a hipótese do art. 19 do marco civil, que trata da responsabilização civil por conteúdo de terceiros e da exigência de ordem judicial em determinadas situações; e (ii) a faculdade do provedor de, por iniciativa própria, moderar, restringir ou remover conteúdo incompatível com seus termos de serviço ou com a legislação especial, como a lei de direitos autorais. assim, a remoção voluntária, quando fundada em violação contratual e legal, é juridicamente admissível. stj. 4ª turma. aresp 2.294.622-sp, rel. min. raul araújo, julgado em 17/3/2026 (info 882).">
 
-            <div class="feedback" id="feedback-6">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a lógica central do entendimento firmado: a irregular oferta de cursos superiores e a terceirização ilícita de atividades acadêmicas não se limitam a um mero inadimplemento contratual ou a prejuízos individuais dos alunos, mas atingem bens jurídicos metaindividuais, como a confiança social na integridade do sistema educacional e na atuação regulatória do Estado. Nessa perspectiva, a conduta viola de forma injusta e intolerável interesses de conteúdo extrapatrimonial da coletividade, o que autoriza o reconhecimento do dano moral coletivo.<br><br>Além disso, o dano moral coletivo, nessa hipótese, é tratado como in re ipsa, isto é, sua configuração decorre da própria gravidade objetiva da conduta ilícita, dispensando prova específica de sofrimento coletivo, de repercussão social mensurável ou de abalo moral concretamente demonstrado. Basta a constatação da prática ilícita apta a ofender valores transindividuais relevantes.<br><br>Por fim, a reparação não se esgota na indenização pecuniária. Foi admitida, ao menos em tese, a possibilidade de medida reparatória in natura consistente na divulgação da sentença condenatória em jornais de grande circulação, como forma de recomposição mais ampla do dano e de tutela da dimensão coletiva lesada. Trata-se de providência compatível com a ideia de reparação integral no processo coletivo.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 2ª Turma. REsp 2.078.628-PE, Rel. Min. Marco Aurélio Bellizze, julgado em 16/12/2025 (Info 882).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 7</span>
-                <span class="status" id="status-7">Não respondida</span>
-            </div>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 3</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-3">Não respondida</span>
+</div>
 
-            <p class="enunciado">Na hipótese de incidência simultânea de mais de uma causa de aumento previstas na parte especial do Código Penal, a opção judicial por não cumulá-las dispensa fundamentação específica, bastando a aplicação isolada da majorante mais favorável ao réu, ainda que outra, em tese, produza incremento superior da reprimenda.</p>
+<p class="enunciado">A remoção, por provedor de aplicação de internet, de canal que reiteradamente divulga trechos de partidas de futebol sem autorização dos titulares dos direitos autorais, após sucessivos avisos de infração e com base em cláusulas dos termos de serviço, não configura violação ao regime do art. 19 do Marco Civil da Internet, sendo lícita a atuação unilateral da plataforma como medida de compliance interno, ainda que ausente ordem judicial específica.</p>
 
-            <div class="botoes">
-                <button onclick="responder(7, 'CERTO')">CERTO</button>
-                <button onclick="responder(7, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(3, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(3, 'ERRADO')">ERRADO</button>
+</div>
 
-            <div class="feedback" id="feedback-7">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está incorreta por duas razões centrais.<br><br>Primeiro, a escolha entre cumular todas as causas de aumento ou aplicar apenas uma delas não é discricionária em sentido absoluto nem dispensa motivação. Quando o julgador opta pela incidência conjunta das majorantes, deve apresentar fundamentação concreta, extraída das circunstâncias do caso, demonstrando por que a resposta penal mais gravosa se mostra necessária. A mera referência abstrata à existência de pluralidade de causas de aumento não autoriza, por si só, a cumulação.<br><br>Segundo, se o magistrado decidir aplicar apenas uma causa de aumento, não lhe é dado selecionar a mais benéfica ao réu por critério de favorabilidade. Nessa hipótese, a regra é a prevalência da causa que mais eleva a pena, justamente porque o parágrafo único do art. 68 do Código Penal confere ao julgador a faculdade de limitar-se a um só aumento, mas não de escolher arbitrariamente o incremento menos severo. Assim, a opção pela majorante mais branda contraria a lógica do dispositivo e o entendimento firmado no julgado.<br><br>Em síntese: a cumulação exige motivação concreta; a aplicação isolada de apenas uma majorante é admitida, mas deve recair sobre a causa de aumento mais gravosa, e não sobre a mais favorável ao acusado.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Seção. EREsp 2.206.873-SP, Rel. Min. Joel Ilan Paciornik, julgado em 11/3/2026 (Info 882).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 8</span>
-                <span class="status" id="status-8">Não respondida</span>
-            </div>
+<div class="feedback" id="feedback-3">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O enunciado está correto porque o entendimento firmado é no sentido de que o art. 19 do Marco Civil da Internet não institui uma vedação absoluta à moderação privada de conteúdo por iniciativa do próprio provedor. A norma disciplina, em regra, a responsabilidade civil por conteúdo gerado por terceiros e a necessidade de ordem judicial para fins de responsabilização por não remoção, mas não impede que a plataforma, no exercício de sua autonomia contratual e de sua política interna de conformidade, retire conteúdos que violem seus termos de uso ou a legislação aplicável.<br><br>No caso examinado, a exclusão do canal decorreu de reiteração de condutas infratoras, com sucessivos “strikes”, e de violação a direitos autorais, o que reforça a legitimidade da providência. A atuação da plataforma foi qualificada como exercício regular de direito e como atividade de compliance interno, não se confundindo com censura nem com abuso, desde que ausente extrapolação dos limites contratuais ou lesão a direito.<br><br>É importante notar a distinção entre: (i) a hipótese do art. 19 do Marco Civil, que trata da responsabilização civil por conteúdo de terceiros e da exigência de ordem judicial em determinadas situações; e (ii) a faculdade do provedor de, por iniciativa própria, moderar, restringir ou remover conteúdo incompatível com seus termos de serviço ou com a legislação especial, como a Lei de Direitos Autorais. Assim, a remoção voluntária, quando fundada em violação contratual e legal, é juridicamente admissível.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 4ª Turma. AREsp 2.294.622-SP, Rel. Min. Raul Araújo, julgado em 17/3/2026 (Info 882).</p>
+</div>
+</section>
 
-            <p class="enunciado">A fabricação, a aquisição, a utilização ou a posse de maquinário, aparelho, instrumento ou qualquer objeto destinado à preparação de drogas, por não integrar o rol taxativo de crimes hediondos, submete-se, para fins de progressão de regime, às regras gerais da Lei de Execução Penal, sem prejuízo de que o livramento condicional observe disciplina especial da Lei de Drogas, exigindo o cumprimento de dois terços da pena e vedando-se sua concessão ao reincidente específico.</p>
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="é válida a cláusula contratual ou a norma regulatória que, em plano de saúde, imponha teto anual de sessões de psicologia, fonoaudiologia, fisioterapia e terapia ocupacional prescritas a paciente com transtorno do espectro autista, desde que não haja exclusão expressa da cobertura e que o tratamento permaneça formalmente disponível na rede credenciada. a assertiva está incorreta porque a limitação quantitativa de sessões de terapia multidisciplinar prescritas a paciente com tea é considerada abusiva, ainda que o contrato ou a regulação não excluam totalmente a cobertura. o ponto central é que a restrição do número de atendimentos funciona como limitação indireta do próprio custeio do tratamento, esvaziando a cobertura assistencial devida ao beneficiário.
 
-            <div class="botoes">
-                <button onclick="responder(8, 'CERTO')">CERTO</button>
-                <button onclick="responder(8, 'ERRADO')">ERRADO</button>
-            </div>
+o entendimento firmado reconhece que a previsão contratual ou regulatória que estabeleça número máximo de sessões viola o art. 1º, i, da lei n. 9.656/1998, com a redação dada pela mp n. 2.177-44/2001, pois esse dispositivo veda a imposição de limite financeiro às coberturas dos planos de saúde. assim, não basta afirmar que o tratamento está “formalmente disponível” ou que não houve exclusão expressa: a restrição quantitativa, por si, é incompatível com a cobertura integral prescrita ao paciente com tea.
 
-            <div class="feedback" id="feedback-8">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>O enunciado está correto porque distingue adequadamente duas consequências jurídicas distintas do art. 34 da Lei 11.343/2006.<br><br>Primeiro, o tipo penal de fabricar, adquirir, utilizar, transportar, oferecer, vender, distribuir, entregar a consumo ou fornecer maquinário, aparelho, instrumento ou qualquer objeto destinado à fabricação, preparação, produção ou transformação de drogas não foi incluído no rol taxativo de crimes hediondos previsto no art. 2º da Lei 8.072/1990. Por isso, não se pode atribuir a esse delito natureza hedionda por analogia ou interpretação extensiva em prejuízo do réu, especialmente porque a hediondez exige previsão legal expressa.<br><br>Daí decorre a segunda conclusão: para fins de progressão de regime, o delito deve ser tratado como crime comum, incidindo as regras gerais da Lei de Execução Penal, e não o regime mais gravoso reservado aos crimes hediondos e equiparados.<br><br>Por outro lado, o livramento condicional não segue a disciplina geral do Código Penal de forma integral, porque a própria Lei de Drogas contém regra específica no art. 44, parágrafo único, exigindo o cumprimento de dois terços da pena e vedando o benefício ao reincidente específico. Assim, embora o crime não seja hediondo, há disciplina legal própria para o livramento condicional, que deve ser observada.<br><br>A questão explora justamente a diferença entre hediondez e regime de execução penal: o fato de o delito não ser hediondo não impede a incidência de regra especial mais gravosa quanto ao livramento condicional, desde que prevista expressamente em lei.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 5ª Turma. HC 1.005.146-SP, Rel. Min. Ribeiro Dantas, julgado em 3/3/2026 (Info 882).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 9</span>
-                <span class="status" id="status-9">Não respondida</span>
-            </div>
+além disso, a regulamentação da ans evoluiu no sentido de afastar essas restrições, culminando na rn nº 541/2022, que eliminou o limite de forma geral para sessões de psicologia, fonoaudiologia, fisioterapia e terapia ocupacional. portanto, a operadora não pode invocar teto anual de sessões para reduzir o alcance da cobertura de tratamento multidisciplinar indicado ao paciente com tea. stj. 2ª seção. resp 2.167.050-sp e resp 2.153.672-sp, rel. min. antonio carlos ferreira, julgados em 11/3/2026 (recurso repetitivo - tema 1295) (info 882).">
 
-            <p class="enunciado">A Ordem dos Advogados do Brasil possui legitimidade para impetrar mandado de segurança em defesa individual de advogado investigado, ainda que a controvérsia se restrinja à apuração de fatos penalmente relevantes atribuídos exclusivamente ao próprio causídico; ademais, a inviolabilidade do escritório profissional é oponível de forma absoluta à medida de busca e apreensão, de modo que a colaboração premiada prestada por advogado somente pode ser utilizada quando versar sobre fatos conhecidos em razão do exercício do múnus profissional.</p>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 4</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-4">Não respondida</span>
+</div>
 
-            <div class="botoes">
-                <button onclick="responder(9, 'CERTO')">CERTO</button>
-                <button onclick="responder(9, 'ERRADO')">ERRADO</button>
-            </div>
+<p class="enunciado">É válida a cláusula contratual ou a norma regulatória que, em plano de saúde, imponha teto anual de sessões de psicologia, fonoaudiologia, fisioterapia e terapia ocupacional prescritas a paciente com transtorno do espectro autista, desde que não haja exclusão expressa da cobertura e que o tratamento permaneça formalmente disponível na rede credenciada.</p>
 
-            <div class="feedback" id="feedback-9">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>O enunciado está incorreto em três pontos centrais.<br><br>Primeiro, a legitimação da OAB para impetrar mandado de segurança não é irrestrita nem se presta, por si só, à tutela de interesse individual de advogado investigado. A atuação da entidade somente se justifica quando houver interesse institucional ou da categoria em sentido amplo, e não mera defesa subjetiva de um profissional específico em situação concreta. No caso julgado, reconheceu-se justamente a ilegitimidade da OAB para manejar a impetração em favor exclusivo do advogado investigado.<br><br>Segundo, a inviolabilidade do escritório de advocacia não tem caráter absoluto. Embora a Constituição e o Estatuto da Advocacia assegurem proteção relevante ao local de trabalho do advogado, essa garantia pode ser relativizada quando o próprio advogado é objeto de investigação criminal, desde que a medida cautelar seja fundamentada e observadas as cautelas legais pertinentes, especialmente para evitar devassa indevida sobre comunicações e documentos protegidos. Assim, a busca e apreensão não é vedada em termos absolutos.<br><br>Terceiro, a colaboração premiada firmada por advogado não é inválida apenas por sua condição profissional. O ponto decisivo é o conteúdo da colaboração: ela é admitida quando versa sobre fatos criminosos dos quais o próprio colaborador participou como agente, e não sobre informações obtidas no exercício regular da advocacia em razão do sigilo profissional. No caso, os relatos não diziam respeito aos serviços jurídicos para os quais o advogado fora contratado, mas a crimes em que ele próprio teria atuado ao lado de outro investigado, o que afasta a alegação de ilicitude automática da colaboração.<br><br>Em síntese, a tese firmada prestigia a possibilidade de investigação de advogado quando presentes elementos concretos, afasta a legitimidade da OAB para tutela individual sem interesse coletivo e reconhece que o sigilo e a inviolabilidade profissional não podem ser utilizados como escudo absoluto para a prática de delitos.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 6ª Turma. AgRg no RMS 73.012-SP, Rel. Min. Antonio Saldanha Palheiro, julgado em 17/3/2026 (Info 882).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 10</span>
-                <span class="status" id="status-10">Não respondida</span>
-            </div>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(4, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(4, 'ERRADO')">ERRADO</button>
+</div>
 
-            <p class="enunciado">A contribuição previdenciária patronal incide sobre o salário-maternidade, por se tratar de verba paga no curso do vínculo empregatício e integrante da remuneração da segurada, razão pela qual eventual afastamento dessa exação somente seria possível em hipóteses excepcionais de isenção legal expressa, sem que o controle de constitucionalidade pudesse alcançar a regra de incidência prevista na legislação ordinária.</p>
+<div class="feedback" id="feedback-4">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque a limitação quantitativa de sessões de terapia multidisciplinar prescritas a paciente com TEA é considerada abusiva, ainda que o contrato ou a regulação não excluam totalmente a cobertura. O ponto central é que a restrição do número de atendimentos funciona como limitação indireta do próprio custeio do tratamento, esvaziando a cobertura assistencial devida ao beneficiário.<br><br>O entendimento firmado reconhece que a previsão contratual ou regulatória que estabeleça número máximo de sessões viola o art. 1º, I, da Lei n. 9.656/1998, com a redação dada pela MP n. 2.177-44/2001, pois esse dispositivo veda a imposição de limite financeiro às coberturas dos planos de saúde. Assim, não basta afirmar que o tratamento está “formalmente disponível” ou que não houve exclusão expressa: a restrição quantitativa, por si, é incompatível com a cobertura integral prescrita ao paciente com TEA.<br><br>Além disso, a regulamentação da ANS evoluiu no sentido de afastar essas restrições, culminando na RN nº 541/2022, que eliminou o limite de forma geral para sessões de psicologia, fonoaudiologia, fisioterapia e terapia ocupacional. Portanto, a operadora não pode invocar teto anual de sessões para reduzir o alcance da cobertura de tratamento multidisciplinar indicado ao paciente com TEA.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 2ª Seção. REsp 2.167.050-SP e REsp 2.153.672-SP, Rel. Min. Antonio Carlos Ferreira, julgados em 11/3/2026 (Recurso Repetitivo - Tema 1295) (Info 882).</p>
+</div>
+</section>
 
-            <div class="botoes">
-                <button onclick="responder(10, 'CERTO')">CERTO</button>
-                <button onclick="responder(10, 'ERRADO')">ERRADO</button>
-            </div>
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="na execução de medidas socioeducativas, a coexistência de liberdade assistida e internação imposta em processos distintos não impede a unificação das medidas, sendo juridicamente admissível que a internação, por sua maior abrangência pedagógica, absorva a medida em meio aberto e os atos infracionais anteriores; por outro lado, é ilícita a suspensão da liberdade assistida apenas para aguardar o término da internação, quando inexistente previsão legal específica para essa solução. a assertiva está correta porque a lógica da execução socioeducativa não é a da soma aritmética de sanções, como ocorre em certos contextos da execução penal, mas a da unificação orientada pela finalidade pedagógica e pelo melhor interesse do adolescente. a lei nº 12.594/2012 admite que a medida mais gravosa, a internação, tenha aptidão para absorver providências anteriores ou concomitantes, inclusive de natureza diversa, desde que isso se mostre compatível com a sistemática legal.
 
-            <div class="feedback" id="feedback-10">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque o salário-maternidade não pode ser submetido à contribuição previdenciária a cargo do empregador. O entendimento consolidado é de que essa exação é inconstitucional, pois a verba não se amolda à base econômica sobre a qual pode incidir a contribuição patronal nos termos reconhecidos pelo Supremo Tribunal Federal no Tema 72 da repercussão geral.<br><br>O ponto central não é a existência de isenção legal expressa, mas a própria incompatibilidade constitucional da incidência. Em outras palavras, não se trata de mera hipótese de desoneração concedida pelo legislador ordinário, e sim de vedação constitucional à cobrança. Por isso, uma vez fixada a tese pelo STF no RE 576.967/PR, o STJ passou a adequar sua jurisprudência em juízo de retratação, nos termos do art. 1.040, II, do CPC/2015, afastando a contribuição patronal sobre o salário-maternidade.<br><br>A formulação da questão induz erro ao sugerir que o salário-maternidade integraria automaticamente a remuneração tributável do empregador e que apenas uma isenção legal poderia afastar a incidência. O entendimento aplicável é justamente o oposto: a incidência é inconstitucional, e a exclusão decorre do controle de constitucionalidade, não de benefício fiscal.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 2ª Turma. AgRg no Ag 1.428.915-DF, Rel. Min. Afrânio Vilela, julgado em 4/3/2026 (Info 882).</p>
-            </div>
-        </section>
-        
+o ponto central é que não existe vedação legal à unificação de medidas socioeducativas de espécies distintas. ao contrário, a disciplina normativa permite compreender a internação como medida de maior densidade e abrangência pedagógica, capaz de englobar os fins das demais medidas. por isso, não se sustenta solução judicial que, sem base normativa, simplesmente suspenda a execução da liberdade assistida para aguardar o cumprimento da internação. essa providência cria um regime de paralisação da medida em meio aberto sem amparo legal, inovando em prejuízo do adolescente.
+
+além disso, a interpretação deve ser compatível com os princípios do direito sancionador juvenil, especialmente a legalidade, a intervenção mínima e o melhor interesse do adolescente. se a própria estrutura da lei autoriza a absorção das medidas menos gravosas pela internação, a resposta judicial adequada é a unificação, e não a manutenção artificial e sucessiva de execuções paralelas ou suspensas. stj. 5ª turma. hc 1.049.276-sc, rel. min. messod azulay neto, julgado em 3/3/2026 (info 882).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 5</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-5">Não respondida</span>
+</div>
+
+<p class="enunciado">Na execução de medidas socioeducativas, a coexistência de liberdade assistida e internação imposta em processos distintos não impede a unificação das medidas, sendo juridicamente admissível que a internação, por sua maior abrangência pedagógica, absorva a medida em meio aberto e os atos infracionais anteriores; por outro lado, é ilícita a suspensão da liberdade assistida apenas para aguardar o término da internação, quando inexistente previsão legal específica para essa solução.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(5, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(5, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-5">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque a lógica da execução socioeducativa não é a da soma aritmética de sanções, como ocorre em certos contextos da execução penal, mas a da unificação orientada pela finalidade pedagógica e pelo melhor interesse do adolescente. A Lei nº 12.594/2012 admite que a medida mais gravosa, a internação, tenha aptidão para absorver providências anteriores ou concomitantes, inclusive de natureza diversa, desde que isso se mostre compatível com a sistemática legal.<br><br>O ponto central é que não existe vedação legal à unificação de medidas socioeducativas de espécies distintas. Ao contrário, a disciplina normativa permite compreender a internação como medida de maior densidade e abrangência pedagógica, capaz de englobar os fins das demais medidas. Por isso, não se sustenta solução judicial que, sem base normativa, simplesmente suspenda a execução da liberdade assistida para aguardar o cumprimento da internação. Essa providência cria um regime de paralisação da medida em meio aberto sem amparo legal, inovando em prejuízo do adolescente.<br><br>Além disso, a interpretação deve ser compatível com os princípios do direito sancionador juvenil, especialmente a legalidade, a intervenção mínima e o melhor interesse do adolescente. Se a própria estrutura da lei autoriza a absorção das medidas menos gravosas pela internação, a resposta judicial adequada é a unificação, e não a manutenção artificial e sucessiva de execuções paralelas ou suspensas.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 5ª Turma. HC 1.049.276-SC, Rel. Min. Messod Azulay Neto, julgado em 3/3/2026 (Info 882).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a oferta, por instituição de ensino credenciada apenas para cursos presenciais específicos em sua sede, de supostos cursos superiores por intermédio de empresas privadas não credenciadas, com divulgação enganosa de que haveria reconhecimento pelo mec ou possibilidade de posterior conversão em graduação, pode caracterizar lesão extrapatrimonial transindividual, sendo desnecessária a demonstração de abalo moral concreto da coletividade para a configuração do dano moral coletivo; ademais, a reparação integral do ilícito pode admitir, em tese, a divulgação da sentença condenatória em veículos de grande circulação, sem prejuízo da indenização pecuniária. a assertiva está correta porque reproduz a lógica central do entendimento firmado: a irregular oferta de cursos superiores e a terceirização ilícita de atividades acadêmicas não se limitam a um mero inadimplemento contratual ou a prejuízos individuais dos alunos, mas atingem bens jurídicos metaindividuais, como a confiança social na integridade do sistema educacional e na atuação regulatória do estado. nessa perspectiva, a conduta viola de forma injusta e intolerável interesses de conteúdo extrapatrimonial da coletividade, o que autoriza o reconhecimento do dano moral coletivo.
+
+além disso, o dano moral coletivo, nessa hipótese, é tratado como in re ipsa, isto é, sua configuração decorre da própria gravidade objetiva da conduta ilícita, dispensando prova específica de sofrimento coletivo, de repercussão social mensurável ou de abalo moral concretamente demonstrado. basta a constatação da prática ilícita apta a ofender valores transindividuais relevantes.
+
+por fim, a reparação não se esgota na indenização pecuniária. foi admitida, ao menos em tese, a possibilidade de medida reparatória in natura consistente na divulgação da sentença condenatória em jornais de grande circulação, como forma de recomposição mais ampla do dano e de tutela da dimensão coletiva lesada. trata-se de providência compatível com a ideia de reparação integral no processo coletivo. stj. 2ª turma. resp 2.078.628-pe, rel. min. marco aurélio bellizze, julgado em 16/12/2025 (info 882).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 6</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-6">Não respondida</span>
+</div>
+
+<p class="enunciado">A oferta, por instituição de ensino credenciada apenas para cursos presenciais específicos em sua sede, de supostos cursos superiores por intermédio de empresas privadas não credenciadas, com divulgação enganosa de que haveria reconhecimento pelo MEC ou possibilidade de posterior conversão em graduação, pode caracterizar lesão extrapatrimonial transindividual, sendo desnecessária a demonstração de abalo moral concreto da coletividade para a configuração do dano moral coletivo; ademais, a reparação integral do ilícito pode admitir, em tese, a divulgação da sentença condenatória em veículos de grande circulação, sem prejuízo da indenização pecuniária.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(6, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(6, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-6">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a lógica central do entendimento firmado: a irregular oferta de cursos superiores e a terceirização ilícita de atividades acadêmicas não se limitam a um mero inadimplemento contratual ou a prejuízos individuais dos alunos, mas atingem bens jurídicos metaindividuais, como a confiança social na integridade do sistema educacional e na atuação regulatória do Estado. Nessa perspectiva, a conduta viola de forma injusta e intolerável interesses de conteúdo extrapatrimonial da coletividade, o que autoriza o reconhecimento do dano moral coletivo.<br><br>Além disso, o dano moral coletivo, nessa hipótese, é tratado como in re ipsa, isto é, sua configuração decorre da própria gravidade objetiva da conduta ilícita, dispensando prova específica de sofrimento coletivo, de repercussão social mensurável ou de abalo moral concretamente demonstrado. Basta a constatação da prática ilícita apta a ofender valores transindividuais relevantes.<br><br>Por fim, a reparação não se esgota na indenização pecuniária. Foi admitida, ao menos em tese, a possibilidade de medida reparatória in natura consistente na divulgação da sentença condenatória em jornais de grande circulação, como forma de recomposição mais ampla do dano e de tutela da dimensão coletiva lesada. Trata-se de providência compatível com a ideia de reparação integral no processo coletivo.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 2ª Turma. REsp 2.078.628-PE, Rel. Min. Marco Aurélio Bellizze, julgado em 16/12/2025 (Info 882).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="na hipótese de incidência simultânea de mais de uma causa de aumento previstas na parte especial do código penal, a opção judicial por não cumulá-las dispensa fundamentação específica, bastando a aplicação isolada da majorante mais favorável ao réu, ainda que outra, em tese, produza incremento superior da reprimenda. a assertiva está incorreta por duas razões centrais.
+
+primeiro, a escolha entre cumular todas as causas de aumento ou aplicar apenas uma delas não é discricionária em sentido absoluto nem dispensa motivação. quando o julgador opta pela incidência conjunta das majorantes, deve apresentar fundamentação concreta, extraída das circunstâncias do caso, demonstrando por que a resposta penal mais gravosa se mostra necessária. a mera referência abstrata à existência de pluralidade de causas de aumento não autoriza, por si só, a cumulação.
+
+segundo, se o magistrado decidir aplicar apenas uma causa de aumento, não lhe é dado selecionar a mais benéfica ao réu por critério de favorabilidade. nessa hipótese, a regra é a prevalência da causa que mais eleva a pena, justamente porque o parágrafo único do art. 68 do código penal confere ao julgador a faculdade de limitar-se a um só aumento, mas não de escolher arbitrariamente o incremento menos severo. assim, a opção pela majorante mais branda contraria a lógica do dispositivo e o entendimento firmado no julgado.
+
+em síntese: a cumulação exige motivação concreta; a aplicação isolada de apenas uma majorante é admitida, mas deve recair sobre a causa de aumento mais gravosa, e não sobre a mais favorável ao acusado. stj. 3ª seção. eresp 2.206.873-sp, rel. min. joel ilan paciornik, julgado em 11/3/2026 (info 882).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 7</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-7">Não respondida</span>
+</div>
+
+<p class="enunciado">Na hipótese de incidência simultânea de mais de uma causa de aumento previstas na parte especial do Código Penal, a opção judicial por não cumulá-las dispensa fundamentação específica, bastando a aplicação isolada da majorante mais favorável ao réu, ainda que outra, em tese, produza incremento superior da reprimenda.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(7, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(7, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-7">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta por duas razões centrais.<br><br>Primeiro, a escolha entre cumular todas as causas de aumento ou aplicar apenas uma delas não é discricionária em sentido absoluto nem dispensa motivação. Quando o julgador opta pela incidência conjunta das majorantes, deve apresentar fundamentação concreta, extraída das circunstâncias do caso, demonstrando por que a resposta penal mais gravosa se mostra necessária. A mera referência abstrata à existência de pluralidade de causas de aumento não autoriza, por si só, a cumulação.<br><br>Segundo, se o magistrado decidir aplicar apenas uma causa de aumento, não lhe é dado selecionar a mais benéfica ao réu por critério de favorabilidade. Nessa hipótese, a regra é a prevalência da causa que mais eleva a pena, justamente porque o parágrafo único do art. 68 do Código Penal confere ao julgador a faculdade de limitar-se a um só aumento, mas não de escolher arbitrariamente o incremento menos severo. Assim, a opção pela majorante mais branda contraria a lógica do dispositivo e o entendimento firmado no julgado.<br><br>Em síntese: a cumulação exige motivação concreta; a aplicação isolada de apenas uma majorante é admitida, mas deve recair sobre a causa de aumento mais gravosa, e não sobre a mais favorável ao acusado.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Seção. EREsp 2.206.873-SP, Rel. Min. Joel Ilan Paciornik, julgado em 11/3/2026 (Info 882).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a fabricação, a aquisição, a utilização ou a posse de maquinário, aparelho, instrumento ou qualquer objeto destinado à preparação de drogas, por não integrar o rol taxativo de crimes hediondos, submete-se, para fins de progressão de regime, às regras gerais da lei de execução penal, sem prejuízo de que o livramento condicional observe disciplina especial da lei de drogas, exigindo o cumprimento de dois terços da pena e vedando-se sua concessão ao reincidente específico. o enunciado está correto porque distingue adequadamente duas consequências jurídicas distintas do art. 34 da lei 11.343/2006.
+
+primeiro, o tipo penal de fabricar, adquirir, utilizar, transportar, oferecer, vender, distribuir, entregar a consumo ou fornecer maquinário, aparelho, instrumento ou qualquer objeto destinado à fabricação, preparação, produção ou transformação de drogas não foi incluído no rol taxativo de crimes hediondos previsto no art. 2º da lei 8.072/1990. por isso, não se pode atribuir a esse delito natureza hedionda por analogia ou interpretação extensiva em prejuízo do réu, especialmente porque a hediondez exige previsão legal expressa.
+
+daí decorre a segunda conclusão: para fins de progressão de regime, o delito deve ser tratado como crime comum, incidindo as regras gerais da lei de execução penal, e não o regime mais gravoso reservado aos crimes hediondos e equiparados.
+
+por outro lado, o livramento condicional não segue a disciplina geral do código penal de forma integral, porque a própria lei de drogas contém regra específica no art. 44, parágrafo único, exigindo o cumprimento de dois terços da pena e vedando o benefício ao reincidente específico. assim, embora o crime não seja hediondo, há disciplina legal própria para o livramento condicional, que deve ser observada.
+
+a questão explora justamente a diferença entre hediondez e regime de execução penal: o fato de o delito não ser hediondo não impede a incidência de regra especial mais gravosa quanto ao livramento condicional, desde que prevista expressamente em lei. stj. 5ª turma. hc 1.005.146-sp, rel. min. ribeiro dantas, julgado em 3/3/2026 (info 882).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 8</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-8">Não respondida</span>
+</div>
+
+<p class="enunciado">A fabricação, a aquisição, a utilização ou a posse de maquinário, aparelho, instrumento ou qualquer objeto destinado à preparação de drogas, por não integrar o rol taxativo de crimes hediondos, submete-se, para fins de progressão de regime, às regras gerais da Lei de Execução Penal, sem prejuízo de que o livramento condicional observe disciplina especial da Lei de Drogas, exigindo o cumprimento de dois terços da pena e vedando-se sua concessão ao reincidente específico.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(8, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(8, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-8">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O enunciado está correto porque distingue adequadamente duas consequências jurídicas distintas do art. 34 da Lei 11.343/2006.<br><br>Primeiro, o tipo penal de fabricar, adquirir, utilizar, transportar, oferecer, vender, distribuir, entregar a consumo ou fornecer maquinário, aparelho, instrumento ou qualquer objeto destinado à fabricação, preparação, produção ou transformação de drogas não foi incluído no rol taxativo de crimes hediondos previsto no art. 2º da Lei 8.072/1990. Por isso, não se pode atribuir a esse delito natureza hedionda por analogia ou interpretação extensiva em prejuízo do réu, especialmente porque a hediondez exige previsão legal expressa.<br><br>Daí decorre a segunda conclusão: para fins de progressão de regime, o delito deve ser tratado como crime comum, incidindo as regras gerais da Lei de Execução Penal, e não o regime mais gravoso reservado aos crimes hediondos e equiparados.<br><br>Por outro lado, o livramento condicional não segue a disciplina geral do Código Penal de forma integral, porque a própria Lei de Drogas contém regra específica no art. 44, parágrafo único, exigindo o cumprimento de dois terços da pena e vedando o benefício ao reincidente específico. Assim, embora o crime não seja hediondo, há disciplina legal própria para o livramento condicional, que deve ser observada.<br><br>A questão explora justamente a diferença entre hediondez e regime de execução penal: o fato de o delito não ser hediondo não impede a incidência de regra especial mais gravosa quanto ao livramento condicional, desde que prevista expressamente em lei.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 5ª Turma. HC 1.005.146-SP, Rel. Min. Ribeiro Dantas, julgado em 3/3/2026 (Info 882).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a ordem dos advogados do brasil possui legitimidade para impetrar mandado de segurança em defesa individual de advogado investigado, ainda que a controvérsia se restrinja à apuração de fatos penalmente relevantes atribuídos exclusivamente ao próprio causídico; ademais, a inviolabilidade do escritório profissional é oponível de forma absoluta à medida de busca e apreensão, de modo que a colaboração premiada prestada por advogado somente pode ser utilizada quando versar sobre fatos conhecidos em razão do exercício do múnus profissional. o enunciado está incorreto em três pontos centrais.
+
+primeiro, a legitimação da oab para impetrar mandado de segurança não é irrestrita nem se presta, por si só, à tutela de interesse individual de advogado investigado. a atuação da entidade somente se justifica quando houver interesse institucional ou da categoria em sentido amplo, e não mera defesa subjetiva de um profissional específico em situação concreta. no caso julgado, reconheceu-se justamente a ilegitimidade da oab para manejar a impetração em favor exclusivo do advogado investigado.
+
+segundo, a inviolabilidade do escritório de advocacia não tem caráter absoluto. embora a constituição e o estatuto da advocacia assegurem proteção relevante ao local de trabalho do advogado, essa garantia pode ser relativizada quando o próprio advogado é objeto de investigação criminal, desde que a medida cautelar seja fundamentada e observadas as cautelas legais pertinentes, especialmente para evitar devassa indevida sobre comunicações e documentos protegidos. assim, a busca e apreensão não é vedada em termos absolutos.
+
+terceiro, a colaboração premiada firmada por advogado não é inválida apenas por sua condição profissional. o ponto decisivo é o conteúdo da colaboração: ela é admitida quando versa sobre fatos criminosos dos quais o próprio colaborador participou como agente, e não sobre informações obtidas no exercício regular da advocacia em razão do sigilo profissional. no caso, os relatos não diziam respeito aos serviços jurídicos para os quais o advogado fora contratado, mas a crimes em que ele próprio teria atuado ao lado de outro investigado, o que afasta a alegação de ilicitude automática da colaboração.
+
+em síntese, a tese firmada prestigia a possibilidade de investigação de advogado quando presentes elementos concretos, afasta a legitimidade da oab para tutela individual sem interesse coletivo e reconhece que o sigilo e a inviolabilidade profissional não podem ser utilizados como escudo absoluto para a prática de delitos. stj. 6ª turma. agrg no rms 73.012-sp, rel. min. antonio saldanha palheiro, julgado em 17/3/2026 (info 882).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 9</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-9">Não respondida</span>
+</div>
+
+<p class="enunciado">A Ordem dos Advogados do Brasil possui legitimidade para impetrar mandado de segurança em defesa individual de advogado investigado, ainda que a controvérsia se restrinja à apuração de fatos penalmente relevantes atribuídos exclusivamente ao próprio causídico; ademais, a inviolabilidade do escritório profissional é oponível de forma absoluta à medida de busca e apreensão, de modo que a colaboração premiada prestada por advogado somente pode ser utilizada quando versar sobre fatos conhecidos em razão do exercício do múnus profissional.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(9, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(9, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-9">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O enunciado está incorreto em três pontos centrais.<br><br>Primeiro, a legitimação da OAB para impetrar mandado de segurança não é irrestrita nem se presta, por si só, à tutela de interesse individual de advogado investigado. A atuação da entidade somente se justifica quando houver interesse institucional ou da categoria em sentido amplo, e não mera defesa subjetiva de um profissional específico em situação concreta. No caso julgado, reconheceu-se justamente a ilegitimidade da OAB para manejar a impetração em favor exclusivo do advogado investigado.<br><br>Segundo, a inviolabilidade do escritório de advocacia não tem caráter absoluto. Embora a Constituição e o Estatuto da Advocacia assegurem proteção relevante ao local de trabalho do advogado, essa garantia pode ser relativizada quando o próprio advogado é objeto de investigação criminal, desde que a medida cautelar seja fundamentada e observadas as cautelas legais pertinentes, especialmente para evitar devassa indevida sobre comunicações e documentos protegidos. Assim, a busca e apreensão não é vedada em termos absolutos.<br><br>Terceiro, a colaboração premiada firmada por advogado não é inválida apenas por sua condição profissional. O ponto decisivo é o conteúdo da colaboração: ela é admitida quando versa sobre fatos criminosos dos quais o próprio colaborador participou como agente, e não sobre informações obtidas no exercício regular da advocacia em razão do sigilo profissional. No caso, os relatos não diziam respeito aos serviços jurídicos para os quais o advogado fora contratado, mas a crimes em que ele próprio teria atuado ao lado de outro investigado, o que afasta a alegação de ilicitude automática da colaboração.<br><br>Em síntese, a tese firmada prestigia a possibilidade de investigação de advogado quando presentes elementos concretos, afasta a legitimidade da OAB para tutela individual sem interesse coletivo e reconhece que o sigilo e a inviolabilidade profissional não podem ser utilizados como escudo absoluto para a prática de delitos.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 6ª Turma. AgRg no RMS 73.012-SP, Rel. Min. Antonio Saldanha Palheiro, julgado em 17/3/2026 (Info 882).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a contribuição previdenciária patronal incide sobre o salário-maternidade, por se tratar de verba paga no curso do vínculo empregatício e integrante da remuneração da segurada, razão pela qual eventual afastamento dessa exação somente seria possível em hipóteses excepcionais de isenção legal expressa, sem que o controle de constitucionalidade pudesse alcançar a regra de incidência prevista na legislação ordinária. a assertiva está incorreta porque o salário-maternidade não pode ser submetido à contribuição previdenciária a cargo do empregador. o entendimento consolidado é de que essa exação é inconstitucional, pois a verba não se amolda à base econômica sobre a qual pode incidir a contribuição patronal nos termos reconhecidos pelo supremo tribunal federal no tema 72 da repercussão geral.
+
+o ponto central não é a existência de isenção legal expressa, mas a própria incompatibilidade constitucional da incidência. em outras palavras, não se trata de mera hipótese de desoneração concedida pelo legislador ordinário, e sim de vedação constitucional à cobrança. por isso, uma vez fixada a tese pelo stf no re 576.967/pr, o stj passou a adequar sua jurisprudência em juízo de retratação, nos termos do art. 1.040, ii, do cpc/2015, afastando a contribuição patronal sobre o salário-maternidade.
+
+a formulação da questão induz erro ao sugerir que o salário-maternidade integraria automaticamente a remuneração tributável do empregador e que apenas uma isenção legal poderia afastar a incidência. o entendimento aplicável é justamente o oposto: a incidência é inconstitucional, e a exclusão decorre do controle de constitucionalidade, não de benefício fiscal. stj. 2ª turma. agrg no ag 1.428.915-df, rel. min. afrânio vilela, julgado em 4/3/2026 (info 882).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 10</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-10">Não respondida</span>
+</div>
+
+<p class="enunciado">A contribuição previdenciária patronal incide sobre o salário-maternidade, por se tratar de verba paga no curso do vínculo empregatício e integrante da remuneração da segurada, razão pela qual eventual afastamento dessa exação somente seria possível em hipóteses excepcionais de isenção legal expressa, sem que o controle de constitucionalidade pudesse alcançar a regra de incidência prevista na legislação ordinária.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(10, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(10, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-10">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque o salário-maternidade não pode ser submetido à contribuição previdenciária a cargo do empregador. O entendimento consolidado é de que essa exação é inconstitucional, pois a verba não se amolda à base econômica sobre a qual pode incidir a contribuição patronal nos termos reconhecidos pelo Supremo Tribunal Federal no Tema 72 da repercussão geral.<br><br>O ponto central não é a existência de isenção legal expressa, mas a própria incompatibilidade constitucional da incidência. Em outras palavras, não se trata de mera hipótese de desoneração concedida pelo legislador ordinário, e sim de vedação constitucional à cobrança. Por isso, uma vez fixada a tese pelo STF no RE 576.967/PR, o STJ passou a adequar sua jurisprudência em juízo de retratação, nos termos do art. 1.040, II, do CPC/2015, afastando a contribuição patronal sobre o salário-maternidade.<br><br>A formulação da questão induz erro ao sugerir que o salário-maternidade integraria automaticamente a remuneração tributável do empregador e que apenas uma isenção legal poderia afastar a incidência. O entendimento aplicável é justamente o oposto: a incidência é inconstitucional, e a exclusão decorre do controle de constitucionalidade, não de benefício fiscal.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 2ª Turma. AgRg no Ag 1.428.915-DF, Rel. Min. Afrânio Vilela, julgado em 4/3/2026 (Info 882).</p>
+</div>
+</section>
 
 </div>
 
 <script>
-const totalQuestoes = 10;
-let respostas = JSON.parse(localStorage.getItem(location.pathname + "_respostas") || "{}");
+const storageKey = location.pathname + "_respostas";
+let respostas = JSON.parse(localStorage.getItem(storageKey) || "{}");
 
-function atualizarPainel() {
-    const respondidas = Object.keys(respostas).length;
-    let acertos = 0;
-    let erros = 0;
-
-    for (const key in respostas) {
-        if (respostas[key].correto) acertos++;
-        else erros++;
-    }
-
-    document.getElementById("respondidas").textContent = respondidas;
-    document.getElementById("acertos").textContent = acertos;
-    document.getElementById("erros").textContent = erros;
+function destacar(t){
+ if(t==="CERTO") return '<span class="gabarito-certo">CERTO</span>';
+ if(t==="ERRADO") return '<span class="gabarito-errado">ERRADO</span>';
+ return t;
 }
 
-function responder(numero, resposta) {
-    const card = document.querySelectorAll(".questao")[numero - 1];
-    const gabarito = card.dataset.gabarito;
-    const correto = resposta === gabarito;
-
-    respostas[numero] = {
-        resposta,
-        correto
-    };
-
-    localStorage.setItem(location.pathname + "_respostas", JSON.stringify(respostas));
-
-    mostrarFeedback(numero);
-    atualizarPainel();
+function responder(numero, resposta){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const gabarito=card.dataset.gabarito;
+ const correto=resposta===gabarito;
+ respostas[numero]={resposta,correto};
+ localStorage.setItem(storageKey, JSON.stringify(respostas));
+ mostrarFeedback(numero);
+ atualizarPainel();
+ filtrar();
 }
 
-function mostrarFeedback(numero) {
-    const card = document.querySelectorAll(".questao")[numero - 1];
-    const feedback = document.getElementById("feedback-" + numero);
-    const status = document.getElementById("status-" + numero);
-    const resultado = feedback.querySelector(".resultado");
-
-    const dados = respostas[numero];
-
-    if (!dados) return;
-
-    feedback.style.display = "block";
-    feedback.classList.remove("correto", "errado");
-
-    if (dados.correto) {
-        feedback.classList.add("correto");
-        resultado.textContent = "Você acertou. A resposta é " + card.dataset.gabarito + ".";
-        status.textContent = "Respondida — acerto";
-        status.style.color = "var(--green)";
-    } else {
-        feedback.classList.add("errado");
-        resultado.textContent = "Você errou. O gabarito é " + card.dataset.gabarito + ".";
-        status.textContent = "Respondida — erro";
-        status.style.color = "var(--red)";
-    }
+function mostrarFeedback(numero){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const feedback=document.getElementById("feedback-"+numero);
+ const status=document.getElementById("status-"+numero);
+ const resultado=feedback.querySelector(".resultado");
+ const gabarito=card.dataset.gabarito;
+ const dados=respostas[numero];
+ if(!dados) return;
+ feedback.style.display="block";
+ feedback.classList.remove("correto","errado");
+ if(dados.correto){
+   feedback.classList.add("correto");
+   resultado.innerHTML="Você acertou. A resposta é "+destacar(gabarito)+".";
+   status.textContent="Respondida — acerto";
+   status.style.color="var(--green)";
+ } else {
+   feedback.classList.add("errado");
+   resultado.innerHTML="Você errou. O gabarito é "+destacar(gabarito)+".";
+   status.textContent="Respondida — erro";
+   status.style.color="var(--red)";
+ }
 }
 
-function restaurar() {
-    for (const key in respostas) {
-        mostrarFeedback(Number(key));
-    }
-    atualizarPainel();
+function atualizarPainel(){
+ let respondidas=0, acertos=0, erros=0;
+ for(const k in respostas){
+   respondidas++;
+   if(respostas[k].correto) acertos++; else erros++;
+ }
+ document.getElementById("respondidas").textContent=respondidas;
+ document.getElementById("acertos").textContent=acertos;
+ document.getElementById("erros").textContent=erros;
+ document.getElementById("visiveis").textContent=document.querySelectorAll(".questao:not(.oculta)").length;
 }
 
-function reiniciar() {
-    if (!confirm("Deseja reiniciar este simulado?")) return;
-    localStorage.removeItem(location.pathname + "_respostas");
-    location.reload();
+function filtrar(){
+ const busca=document.getElementById("busca").value.trim().toLowerCase();
+ const disciplina=document.getElementById("disciplina").value;
+ const statusFiltro=document.getElementById("statusFiltro").value;
+ const cards=Array.from(document.querySelectorAll(".questao"));
+ let vis=0;
+ cards.forEach((card,idx)=>{
+   const n=idx+1;
+   const texto=card.dataset.texto||"";
+   const disc=card.dataset.disciplina||"";
+   const r=respostas[n];
+   let passaStatus=true;
+   if(statusFiltro==="nao") passaStatus=!r;
+   if(statusFiltro==="acerto") passaStatus=r && r.correto;
+   if(statusFiltro==="erro") passaStatus=r && !r.correto;
+   const ok=(!busca||texto.includes(busca)) && (!disciplina||disc===disciplina) && passaStatus;
+   card.classList.toggle("oculta", !ok);
+   if(ok) vis++;
+ });
+ document.getElementById("sem-resultados").style.display=vis===0?"block":"none";
+ atualizarPainel();
+}
+
+function reiniciar(){
+ if(!confirm("Deseja reiniciar este simulado?")) return;
+ localStorage.removeItem(storageKey);
+ location.reload();
+}
+
+function restaurar(){
+ for(const k in respostas) mostrarFeedback(Number(k));
+ filtrar();
+ atualizarPainel();
 }
 
 restaurar();
 </script>
-
 </body>
 </html>

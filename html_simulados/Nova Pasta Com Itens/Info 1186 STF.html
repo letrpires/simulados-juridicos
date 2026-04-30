@@ -4,497 +4,535 @@
 <meta charset="UTF-8">
 <title>Simulado - Info 1186 STF</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <style>
-:root {
-    --bg: #0f172a;
-    --card: #111827;
-    --card2: #1f2937;
-    --text: #e5e7eb;
-    --muted: #9ca3af;
-    --accent: #38bdf8;
-    --green: #22c55e;
-    --red: #ef4444;
-    --yellow: #facc15;
+:root{
+--bg:#020617;--panel:rgba(15,23,42,.88);--card:rgba(15,23,42,.96);
+--card2:rgba(30,41,59,.92);--border:rgba(148,163,184,.22);
+--text:#e5e7eb;--muted:#94a3b8;--accent:#38bdf8;--accent2:#0ea5e9;
+--green:#22c55e;--red:#ef4444;--yellow:#facc15;--purple:#a78bfa;
 }
-
-* {
-    box-sizing: border-box;
+*{box-sizing:border-box}
+body{
+margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+background:radial-gradient(circle at top left,rgba(56,189,248,.20),transparent 28%),
+radial-gradient(circle at top right,rgba(167,139,250,.15),transparent 28%),
+linear-gradient(135deg,#020617,#0f172a 50%,#020617);
+color:var(--text);line-height:1.65;
 }
-
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(135deg, #020617, #111827);
-    color: var(--text);
-    line-height: 1.6;
+header{padding:44px 20px 32px;text-align:center;border-bottom:1px solid var(--border)}
+header h1{margin:0 0 10px;font-size:clamp(28px,4vw,46px);letter-spacing:-.05em}
+header p{color:var(--muted);margin:0;font-size:16px}
+.container{max-width:1160px;margin:0 auto;padding:26px 16px 80px}
+.painel{
+position:sticky;top:10px;z-index:10;background:var(--panel);backdrop-filter:blur(18px);
+border:1px solid var(--border);border-radius:26px;padding:16px;margin-bottom:22px;
+box-shadow:0 22px 70px rgba(0,0,0,.35)
 }
-
-header {
-    padding: 32px 20px;
-    text-align: center;
-    border-bottom: 1px solid #334155;
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.stat{background:var(--card2);padding:14px;border-radius:18px;text-align:center;border:1px solid rgba(148,163,184,.12)}
+.stat strong{display:block;font-size:25px;color:var(--accent);line-height:1.1}
+.stat span{font-size:12px;color:var(--muted)}
+.filtros{display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:12px;margin-top:14px}
+input,select{
+width:100%;background:rgba(2,6,23,.78);color:var(--text);border:1px solid var(--border);
+border-radius:14px;padding:13px 14px;outline:none;font-size:14px
 }
-
-header h1 {
-    margin: 0 0 10px;
-    font-size: 28px;
+input:focus,select:focus{border-color:var(--accent)}
+.card{
+background:var(--card);border:1px solid var(--border);border-radius:24px;padding:26px;
+margin-bottom:20px;box-shadow:0 18px 50px rgba(0,0,0,.24)
 }
-
-header p {
-    color: var(--muted);
-    margin: 0;
+.questao{scroll-margin-top:190px}
+.questao-topo{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:18px}
+.badge{
+background:linear-gradient(135deg,var(--accent),var(--accent2));color:#00111f;font-weight:900;
+padding:7px 13px;border-radius:999px;display:inline-block
 }
-
-.container {
-    max-width: 980px;
-    margin: 0 auto;
-    padding: 24px 16px 80px;
+.disciplina-tag,.tipo-tag{
+display:inline-block;margin-left:8px;color:var(--muted);background:rgba(148,163,184,.10);
+border:1px solid rgba(148,163,184,.14);padding:6px 10px;border-radius:999px;font-size:12px
 }
-
-.painel {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    background: rgba(15, 23, 42, 0.95);
-    backdrop-filter: blur(8px);
-    border: 1px solid #334155;
-    border-radius: 16px;
-    padding: 16px;
-    margin-bottom: 24px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
+.tipo-tag{color:#ddd6fe;border-color:rgba(167,139,250,.25)}
+.status{color:var(--yellow);font-size:13px;white-space:nowrap}
+.enunciado{font-size:19px;margin:0 0 22px;letter-spacing:-.01em}
+.botoes{display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.btn{
+cursor:pointer;border:0;padding:12px 22px;border-radius:14px;color:white;font-weight:900;
+transition:.18s ease;letter-spacing:.02em
 }
-
-.stat {
-    background: var(--card2);
-    padding: 12px;
-    border-radius: 12px;
-    text-align: center;
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.certo{background:rgba(34,197,94,.20);border:1px solid rgba(34,197,94,.42)}
+.btn.errado{background:rgba(239,68,68,.20);border:1px solid rgba(239,68,68,.42)}
+.btn.neutro{background:rgba(56,189,248,.16);color:var(--text);border:1px solid rgba(56,189,248,.32)}
+.feedback{
+display:none;background:rgba(2,6,23,.72);border:1px solid rgba(148,163,184,.16);
+border-left:5px solid var(--accent);padding:18px;border-radius:18px;margin-top:14px
 }
-
-.stat strong {
-    display: block;
-    font-size: 22px;
-    color: var(--accent);
+.feedback.correto{border-left-color:var(--green)}
+.feedback.errado{border-left-color:var(--red)}
+.resultado{font-size:18px;font-weight:900;margin-top:0}
+.justificativa{margin-top:12px}
+.referencia{color:var(--muted);font-size:13px;margin-top:16px}
+.gabarito-certo{color:var(--green);font-weight:900}
+.gabarito-errado{color:var(--red);font-weight:900}
+.oculta{display:none}
+.sem-resultados{text-align:center;color:var(--muted);display:none;padding:30px}
+.grid-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
+.link-card{
+display:block;padding:20px;background:rgba(15,23,42,.95);border:1px solid rgba(148,163,184,.22);
+color:#e5e7eb;border-radius:22px;text-decoration:none;transition:.2s;box-shadow:0 14px 40px rgba(0,0,0,.22)
 }
-
-.card {
-    background: rgba(17, 24, 39, 0.96);
-    border: 1px solid #334155;
-    border-radius: 18px;
-    padding: 22px;
-    margin-bottom: 20px;
-    box-shadow: 0 12px 30px rgba(0,0,0,.25);
-}
-
-.questao-topo {
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
-    align-items: center;
-    margin-bottom: 16px;
-}
-
-.badge {
-    background: #0ea5e9;
-    color: #00111f;
-    font-weight: bold;
-    padding: 6px 12px;
-    border-radius: 999px;
-}
-
-.status {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-.enunciado {
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-
-.botoes {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 18px;
-}
-
-button {
-    cursor: pointer;
-    border: 0;
-    padding: 12px 22px;
-    border-radius: 12px;
-    background: #334155;
-    color: white;
-    font-weight: bold;
-    transition: 0.2s;
-}
-
-button:hover {
-    transform: translateY(-1px);
-    background: #475569;
-}
-
-.feedback {
-    display: none;
-    background: #020617;
-    border-left: 4px solid var(--accent);
-    padding: 16px;
-    border-radius: 12px;
-    margin-top: 12px;
-}
-
-.feedback.correto {
-    border-left-color: var(--green);
-}
-
-.feedback.errado {
-    border-left-color: var(--red);
-}
-
-.resultado {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.referencia {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-.acoes {
-    text-align: center;
-    margin: 30px 0;
-}
-
-.acoes button {
-    background: #0ea5e9;
-    color: #00111f;
-}
-
-@media (max-width: 700px) {
-    .painel {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .botoes {
-        flex-direction: column;
-    }
-
-    header h1 {
-        font-size: 22px;
-    }
-
-    .enunciado {
-        font-size: 16px;
-    }
+.link-card:hover{transform:translateY(-3px);border-color:#38bdf8}
+.link-card strong{display:block;font-size:17px;margin-bottom:8px}
+.link-card span{color:#94a3b8;font-size:13px}
+.index-tools{display:grid;grid-template-columns:1.5fr 1fr;gap:12px;margin-bottom:20px}
+@media(max-width:850px){
+.stats{grid-template-columns:repeat(2,1fr)}
+.filtros,.index-tools{grid-template-columns:1fr}
+.questao-topo{align-items:flex-start;flex-direction:column}
+.botoes{flex-direction:column}
+.enunciado{font-size:16px}
+.card{padding:20px}
 }
 </style>
 </head>
-
 <body>
-
 <header>
-    <h1>Simulado - Info 1186 STF</h1>
-    <p>Simulado interativo de CERTO ou ERRADO</p>
+<h1>Simulado - Info 1186 STF</h1>
+<p>Informativos • Simulado interativo de CERTO ou ERRADO</p>
 </header>
 
 <div class="container">
+<div class="painel">
+<div class="stats">
+<div class="stat"><strong>9</strong><span>Total</span></div>
+<div class="stat"><strong id="visiveis">9</strong><span>Visíveis</span></div>
+<div class="stat"><strong id="respondidas">0</strong><span>Respondidas</span></div>
+<div class="stat"><strong id="acertos">0</strong><span>Acertos</span></div>
+<div class="stat"><strong id="erros">0</strong><span>Erros</span></div>
+</div>
 
-    <div class="painel">
-        <div class="stat">
-            <strong id="total">9</strong>
-            Total
-        </div>
-        <div class="stat">
-            <strong id="respondidas">0</strong>
-            Respondidas
-        </div>
-        <div class="stat">
-            <strong id="acertos">0</strong>
-            Acertos
-        </div>
-        <div class="stat">
-            <strong id="erros">0</strong>
-            Erros
-        </div>
-    </div>
+<div class="filtros">
+<input id="busca" type="search" placeholder="Buscar por palavra-chave..." oninput="filtrar()">
+<select id="disciplina" onchange="filtrar()">
+<option value="">Todas as disciplinas</option>
+<option value="ECA">ECA</option>
+<option value="N/I">N/I</option>
+</select>
+<select id="statusFiltro" onchange="filtrar()">
+<option value="">Todas</option>
+<option value="nao">Não respondidas</option>
+<option value="acerto">Acertos</option>
+<option value="erro">Erros</option>
+</select>
+<button class="btn neutro" onclick="reiniciar()">Reiniciar</button>
+</div>
+</div>
 
-    <div class="acoes">
-        <button onclick="reiniciar()">Reiniciar simulado</button>
-    </div>
+<div id="sem-resultados" class="sem-resultados">Nenhuma questão encontrada com os filtros atuais.</div>
 
-    
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 1</span>
-                <span class="status" id="status-1">Não respondida</span>
-            </div>
 
-            <p class="enunciado">A ausência de lei complementar ou de lei ordinária específica que institua benefício pecuniário aos herdeiros e dependentes carentes de vítimas de crimes dolosos configura omissão inconstitucional apta a ensejar provimento jurisdicional para impor ao Poder Público a criação imediata de prestação material determinada, pois o art. 245 da Constituição estabelece um dever normativo de resultado, e não apenas uma diretriz de conformação legislativa progressiva.</p>
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a ausência de lei complementar ou de lei ordinária específica que institua benefício pecuniário aos herdeiros e dependentes carentes de vítimas de crimes dolosos configura omissão inconstitucional apta a ensejar provimento jurisdicional para impor ao poder público a criação imediata de prestação material determinada, pois o art. 245 da constituição estabelece um dever normativo de resultado, e não apenas uma diretriz de conformação legislativa progressiva. o enunciado está incorreto porque atribui ao art. 245 da constituição um conteúdo normativo mais rígido do que aquele reconhecido no julgamento. a corte assentou que não há omissão constitucional na regulamentação da assistência aos herdeiros e dependentes carentes de pessoas vitimadas por crimes dolosos, justamente porque não se verifica inércia deliberativa do poder público no enfrentamento das necessidades sociais e econômicas decorrentes desses crimes.
 
-            <div class="botoes">
-                <button onclick="responder(1, 'CERTO')">CERTO</button>
-                <button onclick="responder(1, 'ERRADO')">ERRADO</button>
-            </div>
+além disso, o dispositivo constitucional não impõe a criação de benefício pecuniário específico, nem de qualquer outra prestação material determinada. o comando constitucional foi compreendido como uma cláusula de conformação legislativa, que deixa ao legislador, em todas as esferas federativas, a definição progressiva das formas de assistência social a serem prestadas. assim, a constituição não fixou um modelo único ou imediato de tutela, mas conferiu margem para a construção gradual de políticas públicas de caráter social e econômico.
 
-            <div class="feedback" id="feedback-1">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>O enunciado está incorreto porque atribui ao art. 245 da Constituição um conteúdo normativo mais rígido do que aquele reconhecido no julgamento. A Corte assentou que não há omissão constitucional na regulamentação da assistência aos herdeiros e dependentes carentes de pessoas vitimadas por crimes dolosos, justamente porque não se verifica inércia deliberativa do poder público no enfrentamento das necessidades sociais e econômicas decorrentes desses crimes.<br><br>Além disso, o dispositivo constitucional não impõe a criação de benefício pecuniário específico, nem de qualquer outra prestação material determinada. O comando constitucional foi compreendido como uma cláusula de conformação legislativa, que deixa ao legislador, em todas as esferas federativas, a definição progressiva das formas de assistência social a serem prestadas. Assim, a Constituição não fixou um modelo único ou imediato de tutela, mas conferiu margem para a construção gradual de políticas públicas de caráter social e econômico.<br><br>Também é incorreto afirmar que a falta de lei específica, por si só, autoriza a imposição judicial de uma prestação material concreta. O entendimento firmado foi justamente o oposto: cabe ao legislador definir, no espaço de conformação outorgado pela Constituição, a forma de assistência, sem que disso decorra dever constitucional de instituir desde logo um benefício pecuniário ou prestação equivalente.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADO 62/DF, Rel. Min. Dias Toffoli, julgado em 19/08/2025 (Info 1186).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 2</span>
-                <span class="status" id="status-2">Não respondida</span>
-            </div>
+também é incorreto afirmar que a falta de lei específica, por si só, autoriza a imposição judicial de uma prestação material concreta. o entendimento firmado foi justamente o oposto: cabe ao legislador definir, no espaço de conformação outorgado pela constituição, a forma de assistência, sem que disso decorra dever constitucional de instituir desde logo um benefício pecuniário ou prestação equivalente. stf. plenário. ado 62/df, rel. min. dias toffoli, julgado em 19/08/2025 (info 1186).">
 
-            <p class="enunciado">É constitucional decreto do Chefe do Poder Executivo estadual que, ao reputar manifestamente incompatível com a Constituição e com a Lei de Responsabilidade Fiscal lei aprovada pela Assembleia Legislativa que majorou subsídios de determinada carreira, suspenda provisoriamente os respectivos efeitos financeiros até pronunciamento judicial definitivo sobre a validade da norma, por se tratar de exercício legítimo do poder-dever de autotutela administrativa e de recusa à aplicação de ato normativo inconstitucional.</p>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 1</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-1">Não respondida</span>
+</div>
 
-            <div class="botoes">
-                <button onclick="responder(2, 'CERTO')">CERTO</button>
-                <button onclick="responder(2, 'ERRADO')">ERRADO</button>
-            </div>
+<p class="enunciado">A ausência de lei complementar ou de lei ordinária específica que institua benefício pecuniário aos herdeiros e dependentes carentes de vítimas de crimes dolosos configura omissão inconstitucional apta a ensejar provimento jurisdicional para impor ao Poder Público a criação imediata de prestação material determinada, pois o art. 245 da Constituição estabelece um dever normativo de resultado, e não apenas uma diretriz de conformação legislativa progressiva.</p>
 
-            <div class="feedback" id="feedback-2">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque o Chefe do Poder Executivo não possui competência para, por ato unilateral, suspender a eficácia ou os efeitos financeiros de lei formal regularmente aprovada pelo Poder Legislativo, ainda que entenda haver inconstitucionalidade material ou vício relacionado à responsabilidade fiscal. A ordem constitucional brasileira não admite que o Executivo substitua o controle concentrado ou difuso de constitucionalidade por um decreto com efeitos paralisantes sobre norma em vigor.<br><br>No caso examinado, o decreto estadual extrapolou os limites do poder regulamentar e violou a separação de poderes, a legalidade e a hierarquia normativa, pois uma lei somente pode ter sua eficácia afastada por mecanismos juridicamente adequados de controle de constitucionalidade ou por revogação legislativa, não por decisão administrativa do Governador. A invocação da Súmula 473 do STF não legitima a medida, porque a autotutela administrativa se refere à revisão de atos administrativos próprios, e não à suspensão de lei em sentido formal.<br><br>Além disso, o fundamento de que a lei teria sido editada sem observância de exigências orçamentárias ou de impacto financeiro não autoriza o Executivo a impor, por decreto, uma espécie de “suspensão cautelar” da norma até decisão judicial. Mesmo que houvesse dúvida séria quanto à constitucionalidade da lei, a providência adequada seria provocar o controle jurisdicional, e não suprimir unilateralmente seus efeitos.<br><br>O STF, ao apreciar a controvérsia, declarou inconstitucional o decreto por vício formal e material. Embora, no mesmo julgamento, tenha também reconhecido a inconstitucionalidade da própria lei estadual, isso não convalida o ato do Executivo nem afasta a conclusão de que o decreto era inválido por usurpar competência típica do Judiciário e por afrontar a estrutura de freios e contrapesos. Houve, ainda, modulação dos efeitos para preservar atos já praticados com base no decreto, em nome da segurança jurídica, o que não altera o juízo de inconstitucionalidade da medida.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 5.297/TO, Rel. Min. Luiz Fux, julgado em 14/08/2025 (Info 1186).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 3</span>
-                <span class="status" id="status-3">Não respondida</span>
-            </div>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(1, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(1, 'ERRADO')">ERRADO</button>
+</div>
 
-            <p class="enunciado">É formalmente válida a inserção, pela Casa revisora, de dispositivo que amplia substancialmente o alcance material de projeto de lei de iniciativa da Câmara dos Deputados, ainda que tal inovação não tenha sido submetida novamente à apreciação da Casa iniciadora, por se tratar de providência inserida na esfera de autonomia interna do processo legislativo.</p>
+<div class="feedback" id="feedback-1">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O enunciado está incorreto porque atribui ao art. 245 da Constituição um conteúdo normativo mais rígido do que aquele reconhecido no julgamento. A Corte assentou que não há omissão constitucional na regulamentação da assistência aos herdeiros e dependentes carentes de pessoas vitimadas por crimes dolosos, justamente porque não se verifica inércia deliberativa do poder público no enfrentamento das necessidades sociais e econômicas decorrentes desses crimes.<br><br>Além disso, o dispositivo constitucional não impõe a criação de benefício pecuniário específico, nem de qualquer outra prestação material determinada. O comando constitucional foi compreendido como uma cláusula de conformação legislativa, que deixa ao legislador, em todas as esferas federativas, a definição progressiva das formas de assistência social a serem prestadas. Assim, a Constituição não fixou um modelo único ou imediato de tutela, mas conferiu margem para a construção gradual de políticas públicas de caráter social e econômico.<br><br>Também é incorreto afirmar que a falta de lei específica, por si só, autoriza a imposição judicial de uma prestação material concreta. O entendimento firmado foi justamente o oposto: cabe ao legislador definir, no espaço de conformação outorgado pela Constituição, a forma de assistência, sem que disso decorra dever constitucional de instituir desde logo um benefício pecuniário ou prestação equivalente.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADO 62/DF, Rel. Min. Dias Toffoli, julgado em 19/08/2025 (Info 1186).</p>
+</div>
+</section>
 
-            <div class="botoes">
-                <button onclick="responder(3, 'CERTO')">CERTO</button>
-                <button onclick="responder(3, 'ERRADO')">ERRADO</button>
-            </div>
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="é constitucional decreto do chefe do poder executivo estadual que, ao reputar manifestamente incompatível com a constituição e com a lei de responsabilidade fiscal lei aprovada pela assembleia legislativa que majorou subsídios de determinada carreira, suspenda provisoriamente os respectivos efeitos financeiros até pronunciamento judicial definitivo sobre a validade da norma, por se tratar de exercício legítimo do poder-dever de autotutela administrativa e de recusa à aplicação de ato normativo inconstitucional. a assertiva está incorreta porque o chefe do poder executivo não possui competência para, por ato unilateral, suspender a eficácia ou os efeitos financeiros de lei formal regularmente aprovada pelo poder legislativo, ainda que entenda haver inconstitucionalidade material ou vício relacionado à responsabilidade fiscal. a ordem constitucional brasileira não admite que o executivo substitua o controle concentrado ou difuso de constitucionalidade por um decreto com efeitos paralisantes sobre norma em vigor.
 
-            <div class="feedback" id="feedback-3">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque a ampliação substancial do conteúdo original do projeto pela Casa revisora não pode ser tratada como mera deliberação interna das Casas Legislativas. Quando a emenda introduz inovação normativa relevante, altera o sentido e o alcance da proposição originária e, por isso, exige o retorno do projeto à Casa iniciadora para nova apreciação, nos termos do art. 65, parágrafo único, da Constituição.<br><br>No caso examinado, a alteração promovida no Senado não foi considerada ajuste redacional ou modificação acessória, mas verdadeira inovação legislativa com impacto material significativo, ao assegurar acesso à saúde a pessoas em situação de vulnerabilidade sem exigência de comprovante de residência ou inscrição no SUS. Essa mudança extrapolou os limites do processo legislativo regular, configurando vício formal de inconstitucionalidade por afronta ao devido processo legislativo constitucional.<br><br>A Corte afastou expressamente a tese de matéria interna corporis, assentando que o controle judicial é cabível quando há violação de regra constitucional do procedimento legislativo. Além disso, embora tenha reconhecido a inconstitucionalidade formal do dispositivo, modulou os efeitos da decisão para preservar a continuidade da política pública e evitar prejuízos sociais, fixando prazo de 18 meses para correção do vício pelo Congresso Nacional.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 6.085/DF, Rel. Min. Cristiano Zanin, redator do acórdão Min. Gilmar Mendes, julgado em 19/08/2025 (Info 1186).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 4</span>
-                <span class="status" id="status-4">Não respondida</span>
-            </div>
+no caso examinado, o decreto estadual extrapolou os limites do poder regulamentar e violou a separação de poderes, a legalidade e a hierarquia normativa, pois uma lei somente pode ter sua eficácia afastada por mecanismos juridicamente adequados de controle de constitucionalidade ou por revogação legislativa, não por decisão administrativa do governador. a invocação da súmula 473 do stf não legitima a medida, porque a autotutela administrativa se refere à revisão de atos administrativos próprios, e não à suspensão de lei em sentido formal.
 
-            <p class="enunciado">É incompatível com a ordem constitucional lei estadual que, a pretexto de proteção do consumidor e de tutela ambiental, imponha a supermercados e estabelecimentos similares o dever de fornecer gratuitamente sacolas ou embalagens para acondicionamento das mercadorias adquiridas, ainda que a medida não elimine a atividade empresarial nem proíba a cobrança do preço dos produtos, pois a imposição de custo compulsório ao fornecedor, sem correspondente liberdade de organização da atividade econômica, afronta a livre iniciativa.</p>
+além disso, o fundamento de que a lei teria sido editada sem observância de exigências orçamentárias ou de impacto financeiro não autoriza o executivo a impor, por decreto, uma espécie de “suspensão cautelar” da norma até decisão judicial. mesmo que houvesse dúvida séria quanto à constitucionalidade da lei, a providência adequada seria provocar o controle jurisdicional, e não suprimir unilateralmente seus efeitos.
 
-            <div class="botoes">
-                <button onclick="responder(4, 'CERTO')">CERTO</button>
-                <button onclick="responder(4, 'ERRADO')">ERRADO</button>
-            </div>
+o stf, ao apreciar a controvérsia, declarou inconstitucional o decreto por vício formal e material. embora, no mesmo julgamento, tenha também reconhecido a inconstitucionalidade da própria lei estadual, isso não convalida o ato do executivo nem afasta a conclusão de que o decreto era inválido por usurpar competência típica do judiciário e por afrontar a estrutura de freios e contrapesos. houve, ainda, modulação dos efeitos para preservar atos já praticados com base no decreto, em nome da segurança jurídica, o que não altera o juízo de inconstitucionalidade da medida. stf. plenário. adi 5.297/to, rel. min. luiz fux, julgado em 14/08/2025 (info 1186).">
 
-            <div class="feedback" id="feedback-4">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está correta porque a imposição legal de fornecimento gratuito de sacolas ou embalagens aos consumidores interfere diretamente na liberdade de organização da atividade econômica, transferindo ao fornecedor um custo obrigatório sem que haja espaço para definir, segundo sua estratégia empresarial, se o encargo será absorvido, repassado ou cobrado de forma destacada. Esse tipo de intervenção estatal, embora não suprima a atividade comercial nem impeça a venda de produtos, restringe indevidamente a livre iniciativa, que ocupa posição central na ordem econômica constitucional.<br><br>O ponto decisivo é que a Constituição protege a liberdade de empreender e de estruturar a exploração da atividade econômica, nos termos dos arts. 1º, IV, e 170. Assim, ainda que a norma estadual seja apresentada como medida de proteção do consumidor ou de interesse ambiental, ela não pode impor ao particular uma obrigação gratuita que desborde da regulação legítima do mercado e crie um ônus compulsório incompatível com a livre iniciativa. A intervenção estatal no domínio econômico encontra limites na própria Constituição, especialmente quando afeta o núcleo da autonomia empresarial.<br><br>A tese firmada reconhece a inconstitucionalidade de leis que obrigam supermercados ou similares a fornecer gratuitamente sacolas ou embalagens para as compras, justamente por violação ao princípio da livre iniciativa. O aspecto relevante para prova é perceber que a inconstitucionalidade decorre da imposição do fornecimento gratuito em si, e não da simples disciplina de aspectos acessórios da atividade comercial.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.719/DF, Rel. Min. Dias Toffoli, julgado em 19/08/2025 (Info 1186).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 5</span>
-                <span class="status" id="status-5">Não respondida</span>
-            </div>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 2</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-2">Não respondida</span>
+</div>
 
-            <p class="enunciado">É inconstitucional a lei que atribui à agência reguladora competência para, de ofício, disciplinar a devolução aos consumidores de valores de tributos pagos a maior por distribuidoras de energia elétrica, por implicar usurpação da função legislativa e violação à reserva de administração; ademais, eventual ressarcimento deveria abranger integralmente os custos suportados pela concessionária, sem limitação a honorários advocatícios específicos e tributos incidentes sobre a restituição.</p>
+<p class="enunciado">É constitucional decreto do Chefe do Poder Executivo estadual que, ao reputar manifestamente incompatível com a Constituição e com a Lei de Responsabilidade Fiscal lei aprovada pela Assembleia Legislativa que majorou subsídios de determinada carreira, suspenda provisoriamente os respectivos efeitos financeiros até pronunciamento judicial definitivo sobre a validade da norma, por se tratar de exercício legítimo do poder-dever de autotutela administrativa e de recusa à aplicação de ato normativo inconstitucional.</p>
 
-            <div class="botoes">
-                <button onclick="responder(5, 'CERTO')">CERTO</button>
-                <button onclick="responder(5, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(2, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(2, 'ERRADO')">ERRADO</button>
+</div>
 
-            <div class="feedback" id="feedback-5">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque a disciplina legal impugnada foi reputada compatível com a Constituição. Admitiu-se a constitucionalidade da Lei nº 14.385/2022, que ampliou as atribuições da ANEEL para definir, por iniciativa própria, a devolução ou compensação, em benefício dos consumidores, dos valores relativos a tributos recolhidos a maior pelas distribuidoras de energia elétrica.<br><br>O ponto central do entendimento é que a norma não foi vista como indevida invasão da função legislativa nem como afronta à estrutura constitucional das agências reguladoras. Ao contrário, reconheceu-se espaço legítimo para a atuação regulatória da ANEEL na concretização da restituição, inclusive para disciplinar os critérios de repasse aos consumidores.<br><br>Também está errada a parte final da assertiva ao afirmar que o ressarcimento deveria abranger integralmente os custos da concessionária. O julgado foi expresso ao limitar os descontos admissíveis, autorizando apenas a dedução dos honorários advocatícios relativos às causas especificamente relacionadas ao tema e dos tributos incidentes sobre a restituição. Não se admitiu, portanto, abatimento amplo e irrestrito de outros dispêndios empresariais.<br><br>Além disso, o precedente fixou que a devolução deve ocorrer no prazo de até 10 anos, contado da data da efetiva restituição do indébito ou da homologação definitiva da compensação pela Receita Federal, e que o recebimento de boa-fé a maior pelo consumidor não está sujeito à repetição. Esses elementos reforçam que a solução adotada prestigia a proteção do consumidor e a segurança jurídica, sem impor à agência ou às distribuidoras um regime de ressarcimento ilimitado.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.324/DF, Rel. Min. Alexandre de Moraes, julgado em 14/08/2025 (Info 1186).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 6</span>
-                <span class="status" id="status-6">Não respondida</span>
-            </div>
+<div class="feedback" id="feedback-2">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque o Chefe do Poder Executivo não possui competência para, por ato unilateral, suspender a eficácia ou os efeitos financeiros de lei formal regularmente aprovada pelo Poder Legislativo, ainda que entenda haver inconstitucionalidade material ou vício relacionado à responsabilidade fiscal. A ordem constitucional brasileira não admite que o Executivo substitua o controle concentrado ou difuso de constitucionalidade por um decreto com efeitos paralisantes sobre norma em vigor.<br><br>No caso examinado, o decreto estadual extrapolou os limites do poder regulamentar e violou a separação de poderes, a legalidade e a hierarquia normativa, pois uma lei somente pode ter sua eficácia afastada por mecanismos juridicamente adequados de controle de constitucionalidade ou por revogação legislativa, não por decisão administrativa do Governador. A invocação da Súmula 473 do STF não legitima a medida, porque a autotutela administrativa se refere à revisão de atos administrativos próprios, e não à suspensão de lei em sentido formal.<br><br>Além disso, o fundamento de que a lei teria sido editada sem observância de exigências orçamentárias ou de impacto financeiro não autoriza o Executivo a impor, por decreto, uma espécie de “suspensão cautelar” da norma até decisão judicial. Mesmo que houvesse dúvida séria quanto à constitucionalidade da lei, a providência adequada seria provocar o controle jurisdicional, e não suprimir unilateralmente seus efeitos.<br><br>O STF, ao apreciar a controvérsia, declarou inconstitucional o decreto por vício formal e material. Embora, no mesmo julgamento, tenha também reconhecido a inconstitucionalidade da própria lei estadual, isso não convalida o ato do Executivo nem afasta a conclusão de que o decreto era inválido por usurpar competência típica do Judiciário e por afrontar a estrutura de freios e contrapesos. Houve, ainda, modulação dos efeitos para preservar atos já praticados com base no decreto, em nome da segurança jurídica, o que não altera o juízo de inconstitucionalidade da medida.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 5.297/TO, Rel. Min. Luiz Fux, julgado em 14/08/2025 (Info 1186).</p>
+</div>
+</section>
 
-            <p class="enunciado">A disciplina legal que restringe o creditamento do IPI, nas operações submetidas ao regime de suspensão, ao estabelecimento industrial remetente — e não ao adquirente dos insumos — é compatível com a Constituição, pois a não cumulatividade pressupõe a efetiva cobrança do tributo na etapa anterior; assim, inexistindo recolhimento em razão da suspensão, seguida de remissão do crédito tributário, não há crédito a ser apropriado pelo destinatário, sendo inviável ampliar tal benefício por interpretação judicial sem incorrer em atuação típica de legislador positivo.</p>
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="é formalmente válida a inserção, pela casa revisora, de dispositivo que amplia substancialmente o alcance material de projeto de lei de iniciativa da câmara dos deputados, ainda que tal inovação não tenha sido submetida novamente à apreciação da casa iniciadora, por se tratar de providência inserida na esfera de autonomia interna do processo legislativo. a assertiva está incorreta porque a ampliação substancial do conteúdo original do projeto pela casa revisora não pode ser tratada como mera deliberação interna das casas legislativas. quando a emenda introduz inovação normativa relevante, altera o sentido e o alcance da proposição originária e, por isso, exige o retorno do projeto à casa iniciadora para nova apreciação, nos termos do art. 65, parágrafo único, da constituição.
 
-            <div class="botoes">
-                <button onclick="responder(6, 'CERTO')">CERTO</button>
-                <button onclick="responder(6, 'ERRADO')">ERRADO</button>
-            </div>
+no caso examinado, a alteração promovida no senado não foi considerada ajuste redacional ou modificação acessória, mas verdadeira inovação legislativa com impacto material significativo, ao assegurar acesso à saúde a pessoas em situação de vulnerabilidade sem exigência de comprovante de residência ou inscrição no sus. essa mudança extrapolou os limites do processo legislativo regular, configurando vício formal de inconstitucionalidade por afronta ao devido processo legislativo constitucional.
 
-            <div class="feedback" id="feedback-6">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>O enunciado está de acordo com o entendimento firmado no julgamento. A lógica central é que a não cumulatividade do IPI não opera de forma abstrata ou presumida: ela exige a incidência efetiva do tributo na operação anterior, de modo que exista um ônus fiscal passível de compensação na etapa subsequente. Nas hipóteses de suspensão, não há pagamento do imposto na etapa antecedente e, com a posterior remissão do crédito tributário, inexiste débito anterior apto a gerar crédito para o adquirente.<br><br>Além disso, a norma questionada foi tratada como opção legislativa legítima, voltada a concentrar o benefício na etapa inicial da cadeia produtiva, isto é, no estabelecimento industrial remetente, fabricante dos insumos. Essa conformação legal foi reputada compatível com a Constituição e com a jurisprudência consolidada sobre o tema, inclusive com os parâmetros extraídos do Tema 844 e da Súmula Vinculante 58, que reforçam a deferência ao desenho normativo adotado pelo legislador quando não há violação direta ao texto constitucional.<br><br>Por fim, a tentativa de estender judicialmente o creditamento ao adquirente foi rechaçada por implicar indevida atuação do Judiciário como legislador positivo, em afronta ao princípio da separação dos poderes. A suspensão do IPI, embora tecnicamente distinta da isenção e da alíquota zero, produz efeitos econômicos equivalentes para fins de creditamento, justamente porque não gera ônus tributário compensável na operação anterior.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.135/DF, Rel. Min. Gilmar Mendes, julgado em 19/08/2025 (Info 1186).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 7</span>
-                <span class="status" id="status-7">Não respondida</span>
-            </div>
+a corte afastou expressamente a tese de matéria interna corporis, assentando que o controle judicial é cabível quando há violação de regra constitucional do procedimento legislativo. além disso, embora tenha reconhecido a inconstitucionalidade formal do dispositivo, modulou os efeitos da decisão para preservar a continuidade da política pública e evitar prejuízos sociais, fixando prazo de 18 meses para correção do vício pelo congresso nacional. stf. plenário. adi 6.085/df, rel. min. cristiano zanin, redator do acórdão min. gilmar mendes, julgado em 19/08/2025 (info 1186).">
 
-            <p class="enunciado">É inconstitucional lei municipal que, ao disciplinar taxa de fiscalização de estabelecimento, adote o tipo de atividade exercida pelo contribuinte como critério para a fixação do respectivo valor, ainda que a graduação da exação guarde correspondência com o custo da atividade estatal e não haja identidade integral com base de cálculo própria de imposto.</p>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 3</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-3">Não respondida</span>
+</div>
 
-            <div class="botoes">
-                <button onclick="responder(7, 'CERTO')">CERTO</button>
-                <button onclick="responder(7, 'ERRADO')">ERRADO</button>
-            </div>
+<p class="enunciado">É formalmente válida a inserção, pela Casa revisora, de dispositivo que amplia substancialmente o alcance material de projeto de lei de iniciativa da Câmara dos Deputados, ainda que tal inovação não tenha sido submetida novamente à apreciação da Casa iniciadora, por se tratar de providência inserida na esfera de autonomia interna do processo legislativo.</p>
 
-            <div class="feedback" id="feedback-7">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva contraria a orientação firmada no julgamento do Tema 1.035 da repercussão geral. O ponto central do entendimento é que a taxa de fiscalização pode ter seu valor graduado com base em elementos relacionados ao tipo de atividade exercida pelo contribuinte, desde que essa opção legislativa mantenha correspondência com o custo da atuação estatal e respeite os limites constitucionais próprios das taxas.<br><br>A Constituição, no art. 145, II, autoriza a instituição de taxas em razão do exercício do poder de polícia ou da utilização, efetiva ou potencial, de serviço público específico e divisível, e o § 2º veda que as taxas tenham base de cálculo própria de impostos. Isso não impede, porém, que a lei utilize elementos que também apareçam em bases tributárias típicas de impostos, desde que não haja identidade total entre as bases e que o critério adotado preserve a relação com o custo da fiscalização.<br><br>No caso examinado, o STF assentou que é constitucional considerar o tipo de atividade exercida pelo contribuinte como um dos critérios para a fixação do valor da taxa de fiscalização do estabelecimento. Assim, a mera utilização da atividade econômica como parâmetro não torna a exação inconstitucional, especialmente quando o critério serve à mensuração da intensidade, complexidade ou custo da atividade fiscalizatória.<br><br>A assertiva erra ao afirmar, de forma categórica, a inconstitucionalidade da técnica legislativa, quando o entendimento consolidado admite essa modelagem tributária dentro dos limites constitucionais das taxas.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ARE 990.094/SP, Rel. Min. Gilmar Mendes, julgado em 19/08/2025 (Repercussão Geral – Tema 1.035) (Info 1186).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 8</span>
-                <span class="status" id="status-8">Não respondida</span>
-            </div>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(3, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(3, 'ERRADO')">ERRADO</button>
+</div>
 
-            <p class="enunciado">A contribuição de intervenção no domínio econômico instituída para financiar o Programa de Estímulo à Interação Universidade-Empresa para o Apoio à Inovação pode incidir sobre remessas ao exterior ainda que o sujeito passivo não atue no setor de tecnologia, pois a validade da exação não depende de correspondência entre a atividade econômica do contribuinte e o segmento diretamente beneficiado pela arrecadação, bastando o vínculo entre a cobrança e a finalidade estatal que justificou sua criação; ademais, a receita dela decorrente deve ser integralmente aplicada na área de Ciência e Tecnologia, na forma da lei.</p>
+<div class="feedback" id="feedback-3">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque a ampliação substancial do conteúdo original do projeto pela Casa revisora não pode ser tratada como mera deliberação interna das Casas Legislativas. Quando a emenda introduz inovação normativa relevante, altera o sentido e o alcance da proposição originária e, por isso, exige o retorno do projeto à Casa iniciadora para nova apreciação, nos termos do art. 65, parágrafo único, da Constituição.<br><br>No caso examinado, a alteração promovida no Senado não foi considerada ajuste redacional ou modificação acessória, mas verdadeira inovação legislativa com impacto material significativo, ao assegurar acesso à saúde a pessoas em situação de vulnerabilidade sem exigência de comprovante de residência ou inscrição no SUS. Essa mudança extrapolou os limites do processo legislativo regular, configurando vício formal de inconstitucionalidade por afronta ao devido processo legislativo constitucional.<br><br>A Corte afastou expressamente a tese de matéria interna corporis, assentando que o controle judicial é cabível quando há violação de regra constitucional do procedimento legislativo. Além disso, embora tenha reconhecido a inconstitucionalidade formal do dispositivo, modulou os efeitos da decisão para preservar a continuidade da política pública e evitar prejuízos sociais, fixando prazo de 18 meses para correção do vício pelo Congresso Nacional.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 6.085/DF, Rel. Min. Cristiano Zanin, redator do acórdão Min. Gilmar Mendes, julgado em 19/08/2025 (Info 1186).</p>
+</div>
+</section>
 
-            <div class="botoes">
-                <button onclick="responder(8, 'CERTO')">CERTO</button>
-                <button onclick="responder(8, 'ERRADO')">ERRADO</button>
-            </div>
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="é incompatível com a ordem constitucional lei estadual que, a pretexto de proteção do consumidor e de tutela ambiental, imponha a supermercados e estabelecimentos similares o dever de fornecer gratuitamente sacolas ou embalagens para acondicionamento das mercadorias adquiridas, ainda que a medida não elimine a atividade empresarial nem proíba a cobrança do preço dos produtos, pois a imposição de custo compulsório ao fornecedor, sem correspondente liberdade de organização da atividade econômica, afronta a livre iniciativa. a assertiva está correta porque a imposição legal de fornecimento gratuito de sacolas ou embalagens aos consumidores interfere diretamente na liberdade de organização da atividade econômica, transferindo ao fornecedor um custo obrigatório sem que haja espaço para definir, segundo sua estratégia empresarial, se o encargo será absorvido, repassado ou cobrado de forma destacada. esse tipo de intervenção estatal, embora não suprima a atividade comercial nem impeça a venda de produtos, restringe indevidamente a livre iniciativa, que ocupa posição central na ordem econômica constitucional.
 
-            <div class="feedback" id="feedback-8">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>O enunciado está correto porque reproduz a lógica central do entendimento firmado: a Constituição não impõe, para essa CIDE, uma limitação subjetiva ou material que restrinja sua incidência apenas a contribuintes do setor de tecnologia. Assim, a cobrança sobre remessas financeiras ao exterior é válida mesmo quando o contribuinte não integra esse ramo econômico.<br><br>O ponto decisivo é distinguir dois planos distintos:  <br>1. <strong>o da incidência tributária</strong>, que se legitima pela finalidade interventiva estatal que motivou a criação da contribuição; e  <br>2. <strong>o da destinação da arrecadação</strong>, que deve observar a vinculação legal à área de atuação de Ciência e Tecnologia.<br><br>Em contribuições de intervenção no domínio econômico, não se exige que o setor que suporta o ônus tributário seja necessariamente o mesmo que receberá, de forma direta e exclusiva, o benefício econômico da arrecadação. O nexo constitucional relevante é entre a exação e a finalidade pública interventiva que a justifica. Por isso, a ausência de atuação do contribuinte no setor tecnológico não afasta a constitucionalidade da cobrança.<br><br>Além disso, a tese fixada também assentou que a arrecadação da contribuição instituída pela Lei nº 10.168/2000, com as alterações posteriores, deve ser <strong>integralmente aplicada</strong> na área de Ciência e Tecnologia, nos termos da lei. Trata-se de elemento importante para a conformação constitucional da exação, pois reforça a vinculação teleológica da contribuição à finalidade para a qual foi criada.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. RE 928.943/SP, Rel. Min. Luiz Fux, redator do acórdão Min. Flávio Dino, julgado em 13/08/2025 (Repercussão Geral – Tema 914) (Info 1186).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 9</span>
-                <span class="status" id="status-9">Não respondida</span>
-            </div>
+o ponto decisivo é que a constituição protege a liberdade de empreender e de estruturar a exploração da atividade econômica, nos termos dos arts. 1º, iv, e 170. assim, ainda que a norma estadual seja apresentada como medida de proteção do consumidor ou de interesse ambiental, ela não pode impor ao particular uma obrigação gratuita que desborde da regulação legítima do mercado e crie um ônus compulsório incompatível com a livre iniciativa. a intervenção estatal no domínio econômico encontra limites na própria constituição, especialmente quando afeta o núcleo da autonomia empresarial.
 
-            <p class="enunciado">A incidência do fator previdenciário sobre aposentadoria proporcional concedida a segurado filiado ao Regime Geral de Previdência Social antes de 16/12/1998, quando preenchidos os requisitos da regra de transição do art. 9º da EC nº 20/1998, não afronta o regime constitucional de proteção ao direito adquirido nem a lógica da transição previdenciária, sendo legítima a disciplina legal superveniente que o instituiu para o cálculo do benefício.</p>
+a tese firmada reconhece a inconstitucionalidade de leis que obrigam supermercados ou similares a fornecer gratuitamente sacolas ou embalagens para as compras, justamente por violação ao princípio da livre iniciativa. o aspecto relevante para prova é perceber que a inconstitucionalidade decorre da imposição do fornecimento gratuito em si, e não da simples disciplina de aspectos acessórios da atividade comercial. stf. plenário. adi 7.719/df, rel. min. dias toffoli, julgado em 19/08/2025 (info 1186).">
 
-            <div class="botoes">
-                <button onclick="responder(9, 'CERTO')">CERTO</button>
-                <button onclick="responder(9, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 4</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-4">Não respondida</span>
+</div>
 
-            <div class="feedback" id="feedback-9">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está correta porque o entendimento firmado reconhece a constitucionalidade da aplicação do fator previdenciário, instituído pela Lei nº 9.876/1999, aos benefícios concedidos a segurados que já estavam vinculados ao RGPS antes de 16/12/1998 e que se enquadram na regra de transição do art. 9º da EC nº 20/1998.<br><br>O ponto central é que a regra de transição não assegurou, por si só, um regime de cálculo imune a alterações legislativas posteriores. Ela preservou condições diferenciadas para a aposentadoria proporcional dos segurados já filiados ao sistema, mas não cristalizou definitivamente a forma de apuração do valor do benefício. Assim, a incidência do fator previdenciário sobre esses benefícios não viola direito adquirido, pois o segurado, embora possa ter direito à aposentadoria sob determinadas condições de transição, não adquire automaticamente um método de cálculo intangível se a legislação posterior, válida e aplicável, disciplinar a matéria.<br><br>A tese também afasta a ideia de que a proteção conferida pela transição do art. 9º da EC nº 20/1998 impediria qualquer incidência de regra superveniente de cálculo. O STF assentou que é compatível com a Constituição a aplicação do fator previdenciário justamente nesses casos, preservando-se a lógica de transição do sistema sem excluir a incidência da disciplina legal posterior sobre o quantum do benefício.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. RE 639.856/RS, Rel. Min. Gilmar Mendes, julgado em 19/08/2025 (Repercussão Geral – Tema 616) (Info 1186).</p>
-            </div>
-        </section>
-        
+<p class="enunciado">É incompatível com a ordem constitucional lei estadual que, a pretexto de proteção do consumidor e de tutela ambiental, imponha a supermercados e estabelecimentos similares o dever de fornecer gratuitamente sacolas ou embalagens para acondicionamento das mercadorias adquiridas, ainda que a medida não elimine a atividade empresarial nem proíba a cobrança do preço dos produtos, pois a imposição de custo compulsório ao fornecedor, sem correspondente liberdade de organização da atividade econômica, afronta a livre iniciativa.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(4, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(4, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-4">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque a imposição legal de fornecimento gratuito de sacolas ou embalagens aos consumidores interfere diretamente na liberdade de organização da atividade econômica, transferindo ao fornecedor um custo obrigatório sem que haja espaço para definir, segundo sua estratégia empresarial, se o encargo será absorvido, repassado ou cobrado de forma destacada. Esse tipo de intervenção estatal, embora não suprima a atividade comercial nem impeça a venda de produtos, restringe indevidamente a livre iniciativa, que ocupa posição central na ordem econômica constitucional.<br><br>O ponto decisivo é que a Constituição protege a liberdade de empreender e de estruturar a exploração da atividade econômica, nos termos dos arts. 1º, IV, e 170. Assim, ainda que a norma estadual seja apresentada como medida de proteção do consumidor ou de interesse ambiental, ela não pode impor ao particular uma obrigação gratuita que desborde da regulação legítima do mercado e crie um ônus compulsório incompatível com a livre iniciativa. A intervenção estatal no domínio econômico encontra limites na própria Constituição, especialmente quando afeta o núcleo da autonomia empresarial.<br><br>A tese firmada reconhece a inconstitucionalidade de leis que obrigam supermercados ou similares a fornecer gratuitamente sacolas ou embalagens para as compras, justamente por violação ao princípio da livre iniciativa. O aspecto relevante para prova é perceber que a inconstitucionalidade decorre da imposição do fornecimento gratuito em si, e não da simples disciplina de aspectos acessórios da atividade comercial.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.719/DF, Rel. Min. Dias Toffoli, julgado em 19/08/2025 (Info 1186).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="é inconstitucional a lei que atribui à agência reguladora competência para, de ofício, disciplinar a devolução aos consumidores de valores de tributos pagos a maior por distribuidoras de energia elétrica, por implicar usurpação da função legislativa e violação à reserva de administração; ademais, eventual ressarcimento deveria abranger integralmente os custos suportados pela concessionária, sem limitação a honorários advocatícios específicos e tributos incidentes sobre a restituição. a assertiva está incorreta porque a disciplina legal impugnada foi reputada compatível com a constituição. admitiu-se a constitucionalidade da lei nº 14.385/2022, que ampliou as atribuições da aneel para definir, por iniciativa própria, a devolução ou compensação, em benefício dos consumidores, dos valores relativos a tributos recolhidos a maior pelas distribuidoras de energia elétrica.
+
+o ponto central do entendimento é que a norma não foi vista como indevida invasão da função legislativa nem como afronta à estrutura constitucional das agências reguladoras. ao contrário, reconheceu-se espaço legítimo para a atuação regulatória da aneel na concretização da restituição, inclusive para disciplinar os critérios de repasse aos consumidores.
+
+também está errada a parte final da assertiva ao afirmar que o ressarcimento deveria abranger integralmente os custos da concessionária. o julgado foi expresso ao limitar os descontos admissíveis, autorizando apenas a dedução dos honorários advocatícios relativos às causas especificamente relacionadas ao tema e dos tributos incidentes sobre a restituição. não se admitiu, portanto, abatimento amplo e irrestrito de outros dispêndios empresariais.
+
+além disso, o precedente fixou que a devolução deve ocorrer no prazo de até 10 anos, contado da data da efetiva restituição do indébito ou da homologação definitiva da compensação pela receita federal, e que o recebimento de boa-fé a maior pelo consumidor não está sujeito à repetição. esses elementos reforçam que a solução adotada prestigia a proteção do consumidor e a segurança jurídica, sem impor à agência ou às distribuidoras um regime de ressarcimento ilimitado. stf. plenário. adi 7.324/df, rel. min. alexandre de moraes, julgado em 14/08/2025 (info 1186).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 5</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-5">Não respondida</span>
+</div>
+
+<p class="enunciado">É inconstitucional a lei que atribui à agência reguladora competência para, de ofício, disciplinar a devolução aos consumidores de valores de tributos pagos a maior por distribuidoras de energia elétrica, por implicar usurpação da função legislativa e violação à reserva de administração; ademais, eventual ressarcimento deveria abranger integralmente os custos suportados pela concessionária, sem limitação a honorários advocatícios específicos e tributos incidentes sobre a restituição.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(5, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(5, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-5">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque a disciplina legal impugnada foi reputada compatível com a Constituição. Admitiu-se a constitucionalidade da Lei nº 14.385/2022, que ampliou as atribuições da ANEEL para definir, por iniciativa própria, a devolução ou compensação, em benefício dos consumidores, dos valores relativos a tributos recolhidos a maior pelas distribuidoras de energia elétrica.<br><br>O ponto central do entendimento é que a norma não foi vista como indevida invasão da função legislativa nem como afronta à estrutura constitucional das agências reguladoras. Ao contrário, reconheceu-se espaço legítimo para a atuação regulatória da ANEEL na concretização da restituição, inclusive para disciplinar os critérios de repasse aos consumidores.<br><br>Também está errada a parte final da assertiva ao afirmar que o ressarcimento deveria abranger integralmente os custos da concessionária. O julgado foi expresso ao limitar os descontos admissíveis, autorizando apenas a dedução dos honorários advocatícios relativos às causas especificamente relacionadas ao tema e dos tributos incidentes sobre a restituição. Não se admitiu, portanto, abatimento amplo e irrestrito de outros dispêndios empresariais.<br><br>Além disso, o precedente fixou que a devolução deve ocorrer no prazo de até 10 anos, contado da data da efetiva restituição do indébito ou da homologação definitiva da compensação pela Receita Federal, e que o recebimento de boa-fé a maior pelo consumidor não está sujeito à repetição. Esses elementos reforçam que a solução adotada prestigia a proteção do consumidor e a segurança jurídica, sem impor à agência ou às distribuidoras um regime de ressarcimento ilimitado.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.324/DF, Rel. Min. Alexandre de Moraes, julgado em 14/08/2025 (Info 1186).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a disciplina legal que restringe o creditamento do ipi, nas operações submetidas ao regime de suspensão, ao estabelecimento industrial remetente — e não ao adquirente dos insumos — é compatível com a constituição, pois a não cumulatividade pressupõe a efetiva cobrança do tributo na etapa anterior; assim, inexistindo recolhimento em razão da suspensão, seguida de remissão do crédito tributário, não há crédito a ser apropriado pelo destinatário, sendo inviável ampliar tal benefício por interpretação judicial sem incorrer em atuação típica de legislador positivo. o enunciado está de acordo com o entendimento firmado no julgamento. a lógica central é que a não cumulatividade do ipi não opera de forma abstrata ou presumida: ela exige a incidência efetiva do tributo na operação anterior, de modo que exista um ônus fiscal passível de compensação na etapa subsequente. nas hipóteses de suspensão, não há pagamento do imposto na etapa antecedente e, com a posterior remissão do crédito tributário, inexiste débito anterior apto a gerar crédito para o adquirente.
+
+além disso, a norma questionada foi tratada como opção legislativa legítima, voltada a concentrar o benefício na etapa inicial da cadeia produtiva, isto é, no estabelecimento industrial remetente, fabricante dos insumos. essa conformação legal foi reputada compatível com a constituição e com a jurisprudência consolidada sobre o tema, inclusive com os parâmetros extraídos do tema 844 e da súmula vinculante 58, que reforçam a deferência ao desenho normativo adotado pelo legislador quando não há violação direta ao texto constitucional.
+
+por fim, a tentativa de estender judicialmente o creditamento ao adquirente foi rechaçada por implicar indevida atuação do judiciário como legislador positivo, em afronta ao princípio da separação dos poderes. a suspensão do ipi, embora tecnicamente distinta da isenção e da alíquota zero, produz efeitos econômicos equivalentes para fins de creditamento, justamente porque não gera ônus tributário compensável na operação anterior. stf. plenário. adi 7.135/df, rel. min. gilmar mendes, julgado em 19/08/2025 (info 1186).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 6</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-6">Não respondida</span>
+</div>
+
+<p class="enunciado">A disciplina legal que restringe o creditamento do IPI, nas operações submetidas ao regime de suspensão, ao estabelecimento industrial remetente — e não ao adquirente dos insumos — é compatível com a Constituição, pois a não cumulatividade pressupõe a efetiva cobrança do tributo na etapa anterior; assim, inexistindo recolhimento em razão da suspensão, seguida de remissão do crédito tributário, não há crédito a ser apropriado pelo destinatário, sendo inviável ampliar tal benefício por interpretação judicial sem incorrer em atuação típica de legislador positivo.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(6, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(6, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-6">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O enunciado está de acordo com o entendimento firmado no julgamento. A lógica central é que a não cumulatividade do IPI não opera de forma abstrata ou presumida: ela exige a incidência efetiva do tributo na operação anterior, de modo que exista um ônus fiscal passível de compensação na etapa subsequente. Nas hipóteses de suspensão, não há pagamento do imposto na etapa antecedente e, com a posterior remissão do crédito tributário, inexiste débito anterior apto a gerar crédito para o adquirente.<br><br>Além disso, a norma questionada foi tratada como opção legislativa legítima, voltada a concentrar o benefício na etapa inicial da cadeia produtiva, isto é, no estabelecimento industrial remetente, fabricante dos insumos. Essa conformação legal foi reputada compatível com a Constituição e com a jurisprudência consolidada sobre o tema, inclusive com os parâmetros extraídos do Tema 844 e da Súmula Vinculante 58, que reforçam a deferência ao desenho normativo adotado pelo legislador quando não há violação direta ao texto constitucional.<br><br>Por fim, a tentativa de estender judicialmente o creditamento ao adquirente foi rechaçada por implicar indevida atuação do Judiciário como legislador positivo, em afronta ao princípio da separação dos poderes. A suspensão do IPI, embora tecnicamente distinta da isenção e da alíquota zero, produz efeitos econômicos equivalentes para fins de creditamento, justamente porque não gera ônus tributário compensável na operação anterior.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.135/DF, Rel. Min. Gilmar Mendes, julgado em 19/08/2025 (Info 1186).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="é inconstitucional lei municipal que, ao disciplinar taxa de fiscalização de estabelecimento, adote o tipo de atividade exercida pelo contribuinte como critério para a fixação do respectivo valor, ainda que a graduação da exação guarde correspondência com o custo da atividade estatal e não haja identidade integral com base de cálculo própria de imposto. a assertiva contraria a orientação firmada no julgamento do tema 1.035 da repercussão geral. o ponto central do entendimento é que a taxa de fiscalização pode ter seu valor graduado com base em elementos relacionados ao tipo de atividade exercida pelo contribuinte, desde que essa opção legislativa mantenha correspondência com o custo da atuação estatal e respeite os limites constitucionais próprios das taxas.
+
+a constituição, no art. 145, ii, autoriza a instituição de taxas em razão do exercício do poder de polícia ou da utilização, efetiva ou potencial, de serviço público específico e divisível, e o § 2º veda que as taxas tenham base de cálculo própria de impostos. isso não impede, porém, que a lei utilize elementos que também apareçam em bases tributárias típicas de impostos, desde que não haja identidade total entre as bases e que o critério adotado preserve a relação com o custo da fiscalização.
+
+no caso examinado, o stf assentou que é constitucional considerar o tipo de atividade exercida pelo contribuinte como um dos critérios para a fixação do valor da taxa de fiscalização do estabelecimento. assim, a mera utilização da atividade econômica como parâmetro não torna a exação inconstitucional, especialmente quando o critério serve à mensuração da intensidade, complexidade ou custo da atividade fiscalizatória.
+
+a assertiva erra ao afirmar, de forma categórica, a inconstitucionalidade da técnica legislativa, quando o entendimento consolidado admite essa modelagem tributária dentro dos limites constitucionais das taxas. stf. plenário. are 990.094/sp, rel. min. gilmar mendes, julgado em 19/08/2025 (repercussão geral – tema 1.035) (info 1186).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 7</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-7">Não respondida</span>
+</div>
+
+<p class="enunciado">É inconstitucional lei municipal que, ao disciplinar taxa de fiscalização de estabelecimento, adote o tipo de atividade exercida pelo contribuinte como critério para a fixação do respectivo valor, ainda que a graduação da exação guarde correspondência com o custo da atividade estatal e não haja identidade integral com base de cálculo própria de imposto.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(7, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(7, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-7">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva contraria a orientação firmada no julgamento do Tema 1.035 da repercussão geral. O ponto central do entendimento é que a taxa de fiscalização pode ter seu valor graduado com base em elementos relacionados ao tipo de atividade exercida pelo contribuinte, desde que essa opção legislativa mantenha correspondência com o custo da atuação estatal e respeite os limites constitucionais próprios das taxas.<br><br>A Constituição, no art. 145, II, autoriza a instituição de taxas em razão do exercício do poder de polícia ou da utilização, efetiva ou potencial, de serviço público específico e divisível, e o § 2º veda que as taxas tenham base de cálculo própria de impostos. Isso não impede, porém, que a lei utilize elementos que também apareçam em bases tributárias típicas de impostos, desde que não haja identidade total entre as bases e que o critério adotado preserve a relação com o custo da fiscalização.<br><br>No caso examinado, o STF assentou que é constitucional considerar o tipo de atividade exercida pelo contribuinte como um dos critérios para a fixação do valor da taxa de fiscalização do estabelecimento. Assim, a mera utilização da atividade econômica como parâmetro não torna a exação inconstitucional, especialmente quando o critério serve à mensuração da intensidade, complexidade ou custo da atividade fiscalizatória.<br><br>A assertiva erra ao afirmar, de forma categórica, a inconstitucionalidade da técnica legislativa, quando o entendimento consolidado admite essa modelagem tributária dentro dos limites constitucionais das taxas.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ARE 990.094/SP, Rel. Min. Gilmar Mendes, julgado em 19/08/2025 (Repercussão Geral – Tema 1.035) (Info 1186).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="ECA"
+data-texto="a contribuição de intervenção no domínio econômico instituída para financiar o programa de estímulo à interação universidade-empresa para o apoio à inovação pode incidir sobre remessas ao exterior ainda que o sujeito passivo não atue no setor de tecnologia, pois a validade da exação não depende de correspondência entre a atividade econômica do contribuinte e o segmento diretamente beneficiado pela arrecadação, bastando o vínculo entre a cobrança e a finalidade estatal que justificou sua criação; ademais, a receita dela decorrente deve ser integralmente aplicada na área de ciência e tecnologia, na forma da lei. o enunciado está correto porque reproduz a lógica central do entendimento firmado: a constituição não impõe, para essa cide, uma limitação subjetiva ou material que restrinja sua incidência apenas a contribuintes do setor de tecnologia. assim, a cobrança sobre remessas financeiras ao exterior é válida mesmo quando o contribuinte não integra esse ramo econômico.
+
+o ponto decisivo é distinguir dois planos distintos:  
+1. **o da incidência tributária**, que se legitima pela finalidade interventiva estatal que motivou a criação da contribuição; e  
+2. **o da destinação da arrecadação**, que deve observar a vinculação legal à área de atuação de ciência e tecnologia.
+
+em contribuições de intervenção no domínio econômico, não se exige que o setor que suporta o ônus tributário seja necessariamente o mesmo que receberá, de forma direta e exclusiva, o benefício econômico da arrecadação. o nexo constitucional relevante é entre a exação e a finalidade pública interventiva que a justifica. por isso, a ausência de atuação do contribuinte no setor tecnológico não afasta a constitucionalidade da cobrança.
+
+além disso, a tese fixada também assentou que a arrecadação da contribuição instituída pela lei nº 10.168/2000, com as alterações posteriores, deve ser **integralmente aplicada** na área de ciência e tecnologia, nos termos da lei. trata-se de elemento importante para a conformação constitucional da exação, pois reforça a vinculação teleológica da contribuição à finalidade para a qual foi criada. stf. plenário. re 928.943/sp, rel. min. luiz fux, redator do acórdão min. flávio dino, julgado em 13/08/2025 (repercussão geral – tema 914) (info 1186).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 8</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-8">Não respondida</span>
+</div>
+
+<p class="enunciado">A contribuição de intervenção no domínio econômico instituída para financiar o Programa de Estímulo à Interação Universidade-Empresa para o Apoio à Inovação pode incidir sobre remessas ao exterior ainda que o sujeito passivo não atue no setor de tecnologia, pois a validade da exação não depende de correspondência entre a atividade econômica do contribuinte e o segmento diretamente beneficiado pela arrecadação, bastando o vínculo entre a cobrança e a finalidade estatal que justificou sua criação; ademais, a receita dela decorrente deve ser integralmente aplicada na área de Ciência e Tecnologia, na forma da lei.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(8, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(8, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-8">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O enunciado está correto porque reproduz a lógica central do entendimento firmado: a Constituição não impõe, para essa CIDE, uma limitação subjetiva ou material que restrinja sua incidência apenas a contribuintes do setor de tecnologia. Assim, a cobrança sobre remessas financeiras ao exterior é válida mesmo quando o contribuinte não integra esse ramo econômico.<br><br>O ponto decisivo é distinguir dois planos distintos:  <br>1. <strong>o da incidência tributária</strong>, que se legitima pela finalidade interventiva estatal que motivou a criação da contribuição; e  <br>2. <strong>o da destinação da arrecadação</strong>, que deve observar a vinculação legal à área de atuação de Ciência e Tecnologia.<br><br>Em contribuições de intervenção no domínio econômico, não se exige que o setor que suporta o ônus tributário seja necessariamente o mesmo que receberá, de forma direta e exclusiva, o benefício econômico da arrecadação. O nexo constitucional relevante é entre a exação e a finalidade pública interventiva que a justifica. Por isso, a ausência de atuação do contribuinte no setor tecnológico não afasta a constitucionalidade da cobrança.<br><br>Além disso, a tese fixada também assentou que a arrecadação da contribuição instituída pela Lei nº 10.168/2000, com as alterações posteriores, deve ser <strong>integralmente aplicada</strong> na área de Ciência e Tecnologia, nos termos da lei. Trata-se de elemento importante para a conformação constitucional da exação, pois reforça a vinculação teleológica da contribuição à finalidade para a qual foi criada.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. RE 928.943/SP, Rel. Min. Luiz Fux, redator do acórdão Min. Flávio Dino, julgado em 13/08/2025 (Repercussão Geral – Tema 914) (Info 1186).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a incidência do fator previdenciário sobre aposentadoria proporcional concedida a segurado filiado ao regime geral de previdência social antes de 16/12/1998, quando preenchidos os requisitos da regra de transição do art. 9º da ec nº 20/1998, não afronta o regime constitucional de proteção ao direito adquirido nem a lógica da transição previdenciária, sendo legítima a disciplina legal superveniente que o instituiu para o cálculo do benefício. a assertiva está correta porque o entendimento firmado reconhece a constitucionalidade da aplicação do fator previdenciário, instituído pela lei nº 9.876/1999, aos benefícios concedidos a segurados que já estavam vinculados ao rgps antes de 16/12/1998 e que se enquadram na regra de transição do art. 9º da ec nº 20/1998.
+
+o ponto central é que a regra de transição não assegurou, por si só, um regime de cálculo imune a alterações legislativas posteriores. ela preservou condições diferenciadas para a aposentadoria proporcional dos segurados já filiados ao sistema, mas não cristalizou definitivamente a forma de apuração do valor do benefício. assim, a incidência do fator previdenciário sobre esses benefícios não viola direito adquirido, pois o segurado, embora possa ter direito à aposentadoria sob determinadas condições de transição, não adquire automaticamente um método de cálculo intangível se a legislação posterior, válida e aplicável, disciplinar a matéria.
+
+a tese também afasta a ideia de que a proteção conferida pela transição do art. 9º da ec nº 20/1998 impediria qualquer incidência de regra superveniente de cálculo. o stf assentou que é compatível com a constituição a aplicação do fator previdenciário justamente nesses casos, preservando-se a lógica de transição do sistema sem excluir a incidência da disciplina legal posterior sobre o quantum do benefício. stf. plenário. re 639.856/rs, rel. min. gilmar mendes, julgado em 19/08/2025 (repercussão geral – tema 616) (info 1186).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 9</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-9">Não respondida</span>
+</div>
+
+<p class="enunciado">A incidência do fator previdenciário sobre aposentadoria proporcional concedida a segurado filiado ao Regime Geral de Previdência Social antes de 16/12/1998, quando preenchidos os requisitos da regra de transição do art. 9º da EC nº 20/1998, não afronta o regime constitucional de proteção ao direito adquirido nem a lógica da transição previdenciária, sendo legítima a disciplina legal superveniente que o instituiu para o cálculo do benefício.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(9, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(9, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-9">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque o entendimento firmado reconhece a constitucionalidade da aplicação do fator previdenciário, instituído pela Lei nº 9.876/1999, aos benefícios concedidos a segurados que já estavam vinculados ao RGPS antes de 16/12/1998 e que se enquadram na regra de transição do art. 9º da EC nº 20/1998.<br><br>O ponto central é que a regra de transição não assegurou, por si só, um regime de cálculo imune a alterações legislativas posteriores. Ela preservou condições diferenciadas para a aposentadoria proporcional dos segurados já filiados ao sistema, mas não cristalizou definitivamente a forma de apuração do valor do benefício. Assim, a incidência do fator previdenciário sobre esses benefícios não viola direito adquirido, pois o segurado, embora possa ter direito à aposentadoria sob determinadas condições de transição, não adquire automaticamente um método de cálculo intangível se a legislação posterior, válida e aplicável, disciplinar a matéria.<br><br>A tese também afasta a ideia de que a proteção conferida pela transição do art. 9º da EC nº 20/1998 impediria qualquer incidência de regra superveniente de cálculo. O STF assentou que é compatível com a Constituição a aplicação do fator previdenciário justamente nesses casos, preservando-se a lógica de transição do sistema sem excluir a incidência da disciplina legal posterior sobre o quantum do benefício.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. RE 639.856/RS, Rel. Min. Gilmar Mendes, julgado em 19/08/2025 (Repercussão Geral – Tema 616) (Info 1186).</p>
+</div>
+</section>
 
 </div>
 
 <script>
-const totalQuestoes = 9;
-let respostas = JSON.parse(localStorage.getItem(location.pathname + "_respostas") || "{}");
+const storageKey = location.pathname + "_respostas";
+let respostas = JSON.parse(localStorage.getItem(storageKey) || "{}");
 
-function atualizarPainel() {
-    const respondidas = Object.keys(respostas).length;
-    let acertos = 0;
-    let erros = 0;
-
-    for (const key in respostas) {
-        if (respostas[key].correto) acertos++;
-        else erros++;
-    }
-
-    document.getElementById("respondidas").textContent = respondidas;
-    document.getElementById("acertos").textContent = acertos;
-    document.getElementById("erros").textContent = erros;
+function destacar(t){
+ if(t==="CERTO") return '<span class="gabarito-certo">CERTO</span>';
+ if(t==="ERRADO") return '<span class="gabarito-errado">ERRADO</span>';
+ return t;
 }
 
-function responder(numero, resposta) {
-    const card = document.querySelectorAll(".questao")[numero - 1];
-    const gabarito = card.dataset.gabarito;
-    const correto = resposta === gabarito;
-
-    respostas[numero] = {
-        resposta,
-        correto
-    };
-
-    localStorage.setItem(location.pathname + "_respostas", JSON.stringify(respostas));
-
-    mostrarFeedback(numero);
-    atualizarPainel();
+function responder(numero, resposta){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const gabarito=card.dataset.gabarito;
+ const correto=resposta===gabarito;
+ respostas[numero]={resposta,correto};
+ localStorage.setItem(storageKey, JSON.stringify(respostas));
+ mostrarFeedback(numero);
+ atualizarPainel();
+ filtrar();
 }
 
-function mostrarFeedback(numero) {
-    const card = document.querySelectorAll(".questao")[numero - 1];
-    const feedback = document.getElementById("feedback-" + numero);
-    const status = document.getElementById("status-" + numero);
-    const resultado = feedback.querySelector(".resultado");
-
-    const dados = respostas[numero];
-
-    if (!dados) return;
-
-    feedback.style.display = "block";
-    feedback.classList.remove("correto", "errado");
-
-    if (dados.correto) {
-        feedback.classList.add("correto");
-        resultado.textContent = "Você acertou. A resposta é " + card.dataset.gabarito + ".";
-        status.textContent = "Respondida — acerto";
-        status.style.color = "var(--green)";
-    } else {
-        feedback.classList.add("errado");
-        resultado.textContent = "Você errou. O gabarito é " + card.dataset.gabarito + ".";
-        status.textContent = "Respondida — erro";
-        status.style.color = "var(--red)";
-    }
+function mostrarFeedback(numero){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const feedback=document.getElementById("feedback-"+numero);
+ const status=document.getElementById("status-"+numero);
+ const resultado=feedback.querySelector(".resultado");
+ const gabarito=card.dataset.gabarito;
+ const dados=respostas[numero];
+ if(!dados) return;
+ feedback.style.display="block";
+ feedback.classList.remove("correto","errado");
+ if(dados.correto){
+   feedback.classList.add("correto");
+   resultado.innerHTML="Você acertou. A resposta é "+destacar(gabarito)+".";
+   status.textContent="Respondida — acerto";
+   status.style.color="var(--green)";
+ } else {
+   feedback.classList.add("errado");
+   resultado.innerHTML="Você errou. O gabarito é "+destacar(gabarito)+".";
+   status.textContent="Respondida — erro";
+   status.style.color="var(--red)";
+ }
 }
 
-function restaurar() {
-    for (const key in respostas) {
-        mostrarFeedback(Number(key));
-    }
-    atualizarPainel();
+function atualizarPainel(){
+ let respondidas=0, acertos=0, erros=0;
+ for(const k in respostas){
+   respondidas++;
+   if(respostas[k].correto) acertos++; else erros++;
+ }
+ document.getElementById("respondidas").textContent=respondidas;
+ document.getElementById("acertos").textContent=acertos;
+ document.getElementById("erros").textContent=erros;
+ document.getElementById("visiveis").textContent=document.querySelectorAll(".questao:not(.oculta)").length;
 }
 
-function reiniciar() {
-    if (!confirm("Deseja reiniciar este simulado?")) return;
-    localStorage.removeItem(location.pathname + "_respostas");
-    location.reload();
+function filtrar(){
+ const busca=document.getElementById("busca").value.trim().toLowerCase();
+ const disciplina=document.getElementById("disciplina").value;
+ const statusFiltro=document.getElementById("statusFiltro").value;
+ const cards=Array.from(document.querySelectorAll(".questao"));
+ let vis=0;
+ cards.forEach((card,idx)=>{
+   const n=idx+1;
+   const texto=card.dataset.texto||"";
+   const disc=card.dataset.disciplina||"";
+   const r=respostas[n];
+   let passaStatus=true;
+   if(statusFiltro==="nao") passaStatus=!r;
+   if(statusFiltro==="acerto") passaStatus=r && r.correto;
+   if(statusFiltro==="erro") passaStatus=r && !r.correto;
+   const ok=(!busca||texto.includes(busca)) && (!disciplina||disc===disciplina) && passaStatus;
+   card.classList.toggle("oculta", !ok);
+   if(ok) vis++;
+ });
+ document.getElementById("sem-resultados").style.display=vis===0?"block":"none";
+ atualizarPainel();
+}
+
+function reiniciar(){
+ if(!confirm("Deseja reiniciar este simulado?")) return;
+ localStorage.removeItem(storageKey);
+ location.reload();
+}
+
+function restaurar(){
+ for(const k in respostas) mostrarFeedback(Number(k));
+ filtrar();
+ atualizarPainel();
 }
 
 restaurar();
 </script>
-
 </body>
 </html>

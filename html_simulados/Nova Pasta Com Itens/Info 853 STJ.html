@@ -4,560 +4,632 @@
 <meta charset="UTF-8">
 <title>Simulado - Info 853 STJ</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <style>
-:root {
-    --bg: #0f172a;
-    --card: #111827;
-    --card2: #1f2937;
-    --text: #e5e7eb;
-    --muted: #9ca3af;
-    --accent: #38bdf8;
-    --green: #22c55e;
-    --red: #ef4444;
-    --yellow: #facc15;
+:root{
+--bg:#020617;--panel:rgba(15,23,42,.88);--card:rgba(15,23,42,.96);
+--card2:rgba(30,41,59,.92);--border:rgba(148,163,184,.22);
+--text:#e5e7eb;--muted:#94a3b8;--accent:#38bdf8;--accent2:#0ea5e9;
+--green:#22c55e;--red:#ef4444;--yellow:#facc15;--purple:#a78bfa;
 }
-
-* {
-    box-sizing: border-box;
+*{box-sizing:border-box}
+body{
+margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+background:radial-gradient(circle at top left,rgba(56,189,248,.20),transparent 28%),
+radial-gradient(circle at top right,rgba(167,139,250,.15),transparent 28%),
+linear-gradient(135deg,#020617,#0f172a 50%,#020617);
+color:var(--text);line-height:1.65;
 }
-
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(135deg, #020617, #111827);
-    color: var(--text);
-    line-height: 1.6;
+header{padding:44px 20px 32px;text-align:center;border-bottom:1px solid var(--border)}
+header h1{margin:0 0 10px;font-size:clamp(28px,4vw,46px);letter-spacing:-.05em}
+header p{color:var(--muted);margin:0;font-size:16px}
+.container{max-width:1160px;margin:0 auto;padding:26px 16px 80px}
+.painel{
+position:sticky;top:10px;z-index:10;background:var(--panel);backdrop-filter:blur(18px);
+border:1px solid var(--border);border-radius:26px;padding:16px;margin-bottom:22px;
+box-shadow:0 22px 70px rgba(0,0,0,.35)
 }
-
-header {
-    padding: 32px 20px;
-    text-align: center;
-    border-bottom: 1px solid #334155;
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.stat{background:var(--card2);padding:14px;border-radius:18px;text-align:center;border:1px solid rgba(148,163,184,.12)}
+.stat strong{display:block;font-size:25px;color:var(--accent);line-height:1.1}
+.stat span{font-size:12px;color:var(--muted)}
+.filtros{display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:12px;margin-top:14px}
+input,select{
+width:100%;background:rgba(2,6,23,.78);color:var(--text);border:1px solid var(--border);
+border-radius:14px;padding:13px 14px;outline:none;font-size:14px
 }
-
-header h1 {
-    margin: 0 0 10px;
-    font-size: 28px;
+input:focus,select:focus{border-color:var(--accent)}
+.card{
+background:var(--card);border:1px solid var(--border);border-radius:24px;padding:26px;
+margin-bottom:20px;box-shadow:0 18px 50px rgba(0,0,0,.24)
 }
-
-header p {
-    color: var(--muted);
-    margin: 0;
+.questao{scroll-margin-top:190px}
+.questao-topo{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:18px}
+.badge{
+background:linear-gradient(135deg,var(--accent),var(--accent2));color:#00111f;font-weight:900;
+padding:7px 13px;border-radius:999px;display:inline-block
 }
-
-.container {
-    max-width: 980px;
-    margin: 0 auto;
-    padding: 24px 16px 80px;
+.disciplina-tag,.tipo-tag{
+display:inline-block;margin-left:8px;color:var(--muted);background:rgba(148,163,184,.10);
+border:1px solid rgba(148,163,184,.14);padding:6px 10px;border-radius:999px;font-size:12px
 }
-
-.painel {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    background: rgba(15, 23, 42, 0.95);
-    backdrop-filter: blur(8px);
-    border: 1px solid #334155;
-    border-radius: 16px;
-    padding: 16px;
-    margin-bottom: 24px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
+.tipo-tag{color:#ddd6fe;border-color:rgba(167,139,250,.25)}
+.status{color:var(--yellow);font-size:13px;white-space:nowrap}
+.enunciado{font-size:19px;margin:0 0 22px;letter-spacing:-.01em}
+.botoes{display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.btn{
+cursor:pointer;border:0;padding:12px 22px;border-radius:14px;color:white;font-weight:900;
+transition:.18s ease;letter-spacing:.02em
 }
-
-.stat {
-    background: var(--card2);
-    padding: 12px;
-    border-radius: 12px;
-    text-align: center;
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.certo{background:rgba(34,197,94,.20);border:1px solid rgba(34,197,94,.42)}
+.btn.errado{background:rgba(239,68,68,.20);border:1px solid rgba(239,68,68,.42)}
+.btn.neutro{background:rgba(56,189,248,.16);color:var(--text);border:1px solid rgba(56,189,248,.32)}
+.feedback{
+display:none;background:rgba(2,6,23,.72);border:1px solid rgba(148,163,184,.16);
+border-left:5px solid var(--accent);padding:18px;border-radius:18px;margin-top:14px
 }
-
-.stat strong {
-    display: block;
-    font-size: 22px;
-    color: var(--accent);
+.feedback.correto{border-left-color:var(--green)}
+.feedback.errado{border-left-color:var(--red)}
+.resultado{font-size:18px;font-weight:900;margin-top:0}
+.justificativa{margin-top:12px}
+.referencia{color:var(--muted);font-size:13px;margin-top:16px}
+.gabarito-certo{color:var(--green);font-weight:900}
+.gabarito-errado{color:var(--red);font-weight:900}
+.oculta{display:none}
+.sem-resultados{text-align:center;color:var(--muted);display:none;padding:30px}
+.grid-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
+.link-card{
+display:block;padding:20px;background:rgba(15,23,42,.95);border:1px solid rgba(148,163,184,.22);
+color:#e5e7eb;border-radius:22px;text-decoration:none;transition:.2s;box-shadow:0 14px 40px rgba(0,0,0,.22)
 }
-
-.card {
-    background: rgba(17, 24, 39, 0.96);
-    border: 1px solid #334155;
-    border-radius: 18px;
-    padding: 22px;
-    margin-bottom: 20px;
-    box-shadow: 0 12px 30px rgba(0,0,0,.25);
-}
-
-.questao-topo {
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
-    align-items: center;
-    margin-bottom: 16px;
-}
-
-.badge {
-    background: #0ea5e9;
-    color: #00111f;
-    font-weight: bold;
-    padding: 6px 12px;
-    border-radius: 999px;
-}
-
-.status {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-.enunciado {
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-
-.botoes {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 18px;
-}
-
-button {
-    cursor: pointer;
-    border: 0;
-    padding: 12px 22px;
-    border-radius: 12px;
-    background: #334155;
-    color: white;
-    font-weight: bold;
-    transition: 0.2s;
-}
-
-button:hover {
-    transform: translateY(-1px);
-    background: #475569;
-}
-
-.feedback {
-    display: none;
-    background: #020617;
-    border-left: 4px solid var(--accent);
-    padding: 16px;
-    border-radius: 12px;
-    margin-top: 12px;
-}
-
-.feedback.correto {
-    border-left-color: var(--green);
-}
-
-.feedback.errado {
-    border-left-color: var(--red);
-}
-
-.resultado {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.referencia {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-.acoes {
-    text-align: center;
-    margin: 30px 0;
-}
-
-.acoes button {
-    background: #0ea5e9;
-    color: #00111f;
-}
-
-@media (max-width: 700px) {
-    .painel {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .botoes {
-        flex-direction: column;
-    }
-
-    header h1 {
-        font-size: 22px;
-    }
-
-    .enunciado {
-        font-size: 16px;
-    }
+.link-card:hover{transform:translateY(-3px);border-color:#38bdf8}
+.link-card strong{display:block;font-size:17px;margin-bottom:8px}
+.link-card span{color:#94a3b8;font-size:13px}
+.index-tools{display:grid;grid-template-columns:1.5fr 1fr;gap:12px;margin-bottom:20px}
+@media(max-width:850px){
+.stats{grid-template-columns:repeat(2,1fr)}
+.filtros,.index-tools{grid-template-columns:1fr}
+.questao-topo{align-items:flex-start;flex-direction:column}
+.botoes{flex-direction:column}
+.enunciado{font-size:16px}
+.card{padding:20px}
 }
 </style>
 </head>
-
 <body>
-
 <header>
-    <h1>Simulado - Info 853 STJ</h1>
-    <p>Simulado interativo de CERTO ou ERRADO</p>
+<h1>Simulado - Info 853 STJ</h1>
+<p>Informativos • Simulado interativo de CERTO ou ERRADO</p>
 </header>
 
 <div class="container">
+<div class="painel">
+<div class="stats">
+<div class="stat"><strong>12</strong><span>Total</span></div>
+<div class="stat"><strong id="visiveis">12</strong><span>Visíveis</span></div>
+<div class="stat"><strong id="respondidas">0</strong><span>Respondidas</span></div>
+<div class="stat"><strong id="acertos">0</strong><span>Acertos</span></div>
+<div class="stat"><strong id="erros">0</strong><span>Erros</span></div>
+</div>
 
-    <div class="painel">
-        <div class="stat">
-            <strong id="total">12</strong>
-            Total
-        </div>
-        <div class="stat">
-            <strong id="respondidas">0</strong>
-            Respondidas
-        </div>
-        <div class="stat">
-            <strong id="acertos">0</strong>
-            Acertos
-        </div>
-        <div class="stat">
-            <strong id="erros">0</strong>
-            Erros
-        </div>
-    </div>
+<div class="filtros">
+<input id="busca" type="search" placeholder="Buscar por palavra-chave..." oninput="filtrar()">
+<select id="disciplina" onchange="filtrar()">
+<option value="">Todas as disciplinas</option>
+<option value="ECA">ECA</option>
+<option value="N/I">N/I</option>
+</select>
+<select id="statusFiltro" onchange="filtrar()">
+<option value="">Todas</option>
+<option value="nao">Não respondidas</option>
+<option value="acerto">Acertos</option>
+<option value="erro">Erros</option>
+</select>
+<button class="btn neutro" onclick="reiniciar()">Reiniciar</button>
+</div>
+</div>
 
-    <div class="acoes">
-        <button onclick="reiniciar()">Reiniciar simulado</button>
-    </div>
+<div id="sem-resultados" class="sem-resultados">Nenhuma questão encontrada com os filtros atuais.</div>
 
-    
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 1</span>
-                <span class="status" id="status-1">Não respondida</span>
-            </div>
 
-            <p class="enunciado">Embora a publicidade dos atos administrativos seja a regra, a negativa de acesso ao livro de portaria de unidade prisional, quando o documento contiver registros sobre pessoas, rotinas e ocorrências em setor sensível e estrategicamente relevante para a segurança do estabelecimento e da coletividade, não configura violação a direito líquido e certo de obtenção de informações públicas, desde que a restrição decorra de classificação legítima de sigilo destinada a resguardar dados sensíveis cuja divulgação possa comprometer a segurança da unidade, das pessoas e da sociedade.</p>
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="embora a publicidade dos atos administrativos seja a regra, a negativa de acesso ao livro de portaria de unidade prisional, quando o documento contiver registros sobre pessoas, rotinas e ocorrências em setor sensível e estrategicamente relevante para a segurança do estabelecimento e da coletividade, não configura violação a direito líquido e certo de obtenção de informações públicas, desde que a restrição decorra de classificação legítima de sigilo destinada a resguardar dados sensíveis cuja divulgação possa comprometer a segurança da unidade, das pessoas e da sociedade. a assertiva está correta porque reproduz a lógica central do entendimento: a publicidade administrativa é a regra, mas não é absoluta. o sigilo é admitido como exceção quando houver amparo legal e quando a divulgação puder afetar interesses juridicamente relevantes, como a segurança pública e a integridade de pessoas e instalações.
 
-            <div class="botoes">
-                <button onclick="responder(1, 'CERTO')">CERTO</button>
-                <button onclick="responder(1, 'ERRADO')">ERRADO</button>
-            </div>
+no caso do livro de portaria de unidade prisional, trata-se de documento que reúne informações sobre circulação de pessoas, rotinas internas e ocorrências em ambiente notoriamente sensível. a divulgação irrestrita desses dados pode expor vulnerabilidades operacionais do presídio, comprometer a segurança do estabelecimento, dos agentes, dos internos e até da coletividade. por isso, a recusa de acesso, quando fundada em classificação legítima de sigilo e em proteção de dados sensíveis, não caracteriza ilegalidade nem afronta ao direito líquido e certo à informação.
 
-            <div class="feedback" id="feedback-1">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a lógica central do entendimento: a publicidade administrativa é a regra, mas não é absoluta. O sigilo é admitido como exceção quando houver amparo legal e quando a divulgação puder afetar interesses juridicamente relevantes, como a segurança pública e a integridade de pessoas e instalações.<br><br>No caso do livro de portaria de unidade prisional, trata-se de documento que reúne informações sobre circulação de pessoas, rotinas internas e ocorrências em ambiente notoriamente sensível. A divulgação irrestrita desses dados pode expor vulnerabilidades operacionais do presídio, comprometer a segurança do estabelecimento, dos agentes, dos internos e até da coletividade. Por isso, a recusa de acesso, quando fundada em classificação legítima de sigilo e em proteção de dados sensíveis, não caracteriza ilegalidade nem afronta ao direito líquido e certo à informação.<br><br>O ponto decisivo é que não se trata de simples negativa genérica ou arbitrária: a restrição foi considerada justificada pela natureza do conteúdo e pelo risco concreto associado à sua divulgação. Em matéria de acesso à informação, a Administração deve compatibilizar transparência com proteção de informações classificadas, especialmente quando envolvem segurança institucional.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Turma. RMS 67.965-MG, Rel. Min. Paulo Sérgio Domingues, julgado em 3/6/2025 (Info 853).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 2</span>
-                <span class="status" id="status-2">Não respondida</span>
-            </div>
+o ponto decisivo é que não se trata de simples negativa genérica ou arbitrária: a restrição foi considerada justificada pela natureza do conteúdo e pelo risco concreto associado à sua divulgação. em matéria de acesso à informação, a administração deve compatibilizar transparência com proteção de informações classificadas, especialmente quando envolvem segurança institucional. stj. 1ª turma. rms 67.965-mg, rel. min. paulo sérgio domingues, julgado em 3/6/2025 (info 853).">
 
-            <p class="enunciado">Em contrato de intermediação de transporte aéreo firmado por entidade estrangeira, a agência de turismo que recebe solicitação expressa de emissão de bilhetes em classe executiva e, ainda assim, providencia trecho de retorno em classe econômica, sem prévia comunicação ao contratante, responde objetivamente pelos danos materiais suportados pelo consumidor, não sendo suficiente, para afastar sua responsabilidade, a alegação de mero equívoco operacional na emissão, sobretudo quando o vício somente é constatado após o embarque internacional.</p>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 1</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-1">Não respondida</span>
+</div>
 
-            <div class="botoes">
-                <button onclick="responder(2, 'CERTO')">CERTO</button>
-                <button onclick="responder(2, 'ERRADO')">ERRADO</button>
-            </div>
+<p class="enunciado">Embora a publicidade dos atos administrativos seja a regra, a negativa de acesso ao livro de portaria de unidade prisional, quando o documento contiver registros sobre pessoas, rotinas e ocorrências em setor sensível e estrategicamente relevante para a segurança do estabelecimento e da coletividade, não configura violação a direito líquido e certo de obtenção de informações públicas, desde que a restrição decorra de classificação legítima de sigilo destinada a resguardar dados sensíveis cuja divulgação possa comprometer a segurança da unidade, das pessoas e da sociedade.</p>
 
-            <div class="feedback" id="feedback-2">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está correta porque a responsabilidade da agência de turismo decorre da falha na prestação do serviço, consistente na emissão de passagem em desconformidade com a solicitação expressa do consumidor. No caso, havia exigência específica e previamente informada de que os bilhetes deveriam ser emitidos em classe executiva, por razões de segurança e protocolo diplomático, e a empresa, embora incumbida de providenciar a contratação, emitiu o bilhete de retorno em classe econômica sem qualquer aviso.<br><br>A obrigação assumida pela intermediadora não se limita à mera compra formal do bilhete, mas inclui o dever de verificar se a emissão corresponde ao que foi efetivamente contratado. A inobservância dessa cautela caracteriza defeito do serviço, atraindo a responsabilidade objetiva prevista no art. 14 do CDC, independentemente de culpa.<br><br>Além disso, o simples argumento de “erro operacional” não afasta, por si só, o dever de indenizar. Para romper o nexo causal, seria necessária a demonstração de alguma excludente legal, como culpa exclusiva do consumidor ou de terceiro, o que não ocorreu. Ao contrário, o erro foi imputável à própria prestadora do serviço, que deixou de conferir a conformidade do bilhete com as condições expressamente ajustadas.<br><br>Também é relevante que o vício só foi percebido quando a passageira já estava no exterior, circunstância que agravou o prejuízo e levou ao cancelamento da passagem original, impondo a aquisição de novo bilhete em outra companhia aérea. Assim, os danos materiais suportados são consequência direta da falha da agência, que deve arcar com os prejuízos decorrentes.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 4ª Turma. REsp 2.104.122-MG, Rel. Min. Maria Isabel Gallotti, julgado em 20/5/2025 (Info 853).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 3</span>
-                <span class="status" id="status-3">Não respondida</span>
-            </div>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(1, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(1, 'ERRADO')">ERRADO</button>
+</div>
 
-            <p class="enunciado">A cooperativa médica, ainda que ostente natureza societária própria e atue em setor sensível à tutela da saúde, pode requerer recuperação judicial, desde que demonstrada a viabilidade econômica da atividade, pois a disciplina introduzida pela Lei 14.112/2020 na Lei 11.101/2005 passou a abranger expressamente essa espécie de cooperativa, em consonância com a preservação da empresa e com a proteção dos usuários dos serviços prestados.</p>
+<div class="feedback" id="feedback-1">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a lógica central do entendimento: a publicidade administrativa é a regra, mas não é absoluta. O sigilo é admitido como exceção quando houver amparo legal e quando a divulgação puder afetar interesses juridicamente relevantes, como a segurança pública e a integridade de pessoas e instalações.<br><br>No caso do livro de portaria de unidade prisional, trata-se de documento que reúne informações sobre circulação de pessoas, rotinas internas e ocorrências em ambiente notoriamente sensível. A divulgação irrestrita desses dados pode expor vulnerabilidades operacionais do presídio, comprometer a segurança do estabelecimento, dos agentes, dos internos e até da coletividade. Por isso, a recusa de acesso, quando fundada em classificação legítima de sigilo e em proteção de dados sensíveis, não caracteriza ilegalidade nem afronta ao direito líquido e certo à informação.<br><br>O ponto decisivo é que não se trata de simples negativa genérica ou arbitrária: a restrição foi considerada justificada pela natureza do conteúdo e pelo risco concreto associado à sua divulgação. Em matéria de acesso à informação, a Administração deve compatibilizar transparência com proteção de informações classificadas, especialmente quando envolvem segurança institucional.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Turma. RMS 67.965-MG, Rel. Min. Paulo Sérgio Domingues, julgado em 3/6/2025 (Info 853).</p>
+</div>
+</section>
 
-            <div class="botoes">
-                <button onclick="responder(3, 'CERTO')">CERTO</button>
-                <button onclick="responder(3, 'ERRADO')">ERRADO</button>
-            </div>
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="em contrato de intermediação de transporte aéreo firmado por entidade estrangeira, a agência de turismo que recebe solicitação expressa de emissão de bilhetes em classe executiva e, ainda assim, providencia trecho de retorno em classe econômica, sem prévia comunicação ao contratante, responde objetivamente pelos danos materiais suportados pelo consumidor, não sendo suficiente, para afastar sua responsabilidade, a alegação de mero equívoco operacional na emissão, sobretudo quando o vício somente é constatado após o embarque internacional. a assertiva está correta porque a responsabilidade da agência de turismo decorre da falha na prestação do serviço, consistente na emissão de passagem em desconformidade com a solicitação expressa do consumidor. no caso, havia exigência específica e previamente informada de que os bilhetes deveriam ser emitidos em classe executiva, por razões de segurança e protocolo diplomático, e a empresa, embora incumbida de providenciar a contratação, emitiu o bilhete de retorno em classe econômica sem qualquer aviso.
 
-            <div class="feedback" id="feedback-3">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está correta porque a alteração legislativa promovida pela Lei 14.112/2020 inseriu, no art. 6º, § 13, da Lei 11.101/2005, a possibilidade de as cooperativas médicas se submeterem ao regime de recuperação judicial. A ratio da inovação é ampliar a tutela da atividade economicamente viável, evitando a descontinuidade de serviços relevantes e preservando os interesses de todos os envolvidos na cadeia produtiva, com destaque para os usuários dos serviços médicos prestados por essas entidades.<br><br>O ponto central do julgado é que a natureza cooperativa, por si só, não impede o acesso ao instituto recuperacional quando a própria lei passou a contemplar expressamente essa hipótese. Assim, não subsiste interpretação restritiva que exclua as cooperativas médicas do regime apenas em razão de sua forma societária. Além disso, a compatibilidade constitucional da inclusão foi afirmada no controle concentrado, o que reforça a legitimidade da norma e afasta alegações de inconstitucionalidade como óbice ao processamento do pedido.<br><br>Em termos de prova, é importante perceber que o fundamento não é uma extensão analógica do regime, mas sim autorização legal expressa, voltada à preservação da atividade econômica e à proteção da coletividade afetada pela eventual crise da cooperativa.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 4ª Turma. REsp 2.183.714-SP, Rel. Min. Marco Buzzi, julgado em 3/6/2025 (Info 853).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 4</span>
-                <span class="status" id="status-4">Não respondida</span>
-            </div>
+a obrigação assumida pela intermediadora não se limita à mera compra formal do bilhete, mas inclui o dever de verificar se a emissão corresponde ao que foi efetivamente contratado. a inobservância dessa cautela caracteriza defeito do serviço, atraindo a responsabilidade objetiva prevista no art. 14 do cdc, independentemente de culpa.
 
-            <p class="enunciado">Em sede de cumprimento de obrigação de fazer tutelada por multa cominatória, admite-se a revisão judicial da quantia já vencida das astreintes, ainda que o montante tenha se tornado expressivo em razão da inércia do devedor, desde que o magistrado entenda necessário para evitar enriquecimento sem causa; nessa hipótese, a limitação do art. 537, § 1º, do CPC não impede a redução retroativa da penalidade, e a contenção de valores excessivos pode ser feita, inclusive, mediante simples desconsideração da data de intimação da parte contrária quando esta não apresentar certidão formal de origem.</p>
+além disso, o simples argumento de “erro operacional” não afasta, por si só, o dever de indenizar. para romper o nexo causal, seria necessária a demonstração de alguma excludente legal, como culpa exclusiva do consumidor ou de terceiro, o que não ocorreu. ao contrário, o erro foi imputável à própria prestadora do serviço, que deixou de conferir a conformidade do bilhete com as condições expressamente ajustadas.
 
-            <div class="botoes">
-                <button onclick="responder(4, 'CERTO')">CERTO</button>
-                <button onclick="responder(4, 'ERRADO')">ERRADO</button>
-            </div>
+também é relevante que o vício só foi percebido quando a passageira já estava no exterior, circunstância que agravou o prejuízo e levou ao cancelamento da passagem original, impondo a aquisição de novo bilhete em outra companhia aérea. assim, os danos materiais suportados são consequência direta da falha da agência, que deve arcar com os prejuízos decorrentes. stj. 4ª turma. resp 2.104.122-mg, rel. min. maria isabel gallotti, julgado em 20/5/2025 (info 853).">
 
-            <div class="feedback" id="feedback-4">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque mistura premissas incompatíveis com o regime jurídico das astreintes e com a orientação firmada no julgado.<br><br>Primeiro, a multa cominatória possui natureza coercitiva e sua revisão judicial, nos termos do art. 537, § 1º, do CPC, alcança apenas a parcela <strong>vincenda</strong>, isto é, aquela ainda não incorporada ao patrimônio jurídico do credor. Uma vez vencida, a multa não pode ser reduzida retroativamente, <strong>mesmo que o valor final tenha se tornado elevado</strong>. A razão é evitar que a parte obrigada se beneficie da própria resistência ao cumprimento da ordem judicial, esvaziando a função coercitiva da medida e estimulando comportamento recalcitrante.<br><br>Segundo, o argumento de “enriquecimento sem causa” não autoriza, por si só, a revisão da multa já consolidada. O entendimento reafirma que o problema dos valores excessivos deve ser enfrentado <strong>preventivamente</strong>, e não por redução posterior da multa vencida. Entre as medidas preventivas destacadas estão:  <br>i) a conversão da obrigação de fazer em perdas e danos, de ofício, quando houver inércia abusiva do credor no exercício da faculdade prevista no art. 499 do CPC; e  <br>ii) a preferência por ordens judiciais dirigidas a órgãos públicos e instituições privadas para obtenção do resultado prático equivalente, quando possível, em substituição à atuação direta do obrigado.<br><br>Terceiro, a parte final da assertiva introduz tema processual estranho ao regime das astreintes e também incorreto no contexto do julgado: não se admite o reconhecimento da intempestividade recursal com base em mera juntada de prints de tela no corpo da petição, sem certidão formal emitida na origem contendo a data de intimação. Por coerência, se prints isolados não bastam para demonstrar a tempestividade, também não servem, por si sós, para comprovar a intempestividade do recurso da parte adversa.<br><br>Assim, a assertiva erra ao admitir a redução retroativa das astreintes vencidas e ao relativizar indevidamente a exigência de prova formal da intimação para fins de aferição da tempestividade recursal.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 2ª Turma. AgInt no REsp 2.027.287-MT, Rel. Min. Teodoro Silva Santos, julgado em 30/4/2025 (Info 853).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 5</span>
-                <span class="status" id="status-5">Não respondida</span>
-            </div>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 2</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-2">Não respondida</span>
+</div>
 
-            <p class="enunciado">A realização de julgamento em ambiente virtual assíncrono, por si só, não implica nulidade processual nem ofensa automática ao contraditório; contudo, se a sessão ocorrer durante o recesso forense, período em que o art. 220, § 2º, do CPC veda a prática de atos como audiências e sessões de julgamento e suspende os prazos processuais, haverá nulidade quando demonstrado prejuízo à defesa, especialmente pela frustração da legítima expectativa de inatividade processual e pela impossibilidade de atuação útil do patrono, como o encaminhamento de memoriais ou de sustentação oral em tempo hábil.</p>
+<p class="enunciado">Em contrato de intermediação de transporte aéreo firmado por entidade estrangeira, a agência de turismo que recebe solicitação expressa de emissão de bilhetes em classe executiva e, ainda assim, providencia trecho de retorno em classe econômica, sem prévia comunicação ao contratante, responde objetivamente pelos danos materiais suportados pelo consumidor, não sendo suficiente, para afastar sua responsabilidade, a alegação de mero equívoco operacional na emissão, sobretudo quando o vício somente é constatado após o embarque internacional.</p>
 
-            <div class="botoes">
-                <button onclick="responder(5, 'CERTO')">CERTO</button>
-                <button onclick="responder(5, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(2, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(2, 'ERRADO')">ERRADO</button>
+</div>
 
-            <div class="feedback" id="feedback-5">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a distinção central do entendimento: a mera adoção da modalidade virtual assíncrona, isoladamente, não gera nulidade automática, nem o indeferimento de sustentação oral presencial, por si só, conduz necessariamente à invalidação do julgamento. O ponto decisivo está na realização da sessão durante o recesso forense.<br><br>O art. 220, § 2º, do CPC estabelece não apenas a suspensão dos prazos processuais, mas também a vedação de audiências e sessões de julgamento nesse período. Assim, a prática do ato jurisdicional em recesso contraria a disciplina legal e compromete a confiança legítima das partes de que não haverá exigência de atuação processual do advogado naquele intervalo.<br><br>Além disso, a modalidade virtual não elimina a necessidade de participação das partes na solenidade. Se o julgamento ocorre no recesso, há potencial prejuízo ao exercício da defesa, pois o patrono pode ser surpreendido pela pauta e ficar impedido de apresentar memoriais ou de encaminhar sustentação oral em momento oportuno. No caso analisado, o prejuízo foi reconhecido de forma concreta, inclusive pelo resultado desfavorável, o que reforçou a nulidade.<br><br>Em síntese, o vício não decorre da virtualidade em si, mas da combinação entre julgamento no recesso forense e efetivo comprometimento da defesa, em afronta ao regime do art. 220 do CPC.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.125.599-SP, Rel. Min. Ricardo Villas Bôas Cueva, julgado em 3/6/2025 (Info 853).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 6</span>
-                <span class="status" id="status-6">Não respondida</span>
-            </div>
+<div class="feedback" id="feedback-2">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque a responsabilidade da agência de turismo decorre da falha na prestação do serviço, consistente na emissão de passagem em desconformidade com a solicitação expressa do consumidor. No caso, havia exigência específica e previamente informada de que os bilhetes deveriam ser emitidos em classe executiva, por razões de segurança e protocolo diplomático, e a empresa, embora incumbida de providenciar a contratação, emitiu o bilhete de retorno em classe econômica sem qualquer aviso.<br><br>A obrigação assumida pela intermediadora não se limita à mera compra formal do bilhete, mas inclui o dever de verificar se a emissão corresponde ao que foi efetivamente contratado. A inobservância dessa cautela caracteriza defeito do serviço, atraindo a responsabilidade objetiva prevista no art. 14 do CDC, independentemente de culpa.<br><br>Além disso, o simples argumento de “erro operacional” não afasta, por si só, o dever de indenizar. Para romper o nexo causal, seria necessária a demonstração de alguma excludente legal, como culpa exclusiva do consumidor ou de terceiro, o que não ocorreu. Ao contrário, o erro foi imputável à própria prestadora do serviço, que deixou de conferir a conformidade do bilhete com as condições expressamente ajustadas.<br><br>Também é relevante que o vício só foi percebido quando a passageira já estava no exterior, circunstância que agravou o prejuízo e levou ao cancelamento da passagem original, impondo a aquisição de novo bilhete em outra companhia aérea. Assim, os danos materiais suportados são consequência direta da falha da agência, que deve arcar com os prejuízos decorrentes.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 4ª Turma. REsp 2.104.122-MG, Rel. Min. Maria Isabel Gallotti, julgado em 20/5/2025 (Info 853).</p>
+</div>
+</section>
 
-            <p class="enunciado">A premeditação do agente pode justificar a valoração negativa da culpabilidade na primeira fase da dosimetria, desde que não se trate de elemento inerente ao tipo penal nem de pressuposto fático para a incidência de qualificadora ou agravante; contudo, a elevação da pena-base não decorre automaticamente dessa circunstância, exigindo motivação concreta quanto à maior reprovabilidade da conduta no caso examinado.</p>
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a cooperativa médica, ainda que ostente natureza societária própria e atue em setor sensível à tutela da saúde, pode requerer recuperação judicial, desde que demonstrada a viabilidade econômica da atividade, pois a disciplina introduzida pela lei 14.112/2020 na lei 11.101/2005 passou a abranger expressamente essa espécie de cooperativa, em consonância com a preservação da empresa e com a proteção dos usuários dos serviços prestados. a assertiva está correta porque a alteração legislativa promovida pela lei 14.112/2020 inseriu, no art. 6º, § 13, da lei 11.101/2005, a possibilidade de as cooperativas médicas se submeterem ao regime de recuperação judicial. a ratio da inovação é ampliar a tutela da atividade economicamente viável, evitando a descontinuidade de serviços relevantes e preservando os interesses de todos os envolvidos na cadeia produtiva, com destaque para os usuários dos serviços médicos prestados por essas entidades.
 
-            <div class="botoes">
-                <button onclick="responder(6, 'CERTO')">CERTO</button>
-                <button onclick="responder(6, 'ERRADO')">ERRADO</button>
-            </div>
+o ponto central do julgado é que a natureza cooperativa, por si só, não impede o acesso ao instituto recuperacional quando a própria lei passou a contemplar expressamente essa hipótese. assim, não subsiste interpretação restritiva que exclua as cooperativas médicas do regime apenas em razão de sua forma societária. além disso, a compatibilidade constitucional da inclusão foi afirmada no controle concentrado, o que reforça a legitimidade da norma e afasta alegações de inconstitucionalidade como óbice ao processamento do pedido.
 
-            <div class="feedback" id="feedback-6">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva reproduz a orientação firmada para a dosimetria da pena no tocante à premeditação. A premissa central é que a premeditação, por revelar maior planejamento e reprovabilidade da ação, pode ser considerada na análise da culpabilidade do art. 59 do Código Penal, funcionando como circunstância judicial desfavorável. Essa valoração, porém, não é irrestrita: ela somente é admissível quando a premeditação não se confunda com elementar do delito, não seja traço ínsito à própria figura típica e tampouco constitua pressuposto já absorvido por agravante ou qualificadora, sob pena de indevido bis in idem.<br><br>Além disso, a mera existência de premeditação não autoriza, por si só, o aumento da pena-base. É indispensável fundamentação específica, com indicação de elementos concretos do caso que demonstrem maior censurabilidade da conduta em comparação ao padrão ordinário do tipo penal. Em outras palavras, a premeditação é um dado juridicamente relevante, mas sua repercussão na primeira fase da dosimetria depende de motivação individualizada, não bastando referência abstrata ao planejamento prévio.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Seção. REsp 2.174.028-AL e REsp 2.174.008-AL, Rel. Min. Otávio de Almeida Toledo (Desembargador convocado do TJSP), julgados em 8/5/2025 (Recurso Repetitivo - Tema 1318) (Info 853).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 7</span>
-                <span class="status" id="status-7">Não respondida</span>
-            </div>
+em termos de prova, é importante perceber que o fundamento não é uma extensão analógica do regime, mas sim autorização legal expressa, voltada à preservação da atividade econômica e à proteção da coletividade afetada pela eventual crise da cooperativa. stj. 4ª turma. resp 2.183.714-sp, rel. min. marco buzzi, julgado em 3/6/2025 (info 853).">
 
-            <p class="enunciado">A incidência do princípio da insignificância no delito de contrabando de cigarros eletrônicos não se submete ao parâmetro quantitativo de 1.000 maços fixado para cigarros comuns em precedente repetitivo, sendo irrelevante, para essa análise, o valor dos tributos eventualmente iludidos; ainda assim, a reiteração da conduta afasta a aplicação da bagatela, por evidenciar maior reprovabilidade da ação.</p>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 3</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-3">Não respondida</span>
+</div>
 
-            <div class="botoes">
-                <button onclick="responder(7, 'CERTO')">CERTO</button>
-                <button onclick="responder(7, 'ERRADO')">ERRADO</button>
-            </div>
+<p class="enunciado">A cooperativa médica, ainda que ostente natureza societária própria e atue em setor sensível à tutela da saúde, pode requerer recuperação judicial, desde que demonstrada a viabilidade econômica da atividade, pois a disciplina introduzida pela Lei 14.112/2020 na Lei 11.101/2005 passou a abranger expressamente essa espécie de cooperativa, em consonância com a preservação da empresa e com a proteção dos usuários dos serviços prestados.</p>
 
-            <div class="feedback" id="feedback-7">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>O enunciado está correto porque reproduz, em termos tecnicamente precisos, a orientação firmada para a hipótese de contrabando envolvendo cigarros eletrônicos. O ponto central é que o critério objetivo de 1.000 maços, utilizado em precedente repetitivo para balizar a insignificância em contrabando de cigarros comuns, não pode ser automaticamente transposto para os cigarros eletrônicos, pois se trata de mercadoria com regime jurídico e potencial lesivo distintos, o que impede a aplicação mecânica do mesmo parâmetro quantitativo.<br><br>Além disso, a análise da insignificância no contrabando não se confunde com a lógica do descaminho. Por isso, o valor dos tributos eventualmente iludidos não constitui elemento decisivo para reconhecer a bagatela nessa espécie delitiva, já que esse critério é próprio da aferição da lesão patrimonial ao Fisco, típica do descaminho, e não do contrabando, em que a tutela penal recai sobre a regularidade do comércio exterior e a proteção de interesses administrativos específicos.<br><br>Por fim, a reiteração delitiva é fator incompatível com o reconhecimento da insignificância, pois revela habitualidade e maior censurabilidade da conduta, afastando a mínima ofensividade exigida para a incidência excepcional da bagatela. Assim, ainda que se cogitasse de pequena quantidade ou de reduzido impacto econômico, a repetição da prática impede o afastamento da tipicidade material.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 5ª Turma. AgRg no REsp 2.184.785-PR, Rel. Min. Ribeiro Dantas, julgado em 14/4/2025 (Info 853).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 8</span>
-                <span class="status" id="status-8">Não respondida</span>
-            </div>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(3, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(3, 'ERRADO')">ERRADO</button>
+</div>
 
-            <p class="enunciado">A regularização integral do parcelamento do solo urbano, com obtenção das aprovações administrativas e do competente registro imobiliário antes do oferecimento da denúncia, afasta a tipicidade do art. 50 da Lei n. 6.766/1979, pois, nessa hipótese, não se evidencia o dolo exigido para a configuração do delito, sendo incabível a persecução penal fundada exclusivamente na anterior execução material do loteamento sem autorização.</p>
+<div class="feedback" id="feedback-3">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque a alteração legislativa promovida pela Lei 14.112/2020 inseriu, no art. 6º, § 13, da Lei 11.101/2005, a possibilidade de as cooperativas médicas se submeterem ao regime de recuperação judicial. A ratio da inovação é ampliar a tutela da atividade economicamente viável, evitando a descontinuidade de serviços relevantes e preservando os interesses de todos os envolvidos na cadeia produtiva, com destaque para os usuários dos serviços médicos prestados por essas entidades.<br><br>O ponto central do julgado é que a natureza cooperativa, por si só, não impede o acesso ao instituto recuperacional quando a própria lei passou a contemplar expressamente essa hipótese. Assim, não subsiste interpretação restritiva que exclua as cooperativas médicas do regime apenas em razão de sua forma societária. Além disso, a compatibilidade constitucional da inclusão foi afirmada no controle concentrado, o que reforça a legitimidade da norma e afasta alegações de inconstitucionalidade como óbice ao processamento do pedido.<br><br>Em termos de prova, é importante perceber que o fundamento não é uma extensão analógica do regime, mas sim autorização legal expressa, voltada à preservação da atividade econômica e à proteção da coletividade afetada pela eventual crise da cooperativa.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 4ª Turma. REsp 2.183.714-SP, Rel. Min. Marco Buzzi, julgado em 3/6/2025 (Info 853).</p>
+</div>
+</section>
 
-            <div class="botoes">
-                <button onclick="responder(8, 'CERTO')">CERTO</button>
-                <button onclick="responder(8, 'ERRADO')">ERRADO</button>
-            </div>
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="em sede de cumprimento de obrigação de fazer tutelada por multa cominatória, admite-se a revisão judicial da quantia já vencida das astreintes, ainda que o montante tenha se tornado expressivo em razão da inércia do devedor, desde que o magistrado entenda necessário para evitar enriquecimento sem causa; nessa hipótese, a limitação do art. 537, § 1º, do cpc não impede a redução retroativa da penalidade, e a contenção de valores excessivos pode ser feita, inclusive, mediante simples desconsideração da data de intimação da parte contrária quando esta não apresentar certidão formal de origem. a assertiva está incorreta porque mistura premissas incompatíveis com o regime jurídico das astreintes e com a orientação firmada no julgado.
 
-            <div class="feedback" id="feedback-8">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>O entendimento acolhe a premissa de que o crime previsto no art. 50 da Lei n. 6.766/1979 não se esgota na mera realização física do loteamento irregular, exigindo-se, para a configuração típica, a presença de dolo. No caso examinado, embora o agente tenha iniciado o parcelamento do solo sem a prévia autorização administrativa, houve posterior regularização completa do empreendimento antes do oferecimento da denúncia, com obtenção das licenças e do registro imobiliário.<br><br>Essa circunstância foi considerada relevante para afastar a tipicidade penal, porque a regularização anterior ao ajuizamento da ação penal evidencia a ausência de vontade persistente de manter a conduta ilícita e impede a afirmação segura do elemento subjetivo indispensável ao tipo. Assim, não basta a constatação de que, em momento pretérito, houve início de loteamento sem observância das exigências legais; é necessário que a imputação penal se sustente sobre conduta dolosa ainda juridicamente relevante no momento da persecução.<br><br>A consequência processual é a rejeição da denúncia, já que, ausente tipicidade penal, não se justifica o prosseguimento da ação penal. O ponto central do julgado não é a mera extinção da punibilidade por fato superveniente, mas o reconhecimento de que a regularização prévia à denúncia descaracteriza o próprio crime, por ausência de dolo.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 6ª Turma. HC 857.566-PB, Rel. Min. Sebastião Reis Júnior, julgado em 14/5/2025 (Info 853).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 9</span>
-                <span class="status" id="status-9">Não respondida</span>
-            </div>
+primeiro, a multa cominatória possui natureza coercitiva e sua revisão judicial, nos termos do art. 537, § 1º, do cpc, alcança apenas a parcela **vincenda**, isto é, aquela ainda não incorporada ao patrimônio jurídico do credor. uma vez vencida, a multa não pode ser reduzida retroativamente, **mesmo que o valor final tenha se tornado elevado**. a razão é evitar que a parte obrigada se beneficie da própria resistência ao cumprimento da ordem judicial, esvaziando a função coercitiva da medida e estimulando comportamento recalcitrante.
 
-            <p class="enunciado">A prática de pesca proibida em mar territorial, ainda que em área pertencente à União, não desloca automaticamente a competência para a Justiça Federal, sendo indispensável a demonstração de que a lesão ambiental transcendeu o âmbito local e produziu reflexos regionais ou nacionais; inexistindo unidade de conservação federal, inexistindo ameaça de extinção da espécie capturada e limitando-se o dano à localidade da infração, a competência permanece na Justiça Estadual.</p>
+segundo, o argumento de “enriquecimento sem causa” não autoriza, por si só, a revisão da multa já consolidada. o entendimento reafirma que o problema dos valores excessivos deve ser enfrentado **preventivamente**, e não por redução posterior da multa vencida. entre as medidas preventivas destacadas estão:  
+i) a conversão da obrigação de fazer em perdas e danos, de ofício, quando houver inércia abusiva do credor no exercício da faculdade prevista no art. 499 do cpc; e  
+ii) a preferência por ordens judiciais dirigidas a órgãos públicos e instituições privadas para obtenção do resultado prático equivalente, quando possível, em substituição à atuação direta do obrigado.
 
-            <div class="botoes">
-                <button onclick="responder(9, 'CERTO')">CERTO</button>
-                <button onclick="responder(9, 'ERRADO')">ERRADO</button>
-            </div>
+terceiro, a parte final da assertiva introduz tema processual estranho ao regime das astreintes e também incorreto no contexto do julgado: não se admite o reconhecimento da intempestividade recursal com base em mera juntada de prints de tela no corpo da petição, sem certidão formal emitida na origem contendo a data de intimação. por coerência, se prints isolados não bastam para demonstrar a tempestividade, também não servem, por si sós, para comprovar a intempestividade do recurso da parte adversa.
 
-            <div class="feedback" id="feedback-9">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A afirmação está correta porque a mera circunstância de o fato ter ocorrido em mar territorial — bem da União — não basta, por si só, para atrair a competência da Justiça Federal. Em matéria penal ambiental, a definição da competência exige a presença de interesse federal juridicamente relevante, o que não se presume automaticamente da titularidade dominial do espaço físico onde ocorreu a infração.<br><br>No caso julgado, a pesca proibida ocorreu em unidade de conservação instituída por decreto estadual, e não em área federal de proteção ambiental. Além disso, a espécie capturada não integrava a lista de espécies ameaçadas de extinção, o que enfraquece qualquer alegação de interesse direto da União em razão de tutela ambiental especial. O ponto decisivo foi a ausência de repercussão do dano em âmbito regional ou nacional: os efeitos da conduta ficaram restritos à localidade onde a infração foi constatada.<br><br>Assim, a competência da Justiça Federal não decorre automaticamente do simples fato de o crime ter sido praticado em mar territorial. É necessário demonstrar que a ofensa ambiental alcançou dimensão que justifique a atuação da União, o que não ocorreu. Em consequência, permanece competente a Justiça Estadual.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 6ª Turma. AgRg no AREsp 2.313.729-SP, Rel. Min. Antonio Saldanha Palheiro, julgado em 3/6/2025 (Info 853).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 10</span>
-                <span class="status" id="status-10">Não respondida</span>
-            </div>
+assim, a assertiva erra ao admitir a redução retroativa das astreintes vencidas e ao relativizar indevidamente a exigência de prova formal da intimação para fins de aferição da tempestividade recursal. stj. 2ª turma. agint no resp 2.027.287-mt, rel. min. teodoro silva santos, julgado em 30/4/2025 (info 853).">
 
-            <p class="enunciado">A substituição da prisão preventiva por prisão domiciliar, com fundamento na proteção à maternidade e à convivência familiar, pode ser indeferida quando houver elementos concretos indicando que a custodiada ocupa posição de relevo em organização criminosa de expressivo poder econômico, sobretudo se a defesa não demonstrar, de modo específico e contemporâneo, a imprescindibilidade de seus cuidados pessoais ao filho adolescente.</p>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 4</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-4">Não respondida</span>
+</div>
 
-            <div class="botoes">
-                <button onclick="responder(10, 'CERTO')">CERTO</button>
-                <button onclick="responder(10, 'ERRADO')">ERRADO</button>
-            </div>
+<p class="enunciado">Em sede de cumprimento de obrigação de fazer tutelada por multa cominatória, admite-se a revisão judicial da quantia já vencida das astreintes, ainda que o montante tenha se tornado expressivo em razão da inércia do devedor, desde que o magistrado entenda necessário para evitar enriquecimento sem causa; nessa hipótese, a limitação do art. 537, § 1º, do CPC não impede a redução retroativa da penalidade, e a contenção de valores excessivos pode ser feita, inclusive, mediante simples desconsideração da data de intimação da parte contrária quando esta não apresentar certidão formal de origem.</p>
 
-            <div class="feedback" id="feedback-10">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A prisão domiciliar não constitui direito automático da mulher custodiada em qualquer hipótese em que haja vínculo materno. Embora a legislação processual penal preveja hipóteses de substituição da prisão cautelar por domiciliar, a incidência dessa benesse exige a verificação concreta dos pressupostos legais e das circunstâncias do caso.<br><br>No caso julgado, a custódia cautelar foi mantida porque havia indícios de que a ré exercia função relevante em organização criminosa de grande poderio econômico, circunstância que reforça a necessidade da prisão preventiva para resguardar a ordem pública e a efetividade da persecução penal. Além disso, não ficou comprovada a imprescindibilidade dos seus cuidados pessoais em relação ao filho adolescente, elemento que enfraquece o pedido de substituição da prisão.<br><br>O ponto central é que a condição de mãe, por si só, não basta para impor a prisão domiciliar quando presentes elementos concretos de gravidade da atuação criminosa e quando ausente prova suficiente de que a presença da custodiada seja indispensável ao cuidado do filho. Assim, a análise é casuística e não automática, devendo conciliar a proteção à maternidade com as finalidades da prisão preventiva.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 6ª Turma. EDcl no HC 956.760-CE, Rel. Min. Sebastião Reis Júnior, Rel. para acórdão Min. Og Fernandes, julgado em 20/5/2025 (Info 853).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 11</span>
-                <span class="status" id="status-11">Não respondida</span>
-            </div>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(4, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(4, 'ERRADO')">ERRADO</button>
+</div>
 
-            <p class="enunciado">A negativa de acesso, pela defesa, aos elementos de prova já documentados na fase inquisitiva, quando persistente até o momento da resposta à acusação e apenas superada às vésperas das alegações finais, não gera nulidade se, ao final da instrução, a defesa ainda puder se manifestar sobre o conteúdo probatório, pois eventual restrição inicial seria sanada pela posterior vista dos autos, inexistindo prejuízo processual relevante.</p>
+<div class="feedback" id="feedback-4">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque mistura premissas incompatíveis com o regime jurídico das astreintes e com a orientação firmada no julgado.<br><br>Primeiro, a multa cominatória possui natureza coercitiva e sua revisão judicial, nos termos do art. 537, § 1º, do CPC, alcança apenas a parcela <strong>vincenda</strong>, isto é, aquela ainda não incorporada ao patrimônio jurídico do credor. Uma vez vencida, a multa não pode ser reduzida retroativamente, <strong>mesmo que o valor final tenha se tornado elevado</strong>. A razão é evitar que a parte obrigada se beneficie da própria resistência ao cumprimento da ordem judicial, esvaziando a função coercitiva da medida e estimulando comportamento recalcitrante.<br><br>Segundo, o argumento de “enriquecimento sem causa” não autoriza, por si só, a revisão da multa já consolidada. O entendimento reafirma que o problema dos valores excessivos deve ser enfrentado <strong>preventivamente</strong>, e não por redução posterior da multa vencida. Entre as medidas preventivas destacadas estão:  <br>i) a conversão da obrigação de fazer em perdas e danos, de ofício, quando houver inércia abusiva do credor no exercício da faculdade prevista no art. 499 do CPC; e  <br>ii) a preferência por ordens judiciais dirigidas a órgãos públicos e instituições privadas para obtenção do resultado prático equivalente, quando possível, em substituição à atuação direta do obrigado.<br><br>Terceiro, a parte final da assertiva introduz tema processual estranho ao regime das astreintes e também incorreto no contexto do julgado: não se admite o reconhecimento da intempestividade recursal com base em mera juntada de prints de tela no corpo da petição, sem certidão formal emitida na origem contendo a data de intimação. Por coerência, se prints isolados não bastam para demonstrar a tempestividade, também não servem, por si sós, para comprovar a intempestividade do recurso da parte adversa.<br><br>Assim, a assertiva erra ao admitir a redução retroativa das astreintes vencidas e ao relativizar indevidamente a exigência de prova formal da intimação para fins de aferição da tempestividade recursal.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 2ª Turma. AgInt no REsp 2.027.287-MT, Rel. Min. Teodoro Silva Santos, julgado em 30/4/2025 (Info 853).</p>
+</div>
+</section>
 
-            <div class="botoes">
-                <button onclick="responder(11, 'CERTO')">CERTO</button>
-                <button onclick="responder(11, 'ERRADO')">ERRADO</button>
-            </div>
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a realização de julgamento em ambiente virtual assíncrono, por si só, não implica nulidade processual nem ofensa automática ao contraditório; contudo, se a sessão ocorrer durante o recesso forense, período em que o art. 220, § 2º, do cpc veda a prática de atos como audiências e sessões de julgamento e suspende os prazos processuais, haverá nulidade quando demonstrado prejuízo à defesa, especialmente pela frustração da legítima expectativa de inatividade processual e pela impossibilidade de atuação útil do patrono, como o encaminhamento de memoriais ou de sustentação oral em tempo hábil. a assertiva está correta porque reproduz a distinção central do entendimento: a mera adoção da modalidade virtual assíncrona, isoladamente, não gera nulidade automática, nem o indeferimento de sustentação oral presencial, por si só, conduz necessariamente à invalidação do julgamento. o ponto decisivo está na realização da sessão durante o recesso forense.
 
-            <div class="feedback" id="feedback-11">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque desconsidera o momento processual em que o acesso à prova deve ser assegurado e, sobretudo, o prejuízo concreto causado à estratégia defensiva. O entendimento firmado é no sentido de que a defesa precisa ter acesso à íntegra dos elementos probatórios já colhidos na fase inquisitiva antes do início da instrução criminal, especialmente para que possa formular uma resposta à acusação efetiva e exercer, de modo pleno, as faculdades inerentes à ampla defesa e ao contraditório.<br><br>A restrição ao acesso não é um vício meramente formal ou sanável por simples vista posterior dos autos. O dano processual decorre justamente da perda da oportunidade de, com base no acervo probatório já produzido, definir adequadamente a linha defensiva, indicar testemunhas, requerer provas pertinentes e apresentar documentação útil à refutação da imputação. Em outras palavras, o prejuízo não se limita ao ato final de manifestação, mas alcança toda a dinâmica defensiva da fase postulatória e instrutória.<br><br>Além disso, a paridade de armas é comprometida quando a acusação se vale de elementos informativos e a defesa é impedida de conhecê-los em tempo útil para reagir de forma tecnicamente adequada. Por isso, a posterior concessão de acesso, apenas às vésperas das alegações finais, não elimina a nulidade já configurada, pois não recompõe a oportunidade perdida de influenciar a produção probatória e a própria condução da defesa desde o início da instrução.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 5ª Turma. AgRg no RHC 213.204-BA, Rel. Min. Ribeiro Dantas, julgado em 21/5/2025 (Info 853).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 12</span>
-                <span class="status" id="status-12">Não respondida</span>
-            </div>
+o art. 220, § 2º, do cpc estabelece não apenas a suspensão dos prazos processuais, mas também a vedação de audiências e sessões de julgamento nesse período. assim, a prática do ato jurisdicional em recesso contraria a disciplina legal e compromete a confiança legítima das partes de que não haverá exigência de atuação processual do advogado naquele intervalo.
 
-            <p class="enunciado">A utilização prolongada de aparelho celular por jurado durante a tréplica da defesa, quando devidamente registrada por filmagem juntada aos autos e acompanhada de protesto imediato da parte em ata, pode caracterizar violação à incomunicabilidade dos jurados e ensejar nulidade do julgamento, ainda que não haja prova direta do conteúdo da mensagem eventualmente digitada, pois o prejuízo à imparcialidade e à plenitude de defesa é presumido em razão da quebra de garantia essencial do Tribunal do Júri.</p>
+além disso, a modalidade virtual não elimina a necessidade de participação das partes na solenidade. se o julgamento ocorre no recesso, há potencial prejuízo ao exercício da defesa, pois o patrono pode ser surpreendido pela pauta e ficar impedido de apresentar memoriais ou de encaminhar sustentação oral em momento oportuno. no caso analisado, o prejuízo foi reconhecido de forma concreta, inclusive pelo resultado desfavorável, o que reforçou a nulidade.
 
-            <div class="botoes">
-                <button onclick="responder(12, 'CERTO')">CERTO</button>
-                <button onclick="responder(12, 'ERRADO')">ERRADO</button>
-            </div>
+em síntese, o vício não decorre da virtualidade em si, mas da combinação entre julgamento no recesso forense e efetivo comprometimento da defesa, em afronta ao regime do art. 220 do cpc. stj. 3ª turma. resp 2.125.599-sp, rel. min. ricardo villas bôas cueva, julgado em 3/6/2025 (info 853).">
 
-            <div class="feedback" id="feedback-12">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a lógica central do entendimento firmado: a incomunicabilidade dos jurados não é uma formalidade vazia, mas garantia estrutural do Tribunal do Júri, diretamente ligada à independência e à imparcialidade dos julgadores leigos. Assim, a conduta de jurado que permanece usando celular durante momento sensível dos debates orais — especialmente na tréplica da defesa, fase em que se concentram argumentos decisivos — compromete a higidez do julgamento.<br><br>O ponto relevante é que não se exige prova direta do conteúdo da eventual comunicação externa. A filmagem apresentada pela defesa foi considerada prova robusta da quebra da incomunicabilidade, afastando a ideia de mera alegação defensiva. Em hipóteses dessa natureza, o dano processual não precisa ser demonstrado de forma concreta e específica, pois o prejuízo é presumido diante da violação de garantia essencial do procedimento do júri.<br><br>Além disso, o fato de a defesa ter percebido a irregularidade, filmado a conduta, protestado imediatamente e requerido a dissolução do Conselho de Sentença reforça a preservação da matéria para impugnação e evidencia que não se trata de nulidade meramente abstrata ou de insurgência tardia. O prosseguimento do julgamento, apesar do registro formal da ocorrência, não afasta a nulidade quando a prova revela comprometimento da incomunicabilidade e, por consequência, da plenitude de defesa.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 5ª Turma. AgRg no AREsp 2.704.728-MG, Rel. Min. Messod Azulay Neto, julgado em 20/5/2025 (Info 853).</p>
-            </div>
-        </section>
-        
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 5</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-5">Não respondida</span>
+</div>
+
+<p class="enunciado">A realização de julgamento em ambiente virtual assíncrono, por si só, não implica nulidade processual nem ofensa automática ao contraditório; contudo, se a sessão ocorrer durante o recesso forense, período em que o art. 220, § 2º, do CPC veda a prática de atos como audiências e sessões de julgamento e suspende os prazos processuais, haverá nulidade quando demonstrado prejuízo à defesa, especialmente pela frustração da legítima expectativa de inatividade processual e pela impossibilidade de atuação útil do patrono, como o encaminhamento de memoriais ou de sustentação oral em tempo hábil.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(5, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(5, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-5">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a distinção central do entendimento: a mera adoção da modalidade virtual assíncrona, isoladamente, não gera nulidade automática, nem o indeferimento de sustentação oral presencial, por si só, conduz necessariamente à invalidação do julgamento. O ponto decisivo está na realização da sessão durante o recesso forense.<br><br>O art. 220, § 2º, do CPC estabelece não apenas a suspensão dos prazos processuais, mas também a vedação de audiências e sessões de julgamento nesse período. Assim, a prática do ato jurisdicional em recesso contraria a disciplina legal e compromete a confiança legítima das partes de que não haverá exigência de atuação processual do advogado naquele intervalo.<br><br>Além disso, a modalidade virtual não elimina a necessidade de participação das partes na solenidade. Se o julgamento ocorre no recesso, há potencial prejuízo ao exercício da defesa, pois o patrono pode ser surpreendido pela pauta e ficar impedido de apresentar memoriais ou de encaminhar sustentação oral em momento oportuno. No caso analisado, o prejuízo foi reconhecido de forma concreta, inclusive pelo resultado desfavorável, o que reforçou a nulidade.<br><br>Em síntese, o vício não decorre da virtualidade em si, mas da combinação entre julgamento no recesso forense e efetivo comprometimento da defesa, em afronta ao regime do art. 220 do CPC.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.125.599-SP, Rel. Min. Ricardo Villas Bôas Cueva, julgado em 3/6/2025 (Info 853).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a premeditação do agente pode justificar a valoração negativa da culpabilidade na primeira fase da dosimetria, desde que não se trate de elemento inerente ao tipo penal nem de pressuposto fático para a incidência de qualificadora ou agravante; contudo, a elevação da pena-base não decorre automaticamente dessa circunstância, exigindo motivação concreta quanto à maior reprovabilidade da conduta no caso examinado. a assertiva reproduz a orientação firmada para a dosimetria da pena no tocante à premeditação. a premissa central é que a premeditação, por revelar maior planejamento e reprovabilidade da ação, pode ser considerada na análise da culpabilidade do art. 59 do código penal, funcionando como circunstância judicial desfavorável. essa valoração, porém, não é irrestrita: ela somente é admissível quando a premeditação não se confunda com elementar do delito, não seja traço ínsito à própria figura típica e tampouco constitua pressuposto já absorvido por agravante ou qualificadora, sob pena de indevido bis in idem.
+
+além disso, a mera existência de premeditação não autoriza, por si só, o aumento da pena-base. é indispensável fundamentação específica, com indicação de elementos concretos do caso que demonstrem maior censurabilidade da conduta em comparação ao padrão ordinário do tipo penal. em outras palavras, a premeditação é um dado juridicamente relevante, mas sua repercussão na primeira fase da dosimetria depende de motivação individualizada, não bastando referência abstrata ao planejamento prévio. stj. 3ª seção. resp 2.174.028-al e resp 2.174.008-al, rel. min. otávio de almeida toledo (desembargador convocado do tjsp), julgados em 8/5/2025 (recurso repetitivo - tema 1318) (info 853).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 6</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-6">Não respondida</span>
+</div>
+
+<p class="enunciado">A premeditação do agente pode justificar a valoração negativa da culpabilidade na primeira fase da dosimetria, desde que não se trate de elemento inerente ao tipo penal nem de pressuposto fático para a incidência de qualificadora ou agravante; contudo, a elevação da pena-base não decorre automaticamente dessa circunstância, exigindo motivação concreta quanto à maior reprovabilidade da conduta no caso examinado.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(6, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(6, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-6">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva reproduz a orientação firmada para a dosimetria da pena no tocante à premeditação. A premissa central é que a premeditação, por revelar maior planejamento e reprovabilidade da ação, pode ser considerada na análise da culpabilidade do art. 59 do Código Penal, funcionando como circunstância judicial desfavorável. Essa valoração, porém, não é irrestrita: ela somente é admissível quando a premeditação não se confunda com elementar do delito, não seja traço ínsito à própria figura típica e tampouco constitua pressuposto já absorvido por agravante ou qualificadora, sob pena de indevido bis in idem.<br><br>Além disso, a mera existência de premeditação não autoriza, por si só, o aumento da pena-base. É indispensável fundamentação específica, com indicação de elementos concretos do caso que demonstrem maior censurabilidade da conduta em comparação ao padrão ordinário do tipo penal. Em outras palavras, a premeditação é um dado juridicamente relevante, mas sua repercussão na primeira fase da dosimetria depende de motivação individualizada, não bastando referência abstrata ao planejamento prévio.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Seção. REsp 2.174.028-AL e REsp 2.174.008-AL, Rel. Min. Otávio de Almeida Toledo (Desembargador convocado do TJSP), julgados em 8/5/2025 (Recurso Repetitivo - Tema 1318) (Info 853).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="ECA"
+data-texto="a incidência do princípio da insignificância no delito de contrabando de cigarros eletrônicos não se submete ao parâmetro quantitativo de 1.000 maços fixado para cigarros comuns em precedente repetitivo, sendo irrelevante, para essa análise, o valor dos tributos eventualmente iludidos; ainda assim, a reiteração da conduta afasta a aplicação da bagatela, por evidenciar maior reprovabilidade da ação. o enunciado está correto porque reproduz, em termos tecnicamente precisos, a orientação firmada para a hipótese de contrabando envolvendo cigarros eletrônicos. o ponto central é que o critério objetivo de 1.000 maços, utilizado em precedente repetitivo para balizar a insignificância em contrabando de cigarros comuns, não pode ser automaticamente transposto para os cigarros eletrônicos, pois se trata de mercadoria com regime jurídico e potencial lesivo distintos, o que impede a aplicação mecânica do mesmo parâmetro quantitativo.
+
+além disso, a análise da insignificância no contrabando não se confunde com a lógica do descaminho. por isso, o valor dos tributos eventualmente iludidos não constitui elemento decisivo para reconhecer a bagatela nessa espécie delitiva, já que esse critério é próprio da aferição da lesão patrimonial ao fisco, típica do descaminho, e não do contrabando, em que a tutela penal recai sobre a regularidade do comércio exterior e a proteção de interesses administrativos específicos.
+
+por fim, a reiteração delitiva é fator incompatível com o reconhecimento da insignificância, pois revela habitualidade e maior censurabilidade da conduta, afastando a mínima ofensividade exigida para a incidência excepcional da bagatela. assim, ainda que se cogitasse de pequena quantidade ou de reduzido impacto econômico, a repetição da prática impede o afastamento da tipicidade material. stj. 5ª turma. agrg no resp 2.184.785-pr, rel. min. ribeiro dantas, julgado em 14/4/2025 (info 853).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 7</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-7">Não respondida</span>
+</div>
+
+<p class="enunciado">A incidência do princípio da insignificância no delito de contrabando de cigarros eletrônicos não se submete ao parâmetro quantitativo de 1.000 maços fixado para cigarros comuns em precedente repetitivo, sendo irrelevante, para essa análise, o valor dos tributos eventualmente iludidos; ainda assim, a reiteração da conduta afasta a aplicação da bagatela, por evidenciar maior reprovabilidade da ação.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(7, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(7, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-7">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O enunciado está correto porque reproduz, em termos tecnicamente precisos, a orientação firmada para a hipótese de contrabando envolvendo cigarros eletrônicos. O ponto central é que o critério objetivo de 1.000 maços, utilizado em precedente repetitivo para balizar a insignificância em contrabando de cigarros comuns, não pode ser automaticamente transposto para os cigarros eletrônicos, pois se trata de mercadoria com regime jurídico e potencial lesivo distintos, o que impede a aplicação mecânica do mesmo parâmetro quantitativo.<br><br>Além disso, a análise da insignificância no contrabando não se confunde com a lógica do descaminho. Por isso, o valor dos tributos eventualmente iludidos não constitui elemento decisivo para reconhecer a bagatela nessa espécie delitiva, já que esse critério é próprio da aferição da lesão patrimonial ao Fisco, típica do descaminho, e não do contrabando, em que a tutela penal recai sobre a regularidade do comércio exterior e a proteção de interesses administrativos específicos.<br><br>Por fim, a reiteração delitiva é fator incompatível com o reconhecimento da insignificância, pois revela habitualidade e maior censurabilidade da conduta, afastando a mínima ofensividade exigida para a incidência excepcional da bagatela. Assim, ainda que se cogitasse de pequena quantidade ou de reduzido impacto econômico, a repetição da prática impede o afastamento da tipicidade material.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 5ª Turma. AgRg no REsp 2.184.785-PR, Rel. Min. Ribeiro Dantas, julgado em 14/4/2025 (Info 853).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a regularização integral do parcelamento do solo urbano, com obtenção das aprovações administrativas e do competente registro imobiliário antes do oferecimento da denúncia, afasta a tipicidade do art. 50 da lei n. 6.766/1979, pois, nessa hipótese, não se evidencia o dolo exigido para a configuração do delito, sendo incabível a persecução penal fundada exclusivamente na anterior execução material do loteamento sem autorização. o entendimento acolhe a premissa de que o crime previsto no art. 50 da lei n. 6.766/1979 não se esgota na mera realização física do loteamento irregular, exigindo-se, para a configuração típica, a presença de dolo. no caso examinado, embora o agente tenha iniciado o parcelamento do solo sem a prévia autorização administrativa, houve posterior regularização completa do empreendimento antes do oferecimento da denúncia, com obtenção das licenças e do registro imobiliário.
+
+essa circunstância foi considerada relevante para afastar a tipicidade penal, porque a regularização anterior ao ajuizamento da ação penal evidencia a ausência de vontade persistente de manter a conduta ilícita e impede a afirmação segura do elemento subjetivo indispensável ao tipo. assim, não basta a constatação de que, em momento pretérito, houve início de loteamento sem observância das exigências legais; é necessário que a imputação penal se sustente sobre conduta dolosa ainda juridicamente relevante no momento da persecução.
+
+a consequência processual é a rejeição da denúncia, já que, ausente tipicidade penal, não se justifica o prosseguimento da ação penal. o ponto central do julgado não é a mera extinção da punibilidade por fato superveniente, mas o reconhecimento de que a regularização prévia à denúncia descaracteriza o próprio crime, por ausência de dolo. stj. 6ª turma. hc 857.566-pb, rel. min. sebastião reis júnior, julgado em 14/5/2025 (info 853).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 8</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-8">Não respondida</span>
+</div>
+
+<p class="enunciado">A regularização integral do parcelamento do solo urbano, com obtenção das aprovações administrativas e do competente registro imobiliário antes do oferecimento da denúncia, afasta a tipicidade do art. 50 da Lei n. 6.766/1979, pois, nessa hipótese, não se evidencia o dolo exigido para a configuração do delito, sendo incabível a persecução penal fundada exclusivamente na anterior execução material do loteamento sem autorização.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(8, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(8, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-8">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O entendimento acolhe a premissa de que o crime previsto no art. 50 da Lei n. 6.766/1979 não se esgota na mera realização física do loteamento irregular, exigindo-se, para a configuração típica, a presença de dolo. No caso examinado, embora o agente tenha iniciado o parcelamento do solo sem a prévia autorização administrativa, houve posterior regularização completa do empreendimento antes do oferecimento da denúncia, com obtenção das licenças e do registro imobiliário.<br><br>Essa circunstância foi considerada relevante para afastar a tipicidade penal, porque a regularização anterior ao ajuizamento da ação penal evidencia a ausência de vontade persistente de manter a conduta ilícita e impede a afirmação segura do elemento subjetivo indispensável ao tipo. Assim, não basta a constatação de que, em momento pretérito, houve início de loteamento sem observância das exigências legais; é necessário que a imputação penal se sustente sobre conduta dolosa ainda juridicamente relevante no momento da persecução.<br><br>A consequência processual é a rejeição da denúncia, já que, ausente tipicidade penal, não se justifica o prosseguimento da ação penal. O ponto central do julgado não é a mera extinção da punibilidade por fato superveniente, mas o reconhecimento de que a regularização prévia à denúncia descaracteriza o próprio crime, por ausência de dolo.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 6ª Turma. HC 857.566-PB, Rel. Min. Sebastião Reis Júnior, julgado em 14/5/2025 (Info 853).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a prática de pesca proibida em mar territorial, ainda que em área pertencente à união, não desloca automaticamente a competência para a justiça federal, sendo indispensável a demonstração de que a lesão ambiental transcendeu o âmbito local e produziu reflexos regionais ou nacionais; inexistindo unidade de conservação federal, inexistindo ameaça de extinção da espécie capturada e limitando-se o dano à localidade da infração, a competência permanece na justiça estadual. a afirmação está correta porque a mera circunstância de o fato ter ocorrido em mar territorial — bem da união — não basta, por si só, para atrair a competência da justiça federal. em matéria penal ambiental, a definição da competência exige a presença de interesse federal juridicamente relevante, o que não se presume automaticamente da titularidade dominial do espaço físico onde ocorreu a infração.
+
+no caso julgado, a pesca proibida ocorreu em unidade de conservação instituída por decreto estadual, e não em área federal de proteção ambiental. além disso, a espécie capturada não integrava a lista de espécies ameaçadas de extinção, o que enfraquece qualquer alegação de interesse direto da união em razão de tutela ambiental especial. o ponto decisivo foi a ausência de repercussão do dano em âmbito regional ou nacional: os efeitos da conduta ficaram restritos à localidade onde a infração foi constatada.
+
+assim, a competência da justiça federal não decorre automaticamente do simples fato de o crime ter sido praticado em mar territorial. é necessário demonstrar que a ofensa ambiental alcançou dimensão que justifique a atuação da união, o que não ocorreu. em consequência, permanece competente a justiça estadual. stj. 6ª turma. agrg no aresp 2.313.729-sp, rel. min. antonio saldanha palheiro, julgado em 3/6/2025 (info 853).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 9</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-9">Não respondida</span>
+</div>
+
+<p class="enunciado">A prática de pesca proibida em mar territorial, ainda que em área pertencente à União, não desloca automaticamente a competência para a Justiça Federal, sendo indispensável a demonstração de que a lesão ambiental transcendeu o âmbito local e produziu reflexos regionais ou nacionais; inexistindo unidade de conservação federal, inexistindo ameaça de extinção da espécie capturada e limitando-se o dano à localidade da infração, a competência permanece na Justiça Estadual.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(9, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(9, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-9">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A afirmação está correta porque a mera circunstância de o fato ter ocorrido em mar territorial — bem da União — não basta, por si só, para atrair a competência da Justiça Federal. Em matéria penal ambiental, a definição da competência exige a presença de interesse federal juridicamente relevante, o que não se presume automaticamente da titularidade dominial do espaço físico onde ocorreu a infração.<br><br>No caso julgado, a pesca proibida ocorreu em unidade de conservação instituída por decreto estadual, e não em área federal de proteção ambiental. Além disso, a espécie capturada não integrava a lista de espécies ameaçadas de extinção, o que enfraquece qualquer alegação de interesse direto da União em razão de tutela ambiental especial. O ponto decisivo foi a ausência de repercussão do dano em âmbito regional ou nacional: os efeitos da conduta ficaram restritos à localidade onde a infração foi constatada.<br><br>Assim, a competência da Justiça Federal não decorre automaticamente do simples fato de o crime ter sido praticado em mar territorial. É necessário demonstrar que a ofensa ambiental alcançou dimensão que justifique a atuação da União, o que não ocorreu. Em consequência, permanece competente a Justiça Estadual.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 6ª Turma. AgRg no AREsp 2.313.729-SP, Rel. Min. Antonio Saldanha Palheiro, julgado em 3/6/2025 (Info 853).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a substituição da prisão preventiva por prisão domiciliar, com fundamento na proteção à maternidade e à convivência familiar, pode ser indeferida quando houver elementos concretos indicando que a custodiada ocupa posição de relevo em organização criminosa de expressivo poder econômico, sobretudo se a defesa não demonstrar, de modo específico e contemporâneo, a imprescindibilidade de seus cuidados pessoais ao filho adolescente. a prisão domiciliar não constitui direito automático da mulher custodiada em qualquer hipótese em que haja vínculo materno. embora a legislação processual penal preveja hipóteses de substituição da prisão cautelar por domiciliar, a incidência dessa benesse exige a verificação concreta dos pressupostos legais e das circunstâncias do caso.
+
+no caso julgado, a custódia cautelar foi mantida porque havia indícios de que a ré exercia função relevante em organização criminosa de grande poderio econômico, circunstância que reforça a necessidade da prisão preventiva para resguardar a ordem pública e a efetividade da persecução penal. além disso, não ficou comprovada a imprescindibilidade dos seus cuidados pessoais em relação ao filho adolescente, elemento que enfraquece o pedido de substituição da prisão.
+
+o ponto central é que a condição de mãe, por si só, não basta para impor a prisão domiciliar quando presentes elementos concretos de gravidade da atuação criminosa e quando ausente prova suficiente de que a presença da custodiada seja indispensável ao cuidado do filho. assim, a análise é casuística e não automática, devendo conciliar a proteção à maternidade com as finalidades da prisão preventiva. stj. 6ª turma. edcl no hc 956.760-ce, rel. min. sebastião reis júnior, rel. para acórdão min. og fernandes, julgado em 20/5/2025 (info 853).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 10</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-10">Não respondida</span>
+</div>
+
+<p class="enunciado">A substituição da prisão preventiva por prisão domiciliar, com fundamento na proteção à maternidade e à convivência familiar, pode ser indeferida quando houver elementos concretos indicando que a custodiada ocupa posição de relevo em organização criminosa de expressivo poder econômico, sobretudo se a defesa não demonstrar, de modo específico e contemporâneo, a imprescindibilidade de seus cuidados pessoais ao filho adolescente.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(10, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(10, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-10">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A prisão domiciliar não constitui direito automático da mulher custodiada em qualquer hipótese em que haja vínculo materno. Embora a legislação processual penal preveja hipóteses de substituição da prisão cautelar por domiciliar, a incidência dessa benesse exige a verificação concreta dos pressupostos legais e das circunstâncias do caso.<br><br>No caso julgado, a custódia cautelar foi mantida porque havia indícios de que a ré exercia função relevante em organização criminosa de grande poderio econômico, circunstância que reforça a necessidade da prisão preventiva para resguardar a ordem pública e a efetividade da persecução penal. Além disso, não ficou comprovada a imprescindibilidade dos seus cuidados pessoais em relação ao filho adolescente, elemento que enfraquece o pedido de substituição da prisão.<br><br>O ponto central é que a condição de mãe, por si só, não basta para impor a prisão domiciliar quando presentes elementos concretos de gravidade da atuação criminosa e quando ausente prova suficiente de que a presença da custodiada seja indispensável ao cuidado do filho. Assim, a análise é casuística e não automática, devendo conciliar a proteção à maternidade com as finalidades da prisão preventiva.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 6ª Turma. EDcl no HC 956.760-CE, Rel. Min. Sebastião Reis Júnior, Rel. para acórdão Min. Og Fernandes, julgado em 20/5/2025 (Info 853).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a negativa de acesso, pela defesa, aos elementos de prova já documentados na fase inquisitiva, quando persistente até o momento da resposta à acusação e apenas superada às vésperas das alegações finais, não gera nulidade se, ao final da instrução, a defesa ainda puder se manifestar sobre o conteúdo probatório, pois eventual restrição inicial seria sanada pela posterior vista dos autos, inexistindo prejuízo processual relevante. a assertiva está incorreta porque desconsidera o momento processual em que o acesso à prova deve ser assegurado e, sobretudo, o prejuízo concreto causado à estratégia defensiva. o entendimento firmado é no sentido de que a defesa precisa ter acesso à íntegra dos elementos probatórios já colhidos na fase inquisitiva antes do início da instrução criminal, especialmente para que possa formular uma resposta à acusação efetiva e exercer, de modo pleno, as faculdades inerentes à ampla defesa e ao contraditório.
+
+a restrição ao acesso não é um vício meramente formal ou sanável por simples vista posterior dos autos. o dano processual decorre justamente da perda da oportunidade de, com base no acervo probatório já produzido, definir adequadamente a linha defensiva, indicar testemunhas, requerer provas pertinentes e apresentar documentação útil à refutação da imputação. em outras palavras, o prejuízo não se limita ao ato final de manifestação, mas alcança toda a dinâmica defensiva da fase postulatória e instrutória.
+
+além disso, a paridade de armas é comprometida quando a acusação se vale de elementos informativos e a defesa é impedida de conhecê-los em tempo útil para reagir de forma tecnicamente adequada. por isso, a posterior concessão de acesso, apenas às vésperas das alegações finais, não elimina a nulidade já configurada, pois não recompõe a oportunidade perdida de influenciar a produção probatória e a própria condução da defesa desde o início da instrução. stj. 5ª turma. agrg no rhc 213.204-ba, rel. min. ribeiro dantas, julgado em 21/5/2025 (info 853).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 11</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-11">Não respondida</span>
+</div>
+
+<p class="enunciado">A negativa de acesso, pela defesa, aos elementos de prova já documentados na fase inquisitiva, quando persistente até o momento da resposta à acusação e apenas superada às vésperas das alegações finais, não gera nulidade se, ao final da instrução, a defesa ainda puder se manifestar sobre o conteúdo probatório, pois eventual restrição inicial seria sanada pela posterior vista dos autos, inexistindo prejuízo processual relevante.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(11, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(11, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-11">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque desconsidera o momento processual em que o acesso à prova deve ser assegurado e, sobretudo, o prejuízo concreto causado à estratégia defensiva. O entendimento firmado é no sentido de que a defesa precisa ter acesso à íntegra dos elementos probatórios já colhidos na fase inquisitiva antes do início da instrução criminal, especialmente para que possa formular uma resposta à acusação efetiva e exercer, de modo pleno, as faculdades inerentes à ampla defesa e ao contraditório.<br><br>A restrição ao acesso não é um vício meramente formal ou sanável por simples vista posterior dos autos. O dano processual decorre justamente da perda da oportunidade de, com base no acervo probatório já produzido, definir adequadamente a linha defensiva, indicar testemunhas, requerer provas pertinentes e apresentar documentação útil à refutação da imputação. Em outras palavras, o prejuízo não se limita ao ato final de manifestação, mas alcança toda a dinâmica defensiva da fase postulatória e instrutória.<br><br>Além disso, a paridade de armas é comprometida quando a acusação se vale de elementos informativos e a defesa é impedida de conhecê-los em tempo útil para reagir de forma tecnicamente adequada. Por isso, a posterior concessão de acesso, apenas às vésperas das alegações finais, não elimina a nulidade já configurada, pois não recompõe a oportunidade perdida de influenciar a produção probatória e a própria condução da defesa desde o início da instrução.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 5ª Turma. AgRg no RHC 213.204-BA, Rel. Min. Ribeiro Dantas, julgado em 21/5/2025 (Info 853).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a utilização prolongada de aparelho celular por jurado durante a tréplica da defesa, quando devidamente registrada por filmagem juntada aos autos e acompanhada de protesto imediato da parte em ata, pode caracterizar violação à incomunicabilidade dos jurados e ensejar nulidade do julgamento, ainda que não haja prova direta do conteúdo da mensagem eventualmente digitada, pois o prejuízo à imparcialidade e à plenitude de defesa é presumido em razão da quebra de garantia essencial do tribunal do júri. a assertiva está correta porque reproduz a lógica central do entendimento firmado: a incomunicabilidade dos jurados não é uma formalidade vazia, mas garantia estrutural do tribunal do júri, diretamente ligada à independência e à imparcialidade dos julgadores leigos. assim, a conduta de jurado que permanece usando celular durante momento sensível dos debates orais — especialmente na tréplica da defesa, fase em que se concentram argumentos decisivos — compromete a higidez do julgamento.
+
+o ponto relevante é que não se exige prova direta do conteúdo da eventual comunicação externa. a filmagem apresentada pela defesa foi considerada prova robusta da quebra da incomunicabilidade, afastando a ideia de mera alegação defensiva. em hipóteses dessa natureza, o dano processual não precisa ser demonstrado de forma concreta e específica, pois o prejuízo é presumido diante da violação de garantia essencial do procedimento do júri.
+
+além disso, o fato de a defesa ter percebido a irregularidade, filmado a conduta, protestado imediatamente e requerido a dissolução do conselho de sentença reforça a preservação da matéria para impugnação e evidencia que não se trata de nulidade meramente abstrata ou de insurgência tardia. o prosseguimento do julgamento, apesar do registro formal da ocorrência, não afasta a nulidade quando a prova revela comprometimento da incomunicabilidade e, por consequência, da plenitude de defesa. stj. 5ª turma. agrg no aresp 2.704.728-mg, rel. min. messod azulay neto, julgado em 20/5/2025 (info 853).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 12</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-12">Não respondida</span>
+</div>
+
+<p class="enunciado">A utilização prolongada de aparelho celular por jurado durante a tréplica da defesa, quando devidamente registrada por filmagem juntada aos autos e acompanhada de protesto imediato da parte em ata, pode caracterizar violação à incomunicabilidade dos jurados e ensejar nulidade do julgamento, ainda que não haja prova direta do conteúdo da mensagem eventualmente digitada, pois o prejuízo à imparcialidade e à plenitude de defesa é presumido em razão da quebra de garantia essencial do Tribunal do Júri.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(12, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(12, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-12">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a lógica central do entendimento firmado: a incomunicabilidade dos jurados não é uma formalidade vazia, mas garantia estrutural do Tribunal do Júri, diretamente ligada à independência e à imparcialidade dos julgadores leigos. Assim, a conduta de jurado que permanece usando celular durante momento sensível dos debates orais — especialmente na tréplica da defesa, fase em que se concentram argumentos decisivos — compromete a higidez do julgamento.<br><br>O ponto relevante é que não se exige prova direta do conteúdo da eventual comunicação externa. A filmagem apresentada pela defesa foi considerada prova robusta da quebra da incomunicabilidade, afastando a ideia de mera alegação defensiva. Em hipóteses dessa natureza, o dano processual não precisa ser demonstrado de forma concreta e específica, pois o prejuízo é presumido diante da violação de garantia essencial do procedimento do júri.<br><br>Além disso, o fato de a defesa ter percebido a irregularidade, filmado a conduta, protestado imediatamente e requerido a dissolução do Conselho de Sentença reforça a preservação da matéria para impugnação e evidencia que não se trata de nulidade meramente abstrata ou de insurgência tardia. O prosseguimento do julgamento, apesar do registro formal da ocorrência, não afasta a nulidade quando a prova revela comprometimento da incomunicabilidade e, por consequência, da plenitude de defesa.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 5ª Turma. AgRg no AREsp 2.704.728-MG, Rel. Min. Messod Azulay Neto, julgado em 20/5/2025 (Info 853).</p>
+</div>
+</section>
 
 </div>
 
 <script>
-const totalQuestoes = 12;
-let respostas = JSON.parse(localStorage.getItem(location.pathname + "_respostas") || "{}");
+const storageKey = location.pathname + "_respostas";
+let respostas = JSON.parse(localStorage.getItem(storageKey) || "{}");
 
-function atualizarPainel() {
-    const respondidas = Object.keys(respostas).length;
-    let acertos = 0;
-    let erros = 0;
-
-    for (const key in respostas) {
-        if (respostas[key].correto) acertos++;
-        else erros++;
-    }
-
-    document.getElementById("respondidas").textContent = respondidas;
-    document.getElementById("acertos").textContent = acertos;
-    document.getElementById("erros").textContent = erros;
+function destacar(t){
+ if(t==="CERTO") return '<span class="gabarito-certo">CERTO</span>';
+ if(t==="ERRADO") return '<span class="gabarito-errado">ERRADO</span>';
+ return t;
 }
 
-function responder(numero, resposta) {
-    const card = document.querySelectorAll(".questao")[numero - 1];
-    const gabarito = card.dataset.gabarito;
-    const correto = resposta === gabarito;
-
-    respostas[numero] = {
-        resposta,
-        correto
-    };
-
-    localStorage.setItem(location.pathname + "_respostas", JSON.stringify(respostas));
-
-    mostrarFeedback(numero);
-    atualizarPainel();
+function responder(numero, resposta){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const gabarito=card.dataset.gabarito;
+ const correto=resposta===gabarito;
+ respostas[numero]={resposta,correto};
+ localStorage.setItem(storageKey, JSON.stringify(respostas));
+ mostrarFeedback(numero);
+ atualizarPainel();
+ filtrar();
 }
 
-function mostrarFeedback(numero) {
-    const card = document.querySelectorAll(".questao")[numero - 1];
-    const feedback = document.getElementById("feedback-" + numero);
-    const status = document.getElementById("status-" + numero);
-    const resultado = feedback.querySelector(".resultado");
-
-    const dados = respostas[numero];
-
-    if (!dados) return;
-
-    feedback.style.display = "block";
-    feedback.classList.remove("correto", "errado");
-
-    if (dados.correto) {
-        feedback.classList.add("correto");
-        resultado.textContent = "Você acertou. A resposta é " + card.dataset.gabarito + ".";
-        status.textContent = "Respondida — acerto";
-        status.style.color = "var(--green)";
-    } else {
-        feedback.classList.add("errado");
-        resultado.textContent = "Você errou. O gabarito é " + card.dataset.gabarito + ".";
-        status.textContent = "Respondida — erro";
-        status.style.color = "var(--red)";
-    }
+function mostrarFeedback(numero){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const feedback=document.getElementById("feedback-"+numero);
+ const status=document.getElementById("status-"+numero);
+ const resultado=feedback.querySelector(".resultado");
+ const gabarito=card.dataset.gabarito;
+ const dados=respostas[numero];
+ if(!dados) return;
+ feedback.style.display="block";
+ feedback.classList.remove("correto","errado");
+ if(dados.correto){
+   feedback.classList.add("correto");
+   resultado.innerHTML="Você acertou. A resposta é "+destacar(gabarito)+".";
+   status.textContent="Respondida — acerto";
+   status.style.color="var(--green)";
+ } else {
+   feedback.classList.add("errado");
+   resultado.innerHTML="Você errou. O gabarito é "+destacar(gabarito)+".";
+   status.textContent="Respondida — erro";
+   status.style.color="var(--red)";
+ }
 }
 
-function restaurar() {
-    for (const key in respostas) {
-        mostrarFeedback(Number(key));
-    }
-    atualizarPainel();
+function atualizarPainel(){
+ let respondidas=0, acertos=0, erros=0;
+ for(const k in respostas){
+   respondidas++;
+   if(respostas[k].correto) acertos++; else erros++;
+ }
+ document.getElementById("respondidas").textContent=respondidas;
+ document.getElementById("acertos").textContent=acertos;
+ document.getElementById("erros").textContent=erros;
+ document.getElementById("visiveis").textContent=document.querySelectorAll(".questao:not(.oculta)").length;
 }
 
-function reiniciar() {
-    if (!confirm("Deseja reiniciar este simulado?")) return;
-    localStorage.removeItem(location.pathname + "_respostas");
-    location.reload();
+function filtrar(){
+ const busca=document.getElementById("busca").value.trim().toLowerCase();
+ const disciplina=document.getElementById("disciplina").value;
+ const statusFiltro=document.getElementById("statusFiltro").value;
+ const cards=Array.from(document.querySelectorAll(".questao"));
+ let vis=0;
+ cards.forEach((card,idx)=>{
+   const n=idx+1;
+   const texto=card.dataset.texto||"";
+   const disc=card.dataset.disciplina||"";
+   const r=respostas[n];
+   let passaStatus=true;
+   if(statusFiltro==="nao") passaStatus=!r;
+   if(statusFiltro==="acerto") passaStatus=r && r.correto;
+   if(statusFiltro==="erro") passaStatus=r && !r.correto;
+   const ok=(!busca||texto.includes(busca)) && (!disciplina||disc===disciplina) && passaStatus;
+   card.classList.toggle("oculta", !ok);
+   if(ok) vis++;
+ });
+ document.getElementById("sem-resultados").style.display=vis===0?"block":"none";
+ atualizarPainel();
+}
+
+function reiniciar(){
+ if(!confirm("Deseja reiniciar este simulado?")) return;
+ localStorage.removeItem(storageKey);
+ location.reload();
+}
+
+function restaurar(){
+ for(const k in respostas) mostrarFeedback(Number(k));
+ filtrar();
+ atualizarPainel();
 }
 
 restaurar();
 </script>
-
 </body>
 </html>

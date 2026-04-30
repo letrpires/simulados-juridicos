@@ -4,434 +4,428 @@
 <meta charset="UTF-8">
 <title>Simulado - Info 1200 STF</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <style>
-:root {
-    --bg: #0f172a;
-    --card: #111827;
-    --card2: #1f2937;
-    --text: #e5e7eb;
-    --muted: #9ca3af;
-    --accent: #38bdf8;
-    --green: #22c55e;
-    --red: #ef4444;
-    --yellow: #facc15;
+:root{
+--bg:#020617;--panel:rgba(15,23,42,.88);--card:rgba(15,23,42,.96);
+--card2:rgba(30,41,59,.92);--border:rgba(148,163,184,.22);
+--text:#e5e7eb;--muted:#94a3b8;--accent:#38bdf8;--accent2:#0ea5e9;
+--green:#22c55e;--red:#ef4444;--yellow:#facc15;--purple:#a78bfa;
 }
-
-* {
-    box-sizing: border-box;
+*{box-sizing:border-box}
+body{
+margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+background:radial-gradient(circle at top left,rgba(56,189,248,.20),transparent 28%),
+radial-gradient(circle at top right,rgba(167,139,250,.15),transparent 28%),
+linear-gradient(135deg,#020617,#0f172a 50%,#020617);
+color:var(--text);line-height:1.65;
 }
-
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(135deg, #020617, #111827);
-    color: var(--text);
-    line-height: 1.6;
+header{padding:44px 20px 32px;text-align:center;border-bottom:1px solid var(--border)}
+header h1{margin:0 0 10px;font-size:clamp(28px,4vw,46px);letter-spacing:-.05em}
+header p{color:var(--muted);margin:0;font-size:16px}
+.container{max-width:1160px;margin:0 auto;padding:26px 16px 80px}
+.painel{
+position:sticky;top:10px;z-index:10;background:var(--panel);backdrop-filter:blur(18px);
+border:1px solid var(--border);border-radius:26px;padding:16px;margin-bottom:22px;
+box-shadow:0 22px 70px rgba(0,0,0,.35)
 }
-
-header {
-    padding: 32px 20px;
-    text-align: center;
-    border-bottom: 1px solid #334155;
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.stat{background:var(--card2);padding:14px;border-radius:18px;text-align:center;border:1px solid rgba(148,163,184,.12)}
+.stat strong{display:block;font-size:25px;color:var(--accent);line-height:1.1}
+.stat span{font-size:12px;color:var(--muted)}
+.filtros{display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:12px;margin-top:14px}
+input,select{
+width:100%;background:rgba(2,6,23,.78);color:var(--text);border:1px solid var(--border);
+border-radius:14px;padding:13px 14px;outline:none;font-size:14px
 }
-
-header h1 {
-    margin: 0 0 10px;
-    font-size: 28px;
+input:focus,select:focus{border-color:var(--accent)}
+.card{
+background:var(--card);border:1px solid var(--border);border-radius:24px;padding:26px;
+margin-bottom:20px;box-shadow:0 18px 50px rgba(0,0,0,.24)
 }
-
-header p {
-    color: var(--muted);
-    margin: 0;
+.questao{scroll-margin-top:190px}
+.questao-topo{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:18px}
+.badge{
+background:linear-gradient(135deg,var(--accent),var(--accent2));color:#00111f;font-weight:900;
+padding:7px 13px;border-radius:999px;display:inline-block
 }
-
-.container {
-    max-width: 980px;
-    margin: 0 auto;
-    padding: 24px 16px 80px;
+.disciplina-tag,.tipo-tag{
+display:inline-block;margin-left:8px;color:var(--muted);background:rgba(148,163,184,.10);
+border:1px solid rgba(148,163,184,.14);padding:6px 10px;border-radius:999px;font-size:12px
 }
-
-.painel {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    background: rgba(15, 23, 42, 0.95);
-    backdrop-filter: blur(8px);
-    border: 1px solid #334155;
-    border-radius: 16px;
-    padding: 16px;
-    margin-bottom: 24px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
+.tipo-tag{color:#ddd6fe;border-color:rgba(167,139,250,.25)}
+.status{color:var(--yellow);font-size:13px;white-space:nowrap}
+.enunciado{font-size:19px;margin:0 0 22px;letter-spacing:-.01em}
+.botoes{display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.btn{
+cursor:pointer;border:0;padding:12px 22px;border-radius:14px;color:white;font-weight:900;
+transition:.18s ease;letter-spacing:.02em
 }
-
-.stat {
-    background: var(--card2);
-    padding: 12px;
-    border-radius: 12px;
-    text-align: center;
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.certo{background:rgba(34,197,94,.20);border:1px solid rgba(34,197,94,.42)}
+.btn.errado{background:rgba(239,68,68,.20);border:1px solid rgba(239,68,68,.42)}
+.btn.neutro{background:rgba(56,189,248,.16);color:var(--text);border:1px solid rgba(56,189,248,.32)}
+.feedback{
+display:none;background:rgba(2,6,23,.72);border:1px solid rgba(148,163,184,.16);
+border-left:5px solid var(--accent);padding:18px;border-radius:18px;margin-top:14px
 }
-
-.stat strong {
-    display: block;
-    font-size: 22px;
-    color: var(--accent);
+.feedback.correto{border-left-color:var(--green)}
+.feedback.errado{border-left-color:var(--red)}
+.resultado{font-size:18px;font-weight:900;margin-top:0}
+.justificativa{margin-top:12px}
+.referencia{color:var(--muted);font-size:13px;margin-top:16px}
+.gabarito-certo{color:var(--green);font-weight:900}
+.gabarito-errado{color:var(--red);font-weight:900}
+.oculta{display:none}
+.sem-resultados{text-align:center;color:var(--muted);display:none;padding:30px}
+.grid-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
+.link-card{
+display:block;padding:20px;background:rgba(15,23,42,.95);border:1px solid rgba(148,163,184,.22);
+color:#e5e7eb;border-radius:22px;text-decoration:none;transition:.2s;box-shadow:0 14px 40px rgba(0,0,0,.22)
 }
-
-.card {
-    background: rgba(17, 24, 39, 0.96);
-    border: 1px solid #334155;
-    border-radius: 18px;
-    padding: 22px;
-    margin-bottom: 20px;
-    box-shadow: 0 12px 30px rgba(0,0,0,.25);
-}
-
-.questao-topo {
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
-    align-items: center;
-    margin-bottom: 16px;
-}
-
-.badge {
-    background: #0ea5e9;
-    color: #00111f;
-    font-weight: bold;
-    padding: 6px 12px;
-    border-radius: 999px;
-}
-
-.status {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-.enunciado {
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-
-.botoes {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 18px;
-}
-
-button {
-    cursor: pointer;
-    border: 0;
-    padding: 12px 22px;
-    border-radius: 12px;
-    background: #334155;
-    color: white;
-    font-weight: bold;
-    transition: 0.2s;
-}
-
-button:hover {
-    transform: translateY(-1px);
-    background: #475569;
-}
-
-.feedback {
-    display: none;
-    background: #020617;
-    border-left: 4px solid var(--accent);
-    padding: 16px;
-    border-radius: 12px;
-    margin-top: 12px;
-}
-
-.feedback.correto {
-    border-left-color: var(--green);
-}
-
-.feedback.errado {
-    border-left-color: var(--red);
-}
-
-.resultado {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.referencia {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-.acoes {
-    text-align: center;
-    margin: 30px 0;
-}
-
-.acoes button {
-    background: #0ea5e9;
-    color: #00111f;
-}
-
-@media (max-width: 700px) {
-    .painel {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .botoes {
-        flex-direction: column;
-    }
-
-    header h1 {
-        font-size: 22px;
-    }
-
-    .enunciado {
-        font-size: 16px;
-    }
+.link-card:hover{transform:translateY(-3px);border-color:#38bdf8}
+.link-card strong{display:block;font-size:17px;margin-bottom:8px}
+.link-card span{color:#94a3b8;font-size:13px}
+.index-tools{display:grid;grid-template-columns:1.5fr 1fr;gap:12px;margin-bottom:20px}
+@media(max-width:850px){
+.stats{grid-template-columns:repeat(2,1fr)}
+.filtros,.index-tools{grid-template-columns:1fr}
+.questao-topo{align-items:flex-start;flex-direction:column}
+.botoes{flex-direction:column}
+.enunciado{font-size:16px}
+.card{padding:20px}
 }
 </style>
 </head>
-
 <body>
-
 <header>
-    <h1>Simulado - Info 1200 STF</h1>
-    <p>Simulado interativo de CERTO ou ERRADO</p>
+<h1>Simulado - Info 1200 STF</h1>
+<p>Informativos • Simulado interativo de CERTO ou ERRADO</p>
 </header>
 
 <div class="container">
+<div class="painel">
+<div class="stats">
+<div class="stat"><strong>6</strong><span>Total</span></div>
+<div class="stat"><strong id="visiveis">6</strong><span>Visíveis</span></div>
+<div class="stat"><strong id="respondidas">0</strong><span>Respondidas</span></div>
+<div class="stat"><strong id="acertos">0</strong><span>Acertos</span></div>
+<div class="stat"><strong id="erros">0</strong><span>Erros</span></div>
+</div>
 
-    <div class="painel">
-        <div class="stat">
-            <strong id="total">6</strong>
-            Total
-        </div>
-        <div class="stat">
-            <strong id="respondidas">0</strong>
-            Respondidas
-        </div>
-        <div class="stat">
-            <strong id="acertos">0</strong>
-            Acertos
-        </div>
-        <div class="stat">
-            <strong id="erros">0</strong>
-            Erros
-        </div>
-    </div>
+<div class="filtros">
+<input id="busca" type="search" placeholder="Buscar por palavra-chave..." oninput="filtrar()">
+<select id="disciplina" onchange="filtrar()">
+<option value="">Todas as disciplinas</option>
+<option value="ECA">ECA</option>
+<option value="N/I">N/I</option>
+</select>
+<select id="statusFiltro" onchange="filtrar()">
+<option value="">Todas</option>
+<option value="nao">Não respondidas</option>
+<option value="acerto">Acertos</option>
+<option value="erro">Erros</option>
+</select>
+<button class="btn neutro" onclick="reiniciar()">Reiniciar</button>
+</div>
+</div>
 
-    <div class="acoes">
-        <button onclick="reiniciar()">Reiniciar simulado</button>
-    </div>
+<div id="sem-resultados" class="sem-resultados">Nenhuma questão encontrada com os filtros atuais.</div>
 
-    
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 1</span>
-                <span class="status" id="status-1">Não respondida</span>
-            </div>
 
-            <p class="enunciado">É formalmente constitucional, por versar sobre proteção e integração social de pessoas com deficiência em matéria de competência legislativa concorrente, a lei estadual que disciplina o transporte de animais de assistência emocional e de serviço em cabines de aeronaves; todavia, se a norma local, ao exigir laudo de médico psiquiatra para o embarque de animal de assistência emocional, impuser requisito mais restritivo do que o previsto em norma geral federal editada pela autoridade aeronáutica, haverá inconstitucionalidade material por afronta à vedação ao retrocesso social.</p>
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="é formalmente constitucional, por versar sobre proteção e integração social de pessoas com deficiência em matéria de competência legislativa concorrente, a lei estadual que disciplina o transporte de animais de assistência emocional e de serviço em cabines de aeronaves; todavia, se a norma local, ao exigir laudo de médico psiquiatra para o embarque de animal de assistência emocional, impuser requisito mais restritivo do que o previsto em norma geral federal editada pela autoridade aeronáutica, haverá inconstitucionalidade material por afronta à vedação ao retrocesso social. a assertiva está correta porque reproduz a distinção central firmada no julgamento: a lei estadual não foi invalidada por vício formal de competência, mas por conteúdo material incompatível com a proteção já assegurada às pessoas com deficiência.
 
-            <div class="botoes">
-                <button onclick="responder(1, 'CERTO')">CERTO</button>
-                <button onclick="responder(1, 'ERRADO')">ERRADO</button>
-            </div>
+no plano formal, o stf assentou que a disciplina do transporte de animais de assistência, quando voltada à tutela da acessibilidade e da integração social da pessoa com deficiência, não se confunde com a regulação do transporte aéreo em si. por isso, a matéria se insere na competência legislativa concorrente para proteção e integração social das pessoas com deficiência, e não na competência privativa da união para legislar sobre transporte. assim, o estado pode editar normas suplementares sobre o tema.
 
-            <div class="feedback" id="feedback-1">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a distinção central firmada no julgamento: a lei estadual não foi invalidada por vício formal de competência, mas por conteúdo material incompatível com a proteção já assegurada às pessoas com deficiência.<br><br>No plano formal, o STF assentou que a disciplina do transporte de animais de assistência, quando voltada à tutela da acessibilidade e da integração social da pessoa com deficiência, não se confunde com a regulação do transporte aéreo em si. Por isso, a matéria se insere na competência legislativa concorrente para proteção e integração social das pessoas com deficiência, e não na competência privativa da União para legislar sobre transporte. Assim, o Estado pode editar normas suplementares sobre o tema.<br><br>O problema surge no plano material. A lei estadual exigia, para o embarque de animal de assistência emocional, laudo emitido por médico psiquiatra atestando a necessidade de apoio emocional para paciente psiquiátrico. Essa exigência restringia o alcance da disciplina administrativa federal da ANAC, que adotava conceito mais amplo de animal de assistência emocional, como animal de companhia que proporciona conforto ao passageiro, sem impor a mesma exigência documental. Ao criar requisito adicional e mais gravoso, a lei estadual reduziu o nível de proteção já assegurado em norma geral, o que caracteriza violação ao princípio da vedação ao retrocesso.<br><br>O fundamento constitucional de proteção às pessoas com deficiência também foi relevante: o direito à assistência animal no transporte decorre da Convenção Internacional sobre os Direitos das Pessoas com Deficiência, incorporada com status constitucional, cujo art. 9º assegura acessibilidade, inclusive no transporte. Logo, a atuação legislativa estadual não pode esvaziar ou restringir indevidamente esse patamar protetivo.<br><br>Em síntese: a lei estadual pode existir formalmente no âmbito da competência concorrente, mas é materialmente inconstitucional se impor restrição incompatível com as normas gerais que já asseguravam o direito.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.754 MC-Ref/RJ, Rel. Min. André Mendonça, julgado em 19/11/2025 (Info 1200).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 2</span>
-                <span class="status" id="status-2">Não respondida</span>
-            </div>
+o problema surge no plano material. a lei estadual exigia, para o embarque de animal de assistência emocional, laudo emitido por médico psiquiatra atestando a necessidade de apoio emocional para paciente psiquiátrico. essa exigência restringia o alcance da disciplina administrativa federal da anac, que adotava conceito mais amplo de animal de assistência emocional, como animal de companhia que proporciona conforto ao passageiro, sem impor a mesma exigência documental. ao criar requisito adicional e mais gravoso, a lei estadual reduziu o nível de proteção já assegurado em norma geral, o que caracteriza violação ao princípio da vedação ao retrocesso.
 
-            <p class="enunciado">É constitucional lei estadual de iniciativa parlamentar que assegure gratuidade no transporte rodoviário intermunicipal a pessoas hipossuficientes acometidas por câncer, desde que limitada à quantidade de assentos gratuitos já prevista para pessoas com deficiência, mas é inconstitucional a disposição que imponha ao Poder Executivo prazo certo para regulamentar a norma, por violar a separação dos Poderes e a competência privativa do chefe do Executivo para dispor sobre a organização e o funcionamento da administração.</p>
+o fundamento constitucional de proteção às pessoas com deficiência também foi relevante: o direito à assistência animal no transporte decorre da convenção internacional sobre os direitos das pessoas com deficiência, incorporada com status constitucional, cujo art. 9º assegura acessibilidade, inclusive no transporte. logo, a atuação legislativa estadual não pode esvaziar ou restringir indevidamente esse patamar protetivo.
 
-            <div class="botoes">
-                <button onclick="responder(2, 'CERTO')">CERTO</button>
-                <button onclick="responder(2, 'ERRADO')">ERRADO</button>
-            </div>
+em síntese: a lei estadual pode existir formalmente no âmbito da competência concorrente, mas é materialmente inconstitucional se impor restrição incompatível com as normas gerais que já asseguravam o direito. stf. plenário. adi 7.754 mc-ref/rj, rel. min. andré mendonça, julgado em 19/11/2025 (info 1200).">
 
-            <div class="feedback" id="feedback-2">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a distinção central firmada no julgamento: a lei estadual pode instituir benefício de gratuidade no transporte intermunicipal em favor de pessoas com câncer em situação de hipossuficiência, sem que isso implique, por si só, violação ao equilíbrio econômico-financeiro dos contratos de concessão nem usurpação de iniciativa reservada ao chefe do Poder Executivo. O ponto decisivo é que a gratuidade foi admitida com limitação quantitativa vinculada ao número de assentos gratuitos já existente para pessoas com deficiência, o que afasta a alegação de imposição ilimitada de ônus ao concessionário.<br><br>Por outro lado, a previsão de prazo para regulamentação pelo Executivo foi reputada inconstitucional. Nesse aspecto, a norma parlamentar invadiu esfera típica de atuação do chefe do Poder Executivo, ao impor comando temporal obrigatório para edição de ato regulamentar, em afronta à separação dos Poderes e à competência prevista no art. 84, II, da Constituição. Assim, a inconstitucionalidade não alcançou toda a lei, mas apenas o dispositivo que fixava o prazo de regulamentação.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.215/RO, Rel. Min. Nunes Marques, julgado em 26/11/2025 (Info 1200).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 3</span>
-                <span class="status" id="status-3">Não respondida</span>
-            </div>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 1</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-1">Não respondida</span>
+</div>
 
-            <p class="enunciado">No sistema eleitoral brasileiro, a pretensão de concorrer a cargo eletivo sem prévia filiação a partido político é juridicamente inviável, ainda que o interessado invoque a soberania popular e a máxima amplitude do direito de participação política, pois a filiação partidária permanece como requisito constitucional de elegibilidade que não pode ser afastado por interpretação extensiva do art. 14 da Constituição.</p>
+<p class="enunciado">É formalmente constitucional, por versar sobre proteção e integração social de pessoas com deficiência em matéria de competência legislativa concorrente, a lei estadual que disciplina o transporte de animais de assistência emocional e de serviço em cabines de aeronaves; todavia, se a norma local, ao exigir laudo de médico psiquiatra para o embarque de animal de assistência emocional, impuser requisito mais restritivo do que o previsto em norma geral federal editada pela autoridade aeronáutica, haverá inconstitucionalidade material por afronta à vedação ao retrocesso social.</p>
 
-            <div class="botoes">
-                <button onclick="responder(3, 'CERTO')">CERTO</button>
-                <button onclick="responder(3, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(1, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(1, 'ERRADO')">ERRADO</button>
+</div>
 
-            <div class="feedback" id="feedback-3">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está correta porque o ordenamento constitucional brasileiro não admite candidaturas avulsas. A Constituição, ao disciplinar os direitos políticos e as condições de elegibilidade, estabelece expressamente, no art. 14, § 3º, V, a filiação partidária como requisito indispensável para o acesso a cargo eletivo. Isso significa que, no modelo vigente, a participação eleitoral passiva é estruturada a partir da intermediação dos partidos políticos, não sendo possível substituir essa exigência por uma leitura ampliativa baseada apenas em princípios como soberania popular ou pluralismo político.<br><br>O ponto central do entendimento é que a filiação partidária não constitui mera formalidade administrativa, mas condição constitucional de elegibilidade. Assim, mesmo argumentos favoráveis à ampliação do acesso individual às disputas eleitorais não afastam a opção constitucional expressa pelo sistema representativo brasileiro, que organiza a competição eleitoral por meio de agremiações partidárias. Em outras palavras, a Constituição não deixa margem para o reconhecimento judicial de candidaturas independentes sem alteração do texto constitucional.<br><br>A conclusão também é relevante porque impede a confusão entre direitos políticos ativos e passivos: o fato de o cidadão poder participar da vida política em sentido amplo não autoriza, por si só, a candidatura sem partido. O sistema brasileiro, tal como estruturado, condiciona o registro de candidatura à observância das exigências constitucionais de elegibilidade, entre as quais se inclui a filiação partidária.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. RE 1.238.853/RJ, Rel. Min. Luís Roberto Barroso, julgado em 01/12/2025 (Repercussão geral – tema 974) (Info 1200).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 4</span>
-                <span class="status" id="status-4">Não respondida</span>
-            </div>
+<div class="feedback" id="feedback-1">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a distinção central firmada no julgamento: a lei estadual não foi invalidada por vício formal de competência, mas por conteúdo material incompatível com a proteção já assegurada às pessoas com deficiência.<br><br>No plano formal, o STF assentou que a disciplina do transporte de animais de assistência, quando voltada à tutela da acessibilidade e da integração social da pessoa com deficiência, não se confunde com a regulação do transporte aéreo em si. Por isso, a matéria se insere na competência legislativa concorrente para proteção e integração social das pessoas com deficiência, e não na competência privativa da União para legislar sobre transporte. Assim, o Estado pode editar normas suplementares sobre o tema.<br><br>O problema surge no plano material. A lei estadual exigia, para o embarque de animal de assistência emocional, laudo emitido por médico psiquiatra atestando a necessidade de apoio emocional para paciente psiquiátrico. Essa exigência restringia o alcance da disciplina administrativa federal da ANAC, que adotava conceito mais amplo de animal de assistência emocional, como animal de companhia que proporciona conforto ao passageiro, sem impor a mesma exigência documental. Ao criar requisito adicional e mais gravoso, a lei estadual reduziu o nível de proteção já assegurado em norma geral, o que caracteriza violação ao princípio da vedação ao retrocesso.<br><br>O fundamento constitucional de proteção às pessoas com deficiência também foi relevante: o direito à assistência animal no transporte decorre da Convenção Internacional sobre os Direitos das Pessoas com Deficiência, incorporada com status constitucional, cujo art. 9º assegura acessibilidade, inclusive no transporte. Logo, a atuação legislativa estadual não pode esvaziar ou restringir indevidamente esse patamar protetivo.<br><br>Em síntese: a lei estadual pode existir formalmente no âmbito da competência concorrente, mas é materialmente inconstitucional se impor restrição incompatível com as normas gerais que já asseguravam o direito.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.754 MC-Ref/RJ, Rel. Min. André Mendonça, julgado em 19/11/2025 (Info 1200).</p>
+</div>
+</section>
 
-            <p class="enunciado">A previsão regimental de que, em caso de empate na votação para os cargos da Mesa Diretora de Assembleia Legislativa, será considerado eleito o candidato mais idoso, por se tratar de critério objetivo de desempate, viola a igualdade e a impessoalidade, além de extrapolar a autonomia organizacional do Parlamento estadual, por importar inovação incompatível com a simetria constitucional exigida para a disciplina das eleições internas do Poder Legislativo.</p>
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="é constitucional lei estadual de iniciativa parlamentar que assegure gratuidade no transporte rodoviário intermunicipal a pessoas hipossuficientes acometidas por câncer, desde que limitada à quantidade de assentos gratuitos já prevista para pessoas com deficiência, mas é inconstitucional a disposição que imponha ao poder executivo prazo certo para regulamentar a norma, por violar a separação dos poderes e a competência privativa do chefe do executivo para dispor sobre a organização e o funcionamento da administração. a assertiva está correta porque reproduz a distinção central firmada no julgamento: a lei estadual pode instituir benefício de gratuidade no transporte intermunicipal em favor de pessoas com câncer em situação de hipossuficiência, sem que isso implique, por si só, violação ao equilíbrio econômico-financeiro dos contratos de concessão nem usurpação de iniciativa reservada ao chefe do poder executivo. o ponto decisivo é que a gratuidade foi admitida com limitação quantitativa vinculada ao número de assentos gratuitos já existente para pessoas com deficiência, o que afasta a alegação de imposição ilimitada de ônus ao concessionário.
 
-            <div class="botoes">
-                <button onclick="responder(4, 'CERTO')">CERTO</button>
-                <button onclick="responder(4, 'ERRADO')">ERRADO</button>
-            </div>
+por outro lado, a previsão de prazo para regulamentação pelo executivo foi reputada inconstitucional. nesse aspecto, a norma parlamentar invadiu esfera típica de atuação do chefe do poder executivo, ao impor comando temporal obrigatório para edição de ato regulamentar, em afronta à separação dos poderes e à competência prevista no art. 84, ii, da constituição. assim, a inconstitucionalidade não alcançou toda a lei, mas apenas o dispositivo que fixava o prazo de regulamentação. stf. plenário. adi 7.215/ro, rel. min. nunes marques, julgado em 26/11/2025 (info 1200).">
 
-            <div class="feedback" id="feedback-4">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque a utilização da idade como critério de desempate nas eleições internas da Mesa Diretora integra a esfera de autonomia organizacional dos Parlamentos estaduais, sendo matéria interna corporis. A Constituição, ao prever a autonomia das Assembleias Legislativas no art. 27, § 3º, confere espaço normativo para a disciplina regimental desses procedimentos internos, inclusive quanto a critérios objetivos de desempate.<br><br>Além disso, o critério etário não foi considerado ofensivo aos princípios da igualdade e da impessoalidade, justamente por se tratar de parâmetro objetivo, previamente estabelecido e aplicável indistintamente aos candidatos em situação de empate. Não há, nesse ponto, discriminação arbitrária nem favorecimento pessoal, mas apenas técnica normativa de solução de impasse eleitoral interno.<br><br>Também não procede a alegação de afronta à simetria constitucional. A própria Constituição Federal adota a idade como critério de desempate em hipótese análoga, no art. 77, § 5º, o que reforça a legitimidade do parâmetro etário em contextos institucionais semelhantes. Assim, longe de ser incompatível com o modelo constitucional, a regra regimental encontra respaldo na própria lógica constitucional de organização dos Poderes.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.756/MA, Rel. Min. Cámen Lúcia, julgado em 26/11/2025 (Info 1200).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 5</span>
-                <span class="status" id="status-5">Não respondida</span>
-            </div>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 2</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-2">Não respondida</span>
+</div>
 
-            <p class="enunciado">No âmbito do Supremo Tribunal Federal, admite-se a instauração de incidente de assunção de competência em recurso extraordinário, desde que a controvérsia apresente relevante interesse público e repercussão social, pois a técnica de formação de precedentes obrigatórios pode ser utilizada sempre que houver multiplicidade de processos sobre a mesma questão jurídica.</p>
+<p class="enunciado">É constitucional lei estadual de iniciativa parlamentar que assegure gratuidade no transporte rodoviário intermunicipal a pessoas hipossuficientes acometidas por câncer, desde que limitada à quantidade de assentos gratuitos já prevista para pessoas com deficiência, mas é inconstitucional a disposição que imponha ao Poder Executivo prazo certo para regulamentar a norma, por violar a separação dos Poderes e a competência privativa do chefe do Executivo para dispor sobre a organização e o funcionamento da administração.</p>
 
-            <div class="botoes">
-                <button onclick="responder(5, 'CERTO')">CERTO</button>
-                <button onclick="responder(5, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(2, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(2, 'ERRADO')">ERRADO</button>
+</div>
 
-            <div class="feedback" id="feedback-5">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque o incidente de assunção de competência não é cabível em sede de recurso extraordinário. A razão central é que, nessa via de impugnação, a função de uniformização da jurisprudência já é desempenhada pelo regime da repercussão geral, o que afasta a necessidade e a adequação do IAC como técnica adicional de estabilização de precedentes.<br><br>O IAC é admitido no STF apenas quando houver processo pendente de julgamento em competência originária ou em competência recursal ordinária. Além disso, sua instauração exige que a controvérsia seja predominantemente jurídica, com relevante interesse público e repercussão social. Se a finalidade for prevenir ou resolver divergência entre as Turmas do Tribunal, ainda se exige a demonstração de conveniência específica para tanto.<br><br>Também é incorreto afirmar que a multiplicidade de processos, por si só, autoriza o incidente. O que distingue o IAC do IRDR não é a quantidade de feitos em tramitação, mas a importância intrínseca da questão jurídica debatida. Assim, a repetição do tema em vários processos não impede o IAC, mas tampouco o torna automaticamente cabível.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. RE 1.276.977 ED/DF, Rel. Min. Marco Aurélio, redator do acórdão Min. Alexandre de Moraes, julgado em 26/11/2025 (Repercussão Geral – tema 1.102) (Info 1200).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 6</span>
-                <span class="status" id="status-6">Não respondida</span>
-            </div>
+<div class="feedback" id="feedback-2">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a distinção central firmada no julgamento: a lei estadual pode instituir benefício de gratuidade no transporte intermunicipal em favor de pessoas com câncer em situação de hipossuficiência, sem que isso implique, por si só, violação ao equilíbrio econômico-financeiro dos contratos de concessão nem usurpação de iniciativa reservada ao chefe do Poder Executivo. O ponto decisivo é que a gratuidade foi admitida com limitação quantitativa vinculada ao número de assentos gratuitos já existente para pessoas com deficiência, o que afasta a alegação de imposição ilimitada de ônus ao concessionário.<br><br>Por outro lado, a previsão de prazo para regulamentação pelo Executivo foi reputada inconstitucional. Nesse aspecto, a norma parlamentar invadiu esfera típica de atuação do chefe do Poder Executivo, ao impor comando temporal obrigatório para edição de ato regulamentar, em afronta à separação dos Poderes e à competência prevista no art. 84, II, da Constituição. Assim, a inconstitucionalidade não alcançou toda a lei, mas apenas o dispositivo que fixava o prazo de regulamentação.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.215/RO, Rel. Min. Nunes Marques, julgado em 26/11/2025 (Info 1200).</p>
+</div>
+</section>
 
-            <p class="enunciado">A superveniência de entendimento que reconhece a constitucionalidade da contribuição assistencial instituída por norma coletiva não legitima a exigência retroativa de valores referentes ao período em que prevalecia pronunciamento vinculante pela sua inconstitucionalidade, sendo igualmente inválidas cláusulas ou práticas que, direta ou indiretamente, imponham obstáculos desproporcionais ao exercício do direito de oposição do trabalhador, o qual deve ser assegurado por meios acessíveis e eficazes.</p>
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="no sistema eleitoral brasileiro, a pretensão de concorrer a cargo eletivo sem prévia filiação a partido político é juridicamente inviável, ainda que o interessado invoque a soberania popular e a máxima amplitude do direito de participação política, pois a filiação partidária permanece como requisito constitucional de elegibilidade que não pode ser afastado por interpretação extensiva do art. 14 da constituição. a assertiva está correta porque o ordenamento constitucional brasileiro não admite candidaturas avulsas. a constituição, ao disciplinar os direitos políticos e as condições de elegibilidade, estabelece expressamente, no art. 14, § 3º, v, a filiação partidária como requisito indispensável para o acesso a cargo eletivo. isso significa que, no modelo vigente, a participação eleitoral passiva é estruturada a partir da intermediação dos partidos políticos, não sendo possível substituir essa exigência por uma leitura ampliativa baseada apenas em princípios como soberania popular ou pluralismo político.
 
-            <div class="botoes">
-                <button onclick="responder(6, 'CERTO')">CERTO</button>
-                <button onclick="responder(6, 'ERRADO')">ERRADO</button>
-            </div>
+o ponto central do entendimento é que a filiação partidária não constitui mera formalidade administrativa, mas condição constitucional de elegibilidade. assim, mesmo argumentos favoráveis à ampliação do acesso individual às disputas eleitorais não afastam a opção constitucional expressa pelo sistema representativo brasileiro, que organiza a competição eleitoral por meio de agremiações partidárias. em outras palavras, a constituição não deixa margem para o reconhecimento judicial de candidaturas independentes sem alteração do texto constitucional.
 
-            <div class="feedback" id="feedback-6">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a lógica central do julgado: a mudança posterior de orientação do STF quanto à contribuição assistencial não autoriza a cobrança retroativa de parcelas relativas ao período em que a exigência era tida como inconstitucional, em respeito à segurança jurídica e à confiança legítima dos trabalhadores não sindicalizados. O Tribunal assentou que a posterior validação da contribuição não apaga os efeitos do entendimento anterior nem permite ao sindicato exigir, em bloco, valores pretéritos de quem não estava juridicamente sujeito à cobrança naquele momento.<br><br>Além disso, o julgado foi expresso ao vedar qualquer interferência que dificulte ou limite o direito de oposição. Isso alcança não apenas impedimentos formais absolutos, mas também exigências excessivas ou artificiais, como mecanismos que tornem o exercício do direito inviável ou excessivamente oneroso. Por isso, o direito de oposição deve ser disponibilizado por canais acessíveis e eficazes, em condições compatíveis com a liberdade sindical e com a proteção da autonomia individual do trabalhador.<br><br>A questão também está alinhada com a premissa de que a contribuição assistencial pode ser instituída por acordo ou convenção coletiva para toda a categoria, inclusive não sindicalizados, desde que haja efetiva possibilidade de oposição e observância de parâmetros razoáveis. O ponto sensível do precedente é justamente o equilíbrio entre a autonomia coletiva e a preservação de garantias individuais, sem admitir cobrança retroativa nem barreiras indevidas ao dissenso do trabalhador.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ARE 1.018.459 ED-ED/PR, Rel. Min. Gilmar Mendes, julgado em 26/11/2025 (Info 1200).</p>
-            </div>
-        </section>
-        
+a conclusão também é relevante porque impede a confusão entre direitos políticos ativos e passivos: o fato de o cidadão poder participar da vida política em sentido amplo não autoriza, por si só, a candidatura sem partido. o sistema brasileiro, tal como estruturado, condiciona o registro de candidatura à observância das exigências constitucionais de elegibilidade, entre as quais se inclui a filiação partidária. stf. plenário. re 1.238.853/rj, rel. min. luís roberto barroso, julgado em 01/12/2025 (repercussão geral – tema 974) (info 1200).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 3</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-3">Não respondida</span>
+</div>
+
+<p class="enunciado">No sistema eleitoral brasileiro, a pretensão de concorrer a cargo eletivo sem prévia filiação a partido político é juridicamente inviável, ainda que o interessado invoque a soberania popular e a máxima amplitude do direito de participação política, pois a filiação partidária permanece como requisito constitucional de elegibilidade que não pode ser afastado por interpretação extensiva do art. 14 da Constituição.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(3, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(3, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-3">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque o ordenamento constitucional brasileiro não admite candidaturas avulsas. A Constituição, ao disciplinar os direitos políticos e as condições de elegibilidade, estabelece expressamente, no art. 14, § 3º, V, a filiação partidária como requisito indispensável para o acesso a cargo eletivo. Isso significa que, no modelo vigente, a participação eleitoral passiva é estruturada a partir da intermediação dos partidos políticos, não sendo possível substituir essa exigência por uma leitura ampliativa baseada apenas em princípios como soberania popular ou pluralismo político.<br><br>O ponto central do entendimento é que a filiação partidária não constitui mera formalidade administrativa, mas condição constitucional de elegibilidade. Assim, mesmo argumentos favoráveis à ampliação do acesso individual às disputas eleitorais não afastam a opção constitucional expressa pelo sistema representativo brasileiro, que organiza a competição eleitoral por meio de agremiações partidárias. Em outras palavras, a Constituição não deixa margem para o reconhecimento judicial de candidaturas independentes sem alteração do texto constitucional.<br><br>A conclusão também é relevante porque impede a confusão entre direitos políticos ativos e passivos: o fato de o cidadão poder participar da vida política em sentido amplo não autoriza, por si só, a candidatura sem partido. O sistema brasileiro, tal como estruturado, condiciona o registro de candidatura à observância das exigências constitucionais de elegibilidade, entre as quais se inclui a filiação partidária.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. RE 1.238.853/RJ, Rel. Min. Luís Roberto Barroso, julgado em 01/12/2025 (Repercussão geral – tema 974) (Info 1200).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a previsão regimental de que, em caso de empate na votação para os cargos da mesa diretora de assembleia legislativa, será considerado eleito o candidato mais idoso, por se tratar de critério objetivo de desempate, viola a igualdade e a impessoalidade, além de extrapolar a autonomia organizacional do parlamento estadual, por importar inovação incompatível com a simetria constitucional exigida para a disciplina das eleições internas do poder legislativo. a assertiva está incorreta porque a utilização da idade como critério de desempate nas eleições internas da mesa diretora integra a esfera de autonomia organizacional dos parlamentos estaduais, sendo matéria interna corporis. a constituição, ao prever a autonomia das assembleias legislativas no art. 27, § 3º, confere espaço normativo para a disciplina regimental desses procedimentos internos, inclusive quanto a critérios objetivos de desempate.
+
+além disso, o critério etário não foi considerado ofensivo aos princípios da igualdade e da impessoalidade, justamente por se tratar de parâmetro objetivo, previamente estabelecido e aplicável indistintamente aos candidatos em situação de empate. não há, nesse ponto, discriminação arbitrária nem favorecimento pessoal, mas apenas técnica normativa de solução de impasse eleitoral interno.
+
+também não procede a alegação de afronta à simetria constitucional. a própria constituição federal adota a idade como critério de desempate em hipótese análoga, no art. 77, § 5º, o que reforça a legitimidade do parâmetro etário em contextos institucionais semelhantes. assim, longe de ser incompatível com o modelo constitucional, a regra regimental encontra respaldo na própria lógica constitucional de organização dos poderes. stf. plenário. adi 7.756/ma, rel. min. cámen lúcia, julgado em 26/11/2025 (info 1200).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 4</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-4">Não respondida</span>
+</div>
+
+<p class="enunciado">A previsão regimental de que, em caso de empate na votação para os cargos da Mesa Diretora de Assembleia Legislativa, será considerado eleito o candidato mais idoso, por se tratar de critério objetivo de desempate, viola a igualdade e a impessoalidade, além de extrapolar a autonomia organizacional do Parlamento estadual, por importar inovação incompatível com a simetria constitucional exigida para a disciplina das eleições internas do Poder Legislativo.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(4, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(4, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-4">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque a utilização da idade como critério de desempate nas eleições internas da Mesa Diretora integra a esfera de autonomia organizacional dos Parlamentos estaduais, sendo matéria interna corporis. A Constituição, ao prever a autonomia das Assembleias Legislativas no art. 27, § 3º, confere espaço normativo para a disciplina regimental desses procedimentos internos, inclusive quanto a critérios objetivos de desempate.<br><br>Além disso, o critério etário não foi considerado ofensivo aos princípios da igualdade e da impessoalidade, justamente por se tratar de parâmetro objetivo, previamente estabelecido e aplicável indistintamente aos candidatos em situação de empate. Não há, nesse ponto, discriminação arbitrária nem favorecimento pessoal, mas apenas técnica normativa de solução de impasse eleitoral interno.<br><br>Também não procede a alegação de afronta à simetria constitucional. A própria Constituição Federal adota a idade como critério de desempate em hipótese análoga, no art. 77, § 5º, o que reforça a legitimidade do parâmetro etário em contextos institucionais semelhantes. Assim, longe de ser incompatível com o modelo constitucional, a regra regimental encontra respaldo na própria lógica constitucional de organização dos Poderes.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.756/MA, Rel. Min. Cámen Lúcia, julgado em 26/11/2025 (Info 1200).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="no âmbito do supremo tribunal federal, admite-se a instauração de incidente de assunção de competência em recurso extraordinário, desde que a controvérsia apresente relevante interesse público e repercussão social, pois a técnica de formação de precedentes obrigatórios pode ser utilizada sempre que houver multiplicidade de processos sobre a mesma questão jurídica. a assertiva está incorreta porque o incidente de assunção de competência não é cabível em sede de recurso extraordinário. a razão central é que, nessa via de impugnação, a função de uniformização da jurisprudência já é desempenhada pelo regime da repercussão geral, o que afasta a necessidade e a adequação do iac como técnica adicional de estabilização de precedentes.
+
+o iac é admitido no stf apenas quando houver processo pendente de julgamento em competência originária ou em competência recursal ordinária. além disso, sua instauração exige que a controvérsia seja predominantemente jurídica, com relevante interesse público e repercussão social. se a finalidade for prevenir ou resolver divergência entre as turmas do tribunal, ainda se exige a demonstração de conveniência específica para tanto.
+
+também é incorreto afirmar que a multiplicidade de processos, por si só, autoriza o incidente. o que distingue o iac do irdr não é a quantidade de feitos em tramitação, mas a importância intrínseca da questão jurídica debatida. assim, a repetição do tema em vários processos não impede o iac, mas tampouco o torna automaticamente cabível. stf. plenário. re 1.276.977 ed/df, rel. min. marco aurélio, redator do acórdão min. alexandre de moraes, julgado em 26/11/2025 (repercussão geral – tema 1.102) (info 1200).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 5</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-5">Não respondida</span>
+</div>
+
+<p class="enunciado">No âmbito do Supremo Tribunal Federal, admite-se a instauração de incidente de assunção de competência em recurso extraordinário, desde que a controvérsia apresente relevante interesse público e repercussão social, pois a técnica de formação de precedentes obrigatórios pode ser utilizada sempre que houver multiplicidade de processos sobre a mesma questão jurídica.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(5, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(5, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-5">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque o incidente de assunção de competência não é cabível em sede de recurso extraordinário. A razão central é que, nessa via de impugnação, a função de uniformização da jurisprudência já é desempenhada pelo regime da repercussão geral, o que afasta a necessidade e a adequação do IAC como técnica adicional de estabilização de precedentes.<br><br>O IAC é admitido no STF apenas quando houver processo pendente de julgamento em competência originária ou em competência recursal ordinária. Além disso, sua instauração exige que a controvérsia seja predominantemente jurídica, com relevante interesse público e repercussão social. Se a finalidade for prevenir ou resolver divergência entre as Turmas do Tribunal, ainda se exige a demonstração de conveniência específica para tanto.<br><br>Também é incorreto afirmar que a multiplicidade de processos, por si só, autoriza o incidente. O que distingue o IAC do IRDR não é a quantidade de feitos em tramitação, mas a importância intrínseca da questão jurídica debatida. Assim, a repetição do tema em vários processos não impede o IAC, mas tampouco o torna automaticamente cabível.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. RE 1.276.977 ED/DF, Rel. Min. Marco Aurélio, redator do acórdão Min. Alexandre de Moraes, julgado em 26/11/2025 (Repercussão Geral – tema 1.102) (Info 1200).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="ECA"
+data-texto="a superveniência de entendimento que reconhece a constitucionalidade da contribuição assistencial instituída por norma coletiva não legitima a exigência retroativa de valores referentes ao período em que prevalecia pronunciamento vinculante pela sua inconstitucionalidade, sendo igualmente inválidas cláusulas ou práticas que, direta ou indiretamente, imponham obstáculos desproporcionais ao exercício do direito de oposição do trabalhador, o qual deve ser assegurado por meios acessíveis e eficazes. a assertiva está correta porque reproduz a lógica central do julgado: a mudança posterior de orientação do stf quanto à contribuição assistencial não autoriza a cobrança retroativa de parcelas relativas ao período em que a exigência era tida como inconstitucional, em respeito à segurança jurídica e à confiança legítima dos trabalhadores não sindicalizados. o tribunal assentou que a posterior validação da contribuição não apaga os efeitos do entendimento anterior nem permite ao sindicato exigir, em bloco, valores pretéritos de quem não estava juridicamente sujeito à cobrança naquele momento.
+
+além disso, o julgado foi expresso ao vedar qualquer interferência que dificulte ou limite o direito de oposição. isso alcança não apenas impedimentos formais absolutos, mas também exigências excessivas ou artificiais, como mecanismos que tornem o exercício do direito inviável ou excessivamente oneroso. por isso, o direito de oposição deve ser disponibilizado por canais acessíveis e eficazes, em condições compatíveis com a liberdade sindical e com a proteção da autonomia individual do trabalhador.
+
+a questão também está alinhada com a premissa de que a contribuição assistencial pode ser instituída por acordo ou convenção coletiva para toda a categoria, inclusive não sindicalizados, desde que haja efetiva possibilidade de oposição e observância de parâmetros razoáveis. o ponto sensível do precedente é justamente o equilíbrio entre a autonomia coletiva e a preservação de garantias individuais, sem admitir cobrança retroativa nem barreiras indevidas ao dissenso do trabalhador. stf. plenário. are 1.018.459 ed-ed/pr, rel. min. gilmar mendes, julgado em 26/11/2025 (info 1200).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 6</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-6">Não respondida</span>
+</div>
+
+<p class="enunciado">A superveniência de entendimento que reconhece a constitucionalidade da contribuição assistencial instituída por norma coletiva não legitima a exigência retroativa de valores referentes ao período em que prevalecia pronunciamento vinculante pela sua inconstitucionalidade, sendo igualmente inválidas cláusulas ou práticas que, direta ou indiretamente, imponham obstáculos desproporcionais ao exercício do direito de oposição do trabalhador, o qual deve ser assegurado por meios acessíveis e eficazes.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(6, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(6, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-6">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a lógica central do julgado: a mudança posterior de orientação do STF quanto à contribuição assistencial não autoriza a cobrança retroativa de parcelas relativas ao período em que a exigência era tida como inconstitucional, em respeito à segurança jurídica e à confiança legítima dos trabalhadores não sindicalizados. O Tribunal assentou que a posterior validação da contribuição não apaga os efeitos do entendimento anterior nem permite ao sindicato exigir, em bloco, valores pretéritos de quem não estava juridicamente sujeito à cobrança naquele momento.<br><br>Além disso, o julgado foi expresso ao vedar qualquer interferência que dificulte ou limite o direito de oposição. Isso alcança não apenas impedimentos formais absolutos, mas também exigências excessivas ou artificiais, como mecanismos que tornem o exercício do direito inviável ou excessivamente oneroso. Por isso, o direito de oposição deve ser disponibilizado por canais acessíveis e eficazes, em condições compatíveis com a liberdade sindical e com a proteção da autonomia individual do trabalhador.<br><br>A questão também está alinhada com a premissa de que a contribuição assistencial pode ser instituída por acordo ou convenção coletiva para toda a categoria, inclusive não sindicalizados, desde que haja efetiva possibilidade de oposição e observância de parâmetros razoáveis. O ponto sensível do precedente é justamente o equilíbrio entre a autonomia coletiva e a preservação de garantias individuais, sem admitir cobrança retroativa nem barreiras indevidas ao dissenso do trabalhador.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ARE 1.018.459 ED-ED/PR, Rel. Min. Gilmar Mendes, julgado em 26/11/2025 (Info 1200).</p>
+</div>
+</section>
 
 </div>
 
 <script>
-const totalQuestoes = 6;
-let respostas = JSON.parse(localStorage.getItem(location.pathname + "_respostas") || "{}");
+const storageKey = location.pathname + "_respostas";
+let respostas = JSON.parse(localStorage.getItem(storageKey) || "{}");
 
-function atualizarPainel() {
-    const respondidas = Object.keys(respostas).length;
-    let acertos = 0;
-    let erros = 0;
-
-    for (const key in respostas) {
-        if (respostas[key].correto) acertos++;
-        else erros++;
-    }
-
-    document.getElementById("respondidas").textContent = respondidas;
-    document.getElementById("acertos").textContent = acertos;
-    document.getElementById("erros").textContent = erros;
+function destacar(t){
+ if(t==="CERTO") return '<span class="gabarito-certo">CERTO</span>';
+ if(t==="ERRADO") return '<span class="gabarito-errado">ERRADO</span>';
+ return t;
 }
 
-function responder(numero, resposta) {
-    const card = document.querySelectorAll(".questao")[numero - 1];
-    const gabarito = card.dataset.gabarito;
-    const correto = resposta === gabarito;
-
-    respostas[numero] = {
-        resposta,
-        correto
-    };
-
-    localStorage.setItem(location.pathname + "_respostas", JSON.stringify(respostas));
-
-    mostrarFeedback(numero);
-    atualizarPainel();
+function responder(numero, resposta){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const gabarito=card.dataset.gabarito;
+ const correto=resposta===gabarito;
+ respostas[numero]={resposta,correto};
+ localStorage.setItem(storageKey, JSON.stringify(respostas));
+ mostrarFeedback(numero);
+ atualizarPainel();
+ filtrar();
 }
 
-function mostrarFeedback(numero) {
-    const card = document.querySelectorAll(".questao")[numero - 1];
-    const feedback = document.getElementById("feedback-" + numero);
-    const status = document.getElementById("status-" + numero);
-    const resultado = feedback.querySelector(".resultado");
-
-    const dados = respostas[numero];
-
-    if (!dados) return;
-
-    feedback.style.display = "block";
-    feedback.classList.remove("correto", "errado");
-
-    if (dados.correto) {
-        feedback.classList.add("correto");
-        resultado.textContent = "Você acertou. A resposta é " + card.dataset.gabarito + ".";
-        status.textContent = "Respondida — acerto";
-        status.style.color = "var(--green)";
-    } else {
-        feedback.classList.add("errado");
-        resultado.textContent = "Você errou. O gabarito é " + card.dataset.gabarito + ".";
-        status.textContent = "Respondida — erro";
-        status.style.color = "var(--red)";
-    }
+function mostrarFeedback(numero){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const feedback=document.getElementById("feedback-"+numero);
+ const status=document.getElementById("status-"+numero);
+ const resultado=feedback.querySelector(".resultado");
+ const gabarito=card.dataset.gabarito;
+ const dados=respostas[numero];
+ if(!dados) return;
+ feedback.style.display="block";
+ feedback.classList.remove("correto","errado");
+ if(dados.correto){
+   feedback.classList.add("correto");
+   resultado.innerHTML="Você acertou. A resposta é "+destacar(gabarito)+".";
+   status.textContent="Respondida — acerto";
+   status.style.color="var(--green)";
+ } else {
+   feedback.classList.add("errado");
+   resultado.innerHTML="Você errou. O gabarito é "+destacar(gabarito)+".";
+   status.textContent="Respondida — erro";
+   status.style.color="var(--red)";
+ }
 }
 
-function restaurar() {
-    for (const key in respostas) {
-        mostrarFeedback(Number(key));
-    }
-    atualizarPainel();
+function atualizarPainel(){
+ let respondidas=0, acertos=0, erros=0;
+ for(const k in respostas){
+   respondidas++;
+   if(respostas[k].correto) acertos++; else erros++;
+ }
+ document.getElementById("respondidas").textContent=respondidas;
+ document.getElementById("acertos").textContent=acertos;
+ document.getElementById("erros").textContent=erros;
+ document.getElementById("visiveis").textContent=document.querySelectorAll(".questao:not(.oculta)").length;
 }
 
-function reiniciar() {
-    if (!confirm("Deseja reiniciar este simulado?")) return;
-    localStorage.removeItem(location.pathname + "_respostas");
-    location.reload();
+function filtrar(){
+ const busca=document.getElementById("busca").value.trim().toLowerCase();
+ const disciplina=document.getElementById("disciplina").value;
+ const statusFiltro=document.getElementById("statusFiltro").value;
+ const cards=Array.from(document.querySelectorAll(".questao"));
+ let vis=0;
+ cards.forEach((card,idx)=>{
+   const n=idx+1;
+   const texto=card.dataset.texto||"";
+   const disc=card.dataset.disciplina||"";
+   const r=respostas[n];
+   let passaStatus=true;
+   if(statusFiltro==="nao") passaStatus=!r;
+   if(statusFiltro==="acerto") passaStatus=r && r.correto;
+   if(statusFiltro==="erro") passaStatus=r && !r.correto;
+   const ok=(!busca||texto.includes(busca)) && (!disciplina||disc===disciplina) && passaStatus;
+   card.classList.toggle("oculta", !ok);
+   if(ok) vis++;
+ });
+ document.getElementById("sem-resultados").style.display=vis===0?"block":"none";
+ atualizarPainel();
+}
+
+function reiniciar(){
+ if(!confirm("Deseja reiniciar este simulado?")) return;
+ localStorage.removeItem(storageKey);
+ location.reload();
+}
+
+function restaurar(){
+ for(const k in respostas) mostrarFeedback(Number(k));
+ filtrar();
+ atualizarPainel();
 }
 
 restaurar();
 </script>
-
 </body>
 </html>

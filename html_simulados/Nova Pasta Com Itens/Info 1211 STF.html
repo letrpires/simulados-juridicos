@@ -4,371 +4,326 @@
 <meta charset="UTF-8">
 <title>Simulado - Info 1211 STF</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <style>
-:root {
-    --bg: #0f172a;
-    --card: #111827;
-    --card2: #1f2937;
-    --text: #e5e7eb;
-    --muted: #9ca3af;
-    --accent: #38bdf8;
-    --green: #22c55e;
-    --red: #ef4444;
-    --yellow: #facc15;
+:root{
+--bg:#020617;--panel:rgba(15,23,42,.88);--card:rgba(15,23,42,.96);
+--card2:rgba(30,41,59,.92);--border:rgba(148,163,184,.22);
+--text:#e5e7eb;--muted:#94a3b8;--accent:#38bdf8;--accent2:#0ea5e9;
+--green:#22c55e;--red:#ef4444;--yellow:#facc15;--purple:#a78bfa;
 }
-
-* {
-    box-sizing: border-box;
+*{box-sizing:border-box}
+body{
+margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+background:radial-gradient(circle at top left,rgba(56,189,248,.20),transparent 28%),
+radial-gradient(circle at top right,rgba(167,139,250,.15),transparent 28%),
+linear-gradient(135deg,#020617,#0f172a 50%,#020617);
+color:var(--text);line-height:1.65;
 }
-
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(135deg, #020617, #111827);
-    color: var(--text);
-    line-height: 1.6;
+header{padding:44px 20px 32px;text-align:center;border-bottom:1px solid var(--border)}
+header h1{margin:0 0 10px;font-size:clamp(28px,4vw,46px);letter-spacing:-.05em}
+header p{color:var(--muted);margin:0;font-size:16px}
+.container{max-width:1160px;margin:0 auto;padding:26px 16px 80px}
+.painel{
+position:sticky;top:10px;z-index:10;background:var(--panel);backdrop-filter:blur(18px);
+border:1px solid var(--border);border-radius:26px;padding:16px;margin-bottom:22px;
+box-shadow:0 22px 70px rgba(0,0,0,.35)
 }
-
-header {
-    padding: 32px 20px;
-    text-align: center;
-    border-bottom: 1px solid #334155;
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.stat{background:var(--card2);padding:14px;border-radius:18px;text-align:center;border:1px solid rgba(148,163,184,.12)}
+.stat strong{display:block;font-size:25px;color:var(--accent);line-height:1.1}
+.stat span{font-size:12px;color:var(--muted)}
+.filtros{display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:12px;margin-top:14px}
+input,select{
+width:100%;background:rgba(2,6,23,.78);color:var(--text);border:1px solid var(--border);
+border-radius:14px;padding:13px 14px;outline:none;font-size:14px
 }
-
-header h1 {
-    margin: 0 0 10px;
-    font-size: 28px;
+input:focus,select:focus{border-color:var(--accent)}
+.card{
+background:var(--card);border:1px solid var(--border);border-radius:24px;padding:26px;
+margin-bottom:20px;box-shadow:0 18px 50px rgba(0,0,0,.24)
 }
-
-header p {
-    color: var(--muted);
-    margin: 0;
+.questao{scroll-margin-top:190px}
+.questao-topo{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:18px}
+.badge{
+background:linear-gradient(135deg,var(--accent),var(--accent2));color:#00111f;font-weight:900;
+padding:7px 13px;border-radius:999px;display:inline-block
 }
-
-.container {
-    max-width: 980px;
-    margin: 0 auto;
-    padding: 24px 16px 80px;
+.disciplina-tag,.tipo-tag{
+display:inline-block;margin-left:8px;color:var(--muted);background:rgba(148,163,184,.10);
+border:1px solid rgba(148,163,184,.14);padding:6px 10px;border-radius:999px;font-size:12px
 }
-
-.painel {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    background: rgba(15, 23, 42, 0.95);
-    backdrop-filter: blur(8px);
-    border: 1px solid #334155;
-    border-radius: 16px;
-    padding: 16px;
-    margin-bottom: 24px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
+.tipo-tag{color:#ddd6fe;border-color:rgba(167,139,250,.25)}
+.status{color:var(--yellow);font-size:13px;white-space:nowrap}
+.enunciado{font-size:19px;margin:0 0 22px;letter-spacing:-.01em}
+.botoes{display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.btn{
+cursor:pointer;border:0;padding:12px 22px;border-radius:14px;color:white;font-weight:900;
+transition:.18s ease;letter-spacing:.02em
 }
-
-.stat {
-    background: var(--card2);
-    padding: 12px;
-    border-radius: 12px;
-    text-align: center;
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.certo{background:rgba(34,197,94,.20);border:1px solid rgba(34,197,94,.42)}
+.btn.errado{background:rgba(239,68,68,.20);border:1px solid rgba(239,68,68,.42)}
+.btn.neutro{background:rgba(56,189,248,.16);color:var(--text);border:1px solid rgba(56,189,248,.32)}
+.feedback{
+display:none;background:rgba(2,6,23,.72);border:1px solid rgba(148,163,184,.16);
+border-left:5px solid var(--accent);padding:18px;border-radius:18px;margin-top:14px
 }
-
-.stat strong {
-    display: block;
-    font-size: 22px;
-    color: var(--accent);
+.feedback.correto{border-left-color:var(--green)}
+.feedback.errado{border-left-color:var(--red)}
+.resultado{font-size:18px;font-weight:900;margin-top:0}
+.justificativa{margin-top:12px}
+.referencia{color:var(--muted);font-size:13px;margin-top:16px}
+.gabarito-certo{color:var(--green);font-weight:900}
+.gabarito-errado{color:var(--red);font-weight:900}
+.oculta{display:none}
+.sem-resultados{text-align:center;color:var(--muted);display:none;padding:30px}
+.grid-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
+.link-card{
+display:block;padding:20px;background:rgba(15,23,42,.95);border:1px solid rgba(148,163,184,.22);
+color:#e5e7eb;border-radius:22px;text-decoration:none;transition:.2s;box-shadow:0 14px 40px rgba(0,0,0,.22)
 }
-
-.card {
-    background: rgba(17, 24, 39, 0.96);
-    border: 1px solid #334155;
-    border-radius: 18px;
-    padding: 22px;
-    margin-bottom: 20px;
-    box-shadow: 0 12px 30px rgba(0,0,0,.25);
-}
-
-.questao-topo {
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
-    align-items: center;
-    margin-bottom: 16px;
-}
-
-.badge {
-    background: #0ea5e9;
-    color: #00111f;
-    font-weight: bold;
-    padding: 6px 12px;
-    border-radius: 999px;
-}
-
-.status {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-.enunciado {
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-
-.botoes {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 18px;
-}
-
-button {
-    cursor: pointer;
-    border: 0;
-    padding: 12px 22px;
-    border-radius: 12px;
-    background: #334155;
-    color: white;
-    font-weight: bold;
-    transition: 0.2s;
-}
-
-button:hover {
-    transform: translateY(-1px);
-    background: #475569;
-}
-
-.feedback {
-    display: none;
-    background: #020617;
-    border-left: 4px solid var(--accent);
-    padding: 16px;
-    border-radius: 12px;
-    margin-top: 12px;
-}
-
-.feedback.correto {
-    border-left-color: var(--green);
-}
-
-.feedback.errado {
-    border-left-color: var(--red);
-}
-
-.resultado {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.referencia {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-.acoes {
-    text-align: center;
-    margin: 30px 0;
-}
-
-.acoes button {
-    background: #0ea5e9;
-    color: #00111f;
-}
-
-@media (max-width: 700px) {
-    .painel {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .botoes {
-        flex-direction: column;
-    }
-
-    header h1 {
-        font-size: 22px;
-    }
-
-    .enunciado {
-        font-size: 16px;
-    }
+.link-card:hover{transform:translateY(-3px);border-color:#38bdf8}
+.link-card strong{display:block;font-size:17px;margin-bottom:8px}
+.link-card span{color:#94a3b8;font-size:13px}
+.index-tools{display:grid;grid-template-columns:1.5fr 1fr;gap:12px;margin-bottom:20px}
+@media(max-width:850px){
+.stats{grid-template-columns:repeat(2,1fr)}
+.filtros,.index-tools{grid-template-columns:1fr}
+.questao-topo{align-items:flex-start;flex-direction:column}
+.botoes{flex-direction:column}
+.enunciado{font-size:16px}
+.card{padding:20px}
 }
 </style>
 </head>
-
 <body>
-
 <header>
-    <h1>Simulado - Info 1211 STF</h1>
-    <p>Simulado interativo de CERTO ou ERRADO</p>
+<h1>Simulado - Info 1211 STF</h1>
+<p>Informativos • Simulado interativo de CERTO ou ERRADO</p>
 </header>
 
 <div class="container">
+<div class="painel">
+<div class="stats">
+<div class="stat"><strong>3</strong><span>Total</span></div>
+<div class="stat"><strong id="visiveis">3</strong><span>Visíveis</span></div>
+<div class="stat"><strong id="respondidas">0</strong><span>Respondidas</span></div>
+<div class="stat"><strong id="acertos">0</strong><span>Acertos</span></div>
+<div class="stat"><strong id="erros">0</strong><span>Erros</span></div>
+</div>
 
-    <div class="painel">
-        <div class="stat">
-            <strong id="total">3</strong>
-            Total
-        </div>
-        <div class="stat">
-            <strong id="respondidas">0</strong>
-            Respondidas
-        </div>
-        <div class="stat">
-            <strong id="acertos">0</strong>
-            Acertos
-        </div>
-        <div class="stat">
-            <strong id="erros">0</strong>
-            Erros
-        </div>
-    </div>
+<div class="filtros">
+<input id="busca" type="search" placeholder="Buscar por palavra-chave..." oninput="filtrar()">
+<select id="disciplina" onchange="filtrar()">
+<option value="">Todas as disciplinas</option>
+<option value="N/I">N/I</option>
+</select>
+<select id="statusFiltro" onchange="filtrar()">
+<option value="">Todas</option>
+<option value="nao">Não respondidas</option>
+<option value="acerto">Acertos</option>
+<option value="erro">Erros</option>
+</select>
+<button class="btn neutro" onclick="reiniciar()">Reiniciar</button>
+</div>
+</div>
 
-    <div class="acoes">
-        <button onclick="reiniciar()">Reiniciar simulado</button>
-    </div>
+<div id="sem-resultados" class="sem-resultados">Nenhuma questão encontrada com os filtros atuais.</div>
 
-    
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 1</span>
-                <span class="status" id="status-1">Não respondida</span>
-            </div>
 
-            <p class="enunciado">É constitucional lei estadual que, ao disciplinar a prestação de serviço público essencial no território do ente federado, vede às concessionárias de energia elétrica a cobrança de taxa de religação após a regularização da inadimplência do usuário, imponha multa pelo descumprimento e ainda determine o dever de informar os consumidores acerca da gratuidade da religação, por se tratar de norma de proteção do consumidor inserida na competência legislativa concorrente do Estado.</p>
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="é constitucional lei estadual que, ao disciplinar a prestação de serviço público essencial no território do ente federado, vede às concessionárias de energia elétrica a cobrança de taxa de religação após a regularização da inadimplência do usuário, imponha multa pelo descumprimento e ainda determine o dever de informar os consumidores acerca da gratuidade da religação, por se tratar de norma de proteção do consumidor inserida na competência legislativa concorrente do estado. a assertiva está incorreta porque, no setor de energia elétrica, a disciplina estadual que proíbe a cobrança da taxa de religação, prevê sanção pelo descumprimento e impõe dever de informação à concessionária invade matéria submetida à competência privativa da união para legislar sobre energia e à sua competência para explorar os serviços de energia elétrica. trata-se de serviço público federal regulado por regime próprio, inclusive por atos normativos da aneel, de modo que o estado não pode, a pretexto de proteção do consumidor, alterar a estrutura remuneratória do serviço nem interferir nas condições econômico-financeiras do contrato de concessão.
 
-            <div class="botoes">
-                <button onclick="responder(1, 'CERTO')">CERTO</button>
-                <button onclick="responder(1, 'ERRADO')">ERRADO</button>
-            </div>
+além da ofensa ao art. 22, iv, e ao art. 21, xii, “b”, da constituição, a norma estadual também compromete o equilíbrio econômico-financeiro do contrato administrativo, protegido pelo art. 37, xxi, ao suprimir receita prevista na modelagem contratual sem a correspondente recomposição. assim, ainda que a proteção do consumidor seja valor constitucionalmente relevante, ela não autoriza o ente estadual a inovar em setor cuja regulação é federal nem a impor custo não previsto ao concessionário. stf. plenário. adi 7.793/pa, rel. min. nunes marques, julgado em 09/04/2026 (info 1211).">
 
-            <div class="feedback" id="feedback-1">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque, no setor de energia elétrica, a disciplina estadual que proíbe a cobrança da taxa de religação, prevê sanção pelo descumprimento e impõe dever de informação à concessionária invade matéria submetida à competência privativa da União para legislar sobre energia e à sua competência para explorar os serviços de energia elétrica. Trata-se de serviço público federal regulado por regime próprio, inclusive por atos normativos da ANEEL, de modo que o Estado não pode, a pretexto de proteção do consumidor, alterar a estrutura remuneratória do serviço nem interferir nas condições econômico-financeiras do contrato de concessão.<br><br>Além da ofensa ao art. 22, IV, e ao art. 21, XII, “b”, da Constituição, a norma estadual também compromete o equilíbrio econômico-financeiro do contrato administrativo, protegido pelo art. 37, XXI, ao suprimir receita prevista na modelagem contratual sem a correspondente recomposição. Assim, ainda que a proteção do consumidor seja valor constitucionalmente relevante, ela não autoriza o ente estadual a inovar em setor cuja regulação é federal nem a impor custo não previsto ao concessionário.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.793/PA, Rel. Min. Nunes Marques, julgado em 09/04/2026 (Info 1211).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 2</span>
-                <span class="status" id="status-2">Não respondida</span>
-            </div>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 1</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-1">Não respondida</span>
+</div>
 
-            <p class="enunciado">Em ação direta de inconstitucionalidade, a ausência de impugnação expressa da norma revogada que, em tese, seria repristinada pela declaração de inconstitucionalidade da lei superveniente não impede o conhecimento da demanda, podendo o tribunal, ao modular os efeitos de sua decisão e delimitar sua eficácia, afastar de ofício a repristinação indesejada quando verificar que a legislação anterior também padece do mesmo vício de inconstitucionalidade.</p>
+<p class="enunciado">É constitucional lei estadual que, ao disciplinar a prestação de serviço público essencial no território do ente federado, vede às concessionárias de energia elétrica a cobrança de taxa de religação após a regularização da inadimplência do usuário, imponha multa pelo descumprimento e ainda determine o dever de informar os consumidores acerca da gratuidade da religação, por se tratar de norma de proteção do consumidor inserida na competência legislativa concorrente do Estado.</p>
 
-            <div class="botoes">
-                <button onclick="responder(2, 'CERTO')">CERTO</button>
-                <button onclick="responder(2, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(1, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(1, 'ERRADO')">ERRADO</button>
+</div>
 
-            <div class="feedback" id="feedback-2">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está correta porque reflete a orientação mais flexível adotada pelo STF em matéria de controle abstrato quando a declaração de inconstitucionalidade da lei impugnada poderia fazer ressurgir, por efeito repristinatório tácito, norma anterior igualmente incompatível com a Constituição.<br><br>Em regra, a declaração de inconstitucionalidade produz a nulidade da lei desde a origem, o que pode acarretar a retomada de vigência da disciplina normativa anteriormente revogada. Esse efeito repristinatório, porém, deixa de ser juridicamente útil — e passa a ser indesejado — quando a norma revogada também ostenta o mesmo vício constitucional. Nessa hipótese, a simples expulsão da lei mais recente do ordenamento faria retornar uma disciplina igualmente inconstitucional, esvaziando a utilidade prática da decisão.<br><br>A posição tradicional exigia que o autor da ADI impugnasse todo o complexo normativo relevante, inclusive a lei revogada, sob pena de não conhecimento da ação. O entendimento reafirmado no julgado, contudo, flexibiliza essa exigência: a falta de impugnação da norma anterior não obsta a cognição da ação direta, porque cabe ao próprio Tribunal, ao delimitar a eficácia da decisão, excluir de ofício o efeito repristinatório quando constatar a incompatibilidade da legislação revogada com a ordem constitucional.<br><br>Assim, não se trata de ampliar indevidamente o objeto da ação, mas de permitir que a Corte, ao exercer o controle de constitucionalidade, evite um resultado inútil ou contraditório, preservando a coerência do sistema e a efetividade da jurisdição constitucional. No caso concreto, o STF reafirmou esse raciocínio ao declarar, por arrastamento e de ofício, a inconstitucionalidade das normas anteriores que apresentavam o mesmo vício, embora não tivessem sido expressamente impugnadas.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.783/PE, Rel. Min. Dias Toffoli, julgado em 09/04/2026 (Info 1211).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 3</span>
-                <span class="status" id="status-3">Não respondida</span>
-            </div>
+<div class="feedback" id="feedback-1">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque, no setor de energia elétrica, a disciplina estadual que proíbe a cobrança da taxa de religação, prevê sanção pelo descumprimento e impõe dever de informação à concessionária invade matéria submetida à competência privativa da União para legislar sobre energia e à sua competência para explorar os serviços de energia elétrica. Trata-se de serviço público federal regulado por regime próprio, inclusive por atos normativos da ANEEL, de modo que o Estado não pode, a pretexto de proteção do consumidor, alterar a estrutura remuneratória do serviço nem interferir nas condições econômico-financeiras do contrato de concessão.<br><br>Além da ofensa ao art. 22, IV, e ao art. 21, XII, “b”, da Constituição, a norma estadual também compromete o equilíbrio econômico-financeiro do contrato administrativo, protegido pelo art. 37, XXI, ao suprimir receita prevista na modelagem contratual sem a correspondente recomposição. Assim, ainda que a proteção do consumidor seja valor constitucionalmente relevante, ela não autoriza o ente estadual a inovar em setor cuja regulação é federal nem a impor custo não previsto ao concessionário.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.793/PA, Rel. Min. Nunes Marques, julgado em 09/04/2026 (Info 1211).</p>
+</div>
+</section>
 
-            <p class="enunciado">A lei estadual que, ao disciplinar bolsa-auxílio de formação para Delegado de Polícia Civil durante o curso de formação profissional, fixa valor inferior a 50% da remuneração prevista em lei para a classe inicial do cargo incorre em inconstitucionalidade formal e material, por contrariar norma geral federal editada no exercício da competência concorrente e por invadir a disciplina nacional mínima estabelecida para a matéria, ainda que a concessão da vantagem seja facultativa aos estados.</p>
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="em ação direta de inconstitucionalidade, a ausência de impugnação expressa da norma revogada que, em tese, seria repristinada pela declaração de inconstitucionalidade da lei superveniente não impede o conhecimento da demanda, podendo o tribunal, ao modular os efeitos de sua decisão e delimitar sua eficácia, afastar de ofício a repristinação indesejada quando verificar que a legislação anterior também padece do mesmo vício de inconstitucionalidade. a assertiva está correta porque reflete a orientação mais flexível adotada pelo stf em matéria de controle abstrato quando a declaração de inconstitucionalidade da lei impugnada poderia fazer ressurgir, por efeito repristinatório tácito, norma anterior igualmente incompatível com a constituição.
 
-            <div class="botoes">
-                <button onclick="responder(3, 'CERTO')">CERTO</button>
-                <button onclick="responder(3, 'ERRADO')">ERRADO</button>
-            </div>
+em regra, a declaração de inconstitucionalidade produz a nulidade da lei desde a origem, o que pode acarretar a retomada de vigência da disciplina normativa anteriormente revogada. esse efeito repristinatório, porém, deixa de ser juridicamente útil — e passa a ser indesejado — quando a norma revogada também ostenta o mesmo vício constitucional. nessa hipótese, a simples expulsão da lei mais recente do ordenamento faria retornar uma disciplina igualmente inconstitucional, esvaziando a utilidade prática da decisão.
 
-            <div class="feedback" id="feedback-3">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está correta. A Lei Orgânica Nacional das Polícias Civis estabeleceu que a bolsa-auxílio durante o curso de formação profissional é uma faculdade dos estados, mas, uma vez instituída, deve observar piso mínimo de 50% da remuneração prevista em lei para a classe inicial do respectivo cargo. Assim, a margem de conformação estadual não é absoluta: ela existe quanto à decisão de conceder ou não a vantagem, mas não autoriza fixação em patamar inferior ao mínimo nacionalmente imposto.<br><br>No caso examinado, a lei estadual pernambucana fixou a bolsa-auxílio para Delegado de Polícia Civil em valor equivalente a percentual muito inferior ao mínimo legal federal, o que caracterizou afronta à norma geral federal. Em matéria de competência concorrente, a Constituição admite a atuação suplementar dos estados, mas veda disciplina estadual que contrarie a norma geral editada pela União, nos termos do art. 24, §§ 1º e 4º, da Constituição. Por isso, a incompatibilidade não decorre apenas de divergência remuneratória, mas da violação do regime constitucional de repartição de competências.<br><br>A inconstitucionalidade reconhecida alcançou o art. 2º e o Anexo II da lei estadual, especificamente no ponto relativo à carreira de Delegado de Polícia, justamente porque a fixação do valor em patamar inferior ao piso nacional desrespeitou o parâmetro mínimo estabelecido pela legislação federal. O ponto central, portanto, é que a faculdade de instituir a bolsa não afasta o dever de observar o piso quando a vantagem é criada.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.783/PE, Rel. Min. Dias Toffoli, julgado em 09/04/2026 (Info 1211).</p>
-            </div>
-        </section>
-        
+a posição tradicional exigia que o autor da adi impugnasse todo o complexo normativo relevante, inclusive a lei revogada, sob pena de não conhecimento da ação. o entendimento reafirmado no julgado, contudo, flexibiliza essa exigência: a falta de impugnação da norma anterior não obsta a cognição da ação direta, porque cabe ao próprio tribunal, ao delimitar a eficácia da decisão, excluir de ofício o efeito repristinatório quando constatar a incompatibilidade da legislação revogada com a ordem constitucional.
+
+assim, não se trata de ampliar indevidamente o objeto da ação, mas de permitir que a corte, ao exercer o controle de constitucionalidade, evite um resultado inútil ou contraditório, preservando a coerência do sistema e a efetividade da jurisdição constitucional. no caso concreto, o stf reafirmou esse raciocínio ao declarar, por arrastamento e de ofício, a inconstitucionalidade das normas anteriores que apresentavam o mesmo vício, embora não tivessem sido expressamente impugnadas. stf. plenário. adi 7.783/pe, rel. min. dias toffoli, julgado em 09/04/2026 (info 1211).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 2</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-2">Não respondida</span>
+</div>
+
+<p class="enunciado">Em ação direta de inconstitucionalidade, a ausência de impugnação expressa da norma revogada que, em tese, seria repristinada pela declaração de inconstitucionalidade da lei superveniente não impede o conhecimento da demanda, podendo o tribunal, ao modular os efeitos de sua decisão e delimitar sua eficácia, afastar de ofício a repristinação indesejada quando verificar que a legislação anterior também padece do mesmo vício de inconstitucionalidade.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(2, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(2, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-2">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque reflete a orientação mais flexível adotada pelo STF em matéria de controle abstrato quando a declaração de inconstitucionalidade da lei impugnada poderia fazer ressurgir, por efeito repristinatório tácito, norma anterior igualmente incompatível com a Constituição.<br><br>Em regra, a declaração de inconstitucionalidade produz a nulidade da lei desde a origem, o que pode acarretar a retomada de vigência da disciplina normativa anteriormente revogada. Esse efeito repristinatório, porém, deixa de ser juridicamente útil — e passa a ser indesejado — quando a norma revogada também ostenta o mesmo vício constitucional. Nessa hipótese, a simples expulsão da lei mais recente do ordenamento faria retornar uma disciplina igualmente inconstitucional, esvaziando a utilidade prática da decisão.<br><br>A posição tradicional exigia que o autor da ADI impugnasse todo o complexo normativo relevante, inclusive a lei revogada, sob pena de não conhecimento da ação. O entendimento reafirmado no julgado, contudo, flexibiliza essa exigência: a falta de impugnação da norma anterior não obsta a cognição da ação direta, porque cabe ao próprio Tribunal, ao delimitar a eficácia da decisão, excluir de ofício o efeito repristinatório quando constatar a incompatibilidade da legislação revogada com a ordem constitucional.<br><br>Assim, não se trata de ampliar indevidamente o objeto da ação, mas de permitir que a Corte, ao exercer o controle de constitucionalidade, evite um resultado inútil ou contraditório, preservando a coerência do sistema e a efetividade da jurisdição constitucional. No caso concreto, o STF reafirmou esse raciocínio ao declarar, por arrastamento e de ofício, a inconstitucionalidade das normas anteriores que apresentavam o mesmo vício, embora não tivessem sido expressamente impugnadas.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.783/PE, Rel. Min. Dias Toffoli, julgado em 09/04/2026 (Info 1211).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a lei estadual que, ao disciplinar bolsa-auxílio de formação para delegado de polícia civil durante o curso de formação profissional, fixa valor inferior a 50% da remuneração prevista em lei para a classe inicial do cargo incorre em inconstitucionalidade formal e material, por contrariar norma geral federal editada no exercício da competência concorrente e por invadir a disciplina nacional mínima estabelecida para a matéria, ainda que a concessão da vantagem seja facultativa aos estados. a assertiva está correta. a lei orgânica nacional das polícias civis estabeleceu que a bolsa-auxílio durante o curso de formação profissional é uma faculdade dos estados, mas, uma vez instituída, deve observar piso mínimo de 50% da remuneração prevista em lei para a classe inicial do respectivo cargo. assim, a margem de conformação estadual não é absoluta: ela existe quanto à decisão de conceder ou não a vantagem, mas não autoriza fixação em patamar inferior ao mínimo nacionalmente imposto.
+
+no caso examinado, a lei estadual pernambucana fixou a bolsa-auxílio para delegado de polícia civil em valor equivalente a percentual muito inferior ao mínimo legal federal, o que caracterizou afronta à norma geral federal. em matéria de competência concorrente, a constituição admite a atuação suplementar dos estados, mas veda disciplina estadual que contrarie a norma geral editada pela união, nos termos do art. 24, §§ 1º e 4º, da constituição. por isso, a incompatibilidade não decorre apenas de divergência remuneratória, mas da violação do regime constitucional de repartição de competências.
+
+a inconstitucionalidade reconhecida alcançou o art. 2º e o anexo ii da lei estadual, especificamente no ponto relativo à carreira de delegado de polícia, justamente porque a fixação do valor em patamar inferior ao piso nacional desrespeitou o parâmetro mínimo estabelecido pela legislação federal. o ponto central, portanto, é que a faculdade de instituir a bolsa não afasta o dever de observar o piso quando a vantagem é criada. stf. plenário. adi 7.783/pe, rel. min. dias toffoli, julgado em 09/04/2026 (info 1211).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 3</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-3">Não respondida</span>
+</div>
+
+<p class="enunciado">A lei estadual que, ao disciplinar bolsa-auxílio de formação para Delegado de Polícia Civil durante o curso de formação profissional, fixa valor inferior a 50% da remuneração prevista em lei para a classe inicial do cargo incorre em inconstitucionalidade formal e material, por contrariar norma geral federal editada no exercício da competência concorrente e por invadir a disciplina nacional mínima estabelecida para a matéria, ainda que a concessão da vantagem seja facultativa aos estados.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(3, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(3, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-3">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta. A Lei Orgânica Nacional das Polícias Civis estabeleceu que a bolsa-auxílio durante o curso de formação profissional é uma faculdade dos estados, mas, uma vez instituída, deve observar piso mínimo de 50% da remuneração prevista em lei para a classe inicial do respectivo cargo. Assim, a margem de conformação estadual não é absoluta: ela existe quanto à decisão de conceder ou não a vantagem, mas não autoriza fixação em patamar inferior ao mínimo nacionalmente imposto.<br><br>No caso examinado, a lei estadual pernambucana fixou a bolsa-auxílio para Delegado de Polícia Civil em valor equivalente a percentual muito inferior ao mínimo legal federal, o que caracterizou afronta à norma geral federal. Em matéria de competência concorrente, a Constituição admite a atuação suplementar dos estados, mas veda disciplina estadual que contrarie a norma geral editada pela União, nos termos do art. 24, §§ 1º e 4º, da Constituição. Por isso, a incompatibilidade não decorre apenas de divergência remuneratória, mas da violação do regime constitucional de repartição de competências.<br><br>A inconstitucionalidade reconhecida alcançou o art. 2º e o Anexo II da lei estadual, especificamente no ponto relativo à carreira de Delegado de Polícia, justamente porque a fixação do valor em patamar inferior ao piso nacional desrespeitou o parâmetro mínimo estabelecido pela legislação federal. O ponto central, portanto, é que a faculdade de instituir a bolsa não afasta o dever de observar o piso quando a vantagem é criada.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.783/PE, Rel. Min. Dias Toffoli, julgado em 09/04/2026 (Info 1211).</p>
+</div>
+</section>
 
 </div>
 
 <script>
-const totalQuestoes = 3;
-let respostas = JSON.parse(localStorage.getItem(location.pathname + "_respostas") || "{}");
+const storageKey = location.pathname + "_respostas";
+let respostas = JSON.parse(localStorage.getItem(storageKey) || "{}");
 
-function atualizarPainel() {
-    const respondidas = Object.keys(respostas).length;
-    let acertos = 0;
-    let erros = 0;
-
-    for (const key in respostas) {
-        if (respostas[key].correto) acertos++;
-        else erros++;
-    }
-
-    document.getElementById("respondidas").textContent = respondidas;
-    document.getElementById("acertos").textContent = acertos;
-    document.getElementById("erros").textContent = erros;
+function destacar(t){
+ if(t==="CERTO") return '<span class="gabarito-certo">CERTO</span>';
+ if(t==="ERRADO") return '<span class="gabarito-errado">ERRADO</span>';
+ return t;
 }
 
-function responder(numero, resposta) {
-    const card = document.querySelectorAll(".questao")[numero - 1];
-    const gabarito = card.dataset.gabarito;
-    const correto = resposta === gabarito;
-
-    respostas[numero] = {
-        resposta,
-        correto
-    };
-
-    localStorage.setItem(location.pathname + "_respostas", JSON.stringify(respostas));
-
-    mostrarFeedback(numero);
-    atualizarPainel();
+function responder(numero, resposta){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const gabarito=card.dataset.gabarito;
+ const correto=resposta===gabarito;
+ respostas[numero]={resposta,correto};
+ localStorage.setItem(storageKey, JSON.stringify(respostas));
+ mostrarFeedback(numero);
+ atualizarPainel();
+ filtrar();
 }
 
-function mostrarFeedback(numero) {
-    const card = document.querySelectorAll(".questao")[numero - 1];
-    const feedback = document.getElementById("feedback-" + numero);
-    const status = document.getElementById("status-" + numero);
-    const resultado = feedback.querySelector(".resultado");
-
-    const dados = respostas[numero];
-
-    if (!dados) return;
-
-    feedback.style.display = "block";
-    feedback.classList.remove("correto", "errado");
-
-    if (dados.correto) {
-        feedback.classList.add("correto");
-        resultado.textContent = "Você acertou. A resposta é " + card.dataset.gabarito + ".";
-        status.textContent = "Respondida — acerto";
-        status.style.color = "var(--green)";
-    } else {
-        feedback.classList.add("errado");
-        resultado.textContent = "Você errou. O gabarito é " + card.dataset.gabarito + ".";
-        status.textContent = "Respondida — erro";
-        status.style.color = "var(--red)";
-    }
+function mostrarFeedback(numero){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const feedback=document.getElementById("feedback-"+numero);
+ const status=document.getElementById("status-"+numero);
+ const resultado=feedback.querySelector(".resultado");
+ const gabarito=card.dataset.gabarito;
+ const dados=respostas[numero];
+ if(!dados) return;
+ feedback.style.display="block";
+ feedback.classList.remove("correto","errado");
+ if(dados.correto){
+   feedback.classList.add("correto");
+   resultado.innerHTML="Você acertou. A resposta é "+destacar(gabarito)+".";
+   status.textContent="Respondida — acerto";
+   status.style.color="var(--green)";
+ } else {
+   feedback.classList.add("errado");
+   resultado.innerHTML="Você errou. O gabarito é "+destacar(gabarito)+".";
+   status.textContent="Respondida — erro";
+   status.style.color="var(--red)";
+ }
 }
 
-function restaurar() {
-    for (const key in respostas) {
-        mostrarFeedback(Number(key));
-    }
-    atualizarPainel();
+function atualizarPainel(){
+ let respondidas=0, acertos=0, erros=0;
+ for(const k in respostas){
+   respondidas++;
+   if(respostas[k].correto) acertos++; else erros++;
+ }
+ document.getElementById("respondidas").textContent=respondidas;
+ document.getElementById("acertos").textContent=acertos;
+ document.getElementById("erros").textContent=erros;
+ document.getElementById("visiveis").textContent=document.querySelectorAll(".questao:not(.oculta)").length;
 }
 
-function reiniciar() {
-    if (!confirm("Deseja reiniciar este simulado?")) return;
-    localStorage.removeItem(location.pathname + "_respostas");
-    location.reload();
+function filtrar(){
+ const busca=document.getElementById("busca").value.trim().toLowerCase();
+ const disciplina=document.getElementById("disciplina").value;
+ const statusFiltro=document.getElementById("statusFiltro").value;
+ const cards=Array.from(document.querySelectorAll(".questao"));
+ let vis=0;
+ cards.forEach((card,idx)=>{
+   const n=idx+1;
+   const texto=card.dataset.texto||"";
+   const disc=card.dataset.disciplina||"";
+   const r=respostas[n];
+   let passaStatus=true;
+   if(statusFiltro==="nao") passaStatus=!r;
+   if(statusFiltro==="acerto") passaStatus=r && r.correto;
+   if(statusFiltro==="erro") passaStatus=r && !r.correto;
+   const ok=(!busca||texto.includes(busca)) && (!disciplina||disc===disciplina) && passaStatus;
+   card.classList.toggle("oculta", !ok);
+   if(ok) vis++;
+ });
+ document.getElementById("sem-resultados").style.display=vis===0?"block":"none";
+ atualizarPainel();
+}
+
+function reiniciar(){
+ if(!confirm("Deseja reiniciar este simulado?")) return;
+ localStorage.removeItem(storageKey);
+ location.reload();
+}
+
+function restaurar(){
+ for(const k in respostas) mostrarFeedback(Number(k));
+ filtrar();
+ atualizarPainel();
 }
 
 restaurar();
 </script>
-
 </body>
 </html>

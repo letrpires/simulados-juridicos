@@ -1,0 +1,162 @@
+ 
+Informativo 1201-STF (10/12/2025) – Márcio André Lopes Cavalcante   |  1 
+ 
+Informativo comentado: 
+ 
+Informativo 1201-STF (RESUMIDO) 
+Márcio André Lopes Cavalcante 
+ 
+ 
+ 
+DIREITO CONSTITUCIONAL 
+ 
+DIREITOS POLÍTICOS 
+O exercício da chefia do Poder Executivo, nos seis meses anteriores ao pleito, em decorrência de 
+decisão judicial não transitada em julgado, não conta como exercício de um mandato para efeito 
+de reeleição 
+ 
+Importante!!! 
+ 
+ODS 16 
+Caso concreto: Allan foi vice-prefeito entre 2013 e 2016 e assumiu interinamente a prefeitura 
+em 31 de agosto de 2016, após o afastamento judicial do prefeito titular por força de uma 
+liminar concedida em ação de improbidade. Essa substituição durou apenas oito dias, pois a 
+decisão foi revogada e o titular retornou ao cargo. Nas eleições de 2016, Allan foi eleito 
+prefeito para o mandato de 2017 a 2020 e, em 2020, candidatou-se à reeleição para o período 
+de 2021 a 2024. Uma coligação impugnou sua candidatura sob o argumento de que ele estaria 
+buscando um terceiro mandato consecutivo, considerando os poucos dias de substituição em 
+2016 como um primeiro mandato. A Justiça Eleitoral acolheu essa tese e indeferiu o registro. 
+Allan recorreu ao STF, que concordou com seus argumentos. O STF entendeu que a 
+substituição foi involuntária, precária e efêmera, decorrente de decisão judicial 
+posteriormente anulada, não configurando mandato pleno nem gerando inelegibilidade. 
+A substituição involuntária do titular da chefia do Poder Executivo nos seis meses anteriores 
+ao pleito eleitoral, por breve período e em virtude de decisão judicial precária, não é causa de 
+inelegibilidade à reeleição para mais de um mandato consecutivo (art. 14, § 5º, CF/88), pois 
+não viola os princípios da soberania popular (art. 1º, parágrafo único, CF/88), da alternância 
+de poder e da razoabilidade. 
+Tese fixada: O exercício da chefia do Poder Executivo, nos seis meses anteriores ao pleito, em 
+decorrência de decisão judicial não transitada em julgado, não conta como exercício de um 
+mandato para efeito de reeleição. 
+STF. Plenário. RE 1.355.228/PB, Rel. Min. Nunes Marques, julgado em 22/10/2025 (Repercussão 
+geral – Tema 1.229) (Info 1201). 
+ 
+ 
+DIREITO ADMINISTRATIVO 
+ 
+ORGANIZAÇÃO ADMINISTRATIVA 
+Sociedade de economia mista que presta serviço público essencial em regime não concorrencial 
+e sem finalidade lucrativa primária deve ter seus débitos judiciais executados pelo regime de 
+precatórios, sendo vedadas medidas de bloqueio e penhora de valores em suas contas 
+ 
+
+                                                          Informativo                       
+comentado 
+ 
+ 
+ 
+ 
+Informativo 1201-STF (10/12/2025) – Márcio André Lopes Cavalcante   |  2 
+Importante!!! 
+ 
+ODS 16 
+O regime de precatórios (art. 100 da CF) é aplicável às sociedades de economia mista que 
+prestam serviço público essencial de natureza não concorrencial e sem intuito primário de 
+lucro. 
+Decisões judiciais que determinam bloqueio e penhora de valores em contas de sociedades de 
+economia mista prestadoras de serviço público em regime não concorrencial violam o regime 
+constitucional de precatórios (art. 100 da CF), os princípios constitucionais do sistema 
+financeiro e orçamentário, especialmente o da legalidade orçamentária (art. 167, VI, da CF), e 
+os princípios da independência e da harmonia entre os Poderes (art. 2º da CF). 
+Caso concreto: STF decidiu que é inconstitucional o conjunto de decisões que determina o 
+bloqueio e a penhora de valores das contas da Companhia Estadual de Habitação e Obras de 
+Pernambuco (Cehab/PE), dentre outras medidas executivas típicas de direito privado, para o 
+pagamento de débitos oriundos de títulos executivos judiciais. 
+STF. Plenário. ADPF 1.278 MC-Ref/PE, Rel. Min. Gilmar Mendes, julgado em 02/12/2025 (Info 1201). 
+ 
+ 
+DIREITO AMBIENTAL 
+ 
+OUTROS TEMAS 
+São inconstitucionais, sob os aspectos formal e material, as normas estaduais que redefinem o 
+conceito de floresta e que promovem a redução das áreas de reserva legal em imóveis rurais 
+situados em municípios da unidade federada 
+ 
+ 
+Caso concreto: Lei do Estado do Maranhão instituiu o Zoneamento Ecológico-Econômico do 
+Bioma Amazônico maranhense. Em seu art. 5º, inciso XII, a lei definiu ‘florestas’ de forma 
+restritiva, contemplando apenas 8 das 31 classes de vegetação existentes no território. Além 
+disso, a lei utilizou a expressão ‘áreas com florestas’, tomando como referência o mapeamento 
+realizado em 2019, e não a ocorrência natural da tipologia vegetal. Já o art. 14, caput, incisos 
+I, II e § 3º, estabeleceu percentuais de reserva legal de 80% para ‘áreas com florestas’, 35% 
+para cerrado e 50% para as demais formações vegetais que não se enquadrassem nessas 
+categorias. Ocorre que o Código Florestal (Lei Federal nº 12.651/2012) prevê reserva legal de 
+80% para imóveis situados em ‘áreas de floresta” na Amazônia Legal, considerando a 
+ocorrência natural dessa tipologia, independentemente de supressão pretérita.  
+O STF declarou a inconstitucionalidade formal e material desses dispositivos. 
+Os estados podem editar normas complementares mais protetivas ao meio ambiente com 
+fundamento em suas peculiaridades regionais e na preponderância de seu interesse. Todavia, 
+no exercício de sua competência complementar (art. 24, § 2º, da CF/88), devem observar o 
+padrão de proteção ambiental estabelecido pela norma geral da União, podendo majorar esse 
+nível de proteção, mas não reduzi-lo. 
+A lei estadual que restringe o conceito de ‘floresta’ e reduz as áreas de reserva legal em 
+descompasso com o Código Florestal incide em inconstitucionalidade formal, por usurpação 
+da competência legislativa da União para dispor sobre normas gerais em matéria ambiental. 
+A substituição da expressão ‘área de floresta’ por “área com floresta” não constitui mera 
+variação redacional. A primeira refere-se a áreas de ocorrência natural da tipologia vegetal, 
+mesmo que suprimida, enquanto a segunda pressupõe a presença dessa tipologia no 
+
+                                                          Informativo                       
+comentado 
+ 
+ 
+ 
+ 
+Informativo 1201-STF (10/12/2025) – Márcio André Lopes Cavalcante   |  3 
+mapeamento de referência. Essa alteração repercute no alcance da norma, reduzindo seu 
+âmbito de proteção. 
+O art. 225 da CF/88 estabelece o direito fundamental a um meio ambiente ecologicamente 
+equilibrado para as presentes e futuras gerações. A esse direito corresponde um dever estatal 
+de preservação, incumbindo ao poder público evitar que o dano ambiental se concretize e 
+zelar para que seja reparado, caso ocorra. 
+O princípio da vedação ao retrocesso ambiental, embora não se revista de caráter absoluto, 
+afasta a possibilidade de que normas legais venham a reduzir ou suprimir os níveis de 
+proteção ambiental consagrados pela legislação vigente. 
+STF. Plenário. ADI 7.841/MA, Rel. Min. Dias Toffoli, julgado em 02/12/2025 (Info 1201). 
+ 
+ 
+DIREITO TRIBUTÁRIO 
+ 
+BENEFÍCIOS FISCAIS 
+É inconstitucional norma estadual que assegurou benefícios fiscais de ICMS sem respaldo em 
+convênio interestadual do CONFAZ e sem a necessária estimativa de impacto orçamentário e 
+financeiro exigida quando há renúncia de receitas 
+ 
+ODS 16 
+A Constituição Federal e a Lei Complementar nº 24/1975 exigem que benefícios fiscais de ICMS 
+só possam ser concedidos pelos Estados e pelo Distrito Federal mediante autorização prévia 
+em convênio interestadual celebrado no âmbito do CONFAZ. A concessão unilateral desses 
+benefícios gerou, ao longo de décadas, a chamada “guerra fiscal”, com grave insegurança 
+jurídica. Para solucionar o problema, a Lei Complementar federal nº 160/2017 permitiu a 
+convalidação dos incentivos irregulares, desde que os Estados observassem regras fixadas 
+pelo Convênio ICMS 190/2017, como prazo para reinstituição, exigência de transparência e 
+desistência de ações judiciais para remissão e anistia de créditos tributários. 
+No Mato Grosso, a Lei Complementar estadual nº 631/2019 foi editada para cumprir esse 
+convênio, mas uma emenda parlamentar inseriu o art. 58, que manteve determinados 
+benefícios fiscais concedidos sem convênio, concedeu anistia e remissão automáticas e criou 
+uma espécie de “direito adquirido” a incentivos inconstitucionais. O dispositivo foi 
+promulgado apenas em dezembro de 2019, fora do prazo estabelecido pelo Convênio ICMS 
+190/2017. Diante disso, o Governador ajuizou ação direta de inconstitucionalidade, alegando 
+violação à exigência de convênio interestadual, aos princípios da isonomia e da livre 
+concorrência, e ao art. 113 do ADCT, por ausência de estimativa de impacto orçamentário. 
+O STF acolheu integralmente os argumentos, reafirmando sua jurisprudência de que não há 
+direito adquirido a benefício fiscal inconstitucional e que a parte vetada de uma lei só passa a 
+existir juridicamente após a derrubada do veto e nova promulgação. Reconheceu-se, assim, a 
+inconstitucionalidade do art. 58 da lei mato-grossense por afronta ao art. 155, § 2º, XII, “g”, da 
+CF e ao art. 113 do ADCT, com modulação dos efeitos da decisão para produzir efeitos apenas 
+a partir da publicação do acórdão, conforme decidido na ADI 6.319/MT. 
+Em suma: é inconstitucional – por ofensa ao art. 155, § 2º, XII, g, da CF/1988 e ao art. 113 do 
+ADCT – norma estadual que assegurou benefícios fiscais de ICMS sem respaldo em convênio 
+interestadual do Conselho Nacional de Política Fazendária (CONFAZ) e sem a necessária 
+estimativa de impacto orçamentário e financeiro exigida quando há renúncia de receitas.  
+STF. Plenário. ADI 6.319/MT, Rel. Min. Cristiano Zanin, julgado em 02/12/2025 (Info 1201). 
+ 

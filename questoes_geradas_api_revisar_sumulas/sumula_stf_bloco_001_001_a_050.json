@@ -1,0 +1,856 @@
+{
+  "itens": [
+    {
+      "id_origem": "sumula_1_stf",
+      "titulo": "Súmula 1 STF",
+      "tipo": "Súmula",
+      "numero": "1",
+      "tribunal": "STF",
+      "enunciado": "É vedada a expulsão de estrangeiro casado com Brasileira, ou que tenha filho Brasileiro, dependente da economia paterna.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_001_001_a_050.md"
+    },
+    {
+      "id_origem": "sumula_2_stf",
+      "titulo": "Súmula 2 STF",
+      "tipo": "Súmula",
+      "numero": "2",
+      "tribunal": "STF",
+      "enunciado": "Concede-se liberdade vigiada ao extraditando que estiver prêso por prazo superior a sessenta dias.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_001_001_a_050.md"
+    },
+    {
+      "id_origem": "sumula_3_stf",
+      "titulo": "Súmula 3 STF",
+      "tipo": "Súmula",
+      "numero": "3",
+      "tribunal": "STF",
+      "enunciado": "A imunidade concedida a deputados estaduais é restrita à Justiça do Estado. (Superada)",
+      "cancelada_ou_revogada": true,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_001_001_a_050.md"
+    },
+    {
+      "id_origem": "sumula_4_stf",
+      "titulo": "Súmula 4 STF",
+      "tipo": "Súmula",
+      "numero": "4",
+      "tribunal": "STF",
+      "enunciado": "Não perde a imunidade parlamentar o congressista nomeado Ministro de Estado. (Cancelada)",
+      "cancelada_ou_revogada": true,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_001_001_a_050.md"
+    },
+    {
+      "id_origem": "sumula_5_stf",
+      "titulo": "Súmula 5 STF",
+      "tipo": "Súmula",
+      "numero": "5",
+      "tribunal": "STF",
+      "enunciado": "A sanção do projeto supre a falta de iniciativa do Poder Executivo.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_001_001_a_050.md"
+    },
+    {
+      "id_origem": "sumula_6_stf",
+      "titulo": "Súmula 6 STF",
+      "tipo": "Súmula",
+      "numero": "6",
+      "tribunal": "STF",
+      "enunciado": "A revogação ou anulação, pelo Poder Executivo, de aposentadoria, ou qualquer outro ato aprovado pelo Tribunal de Contas, não produz efeitos antes de aprovada por aquêle Tribunal, ressalvada a competência revisora do Judiciário.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_001_001_a_050.md"
+    },
+    {
+      "id_origem": "sumula_7_stf",
+      "titulo": "Súmula 7 STF",
+      "tipo": "Súmula",
+      "numero": "7",
+      "tribunal": "STF",
+      "enunciado": "Sem prejuízo de recurso para o Congresso, não é exeqüível contrato administrativo a que o Tribunal de Contas houver negado registro.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_001_001_a_050.md"
+    },
+    {
+      "id_origem": "sumula_8_stf",
+      "titulo": "Súmula 8 STF",
+      "tipo": "Súmula",
+      "numero": "8",
+      "tribunal": "STF",
+      "enunciado": "Diretor de sociedade de economia mista pode ser destituído no curso do mandato. 15",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_001_001_a_050.md"
+    },
+    {
+      "id_origem": "sumula_9_stf",
+      "titulo": "Súmula 9 STF",
+      "tipo": "Súmula",
+      "numero": "9",
+      "tribunal": "STF",
+      "enunciado": "Para o acesso de auditores ao Superior Tribunal Militar, só concorrem os de segunda entrância.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_001_001_a_050.md"
+    },
+    {
+      "id_origem": "sumula_10_stf",
+      "titulo": "Súmula 10 STF",
+      "tipo": "Súmula",
+      "numero": "10",
+      "tribunal": "STF",
+      "enunciado": "O tempo de serviço militar conta-se para efeito de disponibilidade e aposentadoria do servidor público estadual.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_001_001_a_050.md"
+    },
+    {
+      "id_origem": "sumula_11_stf",
+      "titulo": "Súmula 11 STF",
+      "tipo": "Súmula",
+      "numero": "11",
+      "tribunal": "STF",
+      "enunciado": "A vitaliciedade não impede a extinção do cargo, ficando o funcionário em disponibilidade, com todos os vencimentos.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_001_001_a_050.md"
+    },
+    {
+      "id_origem": "sumula_12_stf",
+      "titulo": "Súmula 12 STF",
+      "tipo": "Súmula",
+      "numero": "12",
+      "tribunal": "STF",
+      "enunciado": "A vitaliciedade do professor catedrático não impede o desdobramento da cátedra.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_001_001_a_050.md"
+    },
+    {
+      "id_origem": "sumula_13_stf",
+      "titulo": "Súmula 13 STF",
+      "tipo": "Súmula",
+      "numero": "13",
+      "tribunal": "STF",
+      "enunciado": "A equiparação de extranumerário a funcionário efetivo, determinada pela L. 2.284, de 9.8.54, não envolve reestruturação, não compreendendo, portanto, os vencimentos.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_001_001_a_050.md"
+    },
+    {
+      "id_origem": "sumula_14_stf",
+      "titulo": "Súmula 14 STF",
+      "tipo": "Súmula",
+      "numero": "14",
+      "tribunal": "STF",
+      "enunciado": "Não é admissível, por ato administrativo, restringir, em razão da idade, inscrição em concurso para cargo público.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_001_001_a_050.md"
+    },
+    {
+      "id_origem": "sumula_15_stf",
+      "titulo": "Súmula 15 STF",
+      "tipo": "Súmula",
+      "numero": "15",
+      "tribunal": "STF",
+      "enunciado": "Dentro do prazo de validade do concurso, o candidato aprovado tem o direito à nomeação, quando o cargo fôr preenchido sem observância da classificação.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_001_001_a_050.md"
+    },
+    {
+      "id_origem": "sumula_16_stf",
+      "titulo": "Súmula 16 STF",
+      "tipo": "Súmula",
+      "numero": "16",
+      "tribunal": "STF",
+      "enunciado": "Funcionário nomeado por concurso tem direito à posse. 16",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_001_001_a_050.md"
+    },
+    {
+      "id_origem": "sumula_17_stf",
+      "titulo": "Súmula 17 STF",
+      "tipo": "Súmula",
+      "numero": "17",
+      "tribunal": "STF",
+      "enunciado": "A nomeação de funcionário sem concurso pode ser desfeita antes da posse.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_001_001_a_050.md"
+    },
+    {
+      "id_origem": "sumula_18_stf",
+      "titulo": "Súmula 18 STF",
+      "tipo": "Súmula",
+      "numero": "18",
+      "tribunal": "STF",
+      "enunciado": "Pela falta residual, não compreendida na absolvição pelo juízo criminal, é admissível a punição administrativa do servidor público.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_001_001_a_050.md"
+    },
+    {
+      "id_origem": "sumula_19_stf",
+      "titulo": "Súmula 19 STF",
+      "tipo": "Súmula",
+      "numero": "19",
+      "tribunal": "STF",
+      "enunciado": "É inadmissível segunda punição de servidor público, baseada no mesmo processo em que se fundou a primeira.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_001_001_a_050.md"
+    },
+    {
+      "id_origem": "sumula_20_stf",
+      "titulo": "Súmula 20 STF",
+      "tipo": "Súmula",
+      "numero": "20",
+      "tribunal": "STF",
+      "enunciado": "É necessário processo administrativo com ampla defesa, para demissão de funcionário admitido por concurso.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_001_001_a_050.md"
+    },
+    {
+      "id_origem": "sumula_21_stf",
+      "titulo": "Súmula 21 STF",
+      "tipo": "Súmula",
+      "numero": "21",
+      "tribunal": "STF",
+      "enunciado": "Funcionário em estágio probatório não pode ser exonerado nem demitido sem inquérito ou sem as formalidades legais de apuração de sua capacidade.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_001_001_a_050.md"
+    },
+    {
+      "id_origem": "sumula_22_stf",
+      "titulo": "Súmula 22 STF",
+      "tipo": "Súmula",
+      "numero": "22",
+      "tribunal": "STF",
+      "enunciado": "O estágio probatório não protege o funcionário contra a extinção do cargo.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_001_001_a_050.md"
+    },
+    {
+      "id_origem": "sumula_23_stf",
+      "titulo": "Súmula 23 STF",
+      "tipo": "Súmula",
+      "numero": "23",
+      "tribunal": "STF",
+      "enunciado": "Verificados os pressupostos legais para o licenciamento da obra, não o impede a declaração de utilidade pública para desapropriação do imóvel, mas o valor da obra não se incluirá na indenização, quando a desapropriação fôr efetivada.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_001_001_a_050.md"
+    },
+    {
+      "id_origem": "sumula_24_stf",
+      "titulo": "Súmula 24 STF",
+      "tipo": "Súmula",
+      "numero": "24",
+      "tribunal": "STF",
+      "enunciado": "Funcionário interino substituto é livremente demissível, mesmo antes de cessar a causa da substituição. 17",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_001_001_a_050.md"
+    },
+    {
+      "id_origem": "sumula_25_stf",
+      "titulo": "Súmula 25 STF",
+      "tipo": "Súmula",
+      "numero": "25",
+      "tribunal": "STF",
+      "enunciado": "A nomeação a têrmo não impede a livre demissão pelo Presidente da República, de ocupante de cargo dirigente de autarquia.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_001_001_a_050.md"
+    },
+    {
+      "id_origem": "sumula_26_stf",
+      "titulo": "Súmula 26 STF",
+      "tipo": "Súmula",
+      "numero": "26",
+      "tribunal": "STF",
+      "enunciado": "Os servidores do Instituto de Aposentadoria e Pensões dos Industriários não podem acumular a sua gratificação bienal com o adicional de tempo de serviço previsto no Estatuto dos Funcionários Civis da União.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_001_001_a_050.md"
+    },
+    {
+      "id_origem": "sumula_27_stf",
+      "titulo": "Súmula 27 STF",
+      "tipo": "Súmula",
+      "numero": "27",
+      "tribunal": "STF",
+      "enunciado": "Os servidores públicos não têm vencimentos irredutíveis, prerrogativa dos membros do Poder Judiciário e dos que lhes são equiparados.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_001_001_a_050.md"
+    },
+    {
+      "id_origem": "sumula_28_stf",
+      "titulo": "Súmula 28 STF",
+      "tipo": "Súmula",
+      "numero": "28",
+      "tribunal": "STF",
+      "enunciado": "O estabelecimento bancário é responsável pelo pagamento de cheque falso, ressalvadas as hipóteses de culpa exclusiva ou concorrente do correntista.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_001_001_a_050.md"
+    },
+    {
+      "id_origem": "sumula_29_stf",
+      "titulo": "Súmula 29 STF",
+      "tipo": "Súmula",
+      "numero": "29",
+      "tribunal": "STF",
+      "enunciado": "Gratificação devida a servidores do \"sistema fazendário\" não se estende aos dos Tribunais de Contas.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_001_001_a_050.md"
+    },
+    {
+      "id_origem": "sumula_30_stf",
+      "titulo": "Súmula 30 STF",
+      "tipo": "Súmula",
+      "numero": "30",
+      "tribunal": "STF",
+      "enunciado": "Servidores de coletorias não têm direito à percentagem pela cobrança de contribuições destinadas à Petrobrás.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_001_001_a_050.md"
+    },
+    {
+      "id_origem": "sumula_31_stf",
+      "titulo": "Súmula 31 STF",
+      "tipo": "Súmula",
+      "numero": "31",
+      "tribunal": "STF",
+      "enunciado": "Para aplicação da L. 1741, de 22.11.52, soma-se o tempo de serviço ininterrupto em mais de um cargo em comissão.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_001_001_a_050.md"
+    },
+    {
+      "id_origem": "sumula_32_stf",
+      "titulo": "Súmula 32 STF",
+      "tipo": "Súmula",
+      "numero": "32",
+      "tribunal": "STF",
+      "enunciado": "Para aplicação da L. 1741, de 22.11.52, soma-se o tempo de serviço ininterrupto em cargo em comissão e em função gratificada. 18",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_001_001_a_050.md"
+    },
+    {
+      "id_origem": "sumula_33_stf",
+      "titulo": "Súmula 33 STF",
+      "tipo": "Súmula",
+      "numero": "33",
+      "tribunal": "STF",
+      "enunciado": "A L. 1.741, de 22.11.52, é aplicável às autarquias federais.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_001_001_a_050.md"
+    },
+    {
+      "id_origem": "sumula_34_stf",
+      "titulo": "Súmula 34 STF",
+      "tipo": "Súmula",
+      "numero": "34",
+      "tribunal": "STF",
+      "enunciado": "No Estado de São Paulo, funcionário eleito vereador fica licenciado por tôda a duração do mandato.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_001_001_a_050.md"
+    },
+    {
+      "id_origem": "sumula_35_stf",
+      "titulo": "Súmula 35 STF",
+      "tipo": "Súmula",
+      "numero": "35",
+      "tribunal": "STF",
+      "enunciado": "Em caso de acidente do trabalho ou de transporte, a concubina tem direito de ser indenizada pela morte do amásio, se entre êles não havia impedimento para o matrimônio.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_001_001_a_050.md"
+    },
+    {
+      "id_origem": "sumula_36_stf",
+      "titulo": "Súmula 36 STF",
+      "tipo": "Súmula",
+      "numero": "36",
+      "tribunal": "STF",
+      "enunciado": "Servidor vitalício está sujeito à aposentadoria compulsória, em razão da idade.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_001_001_a_050.md"
+    },
+    {
+      "id_origem": "sumula_37_stf",
+      "titulo": "Súmula 37 STF",
+      "tipo": "Súmula",
+      "numero": "37",
+      "tribunal": "STF",
+      "enunciado": "Não tem direito de se aposentar pelo Tesouro Nacional o servidor que não satisfizer as condições estabelecidas na legislação do serviço público federal, ainda que aposentado pela respectiva instituição previdenciária, com direito, em tese, a duas aposentadorias.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_001_001_a_050.md"
+    },
+    {
+      "id_origem": "sumula_38_stf",
+      "titulo": "Súmula 38 STF",
+      "tipo": "Súmula",
+      "numero": "38",
+      "tribunal": "STF",
+      "enunciado": "Reclassificação posterior à aposentadoria não aproveita ao servidor aposentado.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_001_001_a_050.md"
+    },
+    {
+      "id_origem": "sumula_39_stf",
+      "titulo": "Súmula 39 STF",
+      "tipo": "Súmula",
+      "numero": "39",
+      "tribunal": "STF",
+      "enunciado": "À falta de lei, funcionário em disponibilidade não pode exigir, judicialmente, o seu aproveitamento, que fica subordinado ao critério de conveniência da administração.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_001_001_a_050.md"
+    },
+    {
+      "id_origem": "sumula_40_stf",
+      "titulo": "Súmula 40 STF",
+      "tipo": "Súmula",
+      "numero": "40",
+      "tribunal": "STF",
+      "enunciado": "A elevação da entrância da comarca não promove automaticamente o juiz, mas não interrompe o exercício de suas funções na mesma comarca. 19",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_001_001_a_050.md"
+    },
+    {
+      "id_origem": "sumula_41_stf",
+      "titulo": "Súmula 41 STF",
+      "tipo": "Súmula",
+      "numero": "41",
+      "tribunal": "STF",
+      "enunciado": "Juízes preparadores ou substitutos não têm direito aos vencimentos da atividade fora dos períodos de exercício.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_001_001_a_050.md"
+    },
+    {
+      "id_origem": "sumula_42_stf",
+      "titulo": "Súmula 42 STF",
+      "tipo": "Súmula",
+      "numero": "42",
+      "tribunal": "STF",
+      "enunciado": "É legítima a equiparação de juízes do Tribunal de Contas, em direitos e garantias, aos membros do Poder Judiciário.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_001_001_a_050.md"
+    },
+    {
+      "id_origem": "sumula_43_stf",
+      "titulo": "Súmula 43 STF",
+      "tipo": "Súmula",
+      "numero": "43",
+      "tribunal": "STF",
+      "enunciado": "Não contraria a Constituição Federal o art. 61 da Constituição de São Paulo, que equiparou os vencimentos do Ministério Público aos da magistratura.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_001_001_a_050.md"
+    },
+    {
+      "id_origem": "sumula_44_stf",
+      "titulo": "Súmula 44 STF",
+      "tipo": "Súmula",
+      "numero": "44",
+      "tribunal": "STF",
+      "enunciado": "O exercício do cargo pelo prazo determinado na L. 1.341, de 30.1.51, art. 91, dá preferência para a nomeação interina de Procurador da República.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_001_001_a_050.md"
+    },
+    {
+      "id_origem": "sumula_45_stf",
+      "titulo": "Súmula 45 STF",
+      "tipo": "Súmula",
+      "numero": "45",
+      "tribunal": "STF",
+      "enunciado": "A estabilidade dos substitutos do Ministério Público Militar não confere direito aos vencimentos da atividade fora dos períodos de exercício.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_001_001_a_050.md"
+    },
+    {
+      "id_origem": "sumula_46_stf",
+      "titulo": "Súmula 46 STF",
+      "tipo": "Súmula",
+      "numero": "46",
+      "tribunal": "STF",
+      "enunciado": "Desmembramento de serventia de justiça não viola o princípio de vitaliciedade do serventuário.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_001_001_a_050.md"
+    },
+    {
+      "id_origem": "sumula_47_stf",
+      "titulo": "Súmula 47 STF",
+      "tipo": "Súmula",
+      "numero": "47",
+      "tribunal": "STF",
+      "enunciado": "Reitor de universidade não é livremente demissível pelo Presidente da República durante o prazo de sua investidura.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_001_001_a_050.md"
+    },
+    {
+      "id_origem": "sumula_48_stf",
+      "titulo": "Súmula 48 STF",
+      "tipo": "Súmula",
+      "numero": "48",
+      "tribunal": "STF",
+      "enunciado": "É legítimo o rodízio de docentes livres na substituição do professor catedrático. 20",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_001_001_a_050.md"
+    },
+    {
+      "id_origem": "sumula_49_stf",
+      "titulo": "Súmula 49 STF",
+      "tipo": "Súmula",
+      "numero": "49",
+      "tribunal": "STF",
+      "enunciado": "A cláusula de inalienabilidade inclui a incomunicabilidade dos bens.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_001_001_a_050.md"
+    },
+    {
+      "id_origem": "sumula_50_stf",
+      "titulo": "Súmula 50 STF",
+      "tipo": "Súmula",
+      "numero": "50",
+      "tribunal": "STF",
+      "enunciado": "A lei pode estabelecer condições para a demissão de extranumerário.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_001_001_a_050.md"
+    }
+  ],
+  "questoes": [
+    {
+      "id_origem": "sumula_1_stf",
+      "titulo_origem": "Súmula 1 STF",
+      "questao": "É permitido expulsar estrangeiro que seja casado com brasileira ou que tenha filho brasileiro que dependa economicamente dele.",
+      "gabarito": "ERRADO",
+      "justificativa": "A expulsão de estrangeiro casado com brasileira ou que tenha filho brasileiro dependente de sua economia é vedada, pois a legislação e a jurisprudência protegem os vínculos familiares e o direito à convivência familiar, impedindo medidas que possam prejudicar a unidade familiar e o sustento dos dependentes."
+    },
+    {
+      "id_origem": "sumula_2_stf",
+      "titulo_origem": "Súmula 2 STF",
+      "questao": "É correto afirmar que o extraditando preso por mais de sessenta dias tem direito à liberdade vigiada durante o processo de extradição.",
+      "gabarito": "CERTO",
+      "justificativa": "A jurisprudência do STF estabelece que, quando o extraditando permanece preso por prazo superior a sessenta dias, deve ser concedida a liberdade vigiada, como medida que assegura a proteção dos direitos fundamentais do indivíduo enquanto aguarda a conclusão do processo de extradição."
+    },
+    {
+      "id_origem": "sumula_3_stf",
+      "titulo_origem": "Súmula 3 STF",
+      "questao": "A imunidade processual de deputados estaduais alcança exclusivamente a Justiça estadual, não se estendendo à Justiça Federal.",
+      "gabarito": "ERRADO",
+      "justificativa": "A Súmula 3 do STF, que afirmava que a imunidade concedida a deputados estaduais era restrita à Justiça do Estado, foi superada. Atualmente, a imunidade processual dos deputados estaduais não se limita à Justiça estadual, podendo alcançar outras instâncias conforme o entendimento jurisprudencial vigente."
+    },
+    {
+      "id_origem": "sumula_4_stf",
+      "titulo_origem": "Súmula 4 STF",
+      "questao": "Um parlamentar federal perde a imunidade material ao ser nomeado Ministro de Estado.",
+      "gabarito": "ERRADO",
+      "justificativa": "Embora a Súmula 4 do STF tenha sido cancelada, o entendimento tradicional era de que o parlamentar não perde a imunidade material ao assumir o cargo de Ministro de Estado. A imunidade parlamentar protege atos relacionados ao mandato, e a nomeação para o Executivo não extingue essa proteção. Contudo, o cancelamento da súmula indica que o STF não mantém mais esse entendimento como vinculante, mas a imunidade não é automaticamente perdida pela nomeação."
+    },
+    {
+      "id_origem": "sumula_5_stf",
+      "titulo_origem": "Súmula 5 STF",
+      "questao": "A aprovação e sanção de projeto de lei apresentado por iniciativa parlamentar suprime a ausência de iniciativa do Poder Executivo para a matéria tratada.",
+      "gabarito": "CERTO",
+      "justificativa": "A sanção do projeto de lei aprovado pelo Legislativo, mesmo que originado por iniciativa parlamentar, supre a falta de iniciativa do Poder Executivo, conferindo validade e eficácia à norma, conforme entendimento consolidado pelo Supremo Tribunal Federal."
+    },
+    {
+      "id_origem": "sumula_6_stf",
+      "titulo_origem": "Súmula 6 STF",
+      "questao": "A revogação de aposentadoria realizada pelo Poder Executivo produz efeitos imediatos, independentemente de aprovação pelo Tribunal de Contas, salvo se houver revisão judicial.",
+      "gabarito": "ERRADO",
+      "justificativa": "A revogação ou anulação de aposentadoria pelo Poder Executivo somente produz efeitos após aprovação pelo Tribunal de Contas, conforme entendimento consolidado, ressalvando-se apenas a competência revisora do Poder Judiciário. Portanto, a aprovação prévia do Tribunal de Contas é requisito essencial para a eficácia do ato administrativo."
+    },
+    {
+      "id_origem": "sumula_7_stf",
+      "titulo_origem": "Súmula 7 STF",
+      "questao": "Contrato administrativo que teve seu registro negado pelo Tribunal de Contas pode ser executado normalmente, independentemente de recurso ao Congresso Nacional.",
+      "gabarito": "ERRADO",
+      "justificativa": "A jurisprudência do STF estabelece que contrato administrativo cujo registro foi negado pelo Tribunal de Contas não é exequível, salvo se houver recurso para o Congresso Nacional. Portanto, a execução do contrato está condicionada à apreciação do recurso, não podendo ser realizada normalmente enquanto o registro for negado."
+    },
+    {
+      "id_origem": "sumula_8_stf",
+      "titulo_origem": "Súmula 8 STF",
+      "questao": "É vedada a destituição de diretor de sociedade de economia mista antes do término do mandato para o qual foi nomeado.",
+      "gabarito": "ERRADO",
+      "justificativa": "O diretor de sociedade de economia mista pode ser destituído no curso do mandato, ou seja, não há impedimento legal para sua destituição antes do término do mandato, conforme entendimento consolidado pelo Supremo Tribunal Federal."
+    },
+    {
+      "id_origem": "sumula_9_stf",
+      "titulo_origem": "Súmula 9 STF",
+      "questao": "Auditores de primeira entrância podem concorrer ao cargo de auditor no Superior Tribunal Militar.",
+      "gabarito": "ERRADO",
+      "justificativa": "O acesso ao cargo de auditor no Superior Tribunal Militar é restrito aos auditores de segunda entrância, conforme entendimento consolidado, o que impede a participação de auditores de primeira entrância nesse concurso."
+    },
+    {
+      "id_origem": "sumula_10_stf",
+      "titulo_origem": "Súmula 10 STF",
+      "questao": "O período em que o servidor público estadual prestou serviço militar obrigatório deve ser computado para fins de aposentadoria e disponibilidade.",
+      "gabarito": "CERTO",
+      "justificativa": "O Supremo Tribunal Federal entende que o tempo de serviço militar obrigatório deve ser considerado para a contagem do tempo de serviço do servidor público estadual, especialmente para efeitos de aposentadoria e disponibilidade, conforme consolidado na jurisprudência representada pela Súmula 10. Isso decorre do reconhecimento da equivalência do serviço militar ao serviço público para fins previdenciários e funcionais."
+    },
+    {
+      "id_origem": "sumula_11_stf",
+      "titulo_origem": "Súmula 11 STF",
+      "questao": "A vitaliciedade do servidor público impede a extinção do seu cargo, garantindo a permanência no exercício da função sem possibilidade de disponibilidade.",
+      "gabarito": "ERRADO",
+      "justificativa": "A vitaliciedade assegura a estabilidade do servidor, mas não impede a extinção do cargo. Nessa hipótese, o servidor é colocado em disponibilidade, mantendo o direito a todos os seus vencimentos, conforme entendimento consolidado pelo STF."
+    },
+    {
+      "id_origem": "sumula_12_stf",
+      "titulo_origem": "Súmula 12 STF",
+      "questao": "A garantia da vitaliciedade ao professor catedrático impede que a cátedra seja desdobrada para criação de novas cadeiras na mesma disciplina.",
+      "gabarito": "ERRADO",
+      "justificativa": "A vitaliciedade assegurada ao professor catedrático não obsta o desdobramento da cátedra, ou seja, a criação de novas cadeiras na mesma disciplina é possível mesmo com a existência de titular vitalício. Isso decorre do entendimento de que a vitaliciedade protege o cargo ocupado, mas não impede a expansão ou divisão da cátedra para fins acadêmicos ou administrativos."
+    },
+    {
+      "id_origem": "sumula_13_stf",
+      "titulo_origem": "Súmula 13 STF",
+      "questao": "A equiparação de um servidor extranumerário a um funcionário efetivo, conforme previsto na Lei nº 2.284/1954, implica automaticamente a extensão dos mesmos vencimentos do cargo efetivo ao servidor equiparado.",
+      "gabarito": "ERRADO",
+      "justificativa": "A equiparação prevista na Lei nº 2.284/1954 não configura reestruturação do cargo, razão pela qual não abrange a equiparação dos vencimentos. Assim, o servidor extranumerário equiparado a funcionário efetivo não tem direito automático aos mesmos vencimentos do cargo efetivo."
+    },
+    {
+      "id_origem": "sumula_14_stf",
+      "titulo_origem": "Súmula 14 STF",
+      "questao": "É permitido que ato administrativo estabeleça limite máximo de idade para inscrição em concurso público, desde que justificado por requisitos do cargo.",
+      "gabarito": "ERRADO",
+      "justificativa": "A restrição de inscrição em concurso público por motivo de idade, por meio de ato administrativo, não é admissível, pois viola o princípio da isonomia e o direito à igualdade no acesso a cargos públicos, salvo quando a lei expressamente prever tal requisito em razão da natureza do cargo."
+    },
+    {
+      "id_origem": "sumula_15_stf",
+      "titulo_origem": "Súmula 15 STF",
+      "questao": "Durante o prazo de validade do concurso público, o candidato aprovado que não for nomeado em razão do preenchimento do cargo por candidato de classificação inferior não possui direito à nomeação.",
+      "gabarito": "ERRADO",
+      "justificativa": "O direito à nomeação do candidato aprovado em concurso público é garantido dentro do prazo de validade do certame, especialmente quando o cargo é preenchido sem observância da ordem de classificação. Portanto, a nomeação deve respeitar a classificação dos candidatos, assegurando o direito do candidato melhor classificado."
+    },
+    {
+      "id_origem": "sumula_16_stf",
+      "titulo_origem": "Súmula 16 STF",
+      "questao": "É correto afirmar que o servidor público aprovado em concurso público possui direito subjetivo à posse no cargo para o qual foi nomeado, não podendo a administração pública negar-lhe tal posse sem motivo legal justificável.",
+      "gabarito": "CERTO",
+      "justificativa": "A jurisprudência do Supremo Tribunal Federal reconhece que a nomeação decorrente de concurso público gera direito subjetivo à posse, garantindo ao aprovado o ingresso no cargo público. Tal direito decorre do princípio da legalidade e da segurança jurídica, impedindo que a administração pública se recuse a empossar o servidor sem fundamento legal válido."
+    },
+    {
+      "id_origem": "sumula_17_stf",
+      "titulo_origem": "Súmula 17 STF",
+      "questao": "A administração pública pode anular a nomeação de servidor realizada sem prévio concurso público, desde que essa anulação ocorra antes da posse do nomeado.",
+      "gabarito": "CERTO",
+      "justificativa": "A nomeação sem concurso público é ilegal e, portanto, passível de anulação. Contudo, essa anulação deve ocorrer antes da posse, pois após a posse, o ato torna-se mais difícil de ser desfeito, exigindo outros procedimentos. A súmula reconhece que a administração pode desfazer a nomeação ilegal antes da posse, preservando a legalidade e a moralidade administrativa."
+    },
+    {
+      "id_origem": "sumula_18_stf",
+      "titulo_origem": "Súmula 18 STF",
+      "questao": "É vedada a aplicação de penalidade administrativa ao servidor público quando houver absolvição criminal, mesmo que persista falta residual não abrangida pela decisão judicial.",
+      "gabarito": "ERRADO",
+      "justificativa": "A absolvição criminal não impede a punição administrativa do servidor público por falta residual que não tenha sido alcançada pela decisão penal. Isso porque os processos penal e administrativo possuem finalidades e critérios distintos, permitindo a responsabilização administrativa mesmo após absolvição criminal parcial ou total."
+    },
+    {
+      "id_origem": "sumula_19_stf",
+      "titulo_origem": "Súmula 19 STF",
+      "questao": "É permitido aplicar duas penalidades distintas a um servidor público com base no mesmo conjunto probatório utilizado para a primeira punição.",
+      "gabarito": "ERRADO",
+      "justificativa": "A jurisprudência do STF estabelece que não se admite a imposição de uma segunda punição a servidor público fundamentada no mesmo processo que originou a primeira penalidade, para evitar a dupla punição pelo mesmo fato, garantindo o princípio do ne bis in idem."
+    },
+    {
+      "id_origem": "sumula_20_stf",
+      "titulo_origem": "Súmula 20 STF",
+      "questao": "A demissão de servidor público efetivo, admitido por concurso, pode ocorrer sem a instauração de processo administrativo que assegure o direito à ampla defesa.",
+      "gabarito": "ERRADO",
+      "justificativa": "A demissão de servidor público efetivo, admitido por concurso, exige a instauração de processo administrativo que garanta o direito à ampla defesa, conforme entendimento consolidado pelo Supremo Tribunal Federal. Tal procedimento assegura o contraditório e a legalidade na aplicação da penalidade, protegendo o servidor contra arbitrariedades."
+    },
+    {
+      "id_origem": "sumula_21_stf",
+      "titulo_origem": "Súmula 21 STF",
+      "questao": "É possível exonerar um servidor público em estágio probatório sem a instauração de inquérito administrativo ou sem a observância das formalidades legais para apuração de sua capacidade.",
+      "gabarito": "ERRADO",
+      "justificativa": "O servidor público em estágio probatório possui direito à estabilidade relativa, o que impede sua exoneração ou demissão sem a prévia instauração de inquérito administrativo ou procedimento formal que assegure a apuração de sua capacidade funcional, garantindo o devido processo legal e a ampla defesa."
+    },
+    {
+      "id_origem": "sumula_22_stf",
+      "titulo_origem": "Súmula 22 STF",
+      "questao": "Durante o estágio probatório, o servidor público está protegido contra a extinção do cargo que ocupa.",
+      "gabarito": "ERRADO",
+      "justificativa": "O estágio probatório tem por objetivo avaliar a aptidão do servidor para o cargo, mas não impede a extinção do cargo em si. A extinção do cargo é uma medida administrativa que pode ocorrer independentemente do estágio probatório, não sendo o servidor protegido contra essa hipótese."
+    },
+    {
+      "id_origem": "sumula_23_stf",
+      "titulo_origem": "Súmula 23 STF",
+      "questao": "A declaração de utilidade pública para desapropriação de imóvel impede o licenciamento da obra nele projetada, mesmo que estejam presentes todos os pressupostos legais para tal licenciamento.",
+      "gabarito": "ERRADO",
+      "justificativa": "A declaração de utilidade pública para desapropriação não impede o licenciamento da obra quando os pressupostos legais para o licenciamento estão presentes. Contudo, se a desapropriação for efetivada, o valor da obra realizada não será incluído na indenização paga ao proprietário do imóvel, pois a indenização se limita ao valor do imóvel desapropriado, excluindo benfeitorias não incorporadas ao bem."
+    },
+    {
+      "id_origem": "sumula_24_stf",
+      "titulo_origem": "Súmula 24 STF",
+      "questao": "O funcionário que exerce cargo em caráter interino possui estabilidade no emprego até o término da substituição, não podendo ser demitido antes do encerramento da causa que justificou sua nomeação.",
+      "gabarito": "ERRADO",
+      "justificativa": "O funcionário interino substituto não possui estabilidade no cargo e pode ser demitido a qualquer momento, inclusive antes de cessar a causa da substituição, conforme entendimento consolidado pelo STF. A interinidade não gera direito à estabilidade, pois o vínculo é temporário e condicionado à necessidade da substituição."
+    },
+    {
+      "id_origem": "sumula_25_stf",
+      "titulo_origem": "Súmula 25 STF",
+      "questao": "A nomeação a termo de ocupante de cargo dirigente em autarquia impede que o Presidente da República realize sua demissão a qualquer momento.",
+      "gabarito": "ERRADO",
+      "justificativa": "A nomeação a termo não restringe a prerrogativa do Presidente da República de demitir livremente o ocupante de cargo dirigente em autarquia. Ou seja, mesmo que o cargo seja nomeado por prazo determinado, o Presidente pode demitir o dirigente a qualquer tempo, conforme entendimento consolidado pelo STF."
+    },
+    {
+      "id_origem": "sumula_26_stf",
+      "titulo_origem": "Súmula 26 STF",
+      "questao": "Servidores do Instituto de Aposentadoria e Pensões dos Industriários podem acumular a gratificação bienal com o adicional de tempo de serviço previsto no Estatuto dos Funcionários Civis da União.",
+      "gabarito": "ERRADO",
+      "justificativa": "A jurisprudência do STF é clara ao estabelecer que os servidores do Instituto de Aposentadoria e Pensões dos Industriários não têm direito à acumulação da gratificação bienal com o adicional de tempo de serviço previsto no Estatuto dos Funcionários Civis da União, pois ambos os benefícios possuem natureza remuneratória que não se acumulam para evitar enriquecimento ilícito."
+    },
+    {
+      "id_origem": "sumula_27_stf",
+      "titulo_origem": "Súmula 27 STF",
+      "questao": "Os servidores públicos possuem direito a vencimentos irredutíveis, assim como os membros do Poder Judiciário e os que lhes são equiparados.",
+      "gabarito": "ERRADO",
+      "justificativa": "Os vencimentos irredutíveis são prerrogativa exclusiva dos membros do Poder Judiciário e dos que lhes são equiparados, não se estendendo aos servidores públicos em geral. Portanto, os servidores públicos não têm direito a vencimentos irredutíveis."
+    },
+    {
+      "id_origem": "sumula_28_stf",
+      "titulo_origem": "Súmula 28 STF",
+      "questao": "O banco responde pelo pagamento de cheque falso, exceto quando houver culpa exclusiva ou concorrente do correntista, que afasta a responsabilidade da instituição financeira.",
+      "gabarito": "CERTO",
+      "justificativa": "A responsabilidade do estabelecimento bancário pelo pagamento de cheque falso é objetiva, mas pode ser afastada se comprovada culpa exclusiva ou concorrente do correntista, conforme entendimento consolidado pelo STF. Isso significa que, na ausência de culpa do correntista, o banco deve responder pelos prejuízos decorrentes do pagamento indevido."
+    },
+    {
+      "id_origem": "sumula_29_stf",
+      "titulo_origem": "Súmula 29 STF",
+      "questao": "Servidores que atuam no sistema fazendário dos Tribunais de Contas têm direito à mesma gratificação paga aos servidores do sistema fazendário da administração direta.",
+      "gabarito": "ERRADO",
+      "justificativa": "A gratificação destinada aos servidores do sistema fazendário não se aplica aos servidores dos Tribunais de Contas, pois estes possuem regime jurídico e atribuições distintas, conforme entendimento consolidado pelo Supremo Tribunal Federal."
+    },
+    {
+      "id_origem": "sumula_30_stf",
+      "titulo_origem": "Súmula 30 STF",
+      "questao": "Servidores que atuam em coletorias têm direito a receber percentagem sobre a cobrança de contribuições destinadas à Petrobrás.",
+      "gabarito": "ERRADO",
+      "justificativa": "Os servidores de coletorias não possuem direito à percentagem pela cobrança de contribuições destinadas à Petrobrás, pois tal verba não integra as hipóteses legais que autorizam o pagamento de percentagem a esses servidores, conforme entendimento consolidado pelo Supremo Tribunal Federal."
+    },
+    {
+      "id_origem": "sumula_31_stf",
+      "titulo_origem": "Súmula 31 STF",
+      "questao": "Para fins de contagem do tempo de serviço previsto na Lei nº 1.741/1952, o tempo de exercício contínuo em diferentes cargos em comissão pode ser acumulado para efeito de contagem única.",
+      "gabarito": "CERTO",
+      "justificativa": "A Lei nº 1.741/1952 permite a soma do tempo de serviço ininterrupto exercido em mais de um cargo em comissão para fins de contagem do tempo total de serviço. Isso significa que, mesmo que o servidor tenha ocupado cargos em comissão distintos, desde que o serviço tenha sido prestado de forma contínua, o tempo será computado cumulativamente para os efeitos legais previstos."
+    },
+    {
+      "id_origem": "sumula_32_stf",
+      "titulo_origem": "Súmula 32 STF",
+      "questao": "Para efeito da aplicação da Lei nº 1.741/1952, o tempo de serviço prestado em cargo em comissão não pode ser somado ao tempo de serviço em função gratificada para fins de contagem de tempo total.",
+      "gabarito": "ERRADO",
+      "justificativa": "A Lei nº 1.741/1952 permite a soma do tempo de serviço ininterrupto exercido em cargo em comissão com o tempo em função gratificada para fins de contagem de tempo total. Portanto, a afirmação de que não se pode somar esses tempos é incorreta, pois a jurisprudência do STF reconhece essa soma para aplicação da referida lei."
+    },
+    {
+      "id_origem": "sumula_33_stf",
+      "titulo_origem": "Súmula 33 STF",
+      "questao": "A Lei nº 1.741/1952, que dispõe sobre a sucessão hereditária, não se aplica às autarquias federais, pois estas possuem regime jurídico próprio distinto do previsto nessa legislação.",
+      "gabarito": "ERRADO",
+      "justificativa": "A Lei nº 1.741/1952 é aplicável às autarquias federais, conforme entendimento consolidado pelo STF. Isso significa que as autarquias federais estão sujeitas às disposições dessa lei no que tange à sucessão hereditária, não possuindo regime jurídico próprio que as exclua dessa aplicação."
+    },
+    {
+      "id_origem": "sumula_34_stf",
+      "titulo_origem": "Súmula 34 STF",
+      "questao": "No Estado de São Paulo, o servidor público estadual que for eleito vereador deve permanecer em exercício de suas funções durante todo o mandato eletivo, sem direito a licença.",
+      "gabarito": "ERRADO",
+      "justificativa": "No Estado de São Paulo, o funcionário público estadual eleito vereador tem direito à licença pelo período integral do mandato, conforme entendimento consolidado pelo Supremo Tribunal Federal. Portanto, ele não permanece em exercício durante o mandato, mas fica licenciado para exercer o mandato eletivo."
+    },
+    {
+      "id_origem": "sumula_35_stf",
+      "titulo_origem": "Súmula 35 STF",
+      "questao": "No caso de falecimento decorrente de acidente de trabalho ou de transporte, a companheira não tem direito à indenização se não houver impedimento legal para o casamento com o falecido.",
+      "gabarito": "ERRADO",
+      "justificativa": "A jurisprudência do STF reconhece o direito da concubina à indenização pela morte do amásio em acidente de trabalho ou de transporte, desde que não haja impedimento legal para o casamento entre eles. Portanto, a ausência de impedimento legal é condição para o direito à indenização, e não sua inexistência impede tal direito."
+    },
+    {
+      "id_origem": "sumula_36_stf",
+      "titulo_origem": "Súmula 36 STF",
+      "questao": "Servidor público com estabilidade vitalícia não pode ser aposentado compulsoriamente em razão da idade.",
+      "gabarito": "ERRADO",
+      "justificativa": "A estabilidade vitalícia do servidor não o exime da aposentadoria compulsória por limite de idade, conforme entendimento consolidado pelo Supremo Tribunal Federal. A aposentadoria compulsória é uma medida prevista para preservar a eficiência do serviço público e aplica-se mesmo aos servidores com vitaliciedade."
+    },
+    {
+      "id_origem": "sumula_37_stf",
+      "titulo_origem": "Súmula 37 STF",
+      "questao": "Servidor público federal que não cumprir os requisitos legais para aposentadoria no âmbito do serviço público federal pode acumular aposentadoria pelo Tesouro Nacional e pela respectiva instituição previdenciária.",
+      "gabarito": "ERRADO",
+      "justificativa": "A legislação do serviço público federal exige que o servidor satisfaça condições específicas para ter direito à aposentadoria pelo Tesouro Nacional. Mesmo que o servidor esteja aposentado pela instituição previdenciária a que pertence, ele não tem direito a uma segunda aposentadoria pelo Tesouro Nacional se não cumprir esses requisitos, vedando, assim, a acumulação de duas aposentadorias em tese."
+    },
+    {
+      "id_origem": "sumula_38_stf",
+      "titulo_origem": "Súmula 38 STF",
+      "questao": "A alteração da classificação funcional de um servidor público ocorrida após a sua aposentadoria pode ser aproveitada para fins de revisão do benefício previdenciário.",
+      "gabarito": "ERRADO",
+      "justificativa": "A reclassificação funcional posterior à aposentadoria não produz efeitos para o servidor aposentado, pois a aposentadoria consolida a situação funcional e os proventos correspondentes à classificação vigente na data do ato concessório. Assim, mudanças posteriores não alteram o benefício já concedido."
+    },
+    {
+      "id_origem": "sumula_39_stf",
+      "titulo_origem": "Súmula 39 STF",
+      "questao": "Funcionário público em disponibilidade pode exigir judicialmente seu imediato aproveitamento na administração pública, independentemente de lei que discipline o tema.",
+      "gabarito": "ERRADO",
+      "justificativa": "A jurisprudência do STF estabelece que, na ausência de lei específica, o aproveitamento do funcionário em disponibilidade depende do critério de conveniência e oportunidade da administração pública, não sendo possível exigir judicialmente seu aproveitamento imediato."
+    },
+    {
+      "id_origem": "sumula_40_stf",
+      "titulo_origem": "Súmula 40 STF",
+      "questao": "A elevação da entrância da comarca implica na promoção automática do juiz que nela atua, interrompendo o exercício de suas funções na mesma comarca.",
+      "gabarito": "ERRADO",
+      "justificativa": "A elevação da entrância da comarca não promove automaticamente o juiz que nela atua, mas também não interrompe o exercício de suas funções na mesma comarca. Ou seja, o juiz permanece em suas funções, sem promoção automática decorrente da mudança de entrância."
+    },
+    {
+      "id_origem": "sumula_41_stf",
+      "titulo_origem": "Súmula 41 STF",
+      "questao": "Juízes que atuam como preparadores ou substitutos têm direito ao recebimento integral dos vencimentos correspondentes à atividade mesmo quando não estiverem em exercício efetivo dessa função.",
+      "gabarito": "ERRADO",
+      "justificativa": "Os magistrados que exercem funções de preparo ou substituição recebem vencimentos apenas durante os períodos em que efetivamente desempenham essas atividades. Não há direito ao pagamento dos vencimentos relativos a essas funções fora do exercício efetivo, conforme entendimento consolidado pelo Supremo Tribunal Federal."
+    },
+    {
+      "id_origem": "sumula_42_stf",
+      "titulo_origem": "Súmula 42 STF",
+      "questao": "Juízes do Tribunal de Contas possuem os mesmos direitos e garantias atribuídos aos membros do Poder Judiciário.",
+      "gabarito": "CERTO",
+      "justificativa": "A equiparação dos juízes do Tribunal de Contas aos membros do Poder Judiciário em direitos e garantias é reconhecida para assegurar a independência e a imparcialidade necessárias ao exercício de suas funções, conforme entendimento consolidado pelo Supremo Tribunal Federal."
+    },
+    {
+      "id_origem": "sumula_43_stf",
+      "titulo_origem": "Súmula 43 STF",
+      "questao": "A equiparação dos vencimentos do Ministério Público aos da magistratura, prevista no artigo 61 da Constituição do Estado de São Paulo, é incompatível com a Constituição Federal.",
+      "gabarito": "ERRADO",
+      "justificativa": "O Supremo Tribunal Federal reconheceu que o artigo 61 da Constituição do Estado de São Paulo, ao equiparar os vencimentos do Ministério Público aos da magistratura, não contraria a Constituição Federal. Portanto, tal equiparação é constitucionalmente válida, afastando qualquer incompatibilidade."
+    },
+    {
+      "id_origem": "sumula_44_stf",
+      "titulo_origem": "Súmula 44 STF",
+      "questao": "O exercício do cargo pelo prazo determinado previsto no artigo 91 da Lei nº 1.341/1951 confere preferência para a nomeação interina de Procurador da República.",
+      "gabarito": "CERTO",
+      "justificativa": "O artigo 91 da Lei nº 1.341/1951 estabelece que o exercício do cargo por prazo determinado é critério que confere preferência para a nomeação interina de Procurador da República, conforme entendimento consolidado pelo Supremo Tribunal Federal, garantindo prioridade a quem já exerceu o cargo temporariamente."
+    },
+    {
+      "id_origem": "sumula_45_stf",
+      "titulo_origem": "Súmula 45 STF",
+      "questao": "A estabilidade assegurada aos substitutos do Ministério Público Militar implica o direito ao recebimento integral dos vencimentos correspondentes à atividade, mesmo nos períodos em que não estejam efetivamente exercendo suas funções.",
+      "gabarito": "ERRADO",
+      "justificativa": "A estabilidade dos substitutos do Ministério Público Militar garante a manutenção do cargo, mas não confere o direito ao pagamento dos vencimentos relativos à atividade nos períodos em que não estejam em exercício. Ou seja, o direito aos vencimentos está condicionado ao efetivo desempenho das funções, conforme entendimento consolidado pelo Supremo Tribunal Federal."
+    },
+    {
+      "id_origem": "sumula_46_stf",
+      "titulo_origem": "Súmula 46 STF",
+      "questao": "A divisão de uma serventia de justiça em unidades autônomas configura violação ao princípio da vitaliciedade assegurado ao serventuário.",
+      "gabarito": "ERRADO",
+      "justificativa": "O princípio da vitaliciedade assegura a permanência do serventuário no cargo, mas não impede o desmembramento da serventia de justiça. A súmula reconhece que o desmembramento não configura violação a esse princípio, pois a vitaliciedade protege o servidor contra perda arbitrária do cargo, não impedindo a reorganização administrativa da serventia."
+    },
+    {
+      "id_origem": "sumula_47_stf",
+      "titulo_origem": "Súmula 47 STF",
+      "questao": "O Presidente da República pode demitir livremente o reitor de universidade federal durante o período de sua investidura.",
+      "gabarito": "ERRADO",
+      "justificativa": "O reitor de universidade federal possui mandato fixo e não pode ser demitido livremente pelo Presidente da República durante o prazo de sua investidura, garantindo assim a autonomia universitária e a estabilidade no cargo durante o mandato."
+    },
+    {
+      "id_origem": "sumula_48_stf",
+      "titulo_origem": "Súmula 48 STF",
+      "questao": "É vedado o rodízio entre docentes livres para substituir o professor catedrático em suas atividades acadêmicas.",
+      "gabarito": "ERRADO",
+      "justificativa": "O rodízio de docentes livres na substituição do professor catedrático é legítimo, conforme entendimento consolidado pelo STF. Isso permite a alternância entre professores livres para suprir a ausência do catedrático, garantindo a continuidade das atividades acadêmicas sem prejuízo à qualidade do ensino."
+    },
+    {
+      "id_origem": "sumula_49_stf",
+      "titulo_origem": "Súmula 49 STF",
+      "questao": "A imposição de cláusula de inalienabilidade sobre determinado bem implica automaticamente que esse bem também será incomunicável entre os cônjuges, não podendo ser partilhado em caso de dissolução do casamento.",
+      "gabarito": "CERTO",
+      "justificativa": "A cláusula de inalienabilidade, ao vedar a transferência do bem, inclui também a incomunicabilidade, ou seja, o bem não se comunica com o patrimônio do cônjuge, conforme entendimento consolidado pelo Supremo Tribunal Federal. Isso significa que o bem permanece exclusivo do titular, não integrando a comunhão ou partilha, mesmo em caso de dissolução do casamento."
+    },
+    {
+      "id_origem": "sumula_50_stf",
+      "titulo_origem": "Súmula 50 STF",
+      "questao": "É vedado à legislação estabelecer requisitos específicos para a demissão de servidores ocupantes de cargos extranumerários.",
+      "gabarito": "ERRADO",
+      "justificativa": "A legislação pode sim estabelecer condições específicas para a demissão de servidores ocupantes de cargos extranumerários, pois tais cargos não possuem estabilidade e sua relação jurídica é regida por normas que permitem a fixação de requisitos para a exoneração, conforme entendimento consolidado pelo Supremo Tribunal Federal."
+    }
+  ]
+}

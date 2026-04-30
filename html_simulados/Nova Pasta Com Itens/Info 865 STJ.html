@@ -4,581 +4,661 @@
 <meta charset="UTF-8">
 <title>Simulado - Info 865 STJ</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <style>
-:root {
-    --bg: #0f172a;
-    --card: #111827;
-    --card2: #1f2937;
-    --text: #e5e7eb;
-    --muted: #9ca3af;
-    --accent: #38bdf8;
-    --green: #22c55e;
-    --red: #ef4444;
-    --yellow: #facc15;
+:root{
+--bg:#020617;--panel:rgba(15,23,42,.88);--card:rgba(15,23,42,.96);
+--card2:rgba(30,41,59,.92);--border:rgba(148,163,184,.22);
+--text:#e5e7eb;--muted:#94a3b8;--accent:#38bdf8;--accent2:#0ea5e9;
+--green:#22c55e;--red:#ef4444;--yellow:#facc15;--purple:#a78bfa;
 }
-
-* {
-    box-sizing: border-box;
+*{box-sizing:border-box}
+body{
+margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+background:radial-gradient(circle at top left,rgba(56,189,248,.20),transparent 28%),
+radial-gradient(circle at top right,rgba(167,139,250,.15),transparent 28%),
+linear-gradient(135deg,#020617,#0f172a 50%,#020617);
+color:var(--text);line-height:1.65;
 }
-
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(135deg, #020617, #111827);
-    color: var(--text);
-    line-height: 1.6;
+header{padding:44px 20px 32px;text-align:center;border-bottom:1px solid var(--border)}
+header h1{margin:0 0 10px;font-size:clamp(28px,4vw,46px);letter-spacing:-.05em}
+header p{color:var(--muted);margin:0;font-size:16px}
+.container{max-width:1160px;margin:0 auto;padding:26px 16px 80px}
+.painel{
+position:sticky;top:10px;z-index:10;background:var(--panel);backdrop-filter:blur(18px);
+border:1px solid var(--border);border-radius:26px;padding:16px;margin-bottom:22px;
+box-shadow:0 22px 70px rgba(0,0,0,.35)
 }
-
-header {
-    padding: 32px 20px;
-    text-align: center;
-    border-bottom: 1px solid #334155;
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.stat{background:var(--card2);padding:14px;border-radius:18px;text-align:center;border:1px solid rgba(148,163,184,.12)}
+.stat strong{display:block;font-size:25px;color:var(--accent);line-height:1.1}
+.stat span{font-size:12px;color:var(--muted)}
+.filtros{display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:12px;margin-top:14px}
+input,select{
+width:100%;background:rgba(2,6,23,.78);color:var(--text);border:1px solid var(--border);
+border-radius:14px;padding:13px 14px;outline:none;font-size:14px
 }
-
-header h1 {
-    margin: 0 0 10px;
-    font-size: 28px;
+input:focus,select:focus{border-color:var(--accent)}
+.card{
+background:var(--card);border:1px solid var(--border);border-radius:24px;padding:26px;
+margin-bottom:20px;box-shadow:0 18px 50px rgba(0,0,0,.24)
 }
-
-header p {
-    color: var(--muted);
-    margin: 0;
+.questao{scroll-margin-top:190px}
+.questao-topo{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:18px}
+.badge{
+background:linear-gradient(135deg,var(--accent),var(--accent2));color:#00111f;font-weight:900;
+padding:7px 13px;border-radius:999px;display:inline-block
 }
-
-.container {
-    max-width: 980px;
-    margin: 0 auto;
-    padding: 24px 16px 80px;
+.disciplina-tag,.tipo-tag{
+display:inline-block;margin-left:8px;color:var(--muted);background:rgba(148,163,184,.10);
+border:1px solid rgba(148,163,184,.14);padding:6px 10px;border-radius:999px;font-size:12px
 }
-
-.painel {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    background: rgba(15, 23, 42, 0.95);
-    backdrop-filter: blur(8px);
-    border: 1px solid #334155;
-    border-radius: 16px;
-    padding: 16px;
-    margin-bottom: 24px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
+.tipo-tag{color:#ddd6fe;border-color:rgba(167,139,250,.25)}
+.status{color:var(--yellow);font-size:13px;white-space:nowrap}
+.enunciado{font-size:19px;margin:0 0 22px;letter-spacing:-.01em}
+.botoes{display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.btn{
+cursor:pointer;border:0;padding:12px 22px;border-radius:14px;color:white;font-weight:900;
+transition:.18s ease;letter-spacing:.02em
 }
-
-.stat {
-    background: var(--card2);
-    padding: 12px;
-    border-radius: 12px;
-    text-align: center;
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.certo{background:rgba(34,197,94,.20);border:1px solid rgba(34,197,94,.42)}
+.btn.errado{background:rgba(239,68,68,.20);border:1px solid rgba(239,68,68,.42)}
+.btn.neutro{background:rgba(56,189,248,.16);color:var(--text);border:1px solid rgba(56,189,248,.32)}
+.feedback{
+display:none;background:rgba(2,6,23,.72);border:1px solid rgba(148,163,184,.16);
+border-left:5px solid var(--accent);padding:18px;border-radius:18px;margin-top:14px
 }
-
-.stat strong {
-    display: block;
-    font-size: 22px;
-    color: var(--accent);
+.feedback.correto{border-left-color:var(--green)}
+.feedback.errado{border-left-color:var(--red)}
+.resultado{font-size:18px;font-weight:900;margin-top:0}
+.justificativa{margin-top:12px}
+.referencia{color:var(--muted);font-size:13px;margin-top:16px}
+.gabarito-certo{color:var(--green);font-weight:900}
+.gabarito-errado{color:var(--red);font-weight:900}
+.oculta{display:none}
+.sem-resultados{text-align:center;color:var(--muted);display:none;padding:30px}
+.grid-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
+.link-card{
+display:block;padding:20px;background:rgba(15,23,42,.95);border:1px solid rgba(148,163,184,.22);
+color:#e5e7eb;border-radius:22px;text-decoration:none;transition:.2s;box-shadow:0 14px 40px rgba(0,0,0,.22)
 }
-
-.card {
-    background: rgba(17, 24, 39, 0.96);
-    border: 1px solid #334155;
-    border-radius: 18px;
-    padding: 22px;
-    margin-bottom: 20px;
-    box-shadow: 0 12px 30px rgba(0,0,0,.25);
-}
-
-.questao-topo {
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
-    align-items: center;
-    margin-bottom: 16px;
-}
-
-.badge {
-    background: #0ea5e9;
-    color: #00111f;
-    font-weight: bold;
-    padding: 6px 12px;
-    border-radius: 999px;
-}
-
-.status {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-.enunciado {
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-
-.botoes {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 18px;
-}
-
-button {
-    cursor: pointer;
-    border: 0;
-    padding: 12px 22px;
-    border-radius: 12px;
-    background: #334155;
-    color: white;
-    font-weight: bold;
-    transition: 0.2s;
-}
-
-button:hover {
-    transform: translateY(-1px);
-    background: #475569;
-}
-
-.feedback {
-    display: none;
-    background: #020617;
-    border-left: 4px solid var(--accent);
-    padding: 16px;
-    border-radius: 12px;
-    margin-top: 12px;
-}
-
-.feedback.correto {
-    border-left-color: var(--green);
-}
-
-.feedback.errado {
-    border-left-color: var(--red);
-}
-
-.resultado {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.referencia {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-.acoes {
-    text-align: center;
-    margin: 30px 0;
-}
-
-.acoes button {
-    background: #0ea5e9;
-    color: #00111f;
-}
-
-@media (max-width: 700px) {
-    .painel {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .botoes {
-        flex-direction: column;
-    }
-
-    header h1 {
-        font-size: 22px;
-    }
-
-    .enunciado {
-        font-size: 16px;
-    }
+.link-card:hover{transform:translateY(-3px);border-color:#38bdf8}
+.link-card strong{display:block;font-size:17px;margin-bottom:8px}
+.link-card span{color:#94a3b8;font-size:13px}
+.index-tools{display:grid;grid-template-columns:1.5fr 1fr;gap:12px;margin-bottom:20px}
+@media(max-width:850px){
+.stats{grid-template-columns:repeat(2,1fr)}
+.filtros,.index-tools{grid-template-columns:1fr}
+.questao-topo{align-items:flex-start;flex-direction:column}
+.botoes{flex-direction:column}
+.enunciado{font-size:16px}
+.card{padding:20px}
 }
 </style>
 </head>
-
 <body>
-
 <header>
-    <h1>Simulado - Info 865 STJ</h1>
-    <p>Simulado interativo de CERTO ou ERRADO</p>
+<h1>Simulado - Info 865 STJ</h1>
+<p>Informativos • Simulado interativo de CERTO ou ERRADO</p>
 </header>
 
 <div class="container">
+<div class="painel">
+<div class="stats">
+<div class="stat"><strong>13</strong><span>Total</span></div>
+<div class="stat"><strong id="visiveis">13</strong><span>Visíveis</span></div>
+<div class="stat"><strong id="respondidas">0</strong><span>Respondidas</span></div>
+<div class="stat"><strong id="acertos">0</strong><span>Acertos</span></div>
+<div class="stat"><strong id="erros">0</strong><span>Erros</span></div>
+</div>
 
-    <div class="painel">
-        <div class="stat">
-            <strong id="total">13</strong>
-            Total
-        </div>
-        <div class="stat">
-            <strong id="respondidas">0</strong>
-            Respondidas
-        </div>
-        <div class="stat">
-            <strong id="acertos">0</strong>
-            Acertos
-        </div>
-        <div class="stat">
-            <strong id="erros">0</strong>
-            Erros
-        </div>
-    </div>
+<div class="filtros">
+<input id="busca" type="search" placeholder="Buscar por palavra-chave..." oninput="filtrar()">
+<select id="disciplina" onchange="filtrar()">
+<option value="">Todas as disciplinas</option>
+<option value="ECA">ECA</option>
+<option value="N/I">N/I</option>
+</select>
+<select id="statusFiltro" onchange="filtrar()">
+<option value="">Todas</option>
+<option value="nao">Não respondidas</option>
+<option value="acerto">Acertos</option>
+<option value="erro">Erros</option>
+</select>
+<button class="btn neutro" onclick="reiniciar()">Reiniciar</button>
+</div>
+</div>
 
-    <div class="acoes">
-        <button onclick="reiniciar()">Reiniciar simulado</button>
-    </div>
+<div id="sem-resultados" class="sem-resultados">Nenhuma questão encontrada com os filtros atuais.</div>
 
-    
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 1</span>
-                <span class="status" id="status-1">Não respondida</span>
-            </div>
 
-            <p class="enunciado">A Câmara de Comercialização de Energia Elétrica, embora instituída por lei para viabilizar a comercialização de energia no setor elétrico e dotada de competência para impor penalidades aos seus associados pelo descumprimento de obrigações de mercado, submete-se ao teto de 2% do faturamento previsto na Lei nº 9.427/1996, por exercer, nessa hipótese, poder de polícia delegado pela Administração Pública, de modo que eventual multa superior a esse percentual seria nula por violação ao regime sancionador administrativo.</p>
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a câmara de comercialização de energia elétrica, embora instituída por lei para viabilizar a comercialização de energia no setor elétrico e dotada de competência para impor penalidades aos seus associados pelo descumprimento de obrigações de mercado, submete-se ao teto de 2% do faturamento previsto na lei nº 9.427/1996, por exercer, nessa hipótese, poder de polícia delegado pela administração pública, de modo que eventual multa superior a esse percentual seria nula por violação ao regime sancionador administrativo. a assertiva está incorreta porque parte de uma premissa jurídica incompatível com a natureza da atuação da ccee. embora a entidade tenha sido criada por lei e desempenhe papel central na organização do mercado de energia elétrica, as penalidades que aplica aos seus associados não decorrem de poder de polícia administrativo, nem se confundem com sanções administrativas impostas pela aneel.
 
-            <div class="botoes">
-                <button onclick="responder(1, 'CERTO')">CERTO</button>
-                <button onclick="responder(1, 'ERRADO')">ERRADO</button>
-            </div>
+o ponto decisivo do entendimento é que a ccee atua como agente de autorregulação do mercado, no âmbito de relações associativas e contratuais. assim, as penalidades impostas aos seus membros têm natureza contratual, vinculada às regras de adesão e funcionamento do próprio ambiente de comercialização, e não natureza de multa administrativa sujeita ao regime jurídico sancionador da administração pública.
 
-            <div class="feedback" id="feedback-1">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque parte de uma premissa jurídica incompatível com a natureza da atuação da CCEE. Embora a entidade tenha sido criada por lei e desempenhe papel central na organização do mercado de energia elétrica, as penalidades que aplica aos seus associados não decorrem de poder de polícia administrativo, nem se confundem com sanções administrativas impostas pela ANEEL.<br><br>O ponto decisivo do entendimento é que a CCEE atua como agente de autorregulação do mercado, no âmbito de relações associativas e contratuais. Assim, as penalidades impostas aos seus membros têm natureza contratual, vinculada às regras de adesão e funcionamento do próprio ambiente de comercialização, e não natureza de multa administrativa sujeita ao regime jurídico sancionador da Administração Pública.<br><br>Por isso, o limite de 2% do faturamento previsto no art. 3º, X, da Lei nº 9.427/1996, que se refere às multas administrativas aplicadas pela ANEEL, não se estende às sanções contratuais aplicadas pela CCEE. A razão é estrutural: a CCEE não integra a Administração Pública e não exerce poder de polícia quando pune seus associados por descumprimento de obrigações do mercado. Logo, não há falar em submissão automática ao teto legal destinado às penalidades administrativas estatais.<br><br>Em síntese, a multa aplicada pela CCEE pode superar o percentual de 2% sem que isso implique nulidade, justamente porque sua base jurídica é contratual e autorregulatória, e não administrativa.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 2ª Turma. REsp 1.945.210-RS, Rel. Min. Teodoro Silva Santos, julgado em 2/9/2025 (Info 865).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 2</span>
-                <span class="status" id="status-2">Não respondida</span>
-            </div>
+por isso, o limite de 2% do faturamento previsto no art. 3º, x, da lei nº 9.427/1996, que se refere às multas administrativas aplicadas pela aneel, não se estende às sanções contratuais aplicadas pela ccee. a razão é estrutural: a ccee não integra a administração pública e não exerce poder de polícia quando pune seus associados por descumprimento de obrigações do mercado. logo, não há falar em submissão automática ao teto legal destinado às penalidades administrativas estatais.
 
-            <p class="enunciado">Em processo administrativo sancionador instaurado por órgão estadual, a paralisação do feito por período superior a três anos, sem despacho ou julgamento, autoriza o reconhecimento de prescrição intercorrente com base no art. 1º, § 1º, da Lei n.º 9.873/1999, ainda que inexista norma local específica disciplinando essa modalidade prescricional, por se tratar de regra geral aplicável a toda a Administração Pública.</p>
+em síntese, a multa aplicada pela ccee pode superar o percentual de 2% sem que isso implique nulidade, justamente porque sua base jurídica é contratual e autorregulatória, e não administrativa. stj. 2ª turma. resp 1.945.210-rs, rel. min. teodoro silva santos, julgado em 2/9/2025 (info 865).">
 
-            <div class="botoes">
-                <button onclick="responder(2, 'CERTO')">CERTO</button>
-                <button onclick="responder(2, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 1</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-1">Não respondida</span>
+</div>
 
-            <div class="feedback" id="feedback-2">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque o art. 1º, § 1º, da Lei n.º 9.873/1999 tem âmbito de incidência restrito à Administração Pública Federal, direta e indireta, alcançando os procedimentos sancionatórios federais. Assim, não se pode transplantar automaticamente essa disciplina para processos administrativos instaurados por entes estaduais ou municipais.<br><br>No âmbito estadual e municipal, a prescrição intercorrente em processo administrativo sancionador somente poderá ser reconhecida se houver previsão normativa específica no respectivo ente federativo. Na ausência dessa disciplina local, incide a regra do art. 4º do Decreto n.º 20.910/1932, segundo a qual o prazo prescricional fica suspenso enquanto tramita o procedimento administrativo, afastando a configuração de prescrição intercorrente.<br><br>Portanto, a mera inércia administrativa por mais de três anos, em processo sancionador estadual ou municipal, não basta para aplicar a Lei n.º 9.873/1999 nem para reconhecer prescrição intercorrente sem base legal própria.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Turma. AgInt no AREsp 1.900.837-SP, Rel. Min. Paulo Sérgio Domingues, julgado em 22/9/2025 (Info 865).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 3</span>
-                <span class="status" id="status-3">Não respondida</span>
-            </div>
+<p class="enunciado">A Câmara de Comercialização de Energia Elétrica, embora instituída por lei para viabilizar a comercialização de energia no setor elétrico e dotada de competência para impor penalidades aos seus associados pelo descumprimento de obrigações de mercado, submete-se ao teto de 2% do faturamento previsto na Lei nº 9.427/1996, por exercer, nessa hipótese, poder de polícia delegado pela Administração Pública, de modo que eventual multa superior a esse percentual seria nula por violação ao regime sancionador administrativo.</p>
 
-            <p class="enunciado">A celebração de acordo de leniência pela pessoa jurídica demandada em ação de improbidade administrativa, com posterior desistência da União em relação a essa ré, não impede que a pessoa jurídica diretamente lesada, admitida no feito como litisconsorte ativa, requeira o prosseguimento da demanda para buscar a reparação integral dos prejuízos, inclusive com pedido de indenização por danos patrimoniais e extrapatrimoniais, sendo possível, ainda, a cumulação dessa pretensão com sanções de improbidade, desde que observada a detração para evitar bis in idem.</p>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(1, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(1, 'ERRADO')">ERRADO</button>
+</div>
 
-            <div class="botoes">
-                <button onclick="responder(3, 'CERTO')">CERTO</button>
-                <button onclick="responder(3, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="feedback" id="feedback-1">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque parte de uma premissa jurídica incompatível com a natureza da atuação da CCEE. Embora a entidade tenha sido criada por lei e desempenhe papel central na organização do mercado de energia elétrica, as penalidades que aplica aos seus associados não decorrem de poder de polícia administrativo, nem se confundem com sanções administrativas impostas pela ANEEL.<br><br>O ponto decisivo do entendimento é que a CCEE atua como agente de autorregulação do mercado, no âmbito de relações associativas e contratuais. Assim, as penalidades impostas aos seus membros têm natureza contratual, vinculada às regras de adesão e funcionamento do próprio ambiente de comercialização, e não natureza de multa administrativa sujeita ao regime jurídico sancionador da Administração Pública.<br><br>Por isso, o limite de 2% do faturamento previsto no art. 3º, X, da Lei nº 9.427/1996, que se refere às multas administrativas aplicadas pela ANEEL, não se estende às sanções contratuais aplicadas pela CCEE. A razão é estrutural: a CCEE não integra a Administração Pública e não exerce poder de polícia quando pune seus associados por descumprimento de obrigações do mercado. Logo, não há falar em submissão automática ao teto legal destinado às penalidades administrativas estatais.<br><br>Em síntese, a multa aplicada pela CCEE pode superar o percentual de 2% sem que isso implique nulidade, justamente porque sua base jurídica é contratual e autorregulatória, e não administrativa.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 2ª Turma. REsp 1.945.210-RS, Rel. Min. Teodoro Silva Santos, julgado em 2/9/2025 (Info 865).</p>
+</div>
+</section>
 
-            <div class="feedback" id="feedback-3">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>O enunciado está de acordo com o entendimento firmado no julgado. O ponto central é que o acordo de leniência não tem o efeito de extinguir, por si só, o dever de integral reparação do dano causado ao erário ou à vítima direta, nem impede o prosseguimento da ação de improbidade por quem detenha legitimidade para postular a recomposição integral do prejuízo.<br><br>No caso examinado, a Petrobras foi reconhecida como pessoa jurídica prejudicada e, por isso, possui legitimidade para atuar no processo e formular pedido de indenização por perdas e danos no curso da própria ação de improbidade administrativa. Essa legitimidade decorre da sua condição de vítima direta dos fatos ilícitos, não se limitando a União à tutela do interesse público primário.<br><br>Além disso, o entendimento assentou que a reparação integral abrange não apenas danos patrimoniais, mas também extrapatrimoniais, em dimensão individual ou coletiva, não havendo limitação da pretensão reparatória ao que eventualmente tenha sido ajustado em leniência. O acordo celebrado com a União não elimina a responsabilidade civil remanescente nem afasta, automaticamente, a possibilidade de persecução judicial da recomposição integral do dano.<br><br>Por outro lado, o julgado também ressalva que, havendo imposição concomitante de sanções, deve ser feita a detração do que já tiver sido satisfeito ou pactuado, justamente para evitar duplicidade sancionatória e enriquecimento indevido. Assim, o acordo de leniência pode repercutir na extensão do que ainda será exigível, mas não suprime o dever de reparar integralmente o dano nem obsta o prosseguimento da ação pelo lesado.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 2ª Turma. REsp 1.890.353-PR, Rel. Min. Maria Thereza de Assis Moura, Rel. Acd. Min. Francisco Falcão, julgado em 11/3/2025 (Info 865).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 4</span>
-                <span class="status" id="status-4">Não respondida</span>
-            </div>
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="em processo administrativo sancionador instaurado por órgão estadual, a paralisação do feito por período superior a três anos, sem despacho ou julgamento, autoriza o reconhecimento de prescrição intercorrente com base no art. 1º, § 1º, da lei n.º 9.873/1999, ainda que inexista norma local específica disciplinando essa modalidade prescricional, por se tratar de regra geral aplicável a toda a administração pública. a assertiva está incorreta porque o art. 1º, § 1º, da lei n.º 9.873/1999 tem âmbito de incidência restrito à administração pública federal, direta e indireta, alcançando os procedimentos sancionatórios federais. assim, não se pode transplantar automaticamente essa disciplina para processos administrativos instaurados por entes estaduais ou municipais.
 
-            <p class="enunciado">A contratação de subcredenciadora por rede hoteleira para intermediar pagamentos realizados por consumidores com cartão, ainda que inserida em arranjo de pagamentos no qual a credenciadora recebe os valores da bandeira e os repassa à subcredenciadora, não atrai a incidência do Código de Defesa do Consumidor nem autoriza, por si só, a responsabilização solidária da credenciadora pelo inadimplemento da subcredenciadora perante os lojistas, pois se trata de relação interempresarial voltada ao fomento da atividade mercantil, em que o empresário assume o risco do negócio ao escolher a proposta que reputa mais vantajosa.</p>
+no âmbito estadual e municipal, a prescrição intercorrente em processo administrativo sancionador somente poderá ser reconhecida se houver previsão normativa específica no respectivo ente federativo. na ausência dessa disciplina local, incide a regra do art. 4º do decreto n.º 20.910/1932, segundo a qual o prazo prescricional fica suspenso enquanto tramita o procedimento administrativo, afastando a configuração de prescrição intercorrente.
 
-            <div class="botoes">
-                <button onclick="responder(4, 'CERTO')">CERTO</button>
-                <button onclick="responder(4, 'ERRADO')">ERRADO</button>
-            </div>
+portanto, a mera inércia administrativa por mais de três anos, em processo sancionador estadual ou municipal, não basta para aplicar a lei n.º 9.873/1999 nem para reconhecer prescrição intercorrente sem base legal própria. stj. 1ª turma. agint no aresp 1.900.837-sp, rel. min. paulo sérgio domingues, julgado em 22/9/2025 (info 865).">
 
-            <div class="feedback" id="feedback-4">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a lógica central do entendimento firmado: os contratos celebrados entre credenciadora, subcredenciadora e lojista, no âmbito do arranjo de pagamentos com cartões, possuem natureza interempresarial e são instrumentalizados para viabilizar a atividade econômica do lojista, não para satisfazer uma destinação final típica de consumo. Nessa hipótese, não se reconhece, em regra, a incidência do CDC, pois os agentes envolvidos atuam como empresários e não como destinatários finais vulneráveis em relação de consumo.<br><br>Além disso, o simples fato de a subcredenciadora ter recebido os valores e não os ter repassado ao lojista não desloca automaticamente a responsabilidade para a credenciadora. O risco da escolha contratual recai sobre o próprio lojista-empresário, que decide com quem contratar — diretamente com a credenciadora ou por intermédio de subcredenciadora — avaliando as condições comerciais mais vantajosas. Se opta por determinada estrutura negocial, assume os riscos inerentes ao negócio, inclusive a eventual inadimplência do parceiro contratual escolhido.<br><br>Também não se extrai, desse cenário, responsabilidade solidária da credenciadora apenas por integrar a cadeia operacional de pagamentos. A solidariedade não pode ser presumida em relações empresariais dessa natureza sem base jurídica específica, sobretudo quando inexiste relação contratual direta entre a credenciadora e o lojista para o repasse final dos valores. Assim, a pretensão de aplicar o CDC para impor solidariedade à credenciadora, em razão do inadimplemento da subcredenciadora, não encontra amparo no entendimento consolidado.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.212.357-RS, Rel. Min. Nancy Andrighi, julgado em 16/9/2025 (Info 865).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 5</span>
-                <span class="status" id="status-5">Não respondida</span>
-            </div>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 2</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-2">Não respondida</span>
+</div>
 
-            <p class="enunciado">A operadora de plano de saúde pode recusar a cobertura de exame PET-CT ou PET-SCAN quando houver expressa indicação médica para diagnóstico, estadiamento ou acompanhamento de doença coberta contratualmente, ao argumento de que o procedimento não integra o rol da ANS para a hipótese específica, salvo se o beneficiário demonstrar que os exames tradicionais já foram inconclusivos e que inexiste qualquer alternativa terapêutica ou diagnóstica contratualmente prevista.</p>
+<p class="enunciado">Em processo administrativo sancionador instaurado por órgão estadual, a paralisação do feito por período superior a três anos, sem despacho ou julgamento, autoriza o reconhecimento de prescrição intercorrente com base no art. 1º, § 1º, da Lei n.º 9.873/1999, ainda que inexista norma local específica disciplinando essa modalidade prescricional, por se tratar de regra geral aplicável a toda a Administração Pública.</p>
 
-            <div class="botoes">
-                <button onclick="responder(5, 'CERTO')">CERTO</button>
-                <button onclick="responder(5, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(2, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(2, 'ERRADO')">ERRADO</button>
+</div>
 
-            <div class="feedback" id="feedback-5">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque parte de uma premissa incompatível com o entendimento firmado: a cobertura do PET-SCAN ou PET-CT pode ser exigida da operadora quando houver expressa indicação médica e o exame se mostrar efetivamente necessário ao adequado diagnóstico, estadiamento e acompanhamento de câncer e de outras enfermidades cobertas contratualmente, especialmente quando os exames tradicionais não tiverem sido suficientes para elucidar a condição clínica. Além disso, o ponto central não é a inexistência de previsão no rol da ANS para a hipótese concreta, pois o rol não pode ser invocado de forma automática e abstrata para afastar a cobertura quando presentes os requisitos clínicos e a indicação médica.<br><br>A formulação também erra ao impor, como condição adicional, a demonstração de inexistência de qualquer alternativa terapêutica ou diagnóstica contratualmente prevista. O julgado não estabelece essa exigência como requisito autônomo e absoluto; o foco está na necessidade do exame para a adequada condução diagnóstica e no atendimento à indicação médica, dentro das doenças cobertas pelo contrato. Em outras palavras, não basta à operadora negar com base em uma leitura restritiva do rol, se o procedimento for clinicamente indicado para a finalidade diagnóstica ou de acompanhamento de enfermidade coberta.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 4ª Turma. REsp 2.060.900-SP, Rel. Min. Raul Araújo, julgado em 22/9/2025 (Info 865).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 6</span>
-                <span class="status" id="status-6">Não respondida</span>
-            </div>
+<div class="feedback" id="feedback-2">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque o art. 1º, § 1º, da Lei n.º 9.873/1999 tem âmbito de incidência restrito à Administração Pública Federal, direta e indireta, alcançando os procedimentos sancionatórios federais. Assim, não se pode transplantar automaticamente essa disciplina para processos administrativos instaurados por entes estaduais ou municipais.<br><br>No âmbito estadual e municipal, a prescrição intercorrente em processo administrativo sancionador somente poderá ser reconhecida se houver previsão normativa específica no respectivo ente federativo. Na ausência dessa disciplina local, incide a regra do art. 4º do Decreto n.º 20.910/1932, segundo a qual o prazo prescricional fica suspenso enquanto tramita o procedimento administrativo, afastando a configuração de prescrição intercorrente.<br><br>Portanto, a mera inércia administrativa por mais de três anos, em processo sancionador estadual ou municipal, não basta para aplicar a Lei n.º 9.873/1999 nem para reconhecer prescrição intercorrente sem base legal própria.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Turma. AgInt no AREsp 1.900.837-SP, Rel. Min. Paulo Sérgio Domingues, julgado em 22/9/2025 (Info 865).</p>
+</div>
+</section>
 
-            <p class="enunciado">Em demanda fundada em relação de consumo, a prerrogativa de facilitação da defesa do consumidor autoriza a eleição do foro de propositura da ação entre os previstos em lei, mas essa faculdade não legitima a escolha de comarca ou seção judiciária sem qualquer vínculo razoável com a controvérsia, de modo que o ajuizamento em local aleatório, dissociado do domicílio do consumidor e das circunstâncias do caso, pode ensejar o reconhecimento da incompetência territorial.</p>
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a celebração de acordo de leniência pela pessoa jurídica demandada em ação de improbidade administrativa, com posterior desistência da união em relação a essa ré, não impede que a pessoa jurídica diretamente lesada, admitida no feito como litisconsorte ativa, requeira o prosseguimento da demanda para buscar a reparação integral dos prejuízos, inclusive com pedido de indenização por danos patrimoniais e extrapatrimoniais, sendo possível, ainda, a cumulação dessa pretensão com sanções de improbidade, desde que observada a detração para evitar bis in idem. o enunciado está de acordo com o entendimento firmado no julgado. o ponto central é que o acordo de leniência não tem o efeito de extinguir, por si só, o dever de integral reparação do dano causado ao erário ou à vítima direta, nem impede o prosseguimento da ação de improbidade por quem detenha legitimidade para postular a recomposição integral do prejuízo.
 
-            <div class="botoes">
-                <button onclick="responder(6, 'CERTO')">CERTO</button>
-                <button onclick="responder(6, 'ERRADO')">ERRADO</button>
-            </div>
+no caso examinado, a petrobras foi reconhecida como pessoa jurídica prejudicada e, por isso, possui legitimidade para atuar no processo e formular pedido de indenização por perdas e danos no curso da própria ação de improbidade administrativa. essa legitimidade decorre da sua condição de vítima direta dos fatos ilícitos, não se limitando a união à tutela do interesse público primário.
 
-            <div class="feedback" id="feedback-6">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está correta porque, nas relações de consumo, a proteção processual conferida ao consumidor não se traduz em liberdade irrestrita para demandar em qualquer foro do território nacional. O entendimento firmado é no sentido de que a competência territorial, nesse contexto, assume feição absoluta em favor do consumidor, justamente para facilitar o acesso à Justiça e a defesa de seus direitos. Contudo, essa prerrogativa não se converte em autorização para escolha arbitrária do foro.<br><br>No caso examinado, embora o consumidor residisse em Bonópolis/GO e seu advogado atuasse em Goiânia, a ação foi proposta em Brasília/DF, sem demonstração de elemento de conexão minimamente plausível com a lide. A Corte concluiu que não basta a mera conveniência subjetiva da parte autora ou de seu patrono: é necessário algum vínculo razoável entre o foro escolhido e a relação jurídica controvertida, sob pena de esvaziamento da lógica protetiva do sistema e de incentivo ao ajuizamento estratégico em local sem pertinência com o litígio.<br><br>Assim, a tese não nega a possibilidade de o consumidor escolher o foro, mas delimita essa faculdade: a escolha deve se manter dentro de parâmetros justificáveis, não sendo admitida seleção aleatória. Em prova, a armadilha costuma consistir em afirmar que, por se tratar de relação de consumo, o consumidor poderia demandar em qualquer foro, independentemente de justificativa, o que não corresponde ao entendimento consolidado no julgado.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 4ª Turma. REsp 2.173.132-DF, Rel. Min. João Otávio de Noronha, julgado em 22/9/2025 (Info 865).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 7</span>
-                <span class="status" id="status-7">Não respondida</span>
-            </div>
+além disso, o entendimento assentou que a reparação integral abrange não apenas danos patrimoniais, mas também extrapatrimoniais, em dimensão individual ou coletiva, não havendo limitação da pretensão reparatória ao que eventualmente tenha sido ajustado em leniência. o acordo celebrado com a união não elimina a responsabilidade civil remanescente nem afasta, automaticamente, a possibilidade de persecução judicial da recomposição integral do dano.
 
-            <p class="enunciado">Em recurso extraordinário sobre a constitucionalidade do art. 19 do Marco Civil da Internet, a superveniência de tese firmada em repercussão geral pelo Supremo Tribunal Federal autoriza, em regra, a imediata adequação do julgamento pelo tribunal de origem, sem necessidade de aguardar o trânsito em julgado do acórdão paradigma; contudo, diante da possibilidade de embargos de declaração com potencial de alterar, complementar ou modular os efeitos do precedente, pode ser legítimo manter o sobrestamento do feito e postergar eventual juízo de retratação, por razões de prudência processual.</p>
+por outro lado, o julgado também ressalva que, havendo imposição concomitante de sanções, deve ser feita a detração do que já tiver sido satisfeito ou pactuado, justamente para evitar duplicidade sancionatória e enriquecimento indevido. assim, o acordo de leniência pode repercutir na extensão do que ainda será exigível, mas não suprime o dever de reparar integralmente o dano nem obsta o prosseguimento da ação pelo lesado. stj. 2ª turma. resp 1.890.353-pr, rel. min. maria thereza de assis moura, rel. acd. min. francisco falcão, julgado em 11/3/2025 (info 865).">
 
-            <div class="botoes">
-                <button onclick="responder(7, 'CERTO')">CERTO</button>
-                <button onclick="responder(7, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 3</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-3">Não respondida</span>
+</div>
 
-            <div class="feedback" id="feedback-7">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a distinção central do entendimento: a tese firmada em repercussão geral não depende, como regra, do trânsito em julgado do acórdão do STF para irradiar efeitos e orientar a atuação dos demais órgãos jurisdicionais. Em outras palavras, a formação do precedente vinculante, uma vez proclamada a tese, já permite sua observância imediata.<br><br>Todavia, isso não elimina a possibilidade de cautela institucional em situações nas quais ainda caiba a interposição de embargos de declaração no próprio Supremo, especialmente quando houver risco concreto de modificação do conteúdo da tese, de esclarecimento relevante ou de modulação dos efeitos. Nesses casos, o tribunal de origem pode reputar prudente aguardar a estabilização do precedente antes de exercer juízo de retratação, evitando retrabalho processual e eventual incompatibilidade com a versão final do entendimento vinculante.<br><br>No caso examinado, o STJ assentou exatamente essa lógica: embora não seja juridicamente indispensável aguardar o trânsito em julgado para aplicação de tese de repercussão geral, não se mostrou conveniente, naquele momento, antecipar o juízo de retratação antes da definição definitiva do precedente do STF, diante da possibilidade de embargos capazes de impactar a tese ou sua eficácia temporal.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. Corte Especial. AgInt na PET no RE no AgInt na TutPrv no AREsp 2.049.359-SP, Rel. Min. Luis Felipe Salomão, julgado em 23/9/2025 (Info 865).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 8</span>
-                <span class="status" id="status-8">Não respondida</span>
-            </div>
+<p class="enunciado">A celebração de acordo de leniência pela pessoa jurídica demandada em ação de improbidade administrativa, com posterior desistência da União em relação a essa ré, não impede que a pessoa jurídica diretamente lesada, admitida no feito como litisconsorte ativa, requeira o prosseguimento da demanda para buscar a reparação integral dos prejuízos, inclusive com pedido de indenização por danos patrimoniais e extrapatrimoniais, sendo possível, ainda, a cumulação dessa pretensão com sanções de improbidade, desde que observada a detração para evitar bis in idem.</p>
 
-            <p class="enunciado">Em apelação interposta contra sentença que condena a parte ré ao pagamento de indenização por danos morais, a existência de voto divergente apenas quanto ao quantum indenizatório, sem controvérsia sobre a responsabilidade civil reconhecida no acórdão parcial, impõe a aplicação da técnica de ampliação do colegiado, pois a fixação do valor da compensação integra o mérito e pode alterar o resultado do julgamento, sendo nulo o acórdão proferido sem a observância do art. 942 do CPC.</p>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(3, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(3, 'ERRADO')">ERRADO</button>
+</div>
 
-            <div class="botoes">
-                <button onclick="responder(8, 'CERTO')">CERTO</button>
-                <button onclick="responder(8, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="feedback" id="feedback-3">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O enunciado está de acordo com o entendimento firmado no julgado. O ponto central é que o acordo de leniência não tem o efeito de extinguir, por si só, o dever de integral reparação do dano causado ao erário ou à vítima direta, nem impede o prosseguimento da ação de improbidade por quem detenha legitimidade para postular a recomposição integral do prejuízo.<br><br>No caso examinado, a Petrobras foi reconhecida como pessoa jurídica prejudicada e, por isso, possui legitimidade para atuar no processo e formular pedido de indenização por perdas e danos no curso da própria ação de improbidade administrativa. Essa legitimidade decorre da sua condição de vítima direta dos fatos ilícitos, não se limitando a União à tutela do interesse público primário.<br><br>Além disso, o entendimento assentou que a reparação integral abrange não apenas danos patrimoniais, mas também extrapatrimoniais, em dimensão individual ou coletiva, não havendo limitação da pretensão reparatória ao que eventualmente tenha sido ajustado em leniência. O acordo celebrado com a União não elimina a responsabilidade civil remanescente nem afasta, automaticamente, a possibilidade de persecução judicial da recomposição integral do dano.<br><br>Por outro lado, o julgado também ressalva que, havendo imposição concomitante de sanções, deve ser feita a detração do que já tiver sido satisfeito ou pactuado, justamente para evitar duplicidade sancionatória e enriquecimento indevido. Assim, o acordo de leniência pode repercutir na extensão do que ainda será exigível, mas não suprime o dever de reparar integralmente o dano nem obsta o prosseguimento da ação pelo lesado.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 2ª Turma. REsp 1.890.353-PR, Rel. Min. Maria Thereza de Assis Moura, Rel. Acd. Min. Francisco Falcão, julgado em 11/3/2025 (Info 865).</p>
+</div>
+</section>
 
-            <div class="feedback" id="feedback-8">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está correta porque a divergência sobre o valor da indenização por danos morais não é mera discordância de fundamentação ou de critério acessório: trata-se de matéria de mérito, diretamente relacionada à extensão da condenação e, portanto, apta a modificar o resultado final do julgamento. Nessa hipótese, a técnica de ampliação do colegiado prevista no art. 942 do CPC deve ser acionada de ofício, com a convocação de novos julgadores para prosseguimento da deliberação.<br><br>O ponto central é que, embora já haja consenso quanto à existência do ato ilícito e da responsabilidade civil, a divergência sobre o quantum indenizatório mantém aberta a definição do conteúdo condenatório. Assim, o julgamento não se exaure com a formação de maioria apenas sobre a responsabilidade, pois a fixação do valor da reparação integra o próprio mérito da apelação. Se a divergência puder repercutir no resultado prático do julgamento, a ampliação é obrigatória.<br><br>A omissão na aplicação do art. 942 do CPC, nessas circunstâncias, configura vício processual relevante, caracterizando nulidade por error in procedendo. Em outras palavras, não se trata de irregularidade sanável nem de simples inconformismo com o resultado, mas de inobservância de técnica de julgamento imposta pelo sistema processual para hipóteses de julgamento não unânime em matéria de mérito.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.207.919-MA, Rel. Min. Ricardo Villas Bôas Cueva, julgado em 12/8/2025 (Info 865).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 9</span>
-                <span class="status" id="status-9">Não respondida</span>
-            </div>
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="ECA"
+data-texto="a contratação de subcredenciadora por rede hoteleira para intermediar pagamentos realizados por consumidores com cartão, ainda que inserida em arranjo de pagamentos no qual a credenciadora recebe os valores da bandeira e os repassa à subcredenciadora, não atrai a incidência do código de defesa do consumidor nem autoriza, por si só, a responsabilização solidária da credenciadora pelo inadimplemento da subcredenciadora perante os lojistas, pois se trata de relação interempresarial voltada ao fomento da atividade mercantil, em que o empresário assume o risco do negócio ao escolher a proposta que reputa mais vantajosa. a assertiva está correta porque reproduz a lógica central do entendimento firmado: os contratos celebrados entre credenciadora, subcredenciadora e lojista, no âmbito do arranjo de pagamentos com cartões, possuem natureza interempresarial e são instrumentalizados para viabilizar a atividade econômica do lojista, não para satisfazer uma destinação final típica de consumo. nessa hipótese, não se reconhece, em regra, a incidência do cdc, pois os agentes envolvidos atuam como empresários e não como destinatários finais vulneráveis em relação de consumo.
 
-            <p class="enunciado">A existência de cláusula compromissória em contrato que embasa título executivo extrajudicial não impede o ajuizamento imediato de execução perante o Poder Judiciário, pois a arbitragem não dispõe de poderes para a prática de atos executivos; contudo, a suspensão do feito executivo não decorre automaticamente da convenção arbitral, exigindo, para sua justificação, a instauração do procedimento arbitral e a formulação de pedido específico ao juízo estatal competente.</p>
+além disso, o simples fato de a subcredenciadora ter recebido os valores e não os ter repassado ao lojista não desloca automaticamente a responsabilidade para a credenciadora. o risco da escolha contratual recai sobre o próprio lojista-empresário, que decide com quem contratar — diretamente com a credenciadora ou por intermédio de subcredenciadora — avaliando as condições comerciais mais vantajosas. se opta por determinada estrutura negocial, assume os riscos inerentes ao negócio, inclusive a eventual inadimplência do parceiro contratual escolhido.
 
-            <div class="botoes">
-                <button onclick="responder(9, 'CERTO')">CERTO</button>
-                <button onclick="responder(9, 'ERRADO')">ERRADO</button>
-            </div>
+também não se extrai, desse cenário, responsabilidade solidária da credenciadora apenas por integrar a cadeia operacional de pagamentos. a solidariedade não pode ser presumida em relações empresariais dessa natureza sem base jurídica específica, sobretudo quando inexiste relação contratual direta entre a credenciadora e o lojista para o repasse final dos valores. assim, a pretensão de aplicar o cdc para impor solidariedade à credenciadora, em razão do inadimplemento da subcredenciadora, não encontra amparo no entendimento consolidado. stj. 3ª turma. resp 2.212.357-rs, rel. min. nancy andrighi, julgado em 16/9/2025 (info 865).">
 
-            <div class="feedback" id="feedback-9">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está correta porque distingue, com precisão, dois planos distintos: o da cognição/solução do litígio e o da atividade executiva. A cláusula compromissória submete à arbitragem a resolução de controvérsias de mérito, mas não retira do Judiciário a aptidão para promover atos de constrição patrimonial e expropriação forçada, que são inerentes à jurisdição estatal.<br><br>Assim, se o credor já dispõe de título executivo extrajudicial, pode promover diretamente a execução perante a Vara Cível, ainda que o contrato contenha convenção de arbitragem. A existência da cláusula não afasta, por si só, a competência do juízo estatal para a tutela executiva, justamente porque a arbitragem não possui coercibilidade própria para realizar penhora, expropriação ou outros atos executivos típicos.<br><br>Além disso, a suspensão da execução não é automática nem decorre, por mera presunção, da presença da cláusula arbitral. Para que a paralisação do processo executivo se justifique, é necessário que o devedor efetivamente instaure o procedimento arbitral e, a partir disso, formule requerimento formal ao juízo da execução. Sem essa providência concreta, não há base para suspender o processo executivo apenas com fundamento na convenção de arbitragem.<br><br>O entendimento também admite a coexistência entre execução judicial e procedimento arbitral, desde que cada qual permaneça dentro de sua esfera própria: a arbitragem para definir eventual controvérsia de mérito e o Judiciário para a prática dos atos executivos.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.167.089-RJ, Rel. Min. Nancy Andrighi, julgado em 19/8/2025 (Info 865).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 10</span>
-                <span class="status" id="status-10">Não respondida</span>
-            </div>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 4</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-4">Não respondida</span>
+</div>
 
-            <p class="enunciado">A imputação do delito previsto no art. 20 da Lei n. 7.492/1986 não se satisfaz com a mera afirmação de que o financiamento deixou de ser empregado na finalidade contratada ou de que houve desvio genérico dos valores, sendo indispensável que a peça acusatória individualize, com suficiente clareza, a destinação concreta dada aos recursos e o modo pelo qual foram aplicados em finalidade diversa da pactuada, ainda que se trate de crime formal e independentemente da demonstração de prejuízo ao agente financeiro.</p>
+<p class="enunciado">A contratação de subcredenciadora por rede hoteleira para intermediar pagamentos realizados por consumidores com cartão, ainda que inserida em arranjo de pagamentos no qual a credenciadora recebe os valores da bandeira e os repassa à subcredenciadora, não atrai a incidência do Código de Defesa do Consumidor nem autoriza, por si só, a responsabilização solidária da credenciadora pelo inadimplemento da subcredenciadora perante os lojistas, pois se trata de relação interempresarial voltada ao fomento da atividade mercantil, em que o empresário assume o risco do negócio ao escolher a proposta que reputa mais vantajosa.</p>
 
-            <div class="botoes">
-                <button onclick="responder(10, 'CERTO')">CERTO</button>
-                <button onclick="responder(10, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(4, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(4, 'ERRADO')">ERRADO</button>
+</div>
 
-            <div class="feedback" id="feedback-10">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>O art. 20 da Lei n. 7.492/1986 tutela a correta aplicação de recursos obtidos em operação de financiamento, exigindo conduta comissiva consistente em dar aos valores destinação diversa daquela ajustada. Embora se trate de crime formal, de modo que não se exige a comprovação de prejuízo efetivo ao agente financeiro, isso não elimina a necessidade de a denúncia narrar, de forma minimamente individualizada, o núcleo fático da imputação.<br><br>A peça acusatória não pode se limitar a alegações genéricas de que a obra foi abandonada, de que o dinheiro “não foi usado” ou de que houve “desvio” dos recursos. É necessário descrever onde e em que finalidade os valores foram efetivamente aplicados, pois somente assim se evidencia a própria materialidade típica do art. 20: a utilização dos recursos em destinação diversa da prevista no contrato. Sem essa indicação concreta, a narrativa fica insuficiente para demonstrar a subsunção da conduta ao tipo penal, comprometendo o exercício da ampla defesa e autorizando a rejeição da denúncia ou o trancamento da ação penal.<br><br>Em outras palavras, a formalidade do delito afasta a exigência de resultado naturalístico, mas não dispensa a demonstração da ação típica. A acusação deve apontar a aplicação indevida dos recursos, e não apenas a sua não aplicação na obra ou o inadimplemento contratual. A ausência dessa descrição torna a imputação genérica e atípica em termos de justa causa processual.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 5ª Turma. AgRg no AREsp 2.830.889-PA, Rel. Min. Joel Ilan Paciornik, julgado em 5/8/2025 (Info 865).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 11</span>
-                <span class="status" id="status-11">Não respondida</span>
-            </div>
+<div class="feedback" id="feedback-4">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a lógica central do entendimento firmado: os contratos celebrados entre credenciadora, subcredenciadora e lojista, no âmbito do arranjo de pagamentos com cartões, possuem natureza interempresarial e são instrumentalizados para viabilizar a atividade econômica do lojista, não para satisfazer uma destinação final típica de consumo. Nessa hipótese, não se reconhece, em regra, a incidência do CDC, pois os agentes envolvidos atuam como empresários e não como destinatários finais vulneráveis em relação de consumo.<br><br>Além disso, o simples fato de a subcredenciadora ter recebido os valores e não os ter repassado ao lojista não desloca automaticamente a responsabilidade para a credenciadora. O risco da escolha contratual recai sobre o próprio lojista-empresário, que decide com quem contratar — diretamente com a credenciadora ou por intermédio de subcredenciadora — avaliando as condições comerciais mais vantajosas. Se opta por determinada estrutura negocial, assume os riscos inerentes ao negócio, inclusive a eventual inadimplência do parceiro contratual escolhido.<br><br>Também não se extrai, desse cenário, responsabilidade solidária da credenciadora apenas por integrar a cadeia operacional de pagamentos. A solidariedade não pode ser presumida em relações empresariais dessa natureza sem base jurídica específica, sobretudo quando inexiste relação contratual direta entre a credenciadora e o lojista para o repasse final dos valores. Assim, a pretensão de aplicar o CDC para impor solidariedade à credenciadora, em razão do inadimplemento da subcredenciadora, não encontra amparo no entendimento consolidado.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.212.357-RS, Rel. Min. Nancy Andrighi, julgado em 16/9/2025 (Info 865).</p>
+</div>
+</section>
 
-            <p class="enunciado">A exigência de lançamento definitivo do crédito tributário, como condição de tipicidade, alcança também a conduta de negar ou deixar de fornecer, quando obrigatório, nota fiscal ou documento equivalente relativo a operação efetivamente realizada, ou de emiti-lo em desacordo com a legislação, de modo que a persecução penal por esse fato somente pode prosseguir após a constituição definitiva do tributo.</p>
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a operadora de plano de saúde pode recusar a cobertura de exame pet-ct ou pet-scan quando houver expressa indicação médica para diagnóstico, estadiamento ou acompanhamento de doença coberta contratualmente, ao argumento de que o procedimento não integra o rol da ans para a hipótese específica, salvo se o beneficiário demonstrar que os exames tradicionais já foram inconclusivos e que inexiste qualquer alternativa terapêutica ou diagnóstica contratualmente prevista. a assertiva está incorreta porque parte de uma premissa incompatível com o entendimento firmado: a cobertura do pet-scan ou pet-ct pode ser exigida da operadora quando houver expressa indicação médica e o exame se mostrar efetivamente necessário ao adequado diagnóstico, estadiamento e acompanhamento de câncer e de outras enfermidades cobertas contratualmente, especialmente quando os exames tradicionais não tiverem sido suficientes para elucidar a condição clínica. além disso, o ponto central não é a inexistência de previsão no rol da ans para a hipótese concreta, pois o rol não pode ser invocado de forma automática e abstrata para afastar a cobertura quando presentes os requisitos clínicos e a indicação médica.
 
-            <div class="botoes">
-                <button onclick="responder(11, 'CERTO')">CERTO</button>
-                <button onclick="responder(11, 'ERRADO')">ERRADO</button>
-            </div>
+a formulação também erra ao impor, como condição adicional, a demonstração de inexistência de qualquer alternativa terapêutica ou diagnóstica contratualmente prevista. o julgado não estabelece essa exigência como requisito autônomo e absoluto; o foco está na necessidade do exame para a adequada condução diagnóstica e no atendimento à indicação médica, dentro das doenças cobertas pelo contrato. em outras palavras, não basta à operadora negar com base em uma leitura restritiva do rol, se o procedimento for clinicamente indicado para a finalidade diagnóstica ou de acompanhamento de enfermidade coberta. stj. 4ª turma. resp 2.060.900-sp, rel. min. raul araújo, julgado em 22/9/2025 (info 865).">
 
-            <div class="feedback" id="feedback-11">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque confunde o regime jurídico dos crimes materiais contra a ordem tributária, previstos nos incisos I a IV do art. 1º da Lei 8.137/1990, com a figura típica do inciso V do mesmo dispositivo. A Súmula Vinculante 24 do STF limita-se expressamente aos crimes materiais contra a ordem tributária, exigindo o lançamento definitivo do tributo apenas para a configuração dessas hipóteses, nas quais a supressão ou redução do tributo depende da apuração administrativa final do crédito.<br><br>Já o art. 1º, V, da Lei 8.137/1990 descreve crime formal, cuja consumação independe da constituição definitiva do crédito tributário. O núcleo do tipo consiste em negar ou deixar de fornecer, quando obrigatório, nota fiscal ou documento equivalente, ou fornecê-lo em desacordo com a legislação, relativamente a venda de mercadoria ou prestação de serviço efetivamente realizada. Assim, a lesão ao bem jurídico ocorre com a própria violação do dever instrumental de documentação fiscal, que tutela não apenas a arrecadação, mas também a administração tributária e a fiscalização.<br><br>Por isso, não se exige o prévio lançamento definitivo para a tipicidade da conduta do inciso V. A consumação se aperfeiçoa com a simples prática da omissão ou da emissão irregular do documento fiscal obrigatório, sendo irrelevante, para esse tipo penal, aguardar a constituição final do crédito tributário.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 6ª Turma. RHC 209.207-GO, Rel. Min. Sebastião Reis Júnior, julgado em 12/8/2025 (Info 865).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 12</span>
-                <span class="status" id="status-12">Não respondida</span>
-            </div>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 5</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-5">Não respondida</span>
+</div>
 
-            <p class="enunciado">A mera visualização, por policiais em patrulhamento de rotina, de veículo com porta amassada e em mau estado de conservação não configura, por si só, fundada suspeita apta a legitimar a busca veicular e a subsequente revista pessoal do condutor, de modo que a apreensão de arma de fogo obtida nessas circunstâncias contamina a prova por ilicitude, por ausência de justa causa para a medida invasiva.</p>
+<p class="enunciado">A operadora de plano de saúde pode recusar a cobertura de exame PET-CT ou PET-SCAN quando houver expressa indicação médica para diagnóstico, estadiamento ou acompanhamento de doença coberta contratualmente, ao argumento de que o procedimento não integra o rol da ANS para a hipótese específica, salvo se o beneficiário demonstrar que os exames tradicionais já foram inconclusivos e que inexiste qualquer alternativa terapêutica ou diagnóstica contratualmente prevista.</p>
 
-            <div class="botoes">
-                <button onclick="responder(12, 'CERTO')">CERTO</button>
-                <button onclick="responder(12, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(5, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(5, 'ERRADO')">ERRADO</button>
+</div>
 
-            <div class="feedback" id="feedback-12">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A busca veicular e a revista pessoal exigem, como regra, elementos objetivos mínimos que indiquem a existência de situação concreta de suspeita, não bastando impressão subjetiva, intuição policial ou circunstância genérica e ambígua. O simples fato de o automóvel apresentar porta amassada e mau estado de conservação não revela, por si, qualquer vínculo necessário com prática criminosa, tampouco autoriza concluir que o veículo, o condutor ou eventual ocupante estejam em situação de flagrante, ocultando objetos ilícitos ou portando arma de fogo.<br><br>No caso examinado, a atuação policial foi considerada desprovida de justa causa, porque a “suspeita” foi extraída de um dado neutro e insuficiente — o estado de conservação do veículo — sem indicação de comportamento evasivo, denúncia prévia, informação concreta de crime ou qualquer outro elemento externo que objetivamente justificasse a medida invasiva. Nessas condições, a busca veicular e a pessoal são ilegais, e a prova delas derivada é ilícita, com incidência da regra de exclusão das provas obtidas por meio ilícito.<br><br>A questão explora um ponto relevante de prova em processo penal: a fundada suspeita não pode ser presumida a partir de sinais vagos ou estigmatizantes. É indispensável base empírica minimamente verificável, sob pena de banalização de abordagens policiais e violação à intimidade, à liberdade e à inviolabilidade das esferas individuais. Assim, a apreensão da arma de fogo, por decorrer de busca sem justa causa, não se sustenta processualmente.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 5ª Turma. AgRg no HC 1.002.334-SP, Rel. Min. Ribeiro Dantas, julgado em 10/9/2025 (Info 865).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 13</span>
-                <span class="status" id="status-13">Não respondida</span>
-            </div>
+<div class="feedback" id="feedback-5">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque parte de uma premissa incompatível com o entendimento firmado: a cobertura do PET-SCAN ou PET-CT pode ser exigida da operadora quando houver expressa indicação médica e o exame se mostrar efetivamente necessário ao adequado diagnóstico, estadiamento e acompanhamento de câncer e de outras enfermidades cobertas contratualmente, especialmente quando os exames tradicionais não tiverem sido suficientes para elucidar a condição clínica. Além disso, o ponto central não é a inexistência de previsão no rol da ANS para a hipótese concreta, pois o rol não pode ser invocado de forma automática e abstrata para afastar a cobertura quando presentes os requisitos clínicos e a indicação médica.<br><br>A formulação também erra ao impor, como condição adicional, a demonstração de inexistência de qualquer alternativa terapêutica ou diagnóstica contratualmente prevista. O julgado não estabelece essa exigência como requisito autônomo e absoluto; o foco está na necessidade do exame para a adequada condução diagnóstica e no atendimento à indicação médica, dentro das doenças cobertas pelo contrato. Em outras palavras, não basta à operadora negar com base em uma leitura restritiva do rol, se o procedimento for clinicamente indicado para a finalidade diagnóstica ou de acompanhamento de enfermidade coberta.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 4ª Turma. REsp 2.060.900-SP, Rel. Min. Raul Araújo, julgado em 22/9/2025 (Info 865).</p>
+</div>
+</section>
 
-            <p class="enunciado">Em mandado de segurança impetrado por pessoa jurídica para afastar a exigência de DIFAL do ICMS, a ausência de indicação expressa de todas as filiais na petição inicial impede a extensão dos efeitos da ordem judicial às unidades não nominadas, ainda que se trate de estabelecimentos secundários desprovidos de personalidade jurídica própria e integrantes do mesmo ente empresarial.</p>
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="em demanda fundada em relação de consumo, a prerrogativa de facilitação da defesa do consumidor autoriza a eleição do foro de propositura da ação entre os previstos em lei, mas essa faculdade não legitima a escolha de comarca ou seção judiciária sem qualquer vínculo razoável com a controvérsia, de modo que o ajuizamento em local aleatório, dissociado do domicílio do consumidor e das circunstâncias do caso, pode ensejar o reconhecimento da incompetência territorial. a assertiva está correta porque, nas relações de consumo, a proteção processual conferida ao consumidor não se traduz em liberdade irrestrita para demandar em qualquer foro do território nacional. o entendimento firmado é no sentido de que a competência territorial, nesse contexto, assume feição absoluta em favor do consumidor, justamente para facilitar o acesso à justiça e a defesa de seus direitos. contudo, essa prerrogativa não se converte em autorização para escolha arbitrária do foro.
 
-            <div class="botoes">
-                <button onclick="responder(13, 'CERTO')">CERTO</button>
-                <button onclick="responder(13, 'ERRADO')">ERRADO</button>
-            </div>
+no caso examinado, embora o consumidor residisse em bonópolis/go e seu advogado atuasse em goiânia, a ação foi proposta em brasília/df, sem demonstração de elemento de conexão minimamente plausível com a lide. a corte concluiu que não basta a mera conveniência subjetiva da parte autora ou de seu patrono: é necessário algum vínculo razoável entre o foro escolhido e a relação jurídica controvertida, sob pena de esvaziamento da lógica protetiva do sistema e de incentivo ao ajuizamento estratégico em local sem pertinência com o litígio.
 
-            <div class="feedback" id="feedback-13">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque parte de premissa incompatível com a natureza jurídica das filiais. Embora possuam CNPJ próprio e possam ter autonomia administrativa e operacional para fins de controle e fiscalização, as filiais não ostentam personalidade jurídica autônoma nem patrimônio próprio. Elas são meros estabelecimentos secundários da mesma pessoa jurídica titular da matriz.<br><br>Por isso, quando a ordem judicial é concedida em favor da pessoa jurídica, seus efeitos podem alcançar as filiais vinculadas, ainda que nem todas tenham sido individualmente arroladas na petição inicial. O ponto central não é a existência de CNPJ distinto, mas a unidade subjetiva da pessoa jurídica. A inscrição cadastral própria da filial não a transforma em sujeito de direito diverso da matriz, nem autoriza concluir que seria necessária ação autônoma para cada estabelecimento.<br><br>No caso examinado, o entendimento foi de que a decisão favorável à matriz pode ser estendida às filiais, justamente porque matriz e filiais integram a mesma pessoa jurídica. Assim, a exigência de inclusão nominal de cada filial como condição para fruição do provimento jurisdicional não se sustenta quando o comando judicial beneficia o próprio ente empresarial, cuja personalidade é una.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Turma. AgInt no AgInt nos EDcl no AREsp 2.605.869-AM, Rel. Min. Gurgel de Faria, julgado em 15/9/2025 (Info 865).</p>
-            </div>
-        </section>
-        
+assim, a tese não nega a possibilidade de o consumidor escolher o foro, mas delimita essa faculdade: a escolha deve se manter dentro de parâmetros justificáveis, não sendo admitida seleção aleatória. em prova, a armadilha costuma consistir em afirmar que, por se tratar de relação de consumo, o consumidor poderia demandar em qualquer foro, independentemente de justificativa, o que não corresponde ao entendimento consolidado no julgado. stj. 4ª turma. resp 2.173.132-df, rel. min. joão otávio de noronha, julgado em 22/9/2025 (info 865).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 6</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-6">Não respondida</span>
+</div>
+
+<p class="enunciado">Em demanda fundada em relação de consumo, a prerrogativa de facilitação da defesa do consumidor autoriza a eleição do foro de propositura da ação entre os previstos em lei, mas essa faculdade não legitima a escolha de comarca ou seção judiciária sem qualquer vínculo razoável com a controvérsia, de modo que o ajuizamento em local aleatório, dissociado do domicílio do consumidor e das circunstâncias do caso, pode ensejar o reconhecimento da incompetência territorial.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(6, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(6, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-6">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque, nas relações de consumo, a proteção processual conferida ao consumidor não se traduz em liberdade irrestrita para demandar em qualquer foro do território nacional. O entendimento firmado é no sentido de que a competência territorial, nesse contexto, assume feição absoluta em favor do consumidor, justamente para facilitar o acesso à Justiça e a defesa de seus direitos. Contudo, essa prerrogativa não se converte em autorização para escolha arbitrária do foro.<br><br>No caso examinado, embora o consumidor residisse em Bonópolis/GO e seu advogado atuasse em Goiânia, a ação foi proposta em Brasília/DF, sem demonstração de elemento de conexão minimamente plausível com a lide. A Corte concluiu que não basta a mera conveniência subjetiva da parte autora ou de seu patrono: é necessário algum vínculo razoável entre o foro escolhido e a relação jurídica controvertida, sob pena de esvaziamento da lógica protetiva do sistema e de incentivo ao ajuizamento estratégico em local sem pertinência com o litígio.<br><br>Assim, a tese não nega a possibilidade de o consumidor escolher o foro, mas delimita essa faculdade: a escolha deve se manter dentro de parâmetros justificáveis, não sendo admitida seleção aleatória. Em prova, a armadilha costuma consistir em afirmar que, por se tratar de relação de consumo, o consumidor poderia demandar em qualquer foro, independentemente de justificativa, o que não corresponde ao entendimento consolidado no julgado.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 4ª Turma. REsp 2.173.132-DF, Rel. Min. João Otávio de Noronha, julgado em 22/9/2025 (Info 865).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="em recurso extraordinário sobre a constitucionalidade do art. 19 do marco civil da internet, a superveniência de tese firmada em repercussão geral pelo supremo tribunal federal autoriza, em regra, a imediata adequação do julgamento pelo tribunal de origem, sem necessidade de aguardar o trânsito em julgado do acórdão paradigma; contudo, diante da possibilidade de embargos de declaração com potencial de alterar, complementar ou modular os efeitos do precedente, pode ser legítimo manter o sobrestamento do feito e postergar eventual juízo de retratação, por razões de prudência processual. a assertiva está correta porque reproduz a distinção central do entendimento: a tese firmada em repercussão geral não depende, como regra, do trânsito em julgado do acórdão do stf para irradiar efeitos e orientar a atuação dos demais órgãos jurisdicionais. em outras palavras, a formação do precedente vinculante, uma vez proclamada a tese, já permite sua observância imediata.
+
+todavia, isso não elimina a possibilidade de cautela institucional em situações nas quais ainda caiba a interposição de embargos de declaração no próprio supremo, especialmente quando houver risco concreto de modificação do conteúdo da tese, de esclarecimento relevante ou de modulação dos efeitos. nesses casos, o tribunal de origem pode reputar prudente aguardar a estabilização do precedente antes de exercer juízo de retratação, evitando retrabalho processual e eventual incompatibilidade com a versão final do entendimento vinculante.
+
+no caso examinado, o stj assentou exatamente essa lógica: embora não seja juridicamente indispensável aguardar o trânsito em julgado para aplicação de tese de repercussão geral, não se mostrou conveniente, naquele momento, antecipar o juízo de retratação antes da definição definitiva do precedente do stf, diante da possibilidade de embargos capazes de impactar a tese ou sua eficácia temporal. stj. corte especial. agint na pet no re no agint na tutprv no aresp 2.049.359-sp, rel. min. luis felipe salomão, julgado em 23/9/2025 (info 865).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 7</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-7">Não respondida</span>
+</div>
+
+<p class="enunciado">Em recurso extraordinário sobre a constitucionalidade do art. 19 do Marco Civil da Internet, a superveniência de tese firmada em repercussão geral pelo Supremo Tribunal Federal autoriza, em regra, a imediata adequação do julgamento pelo tribunal de origem, sem necessidade de aguardar o trânsito em julgado do acórdão paradigma; contudo, diante da possibilidade de embargos de declaração com potencial de alterar, complementar ou modular os efeitos do precedente, pode ser legítimo manter o sobrestamento do feito e postergar eventual juízo de retratação, por razões de prudência processual.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(7, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(7, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-7">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a distinção central do entendimento: a tese firmada em repercussão geral não depende, como regra, do trânsito em julgado do acórdão do STF para irradiar efeitos e orientar a atuação dos demais órgãos jurisdicionais. Em outras palavras, a formação do precedente vinculante, uma vez proclamada a tese, já permite sua observância imediata.<br><br>Todavia, isso não elimina a possibilidade de cautela institucional em situações nas quais ainda caiba a interposição de embargos de declaração no próprio Supremo, especialmente quando houver risco concreto de modificação do conteúdo da tese, de esclarecimento relevante ou de modulação dos efeitos. Nesses casos, o tribunal de origem pode reputar prudente aguardar a estabilização do precedente antes de exercer juízo de retratação, evitando retrabalho processual e eventual incompatibilidade com a versão final do entendimento vinculante.<br><br>No caso examinado, o STJ assentou exatamente essa lógica: embora não seja juridicamente indispensável aguardar o trânsito em julgado para aplicação de tese de repercussão geral, não se mostrou conveniente, naquele momento, antecipar o juízo de retratação antes da definição definitiva do precedente do STF, diante da possibilidade de embargos capazes de impactar a tese ou sua eficácia temporal.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. Corte Especial. AgInt na PET no RE no AgInt na TutPrv no AREsp 2.049.359-SP, Rel. Min. Luis Felipe Salomão, julgado em 23/9/2025 (Info 865).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="em apelação interposta contra sentença que condena a parte ré ao pagamento de indenização por danos morais, a existência de voto divergente apenas quanto ao quantum indenizatório, sem controvérsia sobre a responsabilidade civil reconhecida no acórdão parcial, impõe a aplicação da técnica de ampliação do colegiado, pois a fixação do valor da compensação integra o mérito e pode alterar o resultado do julgamento, sendo nulo o acórdão proferido sem a observância do art. 942 do cpc. a assertiva está correta porque a divergência sobre o valor da indenização por danos morais não é mera discordância de fundamentação ou de critério acessório: trata-se de matéria de mérito, diretamente relacionada à extensão da condenação e, portanto, apta a modificar o resultado final do julgamento. nessa hipótese, a técnica de ampliação do colegiado prevista no art. 942 do cpc deve ser acionada de ofício, com a convocação de novos julgadores para prosseguimento da deliberação.
+
+o ponto central é que, embora já haja consenso quanto à existência do ato ilícito e da responsabilidade civil, a divergência sobre o quantum indenizatório mantém aberta a definição do conteúdo condenatório. assim, o julgamento não se exaure com a formação de maioria apenas sobre a responsabilidade, pois a fixação do valor da reparação integra o próprio mérito da apelação. se a divergência puder repercutir no resultado prático do julgamento, a ampliação é obrigatória.
+
+a omissão na aplicação do art. 942 do cpc, nessas circunstâncias, configura vício processual relevante, caracterizando nulidade por error in procedendo. em outras palavras, não se trata de irregularidade sanável nem de simples inconformismo com o resultado, mas de inobservância de técnica de julgamento imposta pelo sistema processual para hipóteses de julgamento não unânime em matéria de mérito. stj. 3ª turma. resp 2.207.919-ma, rel. min. ricardo villas bôas cueva, julgado em 12/8/2025 (info 865).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 8</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-8">Não respondida</span>
+</div>
+
+<p class="enunciado">Em apelação interposta contra sentença que condena a parte ré ao pagamento de indenização por danos morais, a existência de voto divergente apenas quanto ao quantum indenizatório, sem controvérsia sobre a responsabilidade civil reconhecida no acórdão parcial, impõe a aplicação da técnica de ampliação do colegiado, pois a fixação do valor da compensação integra o mérito e pode alterar o resultado do julgamento, sendo nulo o acórdão proferido sem a observância do art. 942 do CPC.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(8, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(8, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-8">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque a divergência sobre o valor da indenização por danos morais não é mera discordância de fundamentação ou de critério acessório: trata-se de matéria de mérito, diretamente relacionada à extensão da condenação e, portanto, apta a modificar o resultado final do julgamento. Nessa hipótese, a técnica de ampliação do colegiado prevista no art. 942 do CPC deve ser acionada de ofício, com a convocação de novos julgadores para prosseguimento da deliberação.<br><br>O ponto central é que, embora já haja consenso quanto à existência do ato ilícito e da responsabilidade civil, a divergência sobre o quantum indenizatório mantém aberta a definição do conteúdo condenatório. Assim, o julgamento não se exaure com a formação de maioria apenas sobre a responsabilidade, pois a fixação do valor da reparação integra o próprio mérito da apelação. Se a divergência puder repercutir no resultado prático do julgamento, a ampliação é obrigatória.<br><br>A omissão na aplicação do art. 942 do CPC, nessas circunstâncias, configura vício processual relevante, caracterizando nulidade por error in procedendo. Em outras palavras, não se trata de irregularidade sanável nem de simples inconformismo com o resultado, mas de inobservância de técnica de julgamento imposta pelo sistema processual para hipóteses de julgamento não unânime em matéria de mérito.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.207.919-MA, Rel. Min. Ricardo Villas Bôas Cueva, julgado em 12/8/2025 (Info 865).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a existência de cláusula compromissória em contrato que embasa título executivo extrajudicial não impede o ajuizamento imediato de execução perante o poder judiciário, pois a arbitragem não dispõe de poderes para a prática de atos executivos; contudo, a suspensão do feito executivo não decorre automaticamente da convenção arbitral, exigindo, para sua justificação, a instauração do procedimento arbitral e a formulação de pedido específico ao juízo estatal competente. a assertiva está correta porque distingue, com precisão, dois planos distintos: o da cognição/solução do litígio e o da atividade executiva. a cláusula compromissória submete à arbitragem a resolução de controvérsias de mérito, mas não retira do judiciário a aptidão para promover atos de constrição patrimonial e expropriação forçada, que são inerentes à jurisdição estatal.
+
+assim, se o credor já dispõe de título executivo extrajudicial, pode promover diretamente a execução perante a vara cível, ainda que o contrato contenha convenção de arbitragem. a existência da cláusula não afasta, por si só, a competência do juízo estatal para a tutela executiva, justamente porque a arbitragem não possui coercibilidade própria para realizar penhora, expropriação ou outros atos executivos típicos.
+
+além disso, a suspensão da execução não é automática nem decorre, por mera presunção, da presença da cláusula arbitral. para que a paralisação do processo executivo se justifique, é necessário que o devedor efetivamente instaure o procedimento arbitral e, a partir disso, formule requerimento formal ao juízo da execução. sem essa providência concreta, não há base para suspender o processo executivo apenas com fundamento na convenção de arbitragem.
+
+o entendimento também admite a coexistência entre execução judicial e procedimento arbitral, desde que cada qual permaneça dentro de sua esfera própria: a arbitragem para definir eventual controvérsia de mérito e o judiciário para a prática dos atos executivos. stj. 3ª turma. resp 2.167.089-rj, rel. min. nancy andrighi, julgado em 19/8/2025 (info 865).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 9</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-9">Não respondida</span>
+</div>
+
+<p class="enunciado">A existência de cláusula compromissória em contrato que embasa título executivo extrajudicial não impede o ajuizamento imediato de execução perante o Poder Judiciário, pois a arbitragem não dispõe de poderes para a prática de atos executivos; contudo, a suspensão do feito executivo não decorre automaticamente da convenção arbitral, exigindo, para sua justificação, a instauração do procedimento arbitral e a formulação de pedido específico ao juízo estatal competente.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(9, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(9, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-9">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque distingue, com precisão, dois planos distintos: o da cognição/solução do litígio e o da atividade executiva. A cláusula compromissória submete à arbitragem a resolução de controvérsias de mérito, mas não retira do Judiciário a aptidão para promover atos de constrição patrimonial e expropriação forçada, que são inerentes à jurisdição estatal.<br><br>Assim, se o credor já dispõe de título executivo extrajudicial, pode promover diretamente a execução perante a Vara Cível, ainda que o contrato contenha convenção de arbitragem. A existência da cláusula não afasta, por si só, a competência do juízo estatal para a tutela executiva, justamente porque a arbitragem não possui coercibilidade própria para realizar penhora, expropriação ou outros atos executivos típicos.<br><br>Além disso, a suspensão da execução não é automática nem decorre, por mera presunção, da presença da cláusula arbitral. Para que a paralisação do processo executivo se justifique, é necessário que o devedor efetivamente instaure o procedimento arbitral e, a partir disso, formule requerimento formal ao juízo da execução. Sem essa providência concreta, não há base para suspender o processo executivo apenas com fundamento na convenção de arbitragem.<br><br>O entendimento também admite a coexistência entre execução judicial e procedimento arbitral, desde que cada qual permaneça dentro de sua esfera própria: a arbitragem para definir eventual controvérsia de mérito e o Judiciário para a prática dos atos executivos.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.167.089-RJ, Rel. Min. Nancy Andrighi, julgado em 19/8/2025 (Info 865).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a imputação do delito previsto no art. 20 da lei n. 7.492/1986 não se satisfaz com a mera afirmação de que o financiamento deixou de ser empregado na finalidade contratada ou de que houve desvio genérico dos valores, sendo indispensável que a peça acusatória individualize, com suficiente clareza, a destinação concreta dada aos recursos e o modo pelo qual foram aplicados em finalidade diversa da pactuada, ainda que se trate de crime formal e independentemente da demonstração de prejuízo ao agente financeiro. o art. 20 da lei n. 7.492/1986 tutela a correta aplicação de recursos obtidos em operação de financiamento, exigindo conduta comissiva consistente em dar aos valores destinação diversa daquela ajustada. embora se trate de crime formal, de modo que não se exige a comprovação de prejuízo efetivo ao agente financeiro, isso não elimina a necessidade de a denúncia narrar, de forma minimamente individualizada, o núcleo fático da imputação.
+
+a peça acusatória não pode se limitar a alegações genéricas de que a obra foi abandonada, de que o dinheiro “não foi usado” ou de que houve “desvio” dos recursos. é necessário descrever onde e em que finalidade os valores foram efetivamente aplicados, pois somente assim se evidencia a própria materialidade típica do art. 20: a utilização dos recursos em destinação diversa da prevista no contrato. sem essa indicação concreta, a narrativa fica insuficiente para demonstrar a subsunção da conduta ao tipo penal, comprometendo o exercício da ampla defesa e autorizando a rejeição da denúncia ou o trancamento da ação penal.
+
+em outras palavras, a formalidade do delito afasta a exigência de resultado naturalístico, mas não dispensa a demonstração da ação típica. a acusação deve apontar a aplicação indevida dos recursos, e não apenas a sua não aplicação na obra ou o inadimplemento contratual. a ausência dessa descrição torna a imputação genérica e atípica em termos de justa causa processual. stj. 5ª turma. agrg no aresp 2.830.889-pa, rel. min. joel ilan paciornik, julgado em 5/8/2025 (info 865).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 10</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-10">Não respondida</span>
+</div>
+
+<p class="enunciado">A imputação do delito previsto no art. 20 da Lei n. 7.492/1986 não se satisfaz com a mera afirmação de que o financiamento deixou de ser empregado na finalidade contratada ou de que houve desvio genérico dos valores, sendo indispensável que a peça acusatória individualize, com suficiente clareza, a destinação concreta dada aos recursos e o modo pelo qual foram aplicados em finalidade diversa da pactuada, ainda que se trate de crime formal e independentemente da demonstração de prejuízo ao agente financeiro.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(10, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(10, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-10">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O art. 20 da Lei n. 7.492/1986 tutela a correta aplicação de recursos obtidos em operação de financiamento, exigindo conduta comissiva consistente em dar aos valores destinação diversa daquela ajustada. Embora se trate de crime formal, de modo que não se exige a comprovação de prejuízo efetivo ao agente financeiro, isso não elimina a necessidade de a denúncia narrar, de forma minimamente individualizada, o núcleo fático da imputação.<br><br>A peça acusatória não pode se limitar a alegações genéricas de que a obra foi abandonada, de que o dinheiro “não foi usado” ou de que houve “desvio” dos recursos. É necessário descrever onde e em que finalidade os valores foram efetivamente aplicados, pois somente assim se evidencia a própria materialidade típica do art. 20: a utilização dos recursos em destinação diversa da prevista no contrato. Sem essa indicação concreta, a narrativa fica insuficiente para demonstrar a subsunção da conduta ao tipo penal, comprometendo o exercício da ampla defesa e autorizando a rejeição da denúncia ou o trancamento da ação penal.<br><br>Em outras palavras, a formalidade do delito afasta a exigência de resultado naturalístico, mas não dispensa a demonstração da ação típica. A acusação deve apontar a aplicação indevida dos recursos, e não apenas a sua não aplicação na obra ou o inadimplemento contratual. A ausência dessa descrição torna a imputação genérica e atípica em termos de justa causa processual.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 5ª Turma. AgRg no AREsp 2.830.889-PA, Rel. Min. Joel Ilan Paciornik, julgado em 5/8/2025 (Info 865).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="a exigência de lançamento definitivo do crédito tributário, como condição de tipicidade, alcança também a conduta de negar ou deixar de fornecer, quando obrigatório, nota fiscal ou documento equivalente relativo a operação efetivamente realizada, ou de emiti-lo em desacordo com a legislação, de modo que a persecução penal por esse fato somente pode prosseguir após a constituição definitiva do tributo. a assertiva está incorreta porque confunde o regime jurídico dos crimes materiais contra a ordem tributária, previstos nos incisos i a iv do art. 1º da lei 8.137/1990, com a figura típica do inciso v do mesmo dispositivo. a súmula vinculante 24 do stf limita-se expressamente aos crimes materiais contra a ordem tributária, exigindo o lançamento definitivo do tributo apenas para a configuração dessas hipóteses, nas quais a supressão ou redução do tributo depende da apuração administrativa final do crédito.
+
+já o art. 1º, v, da lei 8.137/1990 descreve crime formal, cuja consumação independe da constituição definitiva do crédito tributário. o núcleo do tipo consiste em negar ou deixar de fornecer, quando obrigatório, nota fiscal ou documento equivalente, ou fornecê-lo em desacordo com a legislação, relativamente a venda de mercadoria ou prestação de serviço efetivamente realizada. assim, a lesão ao bem jurídico ocorre com a própria violação do dever instrumental de documentação fiscal, que tutela não apenas a arrecadação, mas também a administração tributária e a fiscalização.
+
+por isso, não se exige o prévio lançamento definitivo para a tipicidade da conduta do inciso v. a consumação se aperfeiçoa com a simples prática da omissão ou da emissão irregular do documento fiscal obrigatório, sendo irrelevante, para esse tipo penal, aguardar a constituição final do crédito tributário. stj. 6ª turma. rhc 209.207-go, rel. min. sebastião reis júnior, julgado em 12/8/2025 (info 865).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 11</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-11">Não respondida</span>
+</div>
+
+<p class="enunciado">A exigência de lançamento definitivo do crédito tributário, como condição de tipicidade, alcança também a conduta de negar ou deixar de fornecer, quando obrigatório, nota fiscal ou documento equivalente relativo a operação efetivamente realizada, ou de emiti-lo em desacordo com a legislação, de modo que a persecução penal por esse fato somente pode prosseguir após a constituição definitiva do tributo.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(11, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(11, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-11">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque confunde o regime jurídico dos crimes materiais contra a ordem tributária, previstos nos incisos I a IV do art. 1º da Lei 8.137/1990, com a figura típica do inciso V do mesmo dispositivo. A Súmula Vinculante 24 do STF limita-se expressamente aos crimes materiais contra a ordem tributária, exigindo o lançamento definitivo do tributo apenas para a configuração dessas hipóteses, nas quais a supressão ou redução do tributo depende da apuração administrativa final do crédito.<br><br>Já o art. 1º, V, da Lei 8.137/1990 descreve crime formal, cuja consumação independe da constituição definitiva do crédito tributário. O núcleo do tipo consiste em negar ou deixar de fornecer, quando obrigatório, nota fiscal ou documento equivalente, ou fornecê-lo em desacordo com a legislação, relativamente a venda de mercadoria ou prestação de serviço efetivamente realizada. Assim, a lesão ao bem jurídico ocorre com a própria violação do dever instrumental de documentação fiscal, que tutela não apenas a arrecadação, mas também a administração tributária e a fiscalização.<br><br>Por isso, não se exige o prévio lançamento definitivo para a tipicidade da conduta do inciso V. A consumação se aperfeiçoa com a simples prática da omissão ou da emissão irregular do documento fiscal obrigatório, sendo irrelevante, para esse tipo penal, aguardar a constituição final do crédito tributário.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 6ª Turma. RHC 209.207-GO, Rel. Min. Sebastião Reis Júnior, julgado em 12/8/2025 (Info 865).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a mera visualização, por policiais em patrulhamento de rotina, de veículo com porta amassada e em mau estado de conservação não configura, por si só, fundada suspeita apta a legitimar a busca veicular e a subsequente revista pessoal do condutor, de modo que a apreensão de arma de fogo obtida nessas circunstâncias contamina a prova por ilicitude, por ausência de justa causa para a medida invasiva. a busca veicular e a revista pessoal exigem, como regra, elementos objetivos mínimos que indiquem a existência de situação concreta de suspeita, não bastando impressão subjetiva, intuição policial ou circunstância genérica e ambígua. o simples fato de o automóvel apresentar porta amassada e mau estado de conservação não revela, por si, qualquer vínculo necessário com prática criminosa, tampouco autoriza concluir que o veículo, o condutor ou eventual ocupante estejam em situação de flagrante, ocultando objetos ilícitos ou portando arma de fogo.
+
+no caso examinado, a atuação policial foi considerada desprovida de justa causa, porque a “suspeita” foi extraída de um dado neutro e insuficiente — o estado de conservação do veículo — sem indicação de comportamento evasivo, denúncia prévia, informação concreta de crime ou qualquer outro elemento externo que objetivamente justificasse a medida invasiva. nessas condições, a busca veicular e a pessoal são ilegais, e a prova delas derivada é ilícita, com incidência da regra de exclusão das provas obtidas por meio ilícito.
+
+a questão explora um ponto relevante de prova em processo penal: a fundada suspeita não pode ser presumida a partir de sinais vagos ou estigmatizantes. é indispensável base empírica minimamente verificável, sob pena de banalização de abordagens policiais e violação à intimidade, à liberdade e à inviolabilidade das esferas individuais. assim, a apreensão da arma de fogo, por decorrer de busca sem justa causa, não se sustenta processualmente. stj. 5ª turma. agrg no hc 1.002.334-sp, rel. min. ribeiro dantas, julgado em 10/9/2025 (info 865).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 12</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-12">Não respondida</span>
+</div>
+
+<p class="enunciado">A mera visualização, por policiais em patrulhamento de rotina, de veículo com porta amassada e em mau estado de conservação não configura, por si só, fundada suspeita apta a legitimar a busca veicular e a subsequente revista pessoal do condutor, de modo que a apreensão de arma de fogo obtida nessas circunstâncias contamina a prova por ilicitude, por ausência de justa causa para a medida invasiva.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(12, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(12, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-12">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A busca veicular e a revista pessoal exigem, como regra, elementos objetivos mínimos que indiquem a existência de situação concreta de suspeita, não bastando impressão subjetiva, intuição policial ou circunstância genérica e ambígua. O simples fato de o automóvel apresentar porta amassada e mau estado de conservação não revela, por si, qualquer vínculo necessário com prática criminosa, tampouco autoriza concluir que o veículo, o condutor ou eventual ocupante estejam em situação de flagrante, ocultando objetos ilícitos ou portando arma de fogo.<br><br>No caso examinado, a atuação policial foi considerada desprovida de justa causa, porque a “suspeita” foi extraída de um dado neutro e insuficiente — o estado de conservação do veículo — sem indicação de comportamento evasivo, denúncia prévia, informação concreta de crime ou qualquer outro elemento externo que objetivamente justificasse a medida invasiva. Nessas condições, a busca veicular e a pessoal são ilegais, e a prova delas derivada é ilícita, com incidência da regra de exclusão das provas obtidas por meio ilícito.<br><br>A questão explora um ponto relevante de prova em processo penal: a fundada suspeita não pode ser presumida a partir de sinais vagos ou estigmatizantes. É indispensável base empírica minimamente verificável, sob pena de banalização de abordagens policiais e violação à intimidade, à liberdade e à inviolabilidade das esferas individuais. Assim, a apreensão da arma de fogo, por decorrer de busca sem justa causa, não se sustenta processualmente.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 5ª Turma. AgRg no HC 1.002.334-SP, Rel. Min. Ribeiro Dantas, julgado em 10/9/2025 (Info 865).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="em mandado de segurança impetrado por pessoa jurídica para afastar a exigência de difal do icms, a ausência de indicação expressa de todas as filiais na petição inicial impede a extensão dos efeitos da ordem judicial às unidades não nominadas, ainda que se trate de estabelecimentos secundários desprovidos de personalidade jurídica própria e integrantes do mesmo ente empresarial. a assertiva está incorreta porque parte de premissa incompatível com a natureza jurídica das filiais. embora possuam cnpj próprio e possam ter autonomia administrativa e operacional para fins de controle e fiscalização, as filiais não ostentam personalidade jurídica autônoma nem patrimônio próprio. elas são meros estabelecimentos secundários da mesma pessoa jurídica titular da matriz.
+
+por isso, quando a ordem judicial é concedida em favor da pessoa jurídica, seus efeitos podem alcançar as filiais vinculadas, ainda que nem todas tenham sido individualmente arroladas na petição inicial. o ponto central não é a existência de cnpj distinto, mas a unidade subjetiva da pessoa jurídica. a inscrição cadastral própria da filial não a transforma em sujeito de direito diverso da matriz, nem autoriza concluir que seria necessária ação autônoma para cada estabelecimento.
+
+no caso examinado, o entendimento foi de que a decisão favorável à matriz pode ser estendida às filiais, justamente porque matriz e filiais integram a mesma pessoa jurídica. assim, a exigência de inclusão nominal de cada filial como condição para fruição do provimento jurisdicional não se sustenta quando o comando judicial beneficia o próprio ente empresarial, cuja personalidade é una. stj. 1ª turma. agint no agint nos edcl no aresp 2.605.869-am, rel. min. gurgel de faria, julgado em 15/9/2025 (info 865).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 13</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-13">Não respondida</span>
+</div>
+
+<p class="enunciado">Em mandado de segurança impetrado por pessoa jurídica para afastar a exigência de DIFAL do ICMS, a ausência de indicação expressa de todas as filiais na petição inicial impede a extensão dos efeitos da ordem judicial às unidades não nominadas, ainda que se trate de estabelecimentos secundários desprovidos de personalidade jurídica própria e integrantes do mesmo ente empresarial.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(13, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(13, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-13">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque parte de premissa incompatível com a natureza jurídica das filiais. Embora possuam CNPJ próprio e possam ter autonomia administrativa e operacional para fins de controle e fiscalização, as filiais não ostentam personalidade jurídica autônoma nem patrimônio próprio. Elas são meros estabelecimentos secundários da mesma pessoa jurídica titular da matriz.<br><br>Por isso, quando a ordem judicial é concedida em favor da pessoa jurídica, seus efeitos podem alcançar as filiais vinculadas, ainda que nem todas tenham sido individualmente arroladas na petição inicial. O ponto central não é a existência de CNPJ distinto, mas a unidade subjetiva da pessoa jurídica. A inscrição cadastral própria da filial não a transforma em sujeito de direito diverso da matriz, nem autoriza concluir que seria necessária ação autônoma para cada estabelecimento.<br><br>No caso examinado, o entendimento foi de que a decisão favorável à matriz pode ser estendida às filiais, justamente porque matriz e filiais integram a mesma pessoa jurídica. Assim, a exigência de inclusão nominal de cada filial como condição para fruição do provimento jurisdicional não se sustenta quando o comando judicial beneficia o próprio ente empresarial, cuja personalidade é una.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Turma. AgInt no AgInt nos EDcl no AREsp 2.605.869-AM, Rel. Min. Gurgel de Faria, julgado em 15/9/2025 (Info 865).</p>
+</div>
+</section>
 
 </div>
 
 <script>
-const totalQuestoes = 13;
-let respostas = JSON.parse(localStorage.getItem(location.pathname + "_respostas") || "{}");
+const storageKey = location.pathname + "_respostas";
+let respostas = JSON.parse(localStorage.getItem(storageKey) || "{}");
 
-function atualizarPainel() {
-    const respondidas = Object.keys(respostas).length;
-    let acertos = 0;
-    let erros = 0;
-
-    for (const key in respostas) {
-        if (respostas[key].correto) acertos++;
-        else erros++;
-    }
-
-    document.getElementById("respondidas").textContent = respondidas;
-    document.getElementById("acertos").textContent = acertos;
-    document.getElementById("erros").textContent = erros;
+function destacar(t){
+ if(t==="CERTO") return '<span class="gabarito-certo">CERTO</span>';
+ if(t==="ERRADO") return '<span class="gabarito-errado">ERRADO</span>';
+ return t;
 }
 
-function responder(numero, resposta) {
-    const card = document.querySelectorAll(".questao")[numero - 1];
-    const gabarito = card.dataset.gabarito;
-    const correto = resposta === gabarito;
-
-    respostas[numero] = {
-        resposta,
-        correto
-    };
-
-    localStorage.setItem(location.pathname + "_respostas", JSON.stringify(respostas));
-
-    mostrarFeedback(numero);
-    atualizarPainel();
+function responder(numero, resposta){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const gabarito=card.dataset.gabarito;
+ const correto=resposta===gabarito;
+ respostas[numero]={resposta,correto};
+ localStorage.setItem(storageKey, JSON.stringify(respostas));
+ mostrarFeedback(numero);
+ atualizarPainel();
+ filtrar();
 }
 
-function mostrarFeedback(numero) {
-    const card = document.querySelectorAll(".questao")[numero - 1];
-    const feedback = document.getElementById("feedback-" + numero);
-    const status = document.getElementById("status-" + numero);
-    const resultado = feedback.querySelector(".resultado");
-
-    const dados = respostas[numero];
-
-    if (!dados) return;
-
-    feedback.style.display = "block";
-    feedback.classList.remove("correto", "errado");
-
-    if (dados.correto) {
-        feedback.classList.add("correto");
-        resultado.textContent = "Você acertou. A resposta é " + card.dataset.gabarito + ".";
-        status.textContent = "Respondida — acerto";
-        status.style.color = "var(--green)";
-    } else {
-        feedback.classList.add("errado");
-        resultado.textContent = "Você errou. O gabarito é " + card.dataset.gabarito + ".";
-        status.textContent = "Respondida — erro";
-        status.style.color = "var(--red)";
-    }
+function mostrarFeedback(numero){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const feedback=document.getElementById("feedback-"+numero);
+ const status=document.getElementById("status-"+numero);
+ const resultado=feedback.querySelector(".resultado");
+ const gabarito=card.dataset.gabarito;
+ const dados=respostas[numero];
+ if(!dados) return;
+ feedback.style.display="block";
+ feedback.classList.remove("correto","errado");
+ if(dados.correto){
+   feedback.classList.add("correto");
+   resultado.innerHTML="Você acertou. A resposta é "+destacar(gabarito)+".";
+   status.textContent="Respondida — acerto";
+   status.style.color="var(--green)";
+ } else {
+   feedback.classList.add("errado");
+   resultado.innerHTML="Você errou. O gabarito é "+destacar(gabarito)+".";
+   status.textContent="Respondida — erro";
+   status.style.color="var(--red)";
+ }
 }
 
-function restaurar() {
-    for (const key in respostas) {
-        mostrarFeedback(Number(key));
-    }
-    atualizarPainel();
+function atualizarPainel(){
+ let respondidas=0, acertos=0, erros=0;
+ for(const k in respostas){
+   respondidas++;
+   if(respostas[k].correto) acertos++; else erros++;
+ }
+ document.getElementById("respondidas").textContent=respondidas;
+ document.getElementById("acertos").textContent=acertos;
+ document.getElementById("erros").textContent=erros;
+ document.getElementById("visiveis").textContent=document.querySelectorAll(".questao:not(.oculta)").length;
 }
 
-function reiniciar() {
-    if (!confirm("Deseja reiniciar este simulado?")) return;
-    localStorage.removeItem(location.pathname + "_respostas");
-    location.reload();
+function filtrar(){
+ const busca=document.getElementById("busca").value.trim().toLowerCase();
+ const disciplina=document.getElementById("disciplina").value;
+ const statusFiltro=document.getElementById("statusFiltro").value;
+ const cards=Array.from(document.querySelectorAll(".questao"));
+ let vis=0;
+ cards.forEach((card,idx)=>{
+   const n=idx+1;
+   const texto=card.dataset.texto||"";
+   const disc=card.dataset.disciplina||"";
+   const r=respostas[n];
+   let passaStatus=true;
+   if(statusFiltro==="nao") passaStatus=!r;
+   if(statusFiltro==="acerto") passaStatus=r && r.correto;
+   if(statusFiltro==="erro") passaStatus=r && !r.correto;
+   const ok=(!busca||texto.includes(busca)) && (!disciplina||disc===disciplina) && passaStatus;
+   card.classList.toggle("oculta", !ok);
+   if(ok) vis++;
+ });
+ document.getElementById("sem-resultados").style.display=vis===0?"block":"none";
+ atualizarPainel();
+}
+
+function reiniciar(){
+ if(!confirm("Deseja reiniciar este simulado?")) return;
+ localStorage.removeItem(storageKey);
+ location.reload();
+}
+
+function restaurar(){
+ for(const k in respostas) mostrarFeedback(Number(k));
+ filtrar();
+ atualizarPainel();
 }
 
 restaurar();
 </script>
-
 </body>
 </html>

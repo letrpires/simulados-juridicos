@@ -4,644 +4,762 @@
 <meta charset="UTF-8">
 <title>Simulado - Info 881 STJ</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <style>
-:root {
-    --bg: #0f172a;
-    --card: #111827;
-    --card2: #1f2937;
-    --text: #e5e7eb;
-    --muted: #9ca3af;
-    --accent: #38bdf8;
-    --green: #22c55e;
-    --red: #ef4444;
-    --yellow: #facc15;
+:root{
+--bg:#020617;--panel:rgba(15,23,42,.88);--card:rgba(15,23,42,.96);
+--card2:rgba(30,41,59,.92);--border:rgba(148,163,184,.22);
+--text:#e5e7eb;--muted:#94a3b8;--accent:#38bdf8;--accent2:#0ea5e9;
+--green:#22c55e;--red:#ef4444;--yellow:#facc15;--purple:#a78bfa;
 }
-
-* {
-    box-sizing: border-box;
+*{box-sizing:border-box}
+body{
+margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+background:radial-gradient(circle at top left,rgba(56,189,248,.20),transparent 28%),
+radial-gradient(circle at top right,rgba(167,139,250,.15),transparent 28%),
+linear-gradient(135deg,#020617,#0f172a 50%,#020617);
+color:var(--text);line-height:1.65;
 }
-
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(135deg, #020617, #111827);
-    color: var(--text);
-    line-height: 1.6;
+header{padding:44px 20px 32px;text-align:center;border-bottom:1px solid var(--border)}
+header h1{margin:0 0 10px;font-size:clamp(28px,4vw,46px);letter-spacing:-.05em}
+header p{color:var(--muted);margin:0;font-size:16px}
+.container{max-width:1160px;margin:0 auto;padding:26px 16px 80px}
+.painel{
+position:sticky;top:10px;z-index:10;background:var(--panel);backdrop-filter:blur(18px);
+border:1px solid var(--border);border-radius:26px;padding:16px;margin-bottom:22px;
+box-shadow:0 22px 70px rgba(0,0,0,.35)
 }
-
-header {
-    padding: 32px 20px;
-    text-align: center;
-    border-bottom: 1px solid #334155;
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.stat{background:var(--card2);padding:14px;border-radius:18px;text-align:center;border:1px solid rgba(148,163,184,.12)}
+.stat strong{display:block;font-size:25px;color:var(--accent);line-height:1.1}
+.stat span{font-size:12px;color:var(--muted)}
+.filtros{display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:12px;margin-top:14px}
+input,select{
+width:100%;background:rgba(2,6,23,.78);color:var(--text);border:1px solid var(--border);
+border-radius:14px;padding:13px 14px;outline:none;font-size:14px
 }
-
-header h1 {
-    margin: 0 0 10px;
-    font-size: 28px;
+input:focus,select:focus{border-color:var(--accent)}
+.card{
+background:var(--card);border:1px solid var(--border);border-radius:24px;padding:26px;
+margin-bottom:20px;box-shadow:0 18px 50px rgba(0,0,0,.24)
 }
-
-header p {
-    color: var(--muted);
-    margin: 0;
+.questao{scroll-margin-top:190px}
+.questao-topo{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:18px}
+.badge{
+background:linear-gradient(135deg,var(--accent),var(--accent2));color:#00111f;font-weight:900;
+padding:7px 13px;border-radius:999px;display:inline-block
 }
-
-.container {
-    max-width: 980px;
-    margin: 0 auto;
-    padding: 24px 16px 80px;
+.disciplina-tag,.tipo-tag{
+display:inline-block;margin-left:8px;color:var(--muted);background:rgba(148,163,184,.10);
+border:1px solid rgba(148,163,184,.14);padding:6px 10px;border-radius:999px;font-size:12px
 }
-
-.painel {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    background: rgba(15, 23, 42, 0.95);
-    backdrop-filter: blur(8px);
-    border: 1px solid #334155;
-    border-radius: 16px;
-    padding: 16px;
-    margin-bottom: 24px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
+.tipo-tag{color:#ddd6fe;border-color:rgba(167,139,250,.25)}
+.status{color:var(--yellow);font-size:13px;white-space:nowrap}
+.enunciado{font-size:19px;margin:0 0 22px;letter-spacing:-.01em}
+.botoes{display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.btn{
+cursor:pointer;border:0;padding:12px 22px;border-radius:14px;color:white;font-weight:900;
+transition:.18s ease;letter-spacing:.02em
 }
-
-.stat {
-    background: var(--card2);
-    padding: 12px;
-    border-radius: 12px;
-    text-align: center;
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.certo{background:rgba(34,197,94,.20);border:1px solid rgba(34,197,94,.42)}
+.btn.errado{background:rgba(239,68,68,.20);border:1px solid rgba(239,68,68,.42)}
+.btn.neutro{background:rgba(56,189,248,.16);color:var(--text);border:1px solid rgba(56,189,248,.32)}
+.feedback{
+display:none;background:rgba(2,6,23,.72);border:1px solid rgba(148,163,184,.16);
+border-left:5px solid var(--accent);padding:18px;border-radius:18px;margin-top:14px
 }
-
-.stat strong {
-    display: block;
-    font-size: 22px;
-    color: var(--accent);
+.feedback.correto{border-left-color:var(--green)}
+.feedback.errado{border-left-color:var(--red)}
+.resultado{font-size:18px;font-weight:900;margin-top:0}
+.justificativa{margin-top:12px}
+.referencia{color:var(--muted);font-size:13px;margin-top:16px}
+.gabarito-certo{color:var(--green);font-weight:900}
+.gabarito-errado{color:var(--red);font-weight:900}
+.oculta{display:none}
+.sem-resultados{text-align:center;color:var(--muted);display:none;padding:30px}
+.grid-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
+.link-card{
+display:block;padding:20px;background:rgba(15,23,42,.95);border:1px solid rgba(148,163,184,.22);
+color:#e5e7eb;border-radius:22px;text-decoration:none;transition:.2s;box-shadow:0 14px 40px rgba(0,0,0,.22)
 }
-
-.card {
-    background: rgba(17, 24, 39, 0.96);
-    border: 1px solid #334155;
-    border-radius: 18px;
-    padding: 22px;
-    margin-bottom: 20px;
-    box-shadow: 0 12px 30px rgba(0,0,0,.25);
-}
-
-.questao-topo {
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
-    align-items: center;
-    margin-bottom: 16px;
-}
-
-.badge {
-    background: #0ea5e9;
-    color: #00111f;
-    font-weight: bold;
-    padding: 6px 12px;
-    border-radius: 999px;
-}
-
-.status {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-.enunciado {
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-
-.botoes {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 18px;
-}
-
-button {
-    cursor: pointer;
-    border: 0;
-    padding: 12px 22px;
-    border-radius: 12px;
-    background: #334155;
-    color: white;
-    font-weight: bold;
-    transition: 0.2s;
-}
-
-button:hover {
-    transform: translateY(-1px);
-    background: #475569;
-}
-
-.feedback {
-    display: none;
-    background: #020617;
-    border-left: 4px solid var(--accent);
-    padding: 16px;
-    border-radius: 12px;
-    margin-top: 12px;
-}
-
-.feedback.correto {
-    border-left-color: var(--green);
-}
-
-.feedback.errado {
-    border-left-color: var(--red);
-}
-
-.resultado {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.referencia {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-.acoes {
-    text-align: center;
-    margin: 30px 0;
-}
-
-.acoes button {
-    background: #0ea5e9;
-    color: #00111f;
-}
-
-@media (max-width: 700px) {
-    .painel {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .botoes {
-        flex-direction: column;
-    }
-
-    header h1 {
-        font-size: 22px;
-    }
-
-    .enunciado {
-        font-size: 16px;
-    }
+.link-card:hover{transform:translateY(-3px);border-color:#38bdf8}
+.link-card strong{display:block;font-size:17px;margin-bottom:8px}
+.link-card span{color:#94a3b8;font-size:13px}
+.index-tools{display:grid;grid-template-columns:1.5fr 1fr;gap:12px;margin-bottom:20px}
+@media(max-width:850px){
+.stats{grid-template-columns:repeat(2,1fr)}
+.filtros,.index-tools{grid-template-columns:1fr}
+.questao-topo{align-items:flex-start;flex-direction:column}
+.botoes{flex-direction:column}
+.enunciado{font-size:16px}
+.card{padding:20px}
 }
 </style>
 </head>
-
 <body>
-
 <header>
-    <h1>Simulado - Info 881 STJ</h1>
-    <p>Simulado interativo de CERTO ou ERRADO</p>
+<h1>Simulado - Info 881 STJ</h1>
+<p>Informativos • Simulado interativo de CERTO ou ERRADO</p>
 </header>
 
 <div class="container">
+<div class="painel">
+<div class="stats">
+<div class="stat"><strong>16</strong><span>Total</span></div>
+<div class="stat"><strong id="visiveis">16</strong><span>Visíveis</span></div>
+<div class="stat"><strong id="respondidas">0</strong><span>Respondidas</span></div>
+<div class="stat"><strong id="acertos">0</strong><span>Acertos</span></div>
+<div class="stat"><strong id="erros">0</strong><span>Erros</span></div>
+</div>
 
-    <div class="painel">
-        <div class="stat">
-            <strong id="total">16</strong>
-            Total
-        </div>
-        <div class="stat">
-            <strong id="respondidas">0</strong>
-            Respondidas
-        </div>
-        <div class="stat">
-            <strong id="acertos">0</strong>
-            Acertos
-        </div>
-        <div class="stat">
-            <strong id="erros">0</strong>
-            Erros
-        </div>
-    </div>
+<div class="filtros">
+<input id="busca" type="search" placeholder="Buscar por palavra-chave..." oninput="filtrar()">
+<select id="disciplina" onchange="filtrar()">
+<option value="">Todas as disciplinas</option>
+<option value="ECA">ECA</option>
+<option value="N/I">N/I</option>
+</select>
+<select id="statusFiltro" onchange="filtrar()">
+<option value="">Todas</option>
+<option value="nao">Não respondidas</option>
+<option value="acerto">Acertos</option>
+<option value="erro">Erros</option>
+</select>
+<button class="btn neutro" onclick="reiniciar()">Reiniciar</button>
+</div>
+</div>
 
-    <div class="acoes">
-        <button onclick="reiniciar()">Reiniciar simulado</button>
-    </div>
+<div id="sem-resultados" class="sem-resultados">Nenhuma questão encontrada com os filtros atuais.</div>
 
-    
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 1</span>
-                <span class="status" id="status-1">Não respondida</span>
-            </div>
 
-            <p class="enunciado">A superveniência de entendimento repetitivo que afaste a possibilidade de compensação do reajuste de 28,86% sobre a RAV não autoriza, por si só, a desconstituição, por ação rescisória fundada em violação literal de lei, de acórdão transitado em julgado antes de 11/9/2013 que, diante da controvérsia jurisprudencial então existente, tenha admitido a compensação com o reposicionamento funcional promovido pela Lei n. 8.627/1993.</p>
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a superveniência de entendimento repetitivo que afaste a possibilidade de compensação do reajuste de 28,86% sobre a rav não autoriza, por si só, a desconstituição, por ação rescisória fundada em violação literal de lei, de acórdão transitado em julgado antes de 11/9/2013 que, diante da controvérsia jurisprudencial então existente, tenha admitido a compensação com o reposicionamento funcional promovido pela lei n. 8.627/1993. a assertiva está correta porque reproduz a orientação firmada no sentido de que incide o óbice da súmula 343 do stf às ações rescisórias ajuizadas com fundamento em ofensa literal de lei quando o acórdão rescindendo foi proferido em momento anterior à pacificação da matéria pelo tema 548/stj, em 11/9/2013. nessa hipótese, ainda que posteriormente tenha prevalecido o entendimento de que o reajuste de 28,86% deve incidir integralmente sobre a rav, sem compensação com os reposicionamentos funcionais decorrentes da lei n. 8.627/1993, essa consolidação jurisprudencial posterior não afasta, por si, a estabilidade da coisa julgada formada quando havia divergência interpretativa relevante sobre a matéria.
 
-            <div class="botoes">
-                <button onclick="responder(1, 'CERTO')">CERTO</button>
-                <button onclick="responder(1, 'ERRADO')">ERRADO</button>
-            </div>
+o ponto central é que a ação rescisória por violação literal de lei não pode ser utilizada como sucedâneo recursal para rediscutir decisão que, à época de sua prolação, se apoiou em interpretação juridicamente plausível dentro de cenário de controvérsia jurisprudencial. assim, para os acórdãos transitados em julgado antes de 11/9/2013, nos quais se reconheceu a compensação do percentual de 28,86% com o reposicionamento da carreira de auditor fiscal da receita federal, permanece aplicável a súmula 343/stf, impedindo a rescisão com base na posterior mudança de orientação. stj. 1ª seção. eresp 1.431.163-al e eresp 1.910.729-al, rel. min. regina helena costa, julgados em 11/3/2026 (recurso repetitivo - tema 1299) (info 881).">
 
-            <div class="feedback" id="feedback-1">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a orientação firmada no sentido de que incide o óbice da Súmula 343 do STF às ações rescisórias ajuizadas com fundamento em ofensa literal de lei quando o acórdão rescindendo foi proferido em momento anterior à pacificação da matéria pelo Tema 548/STJ, em 11/9/2013. Nessa hipótese, ainda que posteriormente tenha prevalecido o entendimento de que o reajuste de 28,86% deve incidir integralmente sobre a RAV, sem compensação com os reposicionamentos funcionais decorrentes da Lei n. 8.627/1993, essa consolidação jurisprudencial posterior não afasta, por si, a estabilidade da coisa julgada formada quando havia divergência interpretativa relevante sobre a matéria.<br><br>O ponto central é que a ação rescisória por violação literal de lei não pode ser utilizada como sucedâneo recursal para rediscutir decisão que, à época de sua prolação, se apoiou em interpretação juridicamente plausível dentro de cenário de controvérsia jurisprudencial. Assim, para os acórdãos transitados em julgado antes de 11/9/2013, nos quais se reconheceu a compensação do percentual de 28,86% com o reposicionamento da carreira de Auditor Fiscal da Receita Federal, permanece aplicável a Súmula 343/STF, impedindo a rescisão com base na posterior mudança de orientação.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Seção. EREsp 1.431.163-AL e EREsp 1.910.729-AL, Rel. Min. Regina Helena Costa, julgados em 11/3/2026 (Recurso Repetitivo - Tema 1299) (Info 881).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 2</span>
-                <span class="status" id="status-2">Não respondida</span>
-            </div>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 1</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-1">Não respondida</span>
+</div>
 
-            <p class="enunciado">Aos militares oriundos do Quadro de Taifeiros da Aeronáutica, cujo ingresso nesse Quadro tenha ocorrido até 31/12/1992, é juridicamente admissível a cumulação dos efeitos da Lei n. 12.158/2009 com a vantagem prevista no art. 34 da Medida Provisória n. 2.215-10/2001, ainda que estejam na reserva remunerada, reformados ou em atividade, observando-se, contudo, que a repercussão remuneratória não pode ultrapassar a graduação de suboficial.</p>
+<p class="enunciado">A superveniência de entendimento repetitivo que afaste a possibilidade de compensação do reajuste de 28,86% sobre a RAV não autoriza, por si só, a desconstituição, por ação rescisória fundada em violação literal de lei, de acórdão transitado em julgado antes de 11/9/2013 que, diante da controvérsia jurisprudencial então existente, tenha admitido a compensação com o reposicionamento funcional promovido pela Lei n. 8.627/1993.</p>
 
-            <div class="botoes">
-                <button onclick="responder(2, 'CERTO')">CERTO</button>
-                <button onclick="responder(2, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(1, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(1, 'ERRADO')">ERRADO</button>
+</div>
 
-            <div class="feedback" id="feedback-2">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva reproduz o núcleo do entendimento firmado no julgamento repetitivo: para os militares oriundos do Quadro de Taifeiros da Aeronáutica que ingressaram até 31/12/1992, é compatível a aplicação cumulativa da Lei n. 12.158/2009 e do art. 34 da MP n. 2.215-10/2001. O alcance do precedente não se restringe a uma única situação funcional, pois abrange militares na reserva remunerada, reformados ou mesmo no serviço ativo, desde que preenchido o marco temporal de ingresso no Quadro.<br><br>O enunciado também preserva a limitação expressamente reconhecida no julgado: a vantagem não autoriza evolução remuneratória irrestrita, ficando os proventos limitados à graduação de suboficial. Esse ponto é relevante porque evita interpretação ampliativa indevida, comum em questões que tentam transformar o reconhecimento da cumulação em promoção funcional ou em vantagem sem teto.<br><br>Assim, a proposição está correta ao combinar os requisitos subjetivos, o marco temporal e a limitação remuneratória fixada no precedente.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Seção. REsp 2.124.412-RJ, REsp 2.132.208-RJ, REsp 2.085.764-PE, REsp 2.040.852-PE, REsp 2.009.309-RN e REsp 1.966.548-PE, Rel. Min. Teodoro Silva Santos, julgados em 12/3/2025 (Recurso Repetitivo - Tema 1297) (Info 843).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 3</span>
-                <span class="status" id="status-3">Não respondida</span>
-            </div>
+<div class="feedback" id="feedback-1">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a orientação firmada no sentido de que incide o óbice da Súmula 343 do STF às ações rescisórias ajuizadas com fundamento em ofensa literal de lei quando o acórdão rescindendo foi proferido em momento anterior à pacificação da matéria pelo Tema 548/STJ, em 11/9/2013. Nessa hipótese, ainda que posteriormente tenha prevalecido o entendimento de que o reajuste de 28,86% deve incidir integralmente sobre a RAV, sem compensação com os reposicionamentos funcionais decorrentes da Lei n. 8.627/1993, essa consolidação jurisprudencial posterior não afasta, por si, a estabilidade da coisa julgada formada quando havia divergência interpretativa relevante sobre a matéria.<br><br>O ponto central é que a ação rescisória por violação literal de lei não pode ser utilizada como sucedâneo recursal para rediscutir decisão que, à época de sua prolação, se apoiou em interpretação juridicamente plausível dentro de cenário de controvérsia jurisprudencial. Assim, para os acórdãos transitados em julgado antes de 11/9/2013, nos quais se reconheceu a compensação do percentual de 28,86% com o reposicionamento da carreira de Auditor Fiscal da Receita Federal, permanece aplicável a Súmula 343/STF, impedindo a rescisão com base na posterior mudança de orientação.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Seção. EREsp 1.431.163-AL e EREsp 1.910.729-AL, Rel. Min. Regina Helena Costa, julgados em 11/3/2026 (Recurso Repetitivo - Tema 1299) (Info 881).</p>
+</div>
+</section>
 
-            <p class="enunciado">A cumulação dos benefícios previstos na Lei n. 12.158/2009 e no art. 34 da Medida Provisória n. 2.215-10/2001 é juridicamente admissível para militares oriundos do Quadro de Taifeiros da Aeronáutica que tenham ingressado nesse Quadro até 31/12/1992, inclusive quando já estejam na reserva remunerada, reformados ou no serviço ativo, mas a incidência conjunta dessas normas não pode produzir efeitos remuneratórios superiores aos correspondentes à graduação de Suboficial; além disso, a Administração pode revisar os proventos para adequá-los a esse limite, desde que respeitado o prazo decadencial de cinco anos do art. 54 da Lei n. 9.784/1999, contado do recebimento do ato pelo Tribunal de Contas da União para exame de legalidade, sem que isso autorize a devolução de valores percebidos de boa-fé antes da publicação do acórdão.</p>
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="aos militares oriundos do quadro de taifeiros da aeronáutica, cujo ingresso nesse quadro tenha ocorrido até 31/12/1992, é juridicamente admissível a cumulação dos efeitos da lei n. 12.158/2009 com a vantagem prevista no art. 34 da medida provisória n. 2.215-10/2001, ainda que estejam na reserva remunerada, reformados ou em atividade, observando-se, contudo, que a repercussão remuneratória não pode ultrapassar a graduação de suboficial. a assertiva reproduz o núcleo do entendimento firmado no julgamento repetitivo: para os militares oriundos do quadro de taifeiros da aeronáutica que ingressaram até 31/12/1992, é compatível a aplicação cumulativa da lei n. 12.158/2009 e do art. 34 da mp n. 2.215-10/2001. o alcance do precedente não se restringe a uma única situação funcional, pois abrange militares na reserva remunerada, reformados ou mesmo no serviço ativo, desde que preenchido o marco temporal de ingresso no quadro.
 
-            <div class="botoes">
-                <button onclick="responder(3, 'CERTO')">CERTO</button>
-                <button onclick="responder(3, 'ERRADO')">ERRADO</button>
-            </div>
+o enunciado também preserva a limitação expressamente reconhecida no julgado: a vantagem não autoriza evolução remuneratória irrestrita, ficando os proventos limitados à graduação de suboficial. esse ponto é relevante porque evita interpretação ampliativa indevida, comum em questões que tentam transformar o reconhecimento da cumulação em promoção funcional ou em vantagem sem teto.
 
-            <div class="feedback" id="feedback-3">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva reproduz a orientação firmada no julgamento repetitivo, que ajustou a tese anteriormente adotada em dois pontos centrais.<br><br>Primeiro, foi mantida a possibilidade de aplicação cumulativa da Lei n. 12.158/2009 com o art. 34 da MP n. 2.215-10/2001 aos militares oriundos do Quadro de Taifeiros da Aeronáutica, desde que o ingresso no Quadro tenha ocorrido até 31/12/1992. Contudo, a cumulação não é irrestrita: os efeitos financeiros ficam limitados aos proventos correspondentes à graduação de Suboficial. Em outras palavras, a combinação normativa não pode ser utilizada para alcançar patamar remuneratório superior, como o de Segundo-Tenente.<br><br>Segundo, também se assentou a possibilidade de revisão administrativa dos proventos para adequação a esse teto remuneratório, mas com observância do prazo decadencial de 5 anos previsto no art. 54 da Lei n. 9.784/1999. Esse prazo é contado da data em que o ato de transferência para a inatividade ou de concessão da pensão é recebido no Tribunal de Contas da União para fins de exame de legalidade. Assim, a Administração não dispõe de poder revisional ilimitado no tempo.<br><br>Por fim, o acórdão preservou a proteção da boa-fé dos administrados, vedando a restituição de valores já percebidos de boa-fé até a publicação do acórdão. Logo, a assertiva está em conformidade com a tese fixada, inclusive quanto aos seus limites materiais, temporais e patrimoniais.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Seção. EDcl nos EDcl no REsp 2.124.412-RJ, EDcl nos EDcl no REsp 2.132.208-RJ, EDcl nos EDcl no REsp 2.085.764-PE, EDcl nos EDcl no REsp 2.040.852-PE, EDcl nos EDcl no REsp 2.009.309-RN e EDcl nos EDcl no REsp 1.966.548-PE, Rel. Min. Teodoro Silva Santos, julgados em 11/3/2026 (Recurso Repetitivo - Tema 1297) (Info 881).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 4</span>
-                <span class="status" id="status-4">Não respondida</span>
-            </div>
+assim, a proposição está correta ao combinar os requisitos subjetivos, o marco temporal e a limitação remuneratória fixada no precedente. stj. 1ª seção. resp 2.124.412-rj, resp 2.132.208-rj, resp 2.085.764-pe, resp 2.040.852-pe, resp 2.009.309-rn e resp 1.966.548-pe, rel. min. teodoro silva santos, julgados em 12/3/2025 (recurso repetitivo - tema 1297) (info 843).">
 
-            <p class="enunciado">Nas ações de cobrança da indenização prevista na Lei n.º 10.209/2001, a superveniência da Lei n.º 14.229/2021, ao instituir prazo prescricional específico de 12 meses, não alcança os transportes realizados antes de sua vigência, de modo que, para esses fatos pretéritos, permanece aplicável o prazo geral decenal do Código Civil, contado da data do frete.</p>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 2</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-2">Não respondida</span>
+</div>
 
-            <div class="botoes">
-                <button onclick="responder(4, 'CERTO')">CERTO</button>
-                <button onclick="responder(4, 'ERRADO')">ERRADO</button>
-            </div>
+<p class="enunciado">Aos militares oriundos do Quadro de Taifeiros da Aeronáutica, cujo ingresso nesse Quadro tenha ocorrido até 31/12/1992, é juridicamente admissível a cumulação dos efeitos da Lei n. 12.158/2009 com a vantagem prevista no art. 34 da Medida Provisória n. 2.215-10/2001, ainda que estejam na reserva remunerada, reformados ou em atividade, observando-se, contudo, que a repercussão remuneratória não pode ultrapassar a graduação de suboficial.</p>
 
-            <div class="feedback" id="feedback-4">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque a alteração legislativa promovida pela Lei n.º 14.229/2021 incide imediatamente sobre as relações jurídicas em curso, inclusive quanto às pretensões relacionadas a fretes realizados antes de sua entrada em vigor. Não há direito adquirido à manutenção do regime prescricional anterior.<br><br>O ponto central do entendimento é que, embora antes da alteração legal o STJ aplicasse o prazo geral de 10 anos do art. 205 do Código Civil por inexistir prazo específico na Lei n.º 10.209/2001, a superveniência do parágrafo único do art. 8º passou a disciplinar expressamente a matéria, fixando prazo de 12 meses para a cobrança da indenização do vale-pedágio.<br><br>Para os fatos pretéritos, contudo, o termo inicial não é a data do transporte, mas a data de vigência da nova lei, em 21/10/2021. Assim, a pretensão passa a ser regida pelo novo prazo anual a partir dessa data, e não se preserva indefinidamente o prazo decenal anterior. No caso apreciado, como a ação foi ajuizada apenas em 6/4/2023, já havia transcorrido mais de 12 meses desde a vigência da lei, razão pela qual foi reconhecida a prescrição.<br><br>Em síntese: a lei nova substituiu o prazo anterior e alcançou os casos pendentes, com contagem do prazo de 12 meses a partir de sua entrada em vigor para os transportes realizados antes dela.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 4ª Turma. REsp 2.138.900-MS, Rel. Min. João Otávio de Noronha, julgado em 10/3/2026 (Info 881).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 5</span>
-                <span class="status" id="status-5">Não respondida</span>
-            </div>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(2, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(2, 'ERRADO')">ERRADO</button>
+</div>
 
-            <p class="enunciado">Embora o divórcio possa ser formalizado por escritura pública sem prévia partilha dos bens, a posterior divisão patrimonial realizada entre os ex-cônjuges por instrumento particular é juridicamente válida, desde que haja consenso entre as partes e inexistam prejuízos a terceiros, de modo que eventual inconformismo superveniente de um dos consortes não autoriza o ajuizamento de ação autônoma de partilha.</p>
+<div class="feedback" id="feedback-2">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva reproduz o núcleo do entendimento firmado no julgamento repetitivo: para os militares oriundos do Quadro de Taifeiros da Aeronáutica que ingressaram até 31/12/1992, é compatível a aplicação cumulativa da Lei n. 12.158/2009 e do art. 34 da MP n. 2.215-10/2001. O alcance do precedente não se restringe a uma única situação funcional, pois abrange militares na reserva remunerada, reformados ou mesmo no serviço ativo, desde que preenchido o marco temporal de ingresso no Quadro.<br><br>O enunciado também preserva a limitação expressamente reconhecida no julgado: a vantagem não autoriza evolução remuneratória irrestrita, ficando os proventos limitados à graduação de suboficial. Esse ponto é relevante porque evita interpretação ampliativa indevida, comum em questões que tentam transformar o reconhecimento da cumulação em promoção funcional ou em vantagem sem teto.<br><br>Assim, a proposição está correta ao combinar os requisitos subjetivos, o marco temporal e a limitação remuneratória fixada no precedente.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Seção. REsp 2.124.412-RJ, REsp 2.132.208-RJ, REsp 2.085.764-PE, REsp 2.040.852-PE, REsp 2.009.309-RN e REsp 1.966.548-PE, Rel. Min. Teodoro Silva Santos, julgados em 12/3/2025 (Recurso Repetitivo - Tema 1297) (Info 843).</p>
+</div>
+</section>
 
-            <div class="botoes">
-                <button onclick="responder(5, 'CERTO')">CERTO</button>
-                <button onclick="responder(5, 'ERRADO')">ERRADO</button>
-            </div>
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="ECA"
+data-texto="a cumulação dos benefícios previstos na lei n. 12.158/2009 e no art. 34 da medida provisória n. 2.215-10/2001 é juridicamente admissível para militares oriundos do quadro de taifeiros da aeronáutica que tenham ingressado nesse quadro até 31/12/1992, inclusive quando já estejam na reserva remunerada, reformados ou no serviço ativo, mas a incidência conjunta dessas normas não pode produzir efeitos remuneratórios superiores aos correspondentes à graduação de suboficial; além disso, a administração pode revisar os proventos para adequá-los a esse limite, desde que respeitado o prazo decadencial de cinco anos do art. 54 da lei n. 9.784/1999, contado do recebimento do ato pelo tribunal de contas da união para exame de legalidade, sem que isso autorize a devolução de valores percebidos de boa-fé antes da publicação do acórdão. a assertiva reproduz a orientação firmada no julgamento repetitivo, que ajustou a tese anteriormente adotada em dois pontos centrais.
 
-            <div class="feedback" id="feedback-5">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A afirmação está incorreta porque a partilha de bens adquiridos na constância do casamento, quando realizada fora do processo judicial, exige observância da forma pública prevista em lei. O ordenamento admite duas vias para a partilha: a judicial ou a escritura pública. Não se admite, para esse fim, a utilização de instrumento particular.<br><br>A inobservância da forma legal acarreta nulidade do negócio, por afronta aos arts. 166, IV e V, e 169 do Código Civil. Assim, ainda que os ex-cônjuges tenham anuído com o ajuste e mesmo que o divórcio tenha sido validamente lavrado por escritura pública sem partilha imediata, o instrumento particular posterior não convalida a divisão patrimonial.<br><br>Por isso, sendo nulo o ajuste particular, não há óbice ao ajuizamento de ação autônoma de partilha por qualquer das partes, justamente porque a partilha anterior não produz efeitos jurídicos válidos. A tese também evidencia que a ausência de partilha no momento do divórcio é admitida pelo art. 1.581 do Código Civil, mas isso não dispensa a forma adequada quando a partilha vier a ser feita extrajudicialmente.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.206.085-RJ, Rel. Min. Nancy Andrighi, julgado em 3/3/2026 (Info 881).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 6</span>
-                <span class="status" id="status-6">Não respondida</span>
-            </div>
+primeiro, foi mantida a possibilidade de aplicação cumulativa da lei n. 12.158/2009 com o art. 34 da mp n. 2.215-10/2001 aos militares oriundos do quadro de taifeiros da aeronáutica, desde que o ingresso no quadro tenha ocorrido até 31/12/1992. contudo, a cumulação não é irrestrita: os efeitos financeiros ficam limitados aos proventos correspondentes à graduação de suboficial. em outras palavras, a combinação normativa não pode ser utilizada para alcançar patamar remuneratório superior, como o de segundo-tenente.
 
-            <p class="enunciado">A recusa indevida, pela operadora de plano de saúde, de cobertura de tratamento médico-assistencial prescrito ao beneficiário, ainda que considerada abusiva à luz da disciplina consumerista e contratual, não enseja automaticamente indenização por dano moral, exigindo-se a demonstração de circunstâncias concretas aptas a revelar abalo anímico relevante, superior ao mero dissabor decorrente do inadimplemento.</p>
+segundo, também se assentou a possibilidade de revisão administrativa dos proventos para adequação a esse teto remuneratório, mas com observância do prazo decadencial de 5 anos previsto no art. 54 da lei n. 9.784/1999. esse prazo é contado da data em que o ato de transferência para a inatividade ou de concessão da pensão é recebido no tribunal de contas da união para fins de exame de legalidade. assim, a administração não dispõe de poder revisional ilimitado no tempo.
 
-            <div class="botoes">
-                <button onclick="responder(6, 'CERTO')">CERTO</button>
-                <button onclick="responder(6, 'ERRADO')">ERRADO</button>
-            </div>
+por fim, o acórdão preservou a proteção da boa-fé dos administrados, vedando a restituição de valores já percebidos de boa-fé até a publicação do acórdão. logo, a assertiva está em conformidade com a tese fixada, inclusive quanto aos seus limites materiais, temporais e patrimoniais. stj. 1ª seção. edcl nos edcl no resp 2.124.412-rj, edcl nos edcl no resp 2.132.208-rj, edcl nos edcl no resp 2.085.764-pe, edcl nos edcl no resp 2.040.852-pe, edcl nos edcl no resp 2.009.309-rn e edcl nos edcl no resp 1.966.548-pe, rel. min. teodoro silva santos, julgados em 11/3/2026 (recurso repetitivo - tema 1297) (info 881).">
 
-            <div class="feedback" id="feedback-6">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está de acordo com o entendimento firmado no julgamento repetitivo. A controvérsia examinada envolvia a negativa de cobertura de tratamento multidisciplinar a criança diagnosticada com TEA, hipótese em que se discutia se a recusa, por si só, configuraria dano moral presumido.<br><br>A conclusão adotada foi no sentido de que a simples recusa indevida de cobertura médico-assistencial não gera, automaticamente, dano moral in re ipsa. Em outras palavras, a ilicitude da negativa não dispensa, por si só, a prova de repercussão extrapatrimonial concreta. Para haver condenação por dano moral, é necessário demonstrar elementos adicionais que evidenciem efetiva alteração anímica da vítima em grau suficiente para ultrapassar o mero aborrecimento, o dissabor ou o inadimplemento contratual.<br><br>Esse ponto é relevante porque afasta a automatização da indenização: a abusividade da conduta da operadora pode justificar a obrigação de fazer e a reparação material eventualmente cabível, mas não impõe, de forma necessária e presumida, a compensação moral. O julgado, portanto, distingue a ilicitude da negativa de cobertura da existência de dano moral indenizável, exigindo análise concreta das circunstâncias do caso.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 2ª Seção. REsp 2.197.574-SP e REsp 2.165.670-SP, Rel. Min. Ricardo Villas Bôas Cueva, julgados em 11/3/2026 (Recurso Repetitivo - Tema 1365) (Info 881).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 7</span>
-                <span class="status" id="status-7">Não respondida</span>
-            </div>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 3</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-3">Não respondida</span>
+</div>
 
-            <p class="enunciado">Em execução fiscal, a juntada, pela Fazenda Pública, de telas e extratos extraídos de sistema eletrônico de controle de créditos tributários pode ser admitida como meio de prova documental atípico, dotado de presunção relativa de veracidade e legitimidade, de modo que, uma vez indicativo de pedido de parcelamento não adimplido, cabe ao executado impugnar especificamente sua autenticidade ou conteúdo, não sendo lícito ao magistrado desconsiderá-los apenas por terem sido produzidos unilateralmente pela Administração.</p>
+<p class="enunciado">A cumulação dos benefícios previstos na Lei n. 12.158/2009 e no art. 34 da Medida Provisória n. 2.215-10/2001 é juridicamente admissível para militares oriundos do Quadro de Taifeiros da Aeronáutica que tenham ingressado nesse Quadro até 31/12/1992, inclusive quando já estejam na reserva remunerada, reformados ou no serviço ativo, mas a incidência conjunta dessas normas não pode produzir efeitos remuneratórios superiores aos correspondentes à graduação de Suboficial; além disso, a Administração pode revisar os proventos para adequá-los a esse limite, desde que respeitado o prazo decadencial de cinco anos do art. 54 da Lei n. 9.784/1999, contado do recebimento do ato pelo Tribunal de Contas da União para exame de legalidade, sem que isso autorize a devolução de valores percebidos de boa-fé antes da publicação do acórdão.</p>
 
-            <div class="botoes">
-                <button onclick="responder(7, 'CERTO')">CERTO</button>
-                <button onclick="responder(7, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(3, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(3, 'ERRADO')">ERRADO</button>
+</div>
 
-            <div class="feedback" id="feedback-7">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está correta porque sintetiza a orientação firmada no julgamento: telas e extratos oriundos de sistemas fazendários integram a categoria de prova digital e são admissíveis no processo civil à luz do princípio da atipicidade dos meios de prova (art. 369 do CPC) e da validade jurídica dos documentos eletrônicos (art. 11 da Lei 11.419/2006).  <br><br>Além disso, tais registros, quando emitidos por servidores no exercício de suas atribuições e extraídos de sistemas oficiais de controle administrativo, possuem natureza de atos administrativos enunciativos, o que lhes confere presunção relativa de veracidade e legitimidade, nos termos dos arts. 374, IV, e 405 do CPC. Essa presunção, contudo, não é absoluta: pode ser afastada por impugnação específica da parte contrária, que deve demonstrar a inconsistência, a falsidade ou a insuficiência do conteúdo probatório.  <br><br>No caso examinado, o ponto central foi justamente a indevida desconsideração das telas sob o argumento de produção unilateral. O entendimento afastou essa objeção genérica, reconhecendo que a unilateralidade de origem não impede, por si só, a admissão e a eficácia probatória do documento, especialmente quando se trata de registro oficial apto a demonstrar fato processualmente relevante, como o parcelamento do débito e seus efeitos sobre a prescrição intercorrente.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 2ª Turma. REsp 2.179.441-DF, Rel. Min. Maria Thereza de Assis Moura, julgado em 10/3/2026 (Info 881).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 8</span>
-                <span class="status" id="status-8">Não respondida</span>
-            </div>
+<div class="feedback" id="feedback-3">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva reproduz a orientação firmada no julgamento repetitivo, que ajustou a tese anteriormente adotada em dois pontos centrais.<br><br>Primeiro, foi mantida a possibilidade de aplicação cumulativa da Lei n. 12.158/2009 com o art. 34 da MP n. 2.215-10/2001 aos militares oriundos do Quadro de Taifeiros da Aeronáutica, desde que o ingresso no Quadro tenha ocorrido até 31/12/1992. Contudo, a cumulação não é irrestrita: os efeitos financeiros ficam limitados aos proventos correspondentes à graduação de Suboficial. Em outras palavras, a combinação normativa não pode ser utilizada para alcançar patamar remuneratório superior, como o de Segundo-Tenente.<br><br>Segundo, também se assentou a possibilidade de revisão administrativa dos proventos para adequação a esse teto remuneratório, mas com observância do prazo decadencial de 5 anos previsto no art. 54 da Lei n. 9.784/1999. Esse prazo é contado da data em que o ato de transferência para a inatividade ou de concessão da pensão é recebido no Tribunal de Contas da União para fins de exame de legalidade. Assim, a Administração não dispõe de poder revisional ilimitado no tempo.<br><br>Por fim, o acórdão preservou a proteção da boa-fé dos administrados, vedando a restituição de valores já percebidos de boa-fé até a publicação do acórdão. Logo, a assertiva está em conformidade com a tese fixada, inclusive quanto aos seus limites materiais, temporais e patrimoniais.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Seção. EDcl nos EDcl no REsp 2.124.412-RJ, EDcl nos EDcl no REsp 2.132.208-RJ, EDcl nos EDcl no REsp 2.085.764-PE, EDcl nos EDcl no REsp 2.040.852-PE, EDcl nos EDcl no REsp 2.009.309-RN e EDcl nos EDcl no REsp 1.966.548-PE, Rel. Min. Teodoro Silva Santos, julgados em 11/3/2026 (Recurso Repetitivo - Tema 1297) (Info 881).</p>
+</div>
+</section>
 
-            <p class="enunciado">A sentença coletiva que reconhece o direito ao pagamento de verba remuneratória em face apenas da administração centralizada não pode ser utilizada, em fase de cumprimento individual, por servidor vinculado a autarquia ou fundação pública que não integrou o polo passivo da ação coletiva, ainda que a vantagem discutida tenha sido instituída, em momento anterior, para servidores da administração direta e indireta do ente federativo.</p>
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="nas ações de cobrança da indenização prevista na lei n.º 10.209/2001, a superveniência da lei n.º 14.229/2021, ao instituir prazo prescricional específico de 12 meses, não alcança os transportes realizados antes de sua vigência, de modo que, para esses fatos pretéritos, permanece aplicável o prazo geral decenal do código civil, contado da data do frete. a assertiva está incorreta porque a alteração legislativa promovida pela lei n.º 14.229/2021 incide imediatamente sobre as relações jurídicas em curso, inclusive quanto às pretensões relacionadas a fretes realizados antes de sua entrada em vigor. não há direito adquirido à manutenção do regime prescricional anterior.
 
-            <div class="botoes">
-                <button onclick="responder(8, 'CERTO')">CERTO</button>
-                <button onclick="responder(8, 'ERRADO')">ERRADO</button>
-            </div>
+o ponto central do entendimento é que, embora antes da alteração legal o stj aplicasse o prazo geral de 10 anos do art. 205 do código civil por inexistir prazo específico na lei n.º 10.209/2001, a superveniência do parágrafo único do art. 8º passou a disciplinar expressamente a matéria, fixando prazo de 12 meses para a cobrança da indenização do vale-pedágio.
 
-            <div class="feedback" id="feedback-8">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está correta porque a eficácia subjetiva da coisa julgada formada na ação coletiva fica limitada aos sujeitos efetivamente alcançados pelo título judicial. No caso examinado, a demanda coletiva foi proposta exclusivamente contra a administração centralizada do Distrito Federal, e a condenação judicial recaiu apenas sobre esse ente, sem inclusão, no polo passivo, das autarquias e fundações públicas distritais.<br><br>Essa distinção é decisiva: embora o benefício remuneratório tenha sido instituído, originariamente, para servidores da administração direta e indireta, o título executivo judicial não condenou indistintamente toda a estrutura administrativa do Distrito Federal, mas apenas a administração centralizada. Por isso, servidores de autarquias e fundações públicas não podem ampliar, na fase executiva, o alcance subjetivo da sentença para alcançar entidades que não foram demandadas nem condenadas.<br><br>O entendimento também afasta a ideia de que a mera identidade da vantagem ou a vinculação funcional ao mesmo ente federativo bastariam para autorizar a execução individual. Em processo coletivo, a coisa julgada não pode ser alargada para beneficiar quem não estava abrangido pelo comando condenatório, especialmente quando a condenação foi dirigida a pessoa jurídica ou estrutura administrativa diversa daquela à qual o exequente se vincula.<br><br>Assim, os servidores que integravam os quadros de autarquias e fundações públicas do Distrito Federal na data da propositura da ação coletiva não foram alcançados pela coisa julgada formada naquele processo, razão pela qual carecem de título executivo judicial para exigir, por cumprimento de sentença, a verba remuneratória ali reconhecida.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Seção. REsp 2.231.007-DF, Rel. Min. Maria Thereza de Assis Moura, julgado em 11/3/2026 (Recurso Repetitivo - Tema 1402) (Info 881).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 9</span>
-                <span class="status" id="status-9">Não respondida</span>
-            </div>
+para os fatos pretéritos, contudo, o termo inicial não é a data do transporte, mas a data de vigência da nova lei, em 21/10/2021. assim, a pretensão passa a ser regida pelo novo prazo anual a partir dessa data, e não se preserva indefinidamente o prazo decenal anterior. no caso apreciado, como a ação foi ajuizada apenas em 6/4/2023, já havia transcorrido mais de 12 meses desde a vigência da lei, razão pela qual foi reconhecida a prescrição.
 
-            <p class="enunciado">A execução da pena de multa imposta em condenação proferida pela Justiça Federal deve permanecer, em regra, sob a competência do Juízo Federal da execução, ainda que a pena privativa de liberdade esteja sendo cumprida em estabelecimento prisional estadual, pois a natureza patrimonial da multa e o destino de sua arrecadação ao FUNPEN evidenciam interesse da União na persecução executiva dessa sanção.</p>
+em síntese: a lei nova substituiu o prazo anterior e alcançou os casos pendentes, com contagem do prazo de 12 meses a partir de sua entrada em vigor para os transportes realizados antes dela. stj. 4ª turma. resp 2.138.900-ms, rel. min. joão otávio de noronha, julgado em 10/3/2026 (info 881).">
 
-            <div class="botoes">
-                <button onclick="responder(9, 'CERTO')">CERTO</button>
-                <button onclick="responder(9, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 4</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-4">Não respondida</span>
+</div>
 
-            <div class="feedback" id="feedback-9">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque inverte a lógica adotada para a execução penal quando há cumprimento da pena privativa de liberdade em presídio estadual. Nessa hipótese, a execução da pena corporal é deslocada ao Juízo Estadual de Execução Penal, e a pena de multa deve acompanhar esse mesmo juízo, em observância ao princípio da unicidade da execução penal.<br><br>O fundamento central é que a multa, embora tenha conteúdo patrimonial, possui natureza de sanção penal, o que afasta a ideia de execução autônoma e fragmentada entre ramos distintos do Judiciário. A cisão da execução — mantendo a multa na Justiça Federal e a pena privativa de liberdade na Justiça Estadual — compromete a racionalidade, a coerência e a eficiência do acompanhamento das sanções impostas ao condenado.<br><br>Além disso, o simples fato de os valores arrecadados com a multa serem destinados ao FUNPEN não é suficiente para caracterizar interesse específico da União apto a justificar a permanência da competência federal. A destinação legal da receita não altera a natureza penal da multa nem autoriza, por si só, a manutenção da execução perante o Juízo Federal quando a execução da pena corporal já tramita na esfera estadual.<br><br>Em síntese: se o condenado pela Justiça Federal cumpre a pena privativa de liberdade em presídio estadual, a execução da pena de multa também deve tramitar perante o Juízo Estadual de Execução Penal, e não permanecer na Justiça Federal.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Seção. AgRg no EREsp 1.887.271-PR, Rel. Min. Maria Marluce Caldas, julgado em 11/3/2026 (Info 881).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 10</span>
-                <span class="status" id="status-10">Não respondida</span>
-            </div>
+<p class="enunciado">Nas ações de cobrança da indenização prevista na Lei n.º 10.209/2001, a superveniência da Lei n.º 14.229/2021, ao instituir prazo prescricional específico de 12 meses, não alcança os transportes realizados antes de sua vigência, de modo que, para esses fatos pretéritos, permanece aplicável o prazo geral decenal do Código Civil, contado da data do frete.</p>
 
-            <p class="enunciado">A alteração do art. 51 do Código Penal pela Lei n. 13.964/2019, ao conferir à pena de multa a disciplina de dívida de valor e remeter sua cobrança às normas da dívida ativa da Fazenda Pública, fez incidir sobre a execução da multa o prazo prescricional quinquenal do art. 174 do CTN, de modo que, transcorridos mais de cinco anos do trânsito em julgado da condenação sem o ajuizamento da execução, impõe-se reconhecer a prescrição da pretensão executória da multa.</p>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(4, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(4, 'ERRADO')">ERRADO</button>
+</div>
 
-            <div class="botoes">
-                <button onclick="responder(10, 'CERTO')">CERTO</button>
-                <button onclick="responder(10, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="feedback" id="feedback-4">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque a alteração legislativa promovida pela Lei n.º 14.229/2021 incide imediatamente sobre as relações jurídicas em curso, inclusive quanto às pretensões relacionadas a fretes realizados antes de sua entrada em vigor. Não há direito adquirido à manutenção do regime prescricional anterior.<br><br>O ponto central do entendimento é que, embora antes da alteração legal o STJ aplicasse o prazo geral de 10 anos do art. 205 do Código Civil por inexistir prazo específico na Lei n.º 10.209/2001, a superveniência do parágrafo único do art. 8º passou a disciplinar expressamente a matéria, fixando prazo de 12 meses para a cobrança da indenização do vale-pedágio.<br><br>Para os fatos pretéritos, contudo, o termo inicial não é a data do transporte, mas a data de vigência da nova lei, em 21/10/2021. Assim, a pretensão passa a ser regida pelo novo prazo anual a partir dessa data, e não se preserva indefinidamente o prazo decenal anterior. No caso apreciado, como a ação foi ajuizada apenas em 6/4/2023, já havia transcorrido mais de 12 meses desde a vigência da lei, razão pela qual foi reconhecida a prescrição.<br><br>Em síntese: a lei nova substituiu o prazo anterior e alcançou os casos pendentes, com contagem do prazo de 12 meses a partir de sua entrada em vigor para os transportes realizados antes dela.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 4ª Turma. REsp 2.138.900-MS, Rel. Min. João Otávio de Noronha, julgado em 10/3/2026 (Info 881).</p>
+</div>
+</section>
 
-            <div class="feedback" id="feedback-10">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque confunde a natureza jurídica da pena de multa com o regime jurídico aplicável à sua cobrança. A alteração legislativa do art. 51 do Código Penal não descaracterizou a multa como sanção penal: ela continua sendo pena criminal, ainda que a sua execução passe a observar, em certos aspectos, a sistemática da dívida ativa da Fazenda Pública.<br><br>Por isso, o prazo prescricional da pena de multa não passou a ser o do art. 174 do CTN. O entendimento fixado foi no sentido de que a prescrição da multa permanece regida pelo art. 114, incisos I e II, do Código Penal. O que se aplica, por expressa remissão legal, são apenas as regras relativas às causas suspensivas e interruptivas da prescrição na fase executiva: as causas suspensivas previstas na Lei n. 6.830/1980 e as causas interruptivas previstas no art. 174 do CTN.<br><br>Em outras palavras, o art. 51 do CP não converteu a multa em crédito tributário nem deslocou integralmente seu regime prescricional para o CTN. Houve apenas uma disciplina híbrida: a multa conserva natureza penal, com prazo prescricional penal, mas sua execução se submete, quanto a suspensão e interrupção, às normas da dívida ativa. Logo, não é correto afirmar que o simples decurso de cinco anos do trânsito em julgado, sem ajuizamento da execução, conduz automaticamente à prescrição da multa com base no art. 174 do CTN.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Seção. REsp 2.225.431-PR, Rel. Min. Joel Ilan Paciornik, julgado em 11/3/2026 (Recurso Repetitivo - Tema 1405) (Info 881).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 11</span>
-                <span class="status" id="status-11">Não respondida</span>
-            </div>
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="embora o divórcio possa ser formalizado por escritura pública sem prévia partilha dos bens, a posterior divisão patrimonial realizada entre os ex-cônjuges por instrumento particular é juridicamente válida, desde que haja consenso entre as partes e inexistam prejuízos a terceiros, de modo que eventual inconformismo superveniente de um dos consortes não autoriza o ajuizamento de ação autônoma de partilha. a afirmação está incorreta porque a partilha de bens adquiridos na constância do casamento, quando realizada fora do processo judicial, exige observância da forma pública prevista em lei. o ordenamento admite duas vias para a partilha: a judicial ou a escritura pública. não se admite, para esse fim, a utilização de instrumento particular.
 
-            <p class="enunciado">A declaração de extinção da punibilidade pela prescrição da pretensão punitiva, quando fundada na pena concretamente aplicada, elimina os efeitos principais e secundários da condenação, de modo que não subsiste interesse recursal do réu em interpor apelação exclusivamente para obter decreto absolutório, pois a utilidade do recurso deve ser examinada a partir do proveito jurídico-processual objetivamente alcançável, e não de eventual vantagem moral ou simbólica.</p>
+a inobservância da forma legal acarreta nulidade do negócio, por afronta aos arts. 166, iv e v, e 169 do código civil. assim, ainda que os ex-cônjuges tenham anuído com o ajuste e mesmo que o divórcio tenha sido validamente lavrado por escritura pública sem partilha imediata, o instrumento particular posterior não convalida a divisão patrimonial.
 
-            <div class="botoes">
-                <button onclick="responder(11, 'CERTO')">CERTO</button>
-                <button onclick="responder(11, 'ERRADO')">ERRADO</button>
-            </div>
+por isso, sendo nulo o ajuste particular, não há óbice ao ajuizamento de ação autônoma de partilha por qualquer das partes, justamente porque a partilha anterior não produz efeitos jurídicos válidos. a tese também evidencia que a ausência de partilha no momento do divórcio é admitida pelo art. 1.581 do código civil, mas isso não dispensa a forma adequada quando a partilha vier a ser feita extrajudicialmente. stj. 3ª turma. resp 2.206.085-rj, rel. min. nancy andrighi, julgado em 3/3/2026 (info 881).">
 
-            <div class="feedback" id="feedback-11">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está correta. A prescrição da pretensão punitiva, uma vez reconhecida com base na pena concretamente aplicada, extingue a punibilidade e faz desaparecer o título condenatório em sua integralidade, alcançando não apenas o efeito principal da condenação — a própria sanção penal —, mas também os efeitos secundários penais e extrapenais dela decorrentes. Nessa hipótese, a situação jurídica do acusado, para fins práticos, já se aproxima da de quem foi absolvido, razão pela qual a substituição da extinção da punibilidade por um decreto absolutório não agrega utilidade jurídica relevante.<br><br>O ponto central é o interesse recursal. Nos termos do art. 577, parágrafo único, do CPP, o recurso exige utilidade e necessidade, isto é, deve ser apto a produzir algum proveito jurídico-processual concreto à parte recorrente. Não basta a pretensão de obter um resultado mais “favorável” em sentido moral, reputacional ou simbólico. Se a prescrição já apagou os efeitos da condenação, a apelação voltada apenas à absolvição carece de utilidade recursal, pois não melhora a posição jurídica do réu de forma juridicamente relevante.<br><br>Assim, a defesa não possui interesse recursal para insistir em absolvição quando já houve extinção da punibilidade pela prescrição da pretensão punitiva, devendo ser preservada a sentença que reconheceu a prescrição.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 5ª Turma. AgRg no REsp 2.118.145-RJ, Rel. Min. Maria Marluce Caldas, julgado em 25/2/2026 (Info 881).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 12</span>
-                <span class="status" id="status-12">Não respondida</span>
-            </div>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 5</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-5">Não respondida</span>
+</div>
 
-            <p class="enunciado">No curso de inquérito policial instaurado para apurar morte suspeita decorrente de possível maus-tratos, é admissível o indeferimento da habilitação de assistente técnico indicado pela investigada, ainda que sem indicação concreta de risco às investigações, por se tratar de fase inquisitorial em que não incide contraditório pleno e em que a atuação da defesa técnica somente se legitima após a conclusão da perícia oficial.</p>
+<p class="enunciado">Embora o divórcio possa ser formalizado por escritura pública sem prévia partilha dos bens, a posterior divisão patrimonial realizada entre os ex-cônjuges por instrumento particular é juridicamente válida, desde que haja consenso entre as partes e inexistam prejuízos a terceiros, de modo que eventual inconformismo superveniente de um dos consortes não autoriza o ajuizamento de ação autônoma de partilha.</p>
 
-            <div class="botoes">
-                <button onclick="responder(12, 'CERTO')">CERTO</button>
-                <button onclick="responder(12, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(5, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(5, 'ERRADO')">ERRADO</button>
+</div>
 
-            <div class="feedback" id="feedback-12">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva contraria o entendimento firmado no caso. Embora o inquérito policial tenha natureza inquisitorial e não comporte contraditório pleno nos moldes da ação penal, isso não autoriza, por si só, a exclusão absoluta da atuação defensiva em matéria pericial. Reconheceu-se que o investigado pode, se quiser, ter assistente técnico habilitado nos autos do inquérito, com a prerrogativa de formular quesitos ao perito oficial, desde que não haja demonstração concreta de que essa participação possa embaraçar as investigações.<br><br>O ponto central é que a negativa de acesso não pode ser automática nem fundada apenas na ideia genérica de que o inquérito é procedimento sigiloso ou inquisitivo. Exige-se motivação concreta, lastreada em elementos específicos que evidenciem risco real ao andamento investigativo. Na ausência dessa demonstração, o indeferimento configura cerceamento de defesa, pois impede que a parte acompanhe a produção da prova técnica no momento em que ela é realizada, reduzindo a utilidade do contraditório diferido e dificultando a impugnação posterior do laudo.<br><br>Também não procede a afirmação de que o art. 159, § 4º, do CPP restringiria a atuação do assistente técnico apenas ao momento posterior à perícia oficial. No caso examinado, a interpretação adotada foi no sentido de que a participação pode ser admitida já na fase investigativa, justamente para permitir a formulação de quesitos e o acompanhamento técnico do exame, desde que ausente risco concreto de embaraço às investigações.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 6ª Turma. RHC 200.979-SP, Rel. Min. Rogerio Schietti Cruz, julgado em 9/12/2025 (Info 881).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 13</span>
-                <span class="status" id="status-13">Não respondida</span>
-            </div>
+<div class="feedback" id="feedback-5">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A afirmação está incorreta porque a partilha de bens adquiridos na constância do casamento, quando realizada fora do processo judicial, exige observância da forma pública prevista em lei. O ordenamento admite duas vias para a partilha: a judicial ou a escritura pública. Não se admite, para esse fim, a utilização de instrumento particular.<br><br>A inobservância da forma legal acarreta nulidade do negócio, por afronta aos arts. 166, IV e V, e 169 do Código Civil. Assim, ainda que os ex-cônjuges tenham anuído com o ajuste e mesmo que o divórcio tenha sido validamente lavrado por escritura pública sem partilha imediata, o instrumento particular posterior não convalida a divisão patrimonial.<br><br>Por isso, sendo nulo o ajuste particular, não há óbice ao ajuizamento de ação autônoma de partilha por qualquer das partes, justamente porque a partilha anterior não produz efeitos jurídicos válidos. A tese também evidencia que a ausência de partilha no momento do divórcio é admitida pelo art. 1.581 do Código Civil, mas isso não dispensa a forma adequada quando a partilha vier a ser feita extrajudicialmente.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.206.085-RJ, Rel. Min. Nancy Andrighi, julgado em 3/3/2026 (Info 881).</p>
+</div>
+</section>
 
-            <p class="enunciado">A persecução penal por destruição de vegetação nativa composta por espécie vegetal oficialmente classificada como ameaçada de extinção, ainda que a área atingida esteja situada em propriedade rural privada e não haja notícia de transnacionalidade da conduta, deve ser processada e julgada pela Justiça Federal, por se tratar de matéria ambiental tutelada por norma federal e, portanto, de interesse jurídico direto da União.</p>
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a recusa indevida, pela operadora de plano de saúde, de cobertura de tratamento médico-assistencial prescrito ao beneficiário, ainda que considerada abusiva à luz da disciplina consumerista e contratual, não enseja automaticamente indenização por dano moral, exigindo-se a demonstração de circunstâncias concretas aptas a revelar abalo anímico relevante, superior ao mero dissabor decorrente do inadimplemento. a assertiva está de acordo com o entendimento firmado no julgamento repetitivo. a controvérsia examinada envolvia a negativa de cobertura de tratamento multidisciplinar a criança diagnosticada com tea, hipótese em que se discutia se a recusa, por si só, configuraria dano moral presumido.
 
-            <div class="botoes">
-                <button onclick="responder(13, 'CERTO')">CERTO</button>
-                <button onclick="responder(13, 'ERRADO')">ERRADO</button>
-            </div>
+a conclusão adotada foi no sentido de que a simples recusa indevida de cobertura médico-assistencial não gera, automaticamente, dano moral in re ipsa. em outras palavras, a ilicitude da negativa não dispensa, por si só, a prova de repercussão extrapatrimonial concreta. para haver condenação por dano moral, é necessário demonstrar elementos adicionais que evidenciem efetiva alteração anímica da vítima em grau suficiente para ultrapassar o mero aborrecimento, o dissabor ou o inadimplemento contratual.
 
-            <div class="feedback" id="feedback-13">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A afirmação está incorreta porque a simples circunstância de a vegetação atingida integrar lista oficial de espécie ameaçada de extinção, por si só, não desloca a competência para a Justiça Federal. Em crimes ambientais, a competência federal é excepcional e depende da presença de <strong>interesse direto e específico da União</strong> ou de <strong>transnacionalidade da conduta</strong>.<br><br>No caso de destruição de vegetação nativa em propriedade rural privada, ainda que a espécie seja protegida por ato normativo federal e esteja em risco de extinção, isso não basta para caracterizar ofensa direta a bem, serviço ou interesse da União. A tutela ambiental, embora amparada por legislação federal, não transforma automaticamente todo delito ambiental em crime federal. A competência permanece, em regra, com a <strong>Justiça Estadual</strong>.<br><br>Esse entendimento preserva a lógica da competência penal: a incidência de norma federal material não implica, por si, competência da Justiça Federal. É necessário um vínculo mais qualificado com a União, o que não se verifica apenas pela proteção normativa da espécie vegetal. Assim, ausentes transnacionalidade e lesão direta a interesse federal específico, o processo deve tramitar na Justiça Estadual.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Seção. CC 215.970-PR, Rel. Min. Og Fernandes, julgado em 4/12/2025 (Info 881).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 14</span>
-                <span class="status" id="status-14">Não respondida</span>
-            </div>
+esse ponto é relevante porque afasta a automatização da indenização: a abusividade da conduta da operadora pode justificar a obrigação de fazer e a reparação material eventualmente cabível, mas não impõe, de forma necessária e presumida, a compensação moral. o julgado, portanto, distingue a ilicitude da negativa de cobertura da existência de dano moral indenizável, exigindo análise concreta das circunstâncias do caso. stj. 2ª seção. resp 2.197.574-sp e resp 2.165.670-sp, rel. min. ricardo villas bôas cueva, julgados em 11/3/2026 (recurso repetitivo - tema 1365) (info 881).">
 
-            <p class="enunciado">No regime do lucro presumido, é juridicamente admissível excluir os valores de PIS e COFINS da base de cálculo do IRPJ e da CSLL, sob o argumento de que tais exações não se incorporam ao patrimônio do contribuinte e de que a lógica da não cumulatividade e da exclusão do ICMS da base do PIS/COFINS autoriza, por analogia, a mesma solução para os tributos incidentes sobre a renda presumida.</p>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 6</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-6">Não respondida</span>
+</div>
 
-            <div class="botoes">
-                <button onclick="responder(14, 'CERTO')">CERTO</button>
-                <button onclick="responder(14, 'ERRADO')">ERRADO</button>
-            </div>
+<p class="enunciado">A recusa indevida, pela operadora de plano de saúde, de cobertura de tratamento médico-assistencial prescrito ao beneficiário, ainda que considerada abusiva à luz da disciplina consumerista e contratual, não enseja automaticamente indenização por dano moral, exigindo-se a demonstração de circunstâncias concretas aptas a revelar abalo anímico relevante, superior ao mero dissabor decorrente do inadimplemento.</p>
 
-            <div class="feedback" id="feedback-14">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva contraria o entendimento firmado para a sistemática do lucro presumido. Nessa modalidade de apuração, a legislação parte da receita bruta como base de cálculo e não admite, como regra, deduções não expressamente autorizadas em lei. A opção pelo lucro presumido implica adesão a um regime simplificado, no qual o contribuinte aceita uma forma de apuração que dispensa a consideração individualizada de custos, despesas e, também, de tributos incidentes sobre a atividade.<br><br>Assim, não é possível selecionar apenas a simplificação do regime e, simultaneamente, importar deduções típicas de outro modelo de apuração, como o lucro real. A pretensão de excluir PIS e COFINS da base do IRPJ e da CSLL, no lucro presumido, esbarra justamente nessa estrutura normativa: ausente previsão legal específica, a dedução não pode ser criada por interpretação extensiva.<br><br>Também não prospera a invocação analógica do precedente que afastou o ICMS da base do PIS e da COFINS. Aquele julgamento foi construído a partir de disciplina constitucional própria, relacionada à base de cálculo dessas contribuições, não servindo para autorizar, de forma automática, a exclusão de outros tributos da base de cálculo do IRPJ e da CSLL em regime diverso. Em suma, no lucro presumido, PIS e COFINS integram a base de cálculo do IRPJ e da CSLL.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Seção. REsp 2.151.903-RS, REsp 2.151.904-RS e REsp 2.151.907-RS, Rel. Min. Paulo Sérgio Domingues, julgados em 11/3/2026 (Recurso Repetitivo - Tema 1312) (Info 881).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 15</span>
-                <span class="status" id="status-15">Não respondida</span>
-            </div>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(6, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(6, 'ERRADO')">ERRADO</button>
+</div>
 
-            <p class="enunciado">A partir da alteração promovida pela Instrução Normativa RFB n. 2.121/2022, é juridicamente admissível que o contribuinte sujeito ao regime não cumulativo do PIS/Pasep e da Cofins inclua o IPI não recuperável incidente na aquisição de mercadoria para revenda na base de cálculo dos respectivos créditos, ainda que tal valor componha o custo de aquisição do bem e tenha sido anteriormente admitido por atos infralegais da Administração Tributária.</p>
+<div class="feedback" id="feedback-6">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está de acordo com o entendimento firmado no julgamento repetitivo. A controvérsia examinada envolvia a negativa de cobertura de tratamento multidisciplinar a criança diagnosticada com TEA, hipótese em que se discutia se a recusa, por si só, configuraria dano moral presumido.<br><br>A conclusão adotada foi no sentido de que a simples recusa indevida de cobertura médico-assistencial não gera, automaticamente, dano moral in re ipsa. Em outras palavras, a ilicitude da negativa não dispensa, por si só, a prova de repercussão extrapatrimonial concreta. Para haver condenação por dano moral, é necessário demonstrar elementos adicionais que evidenciem efetiva alteração anímica da vítima em grau suficiente para ultrapassar o mero aborrecimento, o dissabor ou o inadimplemento contratual.<br><br>Esse ponto é relevante porque afasta a automatização da indenização: a abusividade da conduta da operadora pode justificar a obrigação de fazer e a reparação material eventualmente cabível, mas não impõe, de forma necessária e presumida, a compensação moral. O julgado, portanto, distingue a ilicitude da negativa de cobertura da existência de dano moral indenizável, exigindo análise concreta das circunstâncias do caso.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 2ª Seção. REsp 2.197.574-SP e REsp 2.165.670-SP, Rel. Min. Ricardo Villas Bôas Cueva, julgados em 11/3/2026 (Recurso Repetitivo - Tema 1365) (Info 881).</p>
+</div>
+</section>
 
-            <div class="botoes">
-                <button onclick="responder(15, 'CERTO')">CERTO</button>
-                <button onclick="responder(15, 'ERRADO')">ERRADO</button>
-            </div>
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="em execução fiscal, a juntada, pela fazenda pública, de telas e extratos extraídos de sistema eletrônico de controle de créditos tributários pode ser admitida como meio de prova documental atípico, dotado de presunção relativa de veracidade e legitimidade, de modo que, uma vez indicativo de pedido de parcelamento não adimplido, cabe ao executado impugnar especificamente sua autenticidade ou conteúdo, não sendo lícito ao magistrado desconsiderá-los apenas por terem sido produzidos unilateralmente pela administração. a assertiva está correta porque sintetiza a orientação firmada no julgamento: telas e extratos oriundos de sistemas fazendários integram a categoria de prova digital e são admissíveis no processo civil à luz do princípio da atipicidade dos meios de prova (art. 369 do cpc) e da validade jurídica dos documentos eletrônicos (art. 11 da lei 11.419/2006).  
 
-            <div class="feedback" id="feedback-15">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>No regime não cumulativo do PIS/Pasep e da Cofins, o creditamento é disciplinado pelas Leis n. 10.637/2002 e 10.833/2003, cujo art. 3º, § 2º, II, veda a tomada de crédito sobre valores que não estejam sujeitos ao pagamento dessas contribuições na etapa anterior. O IPI não recuperável incidente na compra de mercadoria para revenda, embora integre o custo de aquisição do bem sob a ótica contábil ou econômica, não compõe a base de cálculo do PIS/Pasep e da Cofins devidos pelo fornecedor na operação de venda. Por essa razão, não há simetria apta a autorizar o crédito sobre esse mesmo montante na etapa subsequente.<br><br>Além disso, a mudança de orientação administrativa ocorrida com a IN RFB n. 2.121/2022, em 20/12/2022, foi justamente no sentido de vedar a inclusão do IPI não recuperável na base de apuração dos créditos. Assim, a tese firmada restringe a possibilidade de creditamento às operações realizadas após a entrada em vigor da referida instrução normativa, afastando a pretensão de manutenção da sistemática anterior com base em atos infralegais revogados ou superados.<br><br>Em síntese, não prevalece a tese de que a mera integração do IPI não recuperável ao custo de aquisição autorize sua inclusão na base dos créditos do PIS/Pasep e da Cofins no regime não cumulativo, especialmente para operações posteriores a 20/12/2022.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Seção. REsp 2.198.235-CE e REsp 2.191.364-RS, Rel. Min. Maria Thereza de Assis Moura, julgados em 11/3/2026 (Recurso Repetitivo - Tema 1373) (Info 881).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 16</span>
-                <span class="status" id="status-16">Não respondida</span>
-            </div>
+além disso, tais registros, quando emitidos por servidores no exercício de suas atribuições e extraídos de sistemas oficiais de controle administrativo, possuem natureza de atos administrativos enunciativos, o que lhes confere presunção relativa de veracidade e legitimidade, nos termos dos arts. 374, iv, e 405 do cpc. essa presunção, contudo, não é absoluta: pode ser afastada por impugnação específica da parte contrária, que deve demonstrar a inconsistência, a falsidade ou a insuficiência do conteúdo probatório.  
 
-            <p class="enunciado">Para fins de prorrogação do período de graça em razão de desemprego involuntário, admite-se a comprovação dessa condição por outros meios de prova em direito, inclusive na via administrativa ou judicial, mas a simples inexistência de registros de vínculo empregatício na CTPS ou no CNIS, por si só, não basta para demonstrar o desemprego e, portanto, não autoriza automaticamente a extensão do período de manutenção da qualidade de segurado.</p>
+no caso examinado, o ponto central foi justamente a indevida desconsideração das telas sob o argumento de produção unilateral. o entendimento afastou essa objeção genérica, reconhecendo que a unilateralidade de origem não impede, por si só, a admissão e a eficácia probatória do documento, especialmente quando se trata de registro oficial apto a demonstrar fato processualmente relevante, como o parcelamento do débito e seus efeitos sobre a prescrição intercorrente. stj. 2ª turma. resp 2.179.441-df, rel. min. maria thereza de assis moura, julgado em 10/3/2026 (info 881).">
 
-            <div class="botoes">
-                <button onclick="responder(16, 'CERTO')">CERTO</button>
-                <button onclick="responder(16, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 7</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-7">Não respondida</span>
+</div>
 
-            <div class="feedback" id="feedback-16">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A prorrogação do período de graça prevista no art. 15, § 2º, da Lei 8.213/1991 depende da demonstração de desemprego involuntário. O entendimento firmado é no sentido de que o registro perante o órgão competente não constitui meio exclusivo de prova: ele pode ser substituído por outros elementos probatórios admitidos em direito, tanto na esfera administrativa quanto na judicial, desde que efetivamente evidenciada a situação de desemprego.<br><br>Contudo, há um limite relevante: a mera ausência de anotações laborais na CTPS ou no CNIS não é suficiente, por si só, para comprovar o desemprego involuntário. Isso porque a inexistência de registros formais não afasta, automaticamente, a possibilidade de exercício de atividade remunerada na informalidade. Em outras palavras, a falta de vínculo formal não equivale, necessariamente, à ausência de trabalho ou de renda.<br><br>Assim, para a prorrogação do período de graça, exige-se prova concreta da condição de desempregado, podendo ser utilizada prova testemunhal, documentos de busca por recolocação, cadastro em órgão de intermediação de mão de obra ou outros meios idôneos. A tese, portanto, prestigia a liberdade probatória, mas rejeita presunção automática de desemprego baseada apenas no vazio cadastral da CTPS e do CNIS.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Seção. REsp 2.169.736-RJ e REsp 2.188.714-MT, Rel. Min. Afrânio Vilela, julgado em 11/3/2026 (Recurso Repetitivo - Tema 1360) (Info 881).</p>
-            </div>
-        </section>
-        
+<p class="enunciado">Em execução fiscal, a juntada, pela Fazenda Pública, de telas e extratos extraídos de sistema eletrônico de controle de créditos tributários pode ser admitida como meio de prova documental atípico, dotado de presunção relativa de veracidade e legitimidade, de modo que, uma vez indicativo de pedido de parcelamento não adimplido, cabe ao executado impugnar especificamente sua autenticidade ou conteúdo, não sendo lícito ao magistrado desconsiderá-los apenas por terem sido produzidos unilateralmente pela Administração.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(7, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(7, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-7">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque sintetiza a orientação firmada no julgamento: telas e extratos oriundos de sistemas fazendários integram a categoria de prova digital e são admissíveis no processo civil à luz do princípio da atipicidade dos meios de prova (art. 369 do CPC) e da validade jurídica dos documentos eletrônicos (art. 11 da Lei 11.419/2006).  <br><br>Além disso, tais registros, quando emitidos por servidores no exercício de suas atribuições e extraídos de sistemas oficiais de controle administrativo, possuem natureza de atos administrativos enunciativos, o que lhes confere presunção relativa de veracidade e legitimidade, nos termos dos arts. 374, IV, e 405 do CPC. Essa presunção, contudo, não é absoluta: pode ser afastada por impugnação específica da parte contrária, que deve demonstrar a inconsistência, a falsidade ou a insuficiência do conteúdo probatório.  <br><br>No caso examinado, o ponto central foi justamente a indevida desconsideração das telas sob o argumento de produção unilateral. O entendimento afastou essa objeção genérica, reconhecendo que a unilateralidade de origem não impede, por si só, a admissão e a eficácia probatória do documento, especialmente quando se trata de registro oficial apto a demonstrar fato processualmente relevante, como o parcelamento do débito e seus efeitos sobre a prescrição intercorrente.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 2ª Turma. REsp 2.179.441-DF, Rel. Min. Maria Thereza de Assis Moura, julgado em 10/3/2026 (Info 881).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="ECA"
+data-texto="a sentença coletiva que reconhece o direito ao pagamento de verba remuneratória em face apenas da administração centralizada não pode ser utilizada, em fase de cumprimento individual, por servidor vinculado a autarquia ou fundação pública que não integrou o polo passivo da ação coletiva, ainda que a vantagem discutida tenha sido instituída, em momento anterior, para servidores da administração direta e indireta do ente federativo. a assertiva está correta porque a eficácia subjetiva da coisa julgada formada na ação coletiva fica limitada aos sujeitos efetivamente alcançados pelo título judicial. no caso examinado, a demanda coletiva foi proposta exclusivamente contra a administração centralizada do distrito federal, e a condenação judicial recaiu apenas sobre esse ente, sem inclusão, no polo passivo, das autarquias e fundações públicas distritais.
+
+essa distinção é decisiva: embora o benefício remuneratório tenha sido instituído, originariamente, para servidores da administração direta e indireta, o título executivo judicial não condenou indistintamente toda a estrutura administrativa do distrito federal, mas apenas a administração centralizada. por isso, servidores de autarquias e fundações públicas não podem ampliar, na fase executiva, o alcance subjetivo da sentença para alcançar entidades que não foram demandadas nem condenadas.
+
+o entendimento também afasta a ideia de que a mera identidade da vantagem ou a vinculação funcional ao mesmo ente federativo bastariam para autorizar a execução individual. em processo coletivo, a coisa julgada não pode ser alargada para beneficiar quem não estava abrangido pelo comando condenatório, especialmente quando a condenação foi dirigida a pessoa jurídica ou estrutura administrativa diversa daquela à qual o exequente se vincula.
+
+assim, os servidores que integravam os quadros de autarquias e fundações públicas do distrito federal na data da propositura da ação coletiva não foram alcançados pela coisa julgada formada naquele processo, razão pela qual carecem de título executivo judicial para exigir, por cumprimento de sentença, a verba remuneratória ali reconhecida. stj. 1ª seção. resp 2.231.007-df, rel. min. maria thereza de assis moura, julgado em 11/3/2026 (recurso repetitivo - tema 1402) (info 881).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 8</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-8">Não respondida</span>
+</div>
+
+<p class="enunciado">A sentença coletiva que reconhece o direito ao pagamento de verba remuneratória em face apenas da administração centralizada não pode ser utilizada, em fase de cumprimento individual, por servidor vinculado a autarquia ou fundação pública que não integrou o polo passivo da ação coletiva, ainda que a vantagem discutida tenha sido instituída, em momento anterior, para servidores da administração direta e indireta do ente federativo.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(8, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(8, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-8">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque a eficácia subjetiva da coisa julgada formada na ação coletiva fica limitada aos sujeitos efetivamente alcançados pelo título judicial. No caso examinado, a demanda coletiva foi proposta exclusivamente contra a administração centralizada do Distrito Federal, e a condenação judicial recaiu apenas sobre esse ente, sem inclusão, no polo passivo, das autarquias e fundações públicas distritais.<br><br>Essa distinção é decisiva: embora o benefício remuneratório tenha sido instituído, originariamente, para servidores da administração direta e indireta, o título executivo judicial não condenou indistintamente toda a estrutura administrativa do Distrito Federal, mas apenas a administração centralizada. Por isso, servidores de autarquias e fundações públicas não podem ampliar, na fase executiva, o alcance subjetivo da sentença para alcançar entidades que não foram demandadas nem condenadas.<br><br>O entendimento também afasta a ideia de que a mera identidade da vantagem ou a vinculação funcional ao mesmo ente federativo bastariam para autorizar a execução individual. Em processo coletivo, a coisa julgada não pode ser alargada para beneficiar quem não estava abrangido pelo comando condenatório, especialmente quando a condenação foi dirigida a pessoa jurídica ou estrutura administrativa diversa daquela à qual o exequente se vincula.<br><br>Assim, os servidores que integravam os quadros de autarquias e fundações públicas do Distrito Federal na data da propositura da ação coletiva não foram alcançados pela coisa julgada formada naquele processo, razão pela qual carecem de título executivo judicial para exigir, por cumprimento de sentença, a verba remuneratória ali reconhecida.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Seção. REsp 2.231.007-DF, Rel. Min. Maria Thereza de Assis Moura, julgado em 11/3/2026 (Recurso Repetitivo - Tema 1402) (Info 881).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="a execução da pena de multa imposta em condenação proferida pela justiça federal deve permanecer, em regra, sob a competência do juízo federal da execução, ainda que a pena privativa de liberdade esteja sendo cumprida em estabelecimento prisional estadual, pois a natureza patrimonial da multa e o destino de sua arrecadação ao funpen evidenciam interesse da união na persecução executiva dessa sanção. a assertiva está incorreta porque inverte a lógica adotada para a execução penal quando há cumprimento da pena privativa de liberdade em presídio estadual. nessa hipótese, a execução da pena corporal é deslocada ao juízo estadual de execução penal, e a pena de multa deve acompanhar esse mesmo juízo, em observância ao princípio da unicidade da execução penal.
+
+o fundamento central é que a multa, embora tenha conteúdo patrimonial, possui natureza de sanção penal, o que afasta a ideia de execução autônoma e fragmentada entre ramos distintos do judiciário. a cisão da execução — mantendo a multa na justiça federal e a pena privativa de liberdade na justiça estadual — compromete a racionalidade, a coerência e a eficiência do acompanhamento das sanções impostas ao condenado.
+
+além disso, o simples fato de os valores arrecadados com a multa serem destinados ao funpen não é suficiente para caracterizar interesse específico da união apto a justificar a permanência da competência federal. a destinação legal da receita não altera a natureza penal da multa nem autoriza, por si só, a manutenção da execução perante o juízo federal quando a execução da pena corporal já tramita na esfera estadual.
+
+em síntese: se o condenado pela justiça federal cumpre a pena privativa de liberdade em presídio estadual, a execução da pena de multa também deve tramitar perante o juízo estadual de execução penal, e não permanecer na justiça federal. stj. 3ª seção. agrg no eresp 1.887.271-pr, rel. min. maria marluce caldas, julgado em 11/3/2026 (info 881).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 9</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-9">Não respondida</span>
+</div>
+
+<p class="enunciado">A execução da pena de multa imposta em condenação proferida pela Justiça Federal deve permanecer, em regra, sob a competência do Juízo Federal da execução, ainda que a pena privativa de liberdade esteja sendo cumprida em estabelecimento prisional estadual, pois a natureza patrimonial da multa e o destino de sua arrecadação ao FUNPEN evidenciam interesse da União na persecução executiva dessa sanção.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(9, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(9, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-9">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque inverte a lógica adotada para a execução penal quando há cumprimento da pena privativa de liberdade em presídio estadual. Nessa hipótese, a execução da pena corporal é deslocada ao Juízo Estadual de Execução Penal, e a pena de multa deve acompanhar esse mesmo juízo, em observância ao princípio da unicidade da execução penal.<br><br>O fundamento central é que a multa, embora tenha conteúdo patrimonial, possui natureza de sanção penal, o que afasta a ideia de execução autônoma e fragmentada entre ramos distintos do Judiciário. A cisão da execução — mantendo a multa na Justiça Federal e a pena privativa de liberdade na Justiça Estadual — compromete a racionalidade, a coerência e a eficiência do acompanhamento das sanções impostas ao condenado.<br><br>Além disso, o simples fato de os valores arrecadados com a multa serem destinados ao FUNPEN não é suficiente para caracterizar interesse específico da União apto a justificar a permanência da competência federal. A destinação legal da receita não altera a natureza penal da multa nem autoriza, por si só, a manutenção da execução perante o Juízo Federal quando a execução da pena corporal já tramita na esfera estadual.<br><br>Em síntese: se o condenado pela Justiça Federal cumpre a pena privativa de liberdade em presídio estadual, a execução da pena de multa também deve tramitar perante o Juízo Estadual de Execução Penal, e não permanecer na Justiça Federal.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Seção. AgRg no EREsp 1.887.271-PR, Rel. Min. Maria Marluce Caldas, julgado em 11/3/2026 (Info 881).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a alteração do art. 51 do código penal pela lei n. 13.964/2019, ao conferir à pena de multa a disciplina de dívida de valor e remeter sua cobrança às normas da dívida ativa da fazenda pública, fez incidir sobre a execução da multa o prazo prescricional quinquenal do art. 174 do ctn, de modo que, transcorridos mais de cinco anos do trânsito em julgado da condenação sem o ajuizamento da execução, impõe-se reconhecer a prescrição da pretensão executória da multa. a assertiva está incorreta porque confunde a natureza jurídica da pena de multa com o regime jurídico aplicável à sua cobrança. a alteração legislativa do art. 51 do código penal não descaracterizou a multa como sanção penal: ela continua sendo pena criminal, ainda que a sua execução passe a observar, em certos aspectos, a sistemática da dívida ativa da fazenda pública.
+
+por isso, o prazo prescricional da pena de multa não passou a ser o do art. 174 do ctn. o entendimento fixado foi no sentido de que a prescrição da multa permanece regida pelo art. 114, incisos i e ii, do código penal. o que se aplica, por expressa remissão legal, são apenas as regras relativas às causas suspensivas e interruptivas da prescrição na fase executiva: as causas suspensivas previstas na lei n. 6.830/1980 e as causas interruptivas previstas no art. 174 do ctn.
+
+em outras palavras, o art. 51 do cp não converteu a multa em crédito tributário nem deslocou integralmente seu regime prescricional para o ctn. houve apenas uma disciplina híbrida: a multa conserva natureza penal, com prazo prescricional penal, mas sua execução se submete, quanto a suspensão e interrupção, às normas da dívida ativa. logo, não é correto afirmar que o simples decurso de cinco anos do trânsito em julgado, sem ajuizamento da execução, conduz automaticamente à prescrição da multa com base no art. 174 do ctn. stj. 3ª seção. resp 2.225.431-pr, rel. min. joel ilan paciornik, julgado em 11/3/2026 (recurso repetitivo - tema 1405) (info 881).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 10</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-10">Não respondida</span>
+</div>
+
+<p class="enunciado">A alteração do art. 51 do Código Penal pela Lei n. 13.964/2019, ao conferir à pena de multa a disciplina de dívida de valor e remeter sua cobrança às normas da dívida ativa da Fazenda Pública, fez incidir sobre a execução da multa o prazo prescricional quinquenal do art. 174 do CTN, de modo que, transcorridos mais de cinco anos do trânsito em julgado da condenação sem o ajuizamento da execução, impõe-se reconhecer a prescrição da pretensão executória da multa.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(10, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(10, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-10">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque confunde a natureza jurídica da pena de multa com o regime jurídico aplicável à sua cobrança. A alteração legislativa do art. 51 do Código Penal não descaracterizou a multa como sanção penal: ela continua sendo pena criminal, ainda que a sua execução passe a observar, em certos aspectos, a sistemática da dívida ativa da Fazenda Pública.<br><br>Por isso, o prazo prescricional da pena de multa não passou a ser o do art. 174 do CTN. O entendimento fixado foi no sentido de que a prescrição da multa permanece regida pelo art. 114, incisos I e II, do Código Penal. O que se aplica, por expressa remissão legal, são apenas as regras relativas às causas suspensivas e interruptivas da prescrição na fase executiva: as causas suspensivas previstas na Lei n. 6.830/1980 e as causas interruptivas previstas no art. 174 do CTN.<br><br>Em outras palavras, o art. 51 do CP não converteu a multa em crédito tributário nem deslocou integralmente seu regime prescricional para o CTN. Houve apenas uma disciplina híbrida: a multa conserva natureza penal, com prazo prescricional penal, mas sua execução se submete, quanto a suspensão e interrupção, às normas da dívida ativa. Logo, não é correto afirmar que o simples decurso de cinco anos do trânsito em julgado, sem ajuizamento da execução, conduz automaticamente à prescrição da multa com base no art. 174 do CTN.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Seção. REsp 2.225.431-PR, Rel. Min. Joel Ilan Paciornik, julgado em 11/3/2026 (Recurso Repetitivo - Tema 1405) (Info 881).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a declaração de extinção da punibilidade pela prescrição da pretensão punitiva, quando fundada na pena concretamente aplicada, elimina os efeitos principais e secundários da condenação, de modo que não subsiste interesse recursal do réu em interpor apelação exclusivamente para obter decreto absolutório, pois a utilidade do recurso deve ser examinada a partir do proveito jurídico-processual objetivamente alcançável, e não de eventual vantagem moral ou simbólica. a assertiva está correta. a prescrição da pretensão punitiva, uma vez reconhecida com base na pena concretamente aplicada, extingue a punibilidade e faz desaparecer o título condenatório em sua integralidade, alcançando não apenas o efeito principal da condenação — a própria sanção penal —, mas também os efeitos secundários penais e extrapenais dela decorrentes. nessa hipótese, a situação jurídica do acusado, para fins práticos, já se aproxima da de quem foi absolvido, razão pela qual a substituição da extinção da punibilidade por um decreto absolutório não agrega utilidade jurídica relevante.
+
+o ponto central é o interesse recursal. nos termos do art. 577, parágrafo único, do cpp, o recurso exige utilidade e necessidade, isto é, deve ser apto a produzir algum proveito jurídico-processual concreto à parte recorrente. não basta a pretensão de obter um resultado mais “favorável” em sentido moral, reputacional ou simbólico. se a prescrição já apagou os efeitos da condenação, a apelação voltada apenas à absolvição carece de utilidade recursal, pois não melhora a posição jurídica do réu de forma juridicamente relevante.
+
+assim, a defesa não possui interesse recursal para insistir em absolvição quando já houve extinção da punibilidade pela prescrição da pretensão punitiva, devendo ser preservada a sentença que reconheceu a prescrição. stj. 5ª turma. agrg no resp 2.118.145-rj, rel. min. maria marluce caldas, julgado em 25/2/2026 (info 881).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 11</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-11">Não respondida</span>
+</div>
+
+<p class="enunciado">A declaração de extinção da punibilidade pela prescrição da pretensão punitiva, quando fundada na pena concretamente aplicada, elimina os efeitos principais e secundários da condenação, de modo que não subsiste interesse recursal do réu em interpor apelação exclusivamente para obter decreto absolutório, pois a utilidade do recurso deve ser examinada a partir do proveito jurídico-processual objetivamente alcançável, e não de eventual vantagem moral ou simbólica.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(11, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(11, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-11">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta. A prescrição da pretensão punitiva, uma vez reconhecida com base na pena concretamente aplicada, extingue a punibilidade e faz desaparecer o título condenatório em sua integralidade, alcançando não apenas o efeito principal da condenação — a própria sanção penal —, mas também os efeitos secundários penais e extrapenais dela decorrentes. Nessa hipótese, a situação jurídica do acusado, para fins práticos, já se aproxima da de quem foi absolvido, razão pela qual a substituição da extinção da punibilidade por um decreto absolutório não agrega utilidade jurídica relevante.<br><br>O ponto central é o interesse recursal. Nos termos do art. 577, parágrafo único, do CPP, o recurso exige utilidade e necessidade, isto é, deve ser apto a produzir algum proveito jurídico-processual concreto à parte recorrente. Não basta a pretensão de obter um resultado mais “favorável” em sentido moral, reputacional ou simbólico. Se a prescrição já apagou os efeitos da condenação, a apelação voltada apenas à absolvição carece de utilidade recursal, pois não melhora a posição jurídica do réu de forma juridicamente relevante.<br><br>Assim, a defesa não possui interesse recursal para insistir em absolvição quando já houve extinção da punibilidade pela prescrição da pretensão punitiva, devendo ser preservada a sentença que reconheceu a prescrição.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 5ª Turma. AgRg no REsp 2.118.145-RJ, Rel. Min. Maria Marluce Caldas, julgado em 25/2/2026 (Info 881).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="no curso de inquérito policial instaurado para apurar morte suspeita decorrente de possível maus-tratos, é admissível o indeferimento da habilitação de assistente técnico indicado pela investigada, ainda que sem indicação concreta de risco às investigações, por se tratar de fase inquisitorial em que não incide contraditório pleno e em que a atuação da defesa técnica somente se legitima após a conclusão da perícia oficial. a assertiva contraria o entendimento firmado no caso. embora o inquérito policial tenha natureza inquisitorial e não comporte contraditório pleno nos moldes da ação penal, isso não autoriza, por si só, a exclusão absoluta da atuação defensiva em matéria pericial. reconheceu-se que o investigado pode, se quiser, ter assistente técnico habilitado nos autos do inquérito, com a prerrogativa de formular quesitos ao perito oficial, desde que não haja demonstração concreta de que essa participação possa embaraçar as investigações.
+
+o ponto central é que a negativa de acesso não pode ser automática nem fundada apenas na ideia genérica de que o inquérito é procedimento sigiloso ou inquisitivo. exige-se motivação concreta, lastreada em elementos específicos que evidenciem risco real ao andamento investigativo. na ausência dessa demonstração, o indeferimento configura cerceamento de defesa, pois impede que a parte acompanhe a produção da prova técnica no momento em que ela é realizada, reduzindo a utilidade do contraditório diferido e dificultando a impugnação posterior do laudo.
+
+também não procede a afirmação de que o art. 159, § 4º, do cpp restringiria a atuação do assistente técnico apenas ao momento posterior à perícia oficial. no caso examinado, a interpretação adotada foi no sentido de que a participação pode ser admitida já na fase investigativa, justamente para permitir a formulação de quesitos e o acompanhamento técnico do exame, desde que ausente risco concreto de embaraço às investigações. stj. 6ª turma. rhc 200.979-sp, rel. min. rogerio schietti cruz, julgado em 9/12/2025 (info 881).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 12</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-12">Não respondida</span>
+</div>
+
+<p class="enunciado">No curso de inquérito policial instaurado para apurar morte suspeita decorrente de possível maus-tratos, é admissível o indeferimento da habilitação de assistente técnico indicado pela investigada, ainda que sem indicação concreta de risco às investigações, por se tratar de fase inquisitorial em que não incide contraditório pleno e em que a atuação da defesa técnica somente se legitima após a conclusão da perícia oficial.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(12, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(12, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-12">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva contraria o entendimento firmado no caso. Embora o inquérito policial tenha natureza inquisitorial e não comporte contraditório pleno nos moldes da ação penal, isso não autoriza, por si só, a exclusão absoluta da atuação defensiva em matéria pericial. Reconheceu-se que o investigado pode, se quiser, ter assistente técnico habilitado nos autos do inquérito, com a prerrogativa de formular quesitos ao perito oficial, desde que não haja demonstração concreta de que essa participação possa embaraçar as investigações.<br><br>O ponto central é que a negativa de acesso não pode ser automática nem fundada apenas na ideia genérica de que o inquérito é procedimento sigiloso ou inquisitivo. Exige-se motivação concreta, lastreada em elementos específicos que evidenciem risco real ao andamento investigativo. Na ausência dessa demonstração, o indeferimento configura cerceamento de defesa, pois impede que a parte acompanhe a produção da prova técnica no momento em que ela é realizada, reduzindo a utilidade do contraditório diferido e dificultando a impugnação posterior do laudo.<br><br>Também não procede a afirmação de que o art. 159, § 4º, do CPP restringiria a atuação do assistente técnico apenas ao momento posterior à perícia oficial. No caso examinado, a interpretação adotada foi no sentido de que a participação pode ser admitida já na fase investigativa, justamente para permitir a formulação de quesitos e o acompanhamento técnico do exame, desde que ausente risco concreto de embaraço às investigações.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 6ª Turma. RHC 200.979-SP, Rel. Min. Rogerio Schietti Cruz, julgado em 9/12/2025 (Info 881).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a persecução penal por destruição de vegetação nativa composta por espécie vegetal oficialmente classificada como ameaçada de extinção, ainda que a área atingida esteja situada em propriedade rural privada e não haja notícia de transnacionalidade da conduta, deve ser processada e julgada pela justiça federal, por se tratar de matéria ambiental tutelada por norma federal e, portanto, de interesse jurídico direto da união. a afirmação está incorreta porque a simples circunstância de a vegetação atingida integrar lista oficial de espécie ameaçada de extinção, por si só, não desloca a competência para a justiça federal. em crimes ambientais, a competência federal é excepcional e depende da presença de **interesse direto e específico da união** ou de **transnacionalidade da conduta**.
+
+no caso de destruição de vegetação nativa em propriedade rural privada, ainda que a espécie seja protegida por ato normativo federal e esteja em risco de extinção, isso não basta para caracterizar ofensa direta a bem, serviço ou interesse da união. a tutela ambiental, embora amparada por legislação federal, não transforma automaticamente todo delito ambiental em crime federal. a competência permanece, em regra, com a **justiça estadual**.
+
+esse entendimento preserva a lógica da competência penal: a incidência de norma federal material não implica, por si, competência da justiça federal. é necessário um vínculo mais qualificado com a união, o que não se verifica apenas pela proteção normativa da espécie vegetal. assim, ausentes transnacionalidade e lesão direta a interesse federal específico, o processo deve tramitar na justiça estadual. stj. 3ª seção. cc 215.970-pr, rel. min. og fernandes, julgado em 4/12/2025 (info 881).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 13</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-13">Não respondida</span>
+</div>
+
+<p class="enunciado">A persecução penal por destruição de vegetação nativa composta por espécie vegetal oficialmente classificada como ameaçada de extinção, ainda que a área atingida esteja situada em propriedade rural privada e não haja notícia de transnacionalidade da conduta, deve ser processada e julgada pela Justiça Federal, por se tratar de matéria ambiental tutelada por norma federal e, portanto, de interesse jurídico direto da União.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(13, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(13, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-13">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A afirmação está incorreta porque a simples circunstância de a vegetação atingida integrar lista oficial de espécie ameaçada de extinção, por si só, não desloca a competência para a Justiça Federal. Em crimes ambientais, a competência federal é excepcional e depende da presença de <strong>interesse direto e específico da União</strong> ou de <strong>transnacionalidade da conduta</strong>.<br><br>No caso de destruição de vegetação nativa em propriedade rural privada, ainda que a espécie seja protegida por ato normativo federal e esteja em risco de extinção, isso não basta para caracterizar ofensa direta a bem, serviço ou interesse da União. A tutela ambiental, embora amparada por legislação federal, não transforma automaticamente todo delito ambiental em crime federal. A competência permanece, em regra, com a <strong>Justiça Estadual</strong>.<br><br>Esse entendimento preserva a lógica da competência penal: a incidência de norma federal material não implica, por si, competência da Justiça Federal. É necessário um vínculo mais qualificado com a União, o que não se verifica apenas pela proteção normativa da espécie vegetal. Assim, ausentes transnacionalidade e lesão direta a interesse federal específico, o processo deve tramitar na Justiça Estadual.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Seção. CC 215.970-PR, Rel. Min. Og Fernandes, julgado em 4/12/2025 (Info 881).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="no regime do lucro presumido, é juridicamente admissível excluir os valores de pis e cofins da base de cálculo do irpj e da csll, sob o argumento de que tais exações não se incorporam ao patrimônio do contribuinte e de que a lógica da não cumulatividade e da exclusão do icms da base do pis/cofins autoriza, por analogia, a mesma solução para os tributos incidentes sobre a renda presumida. a assertiva contraria o entendimento firmado para a sistemática do lucro presumido. nessa modalidade de apuração, a legislação parte da receita bruta como base de cálculo e não admite, como regra, deduções não expressamente autorizadas em lei. a opção pelo lucro presumido implica adesão a um regime simplificado, no qual o contribuinte aceita uma forma de apuração que dispensa a consideração individualizada de custos, despesas e, também, de tributos incidentes sobre a atividade.
+
+assim, não é possível selecionar apenas a simplificação do regime e, simultaneamente, importar deduções típicas de outro modelo de apuração, como o lucro real. a pretensão de excluir pis e cofins da base do irpj e da csll, no lucro presumido, esbarra justamente nessa estrutura normativa: ausente previsão legal específica, a dedução não pode ser criada por interpretação extensiva.
+
+também não prospera a invocação analógica do precedente que afastou o icms da base do pis e da cofins. aquele julgamento foi construído a partir de disciplina constitucional própria, relacionada à base de cálculo dessas contribuições, não servindo para autorizar, de forma automática, a exclusão de outros tributos da base de cálculo do irpj e da csll em regime diverso. em suma, no lucro presumido, pis e cofins integram a base de cálculo do irpj e da csll. stj. 1ª seção. resp 2.151.903-rs, resp 2.151.904-rs e resp 2.151.907-rs, rel. min. paulo sérgio domingues, julgados em 11/3/2026 (recurso repetitivo - tema 1312) (info 881).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 14</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-14">Não respondida</span>
+</div>
+
+<p class="enunciado">No regime do lucro presumido, é juridicamente admissível excluir os valores de PIS e COFINS da base de cálculo do IRPJ e da CSLL, sob o argumento de que tais exações não se incorporam ao patrimônio do contribuinte e de que a lógica da não cumulatividade e da exclusão do ICMS da base do PIS/COFINS autoriza, por analogia, a mesma solução para os tributos incidentes sobre a renda presumida.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(14, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(14, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-14">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva contraria o entendimento firmado para a sistemática do lucro presumido. Nessa modalidade de apuração, a legislação parte da receita bruta como base de cálculo e não admite, como regra, deduções não expressamente autorizadas em lei. A opção pelo lucro presumido implica adesão a um regime simplificado, no qual o contribuinte aceita uma forma de apuração que dispensa a consideração individualizada de custos, despesas e, também, de tributos incidentes sobre a atividade.<br><br>Assim, não é possível selecionar apenas a simplificação do regime e, simultaneamente, importar deduções típicas de outro modelo de apuração, como o lucro real. A pretensão de excluir PIS e COFINS da base do IRPJ e da CSLL, no lucro presumido, esbarra justamente nessa estrutura normativa: ausente previsão legal específica, a dedução não pode ser criada por interpretação extensiva.<br><br>Também não prospera a invocação analógica do precedente que afastou o ICMS da base do PIS e da COFINS. Aquele julgamento foi construído a partir de disciplina constitucional própria, relacionada à base de cálculo dessas contribuições, não servindo para autorizar, de forma automática, a exclusão de outros tributos da base de cálculo do IRPJ e da CSLL em regime diverso. Em suma, no lucro presumido, PIS e COFINS integram a base de cálculo do IRPJ e da CSLL.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Seção. REsp 2.151.903-RS, REsp 2.151.904-RS e REsp 2.151.907-RS, Rel. Min. Paulo Sérgio Domingues, julgados em 11/3/2026 (Recurso Repetitivo - Tema 1312) (Info 881).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a partir da alteração promovida pela instrução normativa rfb n. 2.121/2022, é juridicamente admissível que o contribuinte sujeito ao regime não cumulativo do pis/pasep e da cofins inclua o ipi não recuperável incidente na aquisição de mercadoria para revenda na base de cálculo dos respectivos créditos, ainda que tal valor componha o custo de aquisição do bem e tenha sido anteriormente admitido por atos infralegais da administração tributária. no regime não cumulativo do pis/pasep e da cofins, o creditamento é disciplinado pelas leis n. 10.637/2002 e 10.833/2003, cujo art. 3º, § 2º, ii, veda a tomada de crédito sobre valores que não estejam sujeitos ao pagamento dessas contribuições na etapa anterior. o ipi não recuperável incidente na compra de mercadoria para revenda, embora integre o custo de aquisição do bem sob a ótica contábil ou econômica, não compõe a base de cálculo do pis/pasep e da cofins devidos pelo fornecedor na operação de venda. por essa razão, não há simetria apta a autorizar o crédito sobre esse mesmo montante na etapa subsequente.
+
+além disso, a mudança de orientação administrativa ocorrida com a in rfb n. 2.121/2022, em 20/12/2022, foi justamente no sentido de vedar a inclusão do ipi não recuperável na base de apuração dos créditos. assim, a tese firmada restringe a possibilidade de creditamento às operações realizadas após a entrada em vigor da referida instrução normativa, afastando a pretensão de manutenção da sistemática anterior com base em atos infralegais revogados ou superados.
+
+em síntese, não prevalece a tese de que a mera integração do ipi não recuperável ao custo de aquisição autorize sua inclusão na base dos créditos do pis/pasep e da cofins no regime não cumulativo, especialmente para operações posteriores a 20/12/2022. stj. 1ª seção. resp 2.198.235-ce e resp 2.191.364-rs, rel. min. maria thereza de assis moura, julgados em 11/3/2026 (recurso repetitivo - tema 1373) (info 881).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 15</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-15">Não respondida</span>
+</div>
+
+<p class="enunciado">A partir da alteração promovida pela Instrução Normativa RFB n. 2.121/2022, é juridicamente admissível que o contribuinte sujeito ao regime não cumulativo do PIS/Pasep e da Cofins inclua o IPI não recuperável incidente na aquisição de mercadoria para revenda na base de cálculo dos respectivos créditos, ainda que tal valor componha o custo de aquisição do bem e tenha sido anteriormente admitido por atos infralegais da Administração Tributária.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(15, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(15, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-15">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>No regime não cumulativo do PIS/Pasep e da Cofins, o creditamento é disciplinado pelas Leis n. 10.637/2002 e 10.833/2003, cujo art. 3º, § 2º, II, veda a tomada de crédito sobre valores que não estejam sujeitos ao pagamento dessas contribuições na etapa anterior. O IPI não recuperável incidente na compra de mercadoria para revenda, embora integre o custo de aquisição do bem sob a ótica contábil ou econômica, não compõe a base de cálculo do PIS/Pasep e da Cofins devidos pelo fornecedor na operação de venda. Por essa razão, não há simetria apta a autorizar o crédito sobre esse mesmo montante na etapa subsequente.<br><br>Além disso, a mudança de orientação administrativa ocorrida com a IN RFB n. 2.121/2022, em 20/12/2022, foi justamente no sentido de vedar a inclusão do IPI não recuperável na base de apuração dos créditos. Assim, a tese firmada restringe a possibilidade de creditamento às operações realizadas após a entrada em vigor da referida instrução normativa, afastando a pretensão de manutenção da sistemática anterior com base em atos infralegais revogados ou superados.<br><br>Em síntese, não prevalece a tese de que a mera integração do IPI não recuperável ao custo de aquisição autorize sua inclusão na base dos créditos do PIS/Pasep e da Cofins no regime não cumulativo, especialmente para operações posteriores a 20/12/2022.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Seção. REsp 2.198.235-CE e REsp 2.191.364-RS, Rel. Min. Maria Thereza de Assis Moura, julgados em 11/3/2026 (Recurso Repetitivo - Tema 1373) (Info 881).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="para fins de prorrogação do período de graça em razão de desemprego involuntário, admite-se a comprovação dessa condição por outros meios de prova em direito, inclusive na via administrativa ou judicial, mas a simples inexistência de registros de vínculo empregatício na ctps ou no cnis, por si só, não basta para demonstrar o desemprego e, portanto, não autoriza automaticamente a extensão do período de manutenção da qualidade de segurado. a prorrogação do período de graça prevista no art. 15, § 2º, da lei 8.213/1991 depende da demonstração de desemprego involuntário. o entendimento firmado é no sentido de que o registro perante o órgão competente não constitui meio exclusivo de prova: ele pode ser substituído por outros elementos probatórios admitidos em direito, tanto na esfera administrativa quanto na judicial, desde que efetivamente evidenciada a situação de desemprego.
+
+contudo, há um limite relevante: a mera ausência de anotações laborais na ctps ou no cnis não é suficiente, por si só, para comprovar o desemprego involuntário. isso porque a inexistência de registros formais não afasta, automaticamente, a possibilidade de exercício de atividade remunerada na informalidade. em outras palavras, a falta de vínculo formal não equivale, necessariamente, à ausência de trabalho ou de renda.
+
+assim, para a prorrogação do período de graça, exige-se prova concreta da condição de desempregado, podendo ser utilizada prova testemunhal, documentos de busca por recolocação, cadastro em órgão de intermediação de mão de obra ou outros meios idôneos. a tese, portanto, prestigia a liberdade probatória, mas rejeita presunção automática de desemprego baseada apenas no vazio cadastral da ctps e do cnis. stj. 1ª seção. resp 2.169.736-rj e resp 2.188.714-mt, rel. min. afrânio vilela, julgado em 11/3/2026 (recurso repetitivo - tema 1360) (info 881).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 16</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-16">Não respondida</span>
+</div>
+
+<p class="enunciado">Para fins de prorrogação do período de graça em razão de desemprego involuntário, admite-se a comprovação dessa condição por outros meios de prova em direito, inclusive na via administrativa ou judicial, mas a simples inexistência de registros de vínculo empregatício na CTPS ou no CNIS, por si só, não basta para demonstrar o desemprego e, portanto, não autoriza automaticamente a extensão do período de manutenção da qualidade de segurado.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(16, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(16, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-16">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A prorrogação do período de graça prevista no art. 15, § 2º, da Lei 8.213/1991 depende da demonstração de desemprego involuntário. O entendimento firmado é no sentido de que o registro perante o órgão competente não constitui meio exclusivo de prova: ele pode ser substituído por outros elementos probatórios admitidos em direito, tanto na esfera administrativa quanto na judicial, desde que efetivamente evidenciada a situação de desemprego.<br><br>Contudo, há um limite relevante: a mera ausência de anotações laborais na CTPS ou no CNIS não é suficiente, por si só, para comprovar o desemprego involuntário. Isso porque a inexistência de registros formais não afasta, automaticamente, a possibilidade de exercício de atividade remunerada na informalidade. Em outras palavras, a falta de vínculo formal não equivale, necessariamente, à ausência de trabalho ou de renda.<br><br>Assim, para a prorrogação do período de graça, exige-se prova concreta da condição de desempregado, podendo ser utilizada prova testemunhal, documentos de busca por recolocação, cadastro em órgão de intermediação de mão de obra ou outros meios idôneos. A tese, portanto, prestigia a liberdade probatória, mas rejeita presunção automática de desemprego baseada apenas no vazio cadastral da CTPS e do CNIS.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Seção. REsp 2.169.736-RJ e REsp 2.188.714-MT, Rel. Min. Afrânio Vilela, julgado em 11/3/2026 (Recurso Repetitivo - Tema 1360) (Info 881).</p>
+</div>
+</section>
 
 </div>
 
 <script>
-const totalQuestoes = 16;
-let respostas = JSON.parse(localStorage.getItem(location.pathname + "_respostas") || "{}");
+const storageKey = location.pathname + "_respostas";
+let respostas = JSON.parse(localStorage.getItem(storageKey) || "{}");
 
-function atualizarPainel() {
-    const respondidas = Object.keys(respostas).length;
-    let acertos = 0;
-    let erros = 0;
-
-    for (const key in respostas) {
-        if (respostas[key].correto) acertos++;
-        else erros++;
-    }
-
-    document.getElementById("respondidas").textContent = respondidas;
-    document.getElementById("acertos").textContent = acertos;
-    document.getElementById("erros").textContent = erros;
+function destacar(t){
+ if(t==="CERTO") return '<span class="gabarito-certo">CERTO</span>';
+ if(t==="ERRADO") return '<span class="gabarito-errado">ERRADO</span>';
+ return t;
 }
 
-function responder(numero, resposta) {
-    const card = document.querySelectorAll(".questao")[numero - 1];
-    const gabarito = card.dataset.gabarito;
-    const correto = resposta === gabarito;
-
-    respostas[numero] = {
-        resposta,
-        correto
-    };
-
-    localStorage.setItem(location.pathname + "_respostas", JSON.stringify(respostas));
-
-    mostrarFeedback(numero);
-    atualizarPainel();
+function responder(numero, resposta){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const gabarito=card.dataset.gabarito;
+ const correto=resposta===gabarito;
+ respostas[numero]={resposta,correto};
+ localStorage.setItem(storageKey, JSON.stringify(respostas));
+ mostrarFeedback(numero);
+ atualizarPainel();
+ filtrar();
 }
 
-function mostrarFeedback(numero) {
-    const card = document.querySelectorAll(".questao")[numero - 1];
-    const feedback = document.getElementById("feedback-" + numero);
-    const status = document.getElementById("status-" + numero);
-    const resultado = feedback.querySelector(".resultado");
-
-    const dados = respostas[numero];
-
-    if (!dados) return;
-
-    feedback.style.display = "block";
-    feedback.classList.remove("correto", "errado");
-
-    if (dados.correto) {
-        feedback.classList.add("correto");
-        resultado.textContent = "Você acertou. A resposta é " + card.dataset.gabarito + ".";
-        status.textContent = "Respondida — acerto";
-        status.style.color = "var(--green)";
-    } else {
-        feedback.classList.add("errado");
-        resultado.textContent = "Você errou. O gabarito é " + card.dataset.gabarito + ".";
-        status.textContent = "Respondida — erro";
-        status.style.color = "var(--red)";
-    }
+function mostrarFeedback(numero){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const feedback=document.getElementById("feedback-"+numero);
+ const status=document.getElementById("status-"+numero);
+ const resultado=feedback.querySelector(".resultado");
+ const gabarito=card.dataset.gabarito;
+ const dados=respostas[numero];
+ if(!dados) return;
+ feedback.style.display="block";
+ feedback.classList.remove("correto","errado");
+ if(dados.correto){
+   feedback.classList.add("correto");
+   resultado.innerHTML="Você acertou. A resposta é "+destacar(gabarito)+".";
+   status.textContent="Respondida — acerto";
+   status.style.color="var(--green)";
+ } else {
+   feedback.classList.add("errado");
+   resultado.innerHTML="Você errou. O gabarito é "+destacar(gabarito)+".";
+   status.textContent="Respondida — erro";
+   status.style.color="var(--red)";
+ }
 }
 
-function restaurar() {
-    for (const key in respostas) {
-        mostrarFeedback(Number(key));
-    }
-    atualizarPainel();
+function atualizarPainel(){
+ let respondidas=0, acertos=0, erros=0;
+ for(const k in respostas){
+   respondidas++;
+   if(respostas[k].correto) acertos++; else erros++;
+ }
+ document.getElementById("respondidas").textContent=respondidas;
+ document.getElementById("acertos").textContent=acertos;
+ document.getElementById("erros").textContent=erros;
+ document.getElementById("visiveis").textContent=document.querySelectorAll(".questao:not(.oculta)").length;
 }
 
-function reiniciar() {
-    if (!confirm("Deseja reiniciar este simulado?")) return;
-    localStorage.removeItem(location.pathname + "_respostas");
-    location.reload();
+function filtrar(){
+ const busca=document.getElementById("busca").value.trim().toLowerCase();
+ const disciplina=document.getElementById("disciplina").value;
+ const statusFiltro=document.getElementById("statusFiltro").value;
+ const cards=Array.from(document.querySelectorAll(".questao"));
+ let vis=0;
+ cards.forEach((card,idx)=>{
+   const n=idx+1;
+   const texto=card.dataset.texto||"";
+   const disc=card.dataset.disciplina||"";
+   const r=respostas[n];
+   let passaStatus=true;
+   if(statusFiltro==="nao") passaStatus=!r;
+   if(statusFiltro==="acerto") passaStatus=r && r.correto;
+   if(statusFiltro==="erro") passaStatus=r && !r.correto;
+   const ok=(!busca||texto.includes(busca)) && (!disciplina||disc===disciplina) && passaStatus;
+   card.classList.toggle("oculta", !ok);
+   if(ok) vis++;
+ });
+ document.getElementById("sem-resultados").style.display=vis===0?"block":"none";
+ atualizarPainel();
+}
+
+function reiniciar(){
+ if(!confirm("Deseja reiniciar este simulado?")) return;
+ localStorage.removeItem(storageKey);
+ location.reload();
+}
+
+function restaurar(){
+ for(const k in respostas) mostrarFeedback(Number(k));
+ filtrar();
+ atualizarPainel();
 }
 
 restaurar();
 </script>
-
 </body>
 </html>

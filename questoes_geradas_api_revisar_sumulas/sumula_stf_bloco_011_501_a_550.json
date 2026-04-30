@@ -1,0 +1,856 @@
+{
+  "itens": [
+    {
+      "id_origem": "sumula_501_stf",
+      "titulo": "Súmula 501 STF",
+      "tipo": "Súmula",
+      "numero": "501",
+      "tribunal": "STF",
+      "enunciado": "Compete à Justiça ordinária estadual o processo e o julgamento, em ambas as instâncias, das causas de acidente do trabalho, ainda que promovidas contra a União, suas autarquias, emprêsas públicas ou sociedades de economia mista.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_011_501_a_550.md"
+    },
+    {
+      "id_origem": "sumula_502_stf",
+      "titulo": "Súmula 502 STF",
+      "tipo": "Súmula",
+      "numero": "502",
+      "tribunal": "STF",
+      "enunciado": "Na aplicação do art. 839 do C. Pr. Civ., com a redação da Lei nº 4.290, de 5.12.63, a relação valor da causa e salário mínimo vigente na Capital do Estado, ou do Território, para o efeito de alçada, deve ser considerada na data do ajuizamento do pedido.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_011_501_a_550.md"
+    },
+    {
+      "id_origem": "sumula_503_stf",
+      "titulo": "Súmula 503 STF",
+      "tipo": "Súmula",
+      "numero": "503",
+      "tribunal": "STF",
+      "enunciado": "A dúvida, suscitada por particular, sôbre o direito de tributar, manifestado por dois Estados, não configura litígio da competência originária do Supremo Tribunal Federal.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_011_501_a_550.md"
+    },
+    {
+      "id_origem": "sumula_504_stf",
+      "titulo": "Súmula 504 STF",
+      "tipo": "Súmula",
+      "numero": "504",
+      "tribunal": "STF",
+      "enunciado": "Compete à Justiça Federal, em ambas as instâncias, o processo e o julgamento das causas fundadas em contrato de seguro marítimo. 79",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_011_501_a_550.md"
+    },
+    {
+      "id_origem": "sumula_505_stf",
+      "titulo": "Súmula 505 STF",
+      "tipo": "Súmula",
+      "numero": "505",
+      "tribunal": "STF",
+      "enunciado": "Salvo quando contrariarem a Constituição, não cabe recurso para o Supremo Tribunal Federal, de quaisquer decisões da Justiça do Trabalho, inclusive dos presidentes de seus Tribunais.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_011_501_a_550.md"
+    },
+    {
+      "id_origem": "sumula_506_stf",
+      "titulo": "Súmula 506 STF",
+      "tipo": "Súmula",
+      "numero": "506",
+      "tribunal": "STF",
+      "enunciado": "O agravo a que se refere o art. 4º da Lei nº 4.348, de 26.6.64, cabe, somente, do despacho do Presidente do Supremo Tribunal Federal que defere a suspensão da liminar, em mandado de segurança; não do que a denega.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_011_501_a_550.md"
+    },
+    {
+      "id_origem": "sumula_507_stf",
+      "titulo": "Súmula 507 STF",
+      "tipo": "Súmula",
+      "numero": "507",
+      "tribunal": "STF",
+      "enunciado": "A ampliação dos prazos a que se refere o art. 32 do Código de Processo Civil aplica-se aos executivos fiscais.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_011_501_a_550.md"
+    },
+    {
+      "id_origem": "sumula_508_stf",
+      "titulo": "Súmula 508 STF",
+      "tipo": "Súmula",
+      "numero": "508",
+      "tribunal": "STF",
+      "enunciado": "Compete à Justiça Estadual, em ambas as instâncias, processar e julgar as causas em que fôr parte o Banco do Brasil S. A.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_011_501_a_550.md"
+    },
+    {
+      "id_origem": "sumula_509_stf",
+      "titulo": "Súmula 509 STF",
+      "tipo": "Súmula",
+      "numero": "509",
+      "tribunal": "STF",
+      "enunciado": "A Lei nº 4.632, de 18.5.65, que alterou o art. 64 do Código de Processo Civil, aplica-se aos processos em andamento, nas instâncias ordinárias.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_011_501_a_550.md"
+    },
+    {
+      "id_origem": "sumula_510_stf",
+      "titulo": "Súmula 510 STF",
+      "tipo": "Súmula",
+      "numero": "510",
+      "tribunal": "STF",
+      "enunciado": "Praticado o ato por autoridade, no exercício de competência delegada, contra ela cabe o mandado de segurança ou a medida judicial.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_011_501_a_550.md"
+    },
+    {
+      "id_origem": "sumula_511_stf",
+      "titulo": "Súmula 511 STF",
+      "tipo": "Súmula",
+      "numero": "511",
+      "tribunal": "STF",
+      "enunciado": "Compete à Justiça Federal, em ambas as instâncias, processar e julgar as causas entre autarquias federais e entidades públicas locais, inclusive mandados de segurança, ressalvada a ação fiscal, nos termos da Constituição Federal de 1967, art. 119, § 3º. 80",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_011_501_a_550.md"
+    },
+    {
+      "id_origem": "sumula_512_stf",
+      "titulo": "Súmula 512 STF",
+      "tipo": "Súmula",
+      "numero": "512",
+      "tribunal": "STF",
+      "enunciado": "Não cabe condenação em honorários de advogado na ação de mandado de segurança.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_011_501_a_550.md"
+    },
+    {
+      "id_origem": "sumula_513_stf",
+      "titulo": "Súmula 513 STF",
+      "tipo": "Súmula",
+      "numero": "513",
+      "tribunal": "STF",
+      "enunciado": "A decisão que enseja a interposição de recurso ordinário ou extraordinário não é a do plenário, que resolve o incidente de inconstitucionalidade, mas a do órgão (Câmaras, Grupos ou Turmas) que completa o julgamento do feito.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_011_501_a_550.md"
+    },
+    {
+      "id_origem": "sumula_514_stf",
+      "titulo": "Súmula 514 STF",
+      "tipo": "Súmula",
+      "numero": "514",
+      "tribunal": "STF",
+      "enunciado": "Admite-se ação rescisória contra sentença transitada em julgado, ainda que contra ela não se tenha esgotado todos os recursos.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_011_501_a_550.md"
+    },
+    {
+      "id_origem": "sumula_515_stf",
+      "titulo": "Súmula 515 STF",
+      "tipo": "Súmula",
+      "numero": "515",
+      "tribunal": "STF",
+      "enunciado": "A competência para a ação rescisória não é do Supremo Tribunal Federal, quando a questão federal, apreciada no recurso extraordinário ou no agravo de instrumento, seja diversa da que foi suscitada no pedido rescisório.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_011_501_a_550.md"
+    },
+    {
+      "id_origem": "sumula_516_stf",
+      "titulo": "Súmula 516 STF",
+      "tipo": "Súmula",
+      "numero": "516",
+      "tribunal": "STF",
+      "enunciado": "O Serviço Social da Indústria – S. E. S. I. – está sujeito à jurisdição da Justiça Estadual.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_011_501_a_550.md"
+    },
+    {
+      "id_origem": "sumula_517_stf",
+      "titulo": "Súmula 517 STF",
+      "tipo": "Súmula",
+      "numero": "517",
+      "tribunal": "STF",
+      "enunciado": "As sociedades de economia mista só têm fôro na Justiça Federal, quando a União intervém como assistente ou opoente.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_011_501_a_550.md"
+    },
+    {
+      "id_origem": "sumula_518_stf",
+      "titulo": "Súmula 518 STF",
+      "tipo": "Súmula",
+      "numero": "518",
+      "tribunal": "STF",
+      "enunciado": "A intervenção da União, em feito já julgado pela segunda instância e pendente de embargos, não desloca o processo para o Tribunal Federal de Recursos.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_011_501_a_550.md"
+    },
+    {
+      "id_origem": "sumula_519_stf",
+      "titulo": "Súmula 519 STF",
+      "tipo": "Súmula",
+      "numero": "519",
+      "tribunal": "STF",
+      "enunciado": "Aplica-se aos executivos fiscais o princípio da sucumbência a que se refere o art. 64 do Código de Processo Civil. 81",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_011_501_a_550.md"
+    },
+    {
+      "id_origem": "sumula_520_stf",
+      "titulo": "Súmula 520 STF",
+      "tipo": "Súmula",
+      "numero": "520",
+      "tribunal": "STF",
+      "enunciado": "Não exige a lei que, para requerer o exame a que se refere o art. 777 do Código de Processo Penal, tenha o sentenciado cumprido mais de metade do prazo da medida de segurança imposta.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_011_501_a_550.md"
+    },
+    {
+      "id_origem": "sumula_521_stf",
+      "titulo": "Súmula 521 STF",
+      "tipo": "Súmula",
+      "numero": "521",
+      "tribunal": "STF",
+      "enunciado": "O foro competente para o processo e julgamento dos crimes de estelionato, sob a modalidade da emissão dolosa de cheque sem provisão de fundos, é o do local onde se deu a recusa do pagamento pelo sacado.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_011_501_a_550.md"
+    },
+    {
+      "id_origem": "sumula_522_stf",
+      "titulo": "Súmula 522 STF",
+      "tipo": "Súmula",
+      "numero": "522",
+      "tribunal": "STF",
+      "enunciado": "Salvo ocorrência de tráfico para o Exterior, quando, então, a competência será da Justiça Federal, compete à Justiça dos Estados o processo e julgamento dos crimes relativos a entorpecentes.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_011_501_a_550.md"
+    },
+    {
+      "id_origem": "sumula_523_stf",
+      "titulo": "Súmula 523 STF",
+      "tipo": "Súmula",
+      "numero": "523",
+      "tribunal": "STF",
+      "enunciado": "No processo penal, a falta da defesa constitui nulidade absoluta, mas a sua deficiência só o anulará se houver prova de prejuízo para o réu.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_011_501_a_550.md"
+    },
+    {
+      "id_origem": "sumula_524_stf",
+      "titulo": "Súmula 524 STF",
+      "tipo": "Súmula",
+      "numero": "524",
+      "tribunal": "STF",
+      "enunciado": "Arquivado o inquérito policial, por despacho do juiz, a requerimento do promotor de justiça, não pode a ação penal ser iniciada, sem novas provas.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_011_501_a_550.md"
+    },
+    {
+      "id_origem": "sumula_525_stf",
+      "titulo": "Súmula 525 STF",
+      "tipo": "Súmula",
+      "numero": "525",
+      "tribunal": "STF",
+      "enunciado": "A medida de segurança não será aplicada em segunda instância, quando só o réu tenha recorrido.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_011_501_a_550.md"
+    },
+    {
+      "id_origem": "sumula_526_stf",
+      "titulo": "Súmula 526 STF",
+      "tipo": "Súmula",
+      "numero": "526",
+      "tribunal": "STF",
+      "enunciado": "Subsiste a competência do Supremo Tribunal Federal para conhecer e julgar a apelação, nos crimes da Lei de Segurança Nacional, se houve sentença antes da vigência do A.I. nº 2. 82",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_011_501_a_550.md"
+    },
+    {
+      "id_origem": "sumula_527_stf",
+      "titulo": "Súmula 527 STF",
+      "tipo": "Súmula",
+      "numero": "527",
+      "tribunal": "STF",
+      "enunciado": "Após a vigência do Ato Institucional nº 6, que deu nova redação ao art. 114, III, da Constituição Federal de 1967, não cabe recurso extraordinário das decisões do juiz singular.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_011_501_a_550.md"
+    },
+    {
+      "id_origem": "sumula_528_stf",
+      "titulo": "Súmula 528 STF",
+      "tipo": "Súmula",
+      "numero": "528",
+      "tribunal": "STF",
+      "enunciado": "Se a decisão contiver partes autônomas, a admissão parcial, pelo Presidente do Tribunal a quo, de recurso extraordinário que, sôbre qualquer delas se manifestar, não limitará a apreciação de tôdas pelo Supremo Tribunal Federal, independentemente de interposição de agravo de instrumento.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_011_501_a_550.md"
+    },
+    {
+      "id_origem": "sumula_529_stf",
+      "titulo": "Súmula 529 STF",
+      "tipo": "Súmula",
+      "numero": "529",
+      "tribunal": "STF",
+      "enunciado": "Subsiste a responsabilidade do empregador pela indenização decorrente de acidente do trabalho, quando o segurador, por haver entrado em liquidação, ou por outro motivo, não se encontrar em condições financeiras, de efetuar, na forma da lei, o pagamento que o seguro obrigatório visava garantir.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_011_501_a_550.md"
+    },
+    {
+      "id_origem": "sumula_530_stf",
+      "titulo": "Súmula 530 STF",
+      "tipo": "Súmula",
+      "numero": "530",
+      "tribunal": "STF",
+      "enunciado": "Na legislação anterior ao art. 4º da Lei nº 4.749, de 12-8-1965, a contribuição para a previdência social não estava sujeita ao limite estabelecido no art. 69 da Lei nº 3.807, de 26 de agosto de 1960, sôbre o 13º salário a que se refere o art. 3º da Lei nº 4.281, de 8-11- 63.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_011_501_a_550.md"
+    },
+    {
+      "id_origem": "sumula_531_stf",
+      "titulo": "Súmula 531 STF",
+      "tipo": "Súmula",
+      "numero": "531",
+      "tribunal": "STF",
+      "enunciado": "É inconstitucional o Decreto nº 51.668, de 17-1-1963, que estabeleceu salário profissional para trabalhadores de transportes marítimos, fluviais e lacustres.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_011_501_a_550.md"
+    },
+    {
+      "id_origem": "sumula_532_stf",
+      "titulo": "Súmula 532 STF",
+      "tipo": "Súmula",
+      "numero": "532",
+      "tribunal": "STF",
+      "enunciado": "É constitucional a Lei nº 5.043, de 21.6.66, que concedeu remissão das dívidas fiscais oriundas da falta de oportuno pagamento de sêlo nos contratos particulares com a Caixa Econômica e outras entidades autárquicas. 83",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_011_501_a_550.md"
+    },
+    {
+      "id_origem": "sumula_533_stf",
+      "titulo": "Súmula 533 STF",
+      "tipo": "Súmula",
+      "numero": "533",
+      "tribunal": "STF",
+      "enunciado": "Nas operações denominadas \"crediários\", com emissão de vales ou certificados para compras e nas quais, pelo financiamento, se cobram, em separado, juros, selos e outras despesas, incluir-se-á tudo no custo da mercadoria e sôbre esse preço global calcular-se- á o impôsto de vendas e consignações.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_011_501_a_550.md"
+    },
+    {
+      "id_origem": "sumula_534_stf",
+      "titulo": "Súmula 534 STF",
+      "tipo": "Súmula",
+      "numero": "534",
+      "tribunal": "STF",
+      "enunciado": "O impôsto de importação sôbre o extrato alcoólico de malte, como matéria-prima para fabricação de whisky, incide à base de 60%, desde que desembarcado antes do Ddecreto-lei nº 398, de 30.12.1968.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_011_501_a_550.md"
+    },
+    {
+      "id_origem": "sumula_535_stf",
+      "titulo": "Súmula 535 STF",
+      "tipo": "Súmula",
+      "numero": "535",
+      "tribunal": "STF",
+      "enunciado": "Na importação, a granel, de combustíveis líquidos é admíssivel a diferença de pêso, para mais, até 4%, motivada pelas variações previstas no Decreto-lei nº 1.028, de 4-1- 1939, art. 1º.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_011_501_a_550.md"
+    },
+    {
+      "id_origem": "sumula_536_stf",
+      "titulo": "Súmula 536 STF",
+      "tipo": "Súmula",
+      "numero": "536",
+      "tribunal": "STF",
+      "enunciado": "São objetivamente imunes ao impôsto sôbre circulação de mercadorias os produtos industrializados, em geral, destinados à exportação, além de outros, com a mesma destinação, cuja isenção a lei determinar.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_011_501_a_550.md"
+    },
+    {
+      "id_origem": "sumula_537_stf",
+      "titulo": "Súmula 537 STF",
+      "tipo": "Súmula",
+      "numero": "537",
+      "tribunal": "STF",
+      "enunciado": "É inconstitucional a exigência de impôsto estadual do sêlo, quando feita nos atos e instrumentos tributados ou regulados por lei federal, ressalvado o disposto no art. 15, § 5º, da Constituição Federal de 1946.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_011_501_a_550.md"
+    },
+    {
+      "id_origem": "sumula_538_stf",
+      "titulo": "Súmula 538 STF",
+      "tipo": "Súmula",
+      "numero": "538",
+      "tribunal": "STF",
+      "enunciado": "A avaliação judicial para o efeito do cálculo das benfeitorias dedutíveis do impôsto sôbre lucro imobiliário independe do limite a que se refere a Lei nº 3.470, de 28-11-1958, art. 8º, parágrafo único. 84",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_011_501_a_550.md"
+    },
+    {
+      "id_origem": "sumula_539_stf",
+      "titulo": "Súmula 539 STF",
+      "tipo": "Súmula",
+      "numero": "539",
+      "tribunal": "STF",
+      "enunciado": "É constitucional a lei do Município que reduz o impôsto predial urbano sôbre imóvel ocupado pela residência do proprietário, que não possua outro.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_011_501_a_550.md"
+    },
+    {
+      "id_origem": "sumula_540_stf",
+      "titulo": "Súmula 540 STF",
+      "tipo": "Súmula",
+      "numero": "540",
+      "tribunal": "STF",
+      "enunciado": "No preço da mercadoria sujeita ao impôsto de vendas e consignações, não se incluem as despesas de frete e carreto.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_011_501_a_550.md"
+    },
+    {
+      "id_origem": "sumula_541_stf",
+      "titulo": "Súmula 541 STF",
+      "tipo": "Súmula",
+      "numero": "541",
+      "tribunal": "STF",
+      "enunciado": "O impôsto sôbre vendas e consignações não incide sôbre a venda ocasional de veículos e equipamentos usados, que não se insere na atividade profissional do vendedor, e não é realizada com o fim de lucro, sem caráter, pois, de comercialidade.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_011_501_a_550.md"
+    },
+    {
+      "id_origem": "sumula_542_stf",
+      "titulo": "Súmula 542 STF",
+      "tipo": "Súmula",
+      "numero": "542",
+      "tribunal": "STF",
+      "enunciado": "Não é inconstitucional a multa instituída pelo Estado-membro, como sanção pelo retardamento do início ou da ultimação do inventário.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_011_501_a_550.md"
+    },
+    {
+      "id_origem": "sumula_543_stf",
+      "titulo": "Súmula 543 STF",
+      "tipo": "Súmula",
+      "numero": "543",
+      "tribunal": "STF",
+      "enunciado": "A Lei nº 2.975, de 27-11-1965, revogou, apenas, as isenções de caráter geral, relativas ao impôsto único sôbre combustíveis, não as especiais, por outras leis concedidas.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_011_501_a_550.md"
+    },
+    {
+      "id_origem": "sumula_544_stf",
+      "titulo": "Súmula 544 STF",
+      "tipo": "Súmula",
+      "numero": "544",
+      "tribunal": "STF",
+      "enunciado": "Isenções tributárias concedidas, sob condição onerosa, não podem ser livremente suprimidas.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_011_501_a_550.md"
+    },
+    {
+      "id_origem": "sumula_545_stf",
+      "titulo": "Súmula 545 STF",
+      "tipo": "Súmula",
+      "numero": "545",
+      "tribunal": "STF",
+      "enunciado": "Preços de serviços públicos e taxas não se confundem, porque estas, diferentemente daqueles, são compulsórias e têm sua cobrança condicionada à prévia autorização orçamentária, em relação à lei que as instituiu. 85",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_011_501_a_550.md"
+    },
+    {
+      "id_origem": "sumula_546_stf",
+      "titulo": "Súmula 546 STF",
+      "tipo": "Súmula",
+      "numero": "546",
+      "tribunal": "STF",
+      "enunciado": "Cabe a restituição do tributo pago indevidamente, quando reconhecido por decisão, que o contribuinte de jure não recuperou do contribuinte de facto o quantum respectivo.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_011_501_a_550.md"
+    },
+    {
+      "id_origem": "sumula_547_stf",
+      "titulo": "Súmula 547 STF",
+      "tipo": "Súmula",
+      "numero": "547",
+      "tribunal": "STF",
+      "enunciado": "Não é lícito à autoridade proibir que o contribuinte em débito adquira estampilhas, despache mercadorias nas alfândegas e exerça suas atividades profissionais.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_011_501_a_550.md"
+    },
+    {
+      "id_origem": "sumula_548_stf",
+      "titulo": "Súmula 548 STF",
+      "tipo": "Súmula",
+      "numero": "548",
+      "tribunal": "STF",
+      "enunciado": "É inconstitucional o Decreto-lei nº 643, de 19.6.47, artigo 4º, do Paraná, na parte que exige sêlo proporcional sôbre atos e instrumentos regulados por lei federal.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_011_501_a_550.md"
+    },
+    {
+      "id_origem": "sumula_549_stf",
+      "titulo": "Súmula 549 STF",
+      "tipo": "Súmula",
+      "numero": "549",
+      "tribunal": "STF",
+      "enunciado": "A Taxa de Bombeiros do Estado de Pernambuco é constitucional, revogada a",
+      "cancelada_ou_revogada": true,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_011_501_a_550.md"
+    },
+    {
+      "id_origem": "sumula_550_stf",
+      "titulo": "Súmula 550 STF",
+      "tipo": "Súmula",
+      "numero": "550",
+      "tribunal": "STF",
+      "enunciado": "A isenção concedida pelo art. 2º da Lei nº 1.815 de 1953, às emprêsas de navegação aérea não compreende a taxa de melhoramento de portos, instituída pela Lei nº 3.421 de 1958.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_011_501_a_550.md"
+    }
+  ],
+  "questoes": [
+    {
+      "id_origem": "sumula_501_stf",
+      "titulo_origem": "Súmula 501 STF",
+      "questao": "A Justiça do Trabalho é competente para processar e julgar, em qualquer instância, as ações decorrentes de acidente do trabalho contra a União e suas autarquias.",
+      "gabarito": "ERRADO",
+      "justificativa": "A competência para processar e julgar as causas de acidente do trabalho, mesmo quando promovidas contra a União, suas autarquias, empresas públicas ou sociedades de economia mista, é da Justiça ordinária estadual, conforme entendimento consolidado pelo STF. Portanto, a Justiça do Trabalho não possui competência para essas demandas."
+    },
+    {
+      "id_origem": "sumula_502_stf",
+      "titulo_origem": "Súmula 502 STF",
+      "questao": "Para fins de determinação da alçada conforme o art. 839 do Código de Processo Civil, com a redação dada pela Lei nº 4.290/1963, deve-se considerar o valor da causa em relação ao salário mínimo vigente na capital do Estado ou Território na data do ajuizamento da ação.",
+      "gabarito": "CERTO",
+      "justificativa": "A Súmula 502 do STF estabelece que, para aplicação do art. 839 do CPC com a redação da Lei nº 4.290/1963, a relação entre o valor da causa e o salário mínimo deve ser aferida na data do ajuizamento do pedido, pois é esse o momento processual relevante para definir a competência em razão da alçada. Isso evita alterações posteriores que poderiam modificar a competência do juízo."
+    },
+    {
+      "id_origem": "sumula_503_stf",
+      "titulo_origem": "Súmula 503 STF",
+      "questao": "A simples dúvida apresentada por um particular acerca do direito de tributar, quando manifestada por dois Estados, é suficiente para configurar litígio de competência originária do Supremo Tribunal Federal.",
+      "gabarito": "ERRADO",
+      "justificativa": "A competência originária do Supremo Tribunal Federal para julgar conflitos entre Estados depende da existência de litígio efetivo entre eles. A mera dúvida suscitada por particular sobre o direito de tributar manifestado por dois Estados não configura tal litígio, pois não há controvérsia direta entre os entes federativos, conforme entendimento consolidado."
+    },
+    {
+      "id_origem": "sumula_504_stf",
+      "titulo_origem": "Súmula 504 STF",
+      "questao": "O julgamento de ações decorrentes de contratos de seguro marítimo compete exclusivamente à Justiça Estadual, independentemente da instância.",
+      "gabarito": "ERRADO",
+      "justificativa": "A competência para processar e julgar causas fundadas em contrato de seguro marítimo é da Justiça Federal, tanto na primeira quanto na segunda instância, conforme entendimento consolidado pelo Supremo Tribunal Federal. Portanto, a Justiça Estadual não possui competência para essas demandas."
+    },
+    {
+      "id_origem": "sumula_505_stf",
+      "titulo_origem": "Súmula 505 STF",
+      "questao": "Decisões proferidas pela Justiça do Trabalho, inclusive aquelas dos presidentes de seus Tribunais, admitem recurso ao Supremo Tribunal Federal apenas quando houver violação direta à Constituição Federal.",
+      "gabarito": "CERTO",
+      "justificativa": "O Supremo Tribunal Federal não admite recurso contra decisões da Justiça do Trabalho, salvo se houver afronta direta à Constituição. Essa restrição visa preservar a competência originária e recursal do Tribunal Superior do Trabalho, evitando a sobrecarga do STF com questões infraconstitucionais. Portanto, somente as decisões que contrariem a Constituição podem ser objeto de recurso ao STF, conforme entendimento consolidado."
+    },
+    {
+      "id_origem": "sumula_506_stf",
+      "titulo_origem": "Súmula 506 STF",
+      "questao": "É cabível agravo, conforme o art. 4º da Lei nº 4.348/64, contra o despacho do Presidente do STF que denega a suspensão da liminar em mandado de segurança.",
+      "gabarito": "ERRADO",
+      "justificativa": "O agravo previsto no art. 4º da Lei nº 4.348/64 é cabível exclusivamente contra o despacho do Presidente do STF que defere a suspensão da liminar em mandado de segurança, não sendo admitido contra o despacho que a denega."
+    },
+    {
+      "id_origem": "sumula_507_stf",
+      "titulo_origem": "Súmula 507 STF",
+      "questao": "A prorrogação dos prazos processuais prevista no artigo 32 do Código de Processo Civil não se aplica às execuções fiscais, que possuem regime próprio e específico.",
+      "gabarito": "ERRADO",
+      "justificativa": "O artigo 32 do Código de Processo Civil prevê a ampliação dos prazos processuais em determinadas hipóteses, e essa regra é aplicável também às execuções fiscais, conforme entendimento consolidado pelo Supremo Tribunal Federal. Portanto, a ampliação dos prazos prevista no CPC alcança os processos executivos fiscais, não havendo exclusão ou regime próprio que impeça sua aplicação."
+    },
+    {
+      "id_origem": "sumula_508_stf",
+      "titulo_origem": "Súmula 508 STF",
+      "questao": "Compete à Justiça Federal processar e julgar, em qualquer instância, as ações em que o Banco do Brasil S.A. figure como parte.",
+      "gabarito": "ERRADO",
+      "justificativa": "A competência para processar e julgar as causas em que o Banco do Brasil S.A. seja parte é da Justiça Estadual, em ambas as instâncias, conforme entendimento consolidado pelo Supremo Tribunal Federal. A Justiça Federal não possui competência para essas demandas, salvo exceções legais específicas."
+    },
+    {
+      "id_origem": "sumula_509_stf",
+      "titulo_origem": "Súmula 509 STF",
+      "questao": "A alteração promovida pela Lei nº 4.632/1965 no artigo 64 do Código de Processo Civil deve ser aplicada apenas aos processos que ainda não foram iniciados, não alcançando os processos já em andamento nas instâncias ordinárias.",
+      "gabarito": "ERRADO",
+      "justificativa": "A Lei nº 4.632/1965, que modificou o artigo 64 do Código de Processo Civil, aplica-se também aos processos que já estão em andamento nas instâncias ordinárias, conforme entendimento consolidado pelo Supremo Tribunal Federal. Portanto, a aplicação da norma não se restringe aos processos futuros, abrangendo também os pendentes."
+    },
+    {
+      "id_origem": "sumula_510_stf",
+      "titulo_origem": "Súmula 510 STF",
+      "questao": "Quando uma autoridade pratica um ato no exercício de competência delegada, é cabível impetrar mandado de segurança contra esse ato.",
+      "gabarito": "CERTO",
+      "justificativa": "A jurisprudência do STF reconhece que atos praticados por autoridade no exercício de competência delegada são passíveis de controle por meio do mandado de segurança, garantindo a proteção contra ilegalidades ou abusos cometidos por quem exerce a delegação."
+    },
+    {
+      "id_origem": "sumula_511_stf",
+      "titulo_origem": "Súmula 511 STF",
+      "questao": "Compete à Justiça Estadual processar e julgar, em qualquer instância, as ações entre autarquias federais e entidades públicas locais, inclusive mandados de segurança, excetuando-se as ações fiscais.",
+      "gabarito": "ERRADO",
+      "justificativa": "A competência para processar e julgar causas entre autarquias federais e entidades públicas locais, inclusive mandados de segurança, é da Justiça Federal em ambas as instâncias, conforme previsto no artigo 119, § 3º, da Constituição Federal de 1967. A exceção aplica-se apenas às ações fiscais, que não são da competência da Justiça Federal."
+    },
+    {
+      "id_origem": "sumula_512_stf",
+      "titulo_origem": "Súmula 512 STF",
+      "questao": "Nas ações de mandado de segurança, é possível a condenação da parte vencida ao pagamento de honorários advocatícios sucumbenciais.",
+      "gabarito": "ERRADO",
+      "justificativa": "Nas ações de mandado de segurança, não se aplicam honorários advocatícios sucumbenciais, pois a legislação específica que regula esse remédio constitucional não prevê tal condenação, conforme entendimento consolidado pelo Supremo Tribunal Federal."
+    },
+    {
+      "id_origem": "sumula_513_stf",
+      "titulo_origem": "Súmula 513 STF",
+      "questao": "A decisão proferida pelo plenário que resolve o incidente de inconstitucionalidade é a adequada para interposição de recurso extraordinário ou ordinário.",
+      "gabarito": "ERRADO",
+      "justificativa": "A decisão que permite a interposição de recurso ordinário ou extraordinário não é a do plenário que resolve o incidente de inconstitucionalidade, mas sim a decisão do órgão colegiado (como Câmaras, Grupos ou Turmas) que completa o julgamento do feito. Isso ocorre porque o julgamento do incidente é apenas uma fase do processo, e a decisão recorrível é aquela que encerra o julgamento do mérito pelo órgão competente."
+    },
+    {
+      "id_origem": "sumula_514_stf",
+      "titulo_origem": "Súmula 514 STF",
+      "questao": "É possível propor ação rescisória contra sentença que já transitou em julgado, mesmo que ainda existam recursos ordinários pendentes de julgamento.",
+      "gabarito": "CERTO",
+      "justificativa": "A ação rescisória é cabível contra sentença transitada em julgado, independentemente de terem sido esgotados todos os recursos ordinários. Isso significa que o trânsito em julgado da decisão é requisito essencial para a propositura da ação rescisória, não sendo necessário que todos os recursos tenham sido utilizados, desde que a sentença tenha se tornado definitiva."
+    },
+    {
+      "id_origem": "sumula_515_stf",
+      "titulo_origem": "Súmula 515 STF",
+      "questao": "A competência do Supremo Tribunal Federal para julgar ação rescisória está condicionada à identidade da questão federal previamente apreciada no recurso extraordinário ou agravo de instrumento com a questão suscitada no pedido rescisório.",
+      "gabarito": "CERTO",
+      "justificativa": "A competência do STF para ação rescisória exige que a matéria federal discutida no recurso extraordinário ou agravo seja a mesma que fundamenta o pedido rescisório. Caso contrário, o STF não é competente para processar e julgar a ação, conforme entendimento consolidado para preservar a segurança jurídica e a correta delimitação da competência do tribunal."
+    },
+    {
+      "id_origem": "sumula_516_stf",
+      "titulo_origem": "Súmula 516 STF",
+      "questao": "A jurisdição competente para processar e julgar demandas envolvendo o Serviço Social da Indústria (SESI) é a Justiça Estadual.",
+      "gabarito": "CERTO",
+      "justificativa": "O Serviço Social da Indústria (SESI) não possui natureza típica de entidade da Administração Pública direta ou indireta sujeita à Justiça Federal, estando, portanto, submetido à jurisdição da Justiça Estadual para dirimir conflitos judiciais. Essa competência decorre da ausência de prerrogativas federais específicas e da vinculação do SESI ao sistema industrial local, o que legitima a atuação da Justiça Estadual."
+    },
+    {
+      "id_origem": "sumula_517_stf",
+      "titulo_origem": "Súmula 517 STF",
+      "questao": "As sociedades de economia mista possuem competência para serem julgadas exclusivamente pela Justiça Federal, independentemente da participação da União no processo.",
+      "gabarito": "ERRADO",
+      "justificativa": "As sociedades de economia mista não têm foro na Justiça Federal de forma automática. A competência da Justiça Federal ocorre apenas quando a União atua como assistente ou opoente na demanda, conforme entendimento consolidado pelo STF. Caso contrário, a competência para julgamento pode ser da Justiça Estadual."
+    },
+    {
+      "id_origem": "sumula_518_stf",
+      "titulo_origem": "Súmula 518 STF",
+      "questao": "A intervenção da União em processo já julgado pela segunda instância e que ainda aguarda julgamento de embargos de declaração desloca automaticamente a competência para o Tribunal Federal de Recursos.",
+      "gabarito": "ERRADO",
+      "justificativa": "A intervenção da União em processo que já foi julgado pela segunda instância e está pendente de embargos de declaração não altera a competência do juízo, não deslocando o feito para o Tribunal Federal de Recursos. Isso porque o julgamento em segunda instância já consolidou a competência, e a simples interposição de embargos não modifica essa situação processual."
+    },
+    {
+      "id_origem": "sumula_519_stf",
+      "titulo_origem": "Súmula 519 STF",
+      "questao": "Nas execuções fiscais, é inaplicável o princípio da sucumbência previsto no artigo 64 do Código de Processo Civil.",
+      "gabarito": "ERRADO",
+      "justificativa": "O princípio da sucumbência, que determina que a parte vencida deve arcar com as despesas processuais e honorários advocatícios, aplica-se também às execuções fiscais, conforme entendimento consolidado pelo Supremo Tribunal Federal. Portanto, o artigo 64 do CPC é plenamente aplicável nesses casos."
+    },
+    {
+      "id_origem": "sumula_520_stf",
+      "titulo_origem": "Súmula 520 STF",
+      "questao": "Para requerer o exame previsto no artigo 777 do Código de Processo Penal, é obrigatório que o sentenciado tenha cumprido mais da metade do prazo da medida de segurança imposta.",
+      "gabarito": "ERRADO",
+      "justificativa": "O artigo 777 do Código de Processo Penal não exige que o sentenciado tenha cumprido mais da metade do prazo da medida de segurança para requerer o exame. A súmula 520 do STF esclarece que tal requisito não é necessário, permitindo o pedido independentemente do tempo cumprido da medida."
+    },
+    {
+      "id_origem": "sumula_521_stf",
+      "titulo_origem": "Súmula 521 STF",
+      "questao": "No crime de estelionato praticado por meio da emissão dolosa de cheque sem provisão de fundos, o foro competente para o processo e julgamento é o do local onde ocorreu a emissão do cheque.",
+      "gabarito": "ERRADO",
+      "justificativa": "O foro competente para o processo e julgamento dos crimes de estelionato na modalidade de emissão dolosa de cheque sem provisão de fundos é o do local onde se deu a recusa do pagamento pelo sacado, e não o local da emissão do cheque. Isso porque a recusa do pagamento é o momento em que se consuma o crime, determinando a competência territorial."
+    },
+    {
+      "id_origem": "sumula_522_stf",
+      "titulo_origem": "Súmula 522 STF",
+      "questao": "A Justiça Estadual é competente para processar e julgar todos os crimes relacionados a entorpecentes, inclusive aqueles envolvendo tráfico para o exterior.",
+      "gabarito": "ERRADO",
+      "justificativa": "A competência para processar e julgar crimes relacionados a entorpecentes é da Justiça Estadual, exceto quando se tratar de tráfico para o exterior, hipótese em que a competência é da Justiça Federal, conforme entendimento consolidado pelo STF."
+    },
+    {
+      "id_origem": "sumula_523_stf",
+      "titulo_origem": "Súmula 523 STF",
+      "questao": "No processo penal, a ausência de defesa técnica configura nulidade absoluta, enquanto a mera deficiência na prestação da defesa somente enseja nulidade se demonstrado prejuízo ao réu.",
+      "gabarito": "CERTO",
+      "justificativa": "A ausência de defesa no processo penal é considerada nulidade absoluta, pois viola direito fundamental do acusado à ampla defesa e ao contraditório. Por outro lado, a deficiência na defesa não implica automaticamente nulidade; esta só ocorre se houver comprovação de prejuízo ao réu, conforme entendimento consolidado pelo Supremo Tribunal Federal."
+    },
+    {
+      "id_origem": "sumula_524_stf",
+      "titulo_origem": "Súmula 524 STF",
+      "questao": "Se o inquérito policial foi arquivado por despacho judicial a pedido do Ministério Público, a ação penal pode ser iniciada posteriormente sem a apresentação de novas provas.",
+      "gabarito": "ERRADO",
+      "justificativa": "O arquivamento do inquérito policial por despacho do juiz, a requerimento do promotor de justiça, impede o início da ação penal sem que surjam novas provas. Isso porque o arquivamento indica insuficiência probatória para a propositura da ação penal, e somente a existência de elementos novos pode justificar sua reabertura e o consequente oferecimento da denúncia."
+    },
+    {
+      "id_origem": "sumula_525_stf",
+      "titulo_origem": "Súmula 525 STF",
+      "questao": "A medida de segurança pode ser aplicada em segunda instância mesmo que apenas o réu tenha interposto recurso.",
+      "gabarito": "ERRADO",
+      "justificativa": "A medida de segurança, prevista para proteger o indivíduo contra ilegalidade ou abuso de poder, não é cabível em segunda instância quando o recurso é exclusivo do réu. Isso ocorre porque a aplicação da medida de segurança pressupõe a existência de recurso da acusação ou do Ministério Público, garantindo o contraditório e a ampla defesa, o que não ocorre se apenas o réu recorre. Portanto, a medida de segurança não será aplicada em segunda instância quando somente o réu tiver recorrido."
+    },
+    {
+      "id_origem": "sumula_526_stf",
+      "titulo_origem": "Súmula 526 STF",
+      "questao": "No caso de crimes previstos na Lei de Segurança Nacional, o Supremo Tribunal Federal mantém sua competência para julgar apelação quando a sentença foi proferida antes da vigência do A.I. nº 2.82.",
+      "gabarito": "CERTO",
+      "justificativa": "A competência do Supremo Tribunal Federal para conhecer e julgar apelação em crimes da Lei de Segurança Nacional permanece válida se a sentença foi proferida antes da vigência do A.I. nº 2.82, conforme entendimento consolidado, garantindo a continuidade da jurisdição originária do STF nesses casos específicos."
+    },
+    {
+      "id_origem": "sumula_527_stf",
+      "titulo_origem": "Súmula 527 STF",
+      "questao": "Após a alteração promovida pelo Ato Institucional nº 6 no artigo 114, inciso III, da Constituição Federal de 1967, é possível interpor recurso extraordinário contra decisões proferidas por juiz singular na Justiça do Trabalho.",
+      "gabarito": "ERRADO",
+      "justificativa": "O Ato Institucional nº 6 modificou o artigo 114, inciso III, da Constituição Federal de 1967, estabelecendo que não cabe recurso extraordinário das decisões do juiz singular na Justiça do Trabalho. Assim, tais decisões são irrecorríveis por meio desse recurso, conforme entendimento consolidado pelo Supremo Tribunal Federal."
+    },
+    {
+      "id_origem": "sumula_528_stf",
+      "titulo_origem": "Súmula 528 STF",
+      "questao": "Caso uma decisão contenha partes autônomas, a admissão parcial do recurso extraordinário pelo Presidente do Tribunal de origem, mesmo que se manifeste apenas sobre uma das partes, impede que o Supremo Tribunal Federal analise as demais partes não admitidas, salvo se houver interposição de agravo de instrumento.",
+      "gabarito": "ERRADO",
+      "justificativa": "Quando a decisão possui partes autônomas, a admissão parcial do recurso extraordinário pelo Presidente do Tribunal a quo, ainda que restrita a uma parte, não limita a apreciação de todas as partes pelo Supremo Tribunal Federal, independentemente da interposição de agravo de instrumento. Isso significa que o STF pode analisar todas as partes da decisão, mesmo aquelas não expressamente admitidas pelo Presidente do Tribunal de origem."
+    },
+    {
+      "id_origem": "sumula_529_stf",
+      "titulo_origem": "Súmula 529 STF",
+      "questao": "Caso o segurador responsável pelo pagamento do seguro obrigatório de acidente do trabalho esteja em liquidação e incapaz financeiramente de arcar com a indenização, o empregador permanece responsável pelo pagamento da indenização ao trabalhador acidentado.",
+      "gabarito": "CERTO",
+      "justificativa": "A responsabilidade do empregador pela indenização decorrente de acidente do trabalho não é afastada pela incapacidade financeira do segurador, seja por liquidação ou outro motivo. Assim, o empregador responde subsidiariamente para garantir a proteção do trabalhador, conforme entendimento consolidado pelo STF."
+    },
+    {
+      "id_origem": "sumula_530_stf",
+      "titulo_origem": "Súmula 530 STF",
+      "questao": "A contribuição previdenciária incidente sobre o 13º salário, conforme a legislação anterior ao artigo 4º da Lei nº 4.749/1965, estava limitada pelo teto previsto no artigo 69 da Lei nº 3.807/1960.",
+      "gabarito": "ERRADO",
+      "justificativa": "Antes da vigência do artigo 4º da Lei nº 4.749/1965, a contribuição para a previdência social sobre o 13º salário não observava o limite estabelecido no artigo 69 da Lei nº 3.807/1960. Portanto, não havia aplicação do teto previsto para essa contribuição nesse período."
+    },
+    {
+      "id_origem": "sumula_531_stf",
+      "titulo_origem": "Súmula 531 STF",
+      "questao": "A edição de decreto que estabelece salário profissional para trabalhadores de transportes marítimos, fluviais e lacustres é constitucional.",
+      "gabarito": "ERRADO",
+      "justificativa": "O Decreto nº 51.668/1963, que estabeleceu salário profissional para trabalhadores de transportes marítimos, fluviais e lacustres, foi declarado inconstitucional pelo Supremo Tribunal Federal, pois a fixação de salário profissional é matéria reservada à lei, não podendo ser regulada por decreto."
+    },
+    {
+      "id_origem": "sumula_532_stf",
+      "titulo_origem": "Súmula 532 STF",
+      "questao": "A legislação que concede remissão das dívidas fiscais decorrentes da ausência do pagamento do selo em contratos particulares firmados com a Caixa Econômica Federal e outras entidades autárquicas é incompatível com a Constituição Federal.",
+      "gabarito": "ERRADO",
+      "justificativa": "A Lei nº 5.043/1966, que concedeu remissão das dívidas fiscais originadas pela falta de pagamento oportuno do selo em contratos particulares com a Caixa Econômica e outras entidades autárquicas, foi considerada constitucional pelo Supremo Tribunal Federal. Portanto, tal legislação não afronta a Constituição, sendo válida a remissão prevista."
+    },
+    {
+      "id_origem": "sumula_533_stf",
+      "titulo_origem": "Súmula 533 STF",
+      "questao": "Nas operações de crediário com emissão de vales para compras, os juros e demais encargos cobrados separadamente não integram o custo da mercadoria para fins de cálculo do imposto sobre vendas e consignações.",
+      "gabarito": "ERRADO",
+      "justificativa": "Nas operações de crediário, todos os encargos cobrados, como juros, selos e outras despesas, devem ser incluídos no custo da mercadoria. O imposto sobre vendas e consignações incide sobre o preço global, que compreende o valor da mercadoria acrescido desses encargos, conforme entendimento consolidado pelo STF."
+    },
+    {
+      "id_origem": "sumula_534_stf",
+      "titulo_origem": "Súmula 534 STF",
+      "questao": "O imposto de importação sobre o extrato alcoólico de malte, utilizado como matéria-prima para a fabricação de whisky, deve ser calculado à alíquota de 60% apenas se o produto tiver sido desembarcado antes da vigência do Decreto-lei nº 398, de 30 de dezembro de 1968.",
+      "gabarito": "CERTO",
+      "justificativa": "A Súmula 534 do STF estabelece que a alíquota de 60% para o imposto de importação sobre o extrato alcoólico de malte, quando utilizado como matéria-prima para a fabricação de whisky, aplica-se exclusivamente aos produtos desembarcados antes da entrada em vigor do Decreto-lei nº 398/1968. Portanto, a incidência dessa alíquota depende da data do desembarque, conforme previsto no referido decreto-lei."
+    },
+    {
+      "id_origem": "sumula_535_stf",
+      "titulo_origem": "Súmula 535 STF",
+      "questao": "Na importação de combustíveis líquidos a granel, é permitido considerar uma diferença de peso para mais de até 4%, em razão das variações previstas no Decreto-lei nº 1.028/1939, art. 1º.",
+      "gabarito": "CERTO",
+      "justificativa": "A jurisprudência do STF admite que, na importação de combustíveis líquidos a granel, seja tolerada uma diferença de peso para mais de até 4%, conforme previsto no Decreto-lei nº 1.028, de 4 de janeiro de 1939, art. 1º, que trata das variações naturais de peso decorrentes de fatores técnicos e operacionais. Essa tolerância visa evitar prejuízos indevidos decorrentes de variações normais no processo de medição e transporte."
+    },
+    {
+      "id_origem": "sumula_536_stf",
+      "titulo_origem": "Súmula 536 STF",
+      "questao": "Produtos industrializados destinados à exportação estão sujeitos ao imposto sobre circulação de mercadorias, salvo disposição legal em contrário.",
+      "gabarito": "ERRADO",
+      "justificativa": "Produtos industrializados destinados à exportação são objetivamente imunes ao imposto sobre circulação de mercadorias, conforme entendimento consolidado, o que significa que não estão sujeitos à tributação, independentemente de previsão legal específica. A imunidade é objetiva e abrange, além desses produtos, outros com a mesma destinação, desde que a lei determine a isenção."
+    },
+    {
+      "id_origem": "sumula_537_stf",
+      "titulo_origem": "Súmula 537 STF",
+      "questao": "A cobrança de imposto estadual sobre selo em atos e instrumentos regulados por lei federal é constitucional, salvo disposição expressa em contrário na Constituição Federal de 1946.",
+      "gabarito": "ERRADO",
+      "justificativa": "A exigência de imposto estadual do selo sobre atos e instrumentos regulados por lei federal é inconstitucional, conforme entendimento consolidado, exceto nas hipóteses previstas no art. 15, § 5º, da Constituição Federal de 1946. Portanto, a regra geral é a vedação dessa cobrança estadual, não sua constitucionalidade."
+    },
+    {
+      "id_origem": "sumula_538_stf",
+      "titulo_origem": "Súmula 538 STF",
+      "questao": "A avaliação judicial para fins de dedução das benfeitorias no cálculo do imposto sobre o lucro imobiliário deve observar obrigatoriamente o limite previsto no artigo 8º, parágrafo único, da Lei nº 3.470/1958.",
+      "gabarito": "ERRADO",
+      "justificativa": "A avaliação judicial das benfeitorias dedutíveis no cálculo do imposto sobre o lucro imobiliário independe do limite estabelecido no artigo 8º, parágrafo único, da Lei nº 3.470/1958. Isso significa que o juiz pode realizar a avaliação sem se vincular a esse limite legal, conforme entendimento consolidado pelo Supremo Tribunal Federal."
+    },
+    {
+      "id_origem": "sumula_539_stf",
+      "titulo_origem": "Súmula 539 STF",
+      "questao": "É inconstitucional a lei municipal que concede redução do imposto predial e territorial urbano apenas para imóveis que não sejam residências do proprietário.",
+      "gabarito": "ERRADO",
+      "justificativa": "A Constituição Federal permite que o Município institua lei que reduza o imposto predial e territorial urbano sobre imóvel ocupado pela residência do proprietário, desde que este não possua outro imóvel. Portanto, a redução é constitucional quando destinada ao imóvel residencial único do proprietário, não sendo inconstitucional a lei que concede tal benefício."
+    },
+    {
+      "id_origem": "sumula_540_stf",
+      "titulo_origem": "Súmula 540 STF",
+      "questao": "No cálculo do valor tributável para o imposto incidente sobre vendas e consignações, as despesas relativas ao frete e carreto devem ser incluídas no preço da mercadoria.",
+      "gabarito": "ERRADO",
+      "justificativa": "O entendimento consolidado é que as despesas de frete e carreto não integram o preço da mercadoria para fins de incidência do imposto sobre vendas e consignações, pois tais despesas são consideradas acessórias e não compõem a base de cálculo do tributo."
+    },
+    {
+      "id_origem": "sumula_541_stf",
+      "titulo_origem": "Súmula 541 STF",
+      "questao": "A incidência do imposto sobre vendas e consignações alcança a venda eventual de veículos usados realizada por pessoa física, desde que não tenha caráter comercial nem objetivo de lucro.",
+      "gabarito": "ERRADO",
+      "justificativa": "O imposto sobre vendas e consignações não incide sobre a venda ocasional de veículos e equipamentos usados quando esta não integra a atividade profissional do vendedor e não tem finalidade lucrativa, ou seja, não possui caráter comercial. Portanto, a venda eventual sem intuito comercial está isenta desse imposto."
+    },
+    {
+      "id_origem": "sumula_542_stf",
+      "titulo_origem": "Súmula 542 STF",
+      "questao": "É inconstitucional a aplicação de multa pelo Estado-membro como penalidade pelo atraso no início ou na conclusão do inventário.",
+      "gabarito": "ERRADO",
+      "justificativa": "A imposição de multa pelo Estado-membro como sanção pelo retardamento do início ou da última fase do inventário não viola a Constituição. O Supremo Tribunal Federal reconhece a constitucionalidade dessa penalidade, entendendo que a medida visa garantir a celeridade processual e a efetividade da administração da justiça, não afrontando direitos fundamentais ou competências constitucionais."
+    },
+    {
+      "id_origem": "sumula_543_stf",
+      "titulo_origem": "Súmula 543 STF",
+      "questao": "A Lei nº 2.975/1965 revogou todas as isenções relativas ao imposto único sobre combustíveis, incluindo as isenções especiais concedidas por outras leis.",
+      "gabarito": "ERRADO",
+      "justificativa": "A Lei nº 2.975/1965 revogou apenas as isenções de caráter geral relativas ao imposto único sobre combustíveis, preservando as isenções especiais concedidas por outras leis. Portanto, as isenções especiais não foram alcançadas pela revogação promovida por essa lei."
+    },
+    {
+      "id_origem": "sumula_544_stf",
+      "titulo_origem": "Súmula 544 STF",
+      "questao": "É possível que o ente tributante suprima unilateralmente isenções tributárias concedidas sob condição onerosa, sem que haja previsão legal específica para tanto.",
+      "gabarito": "ERRADO",
+      "justificativa": "As isenções tributárias concedidas sob condição onerosa possuem natureza contratual e, portanto, não podem ser suprimidas livremente pelo ente tributante. A supressão unilateral violaria o princípio da segurança jurídica e o direito adquirido, exigindo previsão legal ou acordo para sua modificação ou revogação."
+    },
+    {
+      "id_origem": "sumula_545_stf",
+      "titulo_origem": "Súmula 545 STF",
+      "questao": "As taxas, ao contrário dos preços públicos, são tributos compulsórios cuja cobrança depende de prévia autorização orçamentária prevista na lei que as instituiu.",
+      "gabarito": "CERTO",
+      "justificativa": "As taxas são tributos vinculados, compulsórios e cuja exigência depende de autorização legal prévia, inclusive orçamentária, conforme entendimento consolidado pelo STF. Já os preços públicos são valores cobrados pela prestação de serviços públicos específicos e não possuem a mesma natureza compulsória nem condicionamento orçamentário das taxas."
+    },
+    {
+      "id_origem": "sumula_546_stf",
+      "titulo_origem": "Súmula 546 STF",
+      "questao": "É vedada a restituição do tributo pago indevidamente quando o contribuinte de jure já tenha recuperado o valor correspondente do contribuinte de facto.",
+      "gabarito": "CERTO",
+      "justificativa": "A restituição do tributo pago indevidamente é devida apenas quando o contribuinte formal (de jure) não tenha recuperado o valor do contribuinte material (de facto). Se o valor já foi recuperado, não há que se falar em restituição, pois não há prejuízo financeiro ao contribuinte de jure."
+    },
+    {
+      "id_origem": "sumula_547_stf",
+      "titulo_origem": "Súmula 547 STF",
+      "questao": "É permitido à autoridade administrativa impedir que o contribuinte inadimplente adquira estampilhas fiscais, despache mercadorias nas alfândegas e exerça suas atividades profissionais até a quitação do débito tributário.",
+      "gabarito": "ERRADO",
+      "justificativa": "A vedação expressa impede que a autoridade proíba o contribuinte em débito de adquirir estampilhas, despachar mercadorias nas alfândegas ou exercer suas atividades profissionais, pois tais restrições configurariam restrição indevida ao exercício da atividade econômica e ao direito de defesa, contrariando o princípio da legalidade e o devido processo legal."
+    },
+    {
+      "id_origem": "sumula_548_stf",
+      "titulo_origem": "Súmula 548 STF",
+      "questao": "É constitucional a exigência de selo proporcional sobre atos e instrumentos regulados por lei federal, prevista em decreto-lei estadual.",
+      "gabarito": "ERRADO",
+      "justificativa": "A exigência de selo proporcional sobre atos e instrumentos regulados por lei federal, prevista no artigo 4º do Decreto-lei nº 643/1947 do Paraná, é inconstitucional, pois invade competência legislativa privativa da União, violando o princípio da hierarquia das normas e o pacto federativo."
+    },
+    {
+      "id_origem": "sumula_549_stf",
+      "titulo_origem": "Súmula 549 STF",
+      "questao": "A Taxa de Bombeiros instituída pelo Estado de Pernambuco é atualmente considerada constitucional e válida para fins de cobrança.",
+      "gabarito": "ERRADO",
+      "justificativa": "A Súmula 549 do STF, que afirmava a constitucionalidade da Taxa de Bombeiros do Estado de Pernambuco, foi cancelada ou revogada, o que significa que tal entendimento não possui mais efeito vinculante e a constitucionalidade dessa taxa não está mais assegurada por essa súmula."
+    },
+    {
+      "id_origem": "sumula_550_stf",
+      "titulo_origem": "Súmula 550 STF",
+      "questao": "A isenção tributária prevista para empresas de navegação aérea pela Lei nº 1.815/1953 abrange também a taxa de melhoramento de portos instituída pela Lei nº 3.421/1958.",
+      "gabarito": "ERRADO",
+      "justificativa": "A isenção concedida pela Lei nº 1.815/1953 às empresas de navegação aérea não se estende à taxa de melhoramento de portos prevista na Lei nº 3.421/1958, pois são tributos distintos e a isenção não alcança essa taxa específica, conforme entendimento consolidado pelo STF."
+    }
+  ]
+}

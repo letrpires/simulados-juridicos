@@ -4,560 +4,631 @@
 <meta charset="UTF-8">
 <title>Simulado - Info 874 STJ</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <style>
-:root {
-    --bg: #0f172a;
-    --card: #111827;
-    --card2: #1f2937;
-    --text: #e5e7eb;
-    --muted: #9ca3af;
-    --accent: #38bdf8;
-    --green: #22c55e;
-    --red: #ef4444;
-    --yellow: #facc15;
+:root{
+--bg:#020617;--panel:rgba(15,23,42,.88);--card:rgba(15,23,42,.96);
+--card2:rgba(30,41,59,.92);--border:rgba(148,163,184,.22);
+--text:#e5e7eb;--muted:#94a3b8;--accent:#38bdf8;--accent2:#0ea5e9;
+--green:#22c55e;--red:#ef4444;--yellow:#facc15;--purple:#a78bfa;
 }
-
-* {
-    box-sizing: border-box;
+*{box-sizing:border-box}
+body{
+margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+background:radial-gradient(circle at top left,rgba(56,189,248,.20),transparent 28%),
+radial-gradient(circle at top right,rgba(167,139,250,.15),transparent 28%),
+linear-gradient(135deg,#020617,#0f172a 50%,#020617);
+color:var(--text);line-height:1.65;
 }
-
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(135deg, #020617, #111827);
-    color: var(--text);
-    line-height: 1.6;
+header{padding:44px 20px 32px;text-align:center;border-bottom:1px solid var(--border)}
+header h1{margin:0 0 10px;font-size:clamp(28px,4vw,46px);letter-spacing:-.05em}
+header p{color:var(--muted);margin:0;font-size:16px}
+.container{max-width:1160px;margin:0 auto;padding:26px 16px 80px}
+.painel{
+position:sticky;top:10px;z-index:10;background:var(--panel);backdrop-filter:blur(18px);
+border:1px solid var(--border);border-radius:26px;padding:16px;margin-bottom:22px;
+box-shadow:0 22px 70px rgba(0,0,0,.35)
 }
-
-header {
-    padding: 32px 20px;
-    text-align: center;
-    border-bottom: 1px solid #334155;
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.stat{background:var(--card2);padding:14px;border-radius:18px;text-align:center;border:1px solid rgba(148,163,184,.12)}
+.stat strong{display:block;font-size:25px;color:var(--accent);line-height:1.1}
+.stat span{font-size:12px;color:var(--muted)}
+.filtros{display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:12px;margin-top:14px}
+input,select{
+width:100%;background:rgba(2,6,23,.78);color:var(--text);border:1px solid var(--border);
+border-radius:14px;padding:13px 14px;outline:none;font-size:14px
 }
-
-header h1 {
-    margin: 0 0 10px;
-    font-size: 28px;
+input:focus,select:focus{border-color:var(--accent)}
+.card{
+background:var(--card);border:1px solid var(--border);border-radius:24px;padding:26px;
+margin-bottom:20px;box-shadow:0 18px 50px rgba(0,0,0,.24)
 }
-
-header p {
-    color: var(--muted);
-    margin: 0;
+.questao{scroll-margin-top:190px}
+.questao-topo{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:18px}
+.badge{
+background:linear-gradient(135deg,var(--accent),var(--accent2));color:#00111f;font-weight:900;
+padding:7px 13px;border-radius:999px;display:inline-block
 }
-
-.container {
-    max-width: 980px;
-    margin: 0 auto;
-    padding: 24px 16px 80px;
+.disciplina-tag,.tipo-tag{
+display:inline-block;margin-left:8px;color:var(--muted);background:rgba(148,163,184,.10);
+border:1px solid rgba(148,163,184,.14);padding:6px 10px;border-radius:999px;font-size:12px
 }
-
-.painel {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    background: rgba(15, 23, 42, 0.95);
-    backdrop-filter: blur(8px);
-    border: 1px solid #334155;
-    border-radius: 16px;
-    padding: 16px;
-    margin-bottom: 24px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
+.tipo-tag{color:#ddd6fe;border-color:rgba(167,139,250,.25)}
+.status{color:var(--yellow);font-size:13px;white-space:nowrap}
+.enunciado{font-size:19px;margin:0 0 22px;letter-spacing:-.01em}
+.botoes{display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.btn{
+cursor:pointer;border:0;padding:12px 22px;border-radius:14px;color:white;font-weight:900;
+transition:.18s ease;letter-spacing:.02em
 }
-
-.stat {
-    background: var(--card2);
-    padding: 12px;
-    border-radius: 12px;
-    text-align: center;
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.certo{background:rgba(34,197,94,.20);border:1px solid rgba(34,197,94,.42)}
+.btn.errado{background:rgba(239,68,68,.20);border:1px solid rgba(239,68,68,.42)}
+.btn.neutro{background:rgba(56,189,248,.16);color:var(--text);border:1px solid rgba(56,189,248,.32)}
+.feedback{
+display:none;background:rgba(2,6,23,.72);border:1px solid rgba(148,163,184,.16);
+border-left:5px solid var(--accent);padding:18px;border-radius:18px;margin-top:14px
 }
-
-.stat strong {
-    display: block;
-    font-size: 22px;
-    color: var(--accent);
+.feedback.correto{border-left-color:var(--green)}
+.feedback.errado{border-left-color:var(--red)}
+.resultado{font-size:18px;font-weight:900;margin-top:0}
+.justificativa{margin-top:12px}
+.referencia{color:var(--muted);font-size:13px;margin-top:16px}
+.gabarito-certo{color:var(--green);font-weight:900}
+.gabarito-errado{color:var(--red);font-weight:900}
+.oculta{display:none}
+.sem-resultados{text-align:center;color:var(--muted);display:none;padding:30px}
+.grid-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
+.link-card{
+display:block;padding:20px;background:rgba(15,23,42,.95);border:1px solid rgba(148,163,184,.22);
+color:#e5e7eb;border-radius:22px;text-decoration:none;transition:.2s;box-shadow:0 14px 40px rgba(0,0,0,.22)
 }
-
-.card {
-    background: rgba(17, 24, 39, 0.96);
-    border: 1px solid #334155;
-    border-radius: 18px;
-    padding: 22px;
-    margin-bottom: 20px;
-    box-shadow: 0 12px 30px rgba(0,0,0,.25);
-}
-
-.questao-topo {
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
-    align-items: center;
-    margin-bottom: 16px;
-}
-
-.badge {
-    background: #0ea5e9;
-    color: #00111f;
-    font-weight: bold;
-    padding: 6px 12px;
-    border-radius: 999px;
-}
-
-.status {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-.enunciado {
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-
-.botoes {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 18px;
-}
-
-button {
-    cursor: pointer;
-    border: 0;
-    padding: 12px 22px;
-    border-radius: 12px;
-    background: #334155;
-    color: white;
-    font-weight: bold;
-    transition: 0.2s;
-}
-
-button:hover {
-    transform: translateY(-1px);
-    background: #475569;
-}
-
-.feedback {
-    display: none;
-    background: #020617;
-    border-left: 4px solid var(--accent);
-    padding: 16px;
-    border-radius: 12px;
-    margin-top: 12px;
-}
-
-.feedback.correto {
-    border-left-color: var(--green);
-}
-
-.feedback.errado {
-    border-left-color: var(--red);
-}
-
-.resultado {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.referencia {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-.acoes {
-    text-align: center;
-    margin: 30px 0;
-}
-
-.acoes button {
-    background: #0ea5e9;
-    color: #00111f;
-}
-
-@media (max-width: 700px) {
-    .painel {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .botoes {
-        flex-direction: column;
-    }
-
-    header h1 {
-        font-size: 22px;
-    }
-
-    .enunciado {
-        font-size: 16px;
-    }
+.link-card:hover{transform:translateY(-3px);border-color:#38bdf8}
+.link-card strong{display:block;font-size:17px;margin-bottom:8px}
+.link-card span{color:#94a3b8;font-size:13px}
+.index-tools{display:grid;grid-template-columns:1.5fr 1fr;gap:12px;margin-bottom:20px}
+@media(max-width:850px){
+.stats{grid-template-columns:repeat(2,1fr)}
+.filtros,.index-tools{grid-template-columns:1fr}
+.questao-topo{align-items:flex-start;flex-direction:column}
+.botoes{flex-direction:column}
+.enunciado{font-size:16px}
+.card{padding:20px}
 }
 </style>
 </head>
-
 <body>
-
 <header>
-    <h1>Simulado - Info 874 STJ</h1>
-    <p>Simulado interativo de CERTO ou ERRADO</p>
+<h1>Simulado - Info 874 STJ</h1>
+<p>Informativos • Simulado interativo de CERTO ou ERRADO</p>
 </header>
 
 <div class="container">
+<div class="painel">
+<div class="stats">
+<div class="stat"><strong>12</strong><span>Total</span></div>
+<div class="stat"><strong id="visiveis">12</strong><span>Visíveis</span></div>
+<div class="stat"><strong id="respondidas">0</strong><span>Respondidas</span></div>
+<div class="stat"><strong id="acertos">0</strong><span>Acertos</span></div>
+<div class="stat"><strong id="erros">0</strong><span>Erros</span></div>
+</div>
 
-    <div class="painel">
-        <div class="stat">
-            <strong id="total">12</strong>
-            Total
-        </div>
-        <div class="stat">
-            <strong id="respondidas">0</strong>
-            Respondidas
-        </div>
-        <div class="stat">
-            <strong id="acertos">0</strong>
-            Acertos
-        </div>
-        <div class="stat">
-            <strong id="erros">0</strong>
-            Erros
-        </div>
-    </div>
+<div class="filtros">
+<input id="busca" type="search" placeholder="Buscar por palavra-chave..." oninput="filtrar()">
+<select id="disciplina" onchange="filtrar()">
+<option value="">Todas as disciplinas</option>
+<option value="N/I">N/I</option>
+</select>
+<select id="statusFiltro" onchange="filtrar()">
+<option value="">Todas</option>
+<option value="nao">Não respondidas</option>
+<option value="acerto">Acertos</option>
+<option value="erro">Erros</option>
+</select>
+<button class="btn neutro" onclick="reiniciar()">Reiniciar</button>
+</div>
+</div>
 
-    <div class="acoes">
-        <button onclick="reiniciar()">Reiniciar simulado</button>
-    </div>
+<div id="sem-resultados" class="sem-resultados">Nenhuma questão encontrada com os filtros atuais.</div>
 
-    
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 1</span>
-                <span class="status" id="status-1">Não respondida</span>
-            </div>
 
-            <p class="enunciado">A imposição judicial de depósito, em conta vinculada ao processo, dos honorários sucumbenciais arbitrados em favor da Defensoria Pública, com liberação apenas após a futura instituição de fundo de aparelhamento previsto em legislação estadual, viola a autonomia funcional, administrativa e financeira da instituição, por representar ingerência indevida do Poder Judiciário sobre a gestão de receita cuja destinação compete exclusivamente à própria Defensoria Pública.</p>
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a imposição judicial de depósito, em conta vinculada ao processo, dos honorários sucumbenciais arbitrados em favor da defensoria pública, com liberação apenas após a futura instituição de fundo de aparelhamento previsto em legislação estadual, viola a autonomia funcional, administrativa e financeira da instituição, por representar ingerência indevida do poder judiciário sobre a gestão de receita cuja destinação compete exclusivamente à própria defensoria pública. a defensoria pública, enquanto instituição permanente e essencial à função jurisdicional do estado, possui autonomia funcional, administrativa e financeira, assegurada pela constituição e pela legislação complementar de regência. os honorários sucumbenciais fixados em seu favor integram receita institucional e, por isso, submetem-se à gestão própria da defensoria, que detém competência para administrar e dar a destinação adequada a tais valores.
 
-            <div class="botoes">
-                <button onclick="responder(1, 'CERTO')">CERTO</button>
-                <button onclick="responder(1, 'ERRADO')">ERRADO</button>
-            </div>
+no caso, a determinação judicial de retenção dos honorários em conta vinculada ao processo, condicionando sua liberação à criação futura de fundo de aparelhamento, extrapola a função jurisdicional e interfere diretamente na esfera de autogestão financeira da instituição. ainda que exista previsão legal de fundo específico ou que sua regulamentação esteja pendente, essa circunstância não autoriza o judiciário a substituir a defensoria na administração de suas receitas nem a impor restrição não prevista como condição para o levantamento dos valores.
 
-            <div class="feedback" id="feedback-1">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A Defensoria Pública, enquanto instituição permanente e essencial à função jurisdicional do Estado, possui autonomia funcional, administrativa e financeira, assegurada pela Constituição e pela legislação complementar de regência. Os honorários sucumbenciais fixados em seu favor integram receita institucional e, por isso, submetem-se à gestão própria da Defensoria, que detém competência para administrar e dar a destinação adequada a tais valores.<br><br>No caso, a determinação judicial de retenção dos honorários em conta vinculada ao processo, condicionando sua liberação à criação futura de fundo de aparelhamento, extrapola a função jurisdicional e interfere diretamente na esfera de autogestão financeira da instituição. Ainda que exista previsão legal de fundo específico ou que sua regulamentação esteja pendente, essa circunstância não autoriza o Judiciário a substituir a Defensoria na administração de suas receitas nem a impor restrição não prevista como condição para o levantamento dos valores.<br><br>A orientação firmada prestigia a autonomia institucional da Defensoria Pública e afasta qualquer ingerência judicial sobre a disponibilidade dos honorários sucumbenciais, que não podem ser retidos sob o argumento de ausência ou pendência de regulamentação do fundo. Em síntese, a verba pertence à instituição e sua destinação é matéria interna de gestão, não podendo o Judiciário impor depósito judicial com liberação futura condicionada.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.180.416-MG, Rel. Min. Humberto Martins, julgado em 9/12/2025 (Info 874).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 2</span>
-                <span class="status" id="status-2">Não respondida</span>
-            </div>
+a orientação firmada prestigia a autonomia institucional da defensoria pública e afasta qualquer ingerência judicial sobre a disponibilidade dos honorários sucumbenciais, que não podem ser retidos sob o argumento de ausência ou pendência de regulamentação do fundo. em síntese, a verba pertence à instituição e sua destinação é matéria interna de gestão, não podendo o judiciário impor depósito judicial com liberação futura condicionada. stj. 3ª turma. resp 2.180.416-mg, rel. min. humberto martins, julgado em 9/12/2025 (info 874).">
 
-            <p class="enunciado">Em processo administrativo sancionador instaurado por órgão estadual ou municipal, a paralisação do feito por lapso superior a cinco anos autoriza, por si só, o reconhecimento da prescrição intercorrente com fundamento analógico no art. 1º do Decreto n. 20.910/1932, ainda que inexista lei local disciplinando expressamente essa modalidade extintiva.</p>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 1</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-1">Não respondida</span>
+</div>
 
-            <div class="botoes">
-                <button onclick="responder(2, 'CERTO')">CERTO</button>
-                <button onclick="responder(2, 'ERRADO')">ERRADO</button>
-            </div>
+<p class="enunciado">A imposição judicial de depósito, em conta vinculada ao processo, dos honorários sucumbenciais arbitrados em favor da Defensoria Pública, com liberação apenas após a futura instituição de fundo de aparelhamento previsto em legislação estadual, viola a autonomia funcional, administrativa e financeira da instituição, por representar ingerência indevida do Poder Judiciário sobre a gestão de receita cuja destinação compete exclusivamente à própria Defensoria Pública.</p>
 
-            <div class="feedback" id="feedback-2">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque o Decreto n. 20.910/1932 trata da prescrição quinquenal das pretensões contra a Fazenda Pública, mas não disciplina prescrição intercorrente em processo administrativo. Por isso, não serve como base normativa, nem mesmo por analogia, para extinguir a pretensão punitiva em processos administrativos estaduais ou municipais paralisados por longo período.<br><br>O ponto central do entendimento é a necessidade de previsão em lei local para que se reconheça a prescrição intercorrente nesses procedimentos. Em outras palavras, a mera inércia administrativa por mais de cinco anos não basta, por si só, para a incidência automática do prazo quinquenal do Decreto n. 20.910/1932 em sede administrativa sancionadora estadual ou municipal. A analogia é vedada justamente porque implicaria ampliar, sem autorização normativa específica, hipótese extintiva não contemplada pelo decreto.<br><br>Assim, ainda que o processo tenha permanecido sem movimentação por período superior a cinco anos, o reconhecimento da prescrição intercorrente depende de disciplina legal própria no âmbito do ente federativo competente. Na ausência dessa lei local, não se pode importar o regime do Decreto n. 20.910/1932 para suprir a lacuna.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Seção. REsp 2.002.589-PR e REsp 2.137.071-MG, Rel. Min. Afrânio Vilela, julgados em 10/12/2025 (Recurso Repetitivo - Tema 1294) (Info 874).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 3</span>
-                <span class="status" id="status-3">Não respondida</span>
-            </div>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(1, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(1, 'ERRADO')">ERRADO</button>
+</div>
 
-            <p class="enunciado">Na hipótese de reconhecimento judicial do direito à indenização por danos morais decorrentes de perseguição política sofrida durante a ditadura militar, ainda que o interessado já tenha recebido reparação econômica administrativa prevista no art. 8º do ADCT, a pretensão indenizatória não se submete ao prazo prescricional do Decreto nº 20.910/1932, sendo admissível a cumulação das duas verbas por possuírem fundamentos e naturezas distintos; nessa situação, a correção monetária incide a partir do arbitramento judicial, mas os juros de mora somente fluem a partir da citação válida, por se tratar de responsabilidade civil reconhecida em juízo.</p>
+<div class="feedback" id="feedback-1">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A Defensoria Pública, enquanto instituição permanente e essencial à função jurisdicional do Estado, possui autonomia funcional, administrativa e financeira, assegurada pela Constituição e pela legislação complementar de regência. Os honorários sucumbenciais fixados em seu favor integram receita institucional e, por isso, submetem-se à gestão própria da Defensoria, que detém competência para administrar e dar a destinação adequada a tais valores.<br><br>No caso, a determinação judicial de retenção dos honorários em conta vinculada ao processo, condicionando sua liberação à criação futura de fundo de aparelhamento, extrapola a função jurisdicional e interfere diretamente na esfera de autogestão financeira da instituição. Ainda que exista previsão legal de fundo específico ou que sua regulamentação esteja pendente, essa circunstância não autoriza o Judiciário a substituir a Defensoria na administração de suas receitas nem a impor restrição não prevista como condição para o levantamento dos valores.<br><br>A orientação firmada prestigia a autonomia institucional da Defensoria Pública e afasta qualquer ingerência judicial sobre a disponibilidade dos honorários sucumbenciais, que não podem ser retidos sob o argumento de ausência ou pendência de regulamentação do fundo. Em síntese, a verba pertence à instituição e sua destinação é matéria interna de gestão, não podendo o Judiciário impor depósito judicial com liberação futura condicionada.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.180.416-MG, Rel. Min. Humberto Martins, julgado em 9/12/2025 (Info 874).</p>
+</div>
+</section>
 
-            <div class="botoes">
-                <button onclick="responder(3, 'CERTO')">CERTO</button>
-                <button onclick="responder(3, 'ERRADO')">ERRADO</button>
-            </div>
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="em processo administrativo sancionador instaurado por órgão estadual ou municipal, a paralisação do feito por lapso superior a cinco anos autoriza, por si só, o reconhecimento da prescrição intercorrente com fundamento analógico no art. 1º do decreto n. 20.910/1932, ainda que inexista lei local disciplinando expressamente essa modalidade extintiva. a assertiva está incorreta porque o decreto n. 20.910/1932 trata da prescrição quinquenal das pretensões contra a fazenda pública, mas não disciplina prescrição intercorrente em processo administrativo. por isso, não serve como base normativa, nem mesmo por analogia, para extinguir a pretensão punitiva em processos administrativos estaduais ou municipais paralisados por longo período.
 
-            <div class="feedback" id="feedback-3">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva erra ao fixar o termo inicial dos juros de mora na citação válida. No caso de indenização por danos morais decorrentes de perseguição política durante a ditadura militar, uma vez reconhecido judicialmente o direito, os consectários legais seguem a disciplina própria da responsabilidade civil extracontratual: a correção monetária incide desde o arbitramento da indenização, mas os juros de mora fluem desde o evento danoso, nos termos da Súmula 54 do STJ.<br><br>O restante do enunciado está alinhado ao entendimento consolidado: a pretensão de indenização por danos morais, nesse contexto, é imprescritível, não se aplicando o prazo quinquenal do Decreto nº 20.910/1932; além disso, é possível cumular a reparação econômica administrativa do art. 8º do ADCT, regulamentada pela Lei nº 10.559/2002, com a indenização judicial por danos morais, porque as parcelas têm fundamentos distintos — a primeira voltada à reparação de prejuízos patrimoniais, e a segunda à compensação do sofrimento moral. Contudo, a parte final da assertiva inverte o marco inicial dos juros, o que contraria a orientação firmada.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Seção. REsp 2.031.813-SC e REsp 2.032.021-RS, Rel. Min. Afrânio Vilela, julgados 10/12/2025 (Recurso Repetitivo - Tema 1251) (Info 874).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 4</span>
-                <span class="status" id="status-4">Não respondida</span>
-            </div>
+o ponto central do entendimento é a necessidade de previsão em lei local para que se reconheça a prescrição intercorrente nesses procedimentos. em outras palavras, a mera inércia administrativa por mais de cinco anos não basta, por si só, para a incidência automática do prazo quinquenal do decreto n. 20.910/1932 em sede administrativa sancionadora estadual ou municipal. a analogia é vedada justamente porque implicaria ampliar, sem autorização normativa específica, hipótese extintiva não contemplada pelo decreto.
 
-            <p class="enunciado">Em demanda indenizatória fundada em supostos desfalques, saques indevidos ou ausência de creditamento de rendimentos em conta individualizada do PASEP, o prazo prescricional decenal para a pretensão de reparação inicia-se, em regra, na data em que o titular realiza o saque integral do saldo principal, ainda que somente venha a obter os extratos anos depois e alegue ter tomado ciência dos lançamentos irregulares apenas nesse momento.</p>
+assim, ainda que o processo tenha permanecido sem movimentação por período superior a cinco anos, o reconhecimento da prescrição intercorrente depende de disciplina legal própria no âmbito do ente federativo competente. na ausência dessa lei local, não se pode importar o regime do decreto n. 20.910/1932 para suprir a lacuna. stj. 1ª seção. resp 2.002.589-pr e resp 2.137.071-mg, rel. min. afrânio vilela, julgados em 10/12/2025 (recurso repetitivo - tema 1294) (info 874).">
 
-            <div class="botoes">
-                <button onclick="responder(4, 'CERTO')">CERTO</button>
-                <button onclick="responder(4, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 2</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-2">Não respondida</span>
+</div>
 
-            <div class="feedback" id="feedback-4">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está correta porque, nas controvérsias relativas a falhas na administração de conta individualizada do PASEP, o saque integral do principal é considerado marco objetivo apto a deflagrar a prescrição da pretensão reparatória. A lógica adotada é a de que, ao retirar a integralidade do saldo principal, o participante passa a ter ciência suficiente de que a conta foi encerrada em relação ao valor principal e de que eventual diferença deveria ser imediatamente buscada, não sendo necessário aguardar a obtenção posterior de extratos para só então iniciar a contagem do prazo.<br><br>O entendimento afasta a tese de que o termo inicial dependeria da ciência técnica ou da descoberta posterior dos lançamentos supostamente indevidos. Para a Corte, não se exige conhecimento especializado para perceber que, uma vez sacado todo o principal, não há expectativa legítima de complementação espontânea pela instituição administradora. Assim, a pretensão de reparação por falha na prestação do serviço, por saques indevidos, por desfalques ou por ausência de aplicação dos rendimentos em conta individualizada do PASEP submete-se ao prazo decenal, contado do saque integral do principal.<br><br>Esse marco inicial é relevante porque impede a postergação indefinida da prescrição com base em alegação genérica de descoberta tardia do dano. Em outras palavras, a obtenção posterior dos extratos não desloca, por si só, o termo inicial quando já houve o saque integral do saldo principal, pois esse ato é suficiente para caracterizar a possibilidade de exercício da pretensão.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Seção. REsp 2.214.879-PE e REsp 2.214.864-PE, Rel. Min. Maria Thereza de Assis Moura, julgados em 10/12/2025 (Recurso Repetitivo - Tema 1387) (Info 874).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 5</span>
-                <span class="status" id="status-5">Não respondida</span>
-            </div>
+<p class="enunciado">Em processo administrativo sancionador instaurado por órgão estadual ou municipal, a paralisação do feito por lapso superior a cinco anos autoriza, por si só, o reconhecimento da prescrição intercorrente com fundamento analógico no art. 1º do Decreto n. 20.910/1932, ainda que inexista lei local disciplinando expressamente essa modalidade extintiva.</p>
 
-            <p class="enunciado">Nos contratos de mútuo imobiliário garantidos por alienação fiduciária de bem imóvel, a consolidação da propriedade em nome do fiduciário não impede, em qualquer hipótese, a retomada do contrato pelo devedor fiduciante, pois a purgação da mora permanece admissível mesmo após a consolidação, bastando que o devedor quite integralmente a dívida antes da alienação do imóvel a terceiro, independentemente da data em que tenha ocorrido a consolidação.</p>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(2, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(2, 'ERRADO')">ERRADO</button>
+</div>
 
-            <div class="botoes">
-                <button onclick="responder(5, 'CERTO')">CERTO</button>
-                <button onclick="responder(5, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="feedback" id="feedback-2">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque o Decreto n. 20.910/1932 trata da prescrição quinquenal das pretensões contra a Fazenda Pública, mas não disciplina prescrição intercorrente em processo administrativo. Por isso, não serve como base normativa, nem mesmo por analogia, para extinguir a pretensão punitiva em processos administrativos estaduais ou municipais paralisados por longo período.<br><br>O ponto central do entendimento é a necessidade de previsão em lei local para que se reconheça a prescrição intercorrente nesses procedimentos. Em outras palavras, a mera inércia administrativa por mais de cinco anos não basta, por si só, para a incidência automática do prazo quinquenal do Decreto n. 20.910/1932 em sede administrativa sancionadora estadual ou municipal. A analogia é vedada justamente porque implicaria ampliar, sem autorização normativa específica, hipótese extintiva não contemplada pelo decreto.<br><br>Assim, ainda que o processo tenha permanecido sem movimentação por período superior a cinco anos, o reconhecimento da prescrição intercorrente depende de disciplina legal própria no âmbito do ente federativo competente. Na ausência dessa lei local, não se pode importar o regime do Decreto n. 20.910/1932 para suprir a lacuna.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Seção. REsp 2.002.589-PR e REsp 2.137.071-MG, Rel. Min. Afrânio Vilela, julgados em 10/12/2025 (Recurso Repetitivo - Tema 1294) (Info 874).</p>
+</div>
+</section>
 
-            <div class="feedback" id="feedback-5">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque mistura regimes jurídicos distintos e amplia indevidamente a possibilidade de purgação da mora após a consolidação da propriedade fiduciária.<br><br>No regime anterior à Lei n. 13.465/2017, a situação reconhecida foi a de que, <strong>se já havia consolidação da propriedade e a mora fosse purgada nos termos do art. 34 do Decreto-Lei n. 70/1966</strong>, impunha-se o desfazimento do ato de consolidação, com a consequente retomada do contrato de financiamento imobiliário. Ou seja, a possibilidade de recomposição do vínculo contratual não era irrestrita nem automática: dependia da disciplina aplicável e da efetiva purgação da mora nos moldes admitidos para aquele contexto.<br><br>Já <strong>a partir da entrada em vigor da Lei n. 13.465/2017</strong>, o entendimento fixado foi mais restritivo: <strong>havendo consolidação da propriedade, mas não tendo sido purgada a mora</strong>, ao devedor fiduciante é assegurado <strong>tão somente o direito de preferência previsto no § 2º-B do art. 27 da Lei n. 9.514/1997</strong>. Isso significa que, após a consolidação, não subsiste, como regra, um direito amplo de purgar a mora para reverter automaticamente a consolidação e retomar o contrato; o espaço de atuação do devedor passa a ser o exercício do direito de preferência, nos limites legais.<br><br>Portanto, é incorreto afirmar que a purgação da mora seria sempre possível após a consolidação, independentemente do marco temporal e da disciplina legal incidente. O julgado distingue expressamente:  <br>- <strong>antes da Lei 13.465/2017</strong>, admite-se o desfazimento da consolidação se a mora foi purgada nos termos cabíveis;  <br>- <strong>depois da Lei 13.465/2017</strong>, consolidada a propriedade e não purgada a mora, resta ao devedor apenas o direito de preferência legal.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 2ª Seção. REsp 2.126.726-SP, Rel. Min. Ricardo Villas Bôas Cueva, julgado em 10/12/2025 (Recurso Repetitivo - Tema 1288) (Info 874).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 6</span>
-                <span class="status" id="status-6">Não respondida</span>
-            </div>
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="na hipótese de reconhecimento judicial do direito à indenização por danos morais decorrentes de perseguição política sofrida durante a ditadura militar, ainda que o interessado já tenha recebido reparação econômica administrativa prevista no art. 8º do adct, a pretensão indenizatória não se submete ao prazo prescricional do decreto nº 20.910/1932, sendo admissível a cumulação das duas verbas por possuírem fundamentos e naturezas distintos; nessa situação, a correção monetária incide a partir do arbitramento judicial, mas os juros de mora somente fluem a partir da citação válida, por se tratar de responsabilidade civil reconhecida em juízo. a assertiva erra ao fixar o termo inicial dos juros de mora na citação válida. no caso de indenização por danos morais decorrentes de perseguição política durante a ditadura militar, uma vez reconhecido judicialmente o direito, os consectários legais seguem a disciplina própria da responsabilidade civil extracontratual: a correção monetária incide desde o arbitramento da indenização, mas os juros de mora fluem desde o evento danoso, nos termos da súmula 54 do stj.
 
-            <p class="enunciado">A ocupação mansa, contínua e prolongada de área inserida em Área de Preservação Permanente, ainda que preenchidos os requisitos subjetivos e temporais da usucapião extraordinária, não pode conduzir à aquisição originária da propriedade, pois a permanência irregular em espaço ambientalmente protegido é incompatível com a função socioambiental da posse e com a tutela legal conferida ao bem, sobretudo quando a ocupação favorece a supressão da vegetação e dificulta o exercício do poder de polícia ambiental.</p>
+o restante do enunciado está alinhado ao entendimento consolidado: a pretensão de indenização por danos morais, nesse contexto, é imprescritível, não se aplicando o prazo quinquenal do decreto nº 20.910/1932; além disso, é possível cumular a reparação econômica administrativa do art. 8º do adct, regulamentada pela lei nº 10.559/2002, com a indenização judicial por danos morais, porque as parcelas têm fundamentos distintos — a primeira voltada à reparação de prejuízos patrimoniais, e a segunda à compensação do sofrimento moral. contudo, a parte final da assertiva inverte o marco inicial dos juros, o que contraria a orientação firmada. stj. 1ª seção. resp 2.031.813-sc e resp 2.032.021-rs, rel. min. afrânio vilela, julgados 10/12/2025 (recurso repetitivo - tema 1251) (info 874).">
 
-            <div class="botoes">
-                <button onclick="responder(6, 'CERTO')">CERTO</button>
-                <button onclick="responder(6, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 3</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-3">Não respondida</span>
+</div>
 
-            <div class="feedback" id="feedback-6">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A afirmação está correta. A orientação firmada é no sentido de que a posse exercida sobre imóvel localizado em Área de Preservação Permanente não produz efeitos jurídicos aptos ao reconhecimento da usucapião, ainda que a ocupação seja pacífica, contínua e prolongada.<br><br>O fundamento central está em interpretação teleológica dos arts. 7º e 8º do Código Florestal, que evidenciam a especial proteção conferida às APPs. Essas áreas possuem regime jurídico voltado à preservação ambiental, de modo que invasões e ocupações irregulares são consideradas antijurídicas porque estimulam a degradação ambiental, favorecem a supressão da vegetação e obstaculizam a atuação estatal de fiscalização e recomposição.<br><br>Assim, mesmo que, em tese, estivessem presentes os requisitos clássicos da usucapião extraordinária — como o decurso do tempo e a posse com animus domini —, a natureza ambientalmente protegida do bem impede a consolidação da aquisição por usucapião. Em outras palavras, a proteção ambiental prevalece sobre a pretensão aquisitiva fundada em posse irregular sobre APP.<br><br>A conclusão não decorre de mera insuficiência probatória, mas da incompatibilidade jurídica entre a ocupação irregular de APP e a produção de efeitos possessórios aptos a gerar domínio. Por isso, a durabilidade da posse, isoladamente, não convalida situação originariamente contrária à ordem jurídica ambiental.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.211.711-MT, Rel. Min. Nancy Andrighi, julgado em 9/12/2025 (Info 874).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 7</span>
-                <span class="status" id="status-7">Não respondida</span>
-            </div>
+<p class="enunciado">Na hipótese de reconhecimento judicial do direito à indenização por danos morais decorrentes de perseguição política sofrida durante a ditadura militar, ainda que o interessado já tenha recebido reparação econômica administrativa prevista no art. 8º do ADCT, a pretensão indenizatória não se submete ao prazo prescricional do Decreto nº 20.910/1932, sendo admissível a cumulação das duas verbas por possuírem fundamentos e naturezas distintos; nessa situação, a correção monetária incide a partir do arbitramento judicial, mas os juros de mora somente fluem a partir da citação válida, por se tratar de responsabilidade civil reconhecida em juízo.</p>
 
-            <p class="enunciado">No regime de separação convencional de bens, a aquisição conjunta, por ambos os cônjuges, de terreno em partes iguais não impede a comunicação da construção nele erigida durante o casamento, pois, ausente prova robusta de que a edificação tenha sido custeada exclusivamente por apenas um deles, incide a presunção de que a obra pertence aos coproprietários na mesma proporção do solo, sendo legítima a partilha igualitária do imóvel edificado.</p>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(3, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(3, 'ERRADO')">ERRADO</button>
+</div>
 
-            <div class="botoes">
-                <button onclick="responder(7, 'CERTO')">CERTO</button>
-                <button onclick="responder(7, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="feedback" id="feedback-3">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva erra ao fixar o termo inicial dos juros de mora na citação válida. No caso de indenização por danos morais decorrentes de perseguição política durante a ditadura militar, uma vez reconhecido judicialmente o direito, os consectários legais seguem a disciplina própria da responsabilidade civil extracontratual: a correção monetária incide desde o arbitramento da indenização, mas os juros de mora fluem desde o evento danoso, nos termos da Súmula 54 do STJ.<br><br>O restante do enunciado está alinhado ao entendimento consolidado: a pretensão de indenização por danos morais, nesse contexto, é imprescritível, não se aplicando o prazo quinquenal do Decreto nº 20.910/1932; além disso, é possível cumular a reparação econômica administrativa do art. 8º do ADCT, regulamentada pela Lei nº 10.559/2002, com a indenização judicial por danos morais, porque as parcelas têm fundamentos distintos — a primeira voltada à reparação de prejuízos patrimoniais, e a segunda à compensação do sofrimento moral. Contudo, a parte final da assertiva inverte o marco inicial dos juros, o que contraria a orientação firmada.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Seção. REsp 2.031.813-SC e REsp 2.032.021-RS, Rel. Min. Afrânio Vilela, julgados 10/12/2025 (Recurso Repetitivo - Tema 1251) (Info 874).</p>
+</div>
+</section>
 
-            <div class="feedback" id="feedback-7">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está correta porque, embora a separação convencional de bens afaste a comunicabilidade patrimonial típica do regime de bens, isso não impede a incidência das regras de direito das coisas e da acessão quando o bem-base é adquirido em copropriedade por ambos os cônjuges. No caso, o terreno foi comprado por João e Regina em frações iguais, de modo que a titularidade do solo já era comum.<br><br>Nessa hipótese, aplica-se a lógica do art. 1.253 do Código Civil: a construção existente em terreno presume-se feita pelo proprietário e à sua custa. Se o terreno pertence a ambos em igual proporção, a presunção se projeta sobre a edificação, que também se presume comum na mesma fração. Trata-se de presunção relativa, admitindo prova em contrário.<br><br>O ponto decisivo é que o cônjuge que alegava ter suportado sozinho o custo da construção não produziu prova suficiente para afastar a presunção legal, ao passo que a outra parte apresentou elementos de contribuição para a edificação. Assim, manteve-se a partilha da casa em 50% para cada um.<br><br>Portanto, não se trata de afirmar que o regime de separação convencional, por si só, gera comunicabilidade de bens; o fundamento está na copropriedade do terreno e na presunção legal de que a construção nele realizada acompanha a titularidade do solo, salvo prova contrária.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 4ª Turma. REsp 2.126.992-DF, Rel. Min. Raul Araújo, julgado em 9/12/2025 (Info 874).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 8</span>
-                <span class="status" id="status-8">Não respondida</span>
-            </div>
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="em demanda indenizatória fundada em supostos desfalques, saques indevidos ou ausência de creditamento de rendimentos em conta individualizada do pasep, o prazo prescricional decenal para a pretensão de reparação inicia-se, em regra, na data em que o titular realiza o saque integral do saldo principal, ainda que somente venha a obter os extratos anos depois e alegue ter tomado ciência dos lançamentos irregulares apenas nesse momento. a assertiva está correta porque, nas controvérsias relativas a falhas na administração de conta individualizada do pasep, o saque integral do principal é considerado marco objetivo apto a deflagrar a prescrição da pretensão reparatória. a lógica adotada é a de que, ao retirar a integralidade do saldo principal, o participante passa a ter ciência suficiente de que a conta foi encerrada em relação ao valor principal e de que eventual diferença deveria ser imediatamente buscada, não sendo necessário aguardar a obtenção posterior de extratos para só então iniciar a contagem do prazo.
 
-            <p class="enunciado">A ação de reintegração de posse proposta pelo Banco do Brasil, na qualidade de instituição financeira oficial federal que apenas operacionalizou contrato de aquisição de imóvel custeado com recursos do Fundo de Arrendamento Residencial (FAR), no âmbito do Programa Minha Casa Minha Vida, deve ser processada e julgada pela Justiça Federal, por envolver, necessariamente, interesse jurídico da União e da Caixa Econômica Federal, ainda que a instituição autora atue como representante do fundo e não como mera financiadora.</p>
+o entendimento afasta a tese de que o termo inicial dependeria da ciência técnica ou da descoberta posterior dos lançamentos supostamente indevidos. para a corte, não se exige conhecimento especializado para perceber que, uma vez sacado todo o principal, não há expectativa legítima de complementação espontânea pela instituição administradora. assim, a pretensão de reparação por falha na prestação do serviço, por saques indevidos, por desfalques ou por ausência de aplicação dos rendimentos em conta individualizada do pasep submete-se ao prazo decenal, contado do saque integral do principal.
 
-            <div class="botoes">
-                <button onclick="responder(8, 'CERTO')">CERTO</button>
-                <button onclick="responder(8, 'ERRADO')">ERRADO</button>
-            </div>
+esse marco inicial é relevante porque impede a postergação indefinida da prescrição com base em alegação genérica de descoberta tardia do dano. em outras palavras, a obtenção posterior dos extratos não desloca, por si só, o termo inicial quando já houve o saque integral do saldo principal, pois esse ato é suficiente para caracterizar a possibilidade de exercício da pretensão. stj. 1ª seção. resp 2.214.879-pe e resp 2.214.864-pe, rel. min. maria thereza de assis moura, julgados em 10/12/2025 (recurso repetitivo - tema 1387) (info 874).">
 
-            <div class="feedback" id="feedback-8">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A competência da Justiça Federal não se estabelece automaticamente pelo simples fato de o imóvel ter sido adquirido com recursos do FAR, nem pela circunstância de a Caixa Econômica Federal ser a gestora do fundo. O ponto decisivo é verificar se há efetivo interesse jurídico da União, de autarquia ou de empresa pública federal, nos termos do art. 109, I, da Constituição.<br><br>No caso, o Banco do Brasil ajuizou ação possessória em nome próprio, na condição de instituição financeira oficial federal autorizada a operacionalizar o programa habitacional. O Decreto nº 7.499/2011 admite que outras instituições financeiras oficiais federais atuem na execução do Minha Casa Minha Vida e, nessa hipótese, elas possuem legitimidade para defender em juízo os direitos do FAR, conforme o art. 9º, parágrafo único, II. Isso, porém, não desloca automaticamente a competência para a Justiça Federal.<br><br>A jurisprudência firmou que a legitimidade da Caixa nas demandas relacionadas ao programa somente atrai a competência federal quando ela atua para além de mero agente financiador, isto é, quando há efetiva presença de interesse jurídico federal na lide. Se a controvérsia se limita à reintegração de posse de imóvel ocupado indevidamente, sem demonstração de interesse direto da União ou da Caixa, a competência permanece na Justiça Estadual.<br><br>Portanto, a assertiva erra ao presumir competência federal automática e ao afirmar, de modo absoluto, que o simples uso de recursos do FAR e a atuação do Banco do Brasil bastam para atrair a Justiça Federal.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.204.632-MG, Rel. Min. Nancy Andrighi, julgado em 9/12/2025 (Info 874).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 9</span>
-                <span class="status" id="status-9">Não respondida</span>
-            </div>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 4</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-4">Não respondida</span>
+</div>
 
-            <p class="enunciado">Nas execuções cíveis regidas exclusivamente pelo Código de Processo Civil, a imposição de medida executiva atípica com fundamento no art. 139, IV, pode ser admitida mesmo antes do esgotamento das diligências típicas, desde que o magistrado explicite, com fundamentação aderente às peculiaridades do caso concreto, a ponderação entre a efetividade da tutela executiva e a menor onerosidade ao executado, assegure o contraditório e observe, de forma subsidiária, os critérios de proporcionalidade, razoabilidade e delimitação temporal da providência.</p>
+<p class="enunciado">Em demanda indenizatória fundada em supostos desfalques, saques indevidos ou ausência de creditamento de rendimentos em conta individualizada do PASEP, o prazo prescricional decenal para a pretensão de reparação inicia-se, em regra, na data em que o titular realiza o saque integral do saldo principal, ainda que somente venha a obter os extratos anos depois e alegue ter tomado ciência dos lançamentos irregulares apenas nesse momento.</p>
 
-            <div class="botoes">
-                <button onclick="responder(9, 'CERTO')">CERTO</button>
-                <button onclick="responder(9, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(4, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(4, 'ERRADO')">ERRADO</button>
+</div>
 
-            <div class="feedback" id="feedback-9">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva reproduz, em essência, os requisitos cumulativos fixados para a adoção de meios executivos atípicos nas execuções cíveis submetidas exclusivamente ao CPC. O ponto central do entendimento é que tais medidas não são vedadas em abstrato, nem dependem de uma fórmula rígida de esgotamento absoluto de todos os meios típicos; o que se exige é que sua utilização seja <strong>prioritariamente subsidiária</strong>, isto é, preferencialmente reservada a hipóteses em que as providências ordinárias se mostrem insuficientes ou inadequadas, sem prejuízo de análise concreta da utilidade da medida.<br><br>Além disso, a decisão judicial deve conter <strong>fundamentação específica e adequada às particularidades do caso</strong>, não bastando invocação genérica do art. 139, IV, do CPC. Também é indispensável a observância do <strong>contraditório</strong>, da <strong>proporcionalidade</strong> e da <strong>razoabilidade</strong>, inclusive quanto à <strong>vigência temporal</strong> da medida, o que impede sua imposição por prazo indeterminado ou sem delimitação compatível com a finalidade executiva.<br><br>Por fim, a tese ressalta a necessidade de ponderação entre a <strong>efetividade da execução</strong> e a <strong>menor onerosidade do executado</strong>, de modo que a medida atípica não pode ser aplicada de forma automática ou desproporcional. A assertiva, portanto, está alinhada ao entendimento consolidado no repetitivo.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 2ª Seção. REsp 1.955.539-SP e REsp 1.955.574-SP, Rel. Min. Marco Buzzi, julgados em 4/12/2025 (Recurso Repetitivo - Tema 1137) (Info 874).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 10</span>
-                <span class="status" id="status-10">Não respondida</span>
-            </div>
+<div class="feedback" id="feedback-4">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque, nas controvérsias relativas a falhas na administração de conta individualizada do PASEP, o saque integral do principal é considerado marco objetivo apto a deflagrar a prescrição da pretensão reparatória. A lógica adotada é a de que, ao retirar a integralidade do saldo principal, o participante passa a ter ciência suficiente de que a conta foi encerrada em relação ao valor principal e de que eventual diferença deveria ser imediatamente buscada, não sendo necessário aguardar a obtenção posterior de extratos para só então iniciar a contagem do prazo.<br><br>O entendimento afasta a tese de que o termo inicial dependeria da ciência técnica ou da descoberta posterior dos lançamentos supostamente indevidos. Para a Corte, não se exige conhecimento especializado para perceber que, uma vez sacado todo o principal, não há expectativa legítima de complementação espontânea pela instituição administradora. Assim, a pretensão de reparação por falha na prestação do serviço, por saques indevidos, por desfalques ou por ausência de aplicação dos rendimentos em conta individualizada do PASEP submete-se ao prazo decenal, contado do saque integral do principal.<br><br>Esse marco inicial é relevante porque impede a postergação indefinida da prescrição com base em alegação genérica de descoberta tardia do dano. Em outras palavras, a obtenção posterior dos extratos não desloca, por si só, o termo inicial quando já houve o saque integral do saldo principal, pois esse ato é suficiente para caracterizar a possibilidade de exercício da pretensão.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Seção. REsp 2.214.879-PE e REsp 2.214.864-PE, Rel. Min. Maria Thereza de Assis Moura, julgados em 10/12/2025 (Recurso Repetitivo - Tema 1387) (Info 874).</p>
+</div>
+</section>
 
-            <p class="enunciado">A prática do delito previsto no art. 218-A do Código Penal pressupõe a presença física simultânea do agente e da vítima no mesmo ambiente, de modo que a realização de ato libidinoso por videochamada, ainda que a criança ou adolescente o esteja assistindo em tempo real, não se amolda ao núcleo típico “presenciar” nem autoriza a incidência do tipo penal.</p>
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="nos contratos de mútuo imobiliário garantidos por alienação fiduciária de bem imóvel, a consolidação da propriedade em nome do fiduciário não impede, em qualquer hipótese, a retomada do contrato pelo devedor fiduciante, pois a purgação da mora permanece admissível mesmo após a consolidação, bastando que o devedor quite integralmente a dívida antes da alienação do imóvel a terceiro, independentemente da data em que tenha ocorrido a consolidação. a assertiva está incorreta porque mistura regimes jurídicos distintos e amplia indevidamente a possibilidade de purgação da mora após a consolidação da propriedade fiduciária.
 
-            <div class="botoes">
-                <button onclick="responder(10, 'CERTO')">CERTO</button>
-                <button onclick="responder(10, 'ERRADO')">ERRADO</button>
-            </div>
+no regime anterior à lei n. 13.465/2017, a situação reconhecida foi a de que, **se já havia consolidação da propriedade e a mora fosse purgada nos termos do art. 34 do decreto-lei n. 70/1966**, impunha-se o desfazimento do ato de consolidação, com a consequente retomada do contrato de financiamento imobiliário. ou seja, a possibilidade de recomposição do vínculo contratual não era irrestrita nem automática: dependia da disciplina aplicável e da efetiva purgação da mora nos moldes admitidos para aquele contexto.
 
-            <div class="feedback" id="feedback-10">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>O enunciado está incorreto porque o núcleo do art. 218-A do Código Penal — “praticar, na presença de alguém menor de 14 anos, ou induzi-lo a presenciar, conjunção carnal ou outro ato libidinoso” — não exige, em sua literalidade, que agente e vítima compartilhem o mesmo espaço físico. O verbo “presenciar” deve ser compreendido em seu sentido comum de assistir, ver ou testemunhar o ato, o que pode ocorrer por meio de comunicação audiovisual em tempo real.<br><br>A interpretação teleológica também afasta a exigência de coabitação física: o bem jurídico protegido é a dignidade sexual da criança ou adolescente e seu adequado desenvolvimento, sendo irrelevante, para a configuração típica, a distância geográfica entre agente e vítima, desde que o menor seja compelido a assistir ao ato libidinoso. Assim, a videochamada é meio idôneo para a consumação do delito, pois permite a visualização imediata do comportamento sexual perante a vítima vulnerável.<br><br>Portanto, a tese defensiva de atipicidade por ausência de presença física não prevalece, já que o tipo penal alcança a conduta praticada em ambiente virtual, quando a vítima menor de 14 anos presencia, ao vivo, o ato libidinoso.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 6ª Turma. REsp 2.107.993-BA, Rel. Min. Sebastião Reis Júnior, julgado em 18/11/2025 (Info 874).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 11</span>
-                <span class="status" id="status-11">Não respondida</span>
-            </div>
+já **a partir da entrada em vigor da lei n. 13.465/2017**, o entendimento fixado foi mais restritivo: **havendo consolidação da propriedade, mas não tendo sido purgada a mora**, ao devedor fiduciante é assegurado **tão somente o direito de preferência previsto no § 2º-b do art. 27 da lei n. 9.514/1997**. isso significa que, após a consolidação, não subsiste, como regra, um direito amplo de purgar a mora para reverter automaticamente a consolidação e retomar o contrato; o espaço de atuação do devedor passa a ser o exercício do direito de preferência, nos limites legais.
 
-            <p class="enunciado">Em razão da estrutura normativa do IPI, é juridicamente admissível excluir, da base de cálculo do imposto, os valores correspondentes ao ICMS, ao PIS e à COFINS destacados na operação de saída, sob o argumento de que tais exações não se incorporam ao patrimônio do industrial e, por analogia ao entendimento firmado para o PIS e a COFINS, não integram o “valor da operação” a que se referem o art. 47, II, a, do CTN e o art. 14, II, da Lei n. 4.502/1964.</p>
+portanto, é incorreto afirmar que a purgação da mora seria sempre possível após a consolidação, independentemente do marco temporal e da disciplina legal incidente. o julgado distingue expressamente:  
+- **antes da lei 13.465/2017**, admite-se o desfazimento da consolidação se a mora foi purgada nos termos cabíveis;  
+- **depois da lei 13.465/2017**, consolidada a propriedade e não purgada a mora, resta ao devedor apenas o direito de preferência legal. stj. 2ª seção. resp 2.126.726-sp, rel. min. ricardo villas bôas cueva, julgado em 10/12/2025 (recurso repetitivo - tema 1288) (info 874).">
 
-            <div class="botoes">
-                <button onclick="responder(11, 'CERTO')">CERTO</button>
-                <button onclick="responder(11, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 5</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-5">Não respondida</span>
+</div>
 
-            <div class="feedback" id="feedback-11">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque o entendimento consolidado é no sentido de que o “valor da operação” para fins de incidência do IPI corresponde ao valor total da saída do produto do estabelecimento industrial ou equiparado, abrangendo os tributos que compõem o preço da mercadoria. Assim, ICMS, PIS e COFINS integram a base de cálculo do IPI, não havendo autorização legal para sua exclusão.<br><br>A tese rejeita a tentativa de transposição automática da lógica do Tema 69 do STF para o IPI. Embora naquele precedente tenha sido afastada a inclusão do ICMS na base do PIS/COFINS, a razão de decidir não se aplica ao IPI, pois as materialidades tributárias e os critérios de quantificação são distintos. No IPI, o legislador adotou como referência o valor da operação de saída, e não uma noção de receita líquida ou faturamento depurado de tributos.<br><br>Além disso, a solução é compatível com o art. 47 do CTN e com o art. 14 da Lei n. 4.502/1964, que não preveem a exclusão dos tributos destacados do preço da mercadoria. Em outras palavras, o fato de o contribuinte repassar economicamente esses valores ao adquirente ou ao Fisco não altera a composição jurídica da base de cálculo do IPI.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Seção. REsps 2.119.311-SC, 2.143.866-SP e 2.143.997-SP, Rel. Min. Teodoro Silva Santos, julgado em 10/12/2025 (Recurso Repetitivo - Tema 1304) (Info 874).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 12</span>
-                <span class="status" id="status-12">Não respondida</span>
-            </div>
+<p class="enunciado">Nos contratos de mútuo imobiliário garantidos por alienação fiduciária de bem imóvel, a consolidação da propriedade em nome do fiduciário não impede, em qualquer hipótese, a retomada do contrato pelo devedor fiduciante, pois a purgação da mora permanece admissível mesmo após a consolidação, bastando que o devedor quite integralmente a dívida antes da alienação do imóvel a terceiro, independentemente da data em que tenha ocorrido a consolidação.</p>
 
-            <p class="enunciado">Na apuração do ITCMD incidente sobre a transmissão de imóvel, a Fazenda Pública pode instaurar procedimento administrativo individualizado de arbitramento do valor venal, com fundamento direto no art. 148 do CTN, quando a declaração, os documentos ou as informações prestadas pelo contribuinte forem omissos ou não merecerem fé; nessa hipótese, a existência de critério específico de base de cálculo previsto em lei estadual não impede a adoção do arbitramento, desde que assegurados o contraditório e a ampla defesa.</p>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(5, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(5, 'ERRADO')">ERRADO</button>
+</div>
 
-            <div class="botoes">
-                <button onclick="responder(12, 'CERTO')">CERTO</button>
-                <button onclick="responder(12, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="feedback" id="feedback-5">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque mistura regimes jurídicos distintos e amplia indevidamente a possibilidade de purgação da mora após a consolidação da propriedade fiduciária.<br><br>No regime anterior à Lei n. 13.465/2017, a situação reconhecida foi a de que, <strong>se já havia consolidação da propriedade e a mora fosse purgada nos termos do art. 34 do Decreto-Lei n. 70/1966</strong>, impunha-se o desfazimento do ato de consolidação, com a consequente retomada do contrato de financiamento imobiliário. Ou seja, a possibilidade de recomposição do vínculo contratual não era irrestrita nem automática: dependia da disciplina aplicável e da efetiva purgação da mora nos moldes admitidos para aquele contexto.<br><br>Já <strong>a partir da entrada em vigor da Lei n. 13.465/2017</strong>, o entendimento fixado foi mais restritivo: <strong>havendo consolidação da propriedade, mas não tendo sido purgada a mora</strong>, ao devedor fiduciante é assegurado <strong>tão somente o direito de preferência previsto no § 2º-B do art. 27 da Lei n. 9.514/1997</strong>. Isso significa que, após a consolidação, não subsiste, como regra, um direito amplo de purgar a mora para reverter automaticamente a consolidação e retomar o contrato; o espaço de atuação do devedor passa a ser o exercício do direito de preferência, nos limites legais.<br><br>Portanto, é incorreto afirmar que a purgação da mora seria sempre possível após a consolidação, independentemente do marco temporal e da disciplina legal incidente. O julgado distingue expressamente:  <br>- <strong>antes da Lei 13.465/2017</strong>, admite-se o desfazimento da consolidação se a mora foi purgada nos termos cabíveis;  <br>- <strong>depois da Lei 13.465/2017</strong>, consolidada a propriedade e não purgada a mora, resta ao devedor apenas o direito de preferência legal.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 2ª Seção. REsp 2.126.726-SP, Rel. Min. Ricardo Villas Bôas Cueva, julgado em 10/12/2025 (Recurso Repetitivo - Tema 1288) (Info 874).</p>
+</div>
+</section>
 
-            <div class="feedback" id="feedback-12">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a lógica central do entendimento firmado: o arbitramento do valor venal não decorre de uma faculdade discricionária desvinculada, mas de prerrogativa administrativa expressamente prevista no art. 148 do CTN, norma geral aplicável a todos os entes federados. Assim, ainda que a legislação estadual tenha liberdade para definir o critério inicial de apuração da base de cálculo do ITCMD, essa disciplina local não elimina a possibilidade de a Administração substituir o critério originário quando ele se revelar inadequado ao caso concreto.<br><br>O ponto decisivo é que o arbitramento somente se legitima em procedimento administrativo prévio, regular e individualizado, e não por presunção genérica ou por simples afastamento abstrato da lei estadual. Ele exige situação concreta em que as declarações, informações ou documentos apresentados pelo contribuinte sejam omissos ou não mereçam fé para a finalidade de lançamento. Nessas hipóteses, a Fazenda pode apurar o valor do bem por arbitramento, mas deve demonstrar que a quantia alcançada está absolutamente fora do valor de mercado, observando-se necessariamente o contraditório e a ampla defesa.<br><br>Portanto, não há violação automática à legislação estadual pelo uso do art. 148 do CTN, nem se admite a supressão genérica dessa prerrogativa por decisão judicial. O que se exige é controle de legalidade do procedimento e respeito às garantias processuais do contribuinte.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Seção. REsp 2.175.094-SP e REsp 2.213.551-SP, Rel. Min. Maria Thereza de Assis Moura, Rel. para acórdão Min. Marco Aurélio Bellizze, julgados em 10/12/2025 (Recurso Repetitivo - Tema 1371) (Info 874).</p>
-            </div>
-        </section>
-        
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a ocupação mansa, contínua e prolongada de área inserida em área de preservação permanente, ainda que preenchidos os requisitos subjetivos e temporais da usucapião extraordinária, não pode conduzir à aquisição originária da propriedade, pois a permanência irregular em espaço ambientalmente protegido é incompatível com a função socioambiental da posse e com a tutela legal conferida ao bem, sobretudo quando a ocupação favorece a supressão da vegetação e dificulta o exercício do poder de polícia ambiental. a afirmação está correta. a orientação firmada é no sentido de que a posse exercida sobre imóvel localizado em área de preservação permanente não produz efeitos jurídicos aptos ao reconhecimento da usucapião, ainda que a ocupação seja pacífica, contínua e prolongada.
+
+o fundamento central está em interpretação teleológica dos arts. 7º e 8º do código florestal, que evidenciam a especial proteção conferida às apps. essas áreas possuem regime jurídico voltado à preservação ambiental, de modo que invasões e ocupações irregulares são consideradas antijurídicas porque estimulam a degradação ambiental, favorecem a supressão da vegetação e obstaculizam a atuação estatal de fiscalização e recomposição.
+
+assim, mesmo que, em tese, estivessem presentes os requisitos clássicos da usucapião extraordinária — como o decurso do tempo e a posse com animus domini —, a natureza ambientalmente protegida do bem impede a consolidação da aquisição por usucapião. em outras palavras, a proteção ambiental prevalece sobre a pretensão aquisitiva fundada em posse irregular sobre app.
+
+a conclusão não decorre de mera insuficiência probatória, mas da incompatibilidade jurídica entre a ocupação irregular de app e a produção de efeitos possessórios aptos a gerar domínio. por isso, a durabilidade da posse, isoladamente, não convalida situação originariamente contrária à ordem jurídica ambiental. stj. 3ª turma. resp 2.211.711-mt, rel. min. nancy andrighi, julgado em 9/12/2025 (info 874).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 6</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-6">Não respondida</span>
+</div>
+
+<p class="enunciado">A ocupação mansa, contínua e prolongada de área inserida em Área de Preservação Permanente, ainda que preenchidos os requisitos subjetivos e temporais da usucapião extraordinária, não pode conduzir à aquisição originária da propriedade, pois a permanência irregular em espaço ambientalmente protegido é incompatível com a função socioambiental da posse e com a tutela legal conferida ao bem, sobretudo quando a ocupação favorece a supressão da vegetação e dificulta o exercício do poder de polícia ambiental.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(6, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(6, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-6">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A afirmação está correta. A orientação firmada é no sentido de que a posse exercida sobre imóvel localizado em Área de Preservação Permanente não produz efeitos jurídicos aptos ao reconhecimento da usucapião, ainda que a ocupação seja pacífica, contínua e prolongada.<br><br>O fundamento central está em interpretação teleológica dos arts. 7º e 8º do Código Florestal, que evidenciam a especial proteção conferida às APPs. Essas áreas possuem regime jurídico voltado à preservação ambiental, de modo que invasões e ocupações irregulares são consideradas antijurídicas porque estimulam a degradação ambiental, favorecem a supressão da vegetação e obstaculizam a atuação estatal de fiscalização e recomposição.<br><br>Assim, mesmo que, em tese, estivessem presentes os requisitos clássicos da usucapião extraordinária — como o decurso do tempo e a posse com animus domini —, a natureza ambientalmente protegida do bem impede a consolidação da aquisição por usucapião. Em outras palavras, a proteção ambiental prevalece sobre a pretensão aquisitiva fundada em posse irregular sobre APP.<br><br>A conclusão não decorre de mera insuficiência probatória, mas da incompatibilidade jurídica entre a ocupação irregular de APP e a produção de efeitos possessórios aptos a gerar domínio. Por isso, a durabilidade da posse, isoladamente, não convalida situação originariamente contrária à ordem jurídica ambiental.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.211.711-MT, Rel. Min. Nancy Andrighi, julgado em 9/12/2025 (Info 874).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="no regime de separação convencional de bens, a aquisição conjunta, por ambos os cônjuges, de terreno em partes iguais não impede a comunicação da construção nele erigida durante o casamento, pois, ausente prova robusta de que a edificação tenha sido custeada exclusivamente por apenas um deles, incide a presunção de que a obra pertence aos coproprietários na mesma proporção do solo, sendo legítima a partilha igualitária do imóvel edificado. a assertiva está correta porque, embora a separação convencional de bens afaste a comunicabilidade patrimonial típica do regime de bens, isso não impede a incidência das regras de direito das coisas e da acessão quando o bem-base é adquirido em copropriedade por ambos os cônjuges. no caso, o terreno foi comprado por joão e regina em frações iguais, de modo que a titularidade do solo já era comum.
+
+nessa hipótese, aplica-se a lógica do art. 1.253 do código civil: a construção existente em terreno presume-se feita pelo proprietário e à sua custa. se o terreno pertence a ambos em igual proporção, a presunção se projeta sobre a edificação, que também se presume comum na mesma fração. trata-se de presunção relativa, admitindo prova em contrário.
+
+o ponto decisivo é que o cônjuge que alegava ter suportado sozinho o custo da construção não produziu prova suficiente para afastar a presunção legal, ao passo que a outra parte apresentou elementos de contribuição para a edificação. assim, manteve-se a partilha da casa em 50% para cada um.
+
+portanto, não se trata de afirmar que o regime de separação convencional, por si só, gera comunicabilidade de bens; o fundamento está na copropriedade do terreno e na presunção legal de que a construção nele realizada acompanha a titularidade do solo, salvo prova contrária. stj. 4ª turma. resp 2.126.992-df, rel. min. raul araújo, julgado em 9/12/2025 (info 874).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 7</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-7">Não respondida</span>
+</div>
+
+<p class="enunciado">No regime de separação convencional de bens, a aquisição conjunta, por ambos os cônjuges, de terreno em partes iguais não impede a comunicação da construção nele erigida durante o casamento, pois, ausente prova robusta de que a edificação tenha sido custeada exclusivamente por apenas um deles, incide a presunção de que a obra pertence aos coproprietários na mesma proporção do solo, sendo legítima a partilha igualitária do imóvel edificado.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(7, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(7, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-7">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque, embora a separação convencional de bens afaste a comunicabilidade patrimonial típica do regime de bens, isso não impede a incidência das regras de direito das coisas e da acessão quando o bem-base é adquirido em copropriedade por ambos os cônjuges. No caso, o terreno foi comprado por João e Regina em frações iguais, de modo que a titularidade do solo já era comum.<br><br>Nessa hipótese, aplica-se a lógica do art. 1.253 do Código Civil: a construção existente em terreno presume-se feita pelo proprietário e à sua custa. Se o terreno pertence a ambos em igual proporção, a presunção se projeta sobre a edificação, que também se presume comum na mesma fração. Trata-se de presunção relativa, admitindo prova em contrário.<br><br>O ponto decisivo é que o cônjuge que alegava ter suportado sozinho o custo da construção não produziu prova suficiente para afastar a presunção legal, ao passo que a outra parte apresentou elementos de contribuição para a edificação. Assim, manteve-se a partilha da casa em 50% para cada um.<br><br>Portanto, não se trata de afirmar que o regime de separação convencional, por si só, gera comunicabilidade de bens; o fundamento está na copropriedade do terreno e na presunção legal de que a construção nele realizada acompanha a titularidade do solo, salvo prova contrária.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 4ª Turma. REsp 2.126.992-DF, Rel. Min. Raul Araújo, julgado em 9/12/2025 (Info 874).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a ação de reintegração de posse proposta pelo banco do brasil, na qualidade de instituição financeira oficial federal que apenas operacionalizou contrato de aquisição de imóvel custeado com recursos do fundo de arrendamento residencial (far), no âmbito do programa minha casa minha vida, deve ser processada e julgada pela justiça federal, por envolver, necessariamente, interesse jurídico da união e da caixa econômica federal, ainda que a instituição autora atue como representante do fundo e não como mera financiadora. a competência da justiça federal não se estabelece automaticamente pelo simples fato de o imóvel ter sido adquirido com recursos do far, nem pela circunstância de a caixa econômica federal ser a gestora do fundo. o ponto decisivo é verificar se há efetivo interesse jurídico da união, de autarquia ou de empresa pública federal, nos termos do art. 109, i, da constituição.
+
+no caso, o banco do brasil ajuizou ação possessória em nome próprio, na condição de instituição financeira oficial federal autorizada a operacionalizar o programa habitacional. o decreto nº 7.499/2011 admite que outras instituições financeiras oficiais federais atuem na execução do minha casa minha vida e, nessa hipótese, elas possuem legitimidade para defender em juízo os direitos do far, conforme o art. 9º, parágrafo único, ii. isso, porém, não desloca automaticamente a competência para a justiça federal.
+
+a jurisprudência firmou que a legitimidade da caixa nas demandas relacionadas ao programa somente atrai a competência federal quando ela atua para além de mero agente financiador, isto é, quando há efetiva presença de interesse jurídico federal na lide. se a controvérsia se limita à reintegração de posse de imóvel ocupado indevidamente, sem demonstração de interesse direto da união ou da caixa, a competência permanece na justiça estadual.
+
+portanto, a assertiva erra ao presumir competência federal automática e ao afirmar, de modo absoluto, que o simples uso de recursos do far e a atuação do banco do brasil bastam para atrair a justiça federal. stj. 3ª turma. resp 2.204.632-mg, rel. min. nancy andrighi, julgado em 9/12/2025 (info 874).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 8</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-8">Não respondida</span>
+</div>
+
+<p class="enunciado">A ação de reintegração de posse proposta pelo Banco do Brasil, na qualidade de instituição financeira oficial federal que apenas operacionalizou contrato de aquisição de imóvel custeado com recursos do Fundo de Arrendamento Residencial (FAR), no âmbito do Programa Minha Casa Minha Vida, deve ser processada e julgada pela Justiça Federal, por envolver, necessariamente, interesse jurídico da União e da Caixa Econômica Federal, ainda que a instituição autora atue como representante do fundo e não como mera financiadora.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(8, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(8, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-8">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A competência da Justiça Federal não se estabelece automaticamente pelo simples fato de o imóvel ter sido adquirido com recursos do FAR, nem pela circunstância de a Caixa Econômica Federal ser a gestora do fundo. O ponto decisivo é verificar se há efetivo interesse jurídico da União, de autarquia ou de empresa pública federal, nos termos do art. 109, I, da Constituição.<br><br>No caso, o Banco do Brasil ajuizou ação possessória em nome próprio, na condição de instituição financeira oficial federal autorizada a operacionalizar o programa habitacional. O Decreto nº 7.499/2011 admite que outras instituições financeiras oficiais federais atuem na execução do Minha Casa Minha Vida e, nessa hipótese, elas possuem legitimidade para defender em juízo os direitos do FAR, conforme o art. 9º, parágrafo único, II. Isso, porém, não desloca automaticamente a competência para a Justiça Federal.<br><br>A jurisprudência firmou que a legitimidade da Caixa nas demandas relacionadas ao programa somente atrai a competência federal quando ela atua para além de mero agente financiador, isto é, quando há efetiva presença de interesse jurídico federal na lide. Se a controvérsia se limita à reintegração de posse de imóvel ocupado indevidamente, sem demonstração de interesse direto da União ou da Caixa, a competência permanece na Justiça Estadual.<br><br>Portanto, a assertiva erra ao presumir competência federal automática e ao afirmar, de modo absoluto, que o simples uso de recursos do FAR e a atuação do Banco do Brasil bastam para atrair a Justiça Federal.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.204.632-MG, Rel. Min. Nancy Andrighi, julgado em 9/12/2025 (Info 874).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="nas execuções cíveis regidas exclusivamente pelo código de processo civil, a imposição de medida executiva atípica com fundamento no art. 139, iv, pode ser admitida mesmo antes do esgotamento das diligências típicas, desde que o magistrado explicite, com fundamentação aderente às peculiaridades do caso concreto, a ponderação entre a efetividade da tutela executiva e a menor onerosidade ao executado, assegure o contraditório e observe, de forma subsidiária, os critérios de proporcionalidade, razoabilidade e delimitação temporal da providência. a assertiva reproduz, em essência, os requisitos cumulativos fixados para a adoção de meios executivos atípicos nas execuções cíveis submetidas exclusivamente ao cpc. o ponto central do entendimento é que tais medidas não são vedadas em abstrato, nem dependem de uma fórmula rígida de esgotamento absoluto de todos os meios típicos; o que se exige é que sua utilização seja **prioritariamente subsidiária**, isto é, preferencialmente reservada a hipóteses em que as providências ordinárias se mostrem insuficientes ou inadequadas, sem prejuízo de análise concreta da utilidade da medida.
+
+além disso, a decisão judicial deve conter **fundamentação específica e adequada às particularidades do caso**, não bastando invocação genérica do art. 139, iv, do cpc. também é indispensável a observância do **contraditório**, da **proporcionalidade** e da **razoabilidade**, inclusive quanto à **vigência temporal** da medida, o que impede sua imposição por prazo indeterminado ou sem delimitação compatível com a finalidade executiva.
+
+por fim, a tese ressalta a necessidade de ponderação entre a **efetividade da execução** e a **menor onerosidade do executado**, de modo que a medida atípica não pode ser aplicada de forma automática ou desproporcional. a assertiva, portanto, está alinhada ao entendimento consolidado no repetitivo. stj. 2ª seção. resp 1.955.539-sp e resp 1.955.574-sp, rel. min. marco buzzi, julgados em 4/12/2025 (recurso repetitivo - tema 1137) (info 874).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 9</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-9">Não respondida</span>
+</div>
+
+<p class="enunciado">Nas execuções cíveis regidas exclusivamente pelo Código de Processo Civil, a imposição de medida executiva atípica com fundamento no art. 139, IV, pode ser admitida mesmo antes do esgotamento das diligências típicas, desde que o magistrado explicite, com fundamentação aderente às peculiaridades do caso concreto, a ponderação entre a efetividade da tutela executiva e a menor onerosidade ao executado, assegure o contraditório e observe, de forma subsidiária, os critérios de proporcionalidade, razoabilidade e delimitação temporal da providência.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(9, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(9, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-9">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva reproduz, em essência, os requisitos cumulativos fixados para a adoção de meios executivos atípicos nas execuções cíveis submetidas exclusivamente ao CPC. O ponto central do entendimento é que tais medidas não são vedadas em abstrato, nem dependem de uma fórmula rígida de esgotamento absoluto de todos os meios típicos; o que se exige é que sua utilização seja <strong>prioritariamente subsidiária</strong>, isto é, preferencialmente reservada a hipóteses em que as providências ordinárias se mostrem insuficientes ou inadequadas, sem prejuízo de análise concreta da utilidade da medida.<br><br>Além disso, a decisão judicial deve conter <strong>fundamentação específica e adequada às particularidades do caso</strong>, não bastando invocação genérica do art. 139, IV, do CPC. Também é indispensável a observância do <strong>contraditório</strong>, da <strong>proporcionalidade</strong> e da <strong>razoabilidade</strong>, inclusive quanto à <strong>vigência temporal</strong> da medida, o que impede sua imposição por prazo indeterminado ou sem delimitação compatível com a finalidade executiva.<br><br>Por fim, a tese ressalta a necessidade de ponderação entre a <strong>efetividade da execução</strong> e a <strong>menor onerosidade do executado</strong>, de modo que a medida atípica não pode ser aplicada de forma automática ou desproporcional. A assertiva, portanto, está alinhada ao entendimento consolidado no repetitivo.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 2ª Seção. REsp 1.955.539-SP e REsp 1.955.574-SP, Rel. Min. Marco Buzzi, julgados em 4/12/2025 (Recurso Repetitivo - Tema 1137) (Info 874).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a prática do delito previsto no art. 218-a do código penal pressupõe a presença física simultânea do agente e da vítima no mesmo ambiente, de modo que a realização de ato libidinoso por videochamada, ainda que a criança ou adolescente o esteja assistindo em tempo real, não se amolda ao núcleo típico “presenciar” nem autoriza a incidência do tipo penal. o enunciado está incorreto porque o núcleo do art. 218-a do código penal — “praticar, na presença de alguém menor de 14 anos, ou induzi-lo a presenciar, conjunção carnal ou outro ato libidinoso” — não exige, em sua literalidade, que agente e vítima compartilhem o mesmo espaço físico. o verbo “presenciar” deve ser compreendido em seu sentido comum de assistir, ver ou testemunhar o ato, o que pode ocorrer por meio de comunicação audiovisual em tempo real.
+
+a interpretação teleológica também afasta a exigência de coabitação física: o bem jurídico protegido é a dignidade sexual da criança ou adolescente e seu adequado desenvolvimento, sendo irrelevante, para a configuração típica, a distância geográfica entre agente e vítima, desde que o menor seja compelido a assistir ao ato libidinoso. assim, a videochamada é meio idôneo para a consumação do delito, pois permite a visualização imediata do comportamento sexual perante a vítima vulnerável.
+
+portanto, a tese defensiva de atipicidade por ausência de presença física não prevalece, já que o tipo penal alcança a conduta praticada em ambiente virtual, quando a vítima menor de 14 anos presencia, ao vivo, o ato libidinoso. stj. 6ª turma. resp 2.107.993-ba, rel. min. sebastião reis júnior, julgado em 18/11/2025 (info 874).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 10</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-10">Não respondida</span>
+</div>
+
+<p class="enunciado">A prática do delito previsto no art. 218-A do Código Penal pressupõe a presença física simultânea do agente e da vítima no mesmo ambiente, de modo que a realização de ato libidinoso por videochamada, ainda que a criança ou adolescente o esteja assistindo em tempo real, não se amolda ao núcleo típico “presenciar” nem autoriza a incidência do tipo penal.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(10, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(10, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-10">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O enunciado está incorreto porque o núcleo do art. 218-A do Código Penal — “praticar, na presença de alguém menor de 14 anos, ou induzi-lo a presenciar, conjunção carnal ou outro ato libidinoso” — não exige, em sua literalidade, que agente e vítima compartilhem o mesmo espaço físico. O verbo “presenciar” deve ser compreendido em seu sentido comum de assistir, ver ou testemunhar o ato, o que pode ocorrer por meio de comunicação audiovisual em tempo real.<br><br>A interpretação teleológica também afasta a exigência de coabitação física: o bem jurídico protegido é a dignidade sexual da criança ou adolescente e seu adequado desenvolvimento, sendo irrelevante, para a configuração típica, a distância geográfica entre agente e vítima, desde que o menor seja compelido a assistir ao ato libidinoso. Assim, a videochamada é meio idôneo para a consumação do delito, pois permite a visualização imediata do comportamento sexual perante a vítima vulnerável.<br><br>Portanto, a tese defensiva de atipicidade por ausência de presença física não prevalece, já que o tipo penal alcança a conduta praticada em ambiente virtual, quando a vítima menor de 14 anos presencia, ao vivo, o ato libidinoso.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 6ª Turma. REsp 2.107.993-BA, Rel. Min. Sebastião Reis Júnior, julgado em 18/11/2025 (Info 874).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="em razão da estrutura normativa do ipi, é juridicamente admissível excluir, da base de cálculo do imposto, os valores correspondentes ao icms, ao pis e à cofins destacados na operação de saída, sob o argumento de que tais exações não se incorporam ao patrimônio do industrial e, por analogia ao entendimento firmado para o pis e a cofins, não integram o “valor da operação” a que se referem o art. 47, ii, a, do ctn e o art. 14, ii, da lei n. 4.502/1964. a assertiva está incorreta porque o entendimento consolidado é no sentido de que o “valor da operação” para fins de incidência do ipi corresponde ao valor total da saída do produto do estabelecimento industrial ou equiparado, abrangendo os tributos que compõem o preço da mercadoria. assim, icms, pis e cofins integram a base de cálculo do ipi, não havendo autorização legal para sua exclusão.
+
+a tese rejeita a tentativa de transposição automática da lógica do tema 69 do stf para o ipi. embora naquele precedente tenha sido afastada a inclusão do icms na base do pis/cofins, a razão de decidir não se aplica ao ipi, pois as materialidades tributárias e os critérios de quantificação são distintos. no ipi, o legislador adotou como referência o valor da operação de saída, e não uma noção de receita líquida ou faturamento depurado de tributos.
+
+além disso, a solução é compatível com o art. 47 do ctn e com o art. 14 da lei n. 4.502/1964, que não preveem a exclusão dos tributos destacados do preço da mercadoria. em outras palavras, o fato de o contribuinte repassar economicamente esses valores ao adquirente ou ao fisco não altera a composição jurídica da base de cálculo do ipi. stj. 1ª seção. resps 2.119.311-sc, 2.143.866-sp e 2.143.997-sp, rel. min. teodoro silva santos, julgado em 10/12/2025 (recurso repetitivo - tema 1304) (info 874).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 11</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-11">Não respondida</span>
+</div>
+
+<p class="enunciado">Em razão da estrutura normativa do IPI, é juridicamente admissível excluir, da base de cálculo do imposto, os valores correspondentes ao ICMS, ao PIS e à COFINS destacados na operação de saída, sob o argumento de que tais exações não se incorporam ao patrimônio do industrial e, por analogia ao entendimento firmado para o PIS e a COFINS, não integram o “valor da operação” a que se referem o art. 47, II, a, do CTN e o art. 14, II, da Lei n. 4.502/1964.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(11, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(11, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-11">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque o entendimento consolidado é no sentido de que o “valor da operação” para fins de incidência do IPI corresponde ao valor total da saída do produto do estabelecimento industrial ou equiparado, abrangendo os tributos que compõem o preço da mercadoria. Assim, ICMS, PIS e COFINS integram a base de cálculo do IPI, não havendo autorização legal para sua exclusão.<br><br>A tese rejeita a tentativa de transposição automática da lógica do Tema 69 do STF para o IPI. Embora naquele precedente tenha sido afastada a inclusão do ICMS na base do PIS/COFINS, a razão de decidir não se aplica ao IPI, pois as materialidades tributárias e os critérios de quantificação são distintos. No IPI, o legislador adotou como referência o valor da operação de saída, e não uma noção de receita líquida ou faturamento depurado de tributos.<br><br>Além disso, a solução é compatível com o art. 47 do CTN e com o art. 14 da Lei n. 4.502/1964, que não preveem a exclusão dos tributos destacados do preço da mercadoria. Em outras palavras, o fato de o contribuinte repassar economicamente esses valores ao adquirente ou ao Fisco não altera a composição jurídica da base de cálculo do IPI.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Seção. REsps 2.119.311-SC, 2.143.866-SP e 2.143.997-SP, Rel. Min. Teodoro Silva Santos, julgado em 10/12/2025 (Recurso Repetitivo - Tema 1304) (Info 874).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="na apuração do itcmd incidente sobre a transmissão de imóvel, a fazenda pública pode instaurar procedimento administrativo individualizado de arbitramento do valor venal, com fundamento direto no art. 148 do ctn, quando a declaração, os documentos ou as informações prestadas pelo contribuinte forem omissos ou não merecerem fé; nessa hipótese, a existência de critério específico de base de cálculo previsto em lei estadual não impede a adoção do arbitramento, desde que assegurados o contraditório e a ampla defesa. a assertiva está correta porque reproduz a lógica central do entendimento firmado: o arbitramento do valor venal não decorre de uma faculdade discricionária desvinculada, mas de prerrogativa administrativa expressamente prevista no art. 148 do ctn, norma geral aplicável a todos os entes federados. assim, ainda que a legislação estadual tenha liberdade para definir o critério inicial de apuração da base de cálculo do itcmd, essa disciplina local não elimina a possibilidade de a administração substituir o critério originário quando ele se revelar inadequado ao caso concreto.
+
+o ponto decisivo é que o arbitramento somente se legitima em procedimento administrativo prévio, regular e individualizado, e não por presunção genérica ou por simples afastamento abstrato da lei estadual. ele exige situação concreta em que as declarações, informações ou documentos apresentados pelo contribuinte sejam omissos ou não mereçam fé para a finalidade de lançamento. nessas hipóteses, a fazenda pode apurar o valor do bem por arbitramento, mas deve demonstrar que a quantia alcançada está absolutamente fora do valor de mercado, observando-se necessariamente o contraditório e a ampla defesa.
+
+portanto, não há violação automática à legislação estadual pelo uso do art. 148 do ctn, nem se admite a supressão genérica dessa prerrogativa por decisão judicial. o que se exige é controle de legalidade do procedimento e respeito às garantias processuais do contribuinte. stj. 1ª seção. resp 2.175.094-sp e resp 2.213.551-sp, rel. min. maria thereza de assis moura, rel. para acórdão min. marco aurélio bellizze, julgados em 10/12/2025 (recurso repetitivo - tema 1371) (info 874).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 12</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-12">Não respondida</span>
+</div>
+
+<p class="enunciado">Na apuração do ITCMD incidente sobre a transmissão de imóvel, a Fazenda Pública pode instaurar procedimento administrativo individualizado de arbitramento do valor venal, com fundamento direto no art. 148 do CTN, quando a declaração, os documentos ou as informações prestadas pelo contribuinte forem omissos ou não merecerem fé; nessa hipótese, a existência de critério específico de base de cálculo previsto em lei estadual não impede a adoção do arbitramento, desde que assegurados o contraditório e a ampla defesa.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(12, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(12, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-12">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a lógica central do entendimento firmado: o arbitramento do valor venal não decorre de uma faculdade discricionária desvinculada, mas de prerrogativa administrativa expressamente prevista no art. 148 do CTN, norma geral aplicável a todos os entes federados. Assim, ainda que a legislação estadual tenha liberdade para definir o critério inicial de apuração da base de cálculo do ITCMD, essa disciplina local não elimina a possibilidade de a Administração substituir o critério originário quando ele se revelar inadequado ao caso concreto.<br><br>O ponto decisivo é que o arbitramento somente se legitima em procedimento administrativo prévio, regular e individualizado, e não por presunção genérica ou por simples afastamento abstrato da lei estadual. Ele exige situação concreta em que as declarações, informações ou documentos apresentados pelo contribuinte sejam omissos ou não mereçam fé para a finalidade de lançamento. Nessas hipóteses, a Fazenda pode apurar o valor do bem por arbitramento, mas deve demonstrar que a quantia alcançada está absolutamente fora do valor de mercado, observando-se necessariamente o contraditório e a ampla defesa.<br><br>Portanto, não há violação automática à legislação estadual pelo uso do art. 148 do CTN, nem se admite a supressão genérica dessa prerrogativa por decisão judicial. O que se exige é controle de legalidade do procedimento e respeito às garantias processuais do contribuinte.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Seção. REsp 2.175.094-SP e REsp 2.213.551-SP, Rel. Min. Maria Thereza de Assis Moura, Rel. para acórdão Min. Marco Aurélio Bellizze, julgados em 10/12/2025 (Recurso Repetitivo - Tema 1371) (Info 874).</p>
+</div>
+</section>
 
 </div>
 
 <script>
-const totalQuestoes = 12;
-let respostas = JSON.parse(localStorage.getItem(location.pathname + "_respostas") || "{}");
+const storageKey = location.pathname + "_respostas";
+let respostas = JSON.parse(localStorage.getItem(storageKey) || "{}");
 
-function atualizarPainel() {
-    const respondidas = Object.keys(respostas).length;
-    let acertos = 0;
-    let erros = 0;
-
-    for (const key in respostas) {
-        if (respostas[key].correto) acertos++;
-        else erros++;
-    }
-
-    document.getElementById("respondidas").textContent = respondidas;
-    document.getElementById("acertos").textContent = acertos;
-    document.getElementById("erros").textContent = erros;
+function destacar(t){
+ if(t==="CERTO") return '<span class="gabarito-certo">CERTO</span>';
+ if(t==="ERRADO") return '<span class="gabarito-errado">ERRADO</span>';
+ return t;
 }
 
-function responder(numero, resposta) {
-    const card = document.querySelectorAll(".questao")[numero - 1];
-    const gabarito = card.dataset.gabarito;
-    const correto = resposta === gabarito;
-
-    respostas[numero] = {
-        resposta,
-        correto
-    };
-
-    localStorage.setItem(location.pathname + "_respostas", JSON.stringify(respostas));
-
-    mostrarFeedback(numero);
-    atualizarPainel();
+function responder(numero, resposta){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const gabarito=card.dataset.gabarito;
+ const correto=resposta===gabarito;
+ respostas[numero]={resposta,correto};
+ localStorage.setItem(storageKey, JSON.stringify(respostas));
+ mostrarFeedback(numero);
+ atualizarPainel();
+ filtrar();
 }
 
-function mostrarFeedback(numero) {
-    const card = document.querySelectorAll(".questao")[numero - 1];
-    const feedback = document.getElementById("feedback-" + numero);
-    const status = document.getElementById("status-" + numero);
-    const resultado = feedback.querySelector(".resultado");
-
-    const dados = respostas[numero];
-
-    if (!dados) return;
-
-    feedback.style.display = "block";
-    feedback.classList.remove("correto", "errado");
-
-    if (dados.correto) {
-        feedback.classList.add("correto");
-        resultado.textContent = "Você acertou. A resposta é " + card.dataset.gabarito + ".";
-        status.textContent = "Respondida — acerto";
-        status.style.color = "var(--green)";
-    } else {
-        feedback.classList.add("errado");
-        resultado.textContent = "Você errou. O gabarito é " + card.dataset.gabarito + ".";
-        status.textContent = "Respondida — erro";
-        status.style.color = "var(--red)";
-    }
+function mostrarFeedback(numero){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const feedback=document.getElementById("feedback-"+numero);
+ const status=document.getElementById("status-"+numero);
+ const resultado=feedback.querySelector(".resultado");
+ const gabarito=card.dataset.gabarito;
+ const dados=respostas[numero];
+ if(!dados) return;
+ feedback.style.display="block";
+ feedback.classList.remove("correto","errado");
+ if(dados.correto){
+   feedback.classList.add("correto");
+   resultado.innerHTML="Você acertou. A resposta é "+destacar(gabarito)+".";
+   status.textContent="Respondida — acerto";
+   status.style.color="var(--green)";
+ } else {
+   feedback.classList.add("errado");
+   resultado.innerHTML="Você errou. O gabarito é "+destacar(gabarito)+".";
+   status.textContent="Respondida — erro";
+   status.style.color="var(--red)";
+ }
 }
 
-function restaurar() {
-    for (const key in respostas) {
-        mostrarFeedback(Number(key));
-    }
-    atualizarPainel();
+function atualizarPainel(){
+ let respondidas=0, acertos=0, erros=0;
+ for(const k in respostas){
+   respondidas++;
+   if(respostas[k].correto) acertos++; else erros++;
+ }
+ document.getElementById("respondidas").textContent=respondidas;
+ document.getElementById("acertos").textContent=acertos;
+ document.getElementById("erros").textContent=erros;
+ document.getElementById("visiveis").textContent=document.querySelectorAll(".questao:not(.oculta)").length;
 }
 
-function reiniciar() {
-    if (!confirm("Deseja reiniciar este simulado?")) return;
-    localStorage.removeItem(location.pathname + "_respostas");
-    location.reload();
+function filtrar(){
+ const busca=document.getElementById("busca").value.trim().toLowerCase();
+ const disciplina=document.getElementById("disciplina").value;
+ const statusFiltro=document.getElementById("statusFiltro").value;
+ const cards=Array.from(document.querySelectorAll(".questao"));
+ let vis=0;
+ cards.forEach((card,idx)=>{
+   const n=idx+1;
+   const texto=card.dataset.texto||"";
+   const disc=card.dataset.disciplina||"";
+   const r=respostas[n];
+   let passaStatus=true;
+   if(statusFiltro==="nao") passaStatus=!r;
+   if(statusFiltro==="acerto") passaStatus=r && r.correto;
+   if(statusFiltro==="erro") passaStatus=r && !r.correto;
+   const ok=(!busca||texto.includes(busca)) && (!disciplina||disc===disciplina) && passaStatus;
+   card.classList.toggle("oculta", !ok);
+   if(ok) vis++;
+ });
+ document.getElementById("sem-resultados").style.display=vis===0?"block":"none";
+ atualizarPainel();
+}
+
+function reiniciar(){
+ if(!confirm("Deseja reiniciar este simulado?")) return;
+ localStorage.removeItem(storageKey);
+ location.reload();
+}
+
+function restaurar(){
+ for(const k in respostas) mostrarFeedback(Number(k));
+ filtrar();
+ atualizarPainel();
 }
 
 restaurar();
 </script>
-
 </body>
 </html>

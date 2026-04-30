@@ -4,413 +4,395 @@
 <meta charset="UTF-8">
 <title>Simulado - Info 1197 STF</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <style>
-:root {
-    --bg: #0f172a;
-    --card: #111827;
-    --card2: #1f2937;
-    --text: #e5e7eb;
-    --muted: #9ca3af;
-    --accent: #38bdf8;
-    --green: #22c55e;
-    --red: #ef4444;
-    --yellow: #facc15;
+:root{
+--bg:#020617;--panel:rgba(15,23,42,.88);--card:rgba(15,23,42,.96);
+--card2:rgba(30,41,59,.92);--border:rgba(148,163,184,.22);
+--text:#e5e7eb;--muted:#94a3b8;--accent:#38bdf8;--accent2:#0ea5e9;
+--green:#22c55e;--red:#ef4444;--yellow:#facc15;--purple:#a78bfa;
 }
-
-* {
-    box-sizing: border-box;
+*{box-sizing:border-box}
+body{
+margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+background:radial-gradient(circle at top left,rgba(56,189,248,.20),transparent 28%),
+radial-gradient(circle at top right,rgba(167,139,250,.15),transparent 28%),
+linear-gradient(135deg,#020617,#0f172a 50%,#020617);
+color:var(--text);line-height:1.65;
 }
-
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(135deg, #020617, #111827);
-    color: var(--text);
-    line-height: 1.6;
+header{padding:44px 20px 32px;text-align:center;border-bottom:1px solid var(--border)}
+header h1{margin:0 0 10px;font-size:clamp(28px,4vw,46px);letter-spacing:-.05em}
+header p{color:var(--muted);margin:0;font-size:16px}
+.container{max-width:1160px;margin:0 auto;padding:26px 16px 80px}
+.painel{
+position:sticky;top:10px;z-index:10;background:var(--panel);backdrop-filter:blur(18px);
+border:1px solid var(--border);border-radius:26px;padding:16px;margin-bottom:22px;
+box-shadow:0 22px 70px rgba(0,0,0,.35)
 }
-
-header {
-    padding: 32px 20px;
-    text-align: center;
-    border-bottom: 1px solid #334155;
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.stat{background:var(--card2);padding:14px;border-radius:18px;text-align:center;border:1px solid rgba(148,163,184,.12)}
+.stat strong{display:block;font-size:25px;color:var(--accent);line-height:1.1}
+.stat span{font-size:12px;color:var(--muted)}
+.filtros{display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:12px;margin-top:14px}
+input,select{
+width:100%;background:rgba(2,6,23,.78);color:var(--text);border:1px solid var(--border);
+border-radius:14px;padding:13px 14px;outline:none;font-size:14px
 }
-
-header h1 {
-    margin: 0 0 10px;
-    font-size: 28px;
+input:focus,select:focus{border-color:var(--accent)}
+.card{
+background:var(--card);border:1px solid var(--border);border-radius:24px;padding:26px;
+margin-bottom:20px;box-shadow:0 18px 50px rgba(0,0,0,.24)
 }
-
-header p {
-    color: var(--muted);
-    margin: 0;
+.questao{scroll-margin-top:190px}
+.questao-topo{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:18px}
+.badge{
+background:linear-gradient(135deg,var(--accent),var(--accent2));color:#00111f;font-weight:900;
+padding:7px 13px;border-radius:999px;display:inline-block
 }
-
-.container {
-    max-width: 980px;
-    margin: 0 auto;
-    padding: 24px 16px 80px;
+.disciplina-tag,.tipo-tag{
+display:inline-block;margin-left:8px;color:var(--muted);background:rgba(148,163,184,.10);
+border:1px solid rgba(148,163,184,.14);padding:6px 10px;border-radius:999px;font-size:12px
 }
-
-.painel {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    background: rgba(15, 23, 42, 0.95);
-    backdrop-filter: blur(8px);
-    border: 1px solid #334155;
-    border-radius: 16px;
-    padding: 16px;
-    margin-bottom: 24px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
+.tipo-tag{color:#ddd6fe;border-color:rgba(167,139,250,.25)}
+.status{color:var(--yellow);font-size:13px;white-space:nowrap}
+.enunciado{font-size:19px;margin:0 0 22px;letter-spacing:-.01em}
+.botoes{display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.btn{
+cursor:pointer;border:0;padding:12px 22px;border-radius:14px;color:white;font-weight:900;
+transition:.18s ease;letter-spacing:.02em
 }
-
-.stat {
-    background: var(--card2);
-    padding: 12px;
-    border-radius: 12px;
-    text-align: center;
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.certo{background:rgba(34,197,94,.20);border:1px solid rgba(34,197,94,.42)}
+.btn.errado{background:rgba(239,68,68,.20);border:1px solid rgba(239,68,68,.42)}
+.btn.neutro{background:rgba(56,189,248,.16);color:var(--text);border:1px solid rgba(56,189,248,.32)}
+.feedback{
+display:none;background:rgba(2,6,23,.72);border:1px solid rgba(148,163,184,.16);
+border-left:5px solid var(--accent);padding:18px;border-radius:18px;margin-top:14px
 }
-
-.stat strong {
-    display: block;
-    font-size: 22px;
-    color: var(--accent);
+.feedback.correto{border-left-color:var(--green)}
+.feedback.errado{border-left-color:var(--red)}
+.resultado{font-size:18px;font-weight:900;margin-top:0}
+.justificativa{margin-top:12px}
+.referencia{color:var(--muted);font-size:13px;margin-top:16px}
+.gabarito-certo{color:var(--green);font-weight:900}
+.gabarito-errado{color:var(--red);font-weight:900}
+.oculta{display:none}
+.sem-resultados{text-align:center;color:var(--muted);display:none;padding:30px}
+.grid-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
+.link-card{
+display:block;padding:20px;background:rgba(15,23,42,.95);border:1px solid rgba(148,163,184,.22);
+color:#e5e7eb;border-radius:22px;text-decoration:none;transition:.2s;box-shadow:0 14px 40px rgba(0,0,0,.22)
 }
-
-.card {
-    background: rgba(17, 24, 39, 0.96);
-    border: 1px solid #334155;
-    border-radius: 18px;
-    padding: 22px;
-    margin-bottom: 20px;
-    box-shadow: 0 12px 30px rgba(0,0,0,.25);
-}
-
-.questao-topo {
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
-    align-items: center;
-    margin-bottom: 16px;
-}
-
-.badge {
-    background: #0ea5e9;
-    color: #00111f;
-    font-weight: bold;
-    padding: 6px 12px;
-    border-radius: 999px;
-}
-
-.status {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-.enunciado {
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-
-.botoes {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 18px;
-}
-
-button {
-    cursor: pointer;
-    border: 0;
-    padding: 12px 22px;
-    border-radius: 12px;
-    background: #334155;
-    color: white;
-    font-weight: bold;
-    transition: 0.2s;
-}
-
-button:hover {
-    transform: translateY(-1px);
-    background: #475569;
-}
-
-.feedback {
-    display: none;
-    background: #020617;
-    border-left: 4px solid var(--accent);
-    padding: 16px;
-    border-radius: 12px;
-    margin-top: 12px;
-}
-
-.feedback.correto {
-    border-left-color: var(--green);
-}
-
-.feedback.errado {
-    border-left-color: var(--red);
-}
-
-.resultado {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.referencia {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-.acoes {
-    text-align: center;
-    margin: 30px 0;
-}
-
-.acoes button {
-    background: #0ea5e9;
-    color: #00111f;
-}
-
-@media (max-width: 700px) {
-    .painel {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .botoes {
-        flex-direction: column;
-    }
-
-    header h1 {
-        font-size: 22px;
-    }
-
-    .enunciado {
-        font-size: 16px;
-    }
+.link-card:hover{transform:translateY(-3px);border-color:#38bdf8}
+.link-card strong{display:block;font-size:17px;margin-bottom:8px}
+.link-card span{color:#94a3b8;font-size:13px}
+.index-tools{display:grid;grid-template-columns:1.5fr 1fr;gap:12px;margin-bottom:20px}
+@media(max-width:850px){
+.stats{grid-template-columns:repeat(2,1fr)}
+.filtros,.index-tools{grid-template-columns:1fr}
+.questao-topo{align-items:flex-start;flex-direction:column}
+.botoes{flex-direction:column}
+.enunciado{font-size:16px}
+.card{padding:20px}
 }
 </style>
 </head>
-
 <body>
-
 <header>
-    <h1>Simulado - Info 1197 STF</h1>
-    <p>Simulado interativo de CERTO ou ERRADO</p>
+<h1>Simulado - Info 1197 STF</h1>
+<p>Informativos • Simulado interativo de CERTO ou ERRADO</p>
 </header>
 
 <div class="container">
+<div class="painel">
+<div class="stats">
+<div class="stat"><strong>5</strong><span>Total</span></div>
+<div class="stat"><strong id="visiveis">5</strong><span>Visíveis</span></div>
+<div class="stat"><strong id="respondidas">0</strong><span>Respondidas</span></div>
+<div class="stat"><strong id="acertos">0</strong><span>Acertos</span></div>
+<div class="stat"><strong id="erros">0</strong><span>Erros</span></div>
+</div>
 
-    <div class="painel">
-        <div class="stat">
-            <strong id="total">5</strong>
-            Total
-        </div>
-        <div class="stat">
-            <strong id="respondidas">0</strong>
-            Respondidas
-        </div>
-        <div class="stat">
-            <strong id="acertos">0</strong>
-            Acertos
-        </div>
-        <div class="stat">
-            <strong id="erros">0</strong>
-            Erros
-        </div>
-    </div>
+<div class="filtros">
+<input id="busca" type="search" placeholder="Buscar por palavra-chave..." oninput="filtrar()">
+<select id="disciplina" onchange="filtrar()">
+<option value="">Todas as disciplinas</option>
+<option value="Direito Civil">Direito Civil</option>
+<option value="Direito Constitucional">Direito Constitucional</option>
+<option value="ECA">ECA</option>
+<option value="N/I">N/I</option>
+</select>
+<select id="statusFiltro" onchange="filtrar()">
+<option value="">Todas</option>
+<option value="nao">Não respondidas</option>
+<option value="acerto">Acertos</option>
+<option value="erro">Erros</option>
+</select>
+<button class="btn neutro" onclick="reiniciar()">Reiniciar</button>
+</div>
+</div>
 
-    <div class="acoes">
-        <button onclick="reiniciar()">Reiniciar simulado</button>
-    </div>
+<div id="sem-resultados" class="sem-resultados">Nenhuma questão encontrada com os filtros atuais.</div>
 
-    
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 1</span>
-                <span class="status" id="status-1">Não respondida</span>
-            </div>
 
-            <p class="enunciado">A estipulação de multa administrativa em múltiplos do salário mínimo afronta a vedação constitucional de vinculação desse parâmetro “para qualquer fim”, porque a utilização do piso nacional como base de cálculo, ainda que em obrigação sancionatória e episódica, produz efeito de indexação econômica e de reajuste automático incompatível com o art. 7º, IV, da Constituição.</p>
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="a estipulação de multa administrativa em múltiplos do salário mínimo afronta a vedação constitucional de vinculação desse parâmetro “para qualquer fim”, porque a utilização do piso nacional como base de cálculo, ainda que em obrigação sancionatória e episódica, produz efeito de indexação econômica e de reajuste automático incompatível com o art. 7º, iv, da constituição. a assertiva está incorreta porque confunde a vedação constitucional de vinculação do salário mínimo com qualquer utilização meramente referencial. o art. 7º, iv, da constituição proíbe a vinculação do salário mínimo “para qualquer fim”, mas essa cláusula não impede toda e qualquer menção ao piso nacional em normas jurídicas. o núcleo da vedação é evitar que o salário mínimo funcione como indexador econômico, isto é, como fator de reajuste automático capaz de irradiar aumentos em cadeia sobre contratos, preços, obrigações e demais prestações.
 
-            <div class="botoes">
-                <button onclick="responder(1, 'CERTO')">CERTO</button>
-                <button onclick="responder(1, 'ERRADO')">ERRADO</button>
-            </div>
+no caso da multa administrativa, a utilização do salário mínimo como parâmetro não gera esse efeito de indexação. trata-se de prestação sancionatória, de natureza eventual e episódica, decorrente da prática de infração específica, e não de obrigação continuada ou remuneratória. por isso, a multa não opera como mecanismo de correção periódica nem como referência para atualização de outros valores na economia.
 
-            <div class="feedback" id="feedback-1">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque confunde a vedação constitucional de vinculação do salário mínimo com qualquer utilização meramente referencial. O art. 7º, IV, da Constituição proíbe a vinculação do salário mínimo “para qualquer fim”, mas essa cláusula não impede toda e qualquer menção ao piso nacional em normas jurídicas. O núcleo da vedação é evitar que o salário mínimo funcione como indexador econômico, isto é, como fator de reajuste automático capaz de irradiar aumentos em cadeia sobre contratos, preços, obrigações e demais prestações.<br><br>No caso da multa administrativa, a utilização do salário mínimo como parâmetro não gera esse efeito de indexação. Trata-se de prestação sancionatória, de natureza eventual e episódica, decorrente da prática de infração específica, e não de obrigação continuada ou remuneratória. Por isso, a multa não opera como mecanismo de correção periódica nem como referência para atualização de outros valores na economia.<br><br>Além disso, a multa administrativa não guarda relação direta com o poder de compra dos trabalhadores, elemento que reforça a distinção em relação às verbas salariais e às prestações de natureza alimentar. Assim, a fixação da multa em múltiplos do salário mínimo não viola a Constituição, pois não configura a indexação econômica que a vedação do art. 7º, IV, pretende impedir.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ARE 1.409.059/SP, Rel. Min. Gilmar Mendes, julgado em 05/11/2025 (Repercussão Geral 1.244) (Info 1197).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 2</span>
-                <span class="status" id="status-2">Não respondida</span>
-            </div>
+além disso, a multa administrativa não guarda relação direta com o poder de compra dos trabalhadores, elemento que reforça a distinção em relação às verbas salariais e às prestações de natureza alimentar. assim, a fixação da multa em múltiplos do salário mínimo não viola a constituição, pois não configura a indexação econômica que a vedação do art. 7º, iv, pretende impedir. stf. plenário. are 1.409.059/sp, rel. min. gilmar mendes, julgado em 05/11/2025 (repercussão geral 1.244) (info 1197).">
 
-            <p class="enunciado">É constitucional lei estadual que, ao disciplinar consignações em folha de pagamento de servidores civis e militares, autorize o cancelamento unilateral de descontos relativos a empréstimos pessoais ou financiamentos, a pedido do devedor, ainda que a entidade consignatária esteja submetida a regime de liquidação extrajudicial, pois a medida se limitaria à organização administrativa da folha de pagamento e à proteção do consumidor/servidor.</p>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 1</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-1">Não respondida</span>
+</div>
 
-            <div class="botoes">
-                <button onclick="responder(2, 'CERTO')">CERTO</button>
-                <button onclick="responder(2, 'ERRADO')">ERRADO</button>
-            </div>
+<p class="enunciado">A estipulação de multa administrativa em múltiplos do salário mínimo afronta a vedação constitucional de vinculação desse parâmetro “para qualquer fim”, porque a utilização do piso nacional como base de cálculo, ainda que em obrigação sancionatória e episódica, produz efeito de indexação econômica e de reajuste automático incompatível com o art. 7º, IV, da Constituição.</p>
 
-            <div class="feedback" id="feedback-2">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque a norma estadual, ao dispensar a anuência da instituição financeira credora para o cancelamento de consignações vinculadas a empréstimos pessoais ou financiamentos, não se limita a disciplinar aspecto meramente administrativo da folha de pagamento. Na realidade, ela interfere diretamente na relação obrigacional estabelecida entre devedor e credor, atingindo o núcleo do contrato de crédito e a disciplina jurídica do adimplemento, matéria inserida na competência privativa da União para legislar sobre direito civil e política de crédito.<br><br>O fato de a entidade consignatária estar em liquidação extrajudicial não afasta essa conclusão. A situação de crise da instituição financeira não autoriza o Estado-membro a inovar no regime jurídico do contrato nem a impor, por lei local, a extinção ou modificação unilateral da consignação sem a concordância do credor. Trata-se de providência que repercute diretamente sobre a estrutura da obrigação e sobre a política de crédito, campos reservados ao legislador federal.<br><br>Assim, a inconstitucionalidade decorre da usurpação da competência legislativa da União, nos termos do art. 22, I e VII, da Constituição Federal, e não de simples inadequação formal da disciplina administrativa. Em suma, lei estadual não pode impor o cancelamento unilateral de consignações em folha, com dispensa da anuência da entidade consignatária, ainda que esta esteja sob liquidação extrajudicial.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 5.022/RO, Rel. Min. Nunes Marques, julgado em 05/11/2025 (Info 1197).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 3</span>
-                <span class="status" id="status-3">Não respondida</span>
-            </div>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(1, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(1, 'ERRADO')">ERRADO</button>
+</div>
 
-            <p class="enunciado">É inconstitucional lei estadual que, ao instituir política de transição energética voltada à redução progressiva do uso de carvão mineral, imponha às concessionárias de geração, transmissão e distribuição de energia elétrica a destinação compulsória de percentual mínimo dos recursos obrigatórios de pesquisa e desenvolvimento a projetos específicos definidos pelo próprio ente federado, pois tal disciplina interfere na competência privativa da União para legislar sobre energia e nas relações contratuais vinculadas ao regime federal de concessão.</p>
+<div class="feedback" id="feedback-1">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque confunde a vedação constitucional de vinculação do salário mínimo com qualquer utilização meramente referencial. O art. 7º, IV, da Constituição proíbe a vinculação do salário mínimo “para qualquer fim”, mas essa cláusula não impede toda e qualquer menção ao piso nacional em normas jurídicas. O núcleo da vedação é evitar que o salário mínimo funcione como indexador econômico, isto é, como fator de reajuste automático capaz de irradiar aumentos em cadeia sobre contratos, preços, obrigações e demais prestações.<br><br>No caso da multa administrativa, a utilização do salário mínimo como parâmetro não gera esse efeito de indexação. Trata-se de prestação sancionatória, de natureza eventual e episódica, decorrente da prática de infração específica, e não de obrigação continuada ou remuneratória. Por isso, a multa não opera como mecanismo de correção periódica nem como referência para atualização de outros valores na economia.<br><br>Além disso, a multa administrativa não guarda relação direta com o poder de compra dos trabalhadores, elemento que reforça a distinção em relação às verbas salariais e às prestações de natureza alimentar. Assim, a fixação da multa em múltiplos do salário mínimo não viola a Constituição, pois não configura a indexação econômica que a vedação do art. 7º, IV, pretende impedir.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ARE 1.409.059/SP, Rel. Min. Gilmar Mendes, julgado em 05/11/2025 (Repercussão Geral 1.244) (Info 1197).</p>
+</div>
+</section>
 
-            <div class="botoes">
-                <button onclick="responder(3, 'CERTO')">CERTO</button>
-                <button onclick="responder(3, 'ERRADO')">ERRADO</button>
-            </div>
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="Direito Civil"
+data-texto="é constitucional lei estadual que, ao disciplinar consignações em folha de pagamento de servidores civis e militares, autorize o cancelamento unilateral de descontos relativos a empréstimos pessoais ou financiamentos, a pedido do devedor, ainda que a entidade consignatária esteja submetida a regime de liquidação extrajudicial, pois a medida se limitaria à organização administrativa da folha de pagamento e à proteção do consumidor/servidor. a assertiva está incorreta porque a norma estadual, ao dispensar a anuência da instituição financeira credora para o cancelamento de consignações vinculadas a empréstimos pessoais ou financiamentos, não se limita a disciplinar aspecto meramente administrativo da folha de pagamento. na realidade, ela interfere diretamente na relação obrigacional estabelecida entre devedor e credor, atingindo o núcleo do contrato de crédito e a disciplina jurídica do adimplemento, matéria inserida na competência privativa da união para legislar sobre direito civil e política de crédito.
 
-            <div class="feedback" id="feedback-3">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está correta. Embora os estados possam editar políticas públicas ambientais e de desenvolvimento regional, inclusive com diretrizes voltadas à transição energética e à redução de emissões, essa atuação encontra limite quando a norma estadual passa a disciplinar, de modo vinculante, obrigações impostas diretamente às concessionárias de energia elétrica em matéria reservada à União.<br><br>No caso, a inconstitucionalidade recaiu especificamente sobre o dispositivo que obrigava empresas geradoras, transmissoras e distribuidoras instaladas no estado a aplicar ao menos 5% dos recursos obrigatórios de pesquisa e desenvolvimento em projetos específicos relacionados ao carvão mineral. Esse comando foi reputado invasivo porque interfere na disciplina da energia elétrica, matéria inserida na competência administrativa e legislativa da União, além de repercutir nas relações contratuais próprias do regime federal de concessão.<br><br>A distinção é importante para fins de prova: não se invalidou a política estadual de transição energética como um todo. Ao contrário, foi preservada a maior parte da lei, por se entender legítima a adoção de instrumentos normativos voltados à transição gradual para matriz menos poluente, sem afronta ao direito ao meio ambiente ecologicamente equilibrado. O vício surgiu apenas quando o legislador estadual ultrapassou o espaço de conformação local e passou a impor destinação obrigatória de recursos de P&amp;D em setor submetido à regulação federal.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.332/SC, Rel. Min. Dias Toffoli, julgado em 05/11/2025 (Info 1197).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 4</span>
-                <span class="status" id="status-4">Não respondida</span>
-            </div>
+o fato de a entidade consignatária estar em liquidação extrajudicial não afasta essa conclusão. a situação de crise da instituição financeira não autoriza o estado-membro a inovar no regime jurídico do contrato nem a impor, por lei local, a extinção ou modificação unilateral da consignação sem a concordância do credor. trata-se de providência que repercute diretamente sobre a estrutura da obrigação e sobre a política de crédito, campos reservados ao legislador federal.
 
-            <p class="enunciado">Em ação de indenização por danos morais e físicos decorrentes de atuação policial em manifestação pública, é compatível com a responsabilidade civil objetiva do Estado exigir que a vítima comprove, como condição para a reparação, que não integrava o ato coletivo nem concorreu para a reação estatal, sendo suficiente, para afastar o dever de indenizar, a mera presença do manifestante no local dos fatos, por presumir-se, nessa hipótese, a culpa exclusiva da vítima.</p>
+assim, a inconstitucionalidade decorre da usurpação da competência legislativa da união, nos termos do art. 22, i e vii, da constituição federal, e não de simples inadequação formal da disciplina administrativa. em suma, lei estadual não pode impor o cancelamento unilateral de consignações em folha, com dispensa da anuência da entidade consignatária, ainda que esta esteja sob liquidação extrajudicial. stf. plenário. adi 5.022/ro, rel. min. nunes marques, julgado em 05/11/2025 (info 1197).">
 
-            <div class="botoes">
-                <button onclick="responder(4, 'CERTO')">CERTO</button>
-                <button onclick="responder(4, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 2</span>
+    <span class="disciplina-tag">Direito Civil</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-2">Não respondida</span>
+</div>
 
-            <div class="feedback" id="feedback-4">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque inverte a lógica da responsabilidade civil objetiva do Estado prevista no art. 37, § 6º, da Constituição Federal. Em hipóteses de dano causado por atuação policial durante manifestação, a regra é a responsabilização objetiva do ente público pelos danos concretamente causados pela ação estatal, bastando a demonstração do nexo causal entre a conduta dos agentes e o prejuízo suportado pela vítima.<br><br>O ponto central do entendimento é que não cabe impor ao lesado o ônus de provar que era “terceiro inocente” ou que não participou da manifestação. Ao contrário, compete ao poder público demonstrar eventual excludente de responsabilidade, como culpa exclusiva da vítima, fato exclusivo de terceiro ou outra causa apta a romper o nexo causal. Além disso, não se presume culpa exclusiva da vítima apenas porque ela estava presente no ato público. A mera participação ou presença na manifestação não autoriza, por si só, afastar a responsabilidade estatal.<br><br>O julgado também reforça a proteção ao direito fundamental de reunião, pois condicionar a indenização à prova, pela vítima, de que não integrava o movimento social restringiria indevidamente o exercício desse direito constitucional. Assim, a tese que transfere ao particular o ônus de afastar sua própria culpa e presume excludente de responsabilidade pela simples presença na manifestação contraria a Constituição.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. RE 1.467.145/PR, Rel. Min. Flávio Dino, julgado em 30/10/2025 (Info 1197).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 5</span>
-                <span class="status" id="status-5">Não respondida</span>
-            </div>
+<p class="enunciado">É constitucional lei estadual que, ao disciplinar consignações em folha de pagamento de servidores civis e militares, autorize o cancelamento unilateral de descontos relativos a empréstimos pessoais ou financiamentos, a pedido do devedor, ainda que a entidade consignatária esteja submetida a regime de liquidação extrajudicial, pois a medida se limitaria à organização administrativa da folha de pagamento e à proteção do consumidor/servidor.</p>
 
-            <p class="enunciado">É constitucional a norma estadual que, ao disciplinar a aposentadoria voluntária de servidor ocupante de cargo efetivo vinculado a regime próprio de previdência, condiciona a concessão de proventos integrais ao cumprimento de cinco anos de efetivo exercício no nível ou classe em que se dará a inativação, ainda que o agente público já tenha implementado o tempo de contribuição e a idade exigidos, pois a exigência de permanência mínima na mesma classe concretiza o requisito de tempo no cargo e foi preservada pela reforma previdenciária constitucional.</p>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(2, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(2, 'ERRADO')">ERRADO</button>
+</div>
 
-            <div class="botoes">
-                <button onclick="responder(5, 'CERTO')">CERTO</button>
-                <button onclick="responder(5, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="feedback" id="feedback-2">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque a norma estadual, ao dispensar a anuência da instituição financeira credora para o cancelamento de consignações vinculadas a empréstimos pessoais ou financiamentos, não se limita a disciplinar aspecto meramente administrativo da folha de pagamento. Na realidade, ela interfere diretamente na relação obrigacional estabelecida entre devedor e credor, atingindo o núcleo do contrato de crédito e a disciplina jurídica do adimplemento, matéria inserida na competência privativa da União para legislar sobre direito civil e política de crédito.<br><br>O fato de a entidade consignatária estar em liquidação extrajudicial não afasta essa conclusão. A situação de crise da instituição financeira não autoriza o Estado-membro a inovar no regime jurídico do contrato nem a impor, por lei local, a extinção ou modificação unilateral da consignação sem a concordância do credor. Trata-se de providência que repercute diretamente sobre a estrutura da obrigação e sobre a política de crédito, campos reservados ao legislador federal.<br><br>Assim, a inconstitucionalidade decorre da usurpação da competência legislativa da União, nos termos do art. 22, I e VII, da Constituição Federal, e não de simples inadequação formal da disciplina administrativa. Em suma, lei estadual não pode impor o cancelamento unilateral de consignações em folha, com dispensa da anuência da entidade consignatária, ainda que esta esteja sob liquidação extrajudicial.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 5.022/RO, Rel. Min. Nunes Marques, julgado em 05/11/2025 (Info 1197).</p>
+</div>
+</section>
 
-            <div class="feedback" id="feedback-5">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque a exigência de permanência mínima de 5 anos no mesmo nível ou classe, para fins de aposentadoria de servidor público ocupante de cargo efetivo, foi reputada incompatível com a Constituição. O entendimento firmado é no sentido de que o requisito constitucional de tempo no cargo não autoriza o legislador estadual a criar um filtro adicional de permanência em determinada classe ou nível da carreira.<br><br>A interpretação constitucional consolidada pelo STF, em precedentes de repercussão geral, é a de que o tempo no cargo deve ser compreendido como tempo de permanência na carreira, e não como permanência em um específico degrau funcional. Assim, uma vez atendidos os demais requisitos legais e constitucionais — como idade mínima e tempo de contribuição — não se pode exigir que o servidor permaneça por lapso temporal mínimo na classe ou nível em que ocorrerá a aposentadoria.<br><br>Além disso, a EC 103/2019 não alterou esse entendimento jurisprudencial. Logo, não há base constitucional para sustentar que a reforma previdenciária tenha chancelado a imposição de cinco anos no mesmo nível ou classe. A norma estadual, ao restringir indevidamente o acesso à aposentadoria integral por meio de requisito não previsto na moldura constitucional, foi declarada inconstitucional.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.676/SP, Rel. Min. Flávio Dino, julgado em 05/11/2025 (Info 1197).</p>
-            </div>
-        </section>
-        
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="ECA"
+data-texto="é inconstitucional lei estadual que, ao instituir política de transição energética voltada à redução progressiva do uso de carvão mineral, imponha às concessionárias de geração, transmissão e distribuição de energia elétrica a destinação compulsória de percentual mínimo dos recursos obrigatórios de pesquisa e desenvolvimento a projetos específicos definidos pelo próprio ente federado, pois tal disciplina interfere na competência privativa da união para legislar sobre energia e nas relações contratuais vinculadas ao regime federal de concessão. a assertiva está correta. embora os estados possam editar políticas públicas ambientais e de desenvolvimento regional, inclusive com diretrizes voltadas à transição energética e à redução de emissões, essa atuação encontra limite quando a norma estadual passa a disciplinar, de modo vinculante, obrigações impostas diretamente às concessionárias de energia elétrica em matéria reservada à união.
+
+no caso, a inconstitucionalidade recaiu especificamente sobre o dispositivo que obrigava empresas geradoras, transmissoras e distribuidoras instaladas no estado a aplicar ao menos 5% dos recursos obrigatórios de pesquisa e desenvolvimento em projetos específicos relacionados ao carvão mineral. esse comando foi reputado invasivo porque interfere na disciplina da energia elétrica, matéria inserida na competência administrativa e legislativa da união, além de repercutir nas relações contratuais próprias do regime federal de concessão.
+
+a distinção é importante para fins de prova: não se invalidou a política estadual de transição energética como um todo. ao contrário, foi preservada a maior parte da lei, por se entender legítima a adoção de instrumentos normativos voltados à transição gradual para matriz menos poluente, sem afronta ao direito ao meio ambiente ecologicamente equilibrado. o vício surgiu apenas quando o legislador estadual ultrapassou o espaço de conformação local e passou a impor destinação obrigatória de recursos de p&amp;d em setor submetido à regulação federal. stf. plenário. adi 7.332/sc, rel. min. dias toffoli, julgado em 05/11/2025 (info 1197).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 3</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-3">Não respondida</span>
+</div>
+
+<p class="enunciado">É inconstitucional lei estadual que, ao instituir política de transição energética voltada à redução progressiva do uso de carvão mineral, imponha às concessionárias de geração, transmissão e distribuição de energia elétrica a destinação compulsória de percentual mínimo dos recursos obrigatórios de pesquisa e desenvolvimento a projetos específicos definidos pelo próprio ente federado, pois tal disciplina interfere na competência privativa da União para legislar sobre energia e nas relações contratuais vinculadas ao regime federal de concessão.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(3, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(3, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-3">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta. Embora os estados possam editar políticas públicas ambientais e de desenvolvimento regional, inclusive com diretrizes voltadas à transição energética e à redução de emissões, essa atuação encontra limite quando a norma estadual passa a disciplinar, de modo vinculante, obrigações impostas diretamente às concessionárias de energia elétrica em matéria reservada à União.<br><br>No caso, a inconstitucionalidade recaiu especificamente sobre o dispositivo que obrigava empresas geradoras, transmissoras e distribuidoras instaladas no estado a aplicar ao menos 5% dos recursos obrigatórios de pesquisa e desenvolvimento em projetos específicos relacionados ao carvão mineral. Esse comando foi reputado invasivo porque interfere na disciplina da energia elétrica, matéria inserida na competência administrativa e legislativa da União, além de repercutir nas relações contratuais próprias do regime federal de concessão.<br><br>A distinção é importante para fins de prova: não se invalidou a política estadual de transição energética como um todo. Ao contrário, foi preservada a maior parte da lei, por se entender legítima a adoção de instrumentos normativos voltados à transição gradual para matriz menos poluente, sem afronta ao direito ao meio ambiente ecologicamente equilibrado. O vício surgiu apenas quando o legislador estadual ultrapassou o espaço de conformação local e passou a impor destinação obrigatória de recursos de P&amp;D em setor submetido à regulação federal.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.332/SC, Rel. Min. Dias Toffoli, julgado em 05/11/2025 (Info 1197).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="Direito Constitucional"
+data-texto="em ação de indenização por danos morais e físicos decorrentes de atuação policial em manifestação pública, é compatível com a responsabilidade civil objetiva do estado exigir que a vítima comprove, como condição para a reparação, que não integrava o ato coletivo nem concorreu para a reação estatal, sendo suficiente, para afastar o dever de indenizar, a mera presença do manifestante no local dos fatos, por presumir-se, nessa hipótese, a culpa exclusiva da vítima. a assertiva está incorreta porque inverte a lógica da responsabilidade civil objetiva do estado prevista no art. 37, § 6º, da constituição federal. em hipóteses de dano causado por atuação policial durante manifestação, a regra é a responsabilização objetiva do ente público pelos danos concretamente causados pela ação estatal, bastando a demonstração do nexo causal entre a conduta dos agentes e o prejuízo suportado pela vítima.
+
+o ponto central do entendimento é que não cabe impor ao lesado o ônus de provar que era “terceiro inocente” ou que não participou da manifestação. ao contrário, compete ao poder público demonstrar eventual excludente de responsabilidade, como culpa exclusiva da vítima, fato exclusivo de terceiro ou outra causa apta a romper o nexo causal. além disso, não se presume culpa exclusiva da vítima apenas porque ela estava presente no ato público. a mera participação ou presença na manifestação não autoriza, por si só, afastar a responsabilidade estatal.
+
+o julgado também reforça a proteção ao direito fundamental de reunião, pois condicionar a indenização à prova, pela vítima, de que não integrava o movimento social restringiria indevidamente o exercício desse direito constitucional. assim, a tese que transfere ao particular o ônus de afastar sua própria culpa e presume excludente de responsabilidade pela simples presença na manifestação contraria a constituição. stf. plenário. re 1.467.145/pr, rel. min. flávio dino, julgado em 30/10/2025 (info 1197).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 4</span>
+    <span class="disciplina-tag">Direito Constitucional</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-4">Não respondida</span>
+</div>
+
+<p class="enunciado">Em ação de indenização por danos morais e físicos decorrentes de atuação policial em manifestação pública, é compatível com a responsabilidade civil objetiva do Estado exigir que a vítima comprove, como condição para a reparação, que não integrava o ato coletivo nem concorreu para a reação estatal, sendo suficiente, para afastar o dever de indenizar, a mera presença do manifestante no local dos fatos, por presumir-se, nessa hipótese, a culpa exclusiva da vítima.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(4, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(4, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-4">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque inverte a lógica da responsabilidade civil objetiva do Estado prevista no art. 37, § 6º, da Constituição Federal. Em hipóteses de dano causado por atuação policial durante manifestação, a regra é a responsabilização objetiva do ente público pelos danos concretamente causados pela ação estatal, bastando a demonstração do nexo causal entre a conduta dos agentes e o prejuízo suportado pela vítima.<br><br>O ponto central do entendimento é que não cabe impor ao lesado o ônus de provar que era “terceiro inocente” ou que não participou da manifestação. Ao contrário, compete ao poder público demonstrar eventual excludente de responsabilidade, como culpa exclusiva da vítima, fato exclusivo de terceiro ou outra causa apta a romper o nexo causal. Além disso, não se presume culpa exclusiva da vítima apenas porque ela estava presente no ato público. A mera participação ou presença na manifestação não autoriza, por si só, afastar a responsabilidade estatal.<br><br>O julgado também reforça a proteção ao direito fundamental de reunião, pois condicionar a indenização à prova, pela vítima, de que não integrava o movimento social restringiria indevidamente o exercício desse direito constitucional. Assim, a tese que transfere ao particular o ônus de afastar sua própria culpa e presume excludente de responsabilidade pela simples presença na manifestação contraria a Constituição.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. RE 1.467.145/PR, Rel. Min. Flávio Dino, julgado em 30/10/2025 (Info 1197).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="é constitucional a norma estadual que, ao disciplinar a aposentadoria voluntária de servidor ocupante de cargo efetivo vinculado a regime próprio de previdência, condiciona a concessão de proventos integrais ao cumprimento de cinco anos de efetivo exercício no nível ou classe em que se dará a inativação, ainda que o agente público já tenha implementado o tempo de contribuição e a idade exigidos, pois a exigência de permanência mínima na mesma classe concretiza o requisito de tempo no cargo e foi preservada pela reforma previdenciária constitucional. a assertiva está incorreta porque a exigência de permanência mínima de 5 anos no mesmo nível ou classe, para fins de aposentadoria de servidor público ocupante de cargo efetivo, foi reputada incompatível com a constituição. o entendimento firmado é no sentido de que o requisito constitucional de tempo no cargo não autoriza o legislador estadual a criar um filtro adicional de permanência em determinada classe ou nível da carreira.
+
+a interpretação constitucional consolidada pelo stf, em precedentes de repercussão geral, é a de que o tempo no cargo deve ser compreendido como tempo de permanência na carreira, e não como permanência em um específico degrau funcional. assim, uma vez atendidos os demais requisitos legais e constitucionais — como idade mínima e tempo de contribuição — não se pode exigir que o servidor permaneça por lapso temporal mínimo na classe ou nível em que ocorrerá a aposentadoria.
+
+além disso, a ec 103/2019 não alterou esse entendimento jurisprudencial. logo, não há base constitucional para sustentar que a reforma previdenciária tenha chancelado a imposição de cinco anos no mesmo nível ou classe. a norma estadual, ao restringir indevidamente o acesso à aposentadoria integral por meio de requisito não previsto na moldura constitucional, foi declarada inconstitucional. stf. plenário. adi 7.676/sp, rel. min. flávio dino, julgado em 05/11/2025 (info 1197).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 5</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-5">Não respondida</span>
+</div>
+
+<p class="enunciado">É constitucional a norma estadual que, ao disciplinar a aposentadoria voluntária de servidor ocupante de cargo efetivo vinculado a regime próprio de previdência, condiciona a concessão de proventos integrais ao cumprimento de cinco anos de efetivo exercício no nível ou classe em que se dará a inativação, ainda que o agente público já tenha implementado o tempo de contribuição e a idade exigidos, pois a exigência de permanência mínima na mesma classe concretiza o requisito de tempo no cargo e foi preservada pela reforma previdenciária constitucional.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(5, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(5, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-5">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque a exigência de permanência mínima de 5 anos no mesmo nível ou classe, para fins de aposentadoria de servidor público ocupante de cargo efetivo, foi reputada incompatível com a Constituição. O entendimento firmado é no sentido de que o requisito constitucional de tempo no cargo não autoriza o legislador estadual a criar um filtro adicional de permanência em determinada classe ou nível da carreira.<br><br>A interpretação constitucional consolidada pelo STF, em precedentes de repercussão geral, é a de que o tempo no cargo deve ser compreendido como tempo de permanência na carreira, e não como permanência em um específico degrau funcional. Assim, uma vez atendidos os demais requisitos legais e constitucionais — como idade mínima e tempo de contribuição — não se pode exigir que o servidor permaneça por lapso temporal mínimo na classe ou nível em que ocorrerá a aposentadoria.<br><br>Além disso, a EC 103/2019 não alterou esse entendimento jurisprudencial. Logo, não há base constitucional para sustentar que a reforma previdenciária tenha chancelado a imposição de cinco anos no mesmo nível ou classe. A norma estadual, ao restringir indevidamente o acesso à aposentadoria integral por meio de requisito não previsto na moldura constitucional, foi declarada inconstitucional.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.676/SP, Rel. Min. Flávio Dino, julgado em 05/11/2025 (Info 1197).</p>
+</div>
+</section>
 
 </div>
 
 <script>
-const totalQuestoes = 5;
-let respostas = JSON.parse(localStorage.getItem(location.pathname + "_respostas") || "{}");
+const storageKey = location.pathname + "_respostas";
+let respostas = JSON.parse(localStorage.getItem(storageKey) || "{}");
 
-function atualizarPainel() {
-    const respondidas = Object.keys(respostas).length;
-    let acertos = 0;
-    let erros = 0;
-
-    for (const key in respostas) {
-        if (respostas[key].correto) acertos++;
-        else erros++;
-    }
-
-    document.getElementById("respondidas").textContent = respondidas;
-    document.getElementById("acertos").textContent = acertos;
-    document.getElementById("erros").textContent = erros;
+function destacar(t){
+ if(t==="CERTO") return '<span class="gabarito-certo">CERTO</span>';
+ if(t==="ERRADO") return '<span class="gabarito-errado">ERRADO</span>';
+ return t;
 }
 
-function responder(numero, resposta) {
-    const card = document.querySelectorAll(".questao")[numero - 1];
-    const gabarito = card.dataset.gabarito;
-    const correto = resposta === gabarito;
-
-    respostas[numero] = {
-        resposta,
-        correto
-    };
-
-    localStorage.setItem(location.pathname + "_respostas", JSON.stringify(respostas));
-
-    mostrarFeedback(numero);
-    atualizarPainel();
+function responder(numero, resposta){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const gabarito=card.dataset.gabarito;
+ const correto=resposta===gabarito;
+ respostas[numero]={resposta,correto};
+ localStorage.setItem(storageKey, JSON.stringify(respostas));
+ mostrarFeedback(numero);
+ atualizarPainel();
+ filtrar();
 }
 
-function mostrarFeedback(numero) {
-    const card = document.querySelectorAll(".questao")[numero - 1];
-    const feedback = document.getElementById("feedback-" + numero);
-    const status = document.getElementById("status-" + numero);
-    const resultado = feedback.querySelector(".resultado");
-
-    const dados = respostas[numero];
-
-    if (!dados) return;
-
-    feedback.style.display = "block";
-    feedback.classList.remove("correto", "errado");
-
-    if (dados.correto) {
-        feedback.classList.add("correto");
-        resultado.textContent = "Você acertou. A resposta é " + card.dataset.gabarito + ".";
-        status.textContent = "Respondida — acerto";
-        status.style.color = "var(--green)";
-    } else {
-        feedback.classList.add("errado");
-        resultado.textContent = "Você errou. O gabarito é " + card.dataset.gabarito + ".";
-        status.textContent = "Respondida — erro";
-        status.style.color = "var(--red)";
-    }
+function mostrarFeedback(numero){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const feedback=document.getElementById("feedback-"+numero);
+ const status=document.getElementById("status-"+numero);
+ const resultado=feedback.querySelector(".resultado");
+ const gabarito=card.dataset.gabarito;
+ const dados=respostas[numero];
+ if(!dados) return;
+ feedback.style.display="block";
+ feedback.classList.remove("correto","errado");
+ if(dados.correto){
+   feedback.classList.add("correto");
+   resultado.innerHTML="Você acertou. A resposta é "+destacar(gabarito)+".";
+   status.textContent="Respondida — acerto";
+   status.style.color="var(--green)";
+ } else {
+   feedback.classList.add("errado");
+   resultado.innerHTML="Você errou. O gabarito é "+destacar(gabarito)+".";
+   status.textContent="Respondida — erro";
+   status.style.color="var(--red)";
+ }
 }
 
-function restaurar() {
-    for (const key in respostas) {
-        mostrarFeedback(Number(key));
-    }
-    atualizarPainel();
+function atualizarPainel(){
+ let respondidas=0, acertos=0, erros=0;
+ for(const k in respostas){
+   respondidas++;
+   if(respostas[k].correto) acertos++; else erros++;
+ }
+ document.getElementById("respondidas").textContent=respondidas;
+ document.getElementById("acertos").textContent=acertos;
+ document.getElementById("erros").textContent=erros;
+ document.getElementById("visiveis").textContent=document.querySelectorAll(".questao:not(.oculta)").length;
 }
 
-function reiniciar() {
-    if (!confirm("Deseja reiniciar este simulado?")) return;
-    localStorage.removeItem(location.pathname + "_respostas");
-    location.reload();
+function filtrar(){
+ const busca=document.getElementById("busca").value.trim().toLowerCase();
+ const disciplina=document.getElementById("disciplina").value;
+ const statusFiltro=document.getElementById("statusFiltro").value;
+ const cards=Array.from(document.querySelectorAll(".questao"));
+ let vis=0;
+ cards.forEach((card,idx)=>{
+   const n=idx+1;
+   const texto=card.dataset.texto||"";
+   const disc=card.dataset.disciplina||"";
+   const r=respostas[n];
+   let passaStatus=true;
+   if(statusFiltro==="nao") passaStatus=!r;
+   if(statusFiltro==="acerto") passaStatus=r && r.correto;
+   if(statusFiltro==="erro") passaStatus=r && !r.correto;
+   const ok=(!busca||texto.includes(busca)) && (!disciplina||disc===disciplina) && passaStatus;
+   card.classList.toggle("oculta", !ok);
+   if(ok) vis++;
+ });
+ document.getElementById("sem-resultados").style.display=vis===0?"block":"none";
+ atualizarPainel();
+}
+
+function reiniciar(){
+ if(!confirm("Deseja reiniciar este simulado?")) return;
+ localStorage.removeItem(storageKey);
+ location.reload();
+}
+
+function restaurar(){
+ for(const k in respostas) mostrarFeedback(Number(k));
+ filtrar();
+ atualizarPainel();
 }
 
 restaurar();
 </script>
-
 </body>
 </html>

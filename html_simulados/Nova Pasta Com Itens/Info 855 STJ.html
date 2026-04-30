@@ -4,539 +4,595 @@
 <meta charset="UTF-8">
 <title>Simulado - Info 855 STJ</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <style>
-:root {
-    --bg: #0f172a;
-    --card: #111827;
-    --card2: #1f2937;
-    --text: #e5e7eb;
-    --muted: #9ca3af;
-    --accent: #38bdf8;
-    --green: #22c55e;
-    --red: #ef4444;
-    --yellow: #facc15;
+:root{
+--bg:#020617;--panel:rgba(15,23,42,.88);--card:rgba(15,23,42,.96);
+--card2:rgba(30,41,59,.92);--border:rgba(148,163,184,.22);
+--text:#e5e7eb;--muted:#94a3b8;--accent:#38bdf8;--accent2:#0ea5e9;
+--green:#22c55e;--red:#ef4444;--yellow:#facc15;--purple:#a78bfa;
 }
-
-* {
-    box-sizing: border-box;
+*{box-sizing:border-box}
+body{
+margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+background:radial-gradient(circle at top left,rgba(56,189,248,.20),transparent 28%),
+radial-gradient(circle at top right,rgba(167,139,250,.15),transparent 28%),
+linear-gradient(135deg,#020617,#0f172a 50%,#020617);
+color:var(--text);line-height:1.65;
 }
-
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(135deg, #020617, #111827);
-    color: var(--text);
-    line-height: 1.6;
+header{padding:44px 20px 32px;text-align:center;border-bottom:1px solid var(--border)}
+header h1{margin:0 0 10px;font-size:clamp(28px,4vw,46px);letter-spacing:-.05em}
+header p{color:var(--muted);margin:0;font-size:16px}
+.container{max-width:1160px;margin:0 auto;padding:26px 16px 80px}
+.painel{
+position:sticky;top:10px;z-index:10;background:var(--panel);backdrop-filter:blur(18px);
+border:1px solid var(--border);border-radius:26px;padding:16px;margin-bottom:22px;
+box-shadow:0 22px 70px rgba(0,0,0,.35)
 }
-
-header {
-    padding: 32px 20px;
-    text-align: center;
-    border-bottom: 1px solid #334155;
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.stat{background:var(--card2);padding:14px;border-radius:18px;text-align:center;border:1px solid rgba(148,163,184,.12)}
+.stat strong{display:block;font-size:25px;color:var(--accent);line-height:1.1}
+.stat span{font-size:12px;color:var(--muted)}
+.filtros{display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:12px;margin-top:14px}
+input,select{
+width:100%;background:rgba(2,6,23,.78);color:var(--text);border:1px solid var(--border);
+border-radius:14px;padding:13px 14px;outline:none;font-size:14px
 }
-
-header h1 {
-    margin: 0 0 10px;
-    font-size: 28px;
+input:focus,select:focus{border-color:var(--accent)}
+.card{
+background:var(--card);border:1px solid var(--border);border-radius:24px;padding:26px;
+margin-bottom:20px;box-shadow:0 18px 50px rgba(0,0,0,.24)
 }
-
-header p {
-    color: var(--muted);
-    margin: 0;
+.questao{scroll-margin-top:190px}
+.questao-topo{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:18px}
+.badge{
+background:linear-gradient(135deg,var(--accent),var(--accent2));color:#00111f;font-weight:900;
+padding:7px 13px;border-radius:999px;display:inline-block
 }
-
-.container {
-    max-width: 980px;
-    margin: 0 auto;
-    padding: 24px 16px 80px;
+.disciplina-tag,.tipo-tag{
+display:inline-block;margin-left:8px;color:var(--muted);background:rgba(148,163,184,.10);
+border:1px solid rgba(148,163,184,.14);padding:6px 10px;border-radius:999px;font-size:12px
 }
-
-.painel {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    background: rgba(15, 23, 42, 0.95);
-    backdrop-filter: blur(8px);
-    border: 1px solid #334155;
-    border-radius: 16px;
-    padding: 16px;
-    margin-bottom: 24px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
+.tipo-tag{color:#ddd6fe;border-color:rgba(167,139,250,.25)}
+.status{color:var(--yellow);font-size:13px;white-space:nowrap}
+.enunciado{font-size:19px;margin:0 0 22px;letter-spacing:-.01em}
+.botoes{display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.btn{
+cursor:pointer;border:0;padding:12px 22px;border-radius:14px;color:white;font-weight:900;
+transition:.18s ease;letter-spacing:.02em
 }
-
-.stat {
-    background: var(--card2);
-    padding: 12px;
-    border-radius: 12px;
-    text-align: center;
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.certo{background:rgba(34,197,94,.20);border:1px solid rgba(34,197,94,.42)}
+.btn.errado{background:rgba(239,68,68,.20);border:1px solid rgba(239,68,68,.42)}
+.btn.neutro{background:rgba(56,189,248,.16);color:var(--text);border:1px solid rgba(56,189,248,.32)}
+.feedback{
+display:none;background:rgba(2,6,23,.72);border:1px solid rgba(148,163,184,.16);
+border-left:5px solid var(--accent);padding:18px;border-radius:18px;margin-top:14px
 }
-
-.stat strong {
-    display: block;
-    font-size: 22px;
-    color: var(--accent);
+.feedback.correto{border-left-color:var(--green)}
+.feedback.errado{border-left-color:var(--red)}
+.resultado{font-size:18px;font-weight:900;margin-top:0}
+.justificativa{margin-top:12px}
+.referencia{color:var(--muted);font-size:13px;margin-top:16px}
+.gabarito-certo{color:var(--green);font-weight:900}
+.gabarito-errado{color:var(--red);font-weight:900}
+.oculta{display:none}
+.sem-resultados{text-align:center;color:var(--muted);display:none;padding:30px}
+.grid-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
+.link-card{
+display:block;padding:20px;background:rgba(15,23,42,.95);border:1px solid rgba(148,163,184,.22);
+color:#e5e7eb;border-radius:22px;text-decoration:none;transition:.2s;box-shadow:0 14px 40px rgba(0,0,0,.22)
 }
-
-.card {
-    background: rgba(17, 24, 39, 0.96);
-    border: 1px solid #334155;
-    border-radius: 18px;
-    padding: 22px;
-    margin-bottom: 20px;
-    box-shadow: 0 12px 30px rgba(0,0,0,.25);
-}
-
-.questao-topo {
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
-    align-items: center;
-    margin-bottom: 16px;
-}
-
-.badge {
-    background: #0ea5e9;
-    color: #00111f;
-    font-weight: bold;
-    padding: 6px 12px;
-    border-radius: 999px;
-}
-
-.status {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-.enunciado {
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-
-.botoes {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 18px;
-}
-
-button {
-    cursor: pointer;
-    border: 0;
-    padding: 12px 22px;
-    border-radius: 12px;
-    background: #334155;
-    color: white;
-    font-weight: bold;
-    transition: 0.2s;
-}
-
-button:hover {
-    transform: translateY(-1px);
-    background: #475569;
-}
-
-.feedback {
-    display: none;
-    background: #020617;
-    border-left: 4px solid var(--accent);
-    padding: 16px;
-    border-radius: 12px;
-    margin-top: 12px;
-}
-
-.feedback.correto {
-    border-left-color: var(--green);
-}
-
-.feedback.errado {
-    border-left-color: var(--red);
-}
-
-.resultado {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.referencia {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-.acoes {
-    text-align: center;
-    margin: 30px 0;
-}
-
-.acoes button {
-    background: #0ea5e9;
-    color: #00111f;
-}
-
-@media (max-width: 700px) {
-    .painel {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .botoes {
-        flex-direction: column;
-    }
-
-    header h1 {
-        font-size: 22px;
-    }
-
-    .enunciado {
-        font-size: 16px;
-    }
+.link-card:hover{transform:translateY(-3px);border-color:#38bdf8}
+.link-card strong{display:block;font-size:17px;margin-bottom:8px}
+.link-card span{color:#94a3b8;font-size:13px}
+.index-tools{display:grid;grid-template-columns:1.5fr 1fr;gap:12px;margin-bottom:20px}
+@media(max-width:850px){
+.stats{grid-template-columns:repeat(2,1fr)}
+.filtros,.index-tools{grid-template-columns:1fr}
+.questao-topo{align-items:flex-start;flex-direction:column}
+.botoes{flex-direction:column}
+.enunciado{font-size:16px}
+.card{padding:20px}
 }
 </style>
 </head>
-
 <body>
-
 <header>
-    <h1>Simulado - Info 855 STJ</h1>
-    <p>Simulado interativo de CERTO ou ERRADO</p>
+<h1>Simulado - Info 855 STJ</h1>
+<p>Informativos • Simulado interativo de CERTO ou ERRADO</p>
 </header>
 
 <div class="container">
+<div class="painel">
+<div class="stats">
+<div class="stat"><strong>11</strong><span>Total</span></div>
+<div class="stat"><strong id="visiveis">11</strong><span>Visíveis</span></div>
+<div class="stat"><strong id="respondidas">0</strong><span>Respondidas</span></div>
+<div class="stat"><strong id="acertos">0</strong><span>Acertos</span></div>
+<div class="stat"><strong id="erros">0</strong><span>Erros</span></div>
+</div>
 
-    <div class="painel">
-        <div class="stat">
-            <strong id="total">11</strong>
-            Total
-        </div>
-        <div class="stat">
-            <strong id="respondidas">0</strong>
-            Respondidas
-        </div>
-        <div class="stat">
-            <strong id="acertos">0</strong>
-            Acertos
-        </div>
-        <div class="stat">
-            <strong id="erros">0</strong>
-            Erros
-        </div>
-    </div>
+<div class="filtros">
+<input id="busca" type="search" placeholder="Buscar por palavra-chave..." oninput="filtrar()">
+<select id="disciplina" onchange="filtrar()">
+<option value="">Todas as disciplinas</option>
+<option value="ECA">ECA</option>
+<option value="N/I">N/I</option>
+</select>
+<select id="statusFiltro" onchange="filtrar()">
+<option value="">Todas</option>
+<option value="nao">Não respondidas</option>
+<option value="acerto">Acertos</option>
+<option value="erro">Erros</option>
+</select>
+<button class="btn neutro" onclick="reiniciar()">Reiniciar</button>
+</div>
+</div>
 
-    <div class="acoes">
-        <button onclick="reiniciar()">Reiniciar simulado</button>
-    </div>
+<div id="sem-resultados" class="sem-resultados">Nenhuma questão encontrada com os filtros atuais.</div>
 
-    
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 1</span>
-                <span class="status" id="status-1">Não respondida</span>
-            </div>
 
-            <p class="enunciado">Na hipótese de permuta no local envolvendo terreno de marinha submetido ao regime de enfiteuse, em que o titular do domínio útil transfere o imóvel à incorporadora para que esta construa edifício e entregue unidades autônomas prontas em contrapartida, a incidência do laudêmio limita-se à primeira alienação onerosa do terreno, sendo indevida nova cobrança quando da transferência das unidades edificadas ao antigo titular, por se tratar de mera execução do mesmo negócio jurídico e de hipótese de reserva de titularidade oponível à União.</p>
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="na hipótese de permuta no local envolvendo terreno de marinha submetido ao regime de enfiteuse, em que o titular do domínio útil transfere o imóvel à incorporadora para que esta construa edifício e entregue unidades autônomas prontas em contrapartida, a incidência do laudêmio limita-se à primeira alienação onerosa do terreno, sendo indevida nova cobrança quando da transferência das unidades edificadas ao antigo titular, por se tratar de mera execução do mesmo negócio jurídico e de hipótese de reserva de titularidade oponível à união. a assertiva está incorreta porque, nessa estrutura negocial, há **duas transmissões onerosas juridicamente autônomas**: (i) a transferência do domínio útil do terreno de marinha da empresa ao incorporador/construtor, e (ii) a posterior transferência das unidades autônomas edificadas, entregues como contraprestação à empresa originária. o ponto central é que a “permuta no local” não descaracteriza a existência de **negócios distintos**, cada qual apto a ensejar a cobrança do laudêmio.
 
-            <div class="botoes">
-                <button onclick="responder(1, 'CERTO')">CERTO</button>
-                <button onclick="responder(1, 'ERRADO')">ERRADO</button>
-            </div>
+o entendimento firmado é no sentido de que o laudêmio incide sobre a **transferência onerosa do domínio útil** em terreno de marinha, e essa incidência não é afastada pelo fato de a operação integrar um arranjo econômico mais amplo de incorporação imobiliária. a alegação de que haveria apenas uma execução unitária do contrato não prevalece, porque a realidade jurídica revelada pelo caso é de circulação patrimonial em dois momentos: primeiro, o terreno sai do patrimônio do titular; depois, as unidades prontas retornam a ele como contraprestação, configurando nova transferência onerosa.
 
-            <div class="feedback" id="feedback-1">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque, nessa estrutura negocial, há <strong>duas transmissões onerosas juridicamente autônomas</strong>: (i) a transferência do domínio útil do terreno de marinha da empresa ao incorporador/construtor, e (ii) a posterior transferência das unidades autônomas edificadas, entregues como contraprestação à empresa originária. O ponto central é que a “permuta no local” não descaracteriza a existência de <strong>negócios distintos</strong>, cada qual apto a ensejar a cobrança do laudêmio.<br><br>O entendimento firmado é no sentido de que o laudêmio incide sobre a <strong>transferência onerosa do domínio útil</strong> em terreno de marinha, e essa incidência não é afastada pelo fato de a operação integrar um arranjo econômico mais amplo de incorporação imobiliária. A alegação de que haveria apenas uma execução unitária do contrato não prevalece, porque a realidade jurídica revelada pelo caso é de circulação patrimonial em dois momentos: primeiro, o terreno sai do patrimônio do titular; depois, as unidades prontas retornam a ele como contraprestação, configurando nova transferência onerosa.<br><br>Também não se acolhe a ideia de <strong>reserva de titularidade oponível à União</strong> sem a constituição de novo aforamento ou outra base jurídica apta a impedir a incidência. Assim, a União pode exigir laudêmio em ambas as transmissões, pois cada uma delas corresponde a fato gerador próprio, não havendo exceção reconhecida para a permuta no local que elimine a segunda cobrança.<br><br>Em síntese: a tese correta é a de que <strong>o laudêmio é devido nas duas transferências</strong>, justamente porque não se trata de um único ato translativo, mas de operações sucessivas e distintas.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 2ª Turma. REsp 1.652.517-SC, Rel. Min. Afrânio Vilela, julgado em 10/6/2025 (Info 855).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 2</span>
-                <span class="status" id="status-2">Não respondida</span>
-            </div>
+também não se acolhe a ideia de **reserva de titularidade oponível à união** sem a constituição de novo aforamento ou outra base jurídica apta a impedir a incidência. assim, a união pode exigir laudêmio em ambas as transmissões, pois cada uma delas corresponde a fato gerador próprio, não havendo exceção reconhecida para a permuta no local que elimine a segunda cobrança.
 
-            <p class="enunciado">A exceção legal à impenhorabilidade do bem de família gravado com hipoteca, quando o imóvel é oferecido como garantia real pelo casal ou pela entidade familiar, somente autoriza a constrição judicial se a obrigação garantida tiver sido contraída em proveito da própria entidade familiar; nessa hipótese, se o imóvel tiver sido hipotecado por um dos sócios de pessoa jurídica, incumbe ao credor demonstrar que a dívida empresarial reverteu em benefício da família, ao passo que, sendo os únicos sócios da sociedade os próprios titulares do imóvel hipotecado, presume-se a penhorabilidade, cabendo aos proprietários provar que o débito não lhes trouxe vantagem familiar.</p>
+em síntese: a tese correta é a de que **o laudêmio é devido nas duas transferências**, justamente porque não se trata de um único ato translativo, mas de operações sucessivas e distintas. stj. 2ª turma. resp 1.652.517-sc, rel. min. afrânio vilela, julgado em 10/6/2025 (info 855).">
 
-            <div class="botoes">
-                <button onclick="responder(2, 'CERTO')">CERTO</button>
-                <button onclick="responder(2, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 1</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-1">Não respondida</span>
+</div>
 
-            <div class="feedback" id="feedback-2">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A proteção do bem de família, prevista na Lei n. 8.009/1990, comporta exceções legais de interpretação restritiva. No caso da hipoteca, a regra do art. 3º, V, não autoriza a penhora de forma automática apenas porque o imóvel foi dado em garantia real: é indispensável que a dívida tenha sido constituída em benefício da entidade familiar. Assim, a simples existência da hipoteca não basta para afastar a impenhorabilidade.<br><br>Quanto ao ônus probatório, o entendimento distingue duas situações. Se o bem foi dado em garantia real por um dos sócios de pessoa jurídica, prevalece a impenhorabilidade, competindo ao credor provar que a obrigação da empresa efetivamente se reverteu em benefício da família. Já quando os únicos sócios da sociedade são os próprios titulares do imóvel hipotecado, a orientação é inversa: presume-se a penhorabilidade, cabendo aos proprietários demonstrar que o débito da pessoa jurídica não beneficiou a entidade familiar.<br><br>Esse recorte é relevante porque impede a aplicação mecânica da exceção legal e exige análise concreta da relação entre a dívida e o núcleo familiar, inclusive na distribuição do ônus da prova.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 2ª Seção. REsp 2.093.929-MG e REsp 2.105.326-SP, Rel. Min. Antonio Carlos Ferreira, julgados em 5/6/2025 (Recurso Repetitivo - Tema 1261) (Info 855).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 3</span>
-                <span class="status" id="status-3">Não respondida</span>
-            </div>
+<p class="enunciado">Na hipótese de permuta no local envolvendo terreno de marinha submetido ao regime de enfiteuse, em que o titular do domínio útil transfere o imóvel à incorporadora para que esta construa edifício e entregue unidades autônomas prontas em contrapartida, a incidência do laudêmio limita-se à primeira alienação onerosa do terreno, sendo indevida nova cobrança quando da transferência das unidades edificadas ao antigo titular, por se tratar de mera execução do mesmo negócio jurídico e de hipótese de reserva de titularidade oponível à União.</p>
 
-            <p class="enunciado">A responsabilidade civil objetiva prevista no art. 927, parágrafo único, do Código Civil pode ser afastada quando o acidente de trânsito decorre exclusivamente de fato de terceiro, como o defeito de fabricação de pneu que provoca estouro súbito, perda involuntária do controle do veículo e colisão com outro automóvel, hipótese em que a conduta do motorista deixa de ser voluntária e o nexo causal entre sua atuação e os danos causados a terceiros é rompido, ainda que o veículo estivesse em boas condições de manutenção e trafegasse em velocidade compatível com a via.</p>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(1, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(1, 'ERRADO')">ERRADO</button>
+</div>
 
-            <div class="botoes">
-                <button onclick="responder(3, 'CERTO')">CERTO</button>
-                <button onclick="responder(3, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="feedback" id="feedback-1">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque, nessa estrutura negocial, há <strong>duas transmissões onerosas juridicamente autônomas</strong>: (i) a transferência do domínio útil do terreno de marinha da empresa ao incorporador/construtor, e (ii) a posterior transferência das unidades autônomas edificadas, entregues como contraprestação à empresa originária. O ponto central é que a “permuta no local” não descaracteriza a existência de <strong>negócios distintos</strong>, cada qual apto a ensejar a cobrança do laudêmio.<br><br>O entendimento firmado é no sentido de que o laudêmio incide sobre a <strong>transferência onerosa do domínio útil</strong> em terreno de marinha, e essa incidência não é afastada pelo fato de a operação integrar um arranjo econômico mais amplo de incorporação imobiliária. A alegação de que haveria apenas uma execução unitária do contrato não prevalece, porque a realidade jurídica revelada pelo caso é de circulação patrimonial em dois momentos: primeiro, o terreno sai do patrimônio do titular; depois, as unidades prontas retornam a ele como contraprestação, configurando nova transferência onerosa.<br><br>Também não se acolhe a ideia de <strong>reserva de titularidade oponível à União</strong> sem a constituição de novo aforamento ou outra base jurídica apta a impedir a incidência. Assim, a União pode exigir laudêmio em ambas as transmissões, pois cada uma delas corresponde a fato gerador próprio, não havendo exceção reconhecida para a permuta no local que elimine a segunda cobrança.<br><br>Em síntese: a tese correta é a de que <strong>o laudêmio é devido nas duas transferências</strong>, justamente porque não se trata de um único ato translativo, mas de operações sucessivas e distintas.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 2ª Turma. REsp 1.652.517-SC, Rel. Min. Afrânio Vilela, julgado em 10/6/2025 (Info 855).</p>
+</div>
+</section>
 
-            <div class="feedback" id="feedback-3">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a lógica central do entendimento firmado: quando o acidente é causado exclusivamente por defeito de fabricação do pneu, devidamente comprovado, o evento danoso passa a ser atribuído a fato de terceiro — o fornecedor do produto defeituoso —, e não à atuação do motorista que, em razão do estouro súbito, perde o controle do veículo.<br><br>Nesse cenário, a conduta do condutor é juridicamente qualificada como involuntária, isto é, não volitiva, o que impede a imputação do resultado danoso com base no art. 927, parágrafo único, do Código Civil. A responsabilidade objetiva ali prevista não opera de forma automática em qualquer acidente de trânsito: exige nexo causal entre a atividade desenvolvida e o dano. Se esse nexo é rompido por fortuito externo, consistente em fato de terceiro estranho à esfera de atuação do motorista, não subsiste dever de indenizar por parte dele.<br><br>O julgado também destaca que não basta, para atrair responsabilidade, a mera circunstância de o veículo estar em boas condições de manutenção e trafegar em velocidade compatível com a via. Esses elementos, embora relevantes, são insuficientes para restabelecer o nexo causal quando o evento determinante foi o defeito de fabricação do pneu, que desencadeou a perda de controle do automóvel.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.203.202-PR, Rel. Min. Nancy Andrighi, julgado em 10/6/2025 (Info 855).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 4</span>
-                <span class="status" id="status-4">Não respondida</span>
-            </div>
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="ECA"
+data-texto="a exceção legal à impenhorabilidade do bem de família gravado com hipoteca, quando o imóvel é oferecido como garantia real pelo casal ou pela entidade familiar, somente autoriza a constrição judicial se a obrigação garantida tiver sido contraída em proveito da própria entidade familiar; nessa hipótese, se o imóvel tiver sido hipotecado por um dos sócios de pessoa jurídica, incumbe ao credor demonstrar que a dívida empresarial reverteu em benefício da família, ao passo que, sendo os únicos sócios da sociedade os próprios titulares do imóvel hipotecado, presume-se a penhorabilidade, cabendo aos proprietários provar que o débito não lhes trouxe vantagem familiar. a proteção do bem de família, prevista na lei n. 8.009/1990, comporta exceções legais de interpretação restritiva. no caso da hipoteca, a regra do art. 3º, v, não autoriza a penhora de forma automática apenas porque o imóvel foi dado em garantia real: é indispensável que a dívida tenha sido constituída em benefício da entidade familiar. assim, a simples existência da hipoteca não basta para afastar a impenhorabilidade.
 
-            <p class="enunciado">Na audiência preliminar destinada à repactuação de dívidas por superendividamento, a ausência de contraproposta do credor ou sua recusa em aderir ao plano de pagamento apresentado pelo devedor configura comportamento processualmente sancionável, com incidência das penalidades previstas no art. 104-A, § 2º, do CDC, por violar os deveres de cooperação e boa-fé objetiva.</p>
+quanto ao ônus probatório, o entendimento distingue duas situações. se o bem foi dado em garantia real por um dos sócios de pessoa jurídica, prevalece a impenhorabilidade, competindo ao credor provar que a obrigação da empresa efetivamente se reverteu em benefício da família. já quando os únicos sócios da sociedade são os próprios titulares do imóvel hipotecado, a orientação é inversa: presume-se a penhorabilidade, cabendo aos proprietários demonstrar que o débito da pessoa jurídica não beneficiou a entidade familiar.
 
-            <div class="botoes">
-                <button onclick="responder(4, 'CERTO')">CERTO</button>
-                <button onclick="responder(4, 'ERRADO')">ERRADO</button>
-            </div>
+esse recorte é relevante porque impede a aplicação mecânica da exceção legal e exige análise concreta da relação entre a dívida e o núcleo familiar, inclusive na distribuição do ônus da prova. stj. 2ª seção. resp 2.093.929-mg e resp 2.105.326-sp, rel. min. antonio carlos ferreira, julgados em 5/6/2025 (recurso repetitivo - tema 1261) (info 855).">
 
-            <div class="feedback" id="feedback-4">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>Embora a audiência de repactuação de dívidas por superendividamento seja orientada pelos vetores da boa-fé objetiva, da cooperação e da solução consensual do conflito, não existe imposição legal para que o credor formule contraproposta nem para que aceite o plano de pagamento unilateralmente apresentado pelo devedor. A atuação do credor nessa fase é juridicamente relevante, mas permanece dentro da lógica da negociação, e não da imposição de um dever de concordância.<br><br>O ponto central do entendimento é a distinção entre dever de comparecimento/participação na audiência e dever de aderir ao conteúdo econômico da proposta do consumidor. O art. 104-A, § 2º, do CDC prevê consequências para a ausência injustificada do fornecedor à audiência de conciliação, mas essas sanções não se estendem à hipótese em que o credor comparece e, no exercício legítimo de sua autonomia negocial, não apresenta contraproposta ou não aceita o plano do devedor. Assim, não se pode transformar a tentativa de conciliação em obrigação de transigir.<br><br>Em outras palavras, a boa-fé e a cooperação recomendam postura colaborativa, mas não autorizam a criação de sanção sem previsão legal para compelir o credor a negociar em termos específicos. A recusa em aderir ao plano do devedor, por si só, não caracteriza ilicitude processual nem atrai automaticamente as penalidades do regime do superendividamento.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 4ª Turma. REsp 2.188.689-RS, Rel. Min. Marco Buzzi, julgado em 17/6/2025 (Info 855).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 5</span>
-                <span class="status" id="status-5">Não respondida</span>
-            </div>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 2</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-2">Não respondida</span>
+</div>
 
-            <p class="enunciado">A operadora de plano de saúde pode recusar a cobertura de medicamento de uso domiciliar à base de canabidiol não incluído no rol da ANS, ainda que o fármaco preencha os requisitos do § 13 do art. 10 da Lei n. 9.656/1998, pois a regra geral é a inexistência de obrigação de custeio de medicamentos domiciliares, ressalvadas apenas hipóteses de previsão legal, contratual ou normativa específica, bem como as situações em que o tratamento se dê em internação domiciliar substitutiva da hospitalar ou exija intervenção direta de profissional de saúde.</p>
+<p class="enunciado">A exceção legal à impenhorabilidade do bem de família gravado com hipoteca, quando o imóvel é oferecido como garantia real pelo casal ou pela entidade familiar, somente autoriza a constrição judicial se a obrigação garantida tiver sido contraída em proveito da própria entidade familiar; nessa hipótese, se o imóvel tiver sido hipotecado por um dos sócios de pessoa jurídica, incumbe ao credor demonstrar que a dívida empresarial reverteu em benefício da família, ao passo que, sendo os únicos sócios da sociedade os próprios titulares do imóvel hipotecado, presume-se a penhorabilidade, cabendo aos proprietários provar que o débito não lhes trouxe vantagem familiar.</p>
 
-            <div class="botoes">
-                <button onclick="responder(5, 'CERTO')">CERTO</button>
-                <button onclick="responder(5, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(2, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(2, 'ERRADO')">ERRADO</button>
+</div>
 
-            <div class="feedback" id="feedback-5">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a lógica central do entendimento firmado: medicamentos de uso domiciliar, como regra, não integram a cobertura obrigatória dos planos de saúde. A ausência de previsão no rol da ANS, por si só, não é o único fundamento da negativa; mesmo quando se discute a incidência do § 13 do art. 10 da Lei n. 9.656/1998, isso não transforma automaticamente o medicamento domiciliar em cobertura devida.<br><br>O ponto decisivo é a distinção entre medicamento de uso domiciliar comum e as hipóteses excepcionais em que a cobertura pode ser exigida. A obrigação pode surgir quando houver previsão legal, contratual ou normativa específica, ou quando o fármaco for administrado em contexto que descaracterize o uso domiciliar ordinário, como na internação domiciliar substitutiva da hospitalar, ou ainda quando houver necessidade de intervenção direta de profissional de saúde. Fora dessas situações, a negativa é lícita.<br><br>Assim, a tese não nega, em abstrato, a possibilidade de cobertura do canabidiol; apenas afirma que essa possibilidade não alcança, automaticamente, o uso domiciliar comum sem enquadramento nas exceções reconhecidas.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.173.999-SC, Rel. Min. Nancy Andrighi, julgado em 17/6/2025 (Info 855).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 6</span>
-                <span class="status" id="status-6">Não respondida</span>
-            </div>
+<div class="feedback" id="feedback-2">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A proteção do bem de família, prevista na Lei n. 8.009/1990, comporta exceções legais de interpretação restritiva. No caso da hipoteca, a regra do art. 3º, V, não autoriza a penhora de forma automática apenas porque o imóvel foi dado em garantia real: é indispensável que a dívida tenha sido constituída em benefício da entidade familiar. Assim, a simples existência da hipoteca não basta para afastar a impenhorabilidade.<br><br>Quanto ao ônus probatório, o entendimento distingue duas situações. Se o bem foi dado em garantia real por um dos sócios de pessoa jurídica, prevalece a impenhorabilidade, competindo ao credor provar que a obrigação da empresa efetivamente se reverteu em benefício da família. Já quando os únicos sócios da sociedade são os próprios titulares do imóvel hipotecado, a orientação é inversa: presume-se a penhorabilidade, cabendo aos proprietários demonstrar que o débito da pessoa jurídica não beneficiou a entidade familiar.<br><br>Esse recorte é relevante porque impede a aplicação mecânica da exceção legal e exige análise concreta da relação entre a dívida e o núcleo familiar, inclusive na distribuição do ônus da prova.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 2ª Seção. REsp 2.093.929-MG e REsp 2.105.326-SP, Rel. Min. Antonio Carlos Ferreira, julgados em 5/6/2025 (Recurso Repetitivo - Tema 1261) (Info 855).</p>
+</div>
+</section>
 
-            <p class="enunciado">A formulação superveniente de pedido de gratuidade da justiça, inclusive em sede recursal e após a primeira manifestação da parte nos autos, não se subordina à demonstração de alteração superveniente da capacidade econômica do requerente, bastando a apreciação da hipossuficiência no momento em que o benefício é postulado, sem prejuízo de eventual indeferimento caso os elementos do processo evidenciem ausência dos pressupostos legais.</p>
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a responsabilidade civil objetiva prevista no art. 927, parágrafo único, do código civil pode ser afastada quando o acidente de trânsito decorre exclusivamente de fato de terceiro, como o defeito de fabricação de pneu que provoca estouro súbito, perda involuntária do controle do veículo e colisão com outro automóvel, hipótese em que a conduta do motorista deixa de ser voluntária e o nexo causal entre sua atuação e os danos causados a terceiros é rompido, ainda que o veículo estivesse em boas condições de manutenção e trafegasse em velocidade compatível com a via. a assertiva está correta porque reproduz a lógica central do entendimento firmado: quando o acidente é causado exclusivamente por defeito de fabricação do pneu, devidamente comprovado, o evento danoso passa a ser atribuído a fato de terceiro — o fornecedor do produto defeituoso —, e não à atuação do motorista que, em razão do estouro súbito, perde o controle do veículo.
 
-            <div class="botoes">
-                <button onclick="responder(6, 'CERTO')">CERTO</button>
-                <button onclick="responder(6, 'ERRADO')">ERRADO</button>
-            </div>
+nesse cenário, a conduta do condutor é juridicamente qualificada como involuntária, isto é, não volitiva, o que impede a imputação do resultado danoso com base no art. 927, parágrafo único, do código civil. a responsabilidade objetiva ali prevista não opera de forma automática em qualquer acidente de trânsito: exige nexo causal entre a atividade desenvolvida e o dano. se esse nexo é rompido por fortuito externo, consistente em fato de terceiro estranho à esfera de atuação do motorista, não subsiste dever de indenizar por parte dele.
 
-            <div class="feedback" id="feedback-6">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>O entendimento é no sentido de que a gratuidade da justiça pode ser requerida a qualquer tempo e em qualquer grau de jurisdição, inclusive quando formulada pela primeira vez apenas após a sentença, como em apelação. Nessa hipótese, não se exige que a parte comprove ter ocorrido piora de sua situação financeira desde o início da demanda ou desde a primeira manifestação processual.<br><br>A lógica adotada é que o exame do benefício deve recair sobre a condição econômica existente no momento do pedido, e não sobre uma comparação histórica entre a situação atual e a pretérita. Assim, o simples fato de o requerimento ser tardio não autoriza, por si só, a imposição de um ônus probatório adicional consistente em demonstrar decréscimo patrimonial ou redução superveniente da capacidade financeira.<br><br>Isso não significa, porém, concessão automática e irrestrita. O pedido continua sujeito ao controle judicial dos pressupostos legais da gratuidade, de modo que pode ser indeferido se houver elementos concretos nos autos que afastem a alegada insuficiência de recursos. O ponto central do julgado é apenas afastar a exigência de prova de mudança econômica como condição específica para o pedido formulado depois da primeira oportunidade processual.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.186.400-SP, Rel. Min. Nancy Andrighi, julgado em 17/6/2025 (Info 855).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 7</span>
-                <span class="status" id="status-7">Não respondida</span>
-            </div>
+o julgado também destaca que não basta, para atrair responsabilidade, a mera circunstância de o veículo estar em boas condições de manutenção e trafegar em velocidade compatível com a via. esses elementos, embora relevantes, são insuficientes para restabelecer o nexo causal quando o evento determinante foi o defeito de fabricação do pneu, que desencadeou a perda de controle do automóvel. stj. 3ª turma. resp 2.203.202-pr, rel. min. nancy andrighi, julgado em 10/6/2025 (info 855).">
 
-            <p class="enunciado">Em ação de cobrança, o apelante que teve o pedido de gratuidade da justiça indeferido monocraticamente pelo relator e, na sequência, interpôs agravo interno contra essa decisão não pode ser compelido a recolher imediatamente o preparo recursal, de modo que a apelação não se torna deserta antes do pronunciamento do colegiado sobre a manutenção ou não do indeferimento do benefício; apenas após a confirmação colegiada da negativa é que se torna exigível o pagamento, com a consequente possibilidade de reconhecimento de deserção em caso de inadimplemento.</p>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 3</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-3">Não respondida</span>
+</div>
 
-            <div class="botoes">
-                <button onclick="responder(7, 'CERTO')">CERTO</button>
-                <button onclick="responder(7, 'ERRADO')">ERRADO</button>
-            </div>
+<p class="enunciado">A responsabilidade civil objetiva prevista no art. 927, parágrafo único, do Código Civil pode ser afastada quando o acidente de trânsito decorre exclusivamente de fato de terceiro, como o defeito de fabricação de pneu que provoca estouro súbito, perda involuntária do controle do veículo e colisão com outro automóvel, hipótese em que a conduta do motorista deixa de ser voluntária e o nexo causal entre sua atuação e os danos causados a terceiros é rompido, ainda que o veículo estivesse em boas condições de manutenção e trafegasse em velocidade compatível com a via.</p>
 
-            <div class="feedback" id="feedback-7">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva reproduz a lógica do entendimento firmado no caso: a exigibilidade do preparo fica suspensa enquanto pendente a impugnação interna da decisão que indeferiu a gratuidade. Isso decorre da própria incompatibilidade prática de se exigir o recolhimento de custas de quem ainda discute, por via recursal adequada, se possui ou não direito à dispensa do pagamento.<br><br>No cenário descrito, a decisão monocrática do relator que nega a gratuidade não encerra definitivamente a controvérsia quando o interessado interpõe agravo interno. Enquanto não houver confirmação pelo órgão colegiado, não se pode reputar definitivamente afastado o benefício. Por isso, não é legítimo impor, de imediato, o recolhimento do preparo sob pena de deserção, pois isso esvaziaria a utilidade do agravo interno e criaria uma exigência prematura e contraditória.<br><br>Somente após o colegiado manter o indeferimento é que o preparo passa a ser exigível. Se, então, a parte não recolher o valor devido no momento processual adequado, aí sim poderá haver reconhecimento de deserção. A deserção, portanto, não pode ser declarada com base no não pagamento antes da definição colegiada sobre a gratuidade.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.186.400-SP, Rel. Min. Nancy Andrighi, julgado em 17/6/2025 (Info 855).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 8</span>
-                <span class="status" id="status-8">Não respondida</span>
-            </div>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(3, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(3, 'ERRADO')">ERRADO</button>
+</div>
 
-            <p class="enunciado">Na hipótese de aberratio ictus com unidade simples, em que o agente, ao tentar atingir determinadas vítimas, erra na execução e acerta terceiro estranho ao desígnio inicial, a responsabilização penal deve se limitar aos crimes contra os alvos pretendidos, sendo indevida a imputação de delito autônomo em relação ao terceiro atingido, ainda que este tenha sido efetivamente lesionado ou exposto a perigo de morte, sob pena de bis in idem.</p>
+<div class="feedback" id="feedback-3">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a lógica central do entendimento firmado: quando o acidente é causado exclusivamente por defeito de fabricação do pneu, devidamente comprovado, o evento danoso passa a ser atribuído a fato de terceiro — o fornecedor do produto defeituoso —, e não à atuação do motorista que, em razão do estouro súbito, perde o controle do veículo.<br><br>Nesse cenário, a conduta do condutor é juridicamente qualificada como involuntária, isto é, não volitiva, o que impede a imputação do resultado danoso com base no art. 927, parágrafo único, do Código Civil. A responsabilidade objetiva ali prevista não opera de forma automática em qualquer acidente de trânsito: exige nexo causal entre a atividade desenvolvida e o dano. Se esse nexo é rompido por fortuito externo, consistente em fato de terceiro estranho à esfera de atuação do motorista, não subsiste dever de indenizar por parte dele.<br><br>O julgado também destaca que não basta, para atrair responsabilidade, a mera circunstância de o veículo estar em boas condições de manutenção e trafegar em velocidade compatível com a via. Esses elementos, embora relevantes, são insuficientes para restabelecer o nexo causal quando o evento determinante foi o defeito de fabricação do pneu, que desencadeou a perda de controle do automóvel.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.203.202-PR, Rel. Min. Nancy Andrighi, julgado em 10/6/2025 (Info 855).</p>
+</div>
+</section>
 
-            <div class="botoes">
-                <button onclick="responder(8, 'CERTO')">CERTO</button>
-                <button onclick="responder(8, 'ERRADO')">ERRADO</button>
-            </div>
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="na audiência preliminar destinada à repactuação de dívidas por superendividamento, a ausência de contraproposta do credor ou sua recusa em aderir ao plano de pagamento apresentado pelo devedor configura comportamento processualmente sancionável, com incidência das penalidades previstas no art. 104-a, § 2º, do cdc, por violar os deveres de cooperação e boa-fé objetiva. embora a audiência de repactuação de dívidas por superendividamento seja orientada pelos vetores da boa-fé objetiva, da cooperação e da solução consensual do conflito, não existe imposição legal para que o credor formule contraproposta nem para que aceite o plano de pagamento unilateralmente apresentado pelo devedor. a atuação do credor nessa fase é juridicamente relevante, mas permanece dentro da lógica da negociação, e não da imposição de um dever de concordância.
 
-            <div class="feedback" id="feedback-8">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>Na aberratio ictus com unidade simples, o erro na execução faz com que o resultado produzido sobre pessoa diversa seja juridicamente absorvido pela tentativa ou pelo crime dirigido contra a vítima originalmente visada, aplicando-se a lógica de equivalência entre o alvo pretendido e o atingido. Assim, não se reconhece uma nova infração penal autônoma apenas porque terceiro foi atingido por desvio do disparo, desde que se esteja diante da mesma ação executória e da mesma unidade de desígnio.<br><br>No caso examinado, a acusação pretendia somar uma tentativa de homicídio em relação ao civil atingido por erro, além das tentativas dirigidas aos policiais. O entendimento acolhido afastou essa quarta imputação justamente porque, na aberratio ictus com unidade simples, o terceiro atingido não gera crime autônomo, evitando duplicidade sancionatória pelo mesmo contexto fático. A consequência prática é que o agente responde como se tivesse atingido a pessoa originalmente pretendida, sem criação de tipo penal adicional em razão do mero desvio do golpe.<br><br>Esse raciocínio é compatível com a teoria da equivalência adotada para o erro na execução: o resultado recai sobre pessoa diversa, mas a imputação penal acompanha a intenção dirigida ao alvo inicial. Por isso, a presença de lesão ou de perigo concreto ao terceiro não basta, por si só, para autonomizar uma nova tentativa de homicídio, se o quadro for de unidade simples e não de pluralidade de desígnios ou de ações distintas.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 6ª Turma. AgRg no REsp 2.167.600-RS, Rel. Min. Otávio de Almeida Toledo (Desembargador convocado do TJSP), julgado em 21/5/2025 (Info 855).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 9</span>
-                <span class="status" id="status-9">Não respondida</span>
-            </div>
+o ponto central do entendimento é a distinção entre dever de comparecimento/participação na audiência e dever de aderir ao conteúdo econômico da proposta do consumidor. o art. 104-a, § 2º, do cdc prevê consequências para a ausência injustificada do fornecedor à audiência de conciliação, mas essas sanções não se estendem à hipótese em que o credor comparece e, no exercício legítimo de sua autonomia negocial, não apresenta contraproposta ou não aceita o plano do devedor. assim, não se pode transformar a tentativa de conciliação em obrigação de transigir.
 
-            <p class="enunciado">A assistência jurídica qualificada assegurada à ofendida pela Lei Maria da Penha deve ser observada em todas as fases do procedimento, inclusive na sessão plenária do Tribunal do Júri, de modo que a nomeação automática da Defensoria Pública para essa finalidade, na ausência de manifestação expressa da vítima, opera como providência provisória de tutela, sem impedir que ela, posteriormente, constitua advogado particular; ademais, não há nulidade na atuação da Defensoria Pública em polos opostos do mesmo processo, desde que a representação seja exercida por defensores distintos.</p>
+em outras palavras, a boa-fé e a cooperação recomendam postura colaborativa, mas não autorizam a criação de sanção sem previsão legal para compelir o credor a negociar em termos específicos. a recusa em aderir ao plano do devedor, por si só, não caracteriza ilicitude processual nem atrai automaticamente as penalidades do regime do superendividamento. stj. 4ª turma. resp 2.188.689-rs, rel. min. marco buzzi, julgado em 17/6/2025 (info 855).">
 
-            <div class="botoes">
-                <button onclick="responder(9, 'CERTO')">CERTO</button>
-                <button onclick="responder(9, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 4</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-4">Não respondida</span>
+</div>
 
-            <div class="feedback" id="feedback-9">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>O enunciado reproduz a orientação firmada no sentido de que a assistência jurídica qualificada prevista na Lei Maria da Penha não se limita à fase pré-processual ou à instrução criminal, alcançando também o Tribunal do Júri, onde subsiste a necessidade de proteção processual efetiva da ofendida. A lógica do entendimento é a de que a tutela conferida à vítima em contexto de violência doméstica e familiar possui densidade suficiente para irradiar efeitos em todas as etapas do feito, inclusive na fase plenária, sem que isso represente indevida ampliação do papel da assistência.<br><br>Além disso, a nomeação automática da Defensoria Pública para atuar como assistente qualificada, quando inexistente manifestação expressa da ofendida, foi tratada como medida provisória, voltada a assegurar a proteção imediata dos interesses da vítima até que ela exerça eventual opção por advogado particular. Não se trata, portanto, de imposição definitiva e irreversível de patrocínio, mas de providência instrumental compatível com a finalidade protetiva da Lei Maria da Penha.<br><br>Por fim, a atuação da Defensoria Pública em polos opostos no mesmo processo foi reputada legítima, desde que realizada por defensores distintos. A circunstância de a instituição figurar simultaneamente na defesa do acusado e na assistência da ofendida não gera, por si só, impedimento absoluto, porque a análise recai sobre a atuação concreta dos membros designados e sobre a inexistência de conflito funcional na representação por profissionais diversos.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 5ª Turma. REsp 2.211.682-RJ, Rel. Min. Joel Ilan Paciornik, julgado em 17/6/2025 (Info 855).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 10</span>
-                <span class="status" id="status-10">Não respondida</span>
-            </div>
+<p class="enunciado">Na audiência preliminar destinada à repactuação de dívidas por superendividamento, a ausência de contraproposta do credor ou sua recusa em aderir ao plano de pagamento apresentado pelo devedor configura comportamento processualmente sancionável, com incidência das penalidades previstas no art. 104-A, § 2º, do CDC, por violar os deveres de cooperação e boa-fé objetiva.</p>
 
-            <p class="enunciado">A fruição da alíquota zero do PIS/COFINS, da CSLL e do IRPJ instituída no âmbito do PERSE exige, como condição indispensável, que o prestador de serviços turísticos esteja previamente inscrito no CADASTUR, sendo inviável estender esse benefício fiscal ao contribuinte optante pelo Simples Nacional, em razão da vedação legal específica prevista na LC 123/2006.</p>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(4, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(4, 'ERRADO')">ERRADO</button>
+</div>
 
-            <div class="botoes">
-                <button onclick="responder(10, 'CERTO')">CERTO</button>
-                <button onclick="responder(10, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="feedback" id="feedback-4">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Embora a audiência de repactuação de dívidas por superendividamento seja orientada pelos vetores da boa-fé objetiva, da cooperação e da solução consensual do conflito, não existe imposição legal para que o credor formule contraproposta nem para que aceite o plano de pagamento unilateralmente apresentado pelo devedor. A atuação do credor nessa fase é juridicamente relevante, mas permanece dentro da lógica da negociação, e não da imposição de um dever de concordância.<br><br>O ponto central do entendimento é a distinção entre dever de comparecimento/participação na audiência e dever de aderir ao conteúdo econômico da proposta do consumidor. O art. 104-A, § 2º, do CDC prevê consequências para a ausência injustificada do fornecedor à audiência de conciliação, mas essas sanções não se estendem à hipótese em que o credor comparece e, no exercício legítimo de sua autonomia negocial, não apresenta contraproposta ou não aceita o plano do devedor. Assim, não se pode transformar a tentativa de conciliação em obrigação de transigir.<br><br>Em outras palavras, a boa-fé e a cooperação recomendam postura colaborativa, mas não autorizam a criação de sanção sem previsão legal para compelir o credor a negociar em termos específicos. A recusa em aderir ao plano do devedor, por si só, não caracteriza ilicitude processual nem atrai automaticamente as penalidades do regime do superendividamento.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 4ª Turma. REsp 2.188.689-RS, Rel. Min. Marco Buzzi, julgado em 17/6/2025 (Info 855).</p>
+</div>
+</section>
 
-            <div class="feedback" id="feedback-10">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz, em termos tecnicamente precisos, os dois pilares da tese firmada no julgamento repetitivo: (i) a exigência de inscrição prévia no CADASTUR, nos termos da Lei 11.771/2008, como requisito para que o prestador de serviços turísticos possa usufruir da alíquota zero prevista no art. 4º da Lei 14.148/2021; e (ii) a impossibilidade de o contribuinte optante pelo Simples Nacional se beneficiar dessa desoneração, diante da vedação expressa do art. 24, § 1º, da LC 123/2006.<br><br>O ponto central é que o benefício fiscal do PERSE não foi reconhecido de forma ampla e irrestrita a todo e qualquer agente econômico ligado ao setor de eventos ou turismo. Para os serviços turísticos, a jurisprudência consolidou a necessidade de observância do regime jurídico próprio da atividade, inclusive quanto ao cadastro administrativo específico exigido pela legislação setorial. Assim, não basta a mera atuação material no ramo: é indispensável a inscrição prévia no CADASTUR para legitimar a fruição da alíquota zero.<br><br>Além disso, a tese também afasta a pretensão de empresas enquadradas no Simples Nacional, porque a legislação complementar que rege esse regime unificado contém restrição própria à utilização de determinados benefícios fiscais, o que impede a cumulação pretendida com a desoneração do PERSE. Em matéria tributária, benefícios dessa natureza devem ser interpretados restritivamente, especialmente quando condicionados por requisitos legais expressos.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Seção. REsp 2.126.428-RJ, REsp 2.126.436-RJ, REsp 2.130.054-CE, REsp 2.144.088-CE, 2.138.576-PE e REsp 2.144.064-PE, Rel. Min. Maria Thereza de Assis Moura, julgado em 11/6/2025 (Recurso Repetitivo - Tema 1283) (Info 855).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 11</span>
-                <span class="status" id="status-11">Não respondida</span>
-            </div>
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a operadora de plano de saúde pode recusar a cobertura de medicamento de uso domiciliar à base de canabidiol não incluído no rol da ans, ainda que o fármaco preencha os requisitos do § 13 do art. 10 da lei n. 9.656/1998, pois a regra geral é a inexistência de obrigação de custeio de medicamentos domiciliares, ressalvadas apenas hipóteses de previsão legal, contratual ou normativa específica, bem como as situações em que o tratamento se dê em internação domiciliar substitutiva da hospitalar ou exija intervenção direta de profissional de saúde. a assertiva está correta porque reproduz a lógica central do entendimento firmado: medicamentos de uso domiciliar, como regra, não integram a cobertura obrigatória dos planos de saúde. a ausência de previsão no rol da ans, por si só, não é o único fundamento da negativa; mesmo quando se discute a incidência do § 13 do art. 10 da lei n. 9.656/1998, isso não transforma automaticamente o medicamento domiciliar em cobertura devida.
 
-            <p class="enunciado">O período em que o segurado percebe aposentadoria por tempo de contribuição em razão de tutela provisória posteriormente revogada não pode ser computado como tempo de contribuição para fins de nova concessão do benefício, ainda que a decisão judicial tenha produzido efeitos por lapso temporal relevante, pois, nessa hipótese, inexiste exercício de atividade laborativa ou recolhimento de contribuições na qualidade de segurado facultativo durante a fruição do benefício.</p>
+o ponto decisivo é a distinção entre medicamento de uso domiciliar comum e as hipóteses excepcionais em que a cobertura pode ser exigida. a obrigação pode surgir quando houver previsão legal, contratual ou normativa específica, ou quando o fármaco for administrado em contexto que descaracterize o uso domiciliar ordinário, como na internação domiciliar substitutiva da hospitalar, ou ainda quando houver necessidade de intervenção direta de profissional de saúde. fora dessas situações, a negativa é lícita.
 
-            <div class="botoes">
-                <button onclick="responder(11, 'CERTO')">CERTO</button>
-                <button onclick="responder(11, 'ERRADO')">ERRADO</button>
-            </div>
+assim, a tese não nega, em abstrato, a possibilidade de cobertura do canabidiol; apenas afirma que essa possibilidade não alcança, automaticamente, o uso domiciliar comum sem enquadramento nas exceções reconhecidas. stj. 3ª turma. resp 2.173.999-sc, rel. min. nancy andrighi, julgado em 17/6/2025 (info 855).">
 
-            <div class="feedback" id="feedback-11">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está correta porque o simples recebimento de aposentadoria por força de tutela provisória, depois revogada, não transforma esse intervalo em tempo de contribuição. O ponto central do entendimento é que tempo de contribuição pressupõe, em regra, atividade laborativa ou recolhimento previdenciário válido, o que não ocorre quando o segurado apenas percebe o benefício por determinação judicial precária.<br><br>No caso examinado, o segurado tentou aproveitar o período em que recebeu a aposentadoria antecipadamente para completar o tempo necessário à própria inativação. Contudo, durante esse intervalo ele não estava em atividade nem recolheu contribuições como facultativo. Assim, não havia base jurídica para a contagem desse lapso como tempo contributivo.<br><br>A circunstância de a tutela provisória ter produzido efeitos concretos por certo período não altera a natureza jurídica do tempo decorrido. A revogação posterior da medida evidencia sua precariedade, e o recebimento indevido do benefício não se converte, por si só, em período contributivo apto a integrar o cômputo previdenciário. Em outras palavras, a percepção provisória da aposentadoria não equivale a exercício de atividade segurada nem supre a ausência de contribuições.<br><br>O entendimento também é coerente com a lógica contributiva do sistema previdenciário: a contagem de tempo para aposentadoria não pode ser dissociada da existência de vínculo contributivo ou de hipótese legal expressa de cômputo fictício, o que não se verifica nesse cenário.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Turma. REsp 1.457.398-SE, Rel. Min. Gurgel de Faria, julgado em 13/5/2025 (Info 855).</p>
-            </div>
-        </section>
-        
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 5</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-5">Não respondida</span>
+</div>
+
+<p class="enunciado">A operadora de plano de saúde pode recusar a cobertura de medicamento de uso domiciliar à base de canabidiol não incluído no rol da ANS, ainda que o fármaco preencha os requisitos do § 13 do art. 10 da Lei n. 9.656/1998, pois a regra geral é a inexistência de obrigação de custeio de medicamentos domiciliares, ressalvadas apenas hipóteses de previsão legal, contratual ou normativa específica, bem como as situações em que o tratamento se dê em internação domiciliar substitutiva da hospitalar ou exija intervenção direta de profissional de saúde.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(5, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(5, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-5">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a lógica central do entendimento firmado: medicamentos de uso domiciliar, como regra, não integram a cobertura obrigatória dos planos de saúde. A ausência de previsão no rol da ANS, por si só, não é o único fundamento da negativa; mesmo quando se discute a incidência do § 13 do art. 10 da Lei n. 9.656/1998, isso não transforma automaticamente o medicamento domiciliar em cobertura devida.<br><br>O ponto decisivo é a distinção entre medicamento de uso domiciliar comum e as hipóteses excepcionais em que a cobertura pode ser exigida. A obrigação pode surgir quando houver previsão legal, contratual ou normativa específica, ou quando o fármaco for administrado em contexto que descaracterize o uso domiciliar ordinário, como na internação domiciliar substitutiva da hospitalar, ou ainda quando houver necessidade de intervenção direta de profissional de saúde. Fora dessas situações, a negativa é lícita.<br><br>Assim, a tese não nega, em abstrato, a possibilidade de cobertura do canabidiol; apenas afirma que essa possibilidade não alcança, automaticamente, o uso domiciliar comum sem enquadramento nas exceções reconhecidas.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.173.999-SC, Rel. Min. Nancy Andrighi, julgado em 17/6/2025 (Info 855).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="ECA"
+data-texto="a formulação superveniente de pedido de gratuidade da justiça, inclusive em sede recursal e após a primeira manifestação da parte nos autos, não se subordina à demonstração de alteração superveniente da capacidade econômica do requerente, bastando a apreciação da hipossuficiência no momento em que o benefício é postulado, sem prejuízo de eventual indeferimento caso os elementos do processo evidenciem ausência dos pressupostos legais. o entendimento é no sentido de que a gratuidade da justiça pode ser requerida a qualquer tempo e em qualquer grau de jurisdição, inclusive quando formulada pela primeira vez apenas após a sentença, como em apelação. nessa hipótese, não se exige que a parte comprove ter ocorrido piora de sua situação financeira desde o início da demanda ou desde a primeira manifestação processual.
+
+a lógica adotada é que o exame do benefício deve recair sobre a condição econômica existente no momento do pedido, e não sobre uma comparação histórica entre a situação atual e a pretérita. assim, o simples fato de o requerimento ser tardio não autoriza, por si só, a imposição de um ônus probatório adicional consistente em demonstrar decréscimo patrimonial ou redução superveniente da capacidade financeira.
+
+isso não significa, porém, concessão automática e irrestrita. o pedido continua sujeito ao controle judicial dos pressupostos legais da gratuidade, de modo que pode ser indeferido se houver elementos concretos nos autos que afastem a alegada insuficiência de recursos. o ponto central do julgado é apenas afastar a exigência de prova de mudança econômica como condição específica para o pedido formulado depois da primeira oportunidade processual. stj. 3ª turma. resp 2.186.400-sp, rel. min. nancy andrighi, julgado em 17/6/2025 (info 855).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 6</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-6">Não respondida</span>
+</div>
+
+<p class="enunciado">A formulação superveniente de pedido de gratuidade da justiça, inclusive em sede recursal e após a primeira manifestação da parte nos autos, não se subordina à demonstração de alteração superveniente da capacidade econômica do requerente, bastando a apreciação da hipossuficiência no momento em que o benefício é postulado, sem prejuízo de eventual indeferimento caso os elementos do processo evidenciem ausência dos pressupostos legais.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(6, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(6, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-6">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O entendimento é no sentido de que a gratuidade da justiça pode ser requerida a qualquer tempo e em qualquer grau de jurisdição, inclusive quando formulada pela primeira vez apenas após a sentença, como em apelação. Nessa hipótese, não se exige que a parte comprove ter ocorrido piora de sua situação financeira desde o início da demanda ou desde a primeira manifestação processual.<br><br>A lógica adotada é que o exame do benefício deve recair sobre a condição econômica existente no momento do pedido, e não sobre uma comparação histórica entre a situação atual e a pretérita. Assim, o simples fato de o requerimento ser tardio não autoriza, por si só, a imposição de um ônus probatório adicional consistente em demonstrar decréscimo patrimonial ou redução superveniente da capacidade financeira.<br><br>Isso não significa, porém, concessão automática e irrestrita. O pedido continua sujeito ao controle judicial dos pressupostos legais da gratuidade, de modo que pode ser indeferido se houver elementos concretos nos autos que afastem a alegada insuficiência de recursos. O ponto central do julgado é apenas afastar a exigência de prova de mudança econômica como condição específica para o pedido formulado depois da primeira oportunidade processual.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.186.400-SP, Rel. Min. Nancy Andrighi, julgado em 17/6/2025 (Info 855).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="em ação de cobrança, o apelante que teve o pedido de gratuidade da justiça indeferido monocraticamente pelo relator e, na sequência, interpôs agravo interno contra essa decisão não pode ser compelido a recolher imediatamente o preparo recursal, de modo que a apelação não se torna deserta antes do pronunciamento do colegiado sobre a manutenção ou não do indeferimento do benefício; apenas após a confirmação colegiada da negativa é que se torna exigível o pagamento, com a consequente possibilidade de reconhecimento de deserção em caso de inadimplemento. a assertiva reproduz a lógica do entendimento firmado no caso: a exigibilidade do preparo fica suspensa enquanto pendente a impugnação interna da decisão que indeferiu a gratuidade. isso decorre da própria incompatibilidade prática de se exigir o recolhimento de custas de quem ainda discute, por via recursal adequada, se possui ou não direito à dispensa do pagamento.
+
+no cenário descrito, a decisão monocrática do relator que nega a gratuidade não encerra definitivamente a controvérsia quando o interessado interpõe agravo interno. enquanto não houver confirmação pelo órgão colegiado, não se pode reputar definitivamente afastado o benefício. por isso, não é legítimo impor, de imediato, o recolhimento do preparo sob pena de deserção, pois isso esvaziaria a utilidade do agravo interno e criaria uma exigência prematura e contraditória.
+
+somente após o colegiado manter o indeferimento é que o preparo passa a ser exigível. se, então, a parte não recolher o valor devido no momento processual adequado, aí sim poderá haver reconhecimento de deserção. a deserção, portanto, não pode ser declarada com base no não pagamento antes da definição colegiada sobre a gratuidade. stj. 3ª turma. resp 2.186.400-sp, rel. min. nancy andrighi, julgado em 17/6/2025 (info 855).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 7</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-7">Não respondida</span>
+</div>
+
+<p class="enunciado">Em ação de cobrança, o apelante que teve o pedido de gratuidade da justiça indeferido monocraticamente pelo relator e, na sequência, interpôs agravo interno contra essa decisão não pode ser compelido a recolher imediatamente o preparo recursal, de modo que a apelação não se torna deserta antes do pronunciamento do colegiado sobre a manutenção ou não do indeferimento do benefício; apenas após a confirmação colegiada da negativa é que se torna exigível o pagamento, com a consequente possibilidade de reconhecimento de deserção em caso de inadimplemento.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(7, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(7, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-7">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva reproduz a lógica do entendimento firmado no caso: a exigibilidade do preparo fica suspensa enquanto pendente a impugnação interna da decisão que indeferiu a gratuidade. Isso decorre da própria incompatibilidade prática de se exigir o recolhimento de custas de quem ainda discute, por via recursal adequada, se possui ou não direito à dispensa do pagamento.<br><br>No cenário descrito, a decisão monocrática do relator que nega a gratuidade não encerra definitivamente a controvérsia quando o interessado interpõe agravo interno. Enquanto não houver confirmação pelo órgão colegiado, não se pode reputar definitivamente afastado o benefício. Por isso, não é legítimo impor, de imediato, o recolhimento do preparo sob pena de deserção, pois isso esvaziaria a utilidade do agravo interno e criaria uma exigência prematura e contraditória.<br><br>Somente após o colegiado manter o indeferimento é que o preparo passa a ser exigível. Se, então, a parte não recolher o valor devido no momento processual adequado, aí sim poderá haver reconhecimento de deserção. A deserção, portanto, não pode ser declarada com base no não pagamento antes da definição colegiada sobre a gratuidade.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.186.400-SP, Rel. Min. Nancy Andrighi, julgado em 17/6/2025 (Info 855).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="ECA"
+data-texto="na hipótese de aberratio ictus com unidade simples, em que o agente, ao tentar atingir determinadas vítimas, erra na execução e acerta terceiro estranho ao desígnio inicial, a responsabilização penal deve se limitar aos crimes contra os alvos pretendidos, sendo indevida a imputação de delito autônomo em relação ao terceiro atingido, ainda que este tenha sido efetivamente lesionado ou exposto a perigo de morte, sob pena de bis in idem. na aberratio ictus com unidade simples, o erro na execução faz com que o resultado produzido sobre pessoa diversa seja juridicamente absorvido pela tentativa ou pelo crime dirigido contra a vítima originalmente visada, aplicando-se a lógica de equivalência entre o alvo pretendido e o atingido. assim, não se reconhece uma nova infração penal autônoma apenas porque terceiro foi atingido por desvio do disparo, desde que se esteja diante da mesma ação executória e da mesma unidade de desígnio.
+
+no caso examinado, a acusação pretendia somar uma tentativa de homicídio em relação ao civil atingido por erro, além das tentativas dirigidas aos policiais. o entendimento acolhido afastou essa quarta imputação justamente porque, na aberratio ictus com unidade simples, o terceiro atingido não gera crime autônomo, evitando duplicidade sancionatória pelo mesmo contexto fático. a consequência prática é que o agente responde como se tivesse atingido a pessoa originalmente pretendida, sem criação de tipo penal adicional em razão do mero desvio do golpe.
+
+esse raciocínio é compatível com a teoria da equivalência adotada para o erro na execução: o resultado recai sobre pessoa diversa, mas a imputação penal acompanha a intenção dirigida ao alvo inicial. por isso, a presença de lesão ou de perigo concreto ao terceiro não basta, por si só, para autonomizar uma nova tentativa de homicídio, se o quadro for de unidade simples e não de pluralidade de desígnios ou de ações distintas. stj. 6ª turma. agrg no resp 2.167.600-rs, rel. min. otávio de almeida toledo (desembargador convocado do tjsp), julgado em 21/5/2025 (info 855).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 8</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-8">Não respondida</span>
+</div>
+
+<p class="enunciado">Na hipótese de aberratio ictus com unidade simples, em que o agente, ao tentar atingir determinadas vítimas, erra na execução e acerta terceiro estranho ao desígnio inicial, a responsabilização penal deve se limitar aos crimes contra os alvos pretendidos, sendo indevida a imputação de delito autônomo em relação ao terceiro atingido, ainda que este tenha sido efetivamente lesionado ou exposto a perigo de morte, sob pena de bis in idem.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(8, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(8, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-8">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Na aberratio ictus com unidade simples, o erro na execução faz com que o resultado produzido sobre pessoa diversa seja juridicamente absorvido pela tentativa ou pelo crime dirigido contra a vítima originalmente visada, aplicando-se a lógica de equivalência entre o alvo pretendido e o atingido. Assim, não se reconhece uma nova infração penal autônoma apenas porque terceiro foi atingido por desvio do disparo, desde que se esteja diante da mesma ação executória e da mesma unidade de desígnio.<br><br>No caso examinado, a acusação pretendia somar uma tentativa de homicídio em relação ao civil atingido por erro, além das tentativas dirigidas aos policiais. O entendimento acolhido afastou essa quarta imputação justamente porque, na aberratio ictus com unidade simples, o terceiro atingido não gera crime autônomo, evitando duplicidade sancionatória pelo mesmo contexto fático. A consequência prática é que o agente responde como se tivesse atingido a pessoa originalmente pretendida, sem criação de tipo penal adicional em razão do mero desvio do golpe.<br><br>Esse raciocínio é compatível com a teoria da equivalência adotada para o erro na execução: o resultado recai sobre pessoa diversa, mas a imputação penal acompanha a intenção dirigida ao alvo inicial. Por isso, a presença de lesão ou de perigo concreto ao terceiro não basta, por si só, para autonomizar uma nova tentativa de homicídio, se o quadro for de unidade simples e não de pluralidade de desígnios ou de ações distintas.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 6ª Turma. AgRg no REsp 2.167.600-RS, Rel. Min. Otávio de Almeida Toledo (Desembargador convocado do TJSP), julgado em 21/5/2025 (Info 855).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="ECA"
+data-texto="a assistência jurídica qualificada assegurada à ofendida pela lei maria da penha deve ser observada em todas as fases do procedimento, inclusive na sessão plenária do tribunal do júri, de modo que a nomeação automática da defensoria pública para essa finalidade, na ausência de manifestação expressa da vítima, opera como providência provisória de tutela, sem impedir que ela, posteriormente, constitua advogado particular; ademais, não há nulidade na atuação da defensoria pública em polos opostos do mesmo processo, desde que a representação seja exercida por defensores distintos. o enunciado reproduz a orientação firmada no sentido de que a assistência jurídica qualificada prevista na lei maria da penha não se limita à fase pré-processual ou à instrução criminal, alcançando também o tribunal do júri, onde subsiste a necessidade de proteção processual efetiva da ofendida. a lógica do entendimento é a de que a tutela conferida à vítima em contexto de violência doméstica e familiar possui densidade suficiente para irradiar efeitos em todas as etapas do feito, inclusive na fase plenária, sem que isso represente indevida ampliação do papel da assistência.
+
+além disso, a nomeação automática da defensoria pública para atuar como assistente qualificada, quando inexistente manifestação expressa da ofendida, foi tratada como medida provisória, voltada a assegurar a proteção imediata dos interesses da vítima até que ela exerça eventual opção por advogado particular. não se trata, portanto, de imposição definitiva e irreversível de patrocínio, mas de providência instrumental compatível com a finalidade protetiva da lei maria da penha.
+
+por fim, a atuação da defensoria pública em polos opostos no mesmo processo foi reputada legítima, desde que realizada por defensores distintos. a circunstância de a instituição figurar simultaneamente na defesa do acusado e na assistência da ofendida não gera, por si só, impedimento absoluto, porque a análise recai sobre a atuação concreta dos membros designados e sobre a inexistência de conflito funcional na representação por profissionais diversos. stj. 5ª turma. resp 2.211.682-rj, rel. min. joel ilan paciornik, julgado em 17/6/2025 (info 855).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 9</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-9">Não respondida</span>
+</div>
+
+<p class="enunciado">A assistência jurídica qualificada assegurada à ofendida pela Lei Maria da Penha deve ser observada em todas as fases do procedimento, inclusive na sessão plenária do Tribunal do Júri, de modo que a nomeação automática da Defensoria Pública para essa finalidade, na ausência de manifestação expressa da vítima, opera como providência provisória de tutela, sem impedir que ela, posteriormente, constitua advogado particular; ademais, não há nulidade na atuação da Defensoria Pública em polos opostos do mesmo processo, desde que a representação seja exercida por defensores distintos.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(9, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(9, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-9">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O enunciado reproduz a orientação firmada no sentido de que a assistência jurídica qualificada prevista na Lei Maria da Penha não se limita à fase pré-processual ou à instrução criminal, alcançando também o Tribunal do Júri, onde subsiste a necessidade de proteção processual efetiva da ofendida. A lógica do entendimento é a de que a tutela conferida à vítima em contexto de violência doméstica e familiar possui densidade suficiente para irradiar efeitos em todas as etapas do feito, inclusive na fase plenária, sem que isso represente indevida ampliação do papel da assistência.<br><br>Além disso, a nomeação automática da Defensoria Pública para atuar como assistente qualificada, quando inexistente manifestação expressa da ofendida, foi tratada como medida provisória, voltada a assegurar a proteção imediata dos interesses da vítima até que ela exerça eventual opção por advogado particular. Não se trata, portanto, de imposição definitiva e irreversível de patrocínio, mas de providência instrumental compatível com a finalidade protetiva da Lei Maria da Penha.<br><br>Por fim, a atuação da Defensoria Pública em polos opostos no mesmo processo foi reputada legítima, desde que realizada por defensores distintos. A circunstância de a instituição figurar simultaneamente na defesa do acusado e na assistência da ofendida não gera, por si só, impedimento absoluto, porque a análise recai sobre a atuação concreta dos membros designados e sobre a inexistência de conflito funcional na representação por profissionais diversos.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 5ª Turma. REsp 2.211.682-RJ, Rel. Min. Joel Ilan Paciornik, julgado em 17/6/2025 (Info 855).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a fruição da alíquota zero do pis/cofins, da csll e do irpj instituída no âmbito do perse exige, como condição indispensável, que o prestador de serviços turísticos esteja previamente inscrito no cadastur, sendo inviável estender esse benefício fiscal ao contribuinte optante pelo simples nacional, em razão da vedação legal específica prevista na lc 123/2006. a assertiva está correta porque reproduz, em termos tecnicamente precisos, os dois pilares da tese firmada no julgamento repetitivo: (i) a exigência de inscrição prévia no cadastur, nos termos da lei 11.771/2008, como requisito para que o prestador de serviços turísticos possa usufruir da alíquota zero prevista no art. 4º da lei 14.148/2021; e (ii) a impossibilidade de o contribuinte optante pelo simples nacional se beneficiar dessa desoneração, diante da vedação expressa do art. 24, § 1º, da lc 123/2006.
+
+o ponto central é que o benefício fiscal do perse não foi reconhecido de forma ampla e irrestrita a todo e qualquer agente econômico ligado ao setor de eventos ou turismo. para os serviços turísticos, a jurisprudência consolidou a necessidade de observância do regime jurídico próprio da atividade, inclusive quanto ao cadastro administrativo específico exigido pela legislação setorial. assim, não basta a mera atuação material no ramo: é indispensável a inscrição prévia no cadastur para legitimar a fruição da alíquota zero.
+
+além disso, a tese também afasta a pretensão de empresas enquadradas no simples nacional, porque a legislação complementar que rege esse regime unificado contém restrição própria à utilização de determinados benefícios fiscais, o que impede a cumulação pretendida com a desoneração do perse. em matéria tributária, benefícios dessa natureza devem ser interpretados restritivamente, especialmente quando condicionados por requisitos legais expressos. stj. 1ª seção. resp 2.126.428-rj, resp 2.126.436-rj, resp 2.130.054-ce, resp 2.144.088-ce, 2.138.576-pe e resp 2.144.064-pe, rel. min. maria thereza de assis moura, julgado em 11/6/2025 (recurso repetitivo - tema 1283) (info 855).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 10</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-10">Não respondida</span>
+</div>
+
+<p class="enunciado">A fruição da alíquota zero do PIS/COFINS, da CSLL e do IRPJ instituída no âmbito do PERSE exige, como condição indispensável, que o prestador de serviços turísticos esteja previamente inscrito no CADASTUR, sendo inviável estender esse benefício fiscal ao contribuinte optante pelo Simples Nacional, em razão da vedação legal específica prevista na LC 123/2006.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(10, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(10, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-10">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz, em termos tecnicamente precisos, os dois pilares da tese firmada no julgamento repetitivo: (i) a exigência de inscrição prévia no CADASTUR, nos termos da Lei 11.771/2008, como requisito para que o prestador de serviços turísticos possa usufruir da alíquota zero prevista no art. 4º da Lei 14.148/2021; e (ii) a impossibilidade de o contribuinte optante pelo Simples Nacional se beneficiar dessa desoneração, diante da vedação expressa do art. 24, § 1º, da LC 123/2006.<br><br>O ponto central é que o benefício fiscal do PERSE não foi reconhecido de forma ampla e irrestrita a todo e qualquer agente econômico ligado ao setor de eventos ou turismo. Para os serviços turísticos, a jurisprudência consolidou a necessidade de observância do regime jurídico próprio da atividade, inclusive quanto ao cadastro administrativo específico exigido pela legislação setorial. Assim, não basta a mera atuação material no ramo: é indispensável a inscrição prévia no CADASTUR para legitimar a fruição da alíquota zero.<br><br>Além disso, a tese também afasta a pretensão de empresas enquadradas no Simples Nacional, porque a legislação complementar que rege esse regime unificado contém restrição própria à utilização de determinados benefícios fiscais, o que impede a cumulação pretendida com a desoneração do PERSE. Em matéria tributária, benefícios dessa natureza devem ser interpretados restritivamente, especialmente quando condicionados por requisitos legais expressos.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Seção. REsp 2.126.428-RJ, REsp 2.126.436-RJ, REsp 2.130.054-CE, REsp 2.144.088-CE, 2.138.576-PE e REsp 2.144.064-PE, Rel. Min. Maria Thereza de Assis Moura, julgado em 11/6/2025 (Recurso Repetitivo - Tema 1283) (Info 855).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="ECA"
+data-texto="o período em que o segurado percebe aposentadoria por tempo de contribuição em razão de tutela provisória posteriormente revogada não pode ser computado como tempo de contribuição para fins de nova concessão do benefício, ainda que a decisão judicial tenha produzido efeitos por lapso temporal relevante, pois, nessa hipótese, inexiste exercício de atividade laborativa ou recolhimento de contribuições na qualidade de segurado facultativo durante a fruição do benefício. a assertiva está correta porque o simples recebimento de aposentadoria por força de tutela provisória, depois revogada, não transforma esse intervalo em tempo de contribuição. o ponto central do entendimento é que tempo de contribuição pressupõe, em regra, atividade laborativa ou recolhimento previdenciário válido, o que não ocorre quando o segurado apenas percebe o benefício por determinação judicial precária.
+
+no caso examinado, o segurado tentou aproveitar o período em que recebeu a aposentadoria antecipadamente para completar o tempo necessário à própria inativação. contudo, durante esse intervalo ele não estava em atividade nem recolheu contribuições como facultativo. assim, não havia base jurídica para a contagem desse lapso como tempo contributivo.
+
+a circunstância de a tutela provisória ter produzido efeitos concretos por certo período não altera a natureza jurídica do tempo decorrido. a revogação posterior da medida evidencia sua precariedade, e o recebimento indevido do benefício não se converte, por si só, em período contributivo apto a integrar o cômputo previdenciário. em outras palavras, a percepção provisória da aposentadoria não equivale a exercício de atividade segurada nem supre a ausência de contribuições.
+
+o entendimento também é coerente com a lógica contributiva do sistema previdenciário: a contagem de tempo para aposentadoria não pode ser dissociada da existência de vínculo contributivo ou de hipótese legal expressa de cômputo fictício, o que não se verifica nesse cenário. stj. 1ª turma. resp 1.457.398-se, rel. min. gurgel de faria, julgado em 13/5/2025 (info 855).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 11</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-11">Não respondida</span>
+</div>
+
+<p class="enunciado">O período em que o segurado percebe aposentadoria por tempo de contribuição em razão de tutela provisória posteriormente revogada não pode ser computado como tempo de contribuição para fins de nova concessão do benefício, ainda que a decisão judicial tenha produzido efeitos por lapso temporal relevante, pois, nessa hipótese, inexiste exercício de atividade laborativa ou recolhimento de contribuições na qualidade de segurado facultativo durante a fruição do benefício.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(11, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(11, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-11">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque o simples recebimento de aposentadoria por força de tutela provisória, depois revogada, não transforma esse intervalo em tempo de contribuição. O ponto central do entendimento é que tempo de contribuição pressupõe, em regra, atividade laborativa ou recolhimento previdenciário válido, o que não ocorre quando o segurado apenas percebe o benefício por determinação judicial precária.<br><br>No caso examinado, o segurado tentou aproveitar o período em que recebeu a aposentadoria antecipadamente para completar o tempo necessário à própria inativação. Contudo, durante esse intervalo ele não estava em atividade nem recolheu contribuições como facultativo. Assim, não havia base jurídica para a contagem desse lapso como tempo contributivo.<br><br>A circunstância de a tutela provisória ter produzido efeitos concretos por certo período não altera a natureza jurídica do tempo decorrido. A revogação posterior da medida evidencia sua precariedade, e o recebimento indevido do benefício não se converte, por si só, em período contributivo apto a integrar o cômputo previdenciário. Em outras palavras, a percepção provisória da aposentadoria não equivale a exercício de atividade segurada nem supre a ausência de contribuições.<br><br>O entendimento também é coerente com a lógica contributiva do sistema previdenciário: a contagem de tempo para aposentadoria não pode ser dissociada da existência de vínculo contributivo ou de hipótese legal expressa de cômputo fictício, o que não se verifica nesse cenário.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Turma. REsp 1.457.398-SE, Rel. Min. Gurgel de Faria, julgado em 13/5/2025 (Info 855).</p>
+</div>
+</section>
 
 </div>
 
 <script>
-const totalQuestoes = 11;
-let respostas = JSON.parse(localStorage.getItem(location.pathname + "_respostas") || "{}");
+const storageKey = location.pathname + "_respostas";
+let respostas = JSON.parse(localStorage.getItem(storageKey) || "{}");
 
-function atualizarPainel() {
-    const respondidas = Object.keys(respostas).length;
-    let acertos = 0;
-    let erros = 0;
-
-    for (const key in respostas) {
-        if (respostas[key].correto) acertos++;
-        else erros++;
-    }
-
-    document.getElementById("respondidas").textContent = respondidas;
-    document.getElementById("acertos").textContent = acertos;
-    document.getElementById("erros").textContent = erros;
+function destacar(t){
+ if(t==="CERTO") return '<span class="gabarito-certo">CERTO</span>';
+ if(t==="ERRADO") return '<span class="gabarito-errado">ERRADO</span>';
+ return t;
 }
 
-function responder(numero, resposta) {
-    const card = document.querySelectorAll(".questao")[numero - 1];
-    const gabarito = card.dataset.gabarito;
-    const correto = resposta === gabarito;
-
-    respostas[numero] = {
-        resposta,
-        correto
-    };
-
-    localStorage.setItem(location.pathname + "_respostas", JSON.stringify(respostas));
-
-    mostrarFeedback(numero);
-    atualizarPainel();
+function responder(numero, resposta){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const gabarito=card.dataset.gabarito;
+ const correto=resposta===gabarito;
+ respostas[numero]={resposta,correto};
+ localStorage.setItem(storageKey, JSON.stringify(respostas));
+ mostrarFeedback(numero);
+ atualizarPainel();
+ filtrar();
 }
 
-function mostrarFeedback(numero) {
-    const card = document.querySelectorAll(".questao")[numero - 1];
-    const feedback = document.getElementById("feedback-" + numero);
-    const status = document.getElementById("status-" + numero);
-    const resultado = feedback.querySelector(".resultado");
-
-    const dados = respostas[numero];
-
-    if (!dados) return;
-
-    feedback.style.display = "block";
-    feedback.classList.remove("correto", "errado");
-
-    if (dados.correto) {
-        feedback.classList.add("correto");
-        resultado.textContent = "Você acertou. A resposta é " + card.dataset.gabarito + ".";
-        status.textContent = "Respondida — acerto";
-        status.style.color = "var(--green)";
-    } else {
-        feedback.classList.add("errado");
-        resultado.textContent = "Você errou. O gabarito é " + card.dataset.gabarito + ".";
-        status.textContent = "Respondida — erro";
-        status.style.color = "var(--red)";
-    }
+function mostrarFeedback(numero){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const feedback=document.getElementById("feedback-"+numero);
+ const status=document.getElementById("status-"+numero);
+ const resultado=feedback.querySelector(".resultado");
+ const gabarito=card.dataset.gabarito;
+ const dados=respostas[numero];
+ if(!dados) return;
+ feedback.style.display="block";
+ feedback.classList.remove("correto","errado");
+ if(dados.correto){
+   feedback.classList.add("correto");
+   resultado.innerHTML="Você acertou. A resposta é "+destacar(gabarito)+".";
+   status.textContent="Respondida — acerto";
+   status.style.color="var(--green)";
+ } else {
+   feedback.classList.add("errado");
+   resultado.innerHTML="Você errou. O gabarito é "+destacar(gabarito)+".";
+   status.textContent="Respondida — erro";
+   status.style.color="var(--red)";
+ }
 }
 
-function restaurar() {
-    for (const key in respostas) {
-        mostrarFeedback(Number(key));
-    }
-    atualizarPainel();
+function atualizarPainel(){
+ let respondidas=0, acertos=0, erros=0;
+ for(const k in respostas){
+   respondidas++;
+   if(respostas[k].correto) acertos++; else erros++;
+ }
+ document.getElementById("respondidas").textContent=respondidas;
+ document.getElementById("acertos").textContent=acertos;
+ document.getElementById("erros").textContent=erros;
+ document.getElementById("visiveis").textContent=document.querySelectorAll(".questao:not(.oculta)").length;
 }
 
-function reiniciar() {
-    if (!confirm("Deseja reiniciar este simulado?")) return;
-    localStorage.removeItem(location.pathname + "_respostas");
-    location.reload();
+function filtrar(){
+ const busca=document.getElementById("busca").value.trim().toLowerCase();
+ const disciplina=document.getElementById("disciplina").value;
+ const statusFiltro=document.getElementById("statusFiltro").value;
+ const cards=Array.from(document.querySelectorAll(".questao"));
+ let vis=0;
+ cards.forEach((card,idx)=>{
+   const n=idx+1;
+   const texto=card.dataset.texto||"";
+   const disc=card.dataset.disciplina||"";
+   const r=respostas[n];
+   let passaStatus=true;
+   if(statusFiltro==="nao") passaStatus=!r;
+   if(statusFiltro==="acerto") passaStatus=r && r.correto;
+   if(statusFiltro==="erro") passaStatus=r && !r.correto;
+   const ok=(!busca||texto.includes(busca)) && (!disciplina||disc===disciplina) && passaStatus;
+   card.classList.toggle("oculta", !ok);
+   if(ok) vis++;
+ });
+ document.getElementById("sem-resultados").style.display=vis===0?"block":"none";
+ atualizarPainel();
+}
+
+function reiniciar(){
+ if(!confirm("Deseja reiniciar este simulado?")) return;
+ localStorage.removeItem(storageKey);
+ location.reload();
+}
+
+function restaurar(){
+ for(const k in respostas) mostrarFeedback(Number(k));
+ filtrar();
+ atualizarPainel();
 }
 
 restaurar();
 </script>
-
 </body>
 </html>

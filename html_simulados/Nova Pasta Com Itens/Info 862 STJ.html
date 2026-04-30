@@ -4,560 +4,622 @@
 <meta charset="UTF-8">
 <title>Simulado - Info 862 STJ</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <style>
-:root {
-    --bg: #0f172a;
-    --card: #111827;
-    --card2: #1f2937;
-    --text: #e5e7eb;
-    --muted: #9ca3af;
-    --accent: #38bdf8;
-    --green: #22c55e;
-    --red: #ef4444;
-    --yellow: #facc15;
+:root{
+--bg:#020617;--panel:rgba(15,23,42,.88);--card:rgba(15,23,42,.96);
+--card2:rgba(30,41,59,.92);--border:rgba(148,163,184,.22);
+--text:#e5e7eb;--muted:#94a3b8;--accent:#38bdf8;--accent2:#0ea5e9;
+--green:#22c55e;--red:#ef4444;--yellow:#facc15;--purple:#a78bfa;
 }
-
-* {
-    box-sizing: border-box;
+*{box-sizing:border-box}
+body{
+margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+background:radial-gradient(circle at top left,rgba(56,189,248,.20),transparent 28%),
+radial-gradient(circle at top right,rgba(167,139,250,.15),transparent 28%),
+linear-gradient(135deg,#020617,#0f172a 50%,#020617);
+color:var(--text);line-height:1.65;
 }
-
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(135deg, #020617, #111827);
-    color: var(--text);
-    line-height: 1.6;
+header{padding:44px 20px 32px;text-align:center;border-bottom:1px solid var(--border)}
+header h1{margin:0 0 10px;font-size:clamp(28px,4vw,46px);letter-spacing:-.05em}
+header p{color:var(--muted);margin:0;font-size:16px}
+.container{max-width:1160px;margin:0 auto;padding:26px 16px 80px}
+.painel{
+position:sticky;top:10px;z-index:10;background:var(--panel);backdrop-filter:blur(18px);
+border:1px solid var(--border);border-radius:26px;padding:16px;margin-bottom:22px;
+box-shadow:0 22px 70px rgba(0,0,0,.35)
 }
-
-header {
-    padding: 32px 20px;
-    text-align: center;
-    border-bottom: 1px solid #334155;
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.stat{background:var(--card2);padding:14px;border-radius:18px;text-align:center;border:1px solid rgba(148,163,184,.12)}
+.stat strong{display:block;font-size:25px;color:var(--accent);line-height:1.1}
+.stat span{font-size:12px;color:var(--muted)}
+.filtros{display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:12px;margin-top:14px}
+input,select{
+width:100%;background:rgba(2,6,23,.78);color:var(--text);border:1px solid var(--border);
+border-radius:14px;padding:13px 14px;outline:none;font-size:14px
 }
-
-header h1 {
-    margin: 0 0 10px;
-    font-size: 28px;
+input:focus,select:focus{border-color:var(--accent)}
+.card{
+background:var(--card);border:1px solid var(--border);border-radius:24px;padding:26px;
+margin-bottom:20px;box-shadow:0 18px 50px rgba(0,0,0,.24)
 }
-
-header p {
-    color: var(--muted);
-    margin: 0;
+.questao{scroll-margin-top:190px}
+.questao-topo{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:18px}
+.badge{
+background:linear-gradient(135deg,var(--accent),var(--accent2));color:#00111f;font-weight:900;
+padding:7px 13px;border-radius:999px;display:inline-block
 }
-
-.container {
-    max-width: 980px;
-    margin: 0 auto;
-    padding: 24px 16px 80px;
+.disciplina-tag,.tipo-tag{
+display:inline-block;margin-left:8px;color:var(--muted);background:rgba(148,163,184,.10);
+border:1px solid rgba(148,163,184,.14);padding:6px 10px;border-radius:999px;font-size:12px
 }
-
-.painel {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    background: rgba(15, 23, 42, 0.95);
-    backdrop-filter: blur(8px);
-    border: 1px solid #334155;
-    border-radius: 16px;
-    padding: 16px;
-    margin-bottom: 24px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
+.tipo-tag{color:#ddd6fe;border-color:rgba(167,139,250,.25)}
+.status{color:var(--yellow);font-size:13px;white-space:nowrap}
+.enunciado{font-size:19px;margin:0 0 22px;letter-spacing:-.01em}
+.botoes{display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.btn{
+cursor:pointer;border:0;padding:12px 22px;border-radius:14px;color:white;font-weight:900;
+transition:.18s ease;letter-spacing:.02em
 }
-
-.stat {
-    background: var(--card2);
-    padding: 12px;
-    border-radius: 12px;
-    text-align: center;
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.certo{background:rgba(34,197,94,.20);border:1px solid rgba(34,197,94,.42)}
+.btn.errado{background:rgba(239,68,68,.20);border:1px solid rgba(239,68,68,.42)}
+.btn.neutro{background:rgba(56,189,248,.16);color:var(--text);border:1px solid rgba(56,189,248,.32)}
+.feedback{
+display:none;background:rgba(2,6,23,.72);border:1px solid rgba(148,163,184,.16);
+border-left:5px solid var(--accent);padding:18px;border-radius:18px;margin-top:14px
 }
-
-.stat strong {
-    display: block;
-    font-size: 22px;
-    color: var(--accent);
+.feedback.correto{border-left-color:var(--green)}
+.feedback.errado{border-left-color:var(--red)}
+.resultado{font-size:18px;font-weight:900;margin-top:0}
+.justificativa{margin-top:12px}
+.referencia{color:var(--muted);font-size:13px;margin-top:16px}
+.gabarito-certo{color:var(--green);font-weight:900}
+.gabarito-errado{color:var(--red);font-weight:900}
+.oculta{display:none}
+.sem-resultados{text-align:center;color:var(--muted);display:none;padding:30px}
+.grid-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
+.link-card{
+display:block;padding:20px;background:rgba(15,23,42,.95);border:1px solid rgba(148,163,184,.22);
+color:#e5e7eb;border-radius:22px;text-decoration:none;transition:.2s;box-shadow:0 14px 40px rgba(0,0,0,.22)
 }
-
-.card {
-    background: rgba(17, 24, 39, 0.96);
-    border: 1px solid #334155;
-    border-radius: 18px;
-    padding: 22px;
-    margin-bottom: 20px;
-    box-shadow: 0 12px 30px rgba(0,0,0,.25);
-}
-
-.questao-topo {
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
-    align-items: center;
-    margin-bottom: 16px;
-}
-
-.badge {
-    background: #0ea5e9;
-    color: #00111f;
-    font-weight: bold;
-    padding: 6px 12px;
-    border-radius: 999px;
-}
-
-.status {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-.enunciado {
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-
-.botoes {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 18px;
-}
-
-button {
-    cursor: pointer;
-    border: 0;
-    padding: 12px 22px;
-    border-radius: 12px;
-    background: #334155;
-    color: white;
-    font-weight: bold;
-    transition: 0.2s;
-}
-
-button:hover {
-    transform: translateY(-1px);
-    background: #475569;
-}
-
-.feedback {
-    display: none;
-    background: #020617;
-    border-left: 4px solid var(--accent);
-    padding: 16px;
-    border-radius: 12px;
-    margin-top: 12px;
-}
-
-.feedback.correto {
-    border-left-color: var(--green);
-}
-
-.feedback.errado {
-    border-left-color: var(--red);
-}
-
-.resultado {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.referencia {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-.acoes {
-    text-align: center;
-    margin: 30px 0;
-}
-
-.acoes button {
-    background: #0ea5e9;
-    color: #00111f;
-}
-
-@media (max-width: 700px) {
-    .painel {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .botoes {
-        flex-direction: column;
-    }
-
-    header h1 {
-        font-size: 22px;
-    }
-
-    .enunciado {
-        font-size: 16px;
-    }
+.link-card:hover{transform:translateY(-3px);border-color:#38bdf8}
+.link-card strong{display:block;font-size:17px;margin-bottom:8px}
+.link-card span{color:#94a3b8;font-size:13px}
+.index-tools{display:grid;grid-template-columns:1.5fr 1fr;gap:12px;margin-bottom:20px}
+@media(max-width:850px){
+.stats{grid-template-columns:repeat(2,1fr)}
+.filtros,.index-tools{grid-template-columns:1fr}
+.questao-topo{align-items:flex-start;flex-direction:column}
+.botoes{flex-direction:column}
+.enunciado{font-size:16px}
+.card{padding:20px}
 }
 </style>
 </head>
-
 <body>
-
 <header>
-    <h1>Simulado - Info 862 STJ</h1>
-    <p>Simulado interativo de CERTO ou ERRADO</p>
+<h1>Simulado - Info 862 STJ</h1>
+<p>Informativos • Simulado interativo de CERTO ou ERRADO</p>
 </header>
 
 <div class="container">
+<div class="painel">
+<div class="stats">
+<div class="stat"><strong>12</strong><span>Total</span></div>
+<div class="stat"><strong id="visiveis">12</strong><span>Visíveis</span></div>
+<div class="stat"><strong id="respondidas">0</strong><span>Respondidas</span></div>
+<div class="stat"><strong id="acertos">0</strong><span>Acertos</span></div>
+<div class="stat"><strong id="erros">0</strong><span>Erros</span></div>
+</div>
 
-    <div class="painel">
-        <div class="stat">
-            <strong id="total">12</strong>
-            Total
-        </div>
-        <div class="stat">
-            <strong id="respondidas">0</strong>
-            Respondidas
-        </div>
-        <div class="stat">
-            <strong id="acertos">0</strong>
-            Acertos
-        </div>
-        <div class="stat">
-            <strong id="erros">0</strong>
-            Erros
-        </div>
-    </div>
+<div class="filtros">
+<input id="busca" type="search" placeholder="Buscar por palavra-chave..." oninput="filtrar()">
+<select id="disciplina" onchange="filtrar()">
+<option value="">Todas as disciplinas</option>
+<option value="ECA">ECA</option>
+<option value="N/I">N/I</option>
+</select>
+<select id="statusFiltro" onchange="filtrar()">
+<option value="">Todas</option>
+<option value="nao">Não respondidas</option>
+<option value="acerto">Acertos</option>
+<option value="erro">Erros</option>
+</select>
+<button class="btn neutro" onclick="reiniciar()">Reiniciar</button>
+</div>
+</div>
 
-    <div class="acoes">
-        <button onclick="reiniciar()">Reiniciar simulado</button>
-    </div>
+<div id="sem-resultados" class="sem-resultados">Nenhuma questão encontrada com os filtros atuais.</div>
 
-    
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 1</span>
-                <span class="status" id="status-1">Não respondida</span>
-            </div>
 
-            <p class="enunciado">A realização de protesto por entidade sindical, sem comunicação prévia às autoridades competentes, que resulte na obstrução integral e por lapso temporal relevante das principais vias de acesso à capital do estado, com repercussão generalizada sobre a mobilidade urbana e a rotina da coletividade, pode caracterizar dano moral coletivo presumido, sendo desnecessária a demonstração de prejuízo patrimonial individualizado para a imposição da condenação.</p>
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a realização de protesto por entidade sindical, sem comunicação prévia às autoridades competentes, que resulte na obstrução integral e por lapso temporal relevante das principais vias de acesso à capital do estado, com repercussão generalizada sobre a mobilidade urbana e a rotina da coletividade, pode caracterizar dano moral coletivo presumido, sendo desnecessária a demonstração de prejuízo patrimonial individualizado para a imposição da condenação. o enunciado está correto porque o entendimento firmado reconhece que a liberdade de reunião e de manifestação do pensamento não é absoluta e deve ser exercida em conformidade com os limites constitucionais e legais, especialmente quando o exercício do direito de protesto ultrapassa a esfera da expressão política e passa a produzir grave lesão a interesses transindividuais.
 
-            <div class="botoes">
-                <button onclick="responder(1, 'CERTO')">CERTO</button>
-                <button onclick="responder(1, 'ERRADO')">ERRADO</button>
-            </div>
+no caso apreciado, a ausência de comunicação prévia às autoridades, somada à obstrução de diversas vias públicas de acesso à capital estadual por período considerável, com bloqueio generalizado do trânsito e queima de pneus, evidenciou ofensa relevante à coletividade. nessas circunstâncias, o dano moral coletivo foi reconhecido como configurado in re ipsa, isto é, presumido a partir da própria gravidade objetiva da conduta e de seus efeitos sociais, sem necessidade de prova de sofrimento psíquico individual de cada cidadão ou de prejuízo material específico.
 
-            <div class="feedback" id="feedback-1">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>O enunciado está correto porque o entendimento firmado reconhece que a liberdade de reunião e de manifestação do pensamento não é absoluta e deve ser exercida em conformidade com os limites constitucionais e legais, especialmente quando o exercício do direito de protesto ultrapassa a esfera da expressão política e passa a produzir grave lesão a interesses transindividuais.<br><br>No caso apreciado, a ausência de comunicação prévia às autoridades, somada à obstrução de diversas vias públicas de acesso à capital estadual por período considerável, com bloqueio generalizado do trânsito e queima de pneus, evidenciou ofensa relevante à coletividade. Nessas circunstâncias, o dano moral coletivo foi reconhecido como configurado in re ipsa, isto é, presumido a partir da própria gravidade objetiva da conduta e de seus efeitos sociais, sem necessidade de prova de sofrimento psíquico individual de cada cidadão ou de prejuízo material específico.<br><br>A tese é importante porque distingue a mera realização de manifestação pública — protegida constitucionalmente — de atos que, pela intensidade, extensão e modo de execução, extrapolam o exercício legítimo do direito de protesto e atingem de forma intolerável a ordem pública, a mobilidade urbana e a fruição coletiva de bens e serviços essenciais. Assim, não basta a invocação abstrata da liberdade de reunião para afastar a responsabilidade civil coletiva quando o ato gera transtornos graves e generalizados à população.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 2ª Turma. REsp 2.026.929-ES, Rel. Min. Marco Aurélio Bellizze, julgado em 9/9/2025 (Info 862).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 2</span>
-                <span class="status" id="status-2">Não respondida</span>
-            </div>
+a tese é importante porque distingue a mera realização de manifestação pública — protegida constitucionalmente — de atos que, pela intensidade, extensão e modo de execução, extrapolam o exercício legítimo do direito de protesto e atingem de forma intolerável a ordem pública, a mobilidade urbana e a fruição coletiva de bens e serviços essenciais. assim, não basta a invocação abstrata da liberdade de reunião para afastar a responsabilidade civil coletiva quando o ato gera transtornos graves e generalizados à população. stj. 2ª turma. resp 2.026.929-es, rel. min. marco aurélio bellizze, julgado em 9/9/2025 (info 862).">
 
-            <p class="enunciado">Em ação proposta por participante do PASEP que impugna movimentações lançadas em sua conta individualizada, a distribuição do ônus probatório varia conforme a modalidade do saque: se o débito tiver sido realizado por crédito em conta ou por pagamento via folha de pagamento (PASEP-FOPAG), compete ao autor demonstrar a irregularidade do lançamento, por se tratar de fato constitutivo de seu direito, sendo inaplicáveis, nessa hipótese, tanto a inversão do ônus da prova com base no CDC quanto a redistribuição prevista no CPC; diversamente, se a retirada tiver ocorrido por saque em caixa das agências do Banco do Brasil, incumbe ao réu comprovar a higidez da operação, por se tratar de fato extintivo do direito alegado.</p>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 1</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-1">Não respondida</span>
+</div>
 
-            <div class="botoes">
-                <button onclick="responder(2, 'CERTO')">CERTO</button>
-                <button onclick="responder(2, 'ERRADO')">ERRADO</button>
-            </div>
+<p class="enunciado">A realização de protesto por entidade sindical, sem comunicação prévia às autoridades competentes, que resulte na obstrução integral e por lapso temporal relevante das principais vias de acesso à capital do estado, com repercussão generalizada sobre a mobilidade urbana e a rotina da coletividade, pode caracterizar dano moral coletivo presumido, sendo desnecessária a demonstração de prejuízo patrimonial individualizado para a imposição da condenação.</p>
 
-            <div class="feedback" id="feedback-2">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva reproduz a lógica central do entendimento firmado: a definição do ônus da prova depende da forma pela qual o saque foi efetivado. Nos saques realizados por crédito em conta e por pagamento via folha de pagamento (PASEP-FOPAG), o encargo probatório é do participante, porque a alegação de irregularidade desses lançamentos integra o fato constitutivo do direito invocado na demanda, atraindo a regra geral do art. 373, I, do CPC. Nessa hipótese, o julgado afasta expressamente a possibilidade de inversão do ônus com fundamento no art. 6º, VIII, do CDC, bem como a redistribuição dinâmica prevista no art. 373, § 1º, do CPC.<br><br>Já quanto aos saques efetuados em caixa das agências do Banco do Brasil, a orientação é oposta: cabe ao réu demonstrar a regularidade da retirada, pois se trata de fato extintivo do direito do autor, incidindo o art. 373, II, do CPC. A distinção é relevante porque impede generalizações indevidas sobre a prova em ações envolvendo o PASEP e exige atenção à modalidade específica do saque impugnado.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Seção. REsp 2.162.222-PE, REsp 2.162.223-PE, REsp 2.162.198-PE e REsp 2.162.323-PE, Rel. Min. Maria Thereza de Assis Moura, julgados em 10/9/2025 (Recurso Repetitivo - Tema 1300) (Info 862).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 3</span>
-                <span class="status" id="status-3">Não respondida</span>
-            </div>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(1, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(1, 'ERRADO')">ERRADO</button>
+</div>
 
-            <p class="enunciado">A cobrança de sobre-estadia de contêineres, por ter sido previamente ajustada em valor prefixado para o caso de retenção além do prazo contratual, ostenta natureza de cláusula penal e, por isso, submete-se aos arts. 408 a 416 do Código Civil, admitindo-se a redução judicial do montante quando manifestamente excessivo; nessa hipótese, a quantia exigível deve, em regra, ser limitada ao valor do próprio contêiner, salvo prova concreta de danos materiais adicionais que justifiquem a superação desse parâmetro.</p>
+<div class="feedback" id="feedback-1">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O enunciado está correto porque o entendimento firmado reconhece que a liberdade de reunião e de manifestação do pensamento não é absoluta e deve ser exercida em conformidade com os limites constitucionais e legais, especialmente quando o exercício do direito de protesto ultrapassa a esfera da expressão política e passa a produzir grave lesão a interesses transindividuais.<br><br>No caso apreciado, a ausência de comunicação prévia às autoridades, somada à obstrução de diversas vias públicas de acesso à capital estadual por período considerável, com bloqueio generalizado do trânsito e queima de pneus, evidenciou ofensa relevante à coletividade. Nessas circunstâncias, o dano moral coletivo foi reconhecido como configurado in re ipsa, isto é, presumido a partir da própria gravidade objetiva da conduta e de seus efeitos sociais, sem necessidade de prova de sofrimento psíquico individual de cada cidadão ou de prejuízo material específico.<br><br>A tese é importante porque distingue a mera realização de manifestação pública — protegida constitucionalmente — de atos que, pela intensidade, extensão e modo de execução, extrapolam o exercício legítimo do direito de protesto e atingem de forma intolerável a ordem pública, a mobilidade urbana e a fruição coletiva de bens e serviços essenciais. Assim, não basta a invocação abstrata da liberdade de reunião para afastar a responsabilidade civil coletiva quando o ato gera transtornos graves e generalizados à população.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 2ª Turma. REsp 2.026.929-ES, Rel. Min. Marco Aurélio Bellizze, julgado em 9/9/2025 (Info 862).</p>
+</div>
+</section>
 
-            <div class="botoes">
-                <button onclick="responder(3, 'CERTO')">CERTO</button>
-                <button onclick="responder(3, 'ERRADO')">ERRADO</button>
-            </div>
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="em ação proposta por participante do pasep que impugna movimentações lançadas em sua conta individualizada, a distribuição do ônus probatório varia conforme a modalidade do saque: se o débito tiver sido realizado por crédito em conta ou por pagamento via folha de pagamento (pasep-fopag), compete ao autor demonstrar a irregularidade do lançamento, por se tratar de fato constitutivo de seu direito, sendo inaplicáveis, nessa hipótese, tanto a inversão do ônus da prova com base no cdc quanto a redistribuição prevista no cpc; diversamente, se a retirada tiver ocorrido por saque em caixa das agências do banco do brasil, incumbe ao réu comprovar a higidez da operação, por se tratar de fato extintivo do direito alegado. a assertiva reproduz a lógica central do entendimento firmado: a definição do ônus da prova depende da forma pela qual o saque foi efetivado. nos saques realizados por crédito em conta e por pagamento via folha de pagamento (pasep-fopag), o encargo probatório é do participante, porque a alegação de irregularidade desses lançamentos integra o fato constitutivo do direito invocado na demanda, atraindo a regra geral do art. 373, i, do cpc. nessa hipótese, o julgado afasta expressamente a possibilidade de inversão do ônus com fundamento no art. 6º, viii, do cdc, bem como a redistribuição dinâmica prevista no art. 373, § 1º, do cpc.
 
-            <div class="feedback" id="feedback-3">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a lógica jurídica aplicada à sobre-estadia de contêineres (demurrage): trata-se de obrigação contratualmente prefixada para o inadimplemento ou atraso na devolução do equipamento, com nítida feição de cláusula penal. Por essa razão, incidem as regras dos arts. 408 a 416 do Código Civil, inclusive a possibilidade de controle judicial do quantum quando a penalidade se mostrar manifestamente excessiva.<br><br>O ponto central do entendimento é o prestígio ao princípio da modicidade e ao equilíbrio contratual. Embora a cláusula penal tenha função coercitiva e indenizatória, ela não pode converter-se em fonte de enriquecimento desproporcional. Assim, sendo excessiva a quantia cobrada a título de sobre-estadia, admite-se sua redução judicial.<br><br>Além disso, a orientação firmada estabelece um limite objetivo relevante: a cobrança deve, em regra, ser contida ao valor do próprio contêiner, salvo demonstração efetiva de danos materiais adicionais. Isso significa que a superação desse teto não é vedada em absoluto, mas depende de prova concreta de prejuízos extras, sob pena de onerosidade excessiva e desequilíbrio contratual. A assertiva, ao mencionar essa ressalva, alinha-se precisamente ao entendimento consolidado.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 4ª Turma. REsp 1.577.138-SP, Rel. Min. Raul Araújo, julgado em 2/9/2025 (Info 862).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 4</span>
-                <span class="status" id="status-4">Não respondida</span>
-            </div>
+já quanto aos saques efetuados em caixa das agências do banco do brasil, a orientação é oposta: cabe ao réu demonstrar a regularidade da retirada, pois se trata de fato extintivo do direito do autor, incidindo o art. 373, ii, do cpc. a distinção é relevante porque impede generalizações indevidas sobre a prova em ações envolvendo o pasep e exige atenção à modalidade específica do saque impugnado. stj. 1ª seção. resp 2.162.222-pe, resp 2.162.223-pe, resp 2.162.198-pe e resp 2.162.323-pe, rel. min. maria thereza de assis moura, julgados em 10/9/2025 (recurso repetitivo - tema 1300) (info 862).">
 
-            <p class="enunciado">Na hipótese de falecimento do titular de dispositivos eletrônicos contendo bens digitais protegidos por senha desconhecida dos herdeiros, a apuração do acervo transmissível deve ser feita em incidente processual específico, apensado ao inventário, com atuação de profissional dotado de expertise digital, cabendo ao juiz, em sigilo, classificar os conteúdos localizados e excluir da partilha aqueles que, embora armazenados no aparelho, revelem dados ou manifestações protegidos pela intimidade ou pelos direitos da personalidade do falecido ou de terceiros; nessa situação, não se exige ação autônoma nas vias ordinárias para a simples identificação, classificação e avaliação dos bens digitais.</p>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 2</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-2">Não respondida</span>
+</div>
 
-            <div class="botoes">
-                <button onclick="responder(4, 'CERTO')">CERTO</button>
-                <button onclick="responder(4, 'ERRADO')">ERRADO</button>
-            </div>
+<p class="enunciado">Em ação proposta por participante do PASEP que impugna movimentações lançadas em sua conta individualizada, a distribuição do ônus probatório varia conforme a modalidade do saque: se o débito tiver sido realizado por crédito em conta ou por pagamento via folha de pagamento (PASEP-FOPAG), compete ao autor demonstrar a irregularidade do lançamento, por se tratar de fato constitutivo de seu direito, sendo inaplicáveis, nessa hipótese, tanto a inversão do ônus da prova com base no CDC quanto a redistribuição prevista no CPC; diversamente, se a retirada tiver ocorrido por saque em caixa das agências do Banco do Brasil, incumbe ao réu comprovar a higidez da operação, por se tratar de fato extintivo do direito alegado.</p>
 
-            <div class="feedback" id="feedback-4">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a solução processual construída para a hipótese de herança digital quando os herdeiros não conhecem a senha de acesso aos dispositivos do falecido. Nessa situação, não se trata de questão de alta indagação a justificar, por si só, a remessa obrigatória às vias ordinárias com base no art. 612 do CPC. Ao contrário, a providência adequada é a instauração de incidente de identificação, classificação e avaliação de bens digitais, paralelo e apensado ao inventário.<br><br>Esse incidente serve justamente para permitir a atuação judicial organizada diante do vácuo legislativo sobre a sucessão de ativos digitais, sem sacrificar a utilidade do inventário nem expor indevidamente conteúdos sensíveis. Por isso, o juiz pode nomear profissional com expertise digital — o chamado inventariante digital — para acessar os dados, catalogá-los e apresentar relatório detalhado sob sigilo. A partir desse relatório, compete ao magistrado definir o que integra o acervo hereditário e o que deve ser preservado por envolver intimidade, privacidade ou outros direitos da personalidade do falecido ou de terceiros.<br><br>A solução também afasta a ideia de acesso direto por provedores de serviços digitais ao conteúdo dos dispositivos, justamente para evitar violação de direitos fundamentais da personalidade. Em síntese, a identificação e a triagem dos bens digitais transmissíveis devem ocorrer no próprio contexto do inventário, por incidente específico, e não por ação autônoma como regra.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.124.424-SP, Rel. Min. Nancy Andrighi, julgado em 9/9/2025 (Info 862).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 5</span>
-                <span class="status" id="status-5">Não respondida</span>
-            </div>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(2, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(2, 'ERRADO')">ERRADO</button>
+</div>
 
-            <p class="enunciado">Em agravo interno interposto contra decisão monocrática que não conheceu de recurso especial por intempestividade, a juntada posterior de documento apto a comprovar a suspensão do expediente forense local deve ser admitida, ainda que a comprovação não tenha sido realizada no ato de interposição do recurso, inclusive quando o recurso originário tenha sido protocolado antes da entrada em vigor da Lei n. 14.939/2024, pois a disciplina do art. 1.003, § 6º, do CPC, em sua redação atual, incide no julgamento do agravo interno/regimental voltado a impugnar a negativa de seguimento fundada na ausência dessa comprovação.</p>
+<div class="feedback" id="feedback-2">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva reproduz a lógica central do entendimento firmado: a definição do ônus da prova depende da forma pela qual o saque foi efetivado. Nos saques realizados por crédito em conta e por pagamento via folha de pagamento (PASEP-FOPAG), o encargo probatório é do participante, porque a alegação de irregularidade desses lançamentos integra o fato constitutivo do direito invocado na demanda, atraindo a regra geral do art. 373, I, do CPC. Nessa hipótese, o julgado afasta expressamente a possibilidade de inversão do ônus com fundamento no art. 6º, VIII, do CDC, bem como a redistribuição dinâmica prevista no art. 373, § 1º, do CPC.<br><br>Já quanto aos saques efetuados em caixa das agências do Banco do Brasil, a orientação é oposta: cabe ao réu demonstrar a regularidade da retirada, pois se trata de fato extintivo do direito do autor, incidindo o art. 373, II, do CPC. A distinção é relevante porque impede generalizações indevidas sobre a prova em ações envolvendo o PASEP e exige atenção à modalidade específica do saque impugnado.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Seção. REsp 2.162.222-PE, REsp 2.162.223-PE, REsp 2.162.198-PE e REsp 2.162.323-PE, Rel. Min. Maria Thereza de Assis Moura, julgados em 10/9/2025 (Recurso Repetitivo - Tema 1300) (Info 862).</p>
+</div>
+</section>
 
-            <div class="botoes">
-                <button onclick="responder(5, 'CERTO')">CERTO</button>
-                <button onclick="responder(5, 'ERRADO')">ERRADO</button>
-            </div>
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a cobrança de sobre-estadia de contêineres, por ter sido previamente ajustada em valor prefixado para o caso de retenção além do prazo contratual, ostenta natureza de cláusula penal e, por isso, submete-se aos arts. 408 a 416 do código civil, admitindo-se a redução judicial do montante quando manifestamente excessivo; nessa hipótese, a quantia exigível deve, em regra, ser limitada ao valor do próprio contêiner, salvo prova concreta de danos materiais adicionais que justifiquem a superação desse parâmetro. a assertiva está correta porque reproduz a lógica jurídica aplicada à sobre-estadia de contêineres (demurrage): trata-se de obrigação contratualmente prefixada para o inadimplemento ou atraso na devolução do equipamento, com nítida feição de cláusula penal. por essa razão, incidem as regras dos arts. 408 a 416 do código civil, inclusive a possibilidade de controle judicial do quantum quando a penalidade se mostrar manifestamente excessiva.
 
-            <div class="feedback" id="feedback-5">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>O enunciado está correto porque o entendimento consolidado passou a admitir a comprovação posterior do feriado local ou da suspensão de expediente forense, inclusive em sede de agravo interno/regimental, quando a controvérsia recursal versar sobre a tempestividade do recurso inicialmente inadmitido por falta dessa prova. A razão é que a Lei n. 14.939/2024 conferiu nova redação ao art. 1.003, § 6º, do CPC, flexibilizando a exigência de comprovação no momento da interposição e permitindo que a demonstração seja feita posteriormente.<br><br>Além disso, foi fixado que essa disciplina alcança também recursos interpostos antes da vigência da lei, de modo que, no julgamento dos agravos internos/regimentais contra decisões de admissibilidade baseadas exclusivamente na ausência de comprovação da suspensão do expediente forense, deve ser observada a nova sistemática. Trata-se de orientação voltada a prestigiar a primazia do julgamento do mérito e a evitar o não conhecimento do recurso por vício formal sanável, especialmente quando a discussão se limita à demonstração de fato local apto a interferir na contagem do prazo.<br><br>A questão é tecnicamente sensível porque não se trata de mera reabertura indiscriminada de prazo recursal, mas de admitir a regularização documental em momento processual posterior, desde que a controvérsia esteja centrada na tempestividade e na prova do feriado local/suspensão de expediente. Assim, a tese não amplia o prazo recursal em si, mas disciplina a forma de comprovação do fato interruptivo ou suspensivo relevante para a aferição da tempestividade.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Turma. EDcl no AgInt no AREsp 2.285.064-SP, Rel. Min. Paulo Sérgio Domingues, julgado em 18/8/2025 (Info 862).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 6</span>
-                <span class="status" id="status-6">Não respondida</span>
-            </div>
+o ponto central do entendimento é o prestígio ao princípio da modicidade e ao equilíbrio contratual. embora a cláusula penal tenha função coercitiva e indenizatória, ela não pode converter-se em fonte de enriquecimento desproporcional. assim, sendo excessiva a quantia cobrada a título de sobre-estadia, admite-se sua redução judicial.
 
-            <p class="enunciado">Em mandado de segurança impetrado para afastar a exigência de ICMS incidente sobre energia elétrica em alíquota majorada por lei estadual, quando a pretensão se dirige à inaplicabilidade da norma em relação a obrigações tributárias de trato sucessivo, o prazo decadencial de 120 dias deve ser contado da publicação da lei instituidora da majoração, ainda que a lesão se renove a cada cobrança mensal na fatura de consumo.</p>
+além disso, a orientação firmada estabelece um limite objetivo relevante: a cobrança deve, em regra, ser contida ao valor do próprio contêiner, salvo demonstração efetiva de danos materiais adicionais. isso significa que a superação desse teto não é vedada em absoluto, mas depende de prova concreta de prejuízos extras, sob pena de onerosidade excessiva e desequilíbrio contratual. a assertiva, ao mencionar essa ressalva, alinha-se precisamente ao entendimento consolidado. stj. 4ª turma. resp 1.577.138-sp, rel. min. raul araújo, julgado em 2/9/2025 (info 862).">
 
-            <div class="botoes">
-                <button onclick="responder(6, 'CERTO')">CERTO</button>
-                <button onclick="responder(6, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 3</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-3">Não respondida</span>
+</div>
 
-            <div class="feedback" id="feedback-6">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque, em hipóteses em que o mandado de segurança impugna lei ou ato normativo que interfere em obrigações tributárias sucessivas, não se aplica a lógica de contagem do prazo decadencial a partir da publicação da norma. Nessa espécie de controvérsia, a lesão não se exaure no momento da edição da lei: ela se renova de forma contínua e objetiva a cada ato concreto de cobrança, como ocorre em cada fatura de energia elétrica com incidência do tributo na alíquota questionada.<br><br>O ponto central é que a impetração possui natureza preventiva diante de ameaça atual, permanente e renovada de aplicação da norma impugnada. Por isso, não há falar em decadência de 120 dias contados da edição da lei, pois o prazo do art. 23 da Lei 12.016/2009 não incide nessa hipótese específica. Em outras palavras, a cada cobrança indevida nasce nova possibilidade de impetração, justamente porque o ato coator se renova sucessivamente.<br><br>A tese firmada afasta a leitura de que a simples existência da lei, por si só, deflagra o prazo decadencial para toda e qualquer impugnação por mandado de segurança. Essa compreensão seria adequada apenas em situações de ato único e definitivo, mas não em obrigações tributárias sucessivas, nas quais a violação se projeta no tempo e se materializa repetidamente.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Seção. REsp 2.103.305-MG e REsp 2.109.221-MG, Rel. Min. Paulo Sérgio Domingues, julgados em 10/9/2025 (Recurso Repetitivo - Temas 1237 e 1273) (Info 862).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 7</span>
-                <span class="status" id="status-7">Não respondida</span>
-            </div>
+<p class="enunciado">A cobrança de sobre-estadia de contêineres, por ter sido previamente ajustada em valor prefixado para o caso de retenção além do prazo contratual, ostenta natureza de cláusula penal e, por isso, submete-se aos arts. 408 a 416 do Código Civil, admitindo-se a redução judicial do montante quando manifestamente excessivo; nessa hipótese, a quantia exigível deve, em regra, ser limitada ao valor do próprio contêiner, salvo prova concreta de danos materiais adicionais que justifiquem a superação desse parâmetro.</p>
 
-            <p class="enunciado">Em ação coletiva proposta por sindicato em favor de determinada categoria de servidores, a sentença transitada em julgado que reconhece o direito ao pagamento de diferenças remuneratórias não pode ser executada pelos sucessores de servidor que já havia falecido antes do ajuizamento da demanda, ainda que o crédito discutido se refira a período em que ele estava em atividade, salvo se houver previsão expressa de sua inclusão no título judicial.</p>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(3, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(3, 'ERRADO')">ERRADO</button>
+</div>
 
-            <div class="botoes">
-                <button onclick="responder(7, 'CERTO')">CERTO</button>
-                <button onclick="responder(7, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="feedback" id="feedback-3">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a lógica jurídica aplicada à sobre-estadia de contêineres (demurrage): trata-se de obrigação contratualmente prefixada para o inadimplemento ou atraso na devolução do equipamento, com nítida feição de cláusula penal. Por essa razão, incidem as regras dos arts. 408 a 416 do Código Civil, inclusive a possibilidade de controle judicial do quantum quando a penalidade se mostrar manifestamente excessiva.<br><br>O ponto central do entendimento é o prestígio ao princípio da modicidade e ao equilíbrio contratual. Embora a cláusula penal tenha função coercitiva e indenizatória, ela não pode converter-se em fonte de enriquecimento desproporcional. Assim, sendo excessiva a quantia cobrada a título de sobre-estadia, admite-se sua redução judicial.<br><br>Além disso, a orientação firmada estabelece um limite objetivo relevante: a cobrança deve, em regra, ser contida ao valor do próprio contêiner, salvo demonstração efetiva de danos materiais adicionais. Isso significa que a superação desse teto não é vedada em absoluto, mas depende de prova concreta de prejuízos extras, sob pena de onerosidade excessiva e desequilíbrio contratual. A assertiva, ao mencionar essa ressalva, alinha-se precisamente ao entendimento consolidado.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 4ª Turma. REsp 1.577.138-SP, Rel. Min. Raul Araújo, julgado em 2/9/2025 (Info 862).</p>
+</div>
+</section>
 
-            <div class="feedback" id="feedback-7">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está correta porque o direito reconhecido na ação coletiva não se projeta automaticamente aos sucessores de servidor falecido antes da propositura da demanda. Nessa hipótese, a morte anterior ao ajuizamento rompe o vínculo jurídico do falecido com a categoria profissional, com a entidade sindical e com a própria relação de substituição processual que legitima a tutela coletiva.<br><br>O ponto central é que, embora o crédito discutido possa se referir a período em que o servidor estava vivo e em exercício, isso não basta para autorizar, por si só, a execução pelos herdeiros. A legitimidade para a execução do título coletivo depende de o substituído integrar a categoria abrangida pela substituição processual no momento relevante para a formação da tutela coletiva, o que não ocorre quando o óbito é anterior à própria propositura da ação.<br><br>Assim, os sucessores não são beneficiados automaticamente pela sentença coletiva condenatória ao pagamento de diferenças, pois não possuem, por derivação, a qualidade de membros da categoria substituída. A exceção admitida é a hipótese de o título judicial contemplá-los expressamente, situação em que a própria decisão coletiva estende de forma inequívoca os efeitos aos sucessores.<br><br>Em termos de prova, a armadilha costuma estar na ideia de que “se o servidor tinha direito em vida, o espólio ou os herdeiros sempre podem executar”. O entendimento fixado afasta essa conclusão automática: a sucessão hereditária, por si só, não substitui a condição de integrante da categoria representada na ação coletiva, salvo previsão expressa no título.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Seção. REsp 2.144.140-CE e REsp 2.147.137-CE, Rel. Min. Maria Thereza de Assis Moura, julgados em 10/9/2025 (Recurso Repetitivo - Tema 1309) (Info 862).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 8</span>
-                <span class="status" id="status-8">Não respondida</span>
-            </div>
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="na hipótese de falecimento do titular de dispositivos eletrônicos contendo bens digitais protegidos por senha desconhecida dos herdeiros, a apuração do acervo transmissível deve ser feita em incidente processual específico, apensado ao inventário, com atuação de profissional dotado de expertise digital, cabendo ao juiz, em sigilo, classificar os conteúdos localizados e excluir da partilha aqueles que, embora armazenados no aparelho, revelem dados ou manifestações protegidos pela intimidade ou pelos direitos da personalidade do falecido ou de terceiros; nessa situação, não se exige ação autônoma nas vias ordinárias para a simples identificação, classificação e avaliação dos bens digitais. a assertiva está correta porque reproduz a solução processual construída para a hipótese de herança digital quando os herdeiros não conhecem a senha de acesso aos dispositivos do falecido. nessa situação, não se trata de questão de alta indagação a justificar, por si só, a remessa obrigatória às vias ordinárias com base no art. 612 do cpc. ao contrário, a providência adequada é a instauração de incidente de identificação, classificação e avaliação de bens digitais, paralelo e apensado ao inventário.
 
-            <p class="enunciado">A atenuante genérica da confissão espontânea incide mesmo quando o magistrado não a tenha utilizado para formar seu convencimento e ainda que haja outros elementos probatórios suficientes para a condenação, mas essa benesse não se aplica se houver retratação integral do acusado, salvo na hipótese em que a confissão retratada tenha efetivamente contribuído para a apuração dos fatos; ademais, quando o agente admite apenas a posse de droga para consumo próprio, negando o tráfico, a atenuação é cabível, porém em patamar inferior ao devido à confissão plena, não podendo ser tratada como circunstância preponderante no concurso com agravantes.</p>
+esse incidente serve justamente para permitir a atuação judicial organizada diante do vácuo legislativo sobre a sucessão de ativos digitais, sem sacrificar a utilidade do inventário nem expor indevidamente conteúdos sensíveis. por isso, o juiz pode nomear profissional com expertise digital — o chamado inventariante digital — para acessar os dados, catalogá-los e apresentar relatório detalhado sob sigilo. a partir desse relatório, compete ao magistrado definir o que integra o acervo hereditário e o que deve ser preservado por envolver intimidade, privacidade ou outros direitos da personalidade do falecido ou de terceiros.
 
-            <div class="botoes">
-                <button onclick="responder(8, 'CERTO')">CERTO</button>
-                <button onclick="responder(8, 'ERRADO')">ERRADO</button>
-            </div>
+a solução também afasta a ideia de acesso direto por provedores de serviços digitais ao conteúdo dos dispositivos, justamente para evitar violação de direitos fundamentais da personalidade. em síntese, a identificação e a triagem dos bens digitais transmissíveis devem ocorrer no próprio contexto do inventário, por incidente específico, e não por ação autônoma como regra. stj. 3ª turma. resp 2.124.424-sp, rel. min. nancy andrighi, julgado em 9/9/2025 (info 862).">
 
-            <div class="feedback" id="feedback-8">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>O enunciado reproduz a orientação firmada no Tema 1194, que atualizou a compreensão sobre a confissão espontânea no art. 65, III, d, do Código Penal. A atenuante deixou de depender da efetiva utilização da confissão na formação do convencimento judicial, bastando que tenha havido admissão voluntária do fato, ainda que existam outros elementos de prova suficientes para sustentar a condenação.<br><br>O julgado também delimitou uma exceção relevante: se houver retratação, a atenuante não incide, salvo quando a confissão retratada tiver servido à apuração dos fatos. Essa ressalva é importante porque preserva a utilidade processual da admissão inicial, evitando que a retratação elimine automaticamente o benefício quando a própria confissão tenha contribuído para esclarecer a dinâmica delitiva.<br><br>No tocante aos crimes da Lei de Drogas, a Corte consolidou que a admissão de posse ou propriedade da substância para uso próprio, com negativa da traficância, não afasta por completo a atenuante. Ao contrário, ela é reconhecida, mas em proporção inferior à da confissão plena, justamente porque a admissão é parcial e não alcança todos os elementos do tipo imputado. Além disso, o entendimento expressamente veda que essa atenuação seja tratada como preponderante no concurso com agravantes quando o fato confessado corresponder a tipo com pena menor ou a circunstância excludente da tipicidade, da ilicitude ou da culpabilidade.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Seção. REsp 2.001.973-RS, Rel. Min. Og Fernandes, julgado em 10/09/2025, Recurso Repetitivo - Tema 1194 (Info 862).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 9</span>
-                <span class="status" id="status-9">Não respondida</span>
-            </div>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 4</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-4">Não respondida</span>
+</div>
 
-            <p class="enunciado">A configuração do delito de redução de trabalhadores à condição análoga à de escravo prescinde da demonstração de cerceamento físico da liberdade de ir e vir, bastando que a prova revele submissão a condições degradantes de trabalho, ainda que os empregados possam, em tese, deixar o local sem vigilância direta ou impedimento material à locomoção.</p>
+<p class="enunciado">Na hipótese de falecimento do titular de dispositivos eletrônicos contendo bens digitais protegidos por senha desconhecida dos herdeiros, a apuração do acervo transmissível deve ser feita em incidente processual específico, apensado ao inventário, com atuação de profissional dotado de expertise digital, cabendo ao juiz, em sigilo, classificar os conteúdos localizados e excluir da partilha aqueles que, embora armazenados no aparelho, revelem dados ou manifestações protegidos pela intimidade ou pelos direitos da personalidade do falecido ou de terceiros; nessa situação, não se exige ação autônoma nas vias ordinárias para a simples identificação, classificação e avaliação dos bens digitais.</p>
 
-            <div class="botoes">
-                <button onclick="responder(9, 'CERTO')">CERTO</button>
-                <button onclick="responder(9, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(4, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(4, 'ERRADO')">ERRADO</button>
+</div>
 
-            <div class="feedback" id="feedback-9">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>O art. 149 do Código Penal tutela a dignidade da pessoa humana no contexto laboral e não se limita à hipótese clássica de privação da liberdade por vigilância, cárcere ou impedimento físico de saída. A interpretação consolidada no julgado é no sentido de que a redução à condição análoga à de escravo pode se caracterizar por uma das formas típicas previstas no dispositivo, inclusive pela submissão a condições degradantes de trabalho, sem necessidade de prova de restrição da liberdade de locomoção.<br><br>Isso significa que a ausência de cárcere, de vigilância armada ou de impedimento material para abandonar o local não afasta, por si só, a tipicidade penal. No caso examinado, as circunstâncias fáticas — alojamentos improvisados sem piso, energia elétrica ou instalações sanitárias, uso de ônibus velho como dormitório, água imprópria armazenada em caminhão-pipa enferrujado, cozinha improvisada, sujeira generalizada e ausência de EPI — evidenciaram um quadro de degradação incompatível com padrões mínimos de dignidade e segurança do trabalho, suficiente para a incidência do tipo penal.<br><br>A tese é relevante porque afasta a leitura restritiva que condicionaria o crime exclusivamente à supressão da liberdade de locomoção. Em outras palavras, o núcleo típico não se esgota no constrangimento físico: a exploração laboral em ambiente degradante, por si, pode consumar o delito, desde que suficientemente grave e demonstrada nos autos.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 6ª Turma. REsp 2.204.503-BA, Rel. Min. Sebastião Reis Júnior, julgado em 9/9/2025 (Info 862).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 10</span>
-                <span class="status" id="status-10">Não respondida</span>
-            </div>
+<div class="feedback" id="feedback-4">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a solução processual construída para a hipótese de herança digital quando os herdeiros não conhecem a senha de acesso aos dispositivos do falecido. Nessa situação, não se trata de questão de alta indagação a justificar, por si só, a remessa obrigatória às vias ordinárias com base no art. 612 do CPC. Ao contrário, a providência adequada é a instauração de incidente de identificação, classificação e avaliação de bens digitais, paralelo e apensado ao inventário.<br><br>Esse incidente serve justamente para permitir a atuação judicial organizada diante do vácuo legislativo sobre a sucessão de ativos digitais, sem sacrificar a utilidade do inventário nem expor indevidamente conteúdos sensíveis. Por isso, o juiz pode nomear profissional com expertise digital — o chamado inventariante digital — para acessar os dados, catalogá-los e apresentar relatório detalhado sob sigilo. A partir desse relatório, compete ao magistrado definir o que integra o acervo hereditário e o que deve ser preservado por envolver intimidade, privacidade ou outros direitos da personalidade do falecido ou de terceiros.<br><br>A solução também afasta a ideia de acesso direto por provedores de serviços digitais ao conteúdo dos dispositivos, justamente para evitar violação de direitos fundamentais da personalidade. Em síntese, a identificação e a triagem dos bens digitais transmissíveis devem ocorrer no próprio contexto do inventário, por incidente específico, e não por ação autônoma como regra.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.124.424-SP, Rel. Min. Nancy Andrighi, julgado em 9/9/2025 (Info 862).</p>
+</div>
+</section>
 
-            <p class="enunciado">No crime de estupro, a configuração do dolo exige, além da vontade de constranger a vítima à prática de ato libidinoso mediante violência ou grave ameaça, a demonstração de especial fim de agir consistente na satisfação da lascívia do agente, de modo que a alegação de motivação corretiva ou disciplinar, se verossímil, afasta a tipicidade subjetiva da conduta.</p>
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="em agravo interno interposto contra decisão monocrática que não conheceu de recurso especial por intempestividade, a juntada posterior de documento apto a comprovar a suspensão do expediente forense local deve ser admitida, ainda que a comprovação não tenha sido realizada no ato de interposição do recurso, inclusive quando o recurso originário tenha sido protocolado antes da entrada em vigor da lei n. 14.939/2024, pois a disciplina do art. 1.003, § 6º, do cpc, em sua redação atual, incide no julgamento do agravo interno/regimental voltado a impugnar a negativa de seguimento fundada na ausência dessa comprovação. o enunciado está correto porque o entendimento consolidado passou a admitir a comprovação posterior do feriado local ou da suspensão de expediente forense, inclusive em sede de agravo interno/regimental, quando a controvérsia recursal versar sobre a tempestividade do recurso inicialmente inadmitido por falta dessa prova. a razão é que a lei n. 14.939/2024 conferiu nova redação ao art. 1.003, § 6º, do cpc, flexibilizando a exigência de comprovação no momento da interposição e permitindo que a demonstração seja feita posteriormente.
 
-            <div class="botoes">
-                <button onclick="responder(10, 'CERTO')">CERTO</button>
-                <button onclick="responder(10, 'ERRADO')">ERRADO</button>
-            </div>
+além disso, foi fixado que essa disciplina alcança também recursos interpostos antes da vigência da lei, de modo que, no julgamento dos agravos internos/regimentais contra decisões de admissibilidade baseadas exclusivamente na ausência de comprovação da suspensão do expediente forense, deve ser observada a nova sistemática. trata-se de orientação voltada a prestigiar a primazia do julgamento do mérito e a evitar o não conhecimento do recurso por vício formal sanável, especialmente quando a discussão se limita à demonstração de fato local apto a interferir na contagem do prazo.
 
-            <div class="feedback" id="feedback-10">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>O enunciado está incorreto porque o tipo penal do estupro não exige especial fim de agir voltado à satisfação da lascívia. O elemento subjetivo do art. 213 do Código Penal se satisfaz com a vontade livre e consciente de constranger a vítima, mediante violência ou grave ameaça, à prática de ato libidinoso. Assim, a finalidade íntima do agente — seja prazer sexual, humilhação, vingança, correção ou qualquer outra — não integra o dolo específico do delito.<br><br>No caso examinado, a defesa sustentava que o agente teria agido sem intenção sexual, mas com suposta motivação corretiva, buscando afastar o dolo. Essa tese foi rejeitada porque a motivação do comportamento é juridicamente irrelevante para a caracterização do estupro, desde que presentes o constrangimento e o ato libidinoso. Em outras palavras, não se exige que o agente queira “sentir prazer”; basta que queira impor à vítima a prática do ato libidinoso.<br><br>A interpretação é compatível com a estrutura do art. 213 do CP, que tutela a liberdade sexual e pune o constrangimento sexual violento ou ameaçador, independentemente do móvel psicológico do autor. Por isso, a alegação de finalidade disciplinar ou corretiva não descaracteriza o crime nem afasta a tipicidade subjetiva, se a conduta consistiu em submeter a vítima a ato libidinoso mediante violência.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 5ª Turma. REsp 2.211.166-MG, Rel. Min. Joel Ilan Paciornik, julgado em 12/8/2025 (Info 862).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 11</span>
-                <span class="status" id="status-11">Não respondida</span>
-            </div>
+a questão é tecnicamente sensível porque não se trata de mera reabertura indiscriminada de prazo recursal, mas de admitir a regularização documental em momento processual posterior, desde que a controvérsia esteja centrada na tempestividade e na prova do feriado local/suspensão de expediente. assim, a tese não amplia o prazo recursal em si, mas disciplina a forma de comprovação do fato interruptivo ou suspensivo relevante para a aferição da tempestividade. stj. 1ª turma. edcl no agint no aresp 2.285.064-sp, rel. min. paulo sérgio domingues, julgado em 18/8/2025 (info 862).">
 
-            <p class="enunciado">Em crime de ação penal pública condicionada à representação, a manifestação da vítima pode ser validamente exteriorizada por boletim de ocorrência eletrônico lavrado dentro do prazo decadencial, desde que o registro revele, de modo inequívoco, a vontade de ver o fato apurado, sendo desnecessária fórmula sacramental ou declaração formal autônoma; por isso, a posterior complementação presencial das informações, ainda que após o quinquídio decadencial, não invalida a representação já perfectibilizada.</p>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 5</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-5">Não respondida</span>
+</div>
 
-            <div class="botoes">
-                <button onclick="responder(11, 'CERTO')">CERTO</button>
-                <button onclick="responder(11, 'ERRADO')">ERRADO</button>
-            </div>
+<p class="enunciado">Em agravo interno interposto contra decisão monocrática que não conheceu de recurso especial por intempestividade, a juntada posterior de documento apto a comprovar a suspensão do expediente forense local deve ser admitida, ainda que a comprovação não tenha sido realizada no ato de interposição do recurso, inclusive quando o recurso originário tenha sido protocolado antes da entrada em vigor da Lei n. 14.939/2024, pois a disciplina do art. 1.003, § 6º, do CPC, em sua redação atual, incide no julgamento do agravo interno/regimental voltado a impugnar a negativa de seguimento fundada na ausência dessa comprovação.</p>
 
-            <div class="feedback" id="feedback-11">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A representação, nos crimes de ação penal pública condicionada, não está sujeita a solenidades rígidas ou a forma específica previamente determinada em lei. O ponto central é a inequívoca demonstração da vontade da vítima de provocar a persecução penal. Assim, se a vítima registra boletim de ocorrência eletrônico dentro do prazo decadencial de 6 meses e, nesse registro, descreve detalhadamente os fatos e identifica o suposto autor, esse ato pode ser compreendido como manifestação válida de representação.<br><br>No caso examinado, a defesa sustentava que o boletim eletrônico, desacompanhado de declaração expressa e formal, não bastaria para suprir a exigência da representação, o que levaria à decadência. Essa tese foi afastada porque o ordenamento não exige ritualismo excessivo para a representação: basta que a vontade de persecução seja clara e inequívoca. A posterior ida da vítima à delegacia para complementar informações, mesmo após o prazo decadencial, não descaracteriza a eficácia do ato já praticado tempestivamente, pois a representação já havia sido exteriorizada no prazo legal.<br><br>A conclusão é especialmente relevante em delitos como o estelionato, em que a persecução depende de representação da vítima. O entendimento prestigia a instrumentalidade das formas e evita que exigências meramente formais inviabilizem a tutela penal quando a vontade persecutória já foi manifestada de maneira suficiente no prazo legal.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 6ª Turma. AgRg no HC 1.005.298-SP, Rel. Min. Otávio de Almeida Toledo (Desembargador convocado do TJSP), julgado em 3/9/2025 (Info 862).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 12</span>
-                <span class="status" id="status-12">Não respondida</span>
-            </div>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(5, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(5, 'ERRADO')">ERRADO</button>
+</div>
 
-            <p class="enunciado">O contribuinte individual não cooperado que exerça atividade após a Lei n. 9.032/1995 pode ter reconhecido tempo de serviço especial para fins de aposentadoria, desde que demonstre, por outros meios idôneos de prova, a efetiva exposição habitual e permanente a agentes nocivos, sendo indevida a exigência de formulário emitido por empresa como condição indispensável à comprovação da especialidade.</p>
+<div class="feedback" id="feedback-5">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O enunciado está correto porque o entendimento consolidado passou a admitir a comprovação posterior do feriado local ou da suspensão de expediente forense, inclusive em sede de agravo interno/regimental, quando a controvérsia recursal versar sobre a tempestividade do recurso inicialmente inadmitido por falta dessa prova. A razão é que a Lei n. 14.939/2024 conferiu nova redação ao art. 1.003, § 6º, do CPC, flexibilizando a exigência de comprovação no momento da interposição e permitindo que a demonstração seja feita posteriormente.<br><br>Além disso, foi fixado que essa disciplina alcança também recursos interpostos antes da vigência da lei, de modo que, no julgamento dos agravos internos/regimentais contra decisões de admissibilidade baseadas exclusivamente na ausência de comprovação da suspensão do expediente forense, deve ser observada a nova sistemática. Trata-se de orientação voltada a prestigiar a primazia do julgamento do mérito e a evitar o não conhecimento do recurso por vício formal sanável, especialmente quando a discussão se limita à demonstração de fato local apto a interferir na contagem do prazo.<br><br>A questão é tecnicamente sensível porque não se trata de mera reabertura indiscriminada de prazo recursal, mas de admitir a regularização documental em momento processual posterior, desde que a controvérsia esteja centrada na tempestividade e na prova do feriado local/suspensão de expediente. Assim, a tese não amplia o prazo recursal em si, mas disciplina a forma de comprovação do fato interruptivo ou suspensivo relevante para a aferição da tempestividade.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Turma. EDcl no AgInt no AREsp 2.285.064-SP, Rel. Min. Paulo Sérgio Domingues, julgado em 18/8/2025 (Info 862).</p>
+</div>
+</section>
 
-            <div class="botoes">
-                <button onclick="responder(12, 'CERTO')">CERTO</button>
-                <button onclick="responder(12, 'ERRADO')">ERRADO</button>
-            </div>
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="em mandado de segurança impetrado para afastar a exigência de icms incidente sobre energia elétrica em alíquota majorada por lei estadual, quando a pretensão se dirige à inaplicabilidade da norma em relação a obrigações tributárias de trato sucessivo, o prazo decadencial de 120 dias deve ser contado da publicação da lei instituidora da majoração, ainda que a lesão se renove a cada cobrança mensal na fatura de consumo. a assertiva está incorreta porque, em hipóteses em que o mandado de segurança impugna lei ou ato normativo que interfere em obrigações tributárias sucessivas, não se aplica a lógica de contagem do prazo decadencial a partir da publicação da norma. nessa espécie de controvérsia, a lesão não se exaure no momento da edição da lei: ela se renova de forma contínua e objetiva a cada ato concreto de cobrança, como ocorre em cada fatura de energia elétrica com incidência do tributo na alíquota questionada.
 
-            <div class="feedback" id="feedback-12">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a orientação firmada no julgamento repetitivo: o contribuinte individual não cooperado não fica impedido, por sua própria condição contributiva, de obter o reconhecimento de tempo especial após a Lei n. 9.032/1995, desde que comprove a exposição a agentes nocivos. O ponto central do entendimento é afastar a leitura restritiva que condicionava a prova da atividade especial, necessariamente, a formulário emitido por empresa, exigência que se ajusta à realidade do segurado empregado, mas não pode ser automaticamente transplantada ao contribuinte individual.<br><br>Assim, para esse segurado, a especialidade pode ser demonstrada por outros meios de prova aptos a evidenciar a exposição aos agentes nocivos, sem que se imponha, como requisito absoluto, documento padronizado fornecido por empregador. A tese, porém, não dispensa a demonstração concreta da nocividade: permanece indispensável a prova da efetiva exposição, não bastando alegação genérica de exercício profissional em atividade potencialmente insalubre. O julgado, portanto, amplia o acesso à proteção previdenciária sem eliminar o ônus probatório quanto ao fato constitutivo do direito.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Seção. REsp 2.163.429-RS e REsp 2.163.998-RS, Rel. Min. Gurgel de Faria, julgados em 10/9/2025 (Recurso Repetitivo - Tema 1291) (Info 862).</p>
-            </div>
-        </section>
-        
+o ponto central é que a impetração possui natureza preventiva diante de ameaça atual, permanente e renovada de aplicação da norma impugnada. por isso, não há falar em decadência de 120 dias contados da edição da lei, pois o prazo do art. 23 da lei 12.016/2009 não incide nessa hipótese específica. em outras palavras, a cada cobrança indevida nasce nova possibilidade de impetração, justamente porque o ato coator se renova sucessivamente.
+
+a tese firmada afasta a leitura de que a simples existência da lei, por si só, deflagra o prazo decadencial para toda e qualquer impugnação por mandado de segurança. essa compreensão seria adequada apenas em situações de ato único e definitivo, mas não em obrigações tributárias sucessivas, nas quais a violação se projeta no tempo e se materializa repetidamente. stj. 1ª seção. resp 2.103.305-mg e resp 2.109.221-mg, rel. min. paulo sérgio domingues, julgados em 10/9/2025 (recurso repetitivo - temas 1237 e 1273) (info 862).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 6</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-6">Não respondida</span>
+</div>
+
+<p class="enunciado">Em mandado de segurança impetrado para afastar a exigência de ICMS incidente sobre energia elétrica em alíquota majorada por lei estadual, quando a pretensão se dirige à inaplicabilidade da norma em relação a obrigações tributárias de trato sucessivo, o prazo decadencial de 120 dias deve ser contado da publicação da lei instituidora da majoração, ainda que a lesão se renove a cada cobrança mensal na fatura de consumo.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(6, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(6, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-6">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque, em hipóteses em que o mandado de segurança impugna lei ou ato normativo que interfere em obrigações tributárias sucessivas, não se aplica a lógica de contagem do prazo decadencial a partir da publicação da norma. Nessa espécie de controvérsia, a lesão não se exaure no momento da edição da lei: ela se renova de forma contínua e objetiva a cada ato concreto de cobrança, como ocorre em cada fatura de energia elétrica com incidência do tributo na alíquota questionada.<br><br>O ponto central é que a impetração possui natureza preventiva diante de ameaça atual, permanente e renovada de aplicação da norma impugnada. Por isso, não há falar em decadência de 120 dias contados da edição da lei, pois o prazo do art. 23 da Lei 12.016/2009 não incide nessa hipótese específica. Em outras palavras, a cada cobrança indevida nasce nova possibilidade de impetração, justamente porque o ato coator se renova sucessivamente.<br><br>A tese firmada afasta a leitura de que a simples existência da lei, por si só, deflagra o prazo decadencial para toda e qualquer impugnação por mandado de segurança. Essa compreensão seria adequada apenas em situações de ato único e definitivo, mas não em obrigações tributárias sucessivas, nas quais a violação se projeta no tempo e se materializa repetidamente.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Seção. REsp 2.103.305-MG e REsp 2.109.221-MG, Rel. Min. Paulo Sérgio Domingues, julgados em 10/9/2025 (Recurso Repetitivo - Temas 1237 e 1273) (Info 862).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="em ação coletiva proposta por sindicato em favor de determinada categoria de servidores, a sentença transitada em julgado que reconhece o direito ao pagamento de diferenças remuneratórias não pode ser executada pelos sucessores de servidor que já havia falecido antes do ajuizamento da demanda, ainda que o crédito discutido se refira a período em que ele estava em atividade, salvo se houver previsão expressa de sua inclusão no título judicial. a assertiva está correta porque o direito reconhecido na ação coletiva não se projeta automaticamente aos sucessores de servidor falecido antes da propositura da demanda. nessa hipótese, a morte anterior ao ajuizamento rompe o vínculo jurídico do falecido com a categoria profissional, com a entidade sindical e com a própria relação de substituição processual que legitima a tutela coletiva.
+
+o ponto central é que, embora o crédito discutido possa se referir a período em que o servidor estava vivo e em exercício, isso não basta para autorizar, por si só, a execução pelos herdeiros. a legitimidade para a execução do título coletivo depende de o substituído integrar a categoria abrangida pela substituição processual no momento relevante para a formação da tutela coletiva, o que não ocorre quando o óbito é anterior à própria propositura da ação.
+
+assim, os sucessores não são beneficiados automaticamente pela sentença coletiva condenatória ao pagamento de diferenças, pois não possuem, por derivação, a qualidade de membros da categoria substituída. a exceção admitida é a hipótese de o título judicial contemplá-los expressamente, situação em que a própria decisão coletiva estende de forma inequívoca os efeitos aos sucessores.
+
+em termos de prova, a armadilha costuma estar na ideia de que “se o servidor tinha direito em vida, o espólio ou os herdeiros sempre podem executar”. o entendimento fixado afasta essa conclusão automática: a sucessão hereditária, por si só, não substitui a condição de integrante da categoria representada na ação coletiva, salvo previsão expressa no título. stj. 1ª seção. resp 2.144.140-ce e resp 2.147.137-ce, rel. min. maria thereza de assis moura, julgados em 10/9/2025 (recurso repetitivo - tema 1309) (info 862).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 7</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-7">Não respondida</span>
+</div>
+
+<p class="enunciado">Em ação coletiva proposta por sindicato em favor de determinada categoria de servidores, a sentença transitada em julgado que reconhece o direito ao pagamento de diferenças remuneratórias não pode ser executada pelos sucessores de servidor que já havia falecido antes do ajuizamento da demanda, ainda que o crédito discutido se refira a período em que ele estava em atividade, salvo se houver previsão expressa de sua inclusão no título judicial.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(7, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(7, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-7">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque o direito reconhecido na ação coletiva não se projeta automaticamente aos sucessores de servidor falecido antes da propositura da demanda. Nessa hipótese, a morte anterior ao ajuizamento rompe o vínculo jurídico do falecido com a categoria profissional, com a entidade sindical e com a própria relação de substituição processual que legitima a tutela coletiva.<br><br>O ponto central é que, embora o crédito discutido possa se referir a período em que o servidor estava vivo e em exercício, isso não basta para autorizar, por si só, a execução pelos herdeiros. A legitimidade para a execução do título coletivo depende de o substituído integrar a categoria abrangida pela substituição processual no momento relevante para a formação da tutela coletiva, o que não ocorre quando o óbito é anterior à própria propositura da ação.<br><br>Assim, os sucessores não são beneficiados automaticamente pela sentença coletiva condenatória ao pagamento de diferenças, pois não possuem, por derivação, a qualidade de membros da categoria substituída. A exceção admitida é a hipótese de o título judicial contemplá-los expressamente, situação em que a própria decisão coletiva estende de forma inequívoca os efeitos aos sucessores.<br><br>Em termos de prova, a armadilha costuma estar na ideia de que “se o servidor tinha direito em vida, o espólio ou os herdeiros sempre podem executar”. O entendimento fixado afasta essa conclusão automática: a sucessão hereditária, por si só, não substitui a condição de integrante da categoria representada na ação coletiva, salvo previsão expressa no título.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Seção. REsp 2.144.140-CE e REsp 2.147.137-CE, Rel. Min. Maria Thereza de Assis Moura, julgados em 10/9/2025 (Recurso Repetitivo - Tema 1309) (Info 862).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a atenuante genérica da confissão espontânea incide mesmo quando o magistrado não a tenha utilizado para formar seu convencimento e ainda que haja outros elementos probatórios suficientes para a condenação, mas essa benesse não se aplica se houver retratação integral do acusado, salvo na hipótese em que a confissão retratada tenha efetivamente contribuído para a apuração dos fatos; ademais, quando o agente admite apenas a posse de droga para consumo próprio, negando o tráfico, a atenuação é cabível, porém em patamar inferior ao devido à confissão plena, não podendo ser tratada como circunstância preponderante no concurso com agravantes. o enunciado reproduz a orientação firmada no tema 1194, que atualizou a compreensão sobre a confissão espontânea no art. 65, iii, d, do código penal. a atenuante deixou de depender da efetiva utilização da confissão na formação do convencimento judicial, bastando que tenha havido admissão voluntária do fato, ainda que existam outros elementos de prova suficientes para sustentar a condenação.
+
+o julgado também delimitou uma exceção relevante: se houver retratação, a atenuante não incide, salvo quando a confissão retratada tiver servido à apuração dos fatos. essa ressalva é importante porque preserva a utilidade processual da admissão inicial, evitando que a retratação elimine automaticamente o benefício quando a própria confissão tenha contribuído para esclarecer a dinâmica delitiva.
+
+no tocante aos crimes da lei de drogas, a corte consolidou que a admissão de posse ou propriedade da substância para uso próprio, com negativa da traficância, não afasta por completo a atenuante. ao contrário, ela é reconhecida, mas em proporção inferior à da confissão plena, justamente porque a admissão é parcial e não alcança todos os elementos do tipo imputado. além disso, o entendimento expressamente veda que essa atenuação seja tratada como preponderante no concurso com agravantes quando o fato confessado corresponder a tipo com pena menor ou a circunstância excludente da tipicidade, da ilicitude ou da culpabilidade. stj. 3ª seção. resp 2.001.973-rs, rel. min. og fernandes, julgado em 10/09/2025, recurso repetitivo - tema 1194 (info 862).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 8</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-8">Não respondida</span>
+</div>
+
+<p class="enunciado">A atenuante genérica da confissão espontânea incide mesmo quando o magistrado não a tenha utilizado para formar seu convencimento e ainda que haja outros elementos probatórios suficientes para a condenação, mas essa benesse não se aplica se houver retratação integral do acusado, salvo na hipótese em que a confissão retratada tenha efetivamente contribuído para a apuração dos fatos; ademais, quando o agente admite apenas a posse de droga para consumo próprio, negando o tráfico, a atenuação é cabível, porém em patamar inferior ao devido à confissão plena, não podendo ser tratada como circunstância preponderante no concurso com agravantes.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(8, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(8, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-8">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O enunciado reproduz a orientação firmada no Tema 1194, que atualizou a compreensão sobre a confissão espontânea no art. 65, III, d, do Código Penal. A atenuante deixou de depender da efetiva utilização da confissão na formação do convencimento judicial, bastando que tenha havido admissão voluntária do fato, ainda que existam outros elementos de prova suficientes para sustentar a condenação.<br><br>O julgado também delimitou uma exceção relevante: se houver retratação, a atenuante não incide, salvo quando a confissão retratada tiver servido à apuração dos fatos. Essa ressalva é importante porque preserva a utilidade processual da admissão inicial, evitando que a retratação elimine automaticamente o benefício quando a própria confissão tenha contribuído para esclarecer a dinâmica delitiva.<br><br>No tocante aos crimes da Lei de Drogas, a Corte consolidou que a admissão de posse ou propriedade da substância para uso próprio, com negativa da traficância, não afasta por completo a atenuante. Ao contrário, ela é reconhecida, mas em proporção inferior à da confissão plena, justamente porque a admissão é parcial e não alcança todos os elementos do tipo imputado. Além disso, o entendimento expressamente veda que essa atenuação seja tratada como preponderante no concurso com agravantes quando o fato confessado corresponder a tipo com pena menor ou a circunstância excludente da tipicidade, da ilicitude ou da culpabilidade.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Seção. REsp 2.001.973-RS, Rel. Min. Og Fernandes, julgado em 10/09/2025, Recurso Repetitivo - Tema 1194 (Info 862).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a configuração do delito de redução de trabalhadores à condição análoga à de escravo prescinde da demonstração de cerceamento físico da liberdade de ir e vir, bastando que a prova revele submissão a condições degradantes de trabalho, ainda que os empregados possam, em tese, deixar o local sem vigilância direta ou impedimento material à locomoção. o art. 149 do código penal tutela a dignidade da pessoa humana no contexto laboral e não se limita à hipótese clássica de privação da liberdade por vigilância, cárcere ou impedimento físico de saída. a interpretação consolidada no julgado é no sentido de que a redução à condição análoga à de escravo pode se caracterizar por uma das formas típicas previstas no dispositivo, inclusive pela submissão a condições degradantes de trabalho, sem necessidade de prova de restrição da liberdade de locomoção.
+
+isso significa que a ausência de cárcere, de vigilância armada ou de impedimento material para abandonar o local não afasta, por si só, a tipicidade penal. no caso examinado, as circunstâncias fáticas — alojamentos improvisados sem piso, energia elétrica ou instalações sanitárias, uso de ônibus velho como dormitório, água imprópria armazenada em caminhão-pipa enferrujado, cozinha improvisada, sujeira generalizada e ausência de epi — evidenciaram um quadro de degradação incompatível com padrões mínimos de dignidade e segurança do trabalho, suficiente para a incidência do tipo penal.
+
+a tese é relevante porque afasta a leitura restritiva que condicionaria o crime exclusivamente à supressão da liberdade de locomoção. em outras palavras, o núcleo típico não se esgota no constrangimento físico: a exploração laboral em ambiente degradante, por si, pode consumar o delito, desde que suficientemente grave e demonstrada nos autos. stj. 6ª turma. resp 2.204.503-ba, rel. min. sebastião reis júnior, julgado em 9/9/2025 (info 862).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 9</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-9">Não respondida</span>
+</div>
+
+<p class="enunciado">A configuração do delito de redução de trabalhadores à condição análoga à de escravo prescinde da demonstração de cerceamento físico da liberdade de ir e vir, bastando que a prova revele submissão a condições degradantes de trabalho, ainda que os empregados possam, em tese, deixar o local sem vigilância direta ou impedimento material à locomoção.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(9, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(9, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-9">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O art. 149 do Código Penal tutela a dignidade da pessoa humana no contexto laboral e não se limita à hipótese clássica de privação da liberdade por vigilância, cárcere ou impedimento físico de saída. A interpretação consolidada no julgado é no sentido de que a redução à condição análoga à de escravo pode se caracterizar por uma das formas típicas previstas no dispositivo, inclusive pela submissão a condições degradantes de trabalho, sem necessidade de prova de restrição da liberdade de locomoção.<br><br>Isso significa que a ausência de cárcere, de vigilância armada ou de impedimento material para abandonar o local não afasta, por si só, a tipicidade penal. No caso examinado, as circunstâncias fáticas — alojamentos improvisados sem piso, energia elétrica ou instalações sanitárias, uso de ônibus velho como dormitório, água imprópria armazenada em caminhão-pipa enferrujado, cozinha improvisada, sujeira generalizada e ausência de EPI — evidenciaram um quadro de degradação incompatível com padrões mínimos de dignidade e segurança do trabalho, suficiente para a incidência do tipo penal.<br><br>A tese é relevante porque afasta a leitura restritiva que condicionaria o crime exclusivamente à supressão da liberdade de locomoção. Em outras palavras, o núcleo típico não se esgota no constrangimento físico: a exploração laboral em ambiente degradante, por si, pode consumar o delito, desde que suficientemente grave e demonstrada nos autos.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 6ª Turma. REsp 2.204.503-BA, Rel. Min. Sebastião Reis Júnior, julgado em 9/9/2025 (Info 862).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="no crime de estupro, a configuração do dolo exige, além da vontade de constranger a vítima à prática de ato libidinoso mediante violência ou grave ameaça, a demonstração de especial fim de agir consistente na satisfação da lascívia do agente, de modo que a alegação de motivação corretiva ou disciplinar, se verossímil, afasta a tipicidade subjetiva da conduta. o enunciado está incorreto porque o tipo penal do estupro não exige especial fim de agir voltado à satisfação da lascívia. o elemento subjetivo do art. 213 do código penal se satisfaz com a vontade livre e consciente de constranger a vítima, mediante violência ou grave ameaça, à prática de ato libidinoso. assim, a finalidade íntima do agente — seja prazer sexual, humilhação, vingança, correção ou qualquer outra — não integra o dolo específico do delito.
+
+no caso examinado, a defesa sustentava que o agente teria agido sem intenção sexual, mas com suposta motivação corretiva, buscando afastar o dolo. essa tese foi rejeitada porque a motivação do comportamento é juridicamente irrelevante para a caracterização do estupro, desde que presentes o constrangimento e o ato libidinoso. em outras palavras, não se exige que o agente queira “sentir prazer”; basta que queira impor à vítima a prática do ato libidinoso.
+
+a interpretação é compatível com a estrutura do art. 213 do cp, que tutela a liberdade sexual e pune o constrangimento sexual violento ou ameaçador, independentemente do móvel psicológico do autor. por isso, a alegação de finalidade disciplinar ou corretiva não descaracteriza o crime nem afasta a tipicidade subjetiva, se a conduta consistiu em submeter a vítima a ato libidinoso mediante violência. stj. 5ª turma. resp 2.211.166-mg, rel. min. joel ilan paciornik, julgado em 12/8/2025 (info 862).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 10</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-10">Não respondida</span>
+</div>
+
+<p class="enunciado">No crime de estupro, a configuração do dolo exige, além da vontade de constranger a vítima à prática de ato libidinoso mediante violência ou grave ameaça, a demonstração de especial fim de agir consistente na satisfação da lascívia do agente, de modo que a alegação de motivação corretiva ou disciplinar, se verossímil, afasta a tipicidade subjetiva da conduta.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(10, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(10, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-10">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O enunciado está incorreto porque o tipo penal do estupro não exige especial fim de agir voltado à satisfação da lascívia. O elemento subjetivo do art. 213 do Código Penal se satisfaz com a vontade livre e consciente de constranger a vítima, mediante violência ou grave ameaça, à prática de ato libidinoso. Assim, a finalidade íntima do agente — seja prazer sexual, humilhação, vingança, correção ou qualquer outra — não integra o dolo específico do delito.<br><br>No caso examinado, a defesa sustentava que o agente teria agido sem intenção sexual, mas com suposta motivação corretiva, buscando afastar o dolo. Essa tese foi rejeitada porque a motivação do comportamento é juridicamente irrelevante para a caracterização do estupro, desde que presentes o constrangimento e o ato libidinoso. Em outras palavras, não se exige que o agente queira “sentir prazer”; basta que queira impor à vítima a prática do ato libidinoso.<br><br>A interpretação é compatível com a estrutura do art. 213 do CP, que tutela a liberdade sexual e pune o constrangimento sexual violento ou ameaçador, independentemente do móvel psicológico do autor. Por isso, a alegação de finalidade disciplinar ou corretiva não descaracteriza o crime nem afasta a tipicidade subjetiva, se a conduta consistiu em submeter a vítima a ato libidinoso mediante violência.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 5ª Turma. REsp 2.211.166-MG, Rel. Min. Joel Ilan Paciornik, julgado em 12/8/2025 (Info 862).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="ECA"
+data-texto="em crime de ação penal pública condicionada à representação, a manifestação da vítima pode ser validamente exteriorizada por boletim de ocorrência eletrônico lavrado dentro do prazo decadencial, desde que o registro revele, de modo inequívoco, a vontade de ver o fato apurado, sendo desnecessária fórmula sacramental ou declaração formal autônoma; por isso, a posterior complementação presencial das informações, ainda que após o quinquídio decadencial, não invalida a representação já perfectibilizada. a representação, nos crimes de ação penal pública condicionada, não está sujeita a solenidades rígidas ou a forma específica previamente determinada em lei. o ponto central é a inequívoca demonstração da vontade da vítima de provocar a persecução penal. assim, se a vítima registra boletim de ocorrência eletrônico dentro do prazo decadencial de 6 meses e, nesse registro, descreve detalhadamente os fatos e identifica o suposto autor, esse ato pode ser compreendido como manifestação válida de representação.
+
+no caso examinado, a defesa sustentava que o boletim eletrônico, desacompanhado de declaração expressa e formal, não bastaria para suprir a exigência da representação, o que levaria à decadência. essa tese foi afastada porque o ordenamento não exige ritualismo excessivo para a representação: basta que a vontade de persecução seja clara e inequívoca. a posterior ida da vítima à delegacia para complementar informações, mesmo após o prazo decadencial, não descaracteriza a eficácia do ato já praticado tempestivamente, pois a representação já havia sido exteriorizada no prazo legal.
+
+a conclusão é especialmente relevante em delitos como o estelionato, em que a persecução depende de representação da vítima. o entendimento prestigia a instrumentalidade das formas e evita que exigências meramente formais inviabilizem a tutela penal quando a vontade persecutória já foi manifestada de maneira suficiente no prazo legal. stj. 6ª turma. agrg no hc 1.005.298-sp, rel. min. otávio de almeida toledo (desembargador convocado do tjsp), julgado em 3/9/2025 (info 862).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 11</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-11">Não respondida</span>
+</div>
+
+<p class="enunciado">Em crime de ação penal pública condicionada à representação, a manifestação da vítima pode ser validamente exteriorizada por boletim de ocorrência eletrônico lavrado dentro do prazo decadencial, desde que o registro revele, de modo inequívoco, a vontade de ver o fato apurado, sendo desnecessária fórmula sacramental ou declaração formal autônoma; por isso, a posterior complementação presencial das informações, ainda que após o quinquídio decadencial, não invalida a representação já perfectibilizada.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(11, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(11, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-11">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A representação, nos crimes de ação penal pública condicionada, não está sujeita a solenidades rígidas ou a forma específica previamente determinada em lei. O ponto central é a inequívoca demonstração da vontade da vítima de provocar a persecução penal. Assim, se a vítima registra boletim de ocorrência eletrônico dentro do prazo decadencial de 6 meses e, nesse registro, descreve detalhadamente os fatos e identifica o suposto autor, esse ato pode ser compreendido como manifestação válida de representação.<br><br>No caso examinado, a defesa sustentava que o boletim eletrônico, desacompanhado de declaração expressa e formal, não bastaria para suprir a exigência da representação, o que levaria à decadência. Essa tese foi afastada porque o ordenamento não exige ritualismo excessivo para a representação: basta que a vontade de persecução seja clara e inequívoca. A posterior ida da vítima à delegacia para complementar informações, mesmo após o prazo decadencial, não descaracteriza a eficácia do ato já praticado tempestivamente, pois a representação já havia sido exteriorizada no prazo legal.<br><br>A conclusão é especialmente relevante em delitos como o estelionato, em que a persecução depende de representação da vítima. O entendimento prestigia a instrumentalidade das formas e evita que exigências meramente formais inviabilizem a tutela penal quando a vontade persecutória já foi manifestada de maneira suficiente no prazo legal.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 6ª Turma. AgRg no HC 1.005.298-SP, Rel. Min. Otávio de Almeida Toledo (Desembargador convocado do TJSP), julgado em 3/9/2025 (Info 862).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="o contribuinte individual não cooperado que exerça atividade após a lei n. 9.032/1995 pode ter reconhecido tempo de serviço especial para fins de aposentadoria, desde que demonstre, por outros meios idôneos de prova, a efetiva exposição habitual e permanente a agentes nocivos, sendo indevida a exigência de formulário emitido por empresa como condição indispensável à comprovação da especialidade. a assertiva está correta porque reproduz a orientação firmada no julgamento repetitivo: o contribuinte individual não cooperado não fica impedido, por sua própria condição contributiva, de obter o reconhecimento de tempo especial após a lei n. 9.032/1995, desde que comprove a exposição a agentes nocivos. o ponto central do entendimento é afastar a leitura restritiva que condicionava a prova da atividade especial, necessariamente, a formulário emitido por empresa, exigência que se ajusta à realidade do segurado empregado, mas não pode ser automaticamente transplantada ao contribuinte individual.
+
+assim, para esse segurado, a especialidade pode ser demonstrada por outros meios de prova aptos a evidenciar a exposição aos agentes nocivos, sem que se imponha, como requisito absoluto, documento padronizado fornecido por empregador. a tese, porém, não dispensa a demonstração concreta da nocividade: permanece indispensável a prova da efetiva exposição, não bastando alegação genérica de exercício profissional em atividade potencialmente insalubre. o julgado, portanto, amplia o acesso à proteção previdenciária sem eliminar o ônus probatório quanto ao fato constitutivo do direito. stj. 1ª seção. resp 2.163.429-rs e resp 2.163.998-rs, rel. min. gurgel de faria, julgados em 10/9/2025 (recurso repetitivo - tema 1291) (info 862).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 12</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-12">Não respondida</span>
+</div>
+
+<p class="enunciado">O contribuinte individual não cooperado que exerça atividade após a Lei n. 9.032/1995 pode ter reconhecido tempo de serviço especial para fins de aposentadoria, desde que demonstre, por outros meios idôneos de prova, a efetiva exposição habitual e permanente a agentes nocivos, sendo indevida a exigência de formulário emitido por empresa como condição indispensável à comprovação da especialidade.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(12, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(12, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-12">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a orientação firmada no julgamento repetitivo: o contribuinte individual não cooperado não fica impedido, por sua própria condição contributiva, de obter o reconhecimento de tempo especial após a Lei n. 9.032/1995, desde que comprove a exposição a agentes nocivos. O ponto central do entendimento é afastar a leitura restritiva que condicionava a prova da atividade especial, necessariamente, a formulário emitido por empresa, exigência que se ajusta à realidade do segurado empregado, mas não pode ser automaticamente transplantada ao contribuinte individual.<br><br>Assim, para esse segurado, a especialidade pode ser demonstrada por outros meios de prova aptos a evidenciar a exposição aos agentes nocivos, sem que se imponha, como requisito absoluto, documento padronizado fornecido por empregador. A tese, porém, não dispensa a demonstração concreta da nocividade: permanece indispensável a prova da efetiva exposição, não bastando alegação genérica de exercício profissional em atividade potencialmente insalubre. O julgado, portanto, amplia o acesso à proteção previdenciária sem eliminar o ônus probatório quanto ao fato constitutivo do direito.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Seção. REsp 2.163.429-RS e REsp 2.163.998-RS, Rel. Min. Gurgel de Faria, julgados em 10/9/2025 (Recurso Repetitivo - Tema 1291) (Info 862).</p>
+</div>
+</section>
 
 </div>
 
 <script>
-const totalQuestoes = 12;
-let respostas = JSON.parse(localStorage.getItem(location.pathname + "_respostas") || "{}");
+const storageKey = location.pathname + "_respostas";
+let respostas = JSON.parse(localStorage.getItem(storageKey) || "{}");
 
-function atualizarPainel() {
-    const respondidas = Object.keys(respostas).length;
-    let acertos = 0;
-    let erros = 0;
-
-    for (const key in respostas) {
-        if (respostas[key].correto) acertos++;
-        else erros++;
-    }
-
-    document.getElementById("respondidas").textContent = respondidas;
-    document.getElementById("acertos").textContent = acertos;
-    document.getElementById("erros").textContent = erros;
+function destacar(t){
+ if(t==="CERTO") return '<span class="gabarito-certo">CERTO</span>';
+ if(t==="ERRADO") return '<span class="gabarito-errado">ERRADO</span>';
+ return t;
 }
 
-function responder(numero, resposta) {
-    const card = document.querySelectorAll(".questao")[numero - 1];
-    const gabarito = card.dataset.gabarito;
-    const correto = resposta === gabarito;
-
-    respostas[numero] = {
-        resposta,
-        correto
-    };
-
-    localStorage.setItem(location.pathname + "_respostas", JSON.stringify(respostas));
-
-    mostrarFeedback(numero);
-    atualizarPainel();
+function responder(numero, resposta){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const gabarito=card.dataset.gabarito;
+ const correto=resposta===gabarito;
+ respostas[numero]={resposta,correto};
+ localStorage.setItem(storageKey, JSON.stringify(respostas));
+ mostrarFeedback(numero);
+ atualizarPainel();
+ filtrar();
 }
 
-function mostrarFeedback(numero) {
-    const card = document.querySelectorAll(".questao")[numero - 1];
-    const feedback = document.getElementById("feedback-" + numero);
-    const status = document.getElementById("status-" + numero);
-    const resultado = feedback.querySelector(".resultado");
-
-    const dados = respostas[numero];
-
-    if (!dados) return;
-
-    feedback.style.display = "block";
-    feedback.classList.remove("correto", "errado");
-
-    if (dados.correto) {
-        feedback.classList.add("correto");
-        resultado.textContent = "Você acertou. A resposta é " + card.dataset.gabarito + ".";
-        status.textContent = "Respondida — acerto";
-        status.style.color = "var(--green)";
-    } else {
-        feedback.classList.add("errado");
-        resultado.textContent = "Você errou. O gabarito é " + card.dataset.gabarito + ".";
-        status.textContent = "Respondida — erro";
-        status.style.color = "var(--red)";
-    }
+function mostrarFeedback(numero){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const feedback=document.getElementById("feedback-"+numero);
+ const status=document.getElementById("status-"+numero);
+ const resultado=feedback.querySelector(".resultado");
+ const gabarito=card.dataset.gabarito;
+ const dados=respostas[numero];
+ if(!dados) return;
+ feedback.style.display="block";
+ feedback.classList.remove("correto","errado");
+ if(dados.correto){
+   feedback.classList.add("correto");
+   resultado.innerHTML="Você acertou. A resposta é "+destacar(gabarito)+".";
+   status.textContent="Respondida — acerto";
+   status.style.color="var(--green)";
+ } else {
+   feedback.classList.add("errado");
+   resultado.innerHTML="Você errou. O gabarito é "+destacar(gabarito)+".";
+   status.textContent="Respondida — erro";
+   status.style.color="var(--red)";
+ }
 }
 
-function restaurar() {
-    for (const key in respostas) {
-        mostrarFeedback(Number(key));
-    }
-    atualizarPainel();
+function atualizarPainel(){
+ let respondidas=0, acertos=0, erros=0;
+ for(const k in respostas){
+   respondidas++;
+   if(respostas[k].correto) acertos++; else erros++;
+ }
+ document.getElementById("respondidas").textContent=respondidas;
+ document.getElementById("acertos").textContent=acertos;
+ document.getElementById("erros").textContent=erros;
+ document.getElementById("visiveis").textContent=document.querySelectorAll(".questao:not(.oculta)").length;
 }
 
-function reiniciar() {
-    if (!confirm("Deseja reiniciar este simulado?")) return;
-    localStorage.removeItem(location.pathname + "_respostas");
-    location.reload();
+function filtrar(){
+ const busca=document.getElementById("busca").value.trim().toLowerCase();
+ const disciplina=document.getElementById("disciplina").value;
+ const statusFiltro=document.getElementById("statusFiltro").value;
+ const cards=Array.from(document.querySelectorAll(".questao"));
+ let vis=0;
+ cards.forEach((card,idx)=>{
+   const n=idx+1;
+   const texto=card.dataset.texto||"";
+   const disc=card.dataset.disciplina||"";
+   const r=respostas[n];
+   let passaStatus=true;
+   if(statusFiltro==="nao") passaStatus=!r;
+   if(statusFiltro==="acerto") passaStatus=r && r.correto;
+   if(statusFiltro==="erro") passaStatus=r && !r.correto;
+   const ok=(!busca||texto.includes(busca)) && (!disciplina||disc===disciplina) && passaStatus;
+   card.classList.toggle("oculta", !ok);
+   if(ok) vis++;
+ });
+ document.getElementById("sem-resultados").style.display=vis===0?"block":"none";
+ atualizarPainel();
+}
+
+function reiniciar(){
+ if(!confirm("Deseja reiniciar este simulado?")) return;
+ localStorage.removeItem(storageKey);
+ location.reload();
+}
+
+function restaurar(){
+ for(const k in respostas) mostrarFeedback(Number(k));
+ filtrar();
+ atualizarPainel();
 }
 
 restaurar();
 </script>
-
 </body>
 </html>

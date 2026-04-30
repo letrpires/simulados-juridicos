@@ -1,0 +1,239 @@
+ 
+Informativo 1186-STF (26/08/2025) – Márcio André Lopes Cavalcante   |  1 
+ 
+Informativo comentado: 
+ 
+Informativo 1186-STF (RESUMIDO) 
+Márcio André Lopes Cavalcante 
+ 
+ 
+ 
+ 
+DIREITO CONSTITUCIONAL 
+ 
+DIREITOS E GARANTIAS FUNDAMENTAIS 
+Não há omissão inconstitucional quanto à regulamentação do art. 245 da Constituição, pois cabe 
+ao legislador, em todas as esferas federativas, definir progressivamente as formas de assistência 
+social aos herdeiros e dependentes carentes de vítimas de crimes dolosos 
+ 
+ODS 1 
+De acordo com o art. 245 da CF/88:  
+Art. 245. A lei disporá sobre as hipóteses e condições em que o Poder Público dará assistência 
+aos herdeiros e dependentes carentes de pessoas vitimadas por crime doloso, sem prejuízo da 
+responsabilidade civil do autor do ilícito. 
+Não há omissão constitucional na regulamentação da assistência aos herdeiros e dependentes 
+carentes de pessoas vitimadas por crimes dolosos (art. 245, CF/88), pois não há inércia 
+deliberativa do poder público no oferecimento de respostas às necessidades sociais e 
+econômicas oriundas do cometimento de crimes. 
+O legislador ordinário, em todas as esferas de governo, tem trabalhado pela elaboração e 
+implantação gradativa de políticas públicas de caráter social e econômico para amparar as 
+vítimas de crimes pertencentes a grupos mais vulneráveis. 
+O art. 245 não impõe a instituição de benefício pecuniário, ou de qualquer outra prestação 
+material específica, cabendo ao legislador, no espaço de conformação da realidade outorgado 
+pela Constituição, decidir sobre a forma de assistência a ser prestada às vítimas de crimes e a 
+seus familiares. 
+STF. Plenário. ADO 62/DF, Rel. Min. Dias Toffoli, julgado em 19/08/2025 (Info 1186). 
+ 
+PODER EXECUTIVO 
+É inconstitucional a suspensão dos efeitos financeiros de lei estadual mediante decreto do 
+Governador por considerá-la claramente inconstitucional 
+ 
+Importante!!! 
+ 
+ODS 16 
+Caso concreto: a Lei nº 2.853/2014, do Estado do Tocantins, aumentou os subsídios dos 
+Delegados de Polícia. O Governador editou o Decreto nº 5.194/2015 suspendendo os efeitos 
+financeiros dessa lei sob a alegação de que ela não observou exigências constitucionais e da 
+Lei de Responsabilidade Fiscal, como a necessidade de dotação orçamentária e estudos de 
+impacto. O decreto estabeleceu que a suspensão vigoraria até decisão judicial sobre a 
+constitucionalidade da norma. 
+Um partido político ajuizou ADI contra o ato do Governador afirmando que um decreto não 
+poderia suspender lei aprovada pela Assembleia Legislativa, sob pena de violar princípios 
+
+                                                          Informativo                       
+comentado 
+ 
+ 
+ 
+ 
+Informativo 1186-STF (26/08/2025) – Márcio André Lopes Cavalcante   |  2 
+como a separação de poderes, a legalidade e a hierarquia das normas. Também apontou 
+afronta a direitos adquiridos e à irredutibilidade de vencimentos. O Governador, por sua vez, 
+defendeu que se tratava de um dever de recusar a aplicação de norma inconstitucional, 
+amparando-se na Súmula 473 do STF, e que o reajuste sequer teria se incorporado ao 
+patrimônio dos servidores. 
+O STF julgou procedente o pedido na ADI e declarou o decreto inconstitucional por vício 
+formal e material, entendendo que o Executivo não tem competência para suspender 
+unilateralmente a eficácia de lei, ainda que suspeita de inconstitucionalidade.  
+Vale ressaltar, contudo, que atendendo pedido formulado pelo PGR durante o julgamento, o 
+STF também julgou inconstitucional a própria Lei nº 2.853/2014.  
+Por razões de segurança jurídica, os efeitos da decisão foram modulados, preservando atos já 
+praticados com base no decreto. 
+STF. Plenário. ADI 5.297/TO, Rel. Min. Luiz Fux, julgado em 14/08/2025 (Info 1186). 
+ 
+PROCESSO LEGISLATIVO 
+É formalmente inconstitucional dispositivo oriundo de emenda proposta pela Casa revisora a 
+projeto de lei que altera o conteúdo original da proposição, mas que não retornou à Casa 
+iniciadora para sua confirmação 
+ 
+Caso concreto: a Lei nº 13.714/2018 alterou a Lei Orgânica da Assistência Social (LOAS) para 
+padronizar a identidade visual do SUAS e assegurar acesso à saúde para pessoas em situação 
+de vulnerabilidade, mesmo sem comprovante de residência ou inscrição no SUS.  
+Um partido ajuizou uma ADI contra a Lei, alegando que o projeto de lei, iniciado na Câmara dos 
+Deputados, sofreu emenda substancial no Senado (a inclusão do art. 2º) sem retornar à 
+Câmara para nova votação, o que viola o parágrafo único do art. 65 da CF/88. A modificação 
+alterava significativamente o conteúdo original ao garantir acesso à saúde sem comprovação 
+documental, o que exigiria reavaliação pela Casa iniciadora. 
+O STF reconheceu a inconstitucionalidade formal do art. 2º da lei. A Corte entendeu que não se 
+tratava de mera questão regimental interna das Casas Legislativas (matéria interna corporis), 
+mas de violação ao devido processo legislativo constitucional. A emenda do Senado configurou 
+inovação legislativa substancial, que exigia o retorno do projeto à Câmara. Assim, o STF 
+concluiu que houve afronta ao devido processo legislativo previsto no art. 65, parágrafo único. 
+Apesar disso, o STF decidiu modular os efeitos da decisão para evitar prejuízos sociais, visto 
+que a norma está em vigor há quase sete anos e beneficia pessoas em situação de 
+vulnerabilidade. A Corte concedeu prazo de 18 meses para que o Congresso Nacional corrija o 
+vício, garantindo a continuidade da política pública. 
+STF. Plenário. ADI 6.085/DF, Rel. Min. Cristiano Zanin, redator do acórdão Min. Gilmar Mendes, 
+julgado em 19/08/2025 (Info 1186). 
+ 
+INTERVENÇÃO DO ESTADO NO DOMÍNIO ECONÔMICO 
+É inconstitucional, por violar o princípio da livre iniciativa, lei estadual que impõe aos 
+estabelecimentos comerciais a obrigação de fornecer gratuitamente sacolas ou embalagens para 
+acondicionamento de produtos adquiridos pelos consumidores 
+ 
+ 
+
+                                                          Informativo                       
+comentado 
+ 
+ 
+ 
+ 
+Informativo 1186-STF (26/08/2025) – Márcio André Lopes Cavalcante   |  3 
+Importante!!! 
+ 
+ODS 11, 12, 13 E 16 
+São inconstitucionais as leis que obrigam supermercados ou similares a fornecer 
+gratuitamente sacolas ou embalagens para as compras, por violação do princípio da livre 
+iniciativa (arts. 1º, inciso IV, e 170 da Constituição). 
+STF. Plenário. ADI 7.719/DF, Rel. Min. Dias Toffoli, julgado em 19/08/2025 (Info 1186). 
+ 
+ 
+DIREITO ADMINISTRATIVO 
+ 
+AGÊNCIAS REGULADORAS 
+É constitucional a devolução aos consumidores dos valores de tributos pagos a maior por 
+distribuidoras de energia, conforme determinado pela Lei 14.385/2022, podendo descontar 
+apenas os honorários advocatícios e tributos incidentes sobre a restituição 
+ 
+ODS 10 E 16 
+É constitucional a Lei nº 14.385/2022, que ampliou as atribuições da Agência Nacional de 
+Energia Elétrica (ANEEL), permitindo-lhe definir, por iniciativa própria, acerca da devolução 
+ou compensação, em proveito dos consumidores, dos valores relativos a tributos recolhidos a 
+maior pelas distribuidoras de energia elétrica.  
+Para fins de ressarcimento da quantia, a ANEEL poderá descontar apenas os honorários dos 
+advogados que atuaram para as empresas especificamente nas causas relacionadas ao tema e 
+os tributos adicionais incidentes sobre a restituição. 
+A devolução dos valores deve ocorrer no prazo de até 10 anos, contado da data da efetiva 
+restituição do indébito ou da homologação definitiva da compensação pela Receita Federal. 
+O recebimento de boa-fé a maior pelo usuário consumidor não será objeto de repetição. 
+STF. Plenário. ADI 7.324/DF, Rel. Min. Alexandre de Moraes, julgado em 14/08/2025 (Info 1186). 
+ 
+ 
+DIREITO TRIBUTÁRIO 
+ 
+IPI 
+É constitucional o § 5º do art. 29 da Lei 10.637/2002 que confere o benefício do creditamento do 
+IPI, nas operações submetidas ao regime de suspensão, exclusivamente ao estabelecimento 
+industrial remetente, isto é, ao fabricante dos insumos 
+ 
+ODS 8 
+O princípio da não cumulatividade pressupõe a efetiva cobrança do tributo na operação 
+anterior; inexistindo pagamento do imposto – como ocorre nos casos de suspensão que 
+redunda na ulterior remissão do crédito tributário – não há crédito a ser apropriado pelo 
+adquirente. 
+A sistemática do art. 29, § 5º, da Lei nº 10.637/2002 representa uma escolha legislativa 
+legítima, voltada à etapa inicial da cadeia produtiva, compatível com a Constituição e com a 
+jurisprudência do STF (Tema 844 e Súmula Vinculante 58). 
+A tentativa de estender, por via judicial, o direito ao crédito configura indevida atuação do 
+Poder Judiciário como legislador positivo, em afronta ao princípio da separação dos poderes. 
+A suspensão do IPI, ainda que tecnicamente distinta da isenção ou alíquota zero, possui os 
+
+                                                          Informativo                       
+comentado 
+ 
+ 
+ 
+ 
+Informativo 1186-STF (26/08/2025) – Márcio André Lopes Cavalcante   |  4 
+mesmos efeitos econômicos em relação ao creditamento, não gerando ônus tributário 
+compensável. 
+STF. Plenário. ADI 7.135/DF, Rel. Min. Gilmar Mendes, julgado em 19/08/2025 (Info 1186). 
+ 
+TAXAS 
+É constitucional a adoção do tipo de atividade exercida pelo contribuinte como critério para 
+fixação do valor da taxa de fiscalização, desde que haja correspondência com o custo da 
+atividade estatal 
+ 
+Importante!!! 
+ 
+ODS 16 
+É constitucional — e está em consonância com o art. 145, II, e § 2º, da Constituição Federal — 
+dispositivo de lei municipal que estabelece o valor de taxa de fiscalização do estabelecimento 
+conforme o tipo de atividade exercida pelo contribuinte. 
+A base de cálculo da taxa pode utilizar elementos presentes em bases de cálculo típicas de 
+impostos, desde que não haja identidade total entre elas, conforme já decidido no Tema 146 
+da repercussão geral e na Súmula Vinculante 19. 
+Tese fixada pelo STF: 
+“É constitucional considerar o tipo de atividade exercida pelo contribuinte como um dos 
+critérios para fixação do valor de taxa de fiscalização do estabelecimento.” 
+STF. Plenário. ARE 990.094/SP, Rel. Min. Gilmar Mendes, julgado em 19/08/2025 (Repercussão Geral 
+– Tema 1.035) (Info 1186). 
+ 
+CONTRIBUIÇÕES 
+A CIDE destinada a financiar o Programa de Estímulo à Interação  
+Universidade-Empresa para o Apoio à Inovação é constitucional 
+ 
+ODS 8, 9, 10, 16 E 17 
+É constitucional a cobrança da CIDE-Tecnologia sobre remessas financeiras ao exterior, 
+mesmo que o contribuinte não seja da área de tecnologia, na medida em que a Constituição 
+não restringe as hipóteses de incidência da contribuição. Nesse contexto, inexiste vinculação 
+entre a arrecadação e o setor econômico que dela se beneficiará; o nexo que deve existir é 
+entre a cobrança e a finalidade estatal que motivou sua criação. 
+Tese fixada pelo STF: 
+I - É constitucional a contribuição de intervenção no domínio econômico (CIDE) destinada a 
+financiar o Programa de Estímulo à Interação Universidade-Empresa para o Apoio à Inovação, 
+instituída e disciplinada pela Lei nº 10.168/2000, com as alterações empreendidas pelas Leis 
+nºs 10.332/2001 e 11.452/2007;  
+II - A arrecadação da CIDE, instituída pela Lei nº 10.168/2000, com as alterações 
+empreendidas pelas Leis nºs 10.332/2001 e 11.452/2007, deve ser integralmente aplicada na 
+área de atuação Ciência e Tecnologia, nos termos da lei. 
+STF. Plenário. RE 928.943/SP, Rel. Min. Luiz Fux, redator do acórdão Min. Flávio Dino, julgado em 
+13/08/2025 (Repercussão Geral – Tema 914) (Info 1186). 
+ 
+ 
+ 
+ 
+
+                                                          Informativo                       
+comentado 
+ 
+ 
+ 
+ 
+Informativo 1186-STF (26/08/2025) – Márcio André Lopes Cavalcante   |  5 
+DIREITO PREVIDENCIÁRIO 
+ 
+APOSENTADORIA 
+É constitucional a aplicação do fator previdenciário aos casos alcançados pela regra de transição 
+do art. 9º da EC nº 20/1998, que estabeleceu condições diferenciadas para aposentadoria 
+proporcional aos segurados já filiados ao RGPS antes de 16.12.1998 
+ 
+É constitucional a aplicação do fator previdenciário, instituído pela Lei 9.876/1999, aos 
+benefícios concedidos a segurados filiados ao Regime Geral de Previdência Social antes de 
+16.12.1998, abrangidos pela regra de transição do art. 9º da EC 20/98. 
+STF. Plenário. RE 639.856/RS, Rel. Min. Gilmar Mendes, julgado em 19/08/2025 (Repercussão Geral – 
+Tema 616) (Info 1186). 
+ 
+ 
+ 

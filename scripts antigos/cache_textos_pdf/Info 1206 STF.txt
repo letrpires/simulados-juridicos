@@ -1,0 +1,255 @@
+ 
+Informativo 1206-STF (09/03/2026) – Márcio André Lopes Cavalcante   |  1 
+ 
+Informativo comentado: 
+ 
+Informativo 1206-STF (RESUMIDO) 
+Márcio André Lopes Cavalcante 
+ 
+ 
+ 
+DIREITO CONSTITUCIONAL 
+ 
+DIREITO À SAÚDE 
+STF atualizou o Tema 1.234 para definir competência e ressarcimento em ações sobre 
+medicamentos oncológicos incorporados ao SUS, seguindo a lógica do AF-ONCO (Portaria 
+GM/MS nº 8.477/2025) 
+ 
+Em setembro de 2024, o STF julgou o Tema 1.234 (RE 1.366.243/SC) e fixou tese de 
+repercussão geral definindo as regras sobre competência jurisdicional, responsabilidade pelo 
+fornecimento e ressarcimento interfederativo nas ações que pedem medicamentos ao Poder 
+Público pelo SUS. Para chegar a esse resultado, o Tribunal promoveu audiências públicas, 
+reuniões intersetoriais e homologou três acordos celebrados entre a União, os estados e os 
+municípios. 
+Em 19 de fevereiro de 2026, o Plenário do STF referendou novo acordo interfederativo que 
+alterou os itens 3.4, 3.5 e 6.2 do Tema 1.234, exclusivamente em relação aos medicamentos 
+para tratamentos oncológicos. 
+A mudança foi motivada pela criação do Componente da Assistência Farmacêutica em 
+Oncologia (AF-ONCO), pela Portaria GM/MS nº 8.477/2025. Antes dessa portaria, os 
+medicamentos oncológicos não integravam nenhum componente formal da assistência 
+farmacêutica do SUS, não constavam da RENAME e eram geridos de forma fragmentada pelos 
+hospitais oncológicos (CACONs/UNACONs), o que gerava enorme desigualdade regional e 
+elevada judicialização. Com o AF-ONCO, cada medicamento passou a ter um responsável 
+administrativo definido, o que permitiu vincular a competência jurisdicional à modalidade de 
+aquisição. 
+O acordo trouxe três inovações: 
+1) Ressarcimento interfederativo (itens 3.4 e 3.5): 
+• Redação original (2024): a União ressarcia estados e municípios em 80% para ações 
+ajuizadas até 10/06/2024. O ressarcimento para casos posteriores a essa data deveria ser 
+pactuado na CIT em até 90 dias. Não havia item 3.5. 
+• Redação atual (2026): o ressarcimento de 80% é confirmado para ações ajuizadas até 
+10/06/2024 (item 3.4). O novo item 3.5 estende provisoriamente o mesmo percentual às 
+ações ajuizadas após essa data, até que os entes federativos o alterem por acordo na CIT, 
+chancelado pelo STF. 
+ 
+III – Custeio (...) 
+3.4) Para fins de ressarcimento interfederativo, quanto aos medicamentos para tratamento 
+oncológico, as ações ajuizadas previamente a 10 de junho de 2024 serão ressarcidas pela 
+União na proporção de 80% do valor total pago por Estados e por Municípios, 
+
+                                                          Informativo                       
+comentado 
+ 
+ 
+ 
+ 
+Informativo 1206-STF (09/03/2026) – Márcio André Lopes Cavalcante   |  2 
+independentemente do trânsito em julgado da decisão, implementado pelo Ministério da 
+Saúde, previamente pactuado em instância tripartite. 
+3.5) O ressarcimento envolvendo tratamentos oncológicos, para os casos ajuizados 
+posteriormente a 10 de junho de 2024, está mantido no percentual de 80% até que ocorra 
+alteração pelos Entes Federativos, em acordo realizado na CIT e posteriormente chancelado 
+pelo STF. (...) 
+ 
+2) Competência para oncológicos incorporados (item 6.2) 
+• Redação original (2024): Não havia item 6.2. A competência para medicamentos oncológicos 
+incorporados não estava expressamente regulada. 
+• Redação atual (2026):  
+Justiça Federal: medicamentos de aquisição centralizada pelo Ministério da Saúde (Grupo 1A 
+do CEAF).  
+Justiça Estadual: medicamentos de negociação nacional ou aquisição descentralizada (Grupo 
+1B do CEAF).  
+Para oncológicos não incorporados, manteve-se a regra geral: Justiça Federal se custo anual ≥ 
+210 salários mínimos; Justiça Estadual se inferior. 
+ 
+VI – Medicamentos incorporados (...) 
+6.2) A competência jurisdicional, quanto às demandas referentes aos fármacos para 
+tratamento oncológico incorporados no SUS: 
+I - será da Justiça Federal para os medicamentos oncológicos de aquisição centralizada pelo 
+Ministério da Saúde, aplicando-se o fluxo administrativo e judicial detalhado no Anexo I 
+relativos aos medicamentos incluídos no Grupo 1A do Componente Especializado da 
+Assistência Farmacêutica; e 
+II - será da Justiça Estadual para os medicamentos oncológicos de negociação nacional, bem 
+ainda aqueles de aquisição descentralizada, aplicando-se o fluxo administrativo e judicial 
+detalhado no Anexo I relativos aos medicamentos incluídos no Grupo 1B do Componente 
+Especializado da Assistência Farmacêutica. 
+ 
+3) Modulação temporal 
+As novas regras de competência do item 6.2 têm eficácia ex nunc, aplicando-se apenas às ações 
+ajuizadas a partir de 22/10/2025 (data de publicação da Portaria 8.477/2025).  
+Processos anteriores permanecem no juízo de origem.  
+A modulação é exclusivamente sobre competência. Os critérios materiais do Tema 1.234 
+aplicam-se a todos os processos, independentemente da data de ajuizamento. 
+STF. Plenário. RE 1.366.243 Ref/SC, Rel. Min. Gilmar Mendes, julgado em 19/02/2026 (Repercussão 
+Geral – Tema 1.234) (Info 1206). 
+  Repercussão Geral — Tema 1.234 |   Mudança de entendimento |   Assunto já apreciado no Info 1150 STF 
+  Alta relevância: Magistratura estadual, Magistratura federal, MPE, MPF, DPE, DPU, PGE, PGM, Advocacia Pública Federal, Tribunais 
+ 
+ 
+COMPETÊNCIAS LEGISLATIVAS 
+Municípios não têm competência para proibir o uso de linguagem neutra nas escolas, pois cabe 
+exclusivamente à União legislar sobre diretrizes e bases da educação nacional 
+ 
+ 
+
+                                                          Informativo                       
+comentado 
+ 
+ 
+ 
+ 
+Informativo 1206-STF (09/03/2026) – Márcio André Lopes Cavalcante   |  3 
+ODS 10 E 16 
+É inconstitucional lei municipal que verse sobre uso de linguagem neutra em âmbito escolar. 
+Essa lei é formalmente inconstitucional por usurpar a competência privativa da União para 
+legislar sobre diretrizes e bases da educação nacional (art. 22, XXIV, da CF/88). 
+Não cabe à legislação municipal dispor sobre conteúdos curriculares, materiais didáticos ou 
+perspectivas pedagógicas para proibir o ensino sob a ótica de gênero. 
+A União editou a Lei de Diretrizes e Bases da Educação Nacional – LDB (Lei nº 9.394/1996) e 
+estabeleceu a Base Nacional Comum Curricular – BNCC, que fixa parâmetros dos currículos em 
+redes públicas e privadas de ensino básico. É nesse núcleo de diretrizes que se inserem temas 
+relacionados à igualdade de gênero, à diversidade e ao respeito aos direitos humanos. 
+O combate à discriminação no ensino, baseado na identidade de gênero e na orientação sexual, 
+deve ser efetivado com atenção e respeito aos preceitos pedagógicos de adequação do 
+conteúdo e da metodologia aos diferentes níveis de compreensão e maturidade, de acordo 
+com as faixas etárias e ciclos educacionais, em observância ao princípio da proteção integral 
+da criança e do adolescente (CF/1988, art. 227). 
+A liberdade de cátedra, embora ampla, não é absoluta; encontra limite no dever de resguardar 
+a integridade física, psíquica e moral da criança, que é sujeito de direitos em condição peculiar 
+de desenvolvimento. 
+Não se admite a hipersexualização e a adultização precoce da infância, proibição que abrange 
+tanto a exposição a conteúdos, linguagens ou condutas eróticas em âmbito escolar, quanto a 
+exploração econômica da sexualização infantil em redes sociais, plataformas digitais ou 
+outros meios de comunicação com o intuito de engajamento e lucro. 
+A Constituição não define uma única forma de estrutura familiar e adota o afeto como núcleo 
+de conformação do direito das famílias, baseado na dignidade da pessoa humana (CF/1988, 
+arts. 1º, III, e 226, caput), cabendo ao Estado proteger todas as formas legítimas de convivência 
+afetiva, sejam conjugais, monoparentais, homoafetivas, socioafetivas ou outras. 
+STF. Plenário. ADPF 1.159/SC, Rel. Min. Flávio Dino, julgado em 27/02/2026 (Info 1206). 
+  Assunto já apreciado no Info 1195 
+  Alta relevância: Magistratura estadual, MPE, DPE, PGE, PGM, Tribunais  
+  Média relevância: Magistratura federal, MPF, DPU, Delegado 
+ 
+ 
+DIREITO EMPRESARIAL 
+ 
+AUXILIARES DO EMPRESÁRIO 
+É constitucional o regime jurídico da atividade de tradutor e intérprete público da Lei 
+14.195/2021, ressalvada a necessidade de regulamentação objetiva da dispensa do concurso de 
+aptidão com base em ‘grau de excelência” em exames nacionais e internacionais de proficiência 
+ 
+ODS 8 
+Caso concreto: a Federação Nacional dos Tradutores e Intérpretes Públicos (Fenatip) ajuizou 
+ADI no STF contra os arts. 22 a 34 e 57, I, da Lei nº 14.195/2021, que revogou o Decreto nº 
+13.609/1943 e instituiu novo marco regulatório para a profissão de tradutor e intérprete 
+público. O STF declarou constitucionais os dispositivos e apenas deu intepretação conforme 
+ao parágrafo único do art. 22. 
+O tradutor e intérprete público é agente delegatário de função pública, isto é, particular que 
+exerce, sem vínculo com a Administração, atividade dotada de fé pública, com fundamento no 
+art. 175 da CF/88. Dessa natureza jurídica decorrem duas premissas que orientam todo o 
+
+                                                          Informativo                       
+comentado 
+ 
+ 
+ 
+ 
+Informativo 1206-STF (09/03/2026) – Márcio André Lopes Cavalcante   |  4 
+julgamento: não se exige concurso público nos moldes do art. 37, II, da CF/88; mas o Estado 
+tem o dever de credenciar apenas profissionais reconhecidamente qualificados. 
+Com base nisso, o STF declarou constitucionais:  
+i) a edição da MP nº 1.040/2021, cujos pressupostos de relevância e urgência são de aferição 
+primariamente política, reservada ao Executivo e ao Congresso, só sindicável pelo Judiciário 
+em caso de desvio de finalidade ou abuso de poder, não caracterizados na espécie;  
+ii) a permissão para estrangeiros residentes no País exercerem a profissão e a dispensa do 
+concurso de aptidão em determinadas hipóteses, por guardarem pertinência temática com o 
+objeto originário da MP, afastando o alegado ‘jabuti legislativo’;  
+iii) a validade por prazo indefinido do concurso de aptidão (art. 25, I), pois não se trata de 
+concurso público destinado ao provimento de cargo ou emprego público, mas de mera 
+habilitação profissional, inaplicável o art. 37, II e III, da CF;  
+iv) a livre pactuação de preços em substituição à tabela de emolumentos (art. 57, I, da lei e art. 
+29 da IN nº 52/2022/DREI), ausente na Constituição qualquer imposição de regime tarifário 
+específico para a categoria;  
+v) a autorização para que agentes públicos realizem traduções com fé pública quando a 
+atividade for correlata às atribuições do cargo e exercida de forma esporádica e pontual, sem 
+configuração de desvio de função; e  
+vi) a delegação do poder regulamentar ao Diretor do DREI, órgão especializado já dotado de 
+funções normativas no âmbito do registro público de empresas, em exercício legítimo de 
+desconcentração administrativa. 
+A procedência parcial restringiu-se ao art. 22, parágrafo único, que prevê a dispensa do 
+concurso de aptidão para quem obtiver ‘grau de excelência’ em exames nacionais e 
+internacionais de proficiência. O dispositivo não foi declarado inconstitucional, mas recebeu 
+interpretação conforme à Constituição: como a habilitação de tradutores juramentados sem 
+concurso, com base unicamente em certificados de proficiência, pode fragilizar o controle de 
+qualificação exigido pela fé pública do serviço, ficam suspensas todas as habilitações e 
+registros fundados nessa exceção até que o DREI edite regulamentação objetiva, com critérios 
+técnicos uniformes e verificáveis para aferição do ‘grau de excelência’. 
+STF. Plenário. ADI 7.196/DF, Rel. Min. Nunes Marques, julgado em 26/02/2026 (Info 1206) 
+  Alta relevância: Cartórios 
+  Média relevância: Magistratura estadual  
+ 
+ 
+DIREITO FINANCEIRO 
+ 
+ORÇAMENTO 
+Suplentes que assumem mandato parlamentar têm direito à vinculação das emendas 
+orçamentárias já apresentadas pelo titular substituído, sendo vedada a reabertura de prazo 
+quando não havia proposta originária 
+ 
+ODS 16 
+Caso concreto: o calendário da Comissão Mista de Orçamento fixou o período de 24 de outubro 
+a 14 de novembro de 2025 para apresentação de emendas individuais ao projeto da Lei 
+Orçamentária Anual de 2026. Essas emendas são prerrogativas constitucionais dos 
+parlamentares (art. 166 da Constituição), permitindo que Deputados e Senadores indiquem a 
+destinação de recursos federais para obras e projetos. Trata-se de uma prerrogativa vinculada 
+ao exercício do mandato, e não de um direito pessoal do parlamentar. 
+
+                                                          Informativo                       
+comentado 
+ 
+ 
+ 
+ 
+Informativo 1206-STF (09/03/2026) – Márcio André Lopes Cavalcante   |  5 
+Durante esse prazo, os Deputados Eduardo Bolsonaro e Alexandre Ramagem, que estavam 
+fora do país e afastados do exercício efetivo de suas funções, apresentaram emendas ao 
+orçamento. O PSOL ajuizou ADPF questionando a validade dessas emendas, sustentando que 
+a prerrogativa somente poderia ser exercida por quem estivesse no regular exercício do 
+mandato. O relator determinou o bloqueio da execução das emendas. Posteriormente, ambos 
+tiveram seus mandatos extintos e seus suplentes (Dr. Flávio e Missionário José Olímpio) 
+assumiram os cargos, mas as emendas permaneceram bloqueadas. 
+O STF decidiu desbloquear as emendas apresentadas por Eduardo Bolsonaro e Alexandre 
+Ramagem e transferi-las aos respectivos suplentes, permitindo que estes realizassem 
+remanejamentos e indicações de beneficiários.  
+Em situação diversa, a ex-Deputada Carla Zambelli não apresentou emendas no prazo regular, 
+pois estava presa na Itália aguardando extradição. Seu suplente pediu a reabertura do prazo 
+para apresentar novas emendas, mas o STF indeferiu o pedido. 
+A apresentação de emendas ao Orçamento pressupõe o regular exercício da função 
+parlamentar, com presença institucional. Assim, a apresentação de emendas ao Orçamento de 
+2026 somente poderia ter sido realizada por parlamentares em efetivo exercício de seus 
+mandatos no referido período. 
+Com a perda superveniente dos mandatos dos então Deputados Alexandre Ramagem e 
+Eduardo Bolsonaro e a posse dos respectivos suplentes, estes, embora em pleno exercício da 
+função, não puderam exercer as prerrogativas orçamentárias em razão do bloqueio judicial. 
+Neste caso, aplica-se analogicamente o art. 81, parágrafo único, II, da LDO/2026 para vincular 
+as emendas aos novos titulares do mandato, com atribuição das prerrogativas de autor quanto 
+a remanejamentos e indicações, como técnica de preservação da proporcionalidade e de 
+mitigação de prejuízos institucionais e sociais. 
+Por outro lado, é inviável a reabertura de prazo para apresentação de emendas ao suplente da 
+ex-Deputada Carla Zambelli, tendo em vista a inexistência de proposta originária, sob pena de 
+violação ao princípio do planejamento orçamentário e à racionalidade do ciclo fiscal. 
+STF. Plenário. ADPF 854 Ref-quinto/DF, Rel. Min. Flávio Dino, julgado em 02/03/2026 (Info 1206). 
+  Alta relevância: Magistratura estadual, Magistratura federal, PGE, PGM, Advocacia Pública Federal 
+  Média relevância: MPE, MPF  
+ 
+ 

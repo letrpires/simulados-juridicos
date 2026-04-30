@@ -1,0 +1,856 @@
+{
+  "itens": [
+    {
+      "id_origem": "sumula_551_stf",
+      "titulo": "Súmula 551 STF",
+      "tipo": "Súmula",
+      "numero": "551",
+      "tribunal": "STF",
+      "enunciado": "É inconstitucional a taxa de urbanização da Lei número 2.320, de 20-12-1961, instituída pelo Município de Pôrto Alegre, porque seu fato gerador é o mesmo da transmissão imobiliária.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_012_551_a_600.md"
+    },
+    {
+      "id_origem": "sumula_552_stf",
+      "titulo": "Súmula 552 STF",
+      "tipo": "Súmula",
+      "numero": "552",
+      "tribunal": "STF",
+      "enunciado": "Com a regulamentação do art. 15 da Lei nº 5.316/67, pelo Decreto 71.037/72, tornou-se exeqüível a exigência da exaustão da via administrativa antes do início da ação de acidente do trabalho. 86",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_012_551_a_600.md"
+    },
+    {
+      "id_origem": "sumula_553_stf",
+      "titulo": "Súmula 553 STF",
+      "tipo": "Súmula",
+      "numero": "553",
+      "tribunal": "STF",
+      "enunciado": "O Adicional ao Frete para Renovação da Marinha Mercante (AFRMM) é contribuição parafiscal, não sendo abrangido pela imunidade prevista na letra d, inciso III, do art. 19, da Constituição Federal.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_012_551_a_600.md"
+    },
+    {
+      "id_origem": "sumula_554_stf",
+      "titulo": "Súmula 554 STF",
+      "tipo": "Súmula",
+      "numero": "554",
+      "tribunal": "STF",
+      "enunciado": "O pagamento de cheque emitido sem provisão de fundos, após o recebimento da denúncia, não obsta ao prosseguimento da ação penal.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_012_551_a_600.md"
+    },
+    {
+      "id_origem": "sumula_555_stf",
+      "titulo": "Súmula 555 STF",
+      "tipo": "Súmula",
+      "numero": "555",
+      "tribunal": "STF",
+      "enunciado": "É competente o Tribunal de Justiça para julgar conflito de jurisdição entre Juiz de Direito do Estado e a Justiça Militar local.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_012_551_a_600.md"
+    },
+    {
+      "id_origem": "sumula_556_stf",
+      "titulo": "Súmula 556 STF",
+      "tipo": "Súmula",
+      "numero": "556",
+      "tribunal": "STF",
+      "enunciado": "É competente a Justiça comum para julgar as causas em que é parte sociedade de economia mista.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_012_551_a_600.md"
+    },
+    {
+      "id_origem": "sumula_557_stf",
+      "titulo": "Súmula 557 STF",
+      "tipo": "Súmula",
+      "numero": "557",
+      "tribunal": "STF",
+      "enunciado": "É competente a Justiça Federal para julgar as causas em que são partes a COBAL e a CIBRAZEM.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_012_551_a_600.md"
+    },
+    {
+      "id_origem": "sumula_558_stf",
+      "titulo": "Súmula 558 STF",
+      "tipo": "Súmula",
+      "numero": "558",
+      "tribunal": "STF",
+      "enunciado": "É constitucional o art. 27 do Decreto-lei 898, de 29.9.69.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_012_551_a_600.md"
+    },
+    {
+      "id_origem": "sumula_559_stf",
+      "titulo": "Súmula 559 STF",
+      "tipo": "Súmula",
+      "numero": "559",
+      "tribunal": "STF",
+      "enunciado": "O Decreto-lei 730, de 5.8.69, revogou a exigência de homologação, pelo Ministro da Fazenda, das Resoluções do Conselho de Política Aduaneira.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_012_551_a_600.md"
+    },
+    {
+      "id_origem": "sumula_560_stf",
+      "titulo": "Súmula 560 STF",
+      "tipo": "Súmula",
+      "numero": "560",
+      "tribunal": "STF",
+      "enunciado": "A extinção de punibilidade, pelo pagamento do tributo devido, estende-se ao crime de contrabando ou descaminho, por força do art. 18, § 2º, do Decreto-lei 157/67. 87",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_012_551_a_600.md"
+    },
+    {
+      "id_origem": "sumula_561_stf",
+      "titulo": "Súmula 561 STF",
+      "tipo": "Súmula",
+      "numero": "561",
+      "tribunal": "STF",
+      "enunciado": "Em desapropriação, é devida a correção monetária até a data do efetivo pagamento da indenização, devendo proceder-se à atualização do cálculo, ainda que por mais de uma vez.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_012_551_a_600.md"
+    },
+    {
+      "id_origem": "sumula_562_stf",
+      "titulo": "Súmula 562 STF",
+      "tipo": "Súmula",
+      "numero": "562",
+      "tribunal": "STF",
+      "enunciado": "Na indenização de danos materiais decorrentes de ato ilícito cabe a atualização de seu valor, utilizando-se, para esse fim, dentre outros critérios, dos índices de correção monetária.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_012_551_a_600.md"
+    },
+    {
+      "id_origem": "sumula_563_stf",
+      "titulo": "Súmula 563 STF",
+      "tipo": "Súmula",
+      "numero": "563",
+      "tribunal": "STF",
+      "enunciado": "O concurso de preferência a que se refere o parágrafo único do art. 187 do Código Tributário Nacional é compatível com o disposto no art. 9º, inciso I, da Constituição Federal.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_012_551_a_600.md"
+    },
+    {
+      "id_origem": "sumula_564_stf",
+      "titulo": "Súmula 564 STF",
+      "tipo": "Súmula",
+      "numero": "564",
+      "tribunal": "STF",
+      "enunciado": "A ausência de fundamentação do despacho de recebimento de denúncia por crime falimentar enseja nulidade processual, salvo se já houver sentença condenatória.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_012_551_a_600.md"
+    },
+    {
+      "id_origem": "sumula_565_stf",
+      "titulo": "Súmula 565 STF",
+      "tipo": "Súmula",
+      "numero": "565",
+      "tribunal": "STF",
+      "enunciado": "A multa fiscal moratória constitui pena administrativa, não se incluindo no crédito habilitado em falência.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_012_551_a_600.md"
+    },
+    {
+      "id_origem": "sumula_566_stf",
+      "titulo": "Súmula 566 STF",
+      "tipo": "Súmula",
+      "numero": "566",
+      "tribunal": "STF",
+      "enunciado": "Enquanto pendente, o pedido de readaptação fundado em desvio funcional não gera direitos para o servidor, relativamente ao cargo pleiteado.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_012_551_a_600.md"
+    },
+    {
+      "id_origem": "sumula_567_stf",
+      "titulo": "Súmula 567 STF",
+      "tipo": "Súmula",
+      "numero": "567",
+      "tribunal": "STF",
+      "enunciado": "A constituição, ao assegurar, no § 3º do art. 102, a contagem integral do tempo de serviço público federal, estadual ou municipal para os efeitos de aposentadoria e disponibilidade não proíbe à União, aos Estados e aos Municípios mandarem contar, mediante lei, para efeito diverso, tempo de serviço prestado a outra pessoa de direito público interno. 88",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_012_551_a_600.md"
+    },
+    {
+      "id_origem": "sumula_568_stf",
+      "titulo": "Súmula 568 STF",
+      "tipo": "Súmula",
+      "numero": "568",
+      "tribunal": "STF",
+      "enunciado": "A identificação criminal não constitui constrangimento ilegal, ainda que o indiciado já tenha sido identificado civilmente.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_012_551_a_600.md"
+    },
+    {
+      "id_origem": "sumula_569_stf",
+      "titulo": "Súmula 569 STF",
+      "tipo": "Súmula",
+      "numero": "569",
+      "tribunal": "STF",
+      "enunciado": "É inconstitucional a discriminação de alíquotas do imposto de circulação de mercadorias nas operações interestaduais, em razão de o destinatário ser, ou não, contribuinte.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_012_551_a_600.md"
+    },
+    {
+      "id_origem": "sumula_570_stf",
+      "titulo": "Súmula 570 STF",
+      "tipo": "Súmula",
+      "numero": "570",
+      "tribunal": "STF",
+      "enunciado": "O impôsto de circulação de mercadorias não incide sobre a importação de bens de capital.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_012_551_a_600.md"
+    },
+    {
+      "id_origem": "sumula_571_stf",
+      "titulo": "Súmula 571 STF",
+      "tipo": "Súmula",
+      "numero": "571",
+      "tribunal": "STF",
+      "enunciado": "O comprador de café ao IBC, ainda que sem expedição de nota fiscal, habilita-se, quando da comercialização do produto, ao crédito do ICM que incidiu sobre a operação anterior.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_012_551_a_600.md"
+    },
+    {
+      "id_origem": "sumula_572_stf",
+      "titulo": "Súmula 572 STF",
+      "tipo": "Súmula",
+      "numero": "572",
+      "tribunal": "STF",
+      "enunciado": "No cálculo do imposto de circulação de mercadorias devido na saída de mercadorias para o exterior, não se incluem fretes pagos a terceiros, seguros e despesas de embarque.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_012_551_a_600.md"
+    },
+    {
+      "id_origem": "sumula_573_stf",
+      "titulo": "Súmula 573 STF",
+      "tipo": "Súmula",
+      "numero": "573",
+      "tribunal": "STF",
+      "enunciado": "Não constitui fato gerador do imposto de circulação de mercadorias a saída física de máquinas, utensílios e implementos a título de comodato.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_012_551_a_600.md"
+    },
+    {
+      "id_origem": "sumula_574_stf",
+      "titulo": "Súmula 574 STF",
+      "tipo": "Súmula",
+      "numero": "574",
+      "tribunal": "STF",
+      "enunciado": "Sem lei estadual que a estabeleça, é ilegítima a cobrança do imposto de circulação de mercadorias sobre o fornecimento de alimentação e bebidas em restaurante ou estabelecimento similar. 89",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_012_551_a_600.md"
+    },
+    {
+      "id_origem": "sumula_575_stf",
+      "titulo": "Súmula 575 STF",
+      "tipo": "Súmula",
+      "numero": "575",
+      "tribunal": "STF",
+      "enunciado": "À mercadoria importada de país signatário do GATT, ou membro da ALALC, estende-se a isenção do imposto de circulação de mercadorias concedida a similar nacional.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_012_551_a_600.md"
+    },
+    {
+      "id_origem": "sumula_576_stf",
+      "titulo": "Súmula 576 STF",
+      "tipo": "Súmula",
+      "numero": "576",
+      "tribunal": "STF",
+      "enunciado": "É lícita a cobrança do imposto de circulação de mercadorias sobre produtos importados sob o regime da alíquota \"zero\".",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_012_551_a_600.md"
+    },
+    {
+      "id_origem": "sumula_577_stf",
+      "titulo": "Súmula 577 STF",
+      "tipo": "Súmula",
+      "numero": "577",
+      "tribunal": "STF",
+      "enunciado": "Na importação de mercadorias do exterior, o fato gerador do imposto de circulação de mercadorias ocorre no momento de sua entrada no estabelecimento do importador.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_012_551_a_600.md"
+    },
+    {
+      "id_origem": "sumula_578_stf",
+      "titulo": "Súmula 578 STF",
+      "tipo": "Súmula",
+      "numero": "578",
+      "tribunal": "STF",
+      "enunciado": "Não podem os Estados, a título de ressarcimento de despesas, reduzir a parcela de 20% do produto da arrecadação do imposto de circulação de mercadorias, atribuída aos Municípios pelo art. 23, § 8º, da Constituição Federal.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_012_551_a_600.md"
+    },
+    {
+      "id_origem": "sumula_579_stf",
+      "titulo": "Súmula 579 STF",
+      "tipo": "Súmula",
+      "numero": "579",
+      "tribunal": "STF",
+      "enunciado": "A cal virgem e a hidratada estão sujeitas ao imposto de circulação de mercadorias.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_012_551_a_600.md"
+    },
+    {
+      "id_origem": "sumula_580_stf",
+      "titulo": "Súmula 580 STF",
+      "tipo": "Súmula",
+      "numero": "580",
+      "tribunal": "STF",
+      "enunciado": "A isenção prevista no art. 13, parágrafo único, do Decreto-lei 43/66, restringe-se aos filmes cinematográficos.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_012_551_a_600.md"
+    },
+    {
+      "id_origem": "sumula_581_stf",
+      "titulo": "Súmula 581 STF",
+      "tipo": "Súmula",
+      "numero": "581",
+      "tribunal": "STF",
+      "enunciado": "A exigência de transporte em navio de bandeira brasileira, para efeito de isenção tributária, legitimou-se com o advento do Decreto-lei nº 666, de 2.7.69.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_012_551_a_600.md"
+    },
+    {
+      "id_origem": "sumula_582_stf",
+      "titulo": "Súmula 582 STF",
+      "tipo": "Súmula",
+      "numero": "582",
+      "tribunal": "STF",
+      "enunciado": "É constitucional a Resolução nº 640/69, do Conselho de Política Aduaneira, que reduziu a alíquota do imposto de importação para a soda cáustica, destinada a zonas de difícil distribuição e abastecimento. 90",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_012_551_a_600.md"
+    },
+    {
+      "id_origem": "sumula_583_stf",
+      "titulo": "Súmula 583 STF",
+      "tipo": "Súmula",
+      "numero": "583",
+      "tribunal": "STF",
+      "enunciado": "Promitente-Comprador de imóvel residencial transcrito em nome de autarquia é contribuinte do imposto predial territorial urbano.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_012_551_a_600.md"
+    },
+    {
+      "id_origem": "sumula_584_stf",
+      "titulo": "Súmula 584 STF",
+      "tipo": "Súmula",
+      "numero": "584",
+      "tribunal": "STF",
+      "enunciado": "Ao imposto de renda calculado sobre os rendimentos do ano-base, aplica-se a lei vigente no exercício financeiro em que deve ser apresentada a declaração.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_012_551_a_600.md"
+    },
+    {
+      "id_origem": "sumula_585_stf",
+      "titulo": "Súmula 585 STF",
+      "tipo": "Súmula",
+      "numero": "585",
+      "tribunal": "STF",
+      "enunciado": "Não incide o imposto de renda sobre a remessa de divisas para pagamento de serviços prestados no exterior, por empresa que não opera no Brasil.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_012_551_a_600.md"
+    },
+    {
+      "id_origem": "sumula_586_stf",
+      "titulo": "Súmula 586 STF",
+      "tipo": "Súmula",
+      "numero": "586",
+      "tribunal": "STF",
+      "enunciado": "Incide imposto de renda sobre os juros remetidos para o exterior, com base em contrato de mútuo.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_012_551_a_600.md"
+    },
+    {
+      "id_origem": "sumula_587_stf",
+      "titulo": "Súmula 587 STF",
+      "tipo": "Súmula",
+      "numero": "587",
+      "tribunal": "STF",
+      "enunciado": "Incide imposto de renda sobre o pagamento de serviços técnicos contratados no exterior e prestados no Brasil.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_012_551_a_600.md"
+    },
+    {
+      "id_origem": "sumula_588_stf",
+      "titulo": "Súmula 588 STF",
+      "tipo": "Súmula",
+      "numero": "588",
+      "tribunal": "STF",
+      "enunciado": "O imposto sobre serviços não incide sobre os depósitos, as comissões e taxas de desconto, cobrados pelos estabelecimentos bancários.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_012_551_a_600.md"
+    },
+    {
+      "id_origem": "sumula_589_stf",
+      "titulo": "Súmula 589 STF",
+      "tipo": "Súmula",
+      "numero": "589",
+      "tribunal": "STF",
+      "enunciado": "É inconstitucional a fixação de adicional progressivo do imposto predial e territorial urbano em função do número de imóveis do contribuinte.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_012_551_a_600.md"
+    },
+    {
+      "id_origem": "sumula_590_stf",
+      "titulo": "Súmula 590 STF",
+      "tipo": "Súmula",
+      "numero": "590",
+      "tribunal": "STF",
+      "enunciado": "Calcula-se o imposto de transmissão causa mortis sobre o saldo credor da promessa de compra e venda de imóvel, no momento da abertura da sucessão do promitente vendedor. 91",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_012_551_a_600.md"
+    },
+    {
+      "id_origem": "sumula_591_stf",
+      "titulo": "Súmula 591 STF",
+      "tipo": "Súmula",
+      "numero": "591",
+      "tribunal": "STF",
+      "enunciado": "A imunidade ou a isenção tributária do comprador não se estende ao produtor, contribuinte do imposto sobre produtos industrializados.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_012_551_a_600.md"
+    },
+    {
+      "id_origem": "sumula_592_stf",
+      "titulo": "Súmula 592 STF",
+      "tipo": "Súmula",
+      "numero": "592",
+      "tribunal": "STF",
+      "enunciado": "Nos crimes falimentares, aplicam-se as causas interruptivas da prescrição, previstas no Código Penal.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_012_551_a_600.md"
+    },
+    {
+      "id_origem": "sumula_593_stf",
+      "titulo": "Súmula 593 STF",
+      "tipo": "Súmula",
+      "numero": "593",
+      "tribunal": "STF",
+      "enunciado": "Incide o percentual do Fundo de Garantia do Tempo de Serviço (FGTS) sobre a parcela da remuneração correspondente a horas extraordinárias de trabalho.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_012_551_a_600.md"
+    },
+    {
+      "id_origem": "sumula_594_stf",
+      "titulo": "Súmula 594 STF",
+      "tipo": "Súmula",
+      "numero": "594",
+      "tribunal": "STF",
+      "enunciado": "Os direitos de queixa e de representação podem ser exercidos, independentemente, pelo ofendido ou por seu representante legal.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_012_551_a_600.md"
+    },
+    {
+      "id_origem": "sumula_595_stf",
+      "titulo": "Súmula 595 STF",
+      "tipo": "Súmula",
+      "numero": "595",
+      "tribunal": "STF",
+      "enunciado": "É inconstitucional a taxa municipal de conservação de estradas de rodagem cuja base de cálculo seja idêntica à do imposto territorial rural.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_012_551_a_600.md"
+    },
+    {
+      "id_origem": "sumula_596_stf",
+      "titulo": "Súmula 596 STF",
+      "tipo": "Súmula",
+      "numero": "596",
+      "tribunal": "STF",
+      "enunciado": "As disposições do Decreto 22.626/33 não se aplicam às taxas de juros e aos outros encargos cobrados nas operações realizadas por instituições públicas ou privadas, que integram o sistema financeiro nacional.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_012_551_a_600.md"
+    },
+    {
+      "id_origem": "sumula_597_stf",
+      "titulo": "Súmula 597 STF",
+      "tipo": "Súmula",
+      "numero": "597",
+      "tribunal": "STF",
+      "enunciado": "Não cabem embargos infringentes de acórdão que, em mandado de segurança decidiu, por maioria de votos, a apelação. 92",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_012_551_a_600.md"
+    },
+    {
+      "id_origem": "sumula_598_stf",
+      "titulo": "Súmula 598 STF",
+      "tipo": "Súmula",
+      "numero": "598",
+      "tribunal": "STF",
+      "enunciado": "Nos embargos de divergência não servem como padrão de discordância os mesmos paradigmas invocados para demonstrá-la mas repelidos como não dissidentes no julgamento do recurso extraordinário.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_012_551_a_600.md"
+    },
+    {
+      "id_origem": "sumula_599_stf",
+      "titulo": "Súmula 599 STF",
+      "tipo": "Súmula",
+      "numero": "599",
+      "tribunal": "STF",
+      "enunciado": "São incabíveis embargos de divergência de decisão de turma, em agravo regimental. (Cancelada)",
+      "cancelada_ou_revogada": true,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_012_551_a_600.md"
+    },
+    {
+      "id_origem": "sumula_600_stf",
+      "titulo": "Súmula 600 STF",
+      "tipo": "Súmula",
+      "numero": "600",
+      "tribunal": "STF",
+      "enunciado": "Cabe ação executiva contra o emitente e seus avalistas, ainda que não apresentado o cheque ao sacado no prazo legal, desde que não prescrita a ação cambiária.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_012_551_a_600.md"
+    }
+  ],
+  "questoes": [
+    {
+      "id_origem": "sumula_551_stf",
+      "titulo_origem": "Súmula 551 STF",
+      "questao": "A cobrança da taxa de urbanização instituída pelo Município de Pôrto Alegre, prevista na Lei nº 2.320/1961, é constitucional, pois possui fato gerador distinto da transmissão imobiliária.",
+      "gabarito": "ERRADO",
+      "justificativa": "A taxa de urbanização prevista na Lei nº 2.320/1961 do Município de Pôrto Alegre é inconstitucional porque seu fato gerador coincide com o da transmissão imobiliária, configurando bitributação indireta, o que viola o princípio da legalidade e da vedação ao confisco, conforme entendimento consolidado pelo Supremo Tribunal Federal."
+    },
+    {
+      "id_origem": "sumula_552_stf",
+      "titulo_origem": "Súmula 552 STF",
+      "questao": "A instauração da ação judicial relativa a acidente do trabalho pode ocorrer independentemente da prévia exaustão da via administrativa, mesmo após a regulamentação do art. 15 da Lei nº 5.316/67 pelo Decreto 71.037/72.",
+      "gabarito": "ERRADO",
+      "justificativa": "Com a regulamentação do art. 15 da Lei nº 5.316/67 pelo Decreto 71.037/72, tornou-se obrigatória a exaustão da via administrativa antes do ajuizamento da ação judicial relativa a acidente do trabalho. Isso significa que o trabalhador deve primeiro esgotar as instâncias administrativas competentes para a resolução do conflito antes de recorrer ao Poder Judiciário."
+    },
+    {
+      "id_origem": "sumula_553_stf",
+      "titulo_origem": "Súmula 553 STF",
+      "questao": "O Adicional ao Frete para Renovação da Marinha Mercante (AFRMM) está sujeito à imunidade tributária prevista no inciso III, alínea d, do artigo 19 da Constituição Federal, por não se tratar de contribuição parafiscal.",
+      "gabarito": "ERRADO",
+      "justificativa": "O AFRMM é considerado uma contribuição parafiscal, conforme entendimento do STF, e, por isso, não está abrangido pela imunidade prevista no inciso III, alínea d, do artigo 19 da Constituição Federal, que se refere a impostos sobre patrimônio, renda ou serviços das instituições mencionadas. Portanto, o AFRMM não goza dessa imunidade."
+    },
+    {
+      "id_origem": "sumula_554_stf",
+      "titulo_origem": "Súmula 554 STF",
+      "questao": "O pagamento do cheque emitido sem provisão de fundos, mesmo que realizado após o recebimento da denúncia, impede o prosseguimento da ação penal por supressão de requisito essencial para a continuidade do processo.",
+      "gabarito": "ERRADO",
+      "justificativa": "O pagamento do cheque sem provisão de fundos, ainda que efetuado após o recebimento da denúncia, não obsta o prosseguimento da ação penal, pois o fato gerador do crime já ocorreu e a ação penal é independente da satisfação do débito. Assim, o pagamento posterior não extingue a punibilidade nem impede o andamento do processo criminal."
+    },
+    {
+      "id_origem": "sumula_555_stf",
+      "titulo_origem": "Súmula 555 STF",
+      "questao": "O Tribunal de Justiça estadual possui competência para resolver conflito de jurisdição entre um Juiz de Direito estadual e a Justiça Militar local.",
+      "gabarito": "CERTO",
+      "justificativa": "A competência para julgar conflito de jurisdição entre Juiz de Direito do Estado e a Justiça Militar local é do Tribunal de Justiça estadual, conforme entendimento consolidado, pois este tribunal é o órgão competente para dirimir controvérsias entre as duas justiças no âmbito estadual."
+    },
+    {
+      "id_origem": "sumula_556_stf",
+      "titulo_origem": "Súmula 556 STF",
+      "questao": "A Justiça comum é competente para processar e julgar ações em que figure como parte uma sociedade de economia mista.",
+      "gabarito": "CERTO",
+      "justificativa": "A competência para julgar causas envolvendo sociedades de economia mista é da Justiça comum, conforme entendimento consolidado pelo Supremo Tribunal Federal. Isso ocorre porque tais sociedades, apesar de terem participação estatal, possuem natureza jurídica híbrida e não se enquadram na competência da Justiça Federal ou da Justiça do Trabalho, sendo, portanto, submetidas à jurisdição comum estadual."
+    },
+    {
+      "id_origem": "sumula_557_stf",
+      "titulo_origem": "Súmula 557 STF",
+      "questao": "A Justiça Estadual é competente para processar e julgar ações em que figuram como partes a Companhia Brasileira de Alumínio (COBAL) e a Companhia Brasileira de Zinco e Metais (CIBRAZEM).",
+      "gabarito": "ERRADO",
+      "justificativa": "A competência para julgar causas em que são partes a COBAL e a CIBRAZEM é da Justiça Federal, conforme entendimento consolidado pelo Supremo Tribunal Federal. Isso decorre do fato de que essas empresas são controladas pela União, o que confere à Justiça Federal a competência para processar e julgar as demandas em que figuram como partes."
+    },
+    {
+      "id_origem": "sumula_558_stf",
+      "titulo_origem": "Súmula 558 STF",
+      "questao": "A norma prevista no artigo 27 do Decreto-lei nº 898/1969 é incompatível com a Constituição Federal, por violar princípios constitucionais fundamentais.",
+      "gabarito": "ERRADO",
+      "justificativa": "O artigo 27 do Decreto-lei nº 898/1969 foi declarado constitucional pelo Supremo Tribunal Federal, conforme consolidado na Súmula 558. Isso significa que a norma está em conformidade com a Constituição Federal e não viola princípios constitucionais fundamentais."
+    },
+    {
+      "id_origem": "sumula_559_stf",
+      "titulo_origem": "Súmula 559 STF",
+      "questao": "A partir de 1969, as Resoluções do Conselho de Política Aduaneira não necessitam mais de homologação pelo Ministro da Fazenda para terem validade jurídica.",
+      "gabarito": "CERTO",
+      "justificativa": "O Decreto-lei 730/1969 revogou a exigência de homologação das Resoluções do Conselho de Política Aduaneira pelo Ministro da Fazenda, tornando desnecessária essa aprovação para que tais resoluções tenham validade jurídica."
+    },
+    {
+      "id_origem": "sumula_560_stf",
+      "titulo_origem": "Súmula 560 STF",
+      "questao": "O pagamento do tributo devido impede a continuidade da punibilidade pelo crime de descaminho, conforme previsto no Decreto-lei 157/67.",
+      "gabarito": "CERTO",
+      "justificativa": "O artigo 18, § 2º, do Decreto-lei 157/67 estabelece que a extinção da punibilidade pelo pagamento do tributo devido alcança também os crimes de contrabando e descaminho, pois o cumprimento da obrigação tributária elimina o interesse da persecução penal nesses casos."
+    },
+    {
+      "id_origem": "sumula_561_stf",
+      "titulo_origem": "Súmula 561 STF",
+      "questao": "Em procedimento de desapropriação, a indenização devida ao expropriado deve ser corrigida monetariamente até a data do efetivo pagamento, sendo possível a atualização do valor mais de uma vez para refletir a variação econômica.",
+      "gabarito": "CERTO",
+      "justificativa": "A indenização em desapropriação deve preservar o valor real da quantia devida ao expropriado, o que justifica a aplicação da correção monetária até o pagamento efetivo. A atualização pode ocorrer mais de uma vez para garantir que o valor pago reflita a inflação ou outras variações econômicas, conforme entendimento consolidado pelo STF."
+    },
+    {
+      "id_origem": "sumula_562_stf",
+      "titulo_origem": "Súmula 562 STF",
+      "questao": "Na reparação de danos materiais causados por ato ilícito, é vedada a atualização do valor da indenização por meio de índices de correção monetária ou quaisquer outros critérios de atualização.",
+      "gabarito": "ERRADO",
+      "justificativa": "A atualização do valor da indenização por danos materiais decorrentes de ato ilícito é permitida e deve ser realizada para preservar o valor real da reparação. Entre os critérios utilizados para essa atualização estão os índices de correção monetária, que visam evitar a desvalorização do montante devido em razão da inflação."
+    },
+    {
+      "id_origem": "sumula_563_stf",
+      "titulo_origem": "Súmula 563 STF",
+      "questao": "A aplicação do concurso de preferência previsto no parágrafo único do art. 187 do Código Tributário Nacional não contraria o princípio da isonomia tributária estabelecido no art. 9º, inciso I, da Constituição Federal.",
+      "gabarito": "CERTO",
+      "justificativa": "O Supremo Tribunal Federal entende que o concurso de preferência previsto no parágrafo único do art. 187 do CTN é compatível com o art. 9º, inciso I, da Constituição Federal, pois não viola o princípio da isonomia tributária. Isso porque o referido concurso de preferência estabelece critérios objetivos para a ordem de pagamento dos créditos tributários, respeitando a igualdade entre os contribuintes e a segurança jurídica."
+    },
+    {
+      "id_origem": "sumula_564_stf",
+      "titulo_origem": "Súmula 564 STF",
+      "questao": "A ausência de fundamentação no despacho que recebe denúncia por crime falimentar não acarreta nulidade processual se ainda não houver sentença condenatória proferida no caso.",
+      "gabarito": "ERRADO",
+      "justificativa": "A ausência de fundamentação no despacho de recebimento da denúncia por crime falimentar configura nulidade processual, pois viola o princípio da motivação das decisões judiciais. Contudo, essa nulidade é sanada se já houver sentença condenatória, pois neste caso o vício não prejudica o julgamento final do mérito."
+    },
+    {
+      "id_origem": "sumula_565_stf",
+      "titulo_origem": "Súmula 565 STF",
+      "questao": "A multa fiscal moratória integra o crédito habilitado na falência, pois não possui natureza de pena administrativa.",
+      "gabarito": "ERRADO",
+      "justificativa": "A multa fiscal moratória é considerada uma pena administrativa e, por essa razão, não integra o crédito habilitado na falência. Isso decorre do entendimento de que penalidades administrativas não se confundem com créditos tributários passíveis de habilitação no processo falimentar."
+    },
+    {
+      "id_origem": "sumula_566_stf",
+      "titulo_origem": "Súmula 566 STF",
+      "questao": "Enquanto estiver em análise o pedido de readaptação do servidor público baseado em desvio funcional, este não adquire qualquer direito ao cargo pretendido até a decisão final.",
+      "gabarito": "CERTO",
+      "justificativa": "O entendimento consolidado é que o pedido de readaptação por desvio funcional, enquanto não julgado, não gera efeitos jurídicos que assegurem ao servidor o direito ao cargo pleiteado. Isso porque a readaptação depende de decisão administrativa ou judicial definitiva para produzir efeitos, não sendo possível antecipar direitos antes da conclusão do processo."
+    },
+    {
+      "id_origem": "sumula_567_stf",
+      "titulo_origem": "Súmula 567 STF",
+      "questao": "A Constituição Federal impede que a União, os Estados e os Municípios estabeleçam, por meio de lei, a contagem de tempo de serviço prestado a outra pessoa de direito público interno para efeitos diversos da aposentadoria e disponibilidade.",
+      "gabarito": "ERRADO",
+      "justificativa": "O § 3º do art. 102 da Constituição assegura a contagem integral do tempo de serviço público federal, estadual ou municipal para aposentadoria e disponibilidade, mas não proíbe que a União, os Estados e os Municípios, por meio de lei, contem tempo de serviço prestado a outra pessoa de direito público interno para efeitos diversos, ou seja, para finalidades diferentes da aposentadoria e disponibilidade."
+    },
+    {
+      "id_origem": "sumula_568_stf",
+      "titulo_origem": "Súmula 568 STF",
+      "questao": "A realização da identificação criminal do indiciado configura constrangimento ilegal quando ele já possui identificação civil prévia.",
+      "gabarito": "ERRADO",
+      "justificativa": "A identificação criminal não configura constrangimento ilegal, mesmo que o indiciado já tenha sido identificado civilmente. Isso porque a identificação criminal tem finalidade específica para fins de investigação e persecução penal, não se confundindo com a identificação civil, que é de natureza administrativa e pessoal."
+    },
+    {
+      "id_origem": "sumula_569_stf",
+      "titulo_origem": "Súmula 569 STF",
+      "questao": "É constitucional aplicar alíquotas diferentes do ICMS nas operações interestaduais com base na condição do destinatário como contribuinte ou não contribuinte do imposto.",
+      "gabarito": "ERRADO",
+      "justificativa": "A distinção de alíquotas do ICMS em operações interestaduais, fundamentada na condição do destinatário como contribuinte ou não do imposto, viola o princípio da isonomia tributária e a Constituição Federal. O Supremo Tribunal Federal entende que tal discriminação é inconstitucional, pois o imposto deve incidir de forma uniforme independentemente da qualidade do destinatário."
+    },
+    {
+      "id_origem": "sumula_570_stf",
+      "titulo_origem": "Súmula 570 STF",
+      "questao": "A incidência do imposto sobre circulação de mercadorias abrange a importação de bens de capital, sendo vedada a sua exclusão nesse caso.",
+      "gabarito": "ERRADO",
+      "justificativa": "O imposto sobre circulação de mercadorias não incide sobre a importação de bens de capital, conforme entendimento consolidado pelo Supremo Tribunal Federal, que afasta a tributação nesse caso específico para evitar bitributação e respeitar a competência tributária da União."
+    },
+    {
+      "id_origem": "sumula_571_stf",
+      "titulo_origem": "Súmula 571 STF",
+      "questao": "O adquirente de café ao IBC pode se creditar do ICM incidente na operação anterior mesmo que não tenha sido emitida nota fiscal na compra do produto.",
+      "gabarito": "CERTO",
+      "justificativa": "A jurisprudência do STF reconhece que a ausência de nota fiscal na aquisição de café ao IBC não impede o direito ao crédito do ICM incidente na operação anterior, pois o critério para habilitação ao crédito é a efetiva aquisição do produto, independentemente da emissão do documento fiscal."
+    },
+    {
+      "id_origem": "sumula_572_stf",
+      "titulo_origem": "Súmula 572 STF",
+      "questao": "No cálculo do ICMS incidente sobre a saída de mercadorias destinadas ao exterior, os valores correspondentes a fretes pagos a terceiros, seguros e despesas de embarque devem ser incluídos na base de cálculo do imposto.",
+      "gabarito": "ERRADO",
+      "justificativa": "A base de cálculo do ICMS na exportação de mercadorias não inclui valores referentes a fretes pagos a terceiros, seguros e despesas de embarque, conforme entendimento consolidado pelo STF. Esses custos são excluídos para evitar a tributação em cascata e garantir a competitividade das exportações brasileiras."
+    },
+    {
+      "id_origem": "sumula_573_stf",
+      "titulo_origem": "Súmula 573 STF",
+      "questao": "A transferência de máquinas e utensílios a título de comodato configura fato gerador do imposto sobre circulação de mercadorias.",
+      "gabarito": "ERRADO",
+      "justificativa": "A saída física de máquinas, utensílios e implementos a título de comodato não configura fato gerador do ICMS, pois não há transferência de propriedade ou circulação mercantil, apenas empréstimo gratuito, conforme entendimento consolidado pelo STF."
+    },
+    {
+      "id_origem": "sumula_574_stf",
+      "titulo_origem": "Súmula 574 STF",
+      "questao": "É legítima a cobrança do imposto sobre circulação de mercadorias e serviços (ICMS) sobre o fornecimento de alimentação e bebidas em restaurante na ausência de lei estadual que expressamente autorize tal tributação.",
+      "gabarito": "ERRADO",
+      "justificativa": "A cobrança do ICMS sobre o fornecimento de alimentação e bebidas em restaurantes depende de previsão em lei estadual específica. Na ausência dessa lei, a tributação é ilegítima, pois o princípio da legalidade tributária exige autorização legal para a instituição do imposto."
+    },
+    {
+      "id_origem": "sumula_575_stf",
+      "titulo_origem": "Súmula 575 STF",
+      "questao": "A isenção do imposto sobre circulação de mercadorias concedida a produtos nacionais similares não se aplica às mercadorias importadas de países membros do GATT ou da ALALC.",
+      "gabarito": "ERRADO",
+      "justificativa": "A isenção do imposto sobre circulação de mercadorias concedida a produtos nacionais similares estende-se também às mercadorias importadas provenientes de países signatários do GATT ou membros da ALALC, conforme entendimento consolidado pelo STF, garantindo tratamento isonômico e respeitando compromissos internacionais."
+    },
+    {
+      "id_origem": "sumula_576_stf",
+      "titulo_origem": "Súmula 576 STF",
+      "questao": "A incidência do imposto sobre circulação de mercadorias é vedada para produtos importados que estejam sujeitos à alíquota zero do referido tributo.",
+      "gabarito": "ERRADO",
+      "justificativa": "A jurisprudência do STF reconhece que é lícita a cobrança do imposto sobre circulação de mercadorias mesmo quando os produtos importados estejam submetidos à alíquota zero, pois a alíquota zero não implica imunidade ou isenção, apenas a ausência de pagamento do tributo na operação, não afastando a incidência do imposto."
+    },
+    {
+      "id_origem": "sumula_577_stf",
+      "titulo_origem": "Súmula 577 STF",
+      "questao": "O imposto sobre circulação de mercadorias incide no momento em que as mercadorias importadas do exterior são desembaraçadas na alfândega, independentemente de sua entrada no estabelecimento do importador.",
+      "gabarito": "ERRADO",
+      "justificativa": "O fato gerador do imposto de circulação de mercadorias na importação ocorre no momento da entrada das mercadorias no estabelecimento do importador, e não no desembaraço aduaneiro. A súmula estabelece que a incidência do imposto se dá quando a mercadoria ingressa no estabelecimento do importador, momento em que se configura a circulação interna sujeita à tributação."
+    },
+    {
+      "id_origem": "sumula_578_stf",
+      "titulo_origem": "Súmula 578 STF",
+      "questao": "É permitido que os Estados deduzam da parcela de 20% do ICMS destinada aos Municípios valores referentes a ressarcimento de despesas.",
+      "gabarito": "ERRADO",
+      "justificativa": "A Constituição Federal, em seu artigo 23, § 8º, assegura aos Municípios uma parcela fixa de 20% do produto da arrecadação do ICMS, que não pode ser reduzida pelos Estados a título de ressarcimento de despesas. Essa proteção visa garantir a autonomia financeira municipal e impedir que os Estados utilizem essa parcela para compensar gastos próprios."
+    },
+    {
+      "id_origem": "sumula_579_stf",
+      "titulo_origem": "Súmula 579 STF",
+      "questao": "A cal virgem e a cal hidratada são mercadorias sujeitas à incidência do imposto sobre circulação de mercadorias e serviços (ICMS).",
+      "gabarito": "CERTO",
+      "justificativa": "A cal virgem e a cal hidratada são consideradas mercadorias para fins tributários e, portanto, estão sujeitas ao ICMS, conforme entendimento consolidado pelo Supremo Tribunal Federal. Isso decorre do fato de que ambas são produtos industrializados e comercializados, enquadrando-se no conceito de circulação de mercadorias para fins de tributação estadual."
+    },
+    {
+      "id_origem": "sumula_580_stf",
+      "titulo_origem": "Súmula 580 STF",
+      "questao": "A isenção tributária prevista no artigo 13, parágrafo único, do Decreto-lei nº 43/66 abrange todas as obras audiovisuais, incluindo séries e vídeos digitais, não se limitando apenas aos filmes cinematográficos.",
+      "gabarito": "ERRADO",
+      "justificativa": "A isenção prevista no artigo 13, parágrafo único, do Decreto-lei nº 43/66 é restrita exclusivamente aos filmes cinematográficos, conforme entendimento consolidado pelo Supremo Tribunal Federal. Portanto, outras obras audiovisuais, como séries e vídeos digitais, não estão abrangidas por essa isenção."
+    },
+    {
+      "id_origem": "sumula_581_stf",
+      "titulo_origem": "Súmula 581 STF",
+      "questao": "A isenção tributária condicionada ao transporte em navio de bandeira brasileira foi instituída antes do Decreto-lei nº 666, de 2 de julho de 1969.",
+      "gabarito": "ERRADO",
+      "justificativa": "A exigência de que o transporte seja realizado em navio de bandeira brasileira para que haja isenção tributária foi legitimada a partir do Decreto-lei nº 666, de 2 de julho de 1969, que instituiu essa condição. Portanto, tal condicionamento não existia antes desse decreto-lei."
+    },
+    {
+      "id_origem": "sumula_582_stf",
+      "titulo_origem": "Súmula 582 STF",
+      "questao": "A redução da alíquota do imposto de importação para a soda cáustica, quando destinada a zonas de difícil distribuição e abastecimento, é inconstitucional por violar o princípio da isonomia tributária.",
+      "gabarito": "ERRADO",
+      "justificativa": "A redução da alíquota do imposto de importação para a soda cáustica destinada a zonas de difícil distribuição e abastecimento é constitucional, conforme entendimento do STF, pois visa promover o desenvolvimento regional e a equalização das condições econômicas, respeitando a competência tributária e os princípios constitucionais aplicáveis."
+    },
+    {
+      "id_origem": "sumula_583_stf",
+      "titulo_origem": "Súmula 583 STF",
+      "questao": "O promitente-comprador de imóvel residencial, cuja matrícula está registrada em nome de autarquia, é considerado contribuinte do imposto predial territorial urbano (IPTU).",
+      "gabarito": "CERTO",
+      "justificativa": "De acordo com entendimento consolidado pelo Supremo Tribunal Federal, o promitente-comprador de imóvel residencial que está registrado em nome de autarquia é o sujeito passivo da obrigação tributária relativa ao IPTU, pois detém a posse e os poderes inerentes à propriedade, mesmo que a titularidade formal conste em nome da autarquia."
+    },
+    {
+      "id_origem": "sumula_584_stf",
+      "titulo_origem": "Súmula 584 STF",
+      "questao": "O cálculo do imposto de renda sobre os rendimentos auferidos em determinado ano-base deve observar a legislação vigente no ano em que os rendimentos foram obtidos, independentemente do exercício financeiro em que a declaração é apresentada.",
+      "gabarito": "ERRADO",
+      "justificativa": "O imposto de renda devido sobre os rendimentos do ano-base deve ser calculado com base na legislação vigente no exercício financeiro em que a declaração é apresentada, e não na legislação do ano em que os rendimentos foram auferidos. Isso decorre do princípio da anualidade e da aplicação da norma tributária vigente no momento da exigibilidade do tributo."
+    },
+    {
+      "id_origem": "sumula_585_stf",
+      "titulo_origem": "Súmula 585 STF",
+      "questao": "Incide imposto de renda sobre a remessa de divisas para pagamento de serviços prestados no exterior por empresa que não opera no Brasil.",
+      "gabarito": "ERRADO",
+      "justificativa": "A remessa de divisas para pagamento de serviços prestados no exterior por empresa que não opera no Brasil não está sujeita à incidência do imposto de renda, pois a legislação e a jurisprudência do STF entendem que não há fato gerador do imposto nesse caso, afastando a tributação sobre tais operações."
+    },
+    {
+      "id_origem": "sumula_586_stf",
+      "titulo_origem": "Súmula 586 STF",
+      "questao": "A incidência do imposto de renda sobre os valores pagos a título de juros decorrentes de contrato de mútuo celebrado com entidade no exterior é vedada pela legislação brasileira.",
+      "gabarito": "ERRADO",
+      "justificativa": "Os juros remetidos ao exterior com base em contrato de mútuo estão sujeitos à incidência do imposto de renda, conforme entendimento consolidado pelo Supremo Tribunal Federal. A legislação brasileira prevê a tributação desses rendimentos para evitar evasão fiscal e garantir a arrecadação tributária sobre rendimentos auferidos por residentes no país, mesmo que pagos a beneficiários no exterior."
+    },
+    {
+      "id_origem": "sumula_587_stf",
+      "titulo_origem": "Súmula 587 STF",
+      "questao": "O imposto de renda incide sobre valores pagos a pessoas físicas ou jurídicas estrangeiras pela prestação de serviços técnicos realizados no território brasileiro.",
+      "gabarito": "CERTO",
+      "justificativa": "A legislação tributária brasileira prevê a incidência do imposto de renda sobre rendimentos pagos a beneficiários no exterior quando os serviços técnicos são efetivamente prestados no Brasil, caracterizando a fonte pagadora nacional e a realização da atividade no território brasileiro, conforme entendimento consolidado pelo Supremo Tribunal Federal."
+    },
+    {
+      "id_origem": "sumula_588_stf",
+      "titulo_origem": "Súmula 588 STF",
+      "questao": "O imposto sobre serviços incide sobre as comissões cobradas pelos bancos em operações de desconto de títulos.",
+      "gabarito": "ERRADO",
+      "justificativa": "O imposto sobre serviços não incide sobre depósitos, comissões e taxas de desconto cobrados por estabelecimentos bancários, conforme entendimento consolidado pelo STF. Essas operações são consideradas atividades financeiras que não se sujeitam à tributação pelo ISS."
+    },
+    {
+      "id_origem": "sumula_589_stf",
+      "titulo_origem": "Súmula 589 STF",
+      "questao": "A cobrança de adicional progressivo do IPTU baseada exclusivamente na quantidade de imóveis pertencentes a um mesmo contribuinte é constitucional.",
+      "gabarito": "ERRADO",
+      "justificativa": "A Constituição Federal veda a instituição de adicional progressivo do IPTU que tenha como critério o número de imóveis do contribuinte, pois tal medida viola o princípio da capacidade contributiva e a isonomia tributária. O imposto deve incidir sobre o valor do imóvel, não podendo ser progressivo em função da quantidade de bens possuídos."
+    },
+    {
+      "id_origem": "sumula_590_stf",
+      "titulo_origem": "Súmula 590 STF",
+      "questao": "O imposto de transmissão causa mortis incide sobre o saldo credor da promessa de compra e venda de imóvel apenas no momento em que o contrato é celebrado, independentemente da abertura da sucessão do promitente vendedor.",
+      "gabarito": "ERRADO",
+      "justificativa": "O imposto de transmissão causa mortis é calculado sobre o saldo credor da promessa de compra e venda de imóvel no momento da abertura da sucessão do promitente vendedor, e não na celebração do contrato. Isso porque o fato gerador do imposto é a transmissão da herança, que ocorre com a abertura da sucessão, conforme entendimento consolidado pelo STF."
+    },
+    {
+      "id_origem": "sumula_591_stf",
+      "titulo_origem": "Súmula 591 STF",
+      "questao": "A imunidade tributária concedida ao comprador de um produto industrializado alcança automaticamente o produtor, que é o contribuinte do imposto sobre produtos industrializados.",
+      "gabarito": "ERRADO",
+      "justificativa": "A imunidade ou isenção tributária atribuída ao comprador não se estende ao produtor, que é o contribuinte do IPI. Isso significa que o produtor permanece sujeito ao pagamento do imposto, independentemente da imunidade ou isenção do adquirente, conforme entendimento consolidado pelo Supremo Tribunal Federal."
+    },
+    {
+      "id_origem": "sumula_592_stf",
+      "titulo_origem": "Súmula 592 STF",
+      "questao": "Nas infrações penais falimentares, as causas previstas no Código Penal que interrompem a prescrição aplicam-se de forma idêntica às demais infrações penais.",
+      "gabarito": "CERTO",
+      "justificativa": "A Súmula 592 do STF estabelece que, nos crimes falimentares, são aplicáveis as causas interruptivas da prescrição previstas no Código Penal, o que significa que tais causas têm o mesmo efeito interruptivo para esses crimes, garantindo a uniformidade na aplicação das normas prescricionais penais."
+    },
+    {
+      "id_origem": "sumula_593_stf",
+      "titulo_origem": "Súmula 593 STF",
+      "questao": "O Fundo de Garantia do Tempo de Serviço (FGTS) não incide sobre as horas extras trabalhadas pelo empregado, pois estas são consideradas adicionais e não integram a base de cálculo para o FGTS.",
+      "gabarito": "ERRADO",
+      "justificativa": "O FGTS incide sobre toda a remuneração do empregado, incluindo as horas extraordinárias, pois estas integram a base de cálculo para o recolhimento do FGTS, conforme entendimento consolidado pelo Supremo Tribunal Federal."
+    },
+    {
+      "id_origem": "sumula_594_stf",
+      "titulo_origem": "Súmula 594 STF",
+      "questao": "O direito de representação em processos penais pode ser exercido exclusivamente pelo ofendido, não sendo possível que seu representante legal o faça de forma independente.",
+      "gabarito": "ERRADO",
+      "justificativa": "O direito de representação pode ser exercido tanto pelo ofendido quanto por seu representante legal, independentemente, conforme entendimento consolidado pelo Supremo Tribunal Federal. Isso significa que o representante legal pode agir autonomamente para exercer esse direito, sem necessidade de autorização específica do ofendido."
+    },
+    {
+      "id_origem": "sumula_595_stf",
+      "titulo_origem": "Súmula 595 STF",
+      "questao": "É constitucional que um município institua uma taxa de conservação de estradas de rodagem utilizando como base de cálculo os mesmos critérios aplicados para o imposto territorial rural.",
+      "gabarito": "ERRADO",
+      "justificativa": "A utilização da mesma base de cálculo para a taxa municipal de conservação de estradas de rodagem e para o imposto territorial rural configura inconstitucionalidade, pois a taxa deve ter base de cálculo vinculada ao custo do serviço específico prestado, não podendo coincidir com a base de um imposto, que tem natureza tributária distinta e finalidade diversa."
+    },
+    {
+      "id_origem": "sumula_596_stf",
+      "titulo_origem": "Súmula 596 STF",
+      "questao": "As regras previstas no Decreto 22.626/33 são aplicáveis às taxas de juros e demais encargos cobrados em operações realizadas por instituições integrantes do sistema financeiro nacional, sejam elas públicas ou privadas.",
+      "gabarito": "ERRADO",
+      "justificativa": "O Decreto 22.626/33 não se aplica às taxas de juros e outros encargos cobrados nas operações realizadas por instituições públicas ou privadas que compõem o sistema financeiro nacional, conforme entendimento consolidado pelo STF. Portanto, tais operações estão regidas por normas específicas do sistema financeiro, e não pelo referido decreto."
+    },
+    {
+      "id_origem": "sumula_597_stf",
+      "titulo_origem": "Súmula 597 STF",
+      "questao": "Em mandado de segurança, é admissível a interposição de embargos infringentes contra acórdão que decidiu a apelação por maioria de votos.",
+      "gabarito": "ERRADO",
+      "justificativa": "No mandado de segurança, não são cabíveis embargos infringentes contra acórdão que decidiu a apelação por maioria de votos, pois a legislação processual e a jurisprudência do STF vedam tal recurso nesse contexto, visando a celeridade e a segurança jurídica no procedimento específico do mandado de segurança."
+    },
+    {
+      "id_origem": "sumula_598_stf",
+      "titulo_origem": "Súmula 598 STF",
+      "questao": "Nos embargos de divergência, é admissível utilizar como paradigma para demonstrar a divergência os mesmos precedentes que foram rejeitados como não dissidentes no julgamento do recurso extraordinário.",
+      "gabarito": "ERRADO",
+      "justificativa": "Nos embargos de divergência, não se pode utilizar como paradigma para demonstrar a divergência os mesmos precedentes que foram rejeitados como não dissidentes no julgamento do recurso extraordinário, pois isso contraria o princípio da segurança jurídica e a finalidade do recurso, que é afastar divergência efetiva entre decisões."
+    },
+    {
+      "id_origem": "sumula_599_stf",
+      "titulo_origem": "Súmula 599 STF",
+      "questao": "É possível interpor embargos de divergência contra decisão de turma proferida em agravo regimental no Supremo Tribunal Federal.",
+      "gabarito": "CERTO",
+      "justificativa": "Embora a Súmula 599 do STF tenha afirmado anteriormente que são incabíveis embargos de divergência contra decisão de turma em agravo regimental, essa súmula foi cancelada, o que significa que tal entendimento não mais prevalece. Portanto, atualmente, admite-se a interposição de embargos de divergência nessas hipóteses, conforme o regime processual vigente e a jurisprudência atual do STF."
+    },
+    {
+      "id_origem": "sumula_600_stf",
+      "titulo_origem": "Súmula 600 STF",
+      "questao": "É possível propor ação executiva contra o emitente e seus avalistas de cheque mesmo que o título não tenha sido apresentado ao sacado dentro do prazo legal, desde que a ação cambiária não esteja prescrita.",
+      "gabarito": "CERTO",
+      "justificativa": "A jurisprudência do STF reconhece que a ausência de apresentação do cheque ao sacado no prazo legal não impede a propositura da ação executiva contra o emitente e seus avalistas, desde que a ação cambiária não tenha sido alcançada pela prescrição. Isso porque a prescrição é o limite temporal para o exercício do direito, e sua ausência mantém a exigibilidade do título, independentemente da apresentação tempestiva."
+    }
+  ]
+}

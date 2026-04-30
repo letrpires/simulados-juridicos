@@ -1,0 +1,856 @@
+{
+  "itens": [
+    {
+      "id_origem": "sumula_601_stf",
+      "titulo": "Súmula 601 STF",
+      "tipo": "Súmula",
+      "numero": "601",
+      "tribunal": "STF",
+      "enunciado": "Os arts. 3º, II, e 55 da Lei Complementar nº 40/81 (Lei Orgânica do Ministério Público) não revogaram a legislação anterior que atribui a iniciativa para a ação penal pública, no processo sumário, ao juiz ou à autoridade policial, mediante Portaria ou Auto de Prisão em Flagrante.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_013_601_a_651.md"
+    },
+    {
+      "id_origem": "sumula_602_stf",
+      "titulo": "Súmula 602 STF",
+      "tipo": "Súmula",
+      "numero": "602",
+      "tribunal": "STF",
+      "enunciado": "Nas causas criminais, o prazo de interposição de Recurso Extraordinário é de 10 (dez) dias.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_013_601_a_651.md"
+    },
+    {
+      "id_origem": "sumula_603_stf",
+      "titulo": "Súmula 603 STF",
+      "tipo": "Súmula",
+      "numero": "603",
+      "tribunal": "STF",
+      "enunciado": "A competência para o processo e julgamento de latrocínio é do Juiz singular e não do Tribunal do Júri.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_013_601_a_651.md"
+    },
+    {
+      "id_origem": "sumula_604_stf",
+      "titulo": "Súmula 604 STF",
+      "tipo": "Súmula",
+      "numero": "604",
+      "tribunal": "STF",
+      "enunciado": "A prescrição pela pena em concreto é somente da pretensão executória da pena privativa de liberdade.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_013_601_a_651.md"
+    },
+    {
+      "id_origem": "sumula_605_stf",
+      "titulo": "Súmula 605 STF",
+      "tipo": "Súmula",
+      "numero": "605",
+      "tribunal": "STF",
+      "enunciado": "Não se admite continuidade delitiva nos crimes contra a vida. 93",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_013_601_a_651.md"
+    },
+    {
+      "id_origem": "sumula_606_stf",
+      "titulo": "Súmula 606 STF",
+      "tipo": "Súmula",
+      "numero": "606",
+      "tribunal": "STF",
+      "enunciado": "Não cabe habeas corpus originário para o Tribunal Pleno de decisão de Turma, ou do Plenário, proferida em habeas corpus ou no respectivo recurso.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_013_601_a_651.md"
+    },
+    {
+      "id_origem": "sumula_607_stf",
+      "titulo": "Súmula 607 STF",
+      "tipo": "Súmula",
+      "numero": "607",
+      "tribunal": "STF",
+      "enunciado": "Na ação penal regida pela Lei nº 4611/65, a denúncia, como substitutivo da Portaria, não interrompe a prescrição.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_013_601_a_651.md"
+    },
+    {
+      "id_origem": "sumula_608_stf",
+      "titulo": "Súmula 608 STF",
+      "tipo": "Súmula",
+      "numero": "608",
+      "tribunal": "STF",
+      "enunciado": "No crime de estupro, praticado mediante violência real, a ação penal é pública incondicionada.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_013_601_a_651.md"
+    },
+    {
+      "id_origem": "sumula_609_stf",
+      "titulo": "Súmula 609 STF",
+      "tipo": "Súmula",
+      "numero": "609",
+      "tribunal": "STF",
+      "enunciado": "É pública incondicionada a ação penal por crime de sonegação fiscal.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_013_601_a_651.md"
+    },
+    {
+      "id_origem": "sumula_610_stf",
+      "titulo": "Súmula 610 STF",
+      "tipo": "Súmula",
+      "numero": "610",
+      "tribunal": "STF",
+      "enunciado": "Há crime de latrocínio, quando o homicídio se consuma, ainda que não realize o agente a subtração de bens da vítima.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_013_601_a_651.md"
+    },
+    {
+      "id_origem": "sumula_611_stf",
+      "titulo": "Súmula 611 STF",
+      "tipo": "Súmula",
+      "numero": "611",
+      "tribunal": "STF",
+      "enunciado": "Transitada em julgado a sentença condenatória, compete ao Juízo das execuções a aplicação de lei mais benigna.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_013_601_a_651.md"
+    },
+    {
+      "id_origem": "sumula_612_stf",
+      "titulo": "Súmula 612 STF",
+      "tipo": "Súmula",
+      "numero": "612",
+      "tribunal": "STF",
+      "enunciado": "Ao trabalhador rural não se aplicam, por analogia, os benefícios previstos na Lei nº 6367, de 19/10/76.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_013_601_a_651.md"
+    },
+    {
+      "id_origem": "sumula_613_stf",
+      "titulo": "Súmula 613 STF",
+      "tipo": "Súmula",
+      "numero": "613",
+      "tribunal": "STF",
+      "enunciado": "Os dependentes de trabalhador rural não têm direito à pensão previdenciária, se o óbito ocorreu anteriormente à vigência da Lei Complementar nº 11/71. 94",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_013_601_a_651.md"
+    },
+    {
+      "id_origem": "sumula_614_stf",
+      "titulo": "Súmula 614 STF",
+      "tipo": "Súmula",
+      "numero": "614",
+      "tribunal": "STF",
+      "enunciado": "Somente o Procurador-Geral da Justiça tem legitimidade para propor ação direta interventiva por inconstitucionalidade de Lei Municipal.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_013_601_a_651.md"
+    },
+    {
+      "id_origem": "sumula_615_stf",
+      "titulo": "Súmula 615 STF",
+      "tipo": "Súmula",
+      "numero": "615",
+      "tribunal": "STF",
+      "enunciado": "O princípio constitucional da anualidade (§ 29 do art. 153 da CF) não se aplica à revogação de isenção do ICM.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_013_601_a_651.md"
+    },
+    {
+      "id_origem": "sumula_616_stf",
+      "titulo": "Súmula 616 STF",
+      "tipo": "Súmula",
+      "numero": "616",
+      "tribunal": "STF",
+      "enunciado": "É permitida a cumulação da multa contratual com os honorários de advogado, após o advento do Código de Processo Civil vigente.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_013_601_a_651.md"
+    },
+    {
+      "id_origem": "sumula_617_stf",
+      "titulo": "Súmula 617 STF",
+      "tipo": "Súmula",
+      "numero": "617",
+      "tribunal": "STF",
+      "enunciado": "A base de cálculo dos honorários de advogado em desapropriação é a diferença entre a oferta e a indenização, corrigidas ambas monetariamente.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_013_601_a_651.md"
+    },
+    {
+      "id_origem": "sumula_618_stf",
+      "titulo": "Súmula 618 STF",
+      "tipo": "Súmula",
+      "numero": "618",
+      "tribunal": "STF",
+      "enunciado": "Na desapropriação, direta ou indireta, a taxa dos juros compensatórios é de 12% (doze por cento) ao ano.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_013_601_a_651.md"
+    },
+    {
+      "id_origem": "sumula_619_stf",
+      "titulo": "Súmula 619 STF",
+      "tipo": "Súmula",
+      "numero": "619",
+      "tribunal": "STF",
+      "enunciado": "A prisão do depositário judicial pode ser decretada no próprio processo em que se constituiu o encargo, independentemente da propositura de ação de depósito. (Revogada)",
+      "cancelada_ou_revogada": true,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_013_601_a_651.md"
+    },
+    {
+      "id_origem": "sumula_620_stf",
+      "titulo": "Súmula 620 STF",
+      "tipo": "Súmula",
+      "numero": "620",
+      "tribunal": "STF",
+      "enunciado": "A sentença proferida contra Autarquias não está sujeita a reexame necessário, salvo quando sucumbente em execução de dívida ativa.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_013_601_a_651.md"
+    },
+    {
+      "id_origem": "sumula_621_stf",
+      "titulo": "Súmula 621 STF",
+      "tipo": "Súmula",
+      "numero": "621",
+      "tribunal": "STF",
+      "enunciado": "Não enseja embargos de terceiro à penhora a promessa de compra e venda não inscrita no registro de imóveis. 95",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_013_601_a_651.md"
+    },
+    {
+      "id_origem": "sumula_622_stf",
+      "titulo": "Súmula 622 STF",
+      "tipo": "Súmula",
+      "numero": "622",
+      "tribunal": "STF",
+      "enunciado": "Não cabe agravo regimental contra decisão do relator que concede ou indefere liminar em mandado de segurança.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_013_601_a_651.md"
+    },
+    {
+      "id_origem": "sumula_623_stf",
+      "titulo": "Súmula 623 STF",
+      "tipo": "Súmula",
+      "numero": "623",
+      "tribunal": "STF",
+      "enunciado": "Não gera por si só a competência originária do Supremo Tribunal Federal para conhecer do mandado de segurança com base no art. 102, I, n, da Constituição, dirigir-se o pedido contra deliberação administrativa do tribunal de origem, da qual haja participado a maioria ou a totalidade de seus membros.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_013_601_a_651.md"
+    },
+    {
+      "id_origem": "sumula_624_stf",
+      "titulo": "Súmula 624 STF",
+      "tipo": "Súmula",
+      "numero": "624",
+      "tribunal": "STF",
+      "enunciado": "Não compete ao Supremo Tribunal Federal conhecer originariamente de mandado de segurança contra atos de outros tribunais.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_013_601_a_651.md"
+    },
+    {
+      "id_origem": "sumula_625_stf",
+      "titulo": "Súmula 625 STF",
+      "tipo": "Súmula",
+      "numero": "625",
+      "tribunal": "STF",
+      "enunciado": "Controvérsia sobre matéria de direito não impede concessão de mandado de segurança.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_013_601_a_651.md"
+    },
+    {
+      "id_origem": "sumula_626_stf",
+      "titulo": "Súmula 626 STF",
+      "tipo": "Súmula",
+      "numero": "626",
+      "tribunal": "STF",
+      "enunciado": "A suspensão da liminar em mandado de segurança, salvo determinação em contrário da decisão que a deferir, vigorará até o trânsito em julgado da decisão definitiva de concessão da segurança ou, havendo recurso, até a sua manutenção pelo Supremo Tribunal Federal, desde que o objeto da liminar deferida coincida, total ou parcialmente, com o da impetração.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_013_601_a_651.md"
+    },
+    {
+      "id_origem": "sumula_627_stf",
+      "titulo": "Súmula 627 STF",
+      "tipo": "Súmula",
+      "numero": "627",
+      "tribunal": "STF",
+      "enunciado": "No mandado de segurança contra a nomeação de magistrado da competência do Presidente da República, este é considerado autoridade coatora, ainda que o fundamento da impetração seja nulidade ocorrida em fase anterior do procedimento.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_013_601_a_651.md"
+    },
+    {
+      "id_origem": "sumula_628_stf",
+      "titulo": "Súmula 628 STF",
+      "tipo": "Súmula",
+      "numero": "628",
+      "tribunal": "STF",
+      "enunciado": "Integrante de lista de candidatos a determinada vaga da composição de tribunal é parte legítima para impugnar a validade da nomeação de concorrente. 96",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_013_601_a_651.md"
+    },
+    {
+      "id_origem": "sumula_629_stf",
+      "titulo": "Súmula 629 STF",
+      "tipo": "Súmula",
+      "numero": "629",
+      "tribunal": "STF",
+      "enunciado": "A impetração de mandado de segurança coletivo por entidade de classe em favor dos associados independe da autorização destes.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_013_601_a_651.md"
+    },
+    {
+      "id_origem": "sumula_630_stf",
+      "titulo": "Súmula 630 STF",
+      "tipo": "Súmula",
+      "numero": "630",
+      "tribunal": "STF",
+      "enunciado": "A entidade de classe tem legitimação para o mandado de segurança ainda quando a pretensão veiculada interesse apenas a uma parte da respectiva categoria.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_013_601_a_651.md"
+    },
+    {
+      "id_origem": "sumula_631_stf",
+      "titulo": "Súmula 631 STF",
+      "tipo": "Súmula",
+      "numero": "631",
+      "tribunal": "STF",
+      "enunciado": "Extingue-se o processo de mandado de segurança se o impetrante não promove, no prazo assinado, a citação do litisconsorte passivo necessário.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_013_601_a_651.md"
+    },
+    {
+      "id_origem": "sumula_632_stf",
+      "titulo": "Súmula 632 STF",
+      "tipo": "Súmula",
+      "numero": "632",
+      "tribunal": "STF",
+      "enunciado": "É constitucional lei que fixa o prazo de decadência para a impetração de mandado de segurança.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_013_601_a_651.md"
+    },
+    {
+      "id_origem": "sumula_633_stf",
+      "titulo": "Súmula 633 STF",
+      "tipo": "Súmula",
+      "numero": "633",
+      "tribunal": "STF",
+      "enunciado": "É incabível a condenação em verba honorária nos recursos extraordinários interpostos em processo trabalhista, exceto nas hipóteses previstas na Lei 5.584/70.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_013_601_a_651.md"
+    },
+    {
+      "id_origem": "sumula_634_stf",
+      "titulo": "Súmula 634 STF",
+      "tipo": "Súmula",
+      "numero": "634",
+      "tribunal": "STF",
+      "enunciado": "Não compete ao Supremo Tribunal Federal conceder medida cautelar para dar efeito suspensivo a recurso extraordinário que ainda não foi objeto de juízo de admissibilidade na origem.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_013_601_a_651.md"
+    },
+    {
+      "id_origem": "sumula_635_stf",
+      "titulo": "Súmula 635 STF",
+      "tipo": "Súmula",
+      "numero": "635",
+      "tribunal": "STF",
+      "enunciado": "Cabe ao Presidente do Tribunal de origem decidir o pedido de medida cautelar em recurso extraordinário ainda pendente do seu juízo de admissibilidade. 97",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_013_601_a_651.md"
+    },
+    {
+      "id_origem": "sumula_636_stf",
+      "titulo": "Súmula 636 STF",
+      "tipo": "Súmula",
+      "numero": "636",
+      "tribunal": "STF",
+      "enunciado": "Não cabe recurso extraordinário por contrariedade ao princípio constitucional da legalidade, quando a sua verificação pressuponha rever a interpretação dada a normas infraconstitucionais pela decisão recorrida.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_013_601_a_651.md"
+    },
+    {
+      "id_origem": "sumula_637_stf",
+      "titulo": "Súmula 637 STF",
+      "tipo": "Súmula",
+      "numero": "637",
+      "tribunal": "STF",
+      "enunciado": "Não cabe recurso extraordinário contra acórdão de Tribunal de Justiça que defere pedido de intervenção estadual em Município.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_013_601_a_651.md"
+    },
+    {
+      "id_origem": "sumula_638_stf",
+      "titulo": "Súmula 638 STF",
+      "tipo": "Súmula",
+      "numero": "638",
+      "tribunal": "STF",
+      "enunciado": "A controvérsia sobre a incidência, ou não, de correção monetária em operações de crédito rural é de natureza infraconstitucional, não viabilizando recurso extraordinário.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_013_601_a_651.md"
+    },
+    {
+      "id_origem": "sumula_640_stf",
+      "titulo": "Súmula 640 STF",
+      "tipo": "Súmula",
+      "numero": "640",
+      "tribunal": "STF",
+      "enunciado": "É cabível recurso extraordinário contra decisão proferida por juiz de primeiro grau nas causas de alçada, ou por turma recursal de juizado especial cível e criminal.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_013_601_a_651.md"
+    },
+    {
+      "id_origem": "sumula_641_stf",
+      "titulo": "Súmula 641 STF",
+      "tipo": "Súmula",
+      "numero": "641",
+      "tribunal": "STF",
+      "enunciado": "Não se conta em dobro o prazo para recorrer, quando só um dos litisconsortes haja sucumbido.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_013_601_a_651.md"
+    },
+    {
+      "id_origem": "sumula_642_stf",
+      "titulo": "Súmula 642 STF",
+      "tipo": "Súmula",
+      "numero": "642",
+      "tribunal": "STF",
+      "enunciado": "Não cabe ação direta de inconstitucionalidade de lei do Distrito Federal derivada da sua competência legislativa municipal. 98",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_013_601_a_651.md"
+    },
+    {
+      "id_origem": "sumula_643_stf",
+      "titulo": "Súmula 643 STF",
+      "tipo": "Súmula",
+      "numero": "643",
+      "tribunal": "STF",
+      "enunciado": "O Ministério Público tem legitimidade para promover ação civil pública cujo fundamento seja a ilegalidade de reajuste de mensalidades escolares.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_013_601_a_651.md"
+    },
+    {
+      "id_origem": "sumula_644_stf",
+      "titulo": "Súmula 644 STF",
+      "tipo": "Súmula",
+      "numero": "644",
+      "tribunal": "STF",
+      "enunciado": "Ao titular do cargo de procurador de autarquia não se exige a apresentação de instrumento de mandato para representá-la em juízo.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_013_601_a_651.md"
+    },
+    {
+      "id_origem": "sumula_645_stf",
+      "titulo": "Súmula 645 STF",
+      "tipo": "Súmula",
+      "numero": "645",
+      "tribunal": "STF",
+      "enunciado": "É competente o Município para fixar o horário de funcionamento de estabelecimento comercial.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_013_601_a_651.md"
+    },
+    {
+      "id_origem": "sumula_646_stf",
+      "titulo": "Súmula 646 STF",
+      "tipo": "Súmula",
+      "numero": "646",
+      "tribunal": "STF",
+      "enunciado": "Ofende o princípio da livre concorrência lei municipal que impede a instalação de estabelecimentos comerciais do mesmo ramo em determinada área.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_013_601_a_651.md"
+    },
+    {
+      "id_origem": "sumula_647_stf",
+      "titulo": "Súmula 647 STF",
+      "tipo": "Súmula",
+      "numero": "647",
+      "tribunal": "STF",
+      "enunciado": "Compete privativamente à União legislar sobre vencimentos dos membros das polícias civil e militar do Distrito Federal.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_013_601_a_651.md"
+    },
+    {
+      "id_origem": "sumula_648_stf",
+      "titulo": "Súmula 648 STF",
+      "tipo": "Súmula",
+      "numero": "648",
+      "tribunal": "STF",
+      "enunciado": "A norma do § 3º do art. 192 da Constituição, revogada pela EC 40/2003, que limitava a taxa de juros reais a 12% ao ano, tinha sua aplicabilidade condicionada à edição de lei complementar.",
+      "cancelada_ou_revogada": true,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_013_601_a_651.md"
+    },
+    {
+      "id_origem": "sumula_649_stf",
+      "titulo": "Súmula 649 STF",
+      "tipo": "Súmula",
+      "numero": "649",
+      "tribunal": "STF",
+      "enunciado": "É inconstitucional a criação, por Constituição estadual, de órgão de controle administrativo do Poder Judiciário do qual participem representantes de outros Poderes ou entidades. 99",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_013_601_a_651.md"
+    },
+    {
+      "id_origem": "sumula_650_stf",
+      "titulo": "Súmula 650 STF",
+      "tipo": "Súmula",
+      "numero": "650",
+      "tribunal": "STF",
+      "enunciado": "Os incisos I e XI do art. 20 da CF não alcançam terras de aldeamentos extintos, ainda que ocupadas por indígenas em passado remoto.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_013_601_a_651.md"
+    },
+    {
+      "id_origem": "sumula_651_stf",
+      "titulo": "Súmula 651 STF",
+      "tipo": "Súmula",
+      "numero": "651",
+      "tribunal": "STF",
+      "enunciado": "A medida provisória não apreciada pelo Congresso Nacional podia, até a EC 32/2001, ser reeditada dentro do seu prazo de eficácia de trinta dias, mantidos os efeitos de lei desde a primeira edição.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_013_601_a_651.md"
+    }
+  ],
+  "questoes": [
+    {
+      "id_origem": "sumula_601_stf",
+      "titulo_origem": "Súmula 601 STF",
+      "questao": "A Lei Complementar nº 40/81 revogou a legislação anterior que atribuía ao juiz ou à autoridade policial, mediante Portaria ou Auto de Prisão em Flagrante, a iniciativa para a ação penal pública no processo sumário.",
+      "gabarito": "ERRADO",
+      "justificativa": "Os artigos 3º, II, e 55 da Lei Complementar nº 40/81 não revogaram a legislação anterior que conferia ao juiz ou à autoridade policial, por meio de Portaria ou Auto de Prisão em Flagrante, a iniciativa para a ação penal pública no processo sumário. Portanto, essa atribuição permanece válida e vigente, conforme entendimento consolidado pelo Supremo Tribunal Federal."
+    },
+    {
+      "id_origem": "sumula_602_stf",
+      "titulo_origem": "Súmula 602 STF",
+      "questao": "O prazo para interposição de Recurso Extraordinário em processos criminais é de 5 (cinco) dias.",
+      "gabarito": "ERRADO",
+      "justificativa": "O prazo para interposição de Recurso Extraordinário em causas criminais é de 10 (dez) dias, conforme entendimento consolidado pelo Supremo Tribunal Federal, garantindo tempo adequado para a preparação do recurso."
+    },
+    {
+      "id_origem": "sumula_603_stf",
+      "titulo_origem": "Súmula 603 STF",
+      "questao": "O julgamento do crime de latrocínio compete ao Tribunal do Júri, por envolver violência contra a pessoa.",
+      "gabarito": "ERRADO",
+      "justificativa": "O crime de latrocínio, embora envolva violência contra a pessoa, é julgado pelo juiz singular, e não pelo Tribunal do Júri. Isso ocorre porque o latrocínio é um crime complexo que envolve tanto o roubo quanto o homicídio, e a jurisprudência do STF entende que a competência para seu julgamento é do juiz singular, conforme consolidado na Súmula 603."
+    },
+    {
+      "id_origem": "sumula_604_stf",
+      "titulo_origem": "Súmula 604 STF",
+      "questao": "A prescrição da pena privativa de liberdade, quando considerada em sua forma concreta, limita-se exclusivamente à pretensão executória, não alcançando a pretensão punitiva.",
+      "gabarito": "CERTO",
+      "justificativa": "A prescrição pela pena em concreto refere-se apenas à pretensão executória, ou seja, ao direito do Estado de executar a pena privativa de liberdade já imposta. A pretensão punitiva, que é o direito de punir, é objeto de prescrição diversa, denominada prescrição da pretensão punitiva. Portanto, a prescrição pela pena em concreto não atinge a pretensão punitiva, limitando-se à execução da pena privativa de liberdade."
+    },
+    {
+      "id_origem": "sumula_605_stf",
+      "titulo_origem": "Súmula 605 STF",
+      "questao": "É possível reconhecer a continuidade delitiva nos crimes contra a vida quando houver múltiplos atos criminosos praticados em sequência.",
+      "gabarito": "ERRADO",
+      "justificativa": "A continuidade delitiva pressupõe a existência de múltiplos crimes da mesma espécie, praticados em condições semelhantes, que se unem para formar um único juízo de reprovação. No entanto, no âmbito dos crimes contra a vida, o Supremo Tribunal Federal entende que não se admite a aplicação da continuidade delitiva, pois cada homicídio ou crime contra a vida é considerado um fato autônomo e isolado para fins penais, não podendo ser agrupado para fins de dosimetria ou aplicação de penas cumulativas."
+    },
+    {
+      "id_origem": "sumula_606_stf",
+      "titulo_origem": "Súmula 606 STF",
+      "questao": "É admissível a impetração de habeas corpus originário diretamente no Tribunal Pleno contra decisão proferida por Turma em habeas corpus ou no recurso correspondente.",
+      "gabarito": "ERRADO",
+      "justificativa": "O Supremo Tribunal Federal entende que não cabe habeas corpus originário para o Tribunal Pleno contra decisão de Turma ou do próprio Plenário em habeas corpus ou no recurso respectivo, pois tal procedimento não está previsto e compromete a organização e a hierarquia interna do tribunal."
+    },
+    {
+      "id_origem": "sumula_607_stf",
+      "titulo_origem": "Súmula 607 STF",
+      "questao": "Na ação penal regulada pela Lei nº 4.611/65, a apresentação da denúncia substitutiva da portaria interrompe o prazo prescricional da pretensão punitiva.",
+      "gabarito": "ERRADO",
+      "justificativa": "De acordo com a jurisprudência consolidada, na ação penal regida pela Lei nº 4.611/65, a denúncia que substitui a portaria não tem o efeito de interromper a prescrição. Isso ocorre porque a denúncia, nesse contexto, não altera o curso do prazo prescricional, que permanece fluindo normalmente até a sua consumação ou interrupção por outros atos previstos em lei."
+    },
+    {
+      "id_origem": "sumula_608_stf",
+      "titulo_origem": "Súmula 608 STF",
+      "questao": "No crime de estupro cometido com o emprego de violência real, a persecução penal depende da representação da vítima para que o Ministério Público possa iniciar a ação penal.",
+      "gabarito": "ERRADO",
+      "justificativa": "O crime de estupro praticado mediante violência real é de ação penal pública incondicionada, ou seja, o Ministério Público pode iniciar a ação penal independentemente da vontade da vítima, não sendo necessária a representação para o início da persecução penal."
+    },
+    {
+      "id_origem": "sumula_609_stf",
+      "titulo_origem": "Súmula 609 STF",
+      "questao": "A ação penal relativa ao crime de sonegação fiscal depende de representação do ofendido para ser iniciada.",
+      "gabarito": "ERRADO",
+      "justificativa": "A ação penal por crime de sonegação fiscal é pública incondicionada, ou seja, independe de representação do ofendido para seu início. Isso significa que o Ministério Público pode promover a ação penal independentemente da vontade da vítima, conforme entendimento consolidado pelo Supremo Tribunal Federal."
+    },
+    {
+      "id_origem": "sumula_610_stf",
+      "titulo_origem": "Súmula 610 STF",
+      "questao": "No crime de latrocínio, a consumação do homicídio é suficiente para a configuração do delito, mesmo que o agente não chegue a subtrair os bens da vítima.",
+      "gabarito": "CERTO",
+      "justificativa": "O entendimento consolidado é que o latrocínio se consuma com a morte da vítima, independentemente da efetiva subtração dos bens. Isso porque a intenção de roubar, associada ao resultado morte, caracteriza o crime, não sendo necessária a consumação da subtração para a configuração do latrocínio."
+    },
+    {
+      "id_origem": "sumula_611_stf",
+      "titulo_origem": "Súmula 611 STF",
+      "questao": "Após o trânsito em julgado da sentença condenatória, o Juízo das execuções não possui competência para aplicar lei mais benigna ao condenado.",
+      "gabarito": "ERRADO",
+      "justificativa": "Após o trânsito em julgado da sentença condenatória, é competência do Juízo das execuções aplicar a lei mais benigna ao condenado, conforme entendimento consolidado pelo Supremo Tribunal Federal. Isso assegura a observância do princípio da retroatividade da lei penal mais favorável, previsto no artigo 5º, inciso XL, da Constituição Federal."
+    },
+    {
+      "id_origem": "sumula_612_stf",
+      "titulo_origem": "Súmula 612 STF",
+      "questao": "É correto afirmar que os benefícios previstos na Lei nº 6.367/1976 podem ser aplicados por analogia aos trabalhadores rurais.",
+      "gabarito": "ERRADO",
+      "justificativa": "A jurisprudência do STF é clara ao estabelecer que os benefícios previstos na Lei nº 6.367/1976 não se aplicam, por analogia, aos trabalhadores rurais. Isso ocorre porque a legislação específica para trabalhadores rurais possui regime próprio, e a extensão analógica dos benefícios dessa lei a essa categoria não é admitida, evitando-se assim interpretações que ampliem indevidamente o alcance da norma."
+    },
+    {
+      "id_origem": "sumula_613_stf",
+      "titulo_origem": "Súmula 613 STF",
+      "questao": "Os dependentes de trabalhador rural têm direito à pensão previdenciária mesmo que o óbito tenha ocorrido antes da vigência da Lei Complementar nº 11/71.",
+      "gabarito": "ERRADO",
+      "justificativa": "A proteção previdenciária aos dependentes de trabalhador rural, no que se refere à pensão por morte, foi instituída pela Lei Complementar nº 11/71. Portanto, se o óbito ocorreu antes da vigência dessa lei, não há direito à pensão previdenciária para esses dependentes, conforme entendimento consolidado pelo Supremo Tribunal Federal."
+    },
+    {
+      "id_origem": "sumula_614_stf",
+      "titulo_origem": "Súmula 614 STF",
+      "questao": "A legitimidade exclusiva para propor ação direta interventiva por inconstitucionalidade de lei municipal é conferida ao Procurador-Geral da Justiça.",
+      "gabarito": "CERTO",
+      "justificativa": "A jurisprudência do Supremo Tribunal Federal estabelece que, no âmbito estadual, apenas o Procurador-Geral da Justiça possui legitimidade para ajuizar ação direta interventiva visando à declaração de inconstitucionalidade de lei municipal. Essa restrição decorre da necessidade de preservar a competência do Ministério Público estadual para atuar na defesa da ordem jurídica e do regime democrático, evitando a multiplicidade de ações e garantindo a uniformidade na proteção da Constituição estadual."
+    },
+    {
+      "id_origem": "sumula_615_stf",
+      "titulo_origem": "Súmula 615 STF",
+      "questao": "A revogação de benefício fiscal de isenção do ICM está sujeita ao princípio constitucional da anualidade tributária previsto no § 29 do art. 153 da Constituição Federal.",
+      "gabarito": "ERRADO",
+      "justificativa": "O princípio da anualidade tributária impede que novos tributos ou aumentos de alíquotas produzam efeitos antes de decorridos noventa dias do início do exercício financeiro seguinte. Contudo, conforme entendimento consolidado, a revogação de isenção do ICM não está sujeita a esse princípio, podendo produzir efeitos imediatos, pois não se trata de instituição ou majoração de tributo, mas de supressão de benefício fiscal."
+    },
+    {
+      "id_origem": "sumula_616_stf",
+      "titulo_origem": "Súmula 616 STF",
+      "questao": "Após a vigência do Código de Processo Civil atual, é vedada a cumulação da multa contratual com os honorários advocatícios na mesma execução.",
+      "gabarito": "ERRADO",
+      "justificativa": "Com o advento do Código de Processo Civil vigente, a jurisprudência do STF permite a cumulação da multa contratual com os honorários advocatícios, ou seja, ambos podem ser cobrados cumulativamente, não havendo vedação para tal prática."
+    },
+    {
+      "id_origem": "sumula_617_stf",
+      "titulo_origem": "Súmula 617 STF",
+      "questao": "Na fixação dos honorários advocatícios em ação de desapropriação, a base de cálculo deve considerar a diferença entre o valor da indenização paga e a oferta inicial feita pelo expropriante, ambas atualizadas monetariamente.",
+      "gabarito": "CERTO",
+      "justificativa": "A base de cálculo dos honorários advocatícios em desapropriação é a diferença entre a oferta inicial e a indenização efetivamente paga, considerando a atualização monetária de ambos os valores, conforme entendimento consolidado pelo STF. Isso visa refletir o proveito econômico obtido pela parte vencedora, garantindo justa remuneração ao advogado."
+    },
+    {
+      "id_origem": "sumula_618_stf",
+      "titulo_origem": "Súmula 618 STF",
+      "questao": "Na hipótese de desapropriação, seja ela direta ou indireta, a taxa de juros compensatórios aplicável é fixada em 12% ao ano.",
+      "gabarito": "CERTO",
+      "justificativa": "A jurisprudência do STF estabelece que, nas desapropriações, a taxa de juros compensatórios deve ser de 12% ao ano, independentemente de ser desapropriação direta ou indireta. Essa taxa visa compensar o proprietário pelo tempo em que fica privado do bem, sendo um parâmetro uniforme para garantir segurança jurídica e isonomia nas indenizações."
+    },
+    {
+      "id_origem": "sumula_619_stf",
+      "titulo_origem": "Súmula 619 STF",
+      "questao": "A prisão do depositário judicial pode ser decretada no processo em que foi constituído o encargo, mesmo sem a necessidade de ajuizamento de ação de depósito.",
+      "gabarito": "ERRADO",
+      "justificativa": "A Súmula 619 do STF, que permitia a decretação da prisão do depositário judicial no próprio processo em que se constituiu o encargo, independentemente da propositura de ação de depósito, foi revogada. Atualmente, a prisão do depositário judicial depende da propositura da ação de depósito, não podendo ser decretada diretamente no processo originário."
+    },
+    {
+      "id_origem": "sumula_620_stf",
+      "titulo_origem": "Súmula 620 STF",
+      "questao": "A sentença proferida contra autarquias está sempre sujeita a reexame necessário, independentemente do objeto da demanda.",
+      "gabarito": "ERRADO",
+      "justificativa": "A súmula estabelece que a sentença contra autarquias não está sujeita a reexame necessário, exceto quando a autarquia for sucumbente em execução de dívida ativa. Portanto, o reexame necessário não é automático em todas as sentenças contra autarquias, mas restrito a essa hipótese específica."
+    },
+    {
+      "id_origem": "sumula_621_stf",
+      "titulo_origem": "Súmula 621 STF",
+      "questao": "A promessa de compra e venda de imóvel, quando não inscrita no registro de imóveis, não pode ser objeto de embargos de terceiro contra a penhora realizada sobre o bem.",
+      "gabarito": "CERTO",
+      "justificativa": "A promessa de compra e venda não registrada no cartório de imóveis não confere ao promitente comprador a posse ou propriedade suficiente para impedir a constrição judicial do bem por meio de embargos de terceiro. Isso porque a inscrição no registro de imóveis é requisito essencial para oponibilidade contra terceiros, garantindo a publicidade e a eficácia erga omnes do direito real. Assim, a ausência de registro impede que o promitente comprador se utilize dos embargos de terceiro para afastar a penhora."
+    },
+    {
+      "id_origem": "sumula_622_stf",
+      "titulo_origem": "Súmula 622 STF",
+      "questao": "É possível interpor agravo regimental contra decisão do relator que indefere liminar em mandado de segurança.",
+      "gabarito": "ERRADO",
+      "justificativa": "Não cabe agravo regimental contra decisão do relator que concede ou indefere liminar em mandado de segurança, pois tais decisões são monocráticas e possuem caráter interlocutório, não sujeitas a esse recurso no âmbito do STF, conforme entendimento consolidado para evitar a proliferação de recursos e garantir a celeridade processual."
+    },
+    {
+      "id_origem": "sumula_623_stf",
+      "titulo_origem": "Súmula 623 STF",
+      "questao": "A participação da maioria dos membros do tribunal de origem na deliberação administrativa que motivou o pedido impede que o Supremo Tribunal Federal conheça originariamente do mandado de segurança com fundamento no art. 102, I, n, da Constituição.",
+      "gabarito": "CERTO",
+      "justificativa": "A competência originária do STF para mandado de segurança, prevista no art. 102, I, n, da Constituição, não se configura automaticamente quando o pedido é dirigido contra deliberação administrativa do tribunal de origem que contou com a participação da maioria ou totalidade de seus membros. Isso porque a atuação colegiada do tribunal de origem afasta a necessidade de intervenção originária do STF, que atua em casos excepcionais."
+    },
+    {
+      "id_origem": "sumula_624_stf",
+      "titulo_origem": "Súmula 624 STF",
+      "questao": "É possível ao Supremo Tribunal Federal conhecer originariamente de mandado de segurança impetrado contra ato praticado por tribunal superior.",
+      "gabarito": "ERRADO",
+      "justificativa": "O Supremo Tribunal Federal não possui competência para conhecer originariamente de mandado de segurança contra atos praticados por outros tribunais, conforme entendimento consolidado. Essa competência é restrita, cabendo ao tribunal que praticou o ato a apreciação do mandado de segurança em primeiro grau."
+    },
+    {
+      "id_origem": "sumula_625_stf",
+      "titulo_origem": "Súmula 625 STF",
+      "questao": "A existência de controvérsia sobre a matéria de direito impede a concessão de mandado de segurança, pois tal medida exige certeza jurídica prévia.",
+      "gabarito": "ERRADO",
+      "justificativa": "A controvérsia sobre matéria de direito não impede a concessão do mandado de segurança, pois este é um remédio constitucional destinado a proteger direito líquido e certo, mesmo diante de divergência jurídica. A existência de debate sobre o direito não afasta a possibilidade de concessão da medida, desde que presentes os requisitos legais."
+    },
+    {
+      "id_origem": "sumula_626_stf",
+      "titulo_origem": "Súmula 626 STF",
+      "questao": "A suspensão da liminar concedida em mandado de segurança permanece válida até o trânsito em julgado da decisão definitiva que concede a segurança, mesmo que o objeto da liminar não coincida com o da impetração.",
+      "gabarito": "ERRADO",
+      "justificativa": "A suspensão da liminar em mandado de segurança vigorará até o trânsito em julgado da decisão definitiva ou até a sua manutenção pelo STF, desde que o objeto da liminar coincida total ou parcialmente com o da impetração. Se não houver essa coincidência, a suspensão não se mantém automaticamente."
+    },
+    {
+      "id_origem": "sumula_627_stf",
+      "titulo_origem": "Súmula 627 STF",
+      "questao": "Em mandado de segurança impetrado contra a nomeação de magistrado, a autoridade coatora é sempre o Presidente da República, mesmo que a alegação de ilegalidade se refira a vício ocorrido em etapa anterior do procedimento de nomeação.",
+      "gabarito": "CERTO",
+      "justificativa": "No mandado de segurança contra ato de nomeação de magistrado, a autoridade coatora é aquela que pratica o ato final, ou seja, o Presidente da República, independentemente de o fundamento da impetração ser uma nulidade ocorrida em fase anterior do procedimento. Isso porque o ato de nomeação é o ato coator imediato, e a impetração visa a sua anulação ou suspensão, cabendo atribuir a coação à autoridade que o praticou."
+    },
+    {
+      "id_origem": "sumula_628_stf",
+      "titulo_origem": "Súmula 628 STF",
+      "questao": "É legítimo que um candidato aprovado em concurso público para vaga em tribunal, mas não nomeado, conteste judicialmente a validade da nomeação de outro candidato que tenha sido convocado para a mesma vaga.",
+      "gabarito": "CERTO",
+      "justificativa": "A legitimidade ativa para impugnar a nomeação de concorrente em concurso público para tribunal é assegurada ao candidato integrante da lista de aprovados para a vaga, mesmo que não tenha sido nomeado. Isso decorre do interesse jurídico direto na validade do ato que pode afetar sua própria expectativa de direito, conforme entendimento consolidado pelo Supremo Tribunal Federal."
+    },
+    {
+      "id_origem": "sumula_629_stf",
+      "titulo_origem": "Súmula 629 STF",
+      "questao": "Entidade de classe pode impetrar mandado de segurança coletivo em defesa de seus associados somente mediante autorização expressa destes.",
+      "gabarito": "ERRADO",
+      "justificativa": "A impetração de mandado de segurança coletivo por entidade de classe em favor dos associados independe da autorização destes, conforme entendimento consolidado pelo Supremo Tribunal Federal. Isso significa que a entidade pode agir diretamente para proteger interesses coletivos ou individuais homogêneos de seus membros, sem necessidade de autorização prévia, garantindo maior efetividade na defesa desses direitos."
+    },
+    {
+      "id_origem": "sumula_630_stf",
+      "titulo_origem": "Súmula 630 STF",
+      "questao": "A entidade de classe pode impetrar mandado de segurança mesmo que a demanda interesse apenas a um grupo restrito dentro da categoria representada.",
+      "gabarito": "CERTO",
+      "justificativa": "A legitimidade da entidade de classe para impetrar mandado de segurança não depende de a pretensão abranger toda a categoria, bastando que interesse a qualquer parte dela, conforme entendimento consolidado pelo STF."
+    },
+    {
+      "id_origem": "sumula_631_stf",
+      "titulo_origem": "Súmula 631 STF",
+      "questao": "No mandado de segurança, a ausência de promoção da citação do litisconsorte passivo necessário dentro do prazo estabelecido implica a extinção do processo sem resolução do mérito.",
+      "gabarito": "CERTO",
+      "justificativa": "A Súmula 631 do STF estabelece que, no mandado de segurança, se o impetrante não promover a citação do litisconsorte passivo necessário no prazo assinado, o processo deve ser extinto. Isso ocorre porque a citação do litisconsorte é requisito essencial para a validade do processo, garantindo o contraditório e a ampla defesa. A ausência dessa citação inviabiliza o prosseguimento do feito, ensejando sua extinção sem julgamento do mérito."
+    },
+    {
+      "id_origem": "sumula_632_stf",
+      "titulo_origem": "Súmula 632 STF",
+      "questao": "É inconstitucional a lei que estabelece prazo decadencial para a impetração de mandado de segurança.",
+      "gabarito": "ERRADO",
+      "justificativa": "O Supremo Tribunal Federal reconhece a constitucionalidade de lei que fixa prazo decadencial para a impetração de mandado de segurança, entendendo que tal limitação temporal não viola o direito de ação, desde que respeitados os princípios constitucionais. Portanto, a fixação de prazo decadencial para o mandado de segurança é válida e constitucional."
+    },
+    {
+      "id_origem": "sumula_633_stf",
+      "titulo_origem": "Súmula 633 STF",
+      "questao": "Nas ações trabalhistas, é possível a condenação em honorários advocatícios nas instâncias recursais, inclusive nos recursos extraordinários, independentemente de previsão legal específica.",
+      "gabarito": "ERRADO",
+      "justificativa": "A condenação em honorários advocatícios nos recursos extraordinários em processos trabalhistas é incabível, salvo nas hipóteses expressamente previstas na Lei 5.584/70. Portanto, a regra geral é a vedação, não sendo possível a condenação sem previsão legal específica."
+    },
+    {
+      "id_origem": "sumula_634_stf",
+      "titulo_origem": "Súmula 634 STF",
+      "questao": "É possível ao Supremo Tribunal Federal conceder medida cautelar com efeito suspensivo a recurso extraordinário antes de sua admissibilidade ser analisada pelo tribunal de origem.",
+      "gabarito": "ERRADO",
+      "justificativa": "O Supremo Tribunal Federal não pode conceder medida cautelar para suspender os efeitos de um recurso extraordinário que ainda não foi submetido ao juízo de admissibilidade pelo tribunal de origem. Isso porque a admissibilidade é requisito prévio e obrigatório para o exame do recurso no STF, garantindo o respeito à competência e à ordem processual estabelecida."
+    },
+    {
+      "id_origem": "sumula_635_stf",
+      "titulo_origem": "Súmula 635 STF",
+      "questao": "Compete ao Presidente do Tribunal de origem decidir sobre o pedido de medida cautelar em recurso extraordinário enquanto ainda não houver decisão sobre a admissibilidade do recurso.",
+      "gabarito": "CERTO",
+      "justificativa": "A competência para decidir sobre medidas cautelares em recurso extraordinário pendente de juízo de admissibilidade é do Presidente do Tribunal de origem, conforme entendimento consolidado pelo Supremo Tribunal Federal. Isso evita a paralisação do processo e assegura a efetividade da tutela jurisdicional enquanto se aguarda a análise do recurso."
+    },
+    {
+      "id_origem": "sumula_636_stf",
+      "titulo_origem": "Súmula 636 STF",
+      "questao": "É possível interpor recurso extraordinário com fundamento em violação ao princípio constitucional da legalidade quando a análise exigir a revisão da interpretação dada a normas infraconstitucionais pela decisão recorrida.",
+      "gabarito": "ERRADO",
+      "justificativa": "O recurso extraordinário não é cabível quando a alegada violação ao princípio constitucional da legalidade depende da reavaliação da interpretação dada a normas infraconstitucionais pela decisão recorrida, pois o Supremo Tribunal Federal não revisa o entendimento sobre normas infraconstitucionais no recurso extraordinário, limitando-se a questões constitucionais estritas."
+    },
+    {
+      "id_origem": "sumula_637_stf",
+      "titulo_origem": "Súmula 637 STF",
+      "questao": "É possível interpor recurso extraordinário contra decisão do Tribunal de Justiça que concede intervenção estadual em Município.",
+      "gabarito": "ERRADO",
+      "justificativa": "O Supremo Tribunal Federal entende que não cabe recurso extraordinário contra acórdão do Tribunal de Justiça que defere pedido de intervenção estadual em Município, pois tal decisão não envolve questão constitucional passível de reexame pelo STF, conforme consolidado na jurisprudência representada pela Súmula 637."
+    },
+    {
+      "id_origem": "sumula_638_stf",
+      "titulo_origem": "Súmula 638 STF",
+      "questao": "A discussão sobre a aplicação de correção monetária em contratos de crédito rural pode ser objeto de recurso extraordinário, pois envolve matéria constitucional.",
+      "gabarito": "ERRADO",
+      "justificativa": "A controvérsia acerca da incidência ou não de correção monetária em operações de crédito rural é considerada de natureza infraconstitucional, ou seja, não envolve diretamente a interpretação da Constituição Federal. Por isso, não é cabível recurso extraordinário para essa matéria, conforme entendimento consolidado pelo Supremo Tribunal Federal."
+    },
+    {
+      "id_origem": "sumula_640_stf",
+      "titulo_origem": "Súmula 640 STF",
+      "questao": "É possível interpor recurso extraordinário contra decisão proferida por juiz de primeiro grau em causas de alçada, bem como contra decisão de turma recursal de juizado especial cível e criminal.",
+      "gabarito": "CERTO",
+      "justificativa": "A Súmula 640 do STF estabelece que o recurso extraordinário é cabível contra decisões proferidas por juiz de primeiro grau nas causas de alçada, assim como contra decisões de turma recursal dos juizados especiais cível e criminal. Isso decorre da possibilidade de se discutir questões constitucionais mesmo em instâncias iniciais ou turmas recursais, desde que presentes os requisitos legais para o recurso extraordinário."
+    },
+    {
+      "id_origem": "sumula_641_stf",
+      "titulo_origem": "Súmula 641 STF",
+      "questao": "Em um processo com litisconsórcio passivo, se apenas um dos litisconsortes for vencido, o prazo para interposição de recurso será contado em dobro para todos os litisconsortes.",
+      "gabarito": "ERRADO",
+      "justificativa": "O prazo em dobro para recorrer é garantido apenas quando todos os litisconsortes forem vencidos. Se apenas um dos litisconsortes sucumbir, o prazo para recorrer não será contado em dobro, aplicando-se o prazo comum para os demais. Essa regra visa evitar a extensão indevida do prazo recursal quando a sucumbência não é unânime entre os litisconsortes."
+    },
+    {
+      "id_origem": "sumula_642_stf",
+      "titulo_origem": "Súmula 642 STF",
+      "questao": "É admissível a propositura de ação direta de inconstitucionalidade contra lei do Distrito Federal que tenha sido editada no exercício da competência legislativa municipal.",
+      "gabarito": "ERRADO",
+      "justificativa": "A competência legislativa municipal do Distrito Federal é exercida em caráter próprio, e as leis editadas nessa esfera não podem ser objeto de ação direta de inconstitucionalidade perante o STF, conforme entendimento consolidado. Isso decorre da natureza híbrida do DF, que acumula competências legislativas estaduais e municipais, sendo que as normas derivadas da competência municipal não são passíveis de controle concentrado pelo STF."
+    },
+    {
+      "id_origem": "sumula_643_stf",
+      "titulo_origem": "Súmula 643 STF",
+      "questao": "O Ministério Público não possui legitimidade para ajuizar ação civil pública que tenha como fundamento a ilegalidade do reajuste das mensalidades escolares.",
+      "gabarito": "ERRADO",
+      "justificativa": "O Ministério Público tem legitimidade para promover ação civil pública visando a proteção do interesse coletivo, incluindo a defesa contra reajustes ilegais de mensalidades escolares, conforme entendimento consolidado pelo Supremo Tribunal Federal."
+    },
+    {
+      "id_origem": "sumula_644_stf",
+      "titulo_origem": "Súmula 644 STF",
+      "questao": "O procurador de autarquia necessita apresentar instrumento de mandato para representar judicialmente a entidade que integra.",
+      "gabarito": "ERRADO",
+      "justificativa": "O procurador de autarquia, na qualidade de titular do cargo, possui legitimidade para representar a autarquia em juízo sem a necessidade de apresentar instrumento de mandato, pois sua nomeação já lhe confere poderes para tal representação, conforme entendimento consolidado pelo Supremo Tribunal Federal."
+    },
+    {
+      "id_origem": "sumula_645_stf",
+      "titulo_origem": "Súmula 645 STF",
+      "questao": "Compete exclusivamente ao Estado estabelecer o horário de funcionamento dos estabelecimentos comerciais, não sendo possível ao Município legislar sobre essa matéria.",
+      "gabarito": "ERRADO",
+      "justificativa": "A competência para fixar o horário de funcionamento de estabelecimentos comerciais é do Município, conforme entendimento consolidado, pois trata-se de matéria relacionada ao interesse local e à ordem pública municipal, o que está dentro da competência legislativa municipal prevista no artigo 30, inciso I, da Constituição Federal."
+    },
+    {
+      "id_origem": "sumula_646_stf",
+      "titulo_origem": "Súmula 646 STF",
+      "questao": "É constitucional a lei municipal que proíbe a instalação de novos estabelecimentos comerciais do mesmo ramo em uma determinada área, visando evitar a concorrência excessiva entre esses empreendimentos.",
+      "gabarito": "ERRADO",
+      "justificativa": "A vedação à instalação de estabelecimentos comerciais do mesmo ramo em determinada área configura restrição à livre concorrência, violando o princípio constitucional que a protege. Portanto, lei municipal com tal conteúdo é inconstitucional, pois impede a livre iniciativa e a concorrência no mercado local."
+    },
+    {
+      "id_origem": "sumula_647_stf",
+      "titulo_origem": "Súmula 647 STF",
+      "questao": "A legislação sobre os vencimentos dos membros das polícias civil e militar do Distrito Federal pode ser editada tanto pela União quanto pelo Distrito Federal.",
+      "gabarito": "ERRADO",
+      "justificativa": "A competência para legislar sobre os vencimentos dos membros das polícias civil e militar do Distrito Federal é privativa da União, conforme entendimento consolidado pelo Supremo Tribunal Federal. Portanto, o Distrito Federal não possui competência legislativa para tratar dessa matéria."
+    },
+    {
+      "id_origem": "sumula_648_stf",
+      "titulo_origem": "Súmula 648 STF",
+      "questao": "A limitação da taxa de juros reais a 12% ao ano prevista no § 3º do art. 192 da Constituição Federal foi revogada pela Emenda Constitucional nº 40/2003, tornando inaplicável qualquer restrição nesse sentido.",
+      "gabarito": "CERTO",
+      "justificativa": "O § 3º do art. 192 da Constituição, que estabelecia o limite de 12% ao ano para a taxa de juros reais, foi revogado pela Emenda Constitucional nº 40/2003. Dessa forma, a limitação deixou de ter eficácia e não pode mais ser aplicada, conforme entendimento consolidado pelo Supremo Tribunal Federal."
+    },
+    {
+      "id_origem": "sumula_649_stf",
+      "titulo_origem": "Súmula 649 STF",
+      "questao": "A criação, por meio de Constituição estadual, de órgão de controle administrativo do Poder Judiciário que inclua representantes de outros Poderes ou entidades é constitucional.",
+      "gabarito": "ERRADO",
+      "justificativa": "A Constituição Federal veda a criação, por Constituição estadual, de órgão de controle administrativo do Poder Judiciário que conte com a participação de representantes de outros Poderes ou entidades, pois isso compromete a independência e autonomia do Judiciário, configurando inconstitucionalidade."
+    },
+    {
+      "id_origem": "sumula_650_stf",
+      "titulo_origem": "Súmula 650 STF",
+      "questao": "As terras que pertenciam a aldeamentos indígenas extintos não são abrangidas pelos direitos previstos nos incisos I e XI do artigo 20 da Constituição Federal, mesmo que tenham sido ocupadas por indígenas em tempos remotos.",
+      "gabarito": "CERTO",
+      "justificativa": "Os incisos I e XI do artigo 20 da Constituição Federal reservam à União a propriedade de terras tradicionalmente ocupadas por indígenas e de áreas necessárias à preservação ambiental, respectivamente. Contudo, a jurisprudência do STF entende que tais dispositivos não alcançam terras de aldeamentos indígenas extintos, ainda que tenham sido ocupadas por indígenas em passado remoto, pois a proteção constitucional está condicionada à ocupação atual e contínua, não abrangendo áreas desocupadas há muito tempo."
+    },
+    {
+      "id_origem": "sumula_651_stf",
+      "titulo_origem": "Súmula 651 STF",
+      "questao": "Até a Emenda Constitucional nº 32/2001, era possível a reedição de medida provisória não apreciada pelo Congresso Nacional dentro do prazo de sua eficácia de trinta dias, mantendo-se os efeitos de lei desde a primeira edição.",
+      "gabarito": "CERTO",
+      "justificativa": "Antes da EC 32/2001, a legislação permitia que uma medida provisória, caso não apreciada pelo Congresso Nacional, fosse reeditada dentro do prazo de trinta dias de sua vigência, garantindo a continuidade dos efeitos legais desde a primeira edição. A EC 32/2001 alterou esse entendimento, vedando essa prática."
+    }
+  ]
+}

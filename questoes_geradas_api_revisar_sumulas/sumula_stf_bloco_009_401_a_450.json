@@ -1,0 +1,856 @@
+{
+  "itens": [
+    {
+      "id_origem": "sumula_401_stf",
+      "titulo": "Súmula 401 STF",
+      "tipo": "Súmula",
+      "numero": "401",
+      "tribunal": "STF",
+      "enunciado": "Não se conhece do recurso de revista, nem dos embargos de divergência, do processo trabalhista, quando houver jurisprudência firme do Tribunal Superior do Trabalho no mesmo sentido da decisão impugnada, salvo se houver colisão com a jurisprudência do Supremo Tribunal Federal.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_009_401_a_450.md"
+    },
+    {
+      "id_origem": "sumula_402_stf",
+      "titulo": "Súmula 402 STF",
+      "tipo": "Súmula",
+      "numero": "402",
+      "tribunal": "STF",
+      "enunciado": "Vigia noturno tem direito a salário adicional.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_009_401_a_450.md"
+    },
+    {
+      "id_origem": "sumula_403_stf",
+      "titulo": "Súmula 403 STF",
+      "tipo": "Súmula",
+      "numero": "403",
+      "tribunal": "STF",
+      "enunciado": "É de decadência o prazo de trinta dias para instauração do inquérito judicial, a contar da suspensão, por falta grave, de empregado estável.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_009_401_a_450.md"
+    },
+    {
+      "id_origem": "sumula_404_stf",
+      "titulo": "Súmula 404 STF",
+      "tipo": "Súmula",
+      "numero": "404",
+      "tribunal": "STF",
+      "enunciado": "Não contrariam a Constituição os arts 3º, 22 e 27 da L. 3.244, de 14.8.57, que definem as atribuições do Conselho de Política Aduaneira quanto à tarifa flexível.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_009_401_a_450.md"
+    },
+    {
+      "id_origem": "sumula_405_stf",
+      "titulo": "Súmula 405 STF",
+      "tipo": "Súmula",
+      "numero": "405",
+      "tribunal": "STF",
+      "enunciado": "Denegado o mandado de segurança pela sentença, ou no julgamento do agravo, dela interposto, fica sem efeito a liminar concedida, retroagindo os efeitos da decisão contrária.",
+      "cancelada_ou_revogada": true,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_009_401_a_450.md"
+    },
+    {
+      "id_origem": "sumula_406_stf",
+      "titulo": "Súmula 406 STF",
+      "tipo": "Súmula",
+      "numero": "406",
+      "tribunal": "STF",
+      "enunciado": "O estudante ou professor bolsista e o servidor público em missão de estudo satisfazem a condição da mudança de residência para o efeito de trazer automóvel do exterior, atendidos os demais requisitos legais. 66",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_009_401_a_450.md"
+    },
+    {
+      "id_origem": "sumula_407_stf",
+      "titulo": "Súmula 407 STF",
+      "tipo": "Súmula",
+      "numero": "407",
+      "tribunal": "STF",
+      "enunciado": "Não tem direito ao têrço de campanha o militar que não participou de operações de guerra, embora servisse na \"zona de guerra\".",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_009_401_a_450.md"
+    },
+    {
+      "id_origem": "sumula_408_stf",
+      "titulo": "Súmula 408 STF",
+      "tipo": "Súmula",
+      "numero": "408",
+      "tribunal": "STF",
+      "enunciado": "Os servidores fazendários não têm direito a percentagem pela arrecadação de receita federal destinada ao Banco Nacional de Desenvolvimento Econômico.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_009_401_a_450.md"
+    },
+    {
+      "id_origem": "sumula_409_stf",
+      "titulo": "Súmula 409 STF",
+      "tipo": "Súmula",
+      "numero": "409",
+      "tribunal": "STF",
+      "enunciado": "Ao retomante, que tenha mais de um prédio alugado, cabe optar entre eles, salvo abuso de direito.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_009_401_a_450.md"
+    },
+    {
+      "id_origem": "sumula_410_stf",
+      "titulo": "Súmula 410 STF",
+      "tipo": "Súmula",
+      "numero": "410",
+      "tribunal": "STF",
+      "enunciado": "Se o locador, utilizando prédio próprio para residência ou atividade comercial, pede o imóvel locado para uso próprio, diverso do que tem o por ele ocupado, não está obrigado a provar a necessidade, que se presume.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_009_401_a_450.md"
+    },
+    {
+      "id_origem": "sumula_411_stf",
+      "titulo": "Súmula 411 STF",
+      "tipo": "Súmula",
+      "numero": "411",
+      "tribunal": "STF",
+      "enunciado": "O locatário autorizado a ceder a locação pode sublocar o imóvel.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_009_401_a_450.md"
+    },
+    {
+      "id_origem": "sumula_412_stf",
+      "titulo": "Súmula 412 STF",
+      "tipo": "Súmula",
+      "numero": "412",
+      "tribunal": "STF",
+      "enunciado": "No compromisso de compra e venda com cláusula de arrependimento, a devolução do sinal, por quem o deu, ou a sua restituição em dôbro, por quem o recebeu, exclui indenização maior, a título de perdas e danos, salvo os juros moratórios e os encargos do processo.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_009_401_a_450.md"
+    },
+    {
+      "id_origem": "sumula_413_stf",
+      "titulo": "Súmula 413 STF",
+      "tipo": "Súmula",
+      "numero": "413",
+      "tribunal": "STF",
+      "enunciado": "O compromisso de compra e venda de imóveis, ainda que não loteados, dá direito à execução compulsória, quando reunidos os requisitos legais. 67",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_009_401_a_450.md"
+    },
+    {
+      "id_origem": "sumula_414_stf",
+      "titulo": "Súmula 414 STF",
+      "tipo": "Súmula",
+      "numero": "414",
+      "tribunal": "STF",
+      "enunciado": "Não se distingue a visão direta da oblíqua na proibição de abrir janela, ou fazer terraço, eirado, ou varanda, a menos de metro e meio do prédio de outrem.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_009_401_a_450.md"
+    },
+    {
+      "id_origem": "sumula_415_stf",
+      "titulo": "Súmula 415 STF",
+      "tipo": "Súmula",
+      "numero": "415",
+      "tribunal": "STF",
+      "enunciado": "Servidão de trânsito não titulada, mas tornada permanente, sobretudo pela natureza das obras realizadas, considera-se aparente, conferindo direito à proteção possessória.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_009_401_a_450.md"
+    },
+    {
+      "id_origem": "sumula_416_stf",
+      "titulo": "Súmula 416 STF",
+      "tipo": "Súmula",
+      "numero": "416",
+      "tribunal": "STF",
+      "enunciado": "Pela demora no pagamento do preço da desapropriação não cabe indenização complementar além dos juros.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_009_401_a_450.md"
+    },
+    {
+      "id_origem": "sumula_417_stf",
+      "titulo": "Súmula 417 STF",
+      "tipo": "Súmula",
+      "numero": "417",
+      "tribunal": "STF",
+      "enunciado": "Pode ser objeto de restituição, na falência, dinheiro em poder do falido, recebido em nome de outrem, ou do qual, por lei ou contrato, não tivesse êle a disponibilidade.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_009_401_a_450.md"
+    },
+    {
+      "id_origem": "sumula_418_stf",
+      "titulo": "Súmula 418 STF",
+      "tipo": "Súmula",
+      "numero": "418",
+      "tribunal": "STF",
+      "enunciado": "O empréstimo compulsório não é tributo, e sua arrecadação não está sujeita à exigência constitucional da prévia autorização orçamentária.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_009_401_a_450.md"
+    },
+    {
+      "id_origem": "sumula_419_stf",
+      "titulo": "Súmula 419 STF",
+      "tipo": "Súmula",
+      "numero": "419",
+      "tribunal": "STF",
+      "enunciado": "Os Municípios têm competência para regular o horário do comércio local, desde que não infrinjam leis estaduais ou federais válidas.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_009_401_a_450.md"
+    },
+    {
+      "id_origem": "sumula_420_stf",
+      "titulo": "Súmula 420 STF",
+      "tipo": "Súmula",
+      "numero": "420",
+      "tribunal": "STF",
+      "enunciado": "Não se homologa sentença proferida no estrangeiro sem prova do trânsito em julgado.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_009_401_a_450.md"
+    },
+    {
+      "id_origem": "sumula_421_stf",
+      "titulo": "Súmula 421 STF",
+      "tipo": "Súmula",
+      "numero": "421",
+      "tribunal": "STF",
+      "enunciado": "Não impede a extradição a circunstância de ser o extraditando casado com brasileira ou ter filho brasileiro. 68",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_009_401_a_450.md"
+    },
+    {
+      "id_origem": "sumula_422_stf",
+      "titulo": "Súmula 422 STF",
+      "tipo": "Súmula",
+      "numero": "422",
+      "tribunal": "STF",
+      "enunciado": "A absolvição criminal não prejudica a medida de segurança, quando couber, ainda que importe privação da liberdade.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_009_401_a_450.md"
+    },
+    {
+      "id_origem": "sumula_423_stf",
+      "titulo": "Súmula 423 STF",
+      "tipo": "Súmula",
+      "numero": "423",
+      "tribunal": "STF",
+      "enunciado": "Não transita em julgado a sentença por haver omitido o recurso ex officio, que se considera interposto ex lege.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_009_401_a_450.md"
+    },
+    {
+      "id_origem": "sumula_424_stf",
+      "titulo": "Súmula 424 STF",
+      "tipo": "Súmula",
+      "numero": "424",
+      "tribunal": "STF",
+      "enunciado": "Transita em julgado o despacho saneador de que não houve recurso, excluídas as questões deixadas, explícita ou implicitamente, para a sentença.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_009_401_a_450.md"
+    },
+    {
+      "id_origem": "sumula_425_stf",
+      "titulo": "Súmula 425 STF",
+      "tipo": "Súmula",
+      "numero": "425",
+      "tribunal": "STF",
+      "enunciado": "O agravo despachado no prazo legal não fica prejudicado pela demora da juntada, por culpa do cartório; nem o agravo entregue em cartório no prazo legal, embora despachado tardiamente.",
+      "cancelada_ou_revogada": true,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_009_401_a_450.md"
+    },
+    {
+      "id_origem": "sumula_426_stf",
+      "titulo": "Súmula 426 STF",
+      "tipo": "Súmula",
+      "numero": "426",
+      "tribunal": "STF",
+      "enunciado": "A falta do termo específico não prejudica o agravo no auto do processo, quando oportuna a interposição por petição ou no têrmo da audiência.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_009_401_a_450.md"
+    },
+    {
+      "id_origem": "sumula_427_stf",
+      "titulo": "Súmula 427 STF",
+      "tipo": "Súmula",
+      "numero": "427",
+      "tribunal": "STF",
+      "enunciado": "A falta de petição de interposição não prejudica o agravo no auto do processo tomado por têrmo.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_009_401_a_450.md"
+    },
+    {
+      "id_origem": "sumula_428_stf",
+      "titulo": "Súmula 428 STF",
+      "tipo": "Súmula",
+      "numero": "428",
+      "tribunal": "STF",
+      "enunciado": "Não fica prejudicada a apelação entregue em cartório no prazo legal, embora despachada tardiamente.",
+      "cancelada_ou_revogada": true,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_009_401_a_450.md"
+    },
+    {
+      "id_origem": "sumula_429_stf",
+      "titulo": "Súmula 429 STF",
+      "tipo": "Súmula",
+      "numero": "429",
+      "tribunal": "STF",
+      "enunciado": "A existência de recurso administrativo com efeito suspensivo não impede o uso do mandado de segurança contra omissão da autoridade. 69",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_009_401_a_450.md"
+    },
+    {
+      "id_origem": "sumula_430_stf",
+      "titulo": "Súmula 430 STF",
+      "tipo": "Súmula",
+      "numero": "430",
+      "tribunal": "STF",
+      "enunciado": "Pedido de reconsideração na via administrativa não interrompe o prazo para o mandado de segurança.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_009_401_a_450.md"
+    },
+    {
+      "id_origem": "sumula_431_stf",
+      "titulo": "Súmula 431 STF",
+      "tipo": "Súmula",
+      "numero": "431",
+      "tribunal": "STF",
+      "enunciado": "É nulo o julgamento de recurso criminal, na segunda instância, sem prévia intimação, ou publicação da pauta, salvo em habeas corpus.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_009_401_a_450.md"
+    },
+    {
+      "id_origem": "sumula_432_stf",
+      "titulo": "Súmula 432 STF",
+      "tipo": "Súmula",
+      "numero": "432",
+      "tribunal": "STF",
+      "enunciado": "Não cabe recurso extraordinário com fundamento no art. 101, III, d, da Constituição Federal, quando a divergência alegada fôr entre decisões da Justiça do Trabalho.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_009_401_a_450.md"
+    },
+    {
+      "id_origem": "sumula_433_stf",
+      "titulo": "Súmula 433 STF",
+      "tipo": "Súmula",
+      "numero": "433",
+      "tribunal": "STF",
+      "enunciado": "É competente o Tribunal Regional do Trabalho para julgar mandado de segurança contra ato de seu presidente em execução de sentença trabalhista.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_009_401_a_450.md"
+    },
+    {
+      "id_origem": "sumula_434_stf",
+      "titulo": "Súmula 434 STF",
+      "tipo": "Súmula",
+      "numero": "434",
+      "tribunal": "STF",
+      "enunciado": "A controvérsia entre seguradores indicados pelo empregador na ação de acidente do trabalho não suspende o pagamento devido ao acidentado.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_009_401_a_450.md"
+    },
+    {
+      "id_origem": "sumula_435_stf",
+      "titulo": "Súmula 435 STF",
+      "tipo": "Súmula",
+      "numero": "435",
+      "tribunal": "STF",
+      "enunciado": "O impôsto de transmissão causa mortis pela transferência de ações é devido ao Estado em que tem sede a companhia.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_009_401_a_450.md"
+    },
+    {
+      "id_origem": "sumula_436_stf",
+      "titulo": "Súmula 436 STF",
+      "tipo": "Súmula",
+      "numero": "436",
+      "tribunal": "STF",
+      "enunciado": "É válida a L. 4.093, de 24.10.959, do Paraná, que revogou a isenção concedida às cooperativas por lei anterior.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_009_401_a_450.md"
+    },
+    {
+      "id_origem": "sumula_437_stf",
+      "titulo": "Súmula 437 STF",
+      "tipo": "Súmula",
+      "numero": "437",
+      "tribunal": "STF",
+      "enunciado": "Está isenta da taxa de despacho aduaneiro a importação de equipamento para a indústria automobilística, segundo plano aprovado, no prazo legal, pelo órgão competente. 70",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_009_401_a_450.md"
+    },
+    {
+      "id_origem": "sumula_438_stf",
+      "titulo": "Súmula 438 STF",
+      "tipo": "Súmula",
+      "numero": "438",
+      "tribunal": "STF",
+      "enunciado": "É ilegítima a cobrança, em 1962, da Taxa de Educação e Saúde, de Santa Catarina, adicional do impôsto de vendas e consignações.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_009_401_a_450.md"
+    },
+    {
+      "id_origem": "sumula_439_stf",
+      "titulo": "Súmula 439 STF",
+      "tipo": "Súmula",
+      "numero": "439",
+      "tribunal": "STF",
+      "enunciado": "Estão sujeitos à fiscalização tributária ou previdenciária quaisquer livros comerciais, limitado o exame aos pontos objeto da investigação.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_009_401_a_450.md"
+    },
+    {
+      "id_origem": "sumula_440_stf",
+      "titulo": "Súmula 440 STF",
+      "tipo": "Súmula",
+      "numero": "440",
+      "tribunal": "STF",
+      "enunciado": "Os benefícios da legislação federal de serviços de guerra não são exigíveis dos Estados, sem que a lei estadual assim disponha.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_009_401_a_450.md"
+    },
+    {
+      "id_origem": "sumula_441_stf",
+      "titulo": "Súmula 441 STF",
+      "tipo": "Súmula",
+      "numero": "441",
+      "tribunal": "STF",
+      "enunciado": "O militar, que passa à inatividade com proventos integrais, não tem direito às cotas trigésimas a que se refere o Código de Vencimentos e Vantagens dos Militares.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_009_401_a_450.md"
+    },
+    {
+      "id_origem": "sumula_442_stf",
+      "titulo": "Súmula 442 STF",
+      "tipo": "Súmula",
+      "numero": "442",
+      "tribunal": "STF",
+      "enunciado": "A inscrição do contrato de locação no Registro de Imóveis, para a validade da cláusula de vigência contra o adquirente do imóvel, ou perante terceiros, dispensa a transcrição no Registro de Títulos e Documentos.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_009_401_a_450.md"
+    },
+    {
+      "id_origem": "sumula_443_stf",
+      "titulo": "Súmula 443 STF",
+      "tipo": "Súmula",
+      "numero": "443",
+      "tribunal": "STF",
+      "enunciado": "A prescrição das prestações anteriores ao período previsto em lei não ocorre, quando não tiver sido negado, antes daquele prazo, o próprio direito reclamado, ou a situação jurídica de que êle resulta.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_009_401_a_450.md"
+    },
+    {
+      "id_origem": "sumula_444_stf",
+      "titulo": "Súmula 444 STF",
+      "tipo": "Súmula",
+      "numero": "444",
+      "tribunal": "STF",
+      "enunciado": "Na retomada para construção mais útil, de imóvel sujeito ao D. 24.150, de 20.4.34, a indenização se limita às despesas de mudança. 71",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_009_401_a_450.md"
+    },
+    {
+      "id_origem": "sumula_445_stf",
+      "titulo": "Súmula 445 STF",
+      "tipo": "Súmula",
+      "numero": "445",
+      "tribunal": "STF",
+      "enunciado": "A L. 2.437, de 7.3.55, que reduz prazo prescricional, é aplicável às prescrições em curso na data de sua vigência (1.1.56), salvo quanto aos processos então pendentes.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_009_401_a_450.md"
+    },
+    {
+      "id_origem": "sumula_446_stf",
+      "titulo": "Súmula 446 STF",
+      "tipo": "Súmula",
+      "numero": "446",
+      "tribunal": "STF",
+      "enunciado": "Contrato de exploração de jazida ou pedreira não está sujeito ao D. 24.150, de 20.4.34.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_009_401_a_450.md"
+    },
+    {
+      "id_origem": "sumula_447_stf",
+      "titulo": "Súmula 447 STF",
+      "tipo": "Súmula",
+      "numero": "447",
+      "tribunal": "STF",
+      "enunciado": "É válida a disposição testamentária em favor de filho adulterino do testador com sua concubina.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_009_401_a_450.md"
+    },
+    {
+      "id_origem": "sumula_448_stf",
+      "titulo": "Súmula 448 STF",
+      "tipo": "Súmula",
+      "numero": "448",
+      "tribunal": "STF",
+      "enunciado": "O prazo para o assistente recorrer, supletivamente, começa a correr imediatamente após o transcurso do prazo do Ministério Público.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_009_401_a_450.md"
+    },
+    {
+      "id_origem": "sumula_449_stf",
+      "titulo": "Súmula 449 STF",
+      "tipo": "Súmula",
+      "numero": "449",
+      "tribunal": "STF",
+      "enunciado": "O valor da causa, na consignatória de aluguel, corresponde a uma anuidade.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_009_401_a_450.md"
+    },
+    {
+      "id_origem": "sumula_450_stf",
+      "titulo": "Súmula 450 STF",
+      "tipo": "Súmula",
+      "numero": "450",
+      "tribunal": "STF",
+      "enunciado": "São devidos honorários de advogado sempre que vencedor o beneficiário de justiça gratuita.",
+      "cancelada_ou_revogada": false,
+      "arquivo_origem": "sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_009_401_a_450.md"
+    }
+  ],
+  "questoes": [
+    {
+      "id_origem": "sumula_401_stf",
+      "titulo_origem": "Súmula 401 STF",
+      "questao": "Em processo trabalhista, é possível conhecer recurso de revista ou embargos de divergência quando a decisão impugnada estiver em consonância com jurisprudência consolidada do Tribunal Superior do Trabalho, desde que não haja conflito com entendimento do Supremo Tribunal Federal.",
+      "gabarito": "CERTO",
+      "justificativa": "O recurso de revista e os embargos de divergência no processo trabalhista não são conhecidos quando a decisão recorrida está em conformidade com jurisprudência firme do Tribunal Superior do Trabalho, salvo se houver colisão com a jurisprudência do Supremo Tribunal Federal, hipótese em que o recurso pode ser conhecido para preservar a uniformidade e a supremacia da Constituição Federal."
+    },
+    {
+      "id_origem": "sumula_402_stf",
+      "titulo_origem": "Súmula 402 STF",
+      "questao": "O trabalhador que exerce a função de vigia durante o período noturno tem direito ao recebimento de adicional salarial correspondente ao trabalho noturno.",
+      "gabarito": "CERTO",
+      "justificativa": "O entendimento consolidado pelo Supremo Tribunal Federal reconhece que o trabalho noturno, em razão das condições especiais e do desgaste físico e psicológico, deve ser remunerado com adicional específico. Assim, o vigia noturno faz jus ao salário adicional previsto para o labor realizado no período noturno, conforme previsto na legislação trabalhista e confirmado pela jurisprudência do STF."
+    },
+    {
+      "id_origem": "sumula_403_stf",
+      "titulo_origem": "Súmula 403 STF",
+      "questao": "O prazo para a instauração do inquérito judicial, a contar da suspensão por falta grave de empregado estável, é de decadência de trinta dias.",
+      "gabarito": "CERTO",
+      "justificativa": "A Súmula 403 do STF estabelece que o prazo para a instauração do inquérito judicial, contado a partir da suspensão do empregado estável por falta grave, é decadencial e tem duração de trinta dias. Isso significa que, se não for instaurado o inquérito nesse prazo, ocorre a perda do direito de apurar a falta grave judicialmente, configurando decadência."
+    },
+    {
+      "id_origem": "sumula_404_stf",
+      "titulo_origem": "Súmula 404 STF",
+      "questao": "A definição das atribuições do Conselho de Política Aduaneira relativas à tarifa flexível, conforme estabelecido nos artigos 3º, 22 e 27 da Lei nº 3.244/1957, está em conformidade com a Constituição Federal.",
+      "gabarito": "CERTO",
+      "justificativa": "Os artigos 3º, 22 e 27 da Lei nº 3.244/1957 atribuem competências específicas ao Conselho de Política Aduaneira para a gestão da tarifa flexível, e tais disposições foram reconhecidas pelo Supremo Tribunal Federal como compatíveis com os preceitos constitucionais, não havendo violação à Constituição Federal."
+    },
+    {
+      "id_origem": "sumula_405_stf",
+      "titulo_origem": "Súmula 405 STF",
+      "questao": "A decisão que denega mandado de segurança, seja na sentença ou no julgamento do agravo, mantém os efeitos da liminar concedida anteriormente, não havendo retroação dos efeitos da decisão contrária.",
+      "gabarito": "ERRADO",
+      "justificativa": "A Súmula 405 do STF, embora atualmente cancelada, estabelecia que, quando o mandado de segurança é denegado na sentença ou no julgamento do agravo, a liminar concedida fica sem efeito, com retroação dos efeitos da decisão contrária. Portanto, a decisão que denega o mandado de segurança extingue os efeitos da liminar, retroagindo seus efeitos."
+    },
+    {
+      "id_origem": "sumula_406_stf",
+      "titulo_origem": "Súmula 406 STF",
+      "questao": "O servidor público em missão de estudo não pode ser considerado como tendo mudado de residência para fins de importação de automóvel do exterior, mesmo que cumpridos os demais requisitos legais.",
+      "gabarito": "ERRADO",
+      "justificativa": "A jurisprudência do STF reconhece que tanto o estudante ou professor bolsista quanto o servidor público em missão de estudo satisfazem a condição de mudança de residência para fins de importação de automóvel do exterior, desde que atendidos os demais requisitos legais. Portanto, o servidor público em missão de estudo pode sim usufruir desse benefício."
+    },
+    {
+      "id_origem": "sumula_407_stf",
+      "titulo_origem": "Súmula 407 STF",
+      "questao": "Militar que serve em área considerada zona de guerra tem direito ao terço de campanha mesmo que não participe diretamente de operações de guerra.",
+      "gabarito": "ERRADO",
+      "justificativa": "O direito ao terço de campanha depende da participação efetiva em operações de guerra, não bastando apenas o serviço na zona de guerra. A simples permanência na área não garante o benefício, conforme entendimento consolidado pelo STF."
+    },
+    {
+      "id_origem": "sumula_408_stf",
+      "titulo_origem": "Súmula 408 STF",
+      "questao": "Servidores fazendários têm direito a receber percentagem sobre a arrecadação de receita federal que é destinada ao Banco Nacional de Desenvolvimento Econômico.",
+      "gabarito": "ERRADO",
+      "justificativa": "Os servidores fazendários não possuem direito a receber percentagem sobre a arrecadação de receita federal destinada ao Banco Nacional de Desenvolvimento Econômico, conforme entendimento consolidado pelo Supremo Tribunal Federal, que afasta tal possibilidade para esses servidores."
+    },
+    {
+      "id_origem": "sumula_409_stf",
+      "titulo_origem": "Súmula 409 STF",
+      "questao": "No caso de retomada de imóveis alugados, o locador que possui mais de um prédio alugado pode escolher qual deles será retomado, desde que não configure abuso de direito.",
+      "gabarito": "CERTO",
+      "justificativa": "A jurisprudência do STF estabelece que o locador com múltiplos imóveis alugados tem o direito de optar qual imóvel retomará, desde que essa escolha não configure abuso de direito, ou seja, não cause prejuízo injustificado ao locatário ou viole princípios legais."
+    },
+    {
+      "id_origem": "sumula_410_stf",
+      "titulo_origem": "Súmula 410 STF",
+      "questao": "Quando o locador, que utiliza prédio próprio para residência ou atividade comercial, requer o imóvel locado para uso próprio diverso daquele que ele ocupa, é necessário que ele comprove a necessidade do uso para que possa reaver o imóvel.",
+      "gabarito": "ERRADO",
+      "justificativa": "A jurisprudência do STF estabelece que, nesse caso, a necessidade do locador para uso próprio diverso daquele que ele ocupa é presumida, não sendo exigida prova da necessidade para a retomada do imóvel. Essa presunção visa facilitar a proteção do direito do locador em recuperar seu imóvel para uso próprio, evitando exigências probatórias excessivas."
+    },
+    {
+      "id_origem": "sumula_411_stf",
+      "titulo_origem": "Súmula 411 STF",
+      "questao": "É vedado ao locatário que recebeu autorização para ceder a locação proceder à sublocação do imóvel locado.",
+      "gabarito": "ERRADO",
+      "justificativa": "A autorização para ceder a locação implica que o locatário pode transferir seus direitos e obrigações a terceiro, e, conforme entendimento consolidado, essa autorização também permite a sublocação do imóvel. Portanto, o locatário autorizado a ceder a locação pode, sim, sublocar o imóvel."
+    },
+    {
+      "id_origem": "sumula_412_stf",
+      "titulo_origem": "Súmula 412 STF",
+      "questao": "No compromisso de compra e venda que contenha cláusula de arrependimento, a restituição do sinal em dobro pelo vendedor impede a cobrança de indenização por perdas e danos superior a esse valor, excetuando-se apenas os juros moratórios e os encargos do processo.",
+      "gabarito": "CERTO",
+      "justificativa": "A súmula estabelece que, em contratos com cláusula de arrependimento, a devolução do sinal pelo comprador ou sua restituição em dobro pelo vendedor exclui a possibilidade de pleitear indenização maior por perdas e danos, salvo os juros moratórios e encargos processuais. Isso significa que o valor do sinal devolvido ou restituído em dobro é a única compensação indenizatória cabível, limitando a responsabilidade das partes e evitando indenizações excessivas."
+    },
+    {
+      "id_origem": "sumula_413_stf",
+      "titulo_origem": "Súmula 413 STF",
+      "questao": "O compromisso de compra e venda de imóvel não loteado não pode ser objeto de execução compulsória, mesmo que preenchidos os requisitos legais.",
+      "gabarito": "ERRADO",
+      "justificativa": "O compromisso de compra e venda de imóveis, inclusive aqueles não loteados, pode ser exigido por meio de execução compulsória desde que estejam presentes os requisitos legais, conforme entendimento consolidado pelo Supremo Tribunal Federal. Portanto, a execução compulsória é admitida independentemente da existência de loteamento."
+    },
+    {
+      "id_origem": "sumula_414_stf",
+      "titulo_origem": "Súmula 414 STF",
+      "questao": "É permitido abrir uma janela ou construir uma varanda a menos de um metro e meio do prédio vizinho, desde que a visão seja oblíqua e não direta.",
+      "gabarito": "ERRADO",
+      "justificativa": "A proibição de abrir janela, terraço, eirado ou varanda a menos de um metro e meio do prédio vizinho não distingue entre visão direta ou oblíqua. Ou seja, independentemente do ângulo de visão, a construção nessas condições é vedada para proteger a privacidade e evitar conflitos entre vizinhos."
+    },
+    {
+      "id_origem": "sumula_415_stf",
+      "titulo_origem": "Súmula 415 STF",
+      "questao": "A servidão de passagem que não possui título formal, mas que se tornou permanente em razão das obras realizadas, não pode ser protegida por meio de ação possessória, pois carece de comprovação documental.",
+      "gabarito": "ERRADO",
+      "justificativa": "A servidão de trânsito, mesmo quando não titulada formalmente, pode ser considerada aparente se se tornou permanente, especialmente pela natureza das obras realizadas. Nessa situação, a jurisprudência reconhece o direito à proteção possessória, permitindo que o possuidor defenda sua posse independentemente da existência de título formal."
+    },
+    {
+      "id_origem": "sumula_416_stf",
+      "titulo_origem": "Súmula 416 STF",
+      "questao": "Em caso de atraso no pagamento do preço da desapropriação, é possível pleitear indenização complementar além dos juros moratórios.",
+      "gabarito": "ERRADO",
+      "justificativa": "A jurisprudência do STF estabelece que, na hipótese de demora no pagamento do preço da desapropriação, a parte expropriada não faz jus a indenização complementar além dos juros moratórios. Isso porque os juros já têm a função de compensar a mora, não cabendo acréscimos adicionais a título de indenização."
+    },
+    {
+      "id_origem": "sumula_417_stf",
+      "titulo_origem": "Súmula 417 STF",
+      "questao": "Em processo de falência, valores em dinheiro encontrados em posse do falido, mesmo que recebidos em nome de terceiros ou cuja disponibilidade seja vedada por lei ou contrato, não podem ser objeto de restituição ao espólio ou aos legítimos titulares.",
+      "gabarito": "ERRADO",
+      "justificativa": "A jurisprudência do STF estabelece que, na falência, o dinheiro em poder do falido pode ser objeto de restituição mesmo que tenha sido recebido em nome de terceiros ou que o falido não tenha a disponibilidade legal ou contratual sobre ele. Isso ocorre porque tais valores não integram o patrimônio disponível do falido para a massa falida, devendo ser restituídos aos seus legítimos titulares."
+    },
+    {
+      "id_origem": "sumula_418_stf",
+      "titulo_origem": "Súmula 418 STF",
+      "questao": "O empréstimo compulsório é considerado tributo e sua arrecadação depende de prévia autorização orçamentária conforme a Constituição Federal.",
+      "gabarito": "ERRADO",
+      "justificativa": "O empréstimo compulsório não é tributo, conforme entendimento do STF, e sua arrecadação não está sujeita à exigência constitucional da prévia autorização orçamentária, diferentemente dos tributos comuns. Essa distinção decorre da natureza jurídica do empréstimo compulsório, que é uma modalidade de empréstimo forçado e não uma obrigação tributária."
+    },
+    {
+      "id_origem": "sumula_419_stf",
+      "titulo_origem": "Súmula 419 STF",
+      "questao": "Os municípios possuem autonomia para estabelecer o horário de funcionamento do comércio local, desde que suas normas não contrariem legislação estadual ou federal vigente.",
+      "gabarito": "CERTO",
+      "justificativa": "A competência municipal para regulamentar o horário do comércio local decorre da autonomia conferida pela Constituição Federal, desde que tais normas respeitem a hierarquia das leis, não podendo contrariar legislação estadual ou federal válida. Assim, a atuação municipal é legítima, desde que observados os limites legais superiores."
+    },
+    {
+      "id_origem": "sumula_420_stf",
+      "titulo_origem": "Súmula 420 STF",
+      "questao": "A homologação de sentença estrangeira pode ser realizada mesmo que não haja comprovação do trânsito em julgado da decisão proferida no exterior.",
+      "gabarito": "ERRADO",
+      "justificativa": "Para que uma sentença estrangeira seja homologada no Brasil, é imprescindível a demonstração do trânsito em julgado da decisão no país de origem, garantindo a definitividade da decisão e respeitando o princípio da segurança jurídica. Sem essa prova, a homologação não pode ser concedida."
+    },
+    {
+      "id_origem": "sumula_421_stf",
+      "titulo_origem": "Súmula 421 STF",
+      "questao": "A condição de o indivíduo ser casado com brasileira ou ter filho brasileiro constitui impedimento legal para sua extradição.",
+      "gabarito": "ERRADO",
+      "justificativa": "A presença de vínculo familiar, como casamento com brasileira ou paternidade/maternidade de filho brasileiro, não constitui óbice à extradição. A legislação e a jurisprudência do STF entendem que tais circunstâncias não impedem a entrega do extraditando ao país requerente, pois a extradição é regulada por tratados internacionais e normas específicas que não preveem essa restrição."
+    },
+    {
+      "id_origem": "sumula_422_stf",
+      "titulo_origem": "Súmula 422 STF",
+      "questao": "A absolvição criminal impede a aplicação de medida de segurança que implique privação de liberdade.",
+      "gabarito": "ERRADO",
+      "justificativa": "A absolvição criminal não impede a aplicação da medida de segurança quando esta for cabível, mesmo que implique privação de liberdade. Isso ocorre porque a medida de segurança tem natureza preventiva e não punitiva, podendo ser aplicada independentemente da condenação penal."
+    },
+    {
+      "id_origem": "sumula_423_stf",
+      "titulo_origem": "Súmula 423 STF",
+      "questao": "Quando a sentença deixa de mencionar o recurso que deveria ser interposto de ofício, considera-se que o recurso foi interposto automaticamente, impedindo o trânsito em julgado da decisão.",
+      "gabarito": "CERTO",
+      "justificativa": "A jurisprudência do STF estabelece que a omissão do recurso que deveria ser interposto ex officio não permite o trânsito em julgado da sentença, pois tal recurso é considerado interposto automaticamente por força de lei, garantindo a possibilidade de reexame da decisão."
+    },
+    {
+      "id_origem": "sumula_424_stf",
+      "titulo_origem": "Súmula 424 STF",
+      "questao": "Considera-se que o despacho saneador que não foi objeto de recurso transita em julgado, exceto quanto às questões que foram deixadas para serem decididas na sentença, seja de forma explícita ou implícita.",
+      "gabarito": "CERTO",
+      "justificativa": "O entendimento consolidado é que o despacho saneador que não sofre recurso torna-se definitivo (transita em julgado), não podendo ser modificado posteriormente, salvo as matérias que foram expressamente ou tacitamente reservadas para decisão na sentença, as quais permanecem sujeitas à apreciação judicial posterior."
+    },
+    {
+      "id_origem": "sumula_425_stf",
+      "titulo_origem": "Súmula 425 STF",
+      "questao": "Considerando o atual status da Súmula 425 do STF, o agravo que foi despachado fora do prazo legal em razão de atraso do cartório fica prejudicado, mesmo que tenha sido entregue no cartório dentro do prazo.",
+      "gabarito": "ERRADO",
+      "justificativa": "A Súmula 425 do STF, que dispunha que o agravo não fica prejudicado pela demora na juntada por culpa do cartório ou pelo despacho tardio, foi cancelada/revogada. Portanto, atualmente, o agravo despachado fora do prazo legal pode ser considerado prejudicado, não se aplicando mais a proteção anteriormente conferida pela súmula."
+    },
+    {
+      "id_origem": "sumula_426_stf",
+      "titulo_origem": "Súmula 426 STF",
+      "questao": "A ausência da indicação expressa do termo específico no agravo interposto não acarreta sua nulidade, desde que a interposição tenha ocorrido tempestivamente por petição ou no momento da audiência.",
+      "gabarito": "CERTO",
+      "justificativa": "A súmula estabelece que a falta do termo específico no agravo não prejudica o recurso quando este for apresentado no prazo adequado, seja por petição ou durante a audiência. Isso significa que a formalidade da indicação do termo específico não é condição indispensável para a validade do agravo, desde que respeitado o prazo legal para sua interposição."
+    },
+    {
+      "id_origem": "sumula_427_stf",
+      "titulo_origem": "Súmula 427 STF",
+      "questao": "A ausência de petição de interposição impede a regular processamento do agravo no auto do processo quando este é tomado por termo.",
+      "gabarito": "ERRADO",
+      "justificativa": "A jurisprudência do STF estabelece que, mesmo na ausência de petição de interposição, o agravo no auto do processo não é prejudicado quando este é tomado por termo, garantindo a continuidade do recurso e o respeito ao devido processo legal."
+    },
+    {
+      "id_origem": "sumula_428_stf",
+      "titulo_origem": "Súmula 428 STF",
+      "questao": "A Súmula 428 do STF, atualmente cancelada, dispunha que a apelação protocolada no cartório dentro do prazo legal não é prejudicada mesmo que o despacho ocorra fora do prazo.",
+      "gabarito": "CERTO",
+      "justificativa": "Embora a Súmula 428 do STF tenha sido cancelada, seu conteúdo afirmava que a tempestividade da apelação é aferida pelo protocolo no cartório dentro do prazo legal, não sendo prejudicada por eventual despacho tardio. Essa orientação visava garantir a segurança jurídica do ato processual, considerando o momento do protocolo como marco temporal para a tempestividade da apelação."
+    },
+    {
+      "id_origem": "sumula_429_stf",
+      "titulo_origem": "Súmula 429 STF",
+      "questao": "A existência de recurso administrativo com efeito suspensivo impede o ajuizamento de mandado de segurança contra a omissão da autoridade.",
+      "gabarito": "ERRADO",
+      "justificativa": "O mandado de segurança é cabível para proteger direito líquido e certo diante de omissão da autoridade, mesmo que exista recurso administrativo com efeito suspensivo. A existência do recurso não obsta a atuação do mandado de segurança, pois este visa garantir a efetividade do direito diante da inércia administrativa."
+    },
+    {
+      "id_origem": "sumula_430_stf",
+      "titulo_origem": "Súmula 430 STF",
+      "questao": "O protocolo de pedido de reconsideração no âmbito administrativo interrompe o prazo para impetração do mandado de segurança.",
+      "gabarito": "ERRADO",
+      "justificativa": "O pedido de reconsideração na via administrativa não interrompe o prazo para a impetração do mandado de segurança, conforme entendimento consolidado pelo STF. Isso significa que o prazo para ajuizamento do mandado de segurança continua a correr normalmente, independentemente da interposição do pedido administrativo."
+    },
+    {
+      "id_origem": "sumula_431_stf",
+      "titulo_origem": "Súmula 431 STF",
+      "questao": "O julgamento de recurso criminal em segunda instância pode ser considerado válido mesmo que não tenha ocorrido a prévia intimação das partes ou a publicação da pauta, exceto quando se tratar de habeas corpus.",
+      "gabarito": "ERRADO",
+      "justificativa": "O julgamento de recurso criminal em segunda instância é nulo se realizado sem a prévia intimação das partes ou a publicação da pauta, garantindo o direito ao contraditório e à ampla defesa, salvo no caso específico de habeas corpus, que possui rito próprio e excepcional."
+    },
+    {
+      "id_origem": "sumula_432_stf",
+      "titulo_origem": "Súmula 432 STF",
+      "questao": "É admissível recurso extraordinário com fundamento no art. 101, III, d, da Constituição Federal quando a divergência apontada ocorrer exclusivamente entre decisões proferidas por órgãos da Justiça do Trabalho.",
+      "gabarito": "ERRADO",
+      "justificativa": "O recurso extraordinário previsto no art. 101, III, d, da Constituição Federal destina-se a uniformizar a interpretação da Constituição entre tribunais superiores e tribunais de diferentes ramos do Poder Judiciário. Quando a divergência ocorre apenas entre decisões da Justiça do Trabalho, não se admite esse recurso, pois a competência para uniformização interna da Justiça do Trabalho cabe ao Tribunal Superior do Trabalho, não ao Supremo Tribunal Federal."
+    },
+    {
+      "id_origem": "sumula_433_stf",
+      "titulo_origem": "Súmula 433 STF",
+      "questao": "O Tribunal Regional do Trabalho é incompetente para julgar mandado de segurança impetrado contra ato de seu presidente relacionado à execução de sentença trabalhista.",
+      "gabarito": "ERRADO",
+      "justificativa": "O Tribunal Regional do Trabalho é competente para julgar mandado de segurança contra ato de seu presidente em execução de sentença trabalhista, conforme entendimento consolidado, pois o ato praticado pelo presidente no âmbito da execução da sentença está sujeito à jurisdição do próprio Tribunal Regional do Trabalho."
+    },
+    {
+      "id_origem": "sumula_434_stf",
+      "titulo_origem": "Súmula 434 STF",
+      "questao": "Em caso de divergência entre as seguradoras indicadas pelo empregador em ação decorrente de acidente do trabalho, o pagamento dos benefícios ao acidentado pode ser suspenso até o julgamento da controvérsia entre as seguradoras.",
+      "gabarito": "ERRADO",
+      "justificativa": "A controvérsia entre seguradoras indicadas pelo empregador não pode suspender o pagamento dos benefícios devidos ao trabalhador acidentado. O entendimento é que o direito do acidentado ao recebimento dos valores não pode ser prejudicado pela disputa entre as seguradoras, garantindo-se a proteção social imediata ao trabalhador."
+    },
+    {
+      "id_origem": "sumula_435_stf",
+      "titulo_origem": "Súmula 435 STF",
+      "questao": "O imposto de transmissão causa mortis incidente sobre a transferência de ações deve ser recolhido ao Estado onde o falecido residia, independentemente da localização da sede da companhia.",
+      "gabarito": "ERRADO",
+      "justificativa": "O imposto de transmissão causa mortis pela transferência de ações é devido ao Estado em que tem sede a companhia, e não ao Estado de residência do falecido. Isso decorre do entendimento de que o fato gerador do imposto está relacionado à localização da empresa cujas ações são transmitidas, conforme consolidado pelo Supremo Tribunal Federal."
+    },
+    {
+      "id_origem": "sumula_436_stf",
+      "titulo_origem": "Súmula 436 STF",
+      "questao": "A revogação da isenção tributária concedida às cooperativas por meio de lei posterior, como ocorreu com a Lei 4.093/1959 do Paraná, é válida e não viola o princípio da segurança jurídica.",
+      "gabarito": "CERTO",
+      "justificativa": "A jurisprudência do STF reconhece que a revogação de isenção tributária concedida por lei anterior é válida, desde que respeitados os princípios constitucionais aplicáveis, como o da legalidade e da anterioridade. A Lei 4.093/1959 do Paraná, que revogou a isenção concedida às cooperativas por lei anterior, está em conformidade com essa orientação, não havendo impedimento para a revogação da isenção por lei superveniente."
+    },
+    {
+      "id_origem": "sumula_437_stf",
+      "titulo_origem": "Súmula 437 STF",
+      "questao": "A importação de equipamento destinado à indústria automobilística está sujeita à cobrança da taxa de despacho aduaneiro, mesmo que o plano tenha sido aprovado pelo órgão competente dentro do prazo legal.",
+      "gabarito": "ERRADO",
+      "justificativa": "A importação de equipamento para a indústria automobilística está isenta da taxa de despacho aduaneiro desde que o plano tenha sido aprovado pelo órgão competente no prazo legal. Portanto, a cobrança da taxa nessas condições é indevida, conforme entendimento consolidado pelo STF."
+    },
+    {
+      "id_origem": "sumula_438_stf",
+      "titulo_origem": "Súmula 438 STF",
+      "questao": "A cobrança da Taxa de Educação e Saúde, instituída em Santa Catarina como adicional ao imposto de vendas e consignações no ano de 1962, é legítima e válida.",
+      "gabarito": "ERRADO",
+      "justificativa": "A cobrança da Taxa de Educação e Saúde, instituída em Santa Catarina como adicional ao imposto de vendas e consignações em 1962, é ilegítima, conforme entendimento consolidado pelo STF, que reconhece a ilegalidade dessa cobrança naquele ano e contexto específico."
+    },
+    {
+      "id_origem": "sumula_439_stf",
+      "titulo_origem": "Súmula 439 STF",
+      "questao": "A fiscalização tributária pode abranger a análise integral de todos os livros comerciais de uma empresa, independentemente do objeto da investigação.",
+      "gabarito": "ERRADO",
+      "justificativa": "A fiscalização tributária ou previdenciária pode alcançar quaisquer livros comerciais, porém o exame deve ser limitado aos pontos que sejam objeto da investigação, não sendo permitida a análise irrestrita de todos os livros."
+    },
+    {
+      "id_origem": "sumula_440_stf",
+      "titulo_origem": "Súmula 440 STF",
+      "questao": "Os Estados podem ser obrigados a conceder benefícios previstos na legislação federal de serviços de guerra mesmo na ausência de lei estadual que assim determine.",
+      "gabarito": "ERRADO",
+      "justificativa": "Os benefícios previstos na legislação federal de serviços de guerra não são automaticamente exigíveis dos Estados; para que esses entes federativos sejam obrigados a concedê-los, é necessária a existência de lei estadual que disponha expressamente sobre o tema. Isso decorre da autonomia legislativa dos Estados e da necessidade de previsão legal local para a exigibilidade desses benefícios."
+    },
+    {
+      "id_origem": "sumula_441_stf",
+      "titulo_origem": "Súmula 441 STF",
+      "questao": "Militar que se aposenta recebendo proventos integrais tem direito ao recebimento das cotas trigésimas previstas no Código de Vencimentos e Vantagens dos Militares.",
+      "gabarito": "ERRADO",
+      "justificativa": "O entendimento consolidado é que o militar que passa à inatividade com proventos integrais não faz jus às cotas trigésimas previstas no Código de Vencimentos e Vantagens dos Militares, pois tais cotas destinam-se apenas aos militares que recebem proventos proporcionais ou parciais."
+    },
+    {
+      "id_origem": "sumula_442_stf",
+      "titulo_origem": "Súmula 442 STF",
+      "questao": "Para que a cláusula de vigência de um contrato de locação seja válida contra terceiros e adquirentes do imóvel, é necessário que o contrato seja inscrito no Registro de Imóveis, não sendo exigida a transcrição no Registro de Títulos e Documentos.",
+      "gabarito": "CERTO",
+      "justificativa": "A inscrição do contrato de locação no Registro de Imóveis torna a cláusula de vigência oponível contra terceiros e adquirentes, dispensando a transcrição no Registro de Títulos e Documentos, conforme entendimento consolidado pelo STF. Isso ocorre porque o Registro de Imóveis é o meio adequado para dar publicidade e eficácia contra terceiros aos direitos reais sobre imóveis, enquanto o Registro de Títulos e Documentos não é necessário para esse fim."
+    },
+    {
+      "id_origem": "sumula_443_stf",
+      "titulo_origem": "Súmula 443 STF",
+      "questao": "A prescrição das prestações anteriores ao prazo legal não se interrompe se, antes do início desse prazo, o direito ou a situação jurídica que lhe dá origem já tiver sido negado.",
+      "gabarito": "ERRADO",
+      "justificativa": "A prescrição das prestações anteriores ao período previsto em lei não ocorre quando, antes daquele prazo, não tiver sido negado o próprio direito reclamado ou a situação jurídica de que ele resulta. Ou seja, a contagem da prescrição só se inicia a partir do momento em que o direito ou a situação jurídica forem efetivamente negados. Se houve negação antes do prazo, a prescrição pode alcançar as prestações anteriores."
+    },
+    {
+      "id_origem": "sumula_444_stf",
+      "titulo_origem": "Súmula 444 STF",
+      "questao": "Na hipótese de retomada de imóvel objeto do Decreto 24.150/1934 para a construção de edificação mais útil, o proprietário tem direito à indenização integral pelo valor do imóvel, incluindo benfeitorias e valor venal.",
+      "gabarito": "ERRADO",
+      "justificativa": "O entendimento consolidado é que, na retomada para construção mais útil de imóvel sujeito ao Decreto 24.150/1934, a indenização devida ao proprietário limita-se às despesas de mudança, não abrangendo indenização pelo valor do imóvel ou benfeitorias. Isso decorre da natureza especial da desapropriação prevista no referido decreto, que visa a utilização do imóvel para fins públicos específicos, restringindo a indenização."
+    },
+    {
+      "id_origem": "sumula_445_stf",
+      "titulo_origem": "Súmula 445 STF",
+      "questao": "A Lei nº 2.437/1955, que reduz o prazo prescricional, aplica-se às prescrições em curso na data de sua vigência, inclusive aos processos judiciais que estavam pendentes naquele momento.",
+      "gabarito": "ERRADO",
+      "justificativa": "A Lei nº 2.437/1955, que reduziu o prazo prescricional, é aplicável às prescrições em curso na data de sua vigência (1º de janeiro de 1956), mas não se aplica aos processos judiciais que estavam pendentes nessa data. Ou seja, para os processos pendentes, o prazo prescricional anterior continua a vigorar, preservando a segurança jurídica e o princípio da irretroatividade da lei penal mais gravosa."
+    },
+    {
+      "id_origem": "sumula_446_stf",
+      "titulo_origem": "Súmula 446 STF",
+      "questao": "Contrato de exploração de jazida ou pedreira está sujeito às normas do Decreto nº 24.150/1934.",
+      "gabarito": "ERRADO",
+      "justificativa": "O Decreto nº 24.150/1934 não se aplica aos contratos de exploração de jazidas ou pedreiras, conforme entendimento consolidado pelo STF, que afasta a incidência desse decreto sobre tais contratos, por tratar-se de matéria específica e distinta da regulamentação prevista no referido decreto."
+    },
+    {
+      "id_origem": "sumula_447_stf",
+      "titulo_origem": "Súmula 447 STF",
+      "questao": "É inválida a disposição testamentária que favorece filho nascido de relação extraconjugal do testador com sua concubina.",
+      "gabarito": "ERRADO",
+      "justificativa": "A jurisprudência do STF reconhece a validade da disposição testamentária em favor de filho adulterino do testador com sua concubina, afastando qualquer restrição baseada na origem da filiação. Portanto, a vontade do testador deve prevalecer independentemente do estado civil ou da natureza da relação entre os genitores."
+    },
+    {
+      "id_origem": "sumula_448_stf",
+      "titulo_origem": "Súmula 448 STF",
+      "questao": "O assistente tem seu prazo recursal supletivo iniciado imediatamente após o término do prazo concedido ao Ministério Público para recorrer.",
+      "gabarito": "CERTO",
+      "justificativa": "O entendimento consolidado determina que o prazo para o assistente recorrer supletivamente começa a fluir logo após o esgotamento do prazo recursal do Ministério Público, garantindo a ordem processual e o exercício pleno do direito de recorrer."
+    },
+    {
+      "id_origem": "sumula_449_stf",
+      "titulo_origem": "Súmula 449 STF",
+      "questao": "Em ação consignatória de aluguel, o valor da causa deve corresponder ao montante equivalente a uma anuidade do aluguel em questão.",
+      "gabarito": "CERTO",
+      "justificativa": "Na ação consignatória de aluguel, o valor da causa é fixado com base no valor total que se pretende consignar, que corresponde a uma anuidade do aluguel, ou seja, o valor do aluguel multiplicado por doze meses. Essa fixação é necessária para delimitar a competência e os efeitos da demanda, conforme entendimento consolidado pelo Supremo Tribunal Federal."
+    },
+    {
+      "id_origem": "sumula_450_stf",
+      "titulo_origem": "Súmula 450 STF",
+      "questao": "Em uma ação judicial, se o beneficiário da justiça gratuita obtiver êxito, é obrigatório o pagamento de honorários advocatícios, independentemente da sua condição financeira.",
+      "gabarito": "CERTO",
+      "justificativa": "A jurisprudência do STF estabelece que, mesmo sendo beneficiário da justiça gratuita, o vencedor na demanda deve arcar com honorários advocatícios, pois a concessão da gratuidade não exime o beneficiário dessa obrigação quando obtém êxito na ação."
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "categoria": "SUMULA",
+  "item": "Súmulas Vinculantes STJ",
+  "status_auditoria": "FALTA_GERAR_QUESTOES",
+  "fonte": "/Users/letrpires/Documents/SIMULADOS/projeto - cópia/pdfs/Sumulas Vinculantes STJ.pdf",
+  "esperado_auditoria": null,
+  "itens_extraidos": 4,
+  "questoes_geradas": 4,
+  "status_final": "OK_VALIDADO",
+  "observacao": "",
+  "logs_lotes": [
+    {
+      "lote": 1,
+      "ids_enviados": [
+        "SUMULA-469",
+        "SUMULA-418",
+        "SUMULA-408",
+        "SUMULA-142"
+      ],
+      "ok": true,
+      "observacao": "OK",
+      "resposta": {
+        "questoes": [
+          {
+            "id": "SUMULA-469",
+            "titulo_origem": "Súmula 469 do STJ (DJe  17/04/2018).",
+            "questao": "[DRY-RUN] Questão simulada.",
+            "gabarito": "CERTO",
+            "justificativa": "[DRY-RUN] Justificativa simulada."
+          },
+          {
+            "id": "SUMULA-418",
+            "titulo_origem": "Súmula 418 do STJ é aquela que prevê o ônus da ratificação  do recurso interposto na pendência de",
+            "questao": "[DRY-RUN] Questão simulada.",
+            "gabarito": "CERTO",
+            "justificativa": "[DRY-RUN] Justificativa simulada."
+          },
+          {
+            "id": "SUMULA-408",
+            "titulo_origem": "Súmula 408 do STJ (DJe 18/11/2020).",
+            "questao": "[DRY-RUN] Questão simulada.",
+            "gabarito": "CERTO",
+            "justificativa": "[DRY-RUN] Justificativa simulada."
+          },
+          {
+            "id": "SUMULA-142",
+            "titulo_origem": "Súmula 142 do STJ (DJ 10/06/1999, p. 49).",
+            "questao": "[DRY-RUN] Questão simulada.",
+            "gabarito": "CERTO",
+            "justificativa": "[DRY-RUN] Justificativa simulada."
+          }
+        ]
+      }
+    }
+  ],
+  "questoes": [
+    {
+      "id": "SUMULA-469",
+      "titulo_origem": "Súmula 469 do STJ (DJe  17/04/2018).",
+      "questao": "[DRY-RUN] Questão simulada.",
+      "gabarito": "CERTO",
+      "justificativa": "[DRY-RUN] Justificativa simulada."
+    },
+    {
+      "id": "SUMULA-418",
+      "titulo_origem": "Súmula 418 do STJ é aquela que prevê o ônus da ratificação  do recurso interposto na pendência de",
+      "questao": "[DRY-RUN] Questão simulada.",
+      "gabarito": "CERTO",
+      "justificativa": "[DRY-RUN] Justificativa simulada."
+    },
+    {
+      "id": "SUMULA-408",
+      "titulo_origem": "Súmula 408 do STJ (DJe 18/11/2020).",
+      "questao": "[DRY-RUN] Questão simulada.",
+      "gabarito": "CERTO",
+      "justificativa": "[DRY-RUN] Justificativa simulada."
+    },
+    {
+      "id": "SUMULA-142",
+      "titulo_origem": "Súmula 142 do STJ (DJ 10/06/1999, p. 49).",
+      "questao": "[DRY-RUN] Questão simulada.",
+      "gabarito": "CERTO",
+      "justificativa": "[DRY-RUN] Justificativa simulada."
+    }
+  ]
+}

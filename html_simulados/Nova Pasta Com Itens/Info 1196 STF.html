@@ -4,392 +4,359 @@
 <meta charset="UTF-8">
 <title>Simulado - Info 1196 STF</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <style>
-:root {
-    --bg: #0f172a;
-    --card: #111827;
-    --card2: #1f2937;
-    --text: #e5e7eb;
-    --muted: #9ca3af;
-    --accent: #38bdf8;
-    --green: #22c55e;
-    --red: #ef4444;
-    --yellow: #facc15;
+:root{
+--bg:#020617;--panel:rgba(15,23,42,.88);--card:rgba(15,23,42,.96);
+--card2:rgba(30,41,59,.92);--border:rgba(148,163,184,.22);
+--text:#e5e7eb;--muted:#94a3b8;--accent:#38bdf8;--accent2:#0ea5e9;
+--green:#22c55e;--red:#ef4444;--yellow:#facc15;--purple:#a78bfa;
 }
-
-* {
-    box-sizing: border-box;
+*{box-sizing:border-box}
+body{
+margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+background:radial-gradient(circle at top left,rgba(56,189,248,.20),transparent 28%),
+radial-gradient(circle at top right,rgba(167,139,250,.15),transparent 28%),
+linear-gradient(135deg,#020617,#0f172a 50%,#020617);
+color:var(--text);line-height:1.65;
 }
-
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(135deg, #020617, #111827);
-    color: var(--text);
-    line-height: 1.6;
+header{padding:44px 20px 32px;text-align:center;border-bottom:1px solid var(--border)}
+header h1{margin:0 0 10px;font-size:clamp(28px,4vw,46px);letter-spacing:-.05em}
+header p{color:var(--muted);margin:0;font-size:16px}
+.container{max-width:1160px;margin:0 auto;padding:26px 16px 80px}
+.painel{
+position:sticky;top:10px;z-index:10;background:var(--panel);backdrop-filter:blur(18px);
+border:1px solid var(--border);border-radius:26px;padding:16px;margin-bottom:22px;
+box-shadow:0 22px 70px rgba(0,0,0,.35)
 }
-
-header {
-    padding: 32px 20px;
-    text-align: center;
-    border-bottom: 1px solid #334155;
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.stat{background:var(--card2);padding:14px;border-radius:18px;text-align:center;border:1px solid rgba(148,163,184,.12)}
+.stat strong{display:block;font-size:25px;color:var(--accent);line-height:1.1}
+.stat span{font-size:12px;color:var(--muted)}
+.filtros{display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:12px;margin-top:14px}
+input,select{
+width:100%;background:rgba(2,6,23,.78);color:var(--text);border:1px solid var(--border);
+border-radius:14px;padding:13px 14px;outline:none;font-size:14px
 }
-
-header h1 {
-    margin: 0 0 10px;
-    font-size: 28px;
+input:focus,select:focus{border-color:var(--accent)}
+.card{
+background:var(--card);border:1px solid var(--border);border-radius:24px;padding:26px;
+margin-bottom:20px;box-shadow:0 18px 50px rgba(0,0,0,.24)
 }
-
-header p {
-    color: var(--muted);
-    margin: 0;
+.questao{scroll-margin-top:190px}
+.questao-topo{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:18px}
+.badge{
+background:linear-gradient(135deg,var(--accent),var(--accent2));color:#00111f;font-weight:900;
+padding:7px 13px;border-radius:999px;display:inline-block
 }
-
-.container {
-    max-width: 980px;
-    margin: 0 auto;
-    padding: 24px 16px 80px;
+.disciplina-tag,.tipo-tag{
+display:inline-block;margin-left:8px;color:var(--muted);background:rgba(148,163,184,.10);
+border:1px solid rgba(148,163,184,.14);padding:6px 10px;border-radius:999px;font-size:12px
 }
-
-.painel {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    background: rgba(15, 23, 42, 0.95);
-    backdrop-filter: blur(8px);
-    border: 1px solid #334155;
-    border-radius: 16px;
-    padding: 16px;
-    margin-bottom: 24px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
+.tipo-tag{color:#ddd6fe;border-color:rgba(167,139,250,.25)}
+.status{color:var(--yellow);font-size:13px;white-space:nowrap}
+.enunciado{font-size:19px;margin:0 0 22px;letter-spacing:-.01em}
+.botoes{display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.btn{
+cursor:pointer;border:0;padding:12px 22px;border-radius:14px;color:white;font-weight:900;
+transition:.18s ease;letter-spacing:.02em
 }
-
-.stat {
-    background: var(--card2);
-    padding: 12px;
-    border-radius: 12px;
-    text-align: center;
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.certo{background:rgba(34,197,94,.20);border:1px solid rgba(34,197,94,.42)}
+.btn.errado{background:rgba(239,68,68,.20);border:1px solid rgba(239,68,68,.42)}
+.btn.neutro{background:rgba(56,189,248,.16);color:var(--text);border:1px solid rgba(56,189,248,.32)}
+.feedback{
+display:none;background:rgba(2,6,23,.72);border:1px solid rgba(148,163,184,.16);
+border-left:5px solid var(--accent);padding:18px;border-radius:18px;margin-top:14px
 }
-
-.stat strong {
-    display: block;
-    font-size: 22px;
-    color: var(--accent);
+.feedback.correto{border-left-color:var(--green)}
+.feedback.errado{border-left-color:var(--red)}
+.resultado{font-size:18px;font-weight:900;margin-top:0}
+.justificativa{margin-top:12px}
+.referencia{color:var(--muted);font-size:13px;margin-top:16px}
+.gabarito-certo{color:var(--green);font-weight:900}
+.gabarito-errado{color:var(--red);font-weight:900}
+.oculta{display:none}
+.sem-resultados{text-align:center;color:var(--muted);display:none;padding:30px}
+.grid-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
+.link-card{
+display:block;padding:20px;background:rgba(15,23,42,.95);border:1px solid rgba(148,163,184,.22);
+color:#e5e7eb;border-radius:22px;text-decoration:none;transition:.2s;box-shadow:0 14px 40px rgba(0,0,0,.22)
 }
-
-.card {
-    background: rgba(17, 24, 39, 0.96);
-    border: 1px solid #334155;
-    border-radius: 18px;
-    padding: 22px;
-    margin-bottom: 20px;
-    box-shadow: 0 12px 30px rgba(0,0,0,.25);
-}
-
-.questao-topo {
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
-    align-items: center;
-    margin-bottom: 16px;
-}
-
-.badge {
-    background: #0ea5e9;
-    color: #00111f;
-    font-weight: bold;
-    padding: 6px 12px;
-    border-radius: 999px;
-}
-
-.status {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-.enunciado {
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-
-.botoes {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 18px;
-}
-
-button {
-    cursor: pointer;
-    border: 0;
-    padding: 12px 22px;
-    border-radius: 12px;
-    background: #334155;
-    color: white;
-    font-weight: bold;
-    transition: 0.2s;
-}
-
-button:hover {
-    transform: translateY(-1px);
-    background: #475569;
-}
-
-.feedback {
-    display: none;
-    background: #020617;
-    border-left: 4px solid var(--accent);
-    padding: 16px;
-    border-radius: 12px;
-    margin-top: 12px;
-}
-
-.feedback.correto {
-    border-left-color: var(--green);
-}
-
-.feedback.errado {
-    border-left-color: var(--red);
-}
-
-.resultado {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.referencia {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-.acoes {
-    text-align: center;
-    margin: 30px 0;
-}
-
-.acoes button {
-    background: #0ea5e9;
-    color: #00111f;
-}
-
-@media (max-width: 700px) {
-    .painel {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .botoes {
-        flex-direction: column;
-    }
-
-    header h1 {
-        font-size: 22px;
-    }
-
-    .enunciado {
-        font-size: 16px;
-    }
+.link-card:hover{transform:translateY(-3px);border-color:#38bdf8}
+.link-card strong{display:block;font-size:17px;margin-bottom:8px}
+.link-card span{color:#94a3b8;font-size:13px}
+.index-tools{display:grid;grid-template-columns:1.5fr 1fr;gap:12px;margin-bottom:20px}
+@media(max-width:850px){
+.stats{grid-template-columns:repeat(2,1fr)}
+.filtros,.index-tools{grid-template-columns:1fr}
+.questao-topo{align-items:flex-start;flex-direction:column}
+.botoes{flex-direction:column}
+.enunciado{font-size:16px}
+.card{padding:20px}
 }
 </style>
 </head>
-
 <body>
-
 <header>
-    <h1>Simulado - Info 1196 STF</h1>
-    <p>Simulado interativo de CERTO ou ERRADO</p>
+<h1>Simulado - Info 1196 STF</h1>
+<p>Informativos • Simulado interativo de CERTO ou ERRADO</p>
 </header>
 
 <div class="container">
+<div class="painel">
+<div class="stats">
+<div class="stat"><strong>4</strong><span>Total</span></div>
+<div class="stat"><strong id="visiveis">4</strong><span>Visíveis</span></div>
+<div class="stat"><strong id="respondidas">0</strong><span>Respondidas</span></div>
+<div class="stat"><strong id="acertos">0</strong><span>Acertos</span></div>
+<div class="stat"><strong id="erros">0</strong><span>Erros</span></div>
+</div>
 
-    <div class="painel">
-        <div class="stat">
-            <strong id="total">4</strong>
-            Total
-        </div>
-        <div class="stat">
-            <strong id="respondidas">0</strong>
-            Respondidas
-        </div>
-        <div class="stat">
-            <strong id="acertos">0</strong>
-            Acertos
-        </div>
-        <div class="stat">
-            <strong id="erros">0</strong>
-            Erros
-        </div>
-    </div>
+<div class="filtros">
+<input id="busca" type="search" placeholder="Buscar por palavra-chave..." oninput="filtrar()">
+<select id="disciplina" onchange="filtrar()">
+<option value="">Todas as disciplinas</option>
+<option value="N/I">N/I</option>
+</select>
+<select id="statusFiltro" onchange="filtrar()">
+<option value="">Todas</option>
+<option value="nao">Não respondidas</option>
+<option value="acerto">Acertos</option>
+<option value="erro">Erros</option>
+</select>
+<button class="btn neutro" onclick="reiniciar()">Reiniciar</button>
+</div>
+</div>
 
-    <div class="acoes">
-        <button onclick="reiniciar()">Reiniciar simulado</button>
-    </div>
+<div id="sem-resultados" class="sem-resultados">Nenhuma questão encontrada com os filtros atuais.</div>
 
-    
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 1</span>
-                <span class="status" id="status-1">Não respondida</span>
-            </div>
 
-            <p class="enunciado">A ausência de edição, pelo Poder Executivo estadual, de diploma normativo final e integralmente acabado para a estruturação da polícia penal, após a Emenda Constitucional 104/2019, basta, por si só, para caracterizar omissão inconstitucional apta a autorizar a fixação judicial de prazo para suprimento da mora, ainda que o ente federado já tenha adotado providências legislativas e administrativas objetivas voltadas à implementação da carreira, inclusive com alteração constitucional local, lei estadual de transformação do cargo e instituição de comissão técnica para elaboração da lei orgânica.</p>
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a ausência de edição, pelo poder executivo estadual, de diploma normativo final e integralmente acabado para a estruturação da polícia penal, após a emenda constitucional 104/2019, basta, por si só, para caracterizar omissão inconstitucional apta a autorizar a fixação judicial de prazo para suprimento da mora, ainda que o ente federado já tenha adotado providências legislativas e administrativas objetivas voltadas à implementação da carreira, inclusive com alteração constitucional local, lei estadual de transformação do cargo e instituição de comissão técnica para elaboração da lei orgânica. a assertiva está incorreta porque o entendimento firmado foi no sentido de que a mera inexistência de um diploma legal “acabado” não é suficiente, isoladamente, para configurar mora inconstitucional. no caso examinado, o tribunal considerou relevante que o estado de minas gerais já havia adotado medidas concretas de implementação da polícia penal, como a emenda constitucional estadual 111/2022, a lei estadual 24.959/2024 — que transformou o cargo de agente de segurança penitenciário em policial penal — e a criação de comissão técnica para elaborar o projeto da lei orgânica da carreira.
 
-            <div class="botoes">
-                <button onclick="responder(1, 'CERTO')">CERTO</button>
-                <button onclick="responder(1, 'ERRADO')">ERRADO</button>
-            </div>
+esses elementos demonstraram a existência de um processo de implementação em curso, afastando a ideia de inércia deliberandi ou reticência injustificável do poder público. além disso, a corte levou em conta a complexidade institucional da matéria e a conjuntura fiscal do estado, próxima do limite prudencial da lei de responsabilidade fiscal, fatores que tornam mais lento e cauteloso o ciclo de conformação legislativa e administrativa.
 
-            <div class="feedback" id="feedback-1">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque o entendimento firmado foi no sentido de que a mera inexistência de um diploma legal “acabado” não é suficiente, isoladamente, para configurar mora inconstitucional. No caso examinado, o Tribunal considerou relevante que o Estado de Minas Gerais já havia adotado medidas concretas de implementação da polícia penal, como a Emenda Constitucional estadual 111/2022, a Lei estadual 24.959/2024 — que transformou o cargo de Agente de Segurança Penitenciário em Policial Penal — e a criação de comissão técnica para elaborar o projeto da lei orgânica da carreira.<br><br>Esses elementos demonstraram a existência de um processo de implementação em curso, afastando a ideia de inércia deliberandi ou reticência injustificável do Poder Público. Além disso, a Corte levou em conta a complexidade institucional da matéria e a conjuntura fiscal do estado, próxima do limite prudencial da Lei de Responsabilidade Fiscal, fatores que tornam mais lento e cauteloso o ciclo de conformação legislativa e administrativa.<br><br>Assim, não se reconheceu omissão inconstitucional apta a justificar intervenção judicial imediata para impor prazo, pois o quadro revelava atuação estatal progressiva e compatível com a natureza da reorganização da carreira. A tese, portanto, erra ao afirmar que a simples ausência de regulamentação final, por si só, bastaria para caracterizar mora.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADO 88/MG, Rel. Min. Gilmar Mendes, julgado em 27/10/2025 (Info 1196).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 2</span>
-                <span class="status" id="status-2">Não respondida</span>
-            </div>
+assim, não se reconheceu omissão inconstitucional apta a justificar intervenção judicial imediata para impor prazo, pois o quadro revelava atuação estatal progressiva e compatível com a natureza da reorganização da carreira. a tese, portanto, erra ao afirmar que a simples ausência de regulamentação final, por si só, bastaria para caracterizar mora. stf. plenário. ado 88/mg, rel. min. gilmar mendes, julgado em 27/10/2025 (info 1196).">
 
-            <p class="enunciado">A imposição legal de requisito temporal para a obtenção ou renovação do Certificado de Entidade Beneficente de Assistência Social (CEBAS) pode alcançar requerimentos já protocolados antes da vigência da norma, desde que ainda pendentes de apreciação administrativa, sem que isso implique violação ao direito adquirido ou à irretroatividade, pois a aferição dos pressupostos da imunidade deve observar a legislação vigente no momento do exame do pedido e a renovação periódica integra relação jurídica de trato sucessivo sujeita à fiscalização contínua do Poder Público.</p>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 1</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-1">Não respondida</span>
+</div>
 
-            <div class="botoes">
-                <button onclick="responder(2, 'CERTO')">CERTO</button>
-                <button onclick="responder(2, 'ERRADO')">ERRADO</button>
-            </div>
+<p class="enunciado">A ausência de edição, pelo Poder Executivo estadual, de diploma normativo final e integralmente acabado para a estruturação da polícia penal, após a Emenda Constitucional 104/2019, basta, por si só, para caracterizar omissão inconstitucional apta a autorizar a fixação judicial de prazo para suprimento da mora, ainda que o ente federado já tenha adotado providências legislativas e administrativas objetivas voltadas à implementação da carreira, inclusive com alteração constitucional local, lei estadual de transformação do cargo e instituição de comissão técnica para elaboração da lei orgânica.</p>
 
-            <div class="feedback" id="feedback-2">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a lógica central do entendimento firmado: não há direito adquirido a regime jurídico de imunidade tributária, de modo que a Administração pode exigir, no momento em que analisa o pedido de concessão ou renovação do CEBAS, o atendimento aos requisitos previstos na legislação então vigente. Assim, ainda que o requerimento tenha sido protocolado antes da edição da norma, se o processo administrativo permanecer pendente de julgamento, aplica-se a disciplina superveniente.<br><br>O ponto decisivo é que a norma não incide para desconstituir situação definitivamente consolidada, mas para disciplinar pedido ainda não decidido. Nessa hipótese, não se configura retroatividade vedada, porque inexiste ato jurídico perfeito ou direito incorporado ao patrimônio do requerente. Além disso, a renovação do CEBAS não é evento isolado e estanque: trata-se de obrigação inserida em relação de trato sucessivo, na qual a entidade permanece sujeita à verificação periódica do cumprimento das exigências legais durante toda a vigência do certificado. Isso reforça a legitimidade da fiscalização contínua e afasta a tese de estabilização automática da situação jurídica.<br><br>O fundamento também se harmoniza com o princípio da eficiência administrativa, na medida em que permite que a Administração aplique critérios atualizados e compatíveis com a política pública vigente no momento da decisão, sem perpetuar a incidência de regras superadas sobre processos ainda não concluídos.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 5.319/DF, Rel. Min. Nunes Marques, julgado em 27/10/2025 (Info 1196).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 3</span>
-                <span class="status" id="status-3">Não respondida</span>
-            </div>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(1, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(1, 'ERRADO')">ERRADO</button>
+</div>
 
-            <p class="enunciado">A instituição, por lei estadual editada após a EC n.º 87/2015 e antes da entrada em vigor da LC n.º 190/2022, da cobrança do DIFAL do ICMS nas operações destinadas a consumidor final não contribuinte é constitucional, mas a exigibilidade do tributo fica condicionada à observância da anterioridade anual e da anterioridade nonagesimal, ambas contadas a partir da publicação da LC n.º 190/2022, de modo que a cobrança somente poderia ocorrer no exercício financeiro seguinte ao decurso de 90 dias.</p>
+<div class="feedback" id="feedback-1">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque o entendimento firmado foi no sentido de que a mera inexistência de um diploma legal “acabado” não é suficiente, isoladamente, para configurar mora inconstitucional. No caso examinado, o Tribunal considerou relevante que o Estado de Minas Gerais já havia adotado medidas concretas de implementação da polícia penal, como a Emenda Constitucional estadual 111/2022, a Lei estadual 24.959/2024 — que transformou o cargo de Agente de Segurança Penitenciário em Policial Penal — e a criação de comissão técnica para elaborar o projeto da lei orgânica da carreira.<br><br>Esses elementos demonstraram a existência de um processo de implementação em curso, afastando a ideia de inércia deliberandi ou reticência injustificável do Poder Público. Além disso, a Corte levou em conta a complexidade institucional da matéria e a conjuntura fiscal do estado, próxima do limite prudencial da Lei de Responsabilidade Fiscal, fatores que tornam mais lento e cauteloso o ciclo de conformação legislativa e administrativa.<br><br>Assim, não se reconheceu omissão inconstitucional apta a justificar intervenção judicial imediata para impor prazo, pois o quadro revelava atuação estatal progressiva e compatível com a natureza da reorganização da carreira. A tese, portanto, erra ao afirmar que a simples ausência de regulamentação final, por si só, bastaria para caracterizar mora.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADO 88/MG, Rel. Min. Gilmar Mendes, julgado em 27/10/2025 (Info 1196).</p>
+</div>
+</section>
 
-            <div class="botoes">
-                <button onclick="responder(3, 'CERTO')">CERTO</button>
-                <button onclick="responder(3, 'ERRADO')">ERRADO</button>
-            </div>
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a imposição legal de requisito temporal para a obtenção ou renovação do certificado de entidade beneficente de assistência social (cebas) pode alcançar requerimentos já protocolados antes da vigência da norma, desde que ainda pendentes de apreciação administrativa, sem que isso implique violação ao direito adquirido ou à irretroatividade, pois a aferição dos pressupostos da imunidade deve observar a legislação vigente no momento do exame do pedido e a renovação periódica integra relação jurídica de trato sucessivo sujeita à fiscalização contínua do poder público. a assertiva está correta porque reproduz a lógica central do entendimento firmado: não há direito adquirido a regime jurídico de imunidade tributária, de modo que a administração pode exigir, no momento em que analisa o pedido de concessão ou renovação do cebas, o atendimento aos requisitos previstos na legislação então vigente. assim, ainda que o requerimento tenha sido protocolado antes da edição da norma, se o processo administrativo permanecer pendente de julgamento, aplica-se a disciplina superveniente.
 
-            <div class="feedback" id="feedback-3">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>O entendimento firmado foi no sentido de que as leis estaduais e distritais editadas após a EC n.º 87/2015 e antes da entrada em vigor da LC n.º 190/2022, que instituíram a cobrança do DIFAL nas operações e prestações destinadas a consumidor final não contribuinte, são constitucionais e válidas, mas seus efeitos somente se projetam a partir da vigência da LC n.º 190/2022 e naquilo que for compatível.<br><br>O ponto central de erro do enunciado está em afirmar que a cobrança se submete também à anterioridade anual. O Supremo assentou que o art. 3º da LC n.º 190/2022 é constitucional justamente porque estabelece vacatio legis correspondente apenas à anterioridade nonagesimal do art. 150, III, “c”, da Constituição Federal, e não à anterioridade anual do art. 150, III, “b”. Assim, não se exige o aguardo do exercício financeiro seguinte para a cobrança do DIFAL nessas hipóteses.<br><br>Além disso, a tese fixada distinguiu a validade formal das leis estaduais já editadas da eficácia concreta da cobrança: elas permanecem válidas, mas a produção de efeitos fica postergada até a vigência da LC n.º 190/2022. Em matéria de modulação, houve ainda ressalva específica para contribuintes que ajuizaram ação judicial até 29/11/2023 e deixaram de recolher o tributo em 2022, hipótese em que não se admite a exigência do DIFAL exclusivamente quanto a esse exercício.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. RE 1.426.271/CE, Rel. Min. Alexandre de Moraes, julgado em 22/10/2025 (Repercussão Geral – Tema 1.266) (Info 1196).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 4</span>
-                <span class="status" id="status-4">Não respondida</span>
-            </div>
+o ponto decisivo é que a norma não incide para desconstituir situação definitivamente consolidada, mas para disciplinar pedido ainda não decidido. nessa hipótese, não se configura retroatividade vedada, porque inexiste ato jurídico perfeito ou direito incorporado ao patrimônio do requerente. além disso, a renovação do cebas não é evento isolado e estanque: trata-se de obrigação inserida em relação de trato sucessivo, na qual a entidade permanece sujeita à verificação periódica do cumprimento das exigências legais durante toda a vigência do certificado. isso reforça a legitimidade da fiscalização contínua e afasta a tese de estabilização automática da situação jurídica.
 
-            <p class="enunciado">A edição, por Estado-membro, de lei instituindo ITCMD incidente sobre transmissão causa mortis ou doação com elemento de conexão com o exterior, antes da promulgação da EC nº 132/2023, é inválida por afronta ao art. 155, § 1º, III, da Constituição, e a posterior atribuição de competência plena aos entes subnacionais pelo art. 16 da referida emenda não tem o efeito de convalidar automaticamente a norma pretérita, sendo indispensável nova lei estadual para a cobrança do tributo nas hipóteses de ITCMD-Exterior.</p>
+o fundamento também se harmoniza com o princípio da eficiência administrativa, na medida em que permite que a administração aplique critérios atualizados e compatíveis com a política pública vigente no momento da decisão, sem perpetuar a incidência de regras superadas sobre processos ainda não concluídos. stf. plenário. adi 5.319/df, rel. min. nunes marques, julgado em 27/10/2025 (info 1196).">
 
-            <div class="botoes">
-                <button onclick="responder(4, 'CERTO')">CERTO</button>
-                <button onclick="responder(4, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 2</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-2">Não respondida</span>
+</div>
 
-            <div class="feedback" id="feedback-4">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>O enunciado está correto porque reproduz a lógica central do julgamento: antes da EC nº 132/2023, a disciplina do ITCMD com elemento de conexão internacional dependia de lei complementar nacional, nos termos do art. 155, § 1º, III, da CF/88, de modo que lei estadual que, isoladamente, tenha instituído a exação nessas hipóteses era materialmente inconstitucional por extrapolar o modelo constitucional de repartição de competências tributárias.<br><br>Além disso, a superveniência da EC nº 132/2023, embora tenha ampliado a competência dos Estados e do Distrito Federal para instituir o ITCMD-Exterior, não produz efeito saneador automático sobre leis estaduais editadas sob regime constitucional anterior. O fundamento é que não se admite a chamada constitucionalidade superveniente: a validade da lei deve ser aferida à luz do parâmetro constitucional vigente no momento de sua edição. Assim, a alteração posterior do texto constitucional não “ressuscita” nem convalida norma que nasceu incompatível com a Constituição então em vigor.<br><br>Por consequência, para a cobrança do ITCMD nas hipóteses com elemento de conexão com o exterior após a EC nº 132/2023, não basta invocar a lei estadual pretérita; é necessária nova disciplina legislativa estadual, agora compatível com o novo desenho constitucional.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 6.838/MT, Rel. Min. Nunes Marques, redator do acórdão Min. Cristiano Zanin, julgado em 27/10/2025 (Info 1196).</p>
-            </div>
-        </section>
-        
+<p class="enunciado">A imposição legal de requisito temporal para a obtenção ou renovação do Certificado de Entidade Beneficente de Assistência Social (CEBAS) pode alcançar requerimentos já protocolados antes da vigência da norma, desde que ainda pendentes de apreciação administrativa, sem que isso implique violação ao direito adquirido ou à irretroatividade, pois a aferição dos pressupostos da imunidade deve observar a legislação vigente no momento do exame do pedido e a renovação periódica integra relação jurídica de trato sucessivo sujeita à fiscalização contínua do Poder Público.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(2, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(2, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-2">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a lógica central do entendimento firmado: não há direito adquirido a regime jurídico de imunidade tributária, de modo que a Administração pode exigir, no momento em que analisa o pedido de concessão ou renovação do CEBAS, o atendimento aos requisitos previstos na legislação então vigente. Assim, ainda que o requerimento tenha sido protocolado antes da edição da norma, se o processo administrativo permanecer pendente de julgamento, aplica-se a disciplina superveniente.<br><br>O ponto decisivo é que a norma não incide para desconstituir situação definitivamente consolidada, mas para disciplinar pedido ainda não decidido. Nessa hipótese, não se configura retroatividade vedada, porque inexiste ato jurídico perfeito ou direito incorporado ao patrimônio do requerente. Além disso, a renovação do CEBAS não é evento isolado e estanque: trata-se de obrigação inserida em relação de trato sucessivo, na qual a entidade permanece sujeita à verificação periódica do cumprimento das exigências legais durante toda a vigência do certificado. Isso reforça a legitimidade da fiscalização contínua e afasta a tese de estabilização automática da situação jurídica.<br><br>O fundamento também se harmoniza com o princípio da eficiência administrativa, na medida em que permite que a Administração aplique critérios atualizados e compatíveis com a política pública vigente no momento da decisão, sem perpetuar a incidência de regras superadas sobre processos ainda não concluídos.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 5.319/DF, Rel. Min. Nunes Marques, julgado em 27/10/2025 (Info 1196).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a instituição, por lei estadual editada após a ec n.º 87/2015 e antes da entrada em vigor da lc n.º 190/2022, da cobrança do difal do icms nas operações destinadas a consumidor final não contribuinte é constitucional, mas a exigibilidade do tributo fica condicionada à observância da anterioridade anual e da anterioridade nonagesimal, ambas contadas a partir da publicação da lc n.º 190/2022, de modo que a cobrança somente poderia ocorrer no exercício financeiro seguinte ao decurso de 90 dias. o entendimento firmado foi no sentido de que as leis estaduais e distritais editadas após a ec n.º 87/2015 e antes da entrada em vigor da lc n.º 190/2022, que instituíram a cobrança do difal nas operações e prestações destinadas a consumidor final não contribuinte, são constitucionais e válidas, mas seus efeitos somente se projetam a partir da vigência da lc n.º 190/2022 e naquilo que for compatível.
+
+o ponto central de erro do enunciado está em afirmar que a cobrança se submete também à anterioridade anual. o supremo assentou que o art. 3º da lc n.º 190/2022 é constitucional justamente porque estabelece vacatio legis correspondente apenas à anterioridade nonagesimal do art. 150, iii, “c”, da constituição federal, e não à anterioridade anual do art. 150, iii, “b”. assim, não se exige o aguardo do exercício financeiro seguinte para a cobrança do difal nessas hipóteses.
+
+além disso, a tese fixada distinguiu a validade formal das leis estaduais já editadas da eficácia concreta da cobrança: elas permanecem válidas, mas a produção de efeitos fica postergada até a vigência da lc n.º 190/2022. em matéria de modulação, houve ainda ressalva específica para contribuintes que ajuizaram ação judicial até 29/11/2023 e deixaram de recolher o tributo em 2022, hipótese em que não se admite a exigência do difal exclusivamente quanto a esse exercício. stf. plenário. re 1.426.271/ce, rel. min. alexandre de moraes, julgado em 22/10/2025 (repercussão geral – tema 1.266) (info 1196).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 3</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-3">Não respondida</span>
+</div>
+
+<p class="enunciado">A instituição, por lei estadual editada após a EC n.º 87/2015 e antes da entrada em vigor da LC n.º 190/2022, da cobrança do DIFAL do ICMS nas operações destinadas a consumidor final não contribuinte é constitucional, mas a exigibilidade do tributo fica condicionada à observância da anterioridade anual e da anterioridade nonagesimal, ambas contadas a partir da publicação da LC n.º 190/2022, de modo que a cobrança somente poderia ocorrer no exercício financeiro seguinte ao decurso de 90 dias.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(3, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(3, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-3">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O entendimento firmado foi no sentido de que as leis estaduais e distritais editadas após a EC n.º 87/2015 e antes da entrada em vigor da LC n.º 190/2022, que instituíram a cobrança do DIFAL nas operações e prestações destinadas a consumidor final não contribuinte, são constitucionais e válidas, mas seus efeitos somente se projetam a partir da vigência da LC n.º 190/2022 e naquilo que for compatível.<br><br>O ponto central de erro do enunciado está em afirmar que a cobrança se submete também à anterioridade anual. O Supremo assentou que o art. 3º da LC n.º 190/2022 é constitucional justamente porque estabelece vacatio legis correspondente apenas à anterioridade nonagesimal do art. 150, III, “c”, da Constituição Federal, e não à anterioridade anual do art. 150, III, “b”. Assim, não se exige o aguardo do exercício financeiro seguinte para a cobrança do DIFAL nessas hipóteses.<br><br>Além disso, a tese fixada distinguiu a validade formal das leis estaduais já editadas da eficácia concreta da cobrança: elas permanecem válidas, mas a produção de efeitos fica postergada até a vigência da LC n.º 190/2022. Em matéria de modulação, houve ainda ressalva específica para contribuintes que ajuizaram ação judicial até 29/11/2023 e deixaram de recolher o tributo em 2022, hipótese em que não se admite a exigência do DIFAL exclusivamente quanto a esse exercício.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. RE 1.426.271/CE, Rel. Min. Alexandre de Moraes, julgado em 22/10/2025 (Repercussão Geral – Tema 1.266) (Info 1196).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a edição, por estado-membro, de lei instituindo itcmd incidente sobre transmissão causa mortis ou doação com elemento de conexão com o exterior, antes da promulgação da ec nº 132/2023, é inválida por afronta ao art. 155, § 1º, iii, da constituição, e a posterior atribuição de competência plena aos entes subnacionais pelo art. 16 da referida emenda não tem o efeito de convalidar automaticamente a norma pretérita, sendo indispensável nova lei estadual para a cobrança do tributo nas hipóteses de itcmd-exterior. o enunciado está correto porque reproduz a lógica central do julgamento: antes da ec nº 132/2023, a disciplina do itcmd com elemento de conexão internacional dependia de lei complementar nacional, nos termos do art. 155, § 1º, iii, da cf/88, de modo que lei estadual que, isoladamente, tenha instituído a exação nessas hipóteses era materialmente inconstitucional por extrapolar o modelo constitucional de repartição de competências tributárias.
+
+além disso, a superveniência da ec nº 132/2023, embora tenha ampliado a competência dos estados e do distrito federal para instituir o itcmd-exterior, não produz efeito saneador automático sobre leis estaduais editadas sob regime constitucional anterior. o fundamento é que não se admite a chamada constitucionalidade superveniente: a validade da lei deve ser aferida à luz do parâmetro constitucional vigente no momento de sua edição. assim, a alteração posterior do texto constitucional não “ressuscita” nem convalida norma que nasceu incompatível com a constituição então em vigor.
+
+por consequência, para a cobrança do itcmd nas hipóteses com elemento de conexão com o exterior após a ec nº 132/2023, não basta invocar a lei estadual pretérita; é necessária nova disciplina legislativa estadual, agora compatível com o novo desenho constitucional. stf. plenário. adi 6.838/mt, rel. min. nunes marques, redator do acórdão min. cristiano zanin, julgado em 27/10/2025 (info 1196).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 4</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-4">Não respondida</span>
+</div>
+
+<p class="enunciado">A edição, por Estado-membro, de lei instituindo ITCMD incidente sobre transmissão causa mortis ou doação com elemento de conexão com o exterior, antes da promulgação da EC nº 132/2023, é inválida por afronta ao art. 155, § 1º, III, da Constituição, e a posterior atribuição de competência plena aos entes subnacionais pelo art. 16 da referida emenda não tem o efeito de convalidar automaticamente a norma pretérita, sendo indispensável nova lei estadual para a cobrança do tributo nas hipóteses de ITCMD-Exterior.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(4, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(4, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-4">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O enunciado está correto porque reproduz a lógica central do julgamento: antes da EC nº 132/2023, a disciplina do ITCMD com elemento de conexão internacional dependia de lei complementar nacional, nos termos do art. 155, § 1º, III, da CF/88, de modo que lei estadual que, isoladamente, tenha instituído a exação nessas hipóteses era materialmente inconstitucional por extrapolar o modelo constitucional de repartição de competências tributárias.<br><br>Além disso, a superveniência da EC nº 132/2023, embora tenha ampliado a competência dos Estados e do Distrito Federal para instituir o ITCMD-Exterior, não produz efeito saneador automático sobre leis estaduais editadas sob regime constitucional anterior. O fundamento é que não se admite a chamada constitucionalidade superveniente: a validade da lei deve ser aferida à luz do parâmetro constitucional vigente no momento de sua edição. Assim, a alteração posterior do texto constitucional não “ressuscita” nem convalida norma que nasceu incompatível com a Constituição então em vigor.<br><br>Por consequência, para a cobrança do ITCMD nas hipóteses com elemento de conexão com o exterior após a EC nº 132/2023, não basta invocar a lei estadual pretérita; é necessária nova disciplina legislativa estadual, agora compatível com o novo desenho constitucional.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 6.838/MT, Rel. Min. Nunes Marques, redator do acórdão Min. Cristiano Zanin, julgado em 27/10/2025 (Info 1196).</p>
+</div>
+</section>
 
 </div>
 
 <script>
-const totalQuestoes = 4;
-let respostas = JSON.parse(localStorage.getItem(location.pathname + "_respostas") || "{}");
+const storageKey = location.pathname + "_respostas";
+let respostas = JSON.parse(localStorage.getItem(storageKey) || "{}");
 
-function atualizarPainel() {
-    const respondidas = Object.keys(respostas).length;
-    let acertos = 0;
-    let erros = 0;
-
-    for (const key in respostas) {
-        if (respostas[key].correto) acertos++;
-        else erros++;
-    }
-
-    document.getElementById("respondidas").textContent = respondidas;
-    document.getElementById("acertos").textContent = acertos;
-    document.getElementById("erros").textContent = erros;
+function destacar(t){
+ if(t==="CERTO") return '<span class="gabarito-certo">CERTO</span>';
+ if(t==="ERRADO") return '<span class="gabarito-errado">ERRADO</span>';
+ return t;
 }
 
-function responder(numero, resposta) {
-    const card = document.querySelectorAll(".questao")[numero - 1];
-    const gabarito = card.dataset.gabarito;
-    const correto = resposta === gabarito;
-
-    respostas[numero] = {
-        resposta,
-        correto
-    };
-
-    localStorage.setItem(location.pathname + "_respostas", JSON.stringify(respostas));
-
-    mostrarFeedback(numero);
-    atualizarPainel();
+function responder(numero, resposta){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const gabarito=card.dataset.gabarito;
+ const correto=resposta===gabarito;
+ respostas[numero]={resposta,correto};
+ localStorage.setItem(storageKey, JSON.stringify(respostas));
+ mostrarFeedback(numero);
+ atualizarPainel();
+ filtrar();
 }
 
-function mostrarFeedback(numero) {
-    const card = document.querySelectorAll(".questao")[numero - 1];
-    const feedback = document.getElementById("feedback-" + numero);
-    const status = document.getElementById("status-" + numero);
-    const resultado = feedback.querySelector(".resultado");
-
-    const dados = respostas[numero];
-
-    if (!dados) return;
-
-    feedback.style.display = "block";
-    feedback.classList.remove("correto", "errado");
-
-    if (dados.correto) {
-        feedback.classList.add("correto");
-        resultado.textContent = "Você acertou. A resposta é " + card.dataset.gabarito + ".";
-        status.textContent = "Respondida — acerto";
-        status.style.color = "var(--green)";
-    } else {
-        feedback.classList.add("errado");
-        resultado.textContent = "Você errou. O gabarito é " + card.dataset.gabarito + ".";
-        status.textContent = "Respondida — erro";
-        status.style.color = "var(--red)";
-    }
+function mostrarFeedback(numero){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const feedback=document.getElementById("feedback-"+numero);
+ const status=document.getElementById("status-"+numero);
+ const resultado=feedback.querySelector(".resultado");
+ const gabarito=card.dataset.gabarito;
+ const dados=respostas[numero];
+ if(!dados) return;
+ feedback.style.display="block";
+ feedback.classList.remove("correto","errado");
+ if(dados.correto){
+   feedback.classList.add("correto");
+   resultado.innerHTML="Você acertou. A resposta é "+destacar(gabarito)+".";
+   status.textContent="Respondida — acerto";
+   status.style.color="var(--green)";
+ } else {
+   feedback.classList.add("errado");
+   resultado.innerHTML="Você errou. O gabarito é "+destacar(gabarito)+".";
+   status.textContent="Respondida — erro";
+   status.style.color="var(--red)";
+ }
 }
 
-function restaurar() {
-    for (const key in respostas) {
-        mostrarFeedback(Number(key));
-    }
-    atualizarPainel();
+function atualizarPainel(){
+ let respondidas=0, acertos=0, erros=0;
+ for(const k in respostas){
+   respondidas++;
+   if(respostas[k].correto) acertos++; else erros++;
+ }
+ document.getElementById("respondidas").textContent=respondidas;
+ document.getElementById("acertos").textContent=acertos;
+ document.getElementById("erros").textContent=erros;
+ document.getElementById("visiveis").textContent=document.querySelectorAll(".questao:not(.oculta)").length;
 }
 
-function reiniciar() {
-    if (!confirm("Deseja reiniciar este simulado?")) return;
-    localStorage.removeItem(location.pathname + "_respostas");
-    location.reload();
+function filtrar(){
+ const busca=document.getElementById("busca").value.trim().toLowerCase();
+ const disciplina=document.getElementById("disciplina").value;
+ const statusFiltro=document.getElementById("statusFiltro").value;
+ const cards=Array.from(document.querySelectorAll(".questao"));
+ let vis=0;
+ cards.forEach((card,idx)=>{
+   const n=idx+1;
+   const texto=card.dataset.texto||"";
+   const disc=card.dataset.disciplina||"";
+   const r=respostas[n];
+   let passaStatus=true;
+   if(statusFiltro==="nao") passaStatus=!r;
+   if(statusFiltro==="acerto") passaStatus=r && r.correto;
+   if(statusFiltro==="erro") passaStatus=r && !r.correto;
+   const ok=(!busca||texto.includes(busca)) && (!disciplina||disc===disciplina) && passaStatus;
+   card.classList.toggle("oculta", !ok);
+   if(ok) vis++;
+ });
+ document.getElementById("sem-resultados").style.display=vis===0?"block":"none";
+ atualizarPainel();
+}
+
+function reiniciar(){
+ if(!confirm("Deseja reiniciar este simulado?")) return;
+ localStorage.removeItem(storageKey);
+ location.reload();
+}
+
+function restaurar(){
+ for(const k in respostas) mostrarFeedback(Number(k));
+ filtrar();
+ atualizarPainel();
 }
 
 restaurar();
 </script>
-
 </body>
 </html>

@@ -1,0 +1,275 @@
+{
+  "categoria": "REPETITIVO",
+  "item": "Repetitivo - Civil",
+  "status_auditoria": "FALTA_GERAR_QUESTOES",
+  "fonte": "/Users/letrpires/Documents/SIMULADOS/projeto - cópia/questoes_validadas_pdf/Repetitivo - Processo Civil.md",
+  "esperado_auditoria": null,
+  "itens_extraidos": 10,
+  "questoes_geradas": 10,
+  "status_final": "OK_VALIDADO",
+  "observacao": "",
+  "logs_lotes": [
+    {
+      "lote": 1,
+      "ids_enviados": [
+        "TEMA-1"
+      ],
+      "ok": true,
+      "observacao": "OK",
+      "resposta": {
+        "questoes": [
+          {
+            "id": "TEMA-1",
+            "titulo_origem": "Tema 1",
+            "questao": "Quando a cessão dos honorários advocatícios sucumbenciais é formalizada por escritura pública e o respectivo valor está discriminado no precatório, o cessionário não necessita de autorização do devedor ou da Fazenda devedora para habilitar-se no crédito consignado no precatório.",
+            "gabarito": "ERRADO",
+            "justificativa": "A cessão dos honorários advocatícios sucumbenciais, quando formalizada por escritura pública e com o valor discriminado no precatório, confere ao cessionário legitimidade para habilitar-se diretamente no crédito consignado no precatório, independentemente de autorização do devedor ou da Fazenda devedora. Isso decorre da transmissão do direito creditório, que dispensa anuência da parte executada para o recebimento pelo cessionário."
+          }
+        ]
+      }
+    },
+    {
+      "lote": 2,
+      "ids_enviados": [
+        "TEMA-2"
+      ],
+      "ok": true,
+      "observacao": "OK",
+      "resposta": {
+        "questoes": [
+          {
+            "id": "TEMA-2",
+            "titulo_origem": "Tema 2",
+            "questao": "O Instituto Nacional do Seguro Social (INSS), em virtude das prerrogativas processuais conferidas às Fazendas Públicas, está dispensado do depósito prévio do preparo recursal, diferentemente das pessoas físicas que devem realizar tal depósito.",
+            "gabarito": "CERTO",
+            "justificativa": "O INSS, como autarquia federal que possui prerrogativas e privilégios da Fazenda Pública, está desobrigado do depósito prévio do preparo recursal. Essa prerrogativa decorre do regime jurídico especial conferido às Fazendas Públicas, que afasta a exigência do recolhimento antecipado do preparo que é obrigatório para litigantes comuns, como as pessoas físicas. Portanto, a exigência do depósito prévio do preparo para o INSS contraria o entendimento consolidado sobre o tema."
+          }
+        ]
+      }
+    },
+    {
+      "lote": 3,
+      "ids_enviados": [
+        "TEMA-16"
+      ],
+      "ok": true,
+      "observacao": "OK",
+      "resposta": {
+        "questoes": [
+          {
+            "id": "TEMA-16",
+            "titulo_origem": "Tema 16",
+            "questao": "A dispensa do reexame necessário, prevista para sentenças cujo valor da condenação seja inferior a sessenta salários mínimos, aplica-se também às sentenças ilíquidas, desde que o valor estimado da condenação seja inferior a esse limite.",
+            "gabarito": "ERRADO",
+            "justificativa": "A dispensa do reexame necessário não se aplica às sentenças ilíquidas, pois estas não permitem aferição objetiva do valor da condenação para fins de aplicação do critério dos sessenta salários mínimos. Portanto, mesmo que o valor estimado seja inferior ao teto, a obrigatoriedade do reexame permanece para sentenças ilíquidas."
+          }
+        ]
+      }
+    },
+    {
+      "lote": 4,
+      "ids_enviados": [
+        "TEMA-17"
+      ],
+      "ok": true,
+      "observacao": "OK",
+      "resposta": {
+        "questoes": [
+          {
+            "id": "TEMA-17",
+            "titulo_origem": "Tema 17",
+            "questao": "No cálculo para fins de liquidação, os saldos de débitos previdenciários remanescentes quitados mediante expedição de precatório devem ser convertidos na unidade de referência oficial vigente à época da elaboração dos cálculos, para atualização e correta quantificação do crédito.",
+            "gabarito": "CERTO",
+            "justificativa": "A conversão dos débitos previdenciários remanescentes pagos por precatório para a unidade fiscal de referência vigente no momento da liquidação é necessária para uniformizar a base de atualização monetária, garantindo a correta apuração do valor devido. Isso evita distorções causadas por variações temporais e assegura que o crédito seja atualizado conforme a unidade oficial vigente, conforme previsto na tese do Tema 17."
+          }
+        ]
+      }
+    },
+    {
+      "lote": 5,
+      "ids_enviados": [
+        "TEMA-19"
+      ],
+      "ok": true,
+      "observacao": "OK",
+      "resposta": {
+        "questoes": [
+          {
+            "id": "TEMA-19",
+            "titulo_origem": "Tema 19",
+            "questao": "Em ação que visa impedir a inscrição ou manutenção do nome do devedor em cadastro de inadimplentes, a demonstração isolada de jurisprudência consolidada favorável ao devedor é suficiente para a concessão de liminar, dispensando o depósito da parcela incontroversa ou a prestação de caução.",
+            "gabarito": "ERRADO",
+            "justificativa": "A concessão da liminar para impedir a inscrição ou manutenção do nome do devedor em cadastro de inadimplentes exige a presença cumulativa de três requisitos: (i) a ação deve ser fundada em contestação integral ou parcial do débito; (ii) deve haver demonstração da aparência do bom direito, alicerçada em jurisprudência consolidada do STF ou STJ; e (iii) é necessário o depósito da parcela incontroversa ou a prestação de caução, conforme o prudente arbítrio do juiz. Portanto, a jurisprudência favorável não é suficiente isoladamente para a concessão da liminar."
+          }
+        ]
+      }
+    },
+    {
+      "lote": 6,
+      "ids_enviados": [
+        "TEMA-31"
+      ],
+      "ok": true,
+      "observacao": "OK",
+      "resposta": {
+        "questoes": [
+          {
+            "id": "TEMA-31",
+            "titulo_origem": "Tema 31",
+            "questao": "A inscrição ou manutenção do nome do devedor em cadastro de inadimplentes, quando decidida na sentença ou no acórdão, deve obedecer ao que for decidido no mérito, de modo que, se a mora for reconhecida na decisão de mérito, a inscrição ou manutenção do nome será legítima.",
+            "gabarito": "CERTO",
+            "justificativa": "A decisão de mérito é o parâmetro definitivo para a legitimidade da inscrição ou manutenção do nome do devedor em cadastros de inadimplentes. Caso a mora seja reconhecida no julgamento do mérito, a inscrição ou manutenção do registro é legítima, afastando-se qualquer medida baseada em decisões provisórias que contrariem o pronunciamento final."
+          }
+        ]
+      }
+    },
+    {
+      "lote": 7,
+      "ids_enviados": [
+        "TEMA-32"
+      ],
+      "ok": true,
+      "observacao": "OK",
+      "resposta": {
+        "questoes": [
+          {
+            "id": "TEMA-32",
+            "titulo_origem": "Tema 32",
+            "questao": "A abstenção da inscrição em cadastro de inadimplentes, requerida em caráter cautelar ou em antecipação de tutela, pode ser deferida sem o depósito da parcela incontroversa sempre que houver dúvida razoável sobre a procedência do débito, independentemente da demonstração da aparência do bom direito.",
+            "gabarito": "ERRADO",
+            "justificativa": "A concessão da medida cautelar para impedir a inscrição em cadastro de inadimplentes exige, cumulativamente, a contestação integral ou parcial do débito, a demonstração da aparência do bom direito e o depósito da parcela incontroversa ou a prestação de caução. Portanto, não é possível dispensar o depósito da parcela incontroversa mesmo diante de dúvida razoável, sob pena de contrariar o entendimento consolidado sobre o tema."
+          }
+        ]
+      }
+    },
+    {
+      "lote": 8,
+      "ids_enviados": [
+        "TEMA-33"
+      ],
+      "ok": true,
+      "observacao": "OK",
+      "resposta": {
+        "questoes": [
+          {
+            "id": "TEMA-33",
+            "titulo_origem": "Tema 33",
+            "questao": "Para que se afaste, em caráter liminar, a inscrição ou manutenção em cadastro de inadimplentes, basta que a parte autora demonstre a existência de controvérsia sobre o débito, independentemente da demonstração da aparência do bom direito ou da realização de depósito ou caução judicial.",
+            "gabarito": "ERRADO",
+            "justificativa": "O afastamento liminar da inscrição ou manutenção em cadastro de inadimplentes exige a demonstração cumulativa de três requisitos: (i) que a ação questione integral ou parcialmente o débito, (ii) a aparência do bom direito, preferencialmente com respaldo jurisprudencial consolidado, e (iii) a realização de depósito da parcela incontroversa ou a prestação de caução judicial fixada pelo juiz. A ausência de qualquer desses elementos impede o deferimento da medida cautelar."
+          }
+        ]
+      }
+    },
+    {
+      "lote": 9,
+      "ids_enviados": [
+        "TEMA-34"
+      ],
+      "ok": true,
+      "observacao": "OK",
+      "resposta": {
+        "questoes": [
+          {
+            "id": "TEMA-34",
+            "titulo_origem": "Tema 34",
+            "questao": "A propositura de ação visando apenas a declaração de nulidade de registro imobiliário torna inepta e ilegitimado o ajuizamento de ação reivindicatória fundada naquele mesmo registro, pois o ajuizamento da ação anulatória extingue o direito de propriedade.",
+            "gabarito": "ERRADO",
+            "justificativa": "A simples existência de ação anulatória de registro imobiliário não impede o ajuizamento de ação reivindicatória baseada no registro existente, pois a legitimidade para reivindicar o imóvel permanece até que se decida, no mérito, a invalidade do registro. Assim, a ação anulatória não seculariza nem extingue automaticamente o direito de propriedade, não tornando inepta ou ilegítima a ação reivindicatória."
+          }
+        ]
+      }
+    },
+    {
+      "lote": 10,
+      "ids_enviados": [
+        "TEMA-39"
+      ],
+      "ok": true,
+      "observacao": "OK",
+      "resposta": {
+        "questoes": [
+          {
+            "id": "TEMA-39",
+            "titulo_origem": "Tema 39",
+            "questao": "No âmbito do processo civil, a adoção do incidente de resolução de demandas repetitivas é obrigatória para uniformizar a interpretação da lei em casos que envolvam múltiplas ações com questões idênticas, sendo vedada a decisão divergente em processos individuais que tratem do mesmo tema.",
+            "gabarito": "CERTO",
+            "justificativa": "O incidente de resolução de demandas repetitivas tem por finalidade uniformizar a interpretação da lei em processos que contenham questões idênticas, evitando decisões conflitantes e garantindo segurança jurídica. Assim, uma vez instaurado o incidente e proferida a decisão, os juízes devem observar o entendimento fixado, não podendo decidir de forma divergente em processos individuais que tratem do mesmo tema, salvo se houver modificação posterior da jurisprudência."
+          }
+        ]
+      }
+    }
+  ],
+  "questoes": [
+    {
+      "id": "TEMA-1",
+      "titulo_origem": "Tema 1",
+      "questao": "Quando a cessão dos honorários advocatícios sucumbenciais é formalizada por escritura pública e o respectivo valor está discriminado no precatório, o cessionário não necessita de autorização do devedor ou da Fazenda devedora para habilitar-se no crédito consignado no precatório.",
+      "gabarito": "ERRADO",
+      "justificativa": "A cessão dos honorários advocatícios sucumbenciais, quando formalizada por escritura pública e com o valor discriminado no precatório, confere ao cessionário legitimidade para habilitar-se diretamente no crédito consignado no precatório, independentemente de autorização do devedor ou da Fazenda devedora. Isso decorre da transmissão do direito creditório, que dispensa anuência da parte executada para o recebimento pelo cessionário."
+    },
+    {
+      "id": "TEMA-2",
+      "titulo_origem": "Tema 2",
+      "questao": "O Instituto Nacional do Seguro Social (INSS), em virtude das prerrogativas processuais conferidas às Fazendas Públicas, está dispensado do depósito prévio do preparo recursal, diferentemente das pessoas físicas que devem realizar tal depósito.",
+      "gabarito": "CERTO",
+      "justificativa": "O INSS, como autarquia federal que possui prerrogativas e privilégios da Fazenda Pública, está desobrigado do depósito prévio do preparo recursal. Essa prerrogativa decorre do regime jurídico especial conferido às Fazendas Públicas, que afasta a exigência do recolhimento antecipado do preparo que é obrigatório para litigantes comuns, como as pessoas físicas. Portanto, a exigência do depósito prévio do preparo para o INSS contraria o entendimento consolidado sobre o tema."
+    },
+    {
+      "id": "TEMA-16",
+      "titulo_origem": "Tema 16",
+      "questao": "A dispensa do reexame necessário, prevista para sentenças cujo valor da condenação seja inferior a sessenta salários mínimos, aplica-se também às sentenças ilíquidas, desde que o valor estimado da condenação seja inferior a esse limite.",
+      "gabarito": "ERRADO",
+      "justificativa": "A dispensa do reexame necessário não se aplica às sentenças ilíquidas, pois estas não permitem aferição objetiva do valor da condenação para fins de aplicação do critério dos sessenta salários mínimos. Portanto, mesmo que o valor estimado seja inferior ao teto, a obrigatoriedade do reexame permanece para sentenças ilíquidas."
+    },
+    {
+      "id": "TEMA-17",
+      "titulo_origem": "Tema 17",
+      "questao": "No cálculo para fins de liquidação, os saldos de débitos previdenciários remanescentes quitados mediante expedição de precatório devem ser convertidos na unidade de referência oficial vigente à época da elaboração dos cálculos, para atualização e correta quantificação do crédito.",
+      "gabarito": "CERTO",
+      "justificativa": "A conversão dos débitos previdenciários remanescentes pagos por precatório para a unidade fiscal de referência vigente no momento da liquidação é necessária para uniformizar a base de atualização monetária, garantindo a correta apuração do valor devido. Isso evita distorções causadas por variações temporais e assegura que o crédito seja atualizado conforme a unidade oficial vigente, conforme previsto na tese do Tema 17."
+    },
+    {
+      "id": "TEMA-19",
+      "titulo_origem": "Tema 19",
+      "questao": "Em ação que visa impedir a inscrição ou manutenção do nome do devedor em cadastro de inadimplentes, a demonstração isolada de jurisprudência consolidada favorável ao devedor é suficiente para a concessão de liminar, dispensando o depósito da parcela incontroversa ou a prestação de caução.",
+      "gabarito": "ERRADO",
+      "justificativa": "A concessão da liminar para impedir a inscrição ou manutenção do nome do devedor em cadastro de inadimplentes exige a presença cumulativa de três requisitos: (i) a ação deve ser fundada em contestação integral ou parcial do débito; (ii) deve haver demonstração da aparência do bom direito, alicerçada em jurisprudência consolidada do STF ou STJ; e (iii) é necessário o depósito da parcela incontroversa ou a prestação de caução, conforme o prudente arbítrio do juiz. Portanto, a jurisprudência favorável não é suficiente isoladamente para a concessão da liminar."
+    },
+    {
+      "id": "TEMA-31",
+      "titulo_origem": "Tema 31",
+      "questao": "A inscrição ou manutenção do nome do devedor em cadastro de inadimplentes, quando decidida na sentença ou no acórdão, deve obedecer ao que for decidido no mérito, de modo que, se a mora for reconhecida na decisão de mérito, a inscrição ou manutenção do nome será legítima.",
+      "gabarito": "CERTO",
+      "justificativa": "A decisão de mérito é o parâmetro definitivo para a legitimidade da inscrição ou manutenção do nome do devedor em cadastros de inadimplentes. Caso a mora seja reconhecida no julgamento do mérito, a inscrição ou manutenção do registro é legítima, afastando-se qualquer medida baseada em decisões provisórias que contrariem o pronunciamento final."
+    },
+    {
+      "id": "TEMA-32",
+      "titulo_origem": "Tema 32",
+      "questao": "A abstenção da inscrição em cadastro de inadimplentes, requerida em caráter cautelar ou em antecipação de tutela, pode ser deferida sem o depósito da parcela incontroversa sempre que houver dúvida razoável sobre a procedência do débito, independentemente da demonstração da aparência do bom direito.",
+      "gabarito": "ERRADO",
+      "justificativa": "A concessão da medida cautelar para impedir a inscrição em cadastro de inadimplentes exige, cumulativamente, a contestação integral ou parcial do débito, a demonstração da aparência do bom direito e o depósito da parcela incontroversa ou a prestação de caução. Portanto, não é possível dispensar o depósito da parcela incontroversa mesmo diante de dúvida razoável, sob pena de contrariar o entendimento consolidado sobre o tema."
+    },
+    {
+      "id": "TEMA-33",
+      "titulo_origem": "Tema 33",
+      "questao": "Para que se afaste, em caráter liminar, a inscrição ou manutenção em cadastro de inadimplentes, basta que a parte autora demonstre a existência de controvérsia sobre o débito, independentemente da demonstração da aparência do bom direito ou da realização de depósito ou caução judicial.",
+      "gabarito": "ERRADO",
+      "justificativa": "O afastamento liminar da inscrição ou manutenção em cadastro de inadimplentes exige a demonstração cumulativa de três requisitos: (i) que a ação questione integral ou parcialmente o débito, (ii) a aparência do bom direito, preferencialmente com respaldo jurisprudencial consolidado, e (iii) a realização de depósito da parcela incontroversa ou a prestação de caução judicial fixada pelo juiz. A ausência de qualquer desses elementos impede o deferimento da medida cautelar."
+    },
+    {
+      "id": "TEMA-34",
+      "titulo_origem": "Tema 34",
+      "questao": "A propositura de ação visando apenas a declaração de nulidade de registro imobiliário torna inepta e ilegitimado o ajuizamento de ação reivindicatória fundada naquele mesmo registro, pois o ajuizamento da ação anulatória extingue o direito de propriedade.",
+      "gabarito": "ERRADO",
+      "justificativa": "A simples existência de ação anulatória de registro imobiliário não impede o ajuizamento de ação reivindicatória baseada no registro existente, pois a legitimidade para reivindicar o imóvel permanece até que se decida, no mérito, a invalidade do registro. Assim, a ação anulatória não seculariza nem extingue automaticamente o direito de propriedade, não tornando inepta ou ilegítima a ação reivindicatória."
+    },
+    {
+      "id": "TEMA-39",
+      "titulo_origem": "Tema 39",
+      "questao": "No âmbito do processo civil, a adoção do incidente de resolução de demandas repetitivas é obrigatória para uniformizar a interpretação da lei em casos que envolvam múltiplas ações com questões idênticas, sendo vedada a decisão divergente em processos individuais que tratem do mesmo tema.",
+      "gabarito": "CERTO",
+      "justificativa": "O incidente de resolução de demandas repetitivas tem por finalidade uniformizar a interpretação da lei em processos que contenham questões idênticas, evitando decisões conflitantes e garantindo segurança jurídica. Assim, uma vez instaurado o incidente e proferida a decisão, os juízes devem observar o entendimento fixado, não podendo decidir de forma divergente em processos individuais que tratem do mesmo tema, salvo se houver modificação posterior da jurisprudência."
+    }
+  ]
+}

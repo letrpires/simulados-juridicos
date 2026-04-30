@@ -1,0 +1,344 @@
+ 
+Informativo 849-STJ (13/05/2025) – Márcio André Lopes Cavalcante   |  1 
+ 
+Informativo comentado: 
+Informativo 849-STJ (RESUMIDO) 
+Márcio André Lopes Cavalcante 
+ 
+ 
+ 
+DIREITO CIVIL 
+ 
+DIREITOS DA PERSONALIDADE 
+É possível a retificação do registro civil para inclusão de gênero neutro, com base na dignidade 
+da pessoa humana e no livre desenvolvimento da personalidade 
+ 
+Importante!!! 
+ 
+ODS 5 E 16 
+O princípio do livre desenvolvimento da personalidade assegura a autonomia do indivíduo 
+para autodeterminar sua identidade de gênero, sem interferência estatal ou social. 
+A cláusula geral de proteção à personalidade (art. 12 do CC) garante o direito à 
+autodeterminação de gênero, incluindo a possibilidade de retificação do registro civil por 
+pessoas transgêneras não-binárias. 
+A ausência de norma específica que regulamente o reconhecimento do gênero neutro não 
+impede sua efetivação, devendo-se aplicar os arts. 4º da LINDB e 140 do CPC para suprir a 
+lacuna legislativa. 
+É incongruente permitir a alteração de gênero apenas para transgêneros binários 
+(homem/mulher) e negar esse direito a pessoas não-binárias, violando-se, nesse caso, os 
+princípios da igualdade e da dignidade humana. 
+A retificação do registro civil para constar gênero neutro respeita a identidade autodeclarada 
+da pessoa e não visa eliminar o campo de gênero, mas sim adequá-lo à realidade vivida pelo 
+indivíduo. 
+Em suma: deve ser reconhecido o direito ao livre desenvolvimento da personalidade da pessoa 
+transgênera não-binária de autodeterminar-se, possibilitando-se a retificação do registro civil 
+para que conste gênero neutro. 
+STJ. 3ª Turma. REsp 2.135.967-SP, Rel. Min. Nancy Andrighi, julgado em 6/5/2025 (Info 849). 
+ 
+PRESCRIÇÃO 
+Uma vez interrompida a prescrição mediante protesto judicial, o termo inicial do recomeço do 
+respectivo prazo é a data do último ato praticado no processo e não a do seu ajuizamento 
+ 
+Importante!!! 
+ 
+ODS 16 
+Caso hipotético: em 15/03/2017, a Fazenda Pública praticou um ato que prejudicou a empresa 
+Alfa, iniciando o prazo de cinco anos para a empresa ajuizar ação indenizatória (art. 1º do 
+Decreto nº 20.910/1932). Logo, o prazo prescricional de 5 anos terminaria em 15/03/2022. 
+Em 30/01/2021, a empresa ajuizou uma ação cautelar de protesto judicial com o objetivo de 
+interromper esse prazo. O último ato processual praticado na ação de protesto foi em 
+15/06/2022. 
+Em 15/12/2023, a Alfa propôs a ação de indenização.  
+
+                                                          Informativo                       
+comentado 
+ 
+ 
+Informativo 849-STJ (13/05/2025) – Márcio André Lopes Cavalcante   |  2 
+A Fazenda Pública alegou que o prazo de prescrição recomeçou a correr em 30/01/2021 (data 
+do ajuizamento do protesto), e que, conforme o art. 9º do Decreto nº 20.910/1932, esse novo 
+prazo seria de dois anos e meio. Assim, segundo esse entendimento, a prescrição teria 
+ocorrido em 30/07/2023. Como a ação foi proposta em 15/12/2023, estaria prescrita. 
+O STJ, contudo, discordou dessa interpretação.  
+Conforme o art. 9º do Decreto nº 20.910/1932, o reinício do prazo prescricional deve ocorrer 
+a partir do último ato processual da ação de protesto judicial, e não da data do seu 
+ajuizamento. Assim, no caso da empresa Alfa, o novo prazo começou a contar em 15/06/2022 
+e somente terminaria em15/12/2024. 
+STJ. 1ª Turma. AgInt no REsp 2.036.964-RJ, Rel. Min. Regina Helena Costa, julgado em 20/3/2025 
+(Info 849). 
+ 
+OBRIGAÇÕES > JUROS 
+Nos contratos celebrados no âmbito do Sistema de Financiamento Imobiliário (SFI), não é 
+possível a capitalização de juros em periodicidade inferior à anual, ainda que expressamente 
+pactuada 
+ 
+Importante!!! 
+ 
+ODS 16 
+O STJ, nos Temas 246 e 247, afirmou que:  
+1) É permitida a capitalização de juros com periodicidade inferior a um ano, desde que 
+expressamente pactuada (...)  
+2) A capitalização dos juros em periodicidade inferior à anual deve vir pactuada de forma 
+expressa e clara (...) 
+Esses Temas se aplicam apenas para o Sistema Financeiro Nacional (SFN), regido pela Lei nº 
+4.595/1964. Eles não se aplicam para o Sistema de Financiamento Imobiliário (SFI), regido 
+pela Lei nº 9.514/1997. 
+A capitalização de juros em periodicidade inferior a um ano é excepcionalmente admitida 
+mediante autorização legal específica, como na hipótese dos contratos celebrados com 
+instituições integrantes do SFN, em que há autorização legal expressa quanto à “periodicidade 
+inferior a um ano”, observada, ainda, a necessidade de pactuação expressa e clara. 
+Nos contratos celebrados no âmbito do SFI, não é possível a capitalização de juros em 
+periodicidade inferior à anual, aplicando-se a vedação do art. 4º da Lei da Usura, considerando 
+que a Lei nº 9.514/1997 autoriza apenas a capitalização de juros, sem menção específica 
+quanto à periodicidade. 
+STJ. 3ª Turma. REsp 2.086.650-MG, Rel. Min. Nancy Andrighi, julgado em 4/2/2025 (Info 849). 
+ 
+ 
+DIREITO EMPRESARIAL 
+ 
+PROPRIEDADE INDUSTRIAL 
+Concorrência desleal por desvio de clientela configura-se apenas durante a vigência do contrato 
+de trabalho, não se estendendo ao período posterior, salvo se houver uma cláusula específica de 
+não concorrência para depois do fim do vínculo empregatício 
+ 
+ODS 16 
+Caso hipotético: Judas trabalhou durante anos na empresa Alfa e ocupou o cargo de 
+coordenador técnico com acesso privilegiado a informações estratégicas.  
+
+                                                          Informativo                       
+comentado 
+ 
+ 
+Informativo 849-STJ (13/05/2025) – Márcio André Lopes Cavalcante   |  3 
+Em 2014, Judas criou secretamente a empresa Beta e passou a oferecer os mesmos serviços da 
+Alfa, com preços menores, utilizando-se de sua posição de confiança para desviar a clientela. 
+Após descobrir a situação, João demitiu Judas por justa causa e ajuizou ação de indenização 
+por danos materiais e morais. 
+A perícia técnica calculou os prejuízos em R$ 8.807,66 (considerando apenas o período até a 
+demissão) ou R$ 97.992,10 (incluindo o período posterior até dezembro de 2015).  
+O STJ concordou com os argumentos dos réus, estabelecendo que a concorrência desleal só se 
+caracteriza durante a vigência do contrato de trabalho, pois o dever de fidelidade do 
+empregado se extingue com o término do vínculo empregatício, salvo se houver cláusula 
+específica de não-concorrência. Assim, os lucros cessantes foram limitados até o fim do vínculo 
+empregatício. 
+STJ. 3ª Turma. REsp 2.047.758-SP, Rel. Min. Ricardo Villas Bôas Cueva, julgado em 1º/4/2025 (Info 849). 
+ 
+RECUPERAÇÃO JUDICIAL 
+Crédito sujeito à recuperação judicial deve ser atualizado apenas até a  
+data do primeiro pedido, mesmo se houver segundo pedido de recuperação 
+ 
+ODS 16 
+Caso hipotético: a OI S.A., empresa de telefonia, entrou com dois pedidos de recuperação 
+judicial: o primeiro em 20 de junho de 2016 e o segundo em 1º de março de 2023.  
+João, pequeno empresário que prestava serviços à OI desde 2014, deixou de receber 
+pagamentos em janeiro de 2016, acumulando um crédito de R$ 85.000,00. Por 
+desconhecimento, não habilitou seu crédito na primeira recuperação.  
+Apenas em 2018 ingressou com ação de cobrança, obtendo sentença favorável em 2020, que 
+transitou em julgado em 2022. 
+Em 2023, ao iniciar o cumprimento de sentença, João descobriu que a OI havia entrado em 
+nova recuperação judicial. Seu advogado sustentou que o crédito deveria ser atualizado até a 
+data do segundo pedido (março de 2023), conforme o art. 9º, II, da Lei de Recuperação Judicial, 
+já que somente agora o crédito seria habilitado. No entanto, o juiz entendeu que, por o crédito 
+ter se originado antes do primeiro pedido, sua atualização deveria limitar-se à data do 
+deferimento da primeira recuperação (junho de 2016). 
+A decisão foi confirmada pelo STJ.  
+A atualização do crédito deve se dar apenas até a data do primeiro pedido de recuperação 
+judicial, independentemente de quando foi feita a habilitação do crédito. 
+O crédito que tem como fato gerador data anterior ao primeiro pedido de recuperação judicial 
+deve ser atualizado, para o fim de habilitação, até a data do primeiro pedido recuperacional.   
+STJ. 3ª Turma. REsp 2.138.916-RS, Rel. Min. Ricardo Villas Bôas Cueva, julgado em 8/4/2025 (Info 
+849). 
+ 
+RECUPERAÇÃO JUDICIAL 
+O voto contrário ao plano de recuperação judicial, quando baseado em sacrifício excessivo ao 
+crédito e respaldado por indícios de ilegalidades, não configura abuso de direito do credor 
+ 
+ODS 16 
+É excepcionalmente possível a homologação judicial do plano de recuperação sem a 
+observância estrita dos requisitos do art. 58, § 1º, da Lei 11.101/2005, desde que comprovado 
+o abuso de direito de voto por parte de credor dominante. 
+
+                                                          Informativo                       
+comentado 
+ 
+ 
+Informativo 849-STJ (13/05/2025) – Márcio André Lopes Cavalcante   |  4 
+Vale ressaltar, contudo, que a rejeição do plano de recuperação judicial por credor detentor 
+de percentual significativo das obrigações passivas da devedora não constitui, por si só, abuso 
+de direito. 
+No caso concreto, o voto contrário do credor titular de vinte e cinco por cento do passivo 
+sujeito à recuperação judicial não foi abusivo porque se baseou nos seguintes motivos: 
+(i) o plano impôs sacrifício excessivo ao crédito, como a previsão de aplicação da Taxa 
+Referencial (TR) como índice de correção monetária e o alongamento do prazo de pagamento 
+para dez anos; 
+(ii) as próprias instâncias ordinárias reconheceram a existência de cláusulas ilegais no plano; 
+(iii) foram apontados indícios de blindagem patrimonial e desvio de bens para familiares dos 
+sócios, além de possíveis fraudes contábeis, investigadas criminalmente, o que desaconselha 
+a concessão da recuperação antes da apuração adequada pelos meios próprios.  
+STJ. 4ª Turma. AgInt no REsp 1.969.340-SP, Rel. Min. Maria Isabel Gallotti, julgado em 31/3/2025 
+(Info 849). 
+ 
+ 
+DIREITO AMBIENTAL 
+ 
+CÓDIGO FLORESTAL 
+A faixa de Área de Preservação Permanente (APP) em torno de reservatórios antigos é definida 
+na licença ambiental, sendo o art. 62 do Código Florestal aplicável apenas para consolidar 
+ocupações antrópicas anteriores a 22/7/2008 
+ 
+ODS 16 
+Para os reservatórios artificiais de água destinados à geração de energia ou ao abastecimento 
+público que foram registrados ou tiveram seus contratos de concessão ou autorização 
+assinados anteriormente à Medida Provisória nº 2.166-67, de 24 de agosto de 2001, a faixa da 
+Área de Preservação Permanente é definida na licença ambiental, aplicando-se o art. 62 do 
+Código Florestal apenas para consolidar (dar por regularizadas) as ocupações antrópicas 
+preexistentes a 22/7/2008. 
+O art. 62 do Código Florestal deve ser compreendido como uma tolerância, uma consolidação 
+de ocupações anteriores ao marco temporal de 22/7/2008. O dispositivo não desconstitui a 
+APP delimitada na licença de operação, apenas tolera as ocupações anteriores a essa data. 
+Para ocupações posteriores a 22/7/2008, vale a Área de Preservação Permanente 
+estabelecida na forma das normas definitivas do Código Florestal (art. 4º, III), ou seja, aquela 
+definida na licença ambiental. 
+STJ. 2ª Turma. REsp 2.141.730-SP, Rel. Min. Maria Thereza de Assis Moura, julgado em 22/4/2025 
+(Info 849). 
+ 
+ 
+DIREITO PROCESSUAL CIVIL 
+ 
+RECURSOS > AGRAVO DE INSTRUMENTO 
+Não cabe agravo de instrumento contra a decisão do juiz que corrige, de ofício, o valor da causa 
+ 
+ 
+ 
+ 
+
+                                                          Informativo                       
+comentado 
+ 
+ 
+Informativo 849-STJ (13/05/2025) – Márcio André Lopes Cavalcante   |  5 
+Importante!!! 
+ 
+ODS 16 
+O § 3º do art. 292 do CPC confere ao julgador o poder-dever de corrigir, de ofício e por 
+arbitramento, o valor da causa quando verificar que este não corresponde ao conteúdo 
+patrimonial em discussão ou ao proveito econômico perseguido pela parte autora. 
+O pronunciamento judicial que corrige de ofício o valor da causa não está sujeito ao recurso 
+de agravo de instrumento, seja porque a decisão não consta expressamente do rol do art. 1.015 
+do CPC, seja porque não há urgência decorrente da inutilidade de sua apreciação em 
+preliminar de apelação, nos termos do art. 1.009, § 1º, do CPC.  
+STJ. 3ª Turma. REsp 2.186.037-AM, Rel. Min. Nancy Andrighi, julgado em 20/3/2025 (Info 849). 
+ 
+ 
+DIREITO PROCESSUAL PENAL 
+ 
+PROVAS 
+Provas obtidas mediante busca pessoal e ingresso domiciliar  
+sem adequada fundamentação e registro audiovisual são ilícitas 
+ 
+ODS 16 
+É ilícita a prova obtida por busca pessoal e domiciliar baseada apenas em testemunhos 
+policiais, quando há câmeras corporais à disposição, mas as imagens não foram geradas ou 
+examinadas. 
+A ausência de registros audiovisuais das diligências, especialmente quando os policiais 
+dispunham de câmeras corporais, impede a verificação da legalidade das ações e compromete 
+a confiabilidade dos testemunhos. 
+O simples relato de que o local era um “apartamento abandonado e invadido” não afasta, por 
+si só, a incidência da inviolabilidade do domicílio, sobretudo quando há indícios de que o 
+paciente habitava o imóvel. 
+Em suma: nos casos de inconsistência da narrativa policial, a pouca importância atribuída às 
+gravações e o expressivo deficit de confiabilidade dos testemunhos policiais, resultam na 
+ilegalidade da busca pessoal e do ingresso no domicílio do réu. 
+STJ. 6ª Turma. HC 896.306-SC, Rel. Min. Rogerio Schietti Cruz, julgado em 20/3/2025 (Info 849). 
+ 
+PROVAS 
+Confissão obtida sob coação policial é ilícita, devendo ser excluídas também as provas dela 
+derivadas quando há verossimilhança de que houve maus tratos 
+ 
+ODS 16 
+Caso adaptado: Leonardo, um jovem de 25 anos, foi abordado pela Polícia Militar durante uma 
+operação em uma rodovia. Nada de ilícito foi encontrado com ele, mas, posteriormente, os 
+policiais gravaram um vídeo em que ele, sentado no chão e com as mãos escondidas, 
+confessava ter 50 porções de cocaína na casa da namorada, Letícia. Com base nessa gravação, 
+os agentes foram até a residência e encontraram as drogas, resultando na denúncia de ambos 
+por tráfico. 
+No processo judicial, Leonardo afirmou que foi torturado para confessar, relatando agressões 
+físicas que causaram a fratura de um dedo, fato confirmado por laudo pericial. Apesar disso, o 
+juiz considerou a confissão legítima, argumentando que Leonardo parecia calmo no vídeo e 
+que não houve coação, validando também a entrada dos policiais na casa de Letícia. A decisão 
+foi mantida pelo Tribunal de Justiça. 
+
+                                                          Informativo                       
+comentado 
+ 
+ 
+Informativo 849-STJ (13/05/2025) – Márcio André Lopes Cavalcante   |  6 
+O STJ concedeu a ordem para absolver Leonardo e a namorada. 
+A circunstância de não estar evidenciada, na gravação, uma explícita violência ou ameaça não 
+é suficiente para afastar a alegação defensiva de que o paciente sofrera coação física e moral 
+para confessar, especialmente ao se levar em consideração o laudo pericial que certifica o 
+dedo quebrado do paciente. 
+É do Estado o ônus de provar que atuou dentro dos contornos da legalidade. A seletividade de 
+se registrar apenas parte da atuação policial suscita dúvidas sobre a credibilidade do relato 
+dos agentes estatais. 
+Em suma: sendo verossímil a narrativa de maus tratos apresentada pelo acusado durante a 
+abordagem policial, mormente quando o laudo pericial certifica a ocorrência de lesão 
+corporal no réu, deve-se declarar ilícita a sua confissão informal e, por derivação, todas as 
+provas dela decorrentes, já que é do Estado o ônus de provar que atuou dentro dos contornos 
+da legalidade.   
+STJ. 6ª Turma. HC 915.025-SP, Rel. Min. Rogerio Schietti Cruz, julgado em 20/3/2025 (Info 849). 
+ 
+PROVAS 
+A prova oriunda do exterior, quando utilizada apenas como notitia criminis, não compromete a 
+validade das provas colhidas em território nacional, produzidas sob o devido processo legal 
+ 
+ODS 16 
+Caso adaptado: uma investigação criminal realizada no Reino Unido revelou que James 
+trocava imagens de pornografia infantil por meio do Skype com um brasileiro, residente no 
+Brasil. As provas encontradas pelas autoridades britânicas foram encaminhadas à Polícia 
+Federal do Brasil, que, com base nessas informações, obteve mandado de busca e apreensão 
+para investigar o suspeito no Brasil.  
+Na casa do brasileiro, foram apreendidos dispositivos eletrônicos que confirmaram que ele 
+usava aquela conta no Skype, além de terem sido encontradas imagens de pornografia infantil 
+em seu computador. 
+Com base nas provas colhidas no Brasil, o brasileiro foi condenado pelos crimes previstos nos 
+arts. 241-A e 241-B do ECA.  
+A defesa recorreu ao STJ alegando ilegalidade das provas estrangeiras por suposta quebra da 
+cadeia de custódia, sustentando que isso contaminaria toda a investigação nacional e exigiria 
+a absolvição do réu. 
+O STJ rejeitou esse argumento, ressaltando que a comunicação internacional apenas deu início 
+às investigações no Brasil, funcionando como uma notitia criminis.  
+A condenação baseou-se exclusivamente em provas obtidas por meios legais e regulares em 
+território nacional, com respeito ao devido processo legal. Portanto, as provas estrangeiras 
+não foram usadas como base para a condenação, tornando irrelevante a alegação de sua 
+inadmissibilidade. 
+STJ. 6ª Turma. HC 828.743-RS, Rel. Min. Sebastião Reis Júnior, julgado em 22/4/2025 (Info 849). 
+ 
+PROCEDIMENTO 
+A Lei n. 14.752/2023, que revogou a multa por abandono de processo do art. 265 do CPP,  
+não retroage para isentar penalidades impostas sob a legislação anterior 
+ 
+Importante!!! 
+ 
+ODS 16 
+A multa prevista no art. 265 do CPP possui natureza processual e não retroage para isentar 
+penalidades impostas sob a legislação anterior.  
+
+                                                          Informativo                       
+comentado 
+ 
+ 
+Informativo 849-STJ (13/05/2025) – Márcio André Lopes Cavalcante   |  7 
+O princípio do tempus regit actum rege os atos processuais pela lei vigente no momento de 
+sua prática. 
+Antes da Lei 14.752/2023: Art. 265. O defensor não poderá abandonar o processo senão por 
+motivo imperioso, comunicado previamente o juiz, sob pena de multa de 10 (dez) a 100 (cem) 
+salários-mínimos, sem prejuízo das demais sanções cabíveis. 
+Depois da Lei 14.752/2023: Art. 265. O defensor não poderá abandonar o processo sem justo 
+motivo, previamente comunicado ao juiz, sob pena de responder por infração disciplinar 
+perante o órgão correicional competente. 
+STJ. 6ª Turma. AgRg no HC 797.438/MG, Rel. Min. Sebastião Reis Júnior, julgado em 20/2/2024. 
+STJ. 5ª Turma. AgRg no RMS 72.002-GO, Rel. Min. Daniela Teixeira, Rel. para acórdão Min. Joel Ilan 
+Paciornik, julgado em 11/3/2025 (Info 849). 
+ 
+ 

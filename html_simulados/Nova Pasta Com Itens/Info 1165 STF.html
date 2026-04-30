@@ -4,476 +4,495 @@
 <meta charset="UTF-8">
 <title>Simulado - Info 1165 STF</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <style>
-:root {
-    --bg: #0f172a;
-    --card: #111827;
-    --card2: #1f2937;
-    --text: #e5e7eb;
-    --muted: #9ca3af;
-    --accent: #38bdf8;
-    --green: #22c55e;
-    --red: #ef4444;
-    --yellow: #facc15;
+:root{
+--bg:#020617;--panel:rgba(15,23,42,.88);--card:rgba(15,23,42,.96);
+--card2:rgba(30,41,59,.92);--border:rgba(148,163,184,.22);
+--text:#e5e7eb;--muted:#94a3b8;--accent:#38bdf8;--accent2:#0ea5e9;
+--green:#22c55e;--red:#ef4444;--yellow:#facc15;--purple:#a78bfa;
 }
-
-* {
-    box-sizing: border-box;
+*{box-sizing:border-box}
+body{
+margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+background:radial-gradient(circle at top left,rgba(56,189,248,.20),transparent 28%),
+radial-gradient(circle at top right,rgba(167,139,250,.15),transparent 28%),
+linear-gradient(135deg,#020617,#0f172a 50%,#020617);
+color:var(--text);line-height:1.65;
 }
-
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(135deg, #020617, #111827);
-    color: var(--text);
-    line-height: 1.6;
+header{padding:44px 20px 32px;text-align:center;border-bottom:1px solid var(--border)}
+header h1{margin:0 0 10px;font-size:clamp(28px,4vw,46px);letter-spacing:-.05em}
+header p{color:var(--muted);margin:0;font-size:16px}
+.container{max-width:1160px;margin:0 auto;padding:26px 16px 80px}
+.painel{
+position:sticky;top:10px;z-index:10;background:var(--panel);backdrop-filter:blur(18px);
+border:1px solid var(--border);border-radius:26px;padding:16px;margin-bottom:22px;
+box-shadow:0 22px 70px rgba(0,0,0,.35)
 }
-
-header {
-    padding: 32px 20px;
-    text-align: center;
-    border-bottom: 1px solid #334155;
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.stat{background:var(--card2);padding:14px;border-radius:18px;text-align:center;border:1px solid rgba(148,163,184,.12)}
+.stat strong{display:block;font-size:25px;color:var(--accent);line-height:1.1}
+.stat span{font-size:12px;color:var(--muted)}
+.filtros{display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:12px;margin-top:14px}
+input,select{
+width:100%;background:rgba(2,6,23,.78);color:var(--text);border:1px solid var(--border);
+border-radius:14px;padding:13px 14px;outline:none;font-size:14px
 }
-
-header h1 {
-    margin: 0 0 10px;
-    font-size: 28px;
+input:focus,select:focus{border-color:var(--accent)}
+.card{
+background:var(--card);border:1px solid var(--border);border-radius:24px;padding:26px;
+margin-bottom:20px;box-shadow:0 18px 50px rgba(0,0,0,.24)
 }
-
-header p {
-    color: var(--muted);
-    margin: 0;
+.questao{scroll-margin-top:190px}
+.questao-topo{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:18px}
+.badge{
+background:linear-gradient(135deg,var(--accent),var(--accent2));color:#00111f;font-weight:900;
+padding:7px 13px;border-radius:999px;display:inline-block
 }
-
-.container {
-    max-width: 980px;
-    margin: 0 auto;
-    padding: 24px 16px 80px;
+.disciplina-tag,.tipo-tag{
+display:inline-block;margin-left:8px;color:var(--muted);background:rgba(148,163,184,.10);
+border:1px solid rgba(148,163,184,.14);padding:6px 10px;border-radius:999px;font-size:12px
 }
-
-.painel {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    background: rgba(15, 23, 42, 0.95);
-    backdrop-filter: blur(8px);
-    border: 1px solid #334155;
-    border-radius: 16px;
-    padding: 16px;
-    margin-bottom: 24px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
+.tipo-tag{color:#ddd6fe;border-color:rgba(167,139,250,.25)}
+.status{color:var(--yellow);font-size:13px;white-space:nowrap}
+.enunciado{font-size:19px;margin:0 0 22px;letter-spacing:-.01em}
+.botoes{display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.btn{
+cursor:pointer;border:0;padding:12px 22px;border-radius:14px;color:white;font-weight:900;
+transition:.18s ease;letter-spacing:.02em
 }
-
-.stat {
-    background: var(--card2);
-    padding: 12px;
-    border-radius: 12px;
-    text-align: center;
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.certo{background:rgba(34,197,94,.20);border:1px solid rgba(34,197,94,.42)}
+.btn.errado{background:rgba(239,68,68,.20);border:1px solid rgba(239,68,68,.42)}
+.btn.neutro{background:rgba(56,189,248,.16);color:var(--text);border:1px solid rgba(56,189,248,.32)}
+.feedback{
+display:none;background:rgba(2,6,23,.72);border:1px solid rgba(148,163,184,.16);
+border-left:5px solid var(--accent);padding:18px;border-radius:18px;margin-top:14px
 }
-
-.stat strong {
-    display: block;
-    font-size: 22px;
-    color: var(--accent);
+.feedback.correto{border-left-color:var(--green)}
+.feedback.errado{border-left-color:var(--red)}
+.resultado{font-size:18px;font-weight:900;margin-top:0}
+.justificativa{margin-top:12px}
+.referencia{color:var(--muted);font-size:13px;margin-top:16px}
+.gabarito-certo{color:var(--green);font-weight:900}
+.gabarito-errado{color:var(--red);font-weight:900}
+.oculta{display:none}
+.sem-resultados{text-align:center;color:var(--muted);display:none;padding:30px}
+.grid-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
+.link-card{
+display:block;padding:20px;background:rgba(15,23,42,.95);border:1px solid rgba(148,163,184,.22);
+color:#e5e7eb;border-radius:22px;text-decoration:none;transition:.2s;box-shadow:0 14px 40px rgba(0,0,0,.22)
 }
-
-.card {
-    background: rgba(17, 24, 39, 0.96);
-    border: 1px solid #334155;
-    border-radius: 18px;
-    padding: 22px;
-    margin-bottom: 20px;
-    box-shadow: 0 12px 30px rgba(0,0,0,.25);
-}
-
-.questao-topo {
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
-    align-items: center;
-    margin-bottom: 16px;
-}
-
-.badge {
-    background: #0ea5e9;
-    color: #00111f;
-    font-weight: bold;
-    padding: 6px 12px;
-    border-radius: 999px;
-}
-
-.status {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-.enunciado {
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-
-.botoes {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 18px;
-}
-
-button {
-    cursor: pointer;
-    border: 0;
-    padding: 12px 22px;
-    border-radius: 12px;
-    background: #334155;
-    color: white;
-    font-weight: bold;
-    transition: 0.2s;
-}
-
-button:hover {
-    transform: translateY(-1px);
-    background: #475569;
-}
-
-.feedback {
-    display: none;
-    background: #020617;
-    border-left: 4px solid var(--accent);
-    padding: 16px;
-    border-radius: 12px;
-    margin-top: 12px;
-}
-
-.feedback.correto {
-    border-left-color: var(--green);
-}
-
-.feedback.errado {
-    border-left-color: var(--red);
-}
-
-.resultado {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.referencia {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-.acoes {
-    text-align: center;
-    margin: 30px 0;
-}
-
-.acoes button {
-    background: #0ea5e9;
-    color: #00111f;
-}
-
-@media (max-width: 700px) {
-    .painel {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .botoes {
-        flex-direction: column;
-    }
-
-    header h1 {
-        font-size: 22px;
-    }
-
-    .enunciado {
-        font-size: 16px;
-    }
+.link-card:hover{transform:translateY(-3px);border-color:#38bdf8}
+.link-card strong{display:block;font-size:17px;margin-bottom:8px}
+.link-card span{color:#94a3b8;font-size:13px}
+.index-tools{display:grid;grid-template-columns:1.5fr 1fr;gap:12px;margin-bottom:20px}
+@media(max-width:850px){
+.stats{grid-template-columns:repeat(2,1fr)}
+.filtros,.index-tools{grid-template-columns:1fr}
+.questao-topo{align-items:flex-start;flex-direction:column}
+.botoes{flex-direction:column}
+.enunciado{font-size:16px}
+.card{padding:20px}
 }
 </style>
 </head>
-
 <body>
-
 <header>
-    <h1>Simulado - Info 1165 STF</h1>
-    <p>Simulado interativo de CERTO ou ERRADO</p>
+<h1>Simulado - Info 1165 STF</h1>
+<p>Informativos • Simulado interativo de CERTO ou ERRADO</p>
 </header>
 
 <div class="container">
+<div class="painel">
+<div class="stats">
+<div class="stat"><strong>8</strong><span>Total</span></div>
+<div class="stat"><strong id="visiveis">8</strong><span>Visíveis</span></div>
+<div class="stat"><strong id="respondidas">0</strong><span>Respondidas</span></div>
+<div class="stat"><strong id="acertos">0</strong><span>Acertos</span></div>
+<div class="stat"><strong id="erros">0</strong><span>Erros</span></div>
+</div>
 
-    <div class="painel">
-        <div class="stat">
-            <strong id="total">8</strong>
-            Total
-        </div>
-        <div class="stat">
-            <strong id="respondidas">0</strong>
-            Respondidas
-        </div>
-        <div class="stat">
-            <strong id="acertos">0</strong>
-            Acertos
-        </div>
-        <div class="stat">
-            <strong id="erros">0</strong>
-            Erros
-        </div>
-    </div>
+<div class="filtros">
+<input id="busca" type="search" placeholder="Buscar por palavra-chave..." oninput="filtrar()">
+<select id="disciplina" onchange="filtrar()">
+<option value="">Todas as disciplinas</option>
+<option value="Direito do Trabalho">Direito do Trabalho</option>
+<option value="ECA">ECA</option>
+<option value="N/I">N/I</option>
+</select>
+<select id="statusFiltro" onchange="filtrar()">
+<option value="">Todas</option>
+<option value="nao">Não respondidas</option>
+<option value="acerto">Acertos</option>
+<option value="erro">Erros</option>
+</select>
+<button class="btn neutro" onclick="reiniciar()">Reiniciar</button>
+</div>
+</div>
 
-    <div class="acoes">
-        <button onclick="reiniciar()">Reiniciar simulado</button>
-    </div>
+<div id="sem-resultados" class="sem-resultados">Nenhuma questão encontrada com os filtros atuais.</div>
 
-    
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 1</span>
-                <span class="status" id="status-1">Não respondida</span>
-            </div>
 
-            <p class="enunciado">A previsão constitucional de participação dos trabalhadores na gestão da empresa, por ter natureza excepcional e depender de conformação legislativa, não pode ser considerada juridicamente exigível enquanto inexistir lei específica disciplinando o tema, de modo que a omissão do Congresso Nacional nessa matéria não configura mora apta a comprometer a efetividade do art. 7º, XI, da Constituição Federal.</p>
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a previsão constitucional de participação dos trabalhadores na gestão da empresa, por ter natureza excepcional e depender de conformação legislativa, não pode ser considerada juridicamente exigível enquanto inexistir lei específica disciplinando o tema, de modo que a omissão do congresso nacional nessa matéria não configura mora apta a comprometer a efetividade do art. 7º, xi, da constituição federal. a assertiva contraria o entendimento firmado no julgamento. embora o art. 7º, xi, da constituição preveja que a participação dos trabalhadores na gestão da empresa ocorrerá “excepcionalmente” e “conforme definido em lei”, isso não autoriza concluir que a ausência de lei torne a norma constitucional destituída de eficácia jurídica ou imune ao controle da omissão legislativa.
 
-            <div class="botoes">
-                <button onclick="responder(1, 'CERTO')">CERTO</button>
-                <button onclick="responder(1, 'ERRADO')">ERRADO</button>
-            </div>
+o ponto central é que já existe disciplina legal apenas para a participação nos lucros ou resultados, por meio da lei nº 10.101/2000, mas permanece sem regulamentação a parcela final do dispositivo constitucional, relativa à participação dos trabalhadores na gestão das empresas. essa lacuna normativa impede a plena concretização do comando constitucional e caracteriza mora legislativa do congresso nacional.
 
-            <div class="feedback" id="feedback-1">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva contraria o entendimento firmado no julgamento. Embora o art. 7º, XI, da Constituição preveja que a participação dos trabalhadores na gestão da empresa ocorrerá “excepcionalmente” e “conforme definido em lei”, isso não autoriza concluir que a ausência de lei torne a norma constitucional destituída de eficácia jurídica ou imune ao controle da omissão legislativa.<br><br>O ponto central é que já existe disciplina legal apenas para a participação nos lucros ou resultados, por meio da Lei nº 10.101/2000, mas permanece sem regulamentação a parcela final do dispositivo constitucional, relativa à participação dos trabalhadores na gestão das empresas. Essa lacuna normativa impede a plena concretização do comando constitucional e caracteriza mora legislativa do Congresso Nacional.<br><br>Em outras palavras, a exigência de lei não elimina o dever constitucional de legislar; ao contrário, reforça-o. A omissão prolongada do legislador inviabiliza a efetividade de um direito social expressamente previsto na Constituição, razão pela qual foi reconhecida a mora legislativa. O fato de a participação na gestão ser “excepcional” não afasta a necessidade de regulamentação, nem autoriza a conclusão de que o direito seja inexigível em absoluto.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADO 85/DF, Rel. Min. Gilmar Mendes, julgado em 17/02/2025 (Info 1165).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 2</span>
-                <span class="status" id="status-2">Não respondida</span>
-            </div>
+em outras palavras, a exigência de lei não elimina o dever constitucional de legislar; ao contrário, reforça-o. a omissão prolongada do legislador inviabiliza a efetividade de um direito social expressamente previsto na constituição, razão pela qual foi reconhecida a mora legislativa. o fato de a participação na gestão ser “excepcional” não afasta a necessidade de regulamentação, nem autoriza a conclusão de que o direito seja inexigível em absoluto. stf. plenário. ado 85/df, rel. min. gilmar mendes, julgado em 17/02/2025 (info 1165).">
 
-            <p class="enunciado">É constitucional lei estadual que, a pretexto de disciplinar a atividade de bombeiro civil, estabeleça requisitos para o exercício da profissão, por se tratar de matéria de interesse local e de proteção à segurança pública, ainda que a disciplina normativa alcance diretamente as condições de acesso e de exercício profissional.</p>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 1</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-1">Não respondida</span>
+</div>
 
-            <div class="botoes">
-                <button onclick="responder(2, 'CERTO')">CERTO</button>
-                <button onclick="responder(2, 'ERRADO')">ERRADO</button>
-            </div>
+<p class="enunciado">A previsão constitucional de participação dos trabalhadores na gestão da empresa, por ter natureza excepcional e depender de conformação legislativa, não pode ser considerada juridicamente exigível enquanto inexistir lei específica disciplinando o tema, de modo que a omissão do Congresso Nacional nessa matéria não configura mora apta a comprometer a efetividade do art. 7º, XI, da Constituição Federal.</p>
 
-            <div class="feedback" id="feedback-2">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque a regulamentação do exercício da profissão de bombeiro civil, quando feita por lei estadual, invade competência legislativa privativa da União. A Constituição reserva à União a disciplina de direito do trabalho e das condições para o exercício de profissões, nos termos do art. 22, I e XVI, da CF/88.  <br><br>Embora os estados possam editar normas em temas de interesse local e até adotar providências administrativas relacionadas à segurança pública, isso não autoriza a criação de regime jurídico próprio para definir requisitos, habilitação, condições de exercício ou restrições ao desempenho de uma profissão. Quando a lei estadual ultrapassa a esfera administrativa e passa a regular o conteúdo normativo da profissão, ela incide em vício formal de inconstitucionalidade por usurpação de competência legislativa.  <br><br>No caso do bombeiro civil, a norma estadual não se limita a organizar serviço público local nem a estabelecer medidas de fiscalização; ela regulamenta diretamente o exercício profissional, o que atrai a competência privativa da União. Assim, ainda que a finalidade invocada seja a proteção da segurança, o meio escolhido é inconstitucional por afrontar a repartição constitucional de competências.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 5.761/RO, Rel. Min. Nunes Marques, julgado em 17/02/2025 (Info 1165).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 3</span>
-                <span class="status" id="status-3">Não respondida</span>
-            </div>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(1, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(1, 'ERRADO')">ERRADO</button>
+</div>
 
-            <p class="enunciado">É inconstitucional lei estadual que discipline o serviço voluntário no Ministério Público local, ainda que se limite a reproduzir a lógica da legislação federal de regência, se houver possibilidade de os voluntários auxiliarem em funções técnicas e de assessoramento de interesse da Administração, pois tal previsão, por si só, configura usurpação da competência privativa da União para legislar sobre direito do trabalho e afronta a regra de reserva de atribuições dos membros e servidores da instituição.</p>
+<div class="feedback" id="feedback-1">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva contraria o entendimento firmado no julgamento. Embora o art. 7º, XI, da Constituição preveja que a participação dos trabalhadores na gestão da empresa ocorrerá “excepcionalmente” e “conforme definido em lei”, isso não autoriza concluir que a ausência de lei torne a norma constitucional destituída de eficácia jurídica ou imune ao controle da omissão legislativa.<br><br>O ponto central é que já existe disciplina legal apenas para a participação nos lucros ou resultados, por meio da Lei nº 10.101/2000, mas permanece sem regulamentação a parcela final do dispositivo constitucional, relativa à participação dos trabalhadores na gestão das empresas. Essa lacuna normativa impede a plena concretização do comando constitucional e caracteriza mora legislativa do Congresso Nacional.<br><br>Em outras palavras, a exigência de lei não elimina o dever constitucional de legislar; ao contrário, reforça-o. A omissão prolongada do legislador inviabiliza a efetividade de um direito social expressamente previsto na Constituição, razão pela qual foi reconhecida a mora legislativa. O fato de a participação na gestão ser “excepcional” não afasta a necessidade de regulamentação, nem autoriza a conclusão de que o direito seja inexigível em absoluto.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADO 85/DF, Rel. Min. Gilmar Mendes, julgado em 17/02/2025 (Info 1165).</p>
+</div>
+</section>
 
-            <div class="botoes">
-                <button onclick="responder(3, 'CERTO')">CERTO</button>
-                <button onclick="responder(3, 'ERRADO')">ERRADO</button>
-            </div>
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="Direito do Trabalho"
+data-texto="é constitucional lei estadual que, a pretexto de disciplinar a atividade de bombeiro civil, estabeleça requisitos para o exercício da profissão, por se tratar de matéria de interesse local e de proteção à segurança pública, ainda que a disciplina normativa alcance diretamente as condições de acesso e de exercício profissional. a assertiva está incorreta porque a regulamentação do exercício da profissão de bombeiro civil, quando feita por lei estadual, invade competência legislativa privativa da união. a constituição reserva à união a disciplina de direito do trabalho e das condições para o exercício de profissões, nos termos do art. 22, i e xvi, da cf/88.  
 
-            <div class="feedback" id="feedback-3">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está errada porque a disciplina estadual do serviço voluntário no Ministério Público não é, em si, incompatível com a Constituição, nem implica automaticamente invasão da competência privativa da União para legislar sobre direito do trabalho. O ponto central é que a norma local deve ser interpretada em conformidade com as normas gerais federais sobre voluntariado, especialmente a Lei federal nº 9.608/1999, que estrutura essa atividade como colaboração sem vínculo empregatício e sem obrigações trabalhistas ou previdenciárias.<br><br>Além disso, o entendimento firmado admite a validade da lei estadual desde que não se atribuam aos voluntários atividades típicas ou similares às desempenhadas por membros e servidores do Ministério Público. Assim, a expressão “funções técnicas e de assessoramento de interesse da Administração” não pode ser lida de modo amplo a ponto de autorizar substituição funcional de agentes públicos, mas tampouco torna a lei inconstitucional por si só. A solução adotada foi justamente conferir interpretação conforme à Constituição para excluir desse alcance as atividades típicas ou similares às atribuições institucionais.<br><br>Portanto, a inconstitucionalidade não decorre da mera existência de serviço voluntário no âmbito do Ministério Público estadual, nem da possibilidade abstrata de colaboração em atividades auxiliares; ela somente surgiria se a disciplina local permitisse desvirtuamento do voluntariado, com substituição de membros e servidores ou com afronta às normas gerais federais.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 5.451/CE. Rel. Min. Nunes Marques, julgado em 17/02/2025 (Info 1165).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 4</span>
-                <span class="status" id="status-4">Não respondida</span>
-            </div>
+embora os estados possam editar normas em temas de interesse local e até adotar providências administrativas relacionadas à segurança pública, isso não autoriza a criação de regime jurídico próprio para definir requisitos, habilitação, condições de exercício ou restrições ao desempenho de uma profissão. quando a lei estadual ultrapassa a esfera administrativa e passa a regular o conteúdo normativo da profissão, ela incide em vício formal de inconstitucionalidade por usurpação de competência legislativa.  
 
-            <p class="enunciado">A incidência do princípio da anualidade eleitoral, previsto no art. 16 da Constituição Federal, pressupõe a demonstração de alteração normativa ou de viragem jurisprudencial efetivamente consolidada, de modo que a superação de decisões monocráticas esparsas, sem orientação reiterada e estável do tribunal competente, não configura modificação apta a atrair a cláusula de anterioridade nem a invalidar convenção partidária presidida por pessoa com direitos políticos suspensos.</p>
+no caso do bombeiro civil, a norma estadual não se limita a organizar serviço público local nem a estabelecer medidas de fiscalização; ela regulamenta diretamente o exercício profissional, o que atrai a competência privativa da união. assim, ainda que a finalidade invocada seja a proteção da segurança, o meio escolhido é inconstitucional por afrontar a repartição constitucional de competências. stf. plenário. adi 5.761/ro, rel. min. nunes marques, julgado em 17/02/2025 (info 1165).">
 
-            <div class="botoes">
-                <button onclick="responder(4, 'CERTO')">CERTO</button>
-                <button onclick="responder(4, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 2</span>
+    <span class="disciplina-tag">Direito do Trabalho</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-2">Não respondida</span>
+</div>
 
-            <div class="feedback" id="feedback-4">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>O enunciado está correto porque reproduz a lógica central do entendimento firmado no caso: não basta apontar qualquer decisão anterior em sentido diverso para sustentar ofensa ao art. 16 da Constituição. A proteção da anualidade eleitoral incide quando há efetiva alteração das regras do jogo, seja por mudança legislativa, seja por mudança jurisprudencial consolidada, capaz de surpreender os atores políticos e comprometer a segurança jurídica do processo eleitoral.<br><br>No caso examinado, a controvérsia girou em torno da validade de convenção partidária presidida por pessoa com direitos políticos suspensos. O tribunal eleitoral entendeu que essa presidência tem natureza meramente organizacional, sem aptidão para influenciar o conteúdo deliberativo da convenção, de modo que a suspensão dos direitos políticos do presidente não contamina a validade do ato nem as candidaturas dele decorrentes.<br><br>A alegação de viragem jurisprudencial foi afastada porque não havia orientação anterior firme e reiterada do TSE em sentido oposto. As decisões invocadas eram monocráticas e, por isso, não demonstravam uma linha jurisprudencial consolidada. Sem esse requisito, não se pode falar em surpresa institucional nem em quebra da confiança legítima dos partidos. Em outras palavras, a anualidade eleitoral não protege a mera expectativa fundada em julgados isolados, mas sim a estabilidade de uma orientação efetivamente consolidada.<br><br>Assim, a tese exige a presença cumulativa de dois elementos para caracterizar a ofensa ao art. 16: (i) existência de orientação anterior reiterada e estável; e (ii) posterior mudança com conteúdo novo, discrepante e inovador. Ausente o primeiro requisito, inexiste viragem jurisprudencial juridicamente relevante para fins de anualidade eleitoral.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADPF 824/DF, Rel. Min. Nunes Marques, julgado em 17/02/2025 (Info 1165).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 5</span>
-                <span class="status" id="status-5">Não respondida</span>
-            </div>
+<p class="enunciado">É constitucional lei estadual que, a pretexto de disciplinar a atividade de bombeiro civil, estabeleça requisitos para o exercício da profissão, por se tratar de matéria de interesse local e de proteção à segurança pública, ainda que a disciplina normativa alcance diretamente as condições de acesso e de exercício profissional.</p>
 
-            <p class="enunciado">É constitucional lei estadual que institua programa de descentralização da execução de serviços públicos sociais não exclusivos do Estado para entidades do terceiro setor, ainda que a seleção dessas entidades não observe critérios públicos e objetivos, desde que haja fiscalização posterior pelo Ministério Público e pelo Tribunal de Contas, pois a participação desses órgãos supre eventual déficit de impessoalidade na escolha dos executores.</p>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(2, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(2, 'ERRADO')">ERRADO</button>
+</div>
 
-            <div class="botoes">
-                <button onclick="responder(5, 'CERTO')">CERTO</button>
-                <button onclick="responder(5, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="feedback" id="feedback-2">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque a regulamentação do exercício da profissão de bombeiro civil, quando feita por lei estadual, invade competência legislativa privativa da União. A Constituição reserva à União a disciplina de direito do trabalho e das condições para o exercício de profissões, nos termos do art. 22, I e XVI, da CF/88.  <br><br>Embora os estados possam editar normas em temas de interesse local e até adotar providências administrativas relacionadas à segurança pública, isso não autoriza a criação de regime jurídico próprio para definir requisitos, habilitação, condições de exercício ou restrições ao desempenho de uma profissão. Quando a lei estadual ultrapassa a esfera administrativa e passa a regular o conteúdo normativo da profissão, ela incide em vício formal de inconstitucionalidade por usurpação de competência legislativa.  <br><br>No caso do bombeiro civil, a norma estadual não se limita a organizar serviço público local nem a estabelecer medidas de fiscalização; ela regulamenta diretamente o exercício profissional, o que atrai a competência privativa da União. Assim, ainda que a finalidade invocada seja a proteção da segurança, o meio escolhido é inconstitucional por afrontar a repartição constitucional de competências.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 5.761/RO, Rel. Min. Nunes Marques, julgado em 17/02/2025 (Info 1165).</p>
+</div>
+</section>
 
-            <div class="feedback" id="feedback-5">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque o controle exercido pelo Ministério Público e pelo Tribunal de Contas não substitui a exigência constitucional de que o modelo de gestão seja estruturado, desde a origem, com observância dos princípios da <strong>publicidade, objetividade e impessoalidade</strong>. A constitucionalidade da descentralização da execução de serviços públicos não exclusivos para entidades do terceiro setor foi admitida justamente porque a lei estadual impugnada se mantinha dentro desses parâmetros, compatibilizando a opção político-administrativa com o art. 37, caput, da Constituição.<br><br>Além disso, a tese não autoriza qualquer forma de delegação informal ou discricionária sem critérios. O ponto central é que a descentralização deve ser <strong>conduzida de forma pública, objetiva e impessoal</strong>, e apenas <strong>sem prejuízo</strong> da fiscalização do Ministério Público e do Tribunal de Contas quanto à utilização de verbas públicas. Ou seja, a atuação desses órgãos é mecanismo de controle externo e de tutela da regularidade do gasto público, mas não convalida eventual vício estrutural na seleção das entidades executoras.<br><br>Também não há ofensa ao art. 175 da Constituição, porque a hipótese trata de serviços públicos <strong>não exclusivos</strong>, dentro da autonomia normativa do Estado. Do mesmo modo, não se reconheceu afronta à diretriz de participação social no SUS, pois a norma preservava mecanismos de controle social. Assim, a premissa de que a fiscalização posterior supriria a ausência de critérios impessoais na escolha das entidades contraria o núcleo do entendimento firmado.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.629/MG, Rel. Min. Dias Toffoli, julgado em 17/02/2025 (Info 1165).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 6</span>
-                <span class="status" id="status-6">Não respondida</span>
-            </div>
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="Direito do Trabalho"
+data-texto="é inconstitucional lei estadual que discipline o serviço voluntário no ministério público local, ainda que se limite a reproduzir a lógica da legislação federal de regência, se houver possibilidade de os voluntários auxiliarem em funções técnicas e de assessoramento de interesse da administração, pois tal previsão, por si só, configura usurpação da competência privativa da união para legislar sobre direito do trabalho e afronta a regra de reserva de atribuições dos membros e servidores da instituição. a assertiva está errada porque a disciplina estadual do serviço voluntário no ministério público não é, em si, incompatível com a constituição, nem implica automaticamente invasão da competência privativa da união para legislar sobre direito do trabalho. o ponto central é que a norma local deve ser interpretada em conformidade com as normas gerais federais sobre voluntariado, especialmente a lei federal nº 9.608/1999, que estrutura essa atividade como colaboração sem vínculo empregatício e sem obrigações trabalhistas ou previdenciárias.
 
-            <p class="enunciado">É constitucional lei estadual que, ao dispensar o regime de substituição tributária do ICMS apenas nas operações com mercadorias originadas no próprio território do ente federado, cria tratamento fiscal mais favorável para bens de procedência local, ainda que a medida não altere nominalmente a alíquota do imposto, pois se trata de técnica de arrecadação inserida na autonomia tributária estadual.</p>
+além disso, o entendimento firmado admite a validade da lei estadual desde que não se atribuam aos voluntários atividades típicas ou similares às desempenhadas por membros e servidores do ministério público. assim, a expressão “funções técnicas e de assessoramento de interesse da administração” não pode ser lida de modo amplo a ponto de autorizar substituição funcional de agentes públicos, mas tampouco torna a lei inconstitucional por si só. a solução adotada foi justamente conferir interpretação conforme à constituição para excluir desse alcance as atividades típicas ou similares às atribuições institucionais.
 
-            <div class="botoes">
-                <button onclick="responder(6, 'CERTO')">CERTO</button>
-                <button onclick="responder(6, 'ERRADO')">ERRADO</button>
-            </div>
+portanto, a inconstitucionalidade não decorre da mera existência de serviço voluntário no âmbito do ministério público estadual, nem da possibilidade abstrata de colaboração em atividades auxiliares; ela somente surgiria se a disciplina local permitisse desvirtuamento do voluntariado, com substituição de membros e servidores ou com afronta às normas gerais federais. stf. plenário. adi 5.451/ce. rel. min. nunes marques, julgado em 17/02/2025 (info 1165).">
 
-            <div class="feedback" id="feedback-6">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está errada porque a vedação constitucional não se limita à majoração ou redução formal de alíquota: também alcança mecanismos indiretos de favorecimento fiscal que produzam discriminação entre mercadorias em razão de sua procedência. A Constituição proíbe que os Estados estabeleçam diferenciação tributária entre bens e serviços com base na origem ou no destino, justamente para evitar distorções concorrenciais e barreiras ao livre fluxo de mercadorias no mercado interno.<br><br>No caso, a dispensa do regime de substituição tributária apenas para mercadorias originadas no próprio Estado confere vantagem tributária às mercadorias locais em detrimento das provenientes de outras unidades da Federação. Ainda que a norma seja apresentada como regra de técnica arrecadatória, seu efeito prático é criar tratamento mais benéfico para produtos de procedência local, o que afronta a não discriminação tributária, a isonomia e a neutralidade fiscal. A autonomia estadual para disciplinar o ICMS não autoriza a adoção de critérios de favorecimento fundados na origem da mercadoria.<br><br>Além disso, a neutralidade fiscal exige que o sistema tributário não seja utilizado para induzir artificialmente escolhas econômicas com base na procedência do bem. Assim, a norma estadual que condiciona a dispensa de substituição tributária à origem interna da mercadoria é materialmente inconstitucional, por estabelecer vantagem competitiva indevida para produtos locais.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.476/RJ, Rel. Min. Alexandre de Moraes, julgado em 17/02/2025 (Info 1165).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 7</span>
-                <span class="status" id="status-7">Não respondida</span>
-            </div>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 3</span>
+    <span class="disciplina-tag">Direito do Trabalho</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-3">Não respondida</span>
+</div>
 
-            <p class="enunciado">A percepção de auxílio-suplementar concedido com fundamento no art. 9º da Lei nº 6.367/1976 pode ser acumulada com aposentadoria por invalidez, ainda que os requisitos para a concessão do benefício previdenciário tenham se aperfeiçoado após 11/11/1997, desde que o segurado já recebesse o auxílio-acidente ou benefício equivalente antes da alteração legislativa promovida pela MP nº 1.596-14/1997.</p>
+<p class="enunciado">É inconstitucional lei estadual que discipline o serviço voluntário no Ministério Público local, ainda que se limite a reproduzir a lógica da legislação federal de regência, se houver possibilidade de os voluntários auxiliarem em funções técnicas e de assessoramento de interesse da Administração, pois tal previsão, por si só, configura usurpação da competência privativa da União para legislar sobre direito do trabalho e afronta a regra de reserva de atribuições dos membros e servidores da instituição.</p>
 
-            <div class="botoes">
-                <button onclick="responder(7, 'CERTO')">CERTO</button>
-                <button onclick="responder(7, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(3, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(3, 'ERRADO')">ERRADO</button>
+</div>
 
-            <div class="feedback" id="feedback-7">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque a possibilidade de cumulação não decorre apenas da anterioridade do recebimento do auxílio-suplementar ou de benefício acidentário equivalente. O ponto निर्णante é o momento em que <strong>as condições para a concessão da aposentadoria por invalidez</strong> foram implementadas.<br><br>O entendimento fixado estabelece que o auxílio-suplementar, concedido sob a égide do art. 9º da Lei nº 6.367/1976, <strong>somente é cumulável</strong> com aposentadoria por invalidez <strong>se</strong> os requisitos dessa aposentadoria tiverem sido preenchidos <strong>na vigência da Lei nº 8.213/1991 e antes de 11/11/1997</strong>, data em que entrou em vigor a MP nº 1.596-14/1997, posteriormente convertida na Lei nº 9.528/1997.<br><br>Assim, não basta que o auxílio-suplementar tenha sido concedido anteriormente ou que o segurado já estivesse em gozo de benefício acidentário. Se os pressupostos da aposentadoria por invalidez se completaram <strong>após 11/11/1997</strong>, a cumulação não é admitida. A tese, portanto, fixa um marco temporal objetivo ligado à implementação das condições do benefício previdenciário, e não apenas à existência pretérita do auxílio-suplementar.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. RE 687.813/RS, Rel. Min. Dias Toffoli, julgado em 17/02/2025 (Repercussão Geral – Tema 599) (Info 1165).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 8</span>
-                <span class="status" id="status-8">Não respondida</span>
-            </div>
+<div class="feedback" id="feedback-3">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está errada porque a disciplina estadual do serviço voluntário no Ministério Público não é, em si, incompatível com a Constituição, nem implica automaticamente invasão da competência privativa da União para legislar sobre direito do trabalho. O ponto central é que a norma local deve ser interpretada em conformidade com as normas gerais federais sobre voluntariado, especialmente a Lei federal nº 9.608/1999, que estrutura essa atividade como colaboração sem vínculo empregatício e sem obrigações trabalhistas ou previdenciárias.<br><br>Além disso, o entendimento firmado admite a validade da lei estadual desde que não se atribuam aos voluntários atividades típicas ou similares às desempenhadas por membros e servidores do Ministério Público. Assim, a expressão “funções técnicas e de assessoramento de interesse da Administração” não pode ser lida de modo amplo a ponto de autorizar substituição funcional de agentes públicos, mas tampouco torna a lei inconstitucional por si só. A solução adotada foi justamente conferir interpretação conforme à Constituição para excluir desse alcance as atividades típicas ou similares às atribuições institucionais.<br><br>Portanto, a inconstitucionalidade não decorre da mera existência de serviço voluntário no âmbito do Ministério Público estadual, nem da possibilidade abstrata de colaboração em atividades auxiliares; ela somente surgiria se a disciplina local permitisse desvirtuamento do voluntariado, com substituição de membros e servidores ou com afronta às normas gerais federais.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 5.451/CE. Rel. Min. Nunes Marques, julgado em 17/02/2025 (Info 1165).</p>
+</div>
+</section>
 
-            <p class="enunciado">Em contratos de terceirização firmados pela Administração Pública, a condenação subsidiária do ente público pelo inadimplemento das verbas trabalhistas da prestadora de serviços não pode ser fundada apenas na inversão do ônus da prova em favor do empregado, sendo indispensável a demonstração, pela parte autora, de conduta negligente do Poder Público ou de nexo causal entre a omissão administrativa e o dano; nessa linha, a inércia estatal somente se caracteriza quando, após notificação formal idônea acerca do descumprimento das obrigações trabalhistas pela contratada, a Administração permanece silente, sem prejuízo do dever de assegurar condições de segurança, higiene e salubridade quando o labor ocorrer em suas dependências ou em local previamente ajustado no contrato.</p>
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a incidência do princípio da anualidade eleitoral, previsto no art. 16 da constituição federal, pressupõe a demonstração de alteração normativa ou de viragem jurisprudencial efetivamente consolidada, de modo que a superação de decisões monocráticas esparsas, sem orientação reiterada e estável do tribunal competente, não configura modificação apta a atrair a cláusula de anterioridade nem a invalidar convenção partidária presidida por pessoa com direitos políticos suspensos. o enunciado está correto porque reproduz a lógica central do entendimento firmado no caso: não basta apontar qualquer decisão anterior em sentido diverso para sustentar ofensa ao art. 16 da constituição. a proteção da anualidade eleitoral incide quando há efetiva alteração das regras do jogo, seja por mudança legislativa, seja por mudança jurisprudencial consolidada, capaz de surpreender os atores políticos e comprometer a segurança jurídica do processo eleitoral.
 
-            <div class="botoes">
-                <button onclick="responder(8, 'CERTO')">CERTO</button>
-                <button onclick="responder(8, 'ERRADO')">ERRADO</button>
-            </div>
+no caso examinado, a controvérsia girou em torno da validade de convenção partidária presidida por pessoa com direitos políticos suspensos. o tribunal eleitoral entendeu que essa presidência tem natureza meramente organizacional, sem aptidão para influenciar o conteúdo deliberativo da convenção, de modo que a suspensão dos direitos políticos do presidente não contamina a validade do ato nem as candidaturas dele decorrentes.
 
-            <div class="feedback" id="feedback-8">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva reproduz, em essência, a orientação fixada para a responsabilidade subsidiária da Administração Pública em contratos de terceirização. O ponto central do entendimento é que não basta presumir a culpa administrativa nem transferir automaticamente ao ente público o ônus de demonstrar a regular fiscalização. Para haver condenação subsidiária, é imprescindível a prova, pelo trabalhador, de comportamento negligente do Poder Público ou de nexo causal entre a conduta comissiva/omissiva estatal e o inadimplemento trabalhista.<br><br>O julgado também delimitou quando se pode reconhecer a negligência administrativa: a inércia após o recebimento de notificação formal idônea sobre o descumprimento das obrigações trabalhistas pela empresa contratada. Essa notificação pode ser enviada pelo próprio trabalhador, sindicato, Ministério do Trabalho, Ministério Público, Defensoria Pública ou outro meio idôneo.<br><br>Além disso, a tese ressalva hipótese específica em que a Administração assume dever direto de proteção: quando o trabalho é prestado em suas dependências ou em local previamente convencionado no contrato, cabe ao ente público garantir condições de segurança, higiene e salubridade, nos termos do art. 5º-A, § 3º, da Lei nº 6.019/1974. Assim, a assertiva está correta ao combinar a exigência de prova da culpa/negligência com essa obrigação específica de proteção do ambiente laboral.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. RE 1.298.647/SP, Rel. Min. Nunes Marques, julgado em 17/02/2025 (Repercussão Geral – Tema 1.118) (Info 1165).</p>
-            </div>
-        </section>
-        
+a alegação de viragem jurisprudencial foi afastada porque não havia orientação anterior firme e reiterada do tse em sentido oposto. as decisões invocadas eram monocráticas e, por isso, não demonstravam uma linha jurisprudencial consolidada. sem esse requisito, não se pode falar em surpresa institucional nem em quebra da confiança legítima dos partidos. em outras palavras, a anualidade eleitoral não protege a mera expectativa fundada em julgados isolados, mas sim a estabilidade de uma orientação efetivamente consolidada.
+
+assim, a tese exige a presença cumulativa de dois elementos para caracterizar a ofensa ao art. 16: (i) existência de orientação anterior reiterada e estável; e (ii) posterior mudança com conteúdo novo, discrepante e inovador. ausente o primeiro requisito, inexiste viragem jurisprudencial juridicamente relevante para fins de anualidade eleitoral. stf. plenário. adpf 824/df, rel. min. nunes marques, julgado em 17/02/2025 (info 1165).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 4</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-4">Não respondida</span>
+</div>
+
+<p class="enunciado">A incidência do princípio da anualidade eleitoral, previsto no art. 16 da Constituição Federal, pressupõe a demonstração de alteração normativa ou de viragem jurisprudencial efetivamente consolidada, de modo que a superação de decisões monocráticas esparsas, sem orientação reiterada e estável do tribunal competente, não configura modificação apta a atrair a cláusula de anterioridade nem a invalidar convenção partidária presidida por pessoa com direitos políticos suspensos.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(4, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(4, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-4">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O enunciado está correto porque reproduz a lógica central do entendimento firmado no caso: não basta apontar qualquer decisão anterior em sentido diverso para sustentar ofensa ao art. 16 da Constituição. A proteção da anualidade eleitoral incide quando há efetiva alteração das regras do jogo, seja por mudança legislativa, seja por mudança jurisprudencial consolidada, capaz de surpreender os atores políticos e comprometer a segurança jurídica do processo eleitoral.<br><br>No caso examinado, a controvérsia girou em torno da validade de convenção partidária presidida por pessoa com direitos políticos suspensos. O tribunal eleitoral entendeu que essa presidência tem natureza meramente organizacional, sem aptidão para influenciar o conteúdo deliberativo da convenção, de modo que a suspensão dos direitos políticos do presidente não contamina a validade do ato nem as candidaturas dele decorrentes.<br><br>A alegação de viragem jurisprudencial foi afastada porque não havia orientação anterior firme e reiterada do TSE em sentido oposto. As decisões invocadas eram monocráticas e, por isso, não demonstravam uma linha jurisprudencial consolidada. Sem esse requisito, não se pode falar em surpresa institucional nem em quebra da confiança legítima dos partidos. Em outras palavras, a anualidade eleitoral não protege a mera expectativa fundada em julgados isolados, mas sim a estabilidade de uma orientação efetivamente consolidada.<br><br>Assim, a tese exige a presença cumulativa de dois elementos para caracterizar a ofensa ao art. 16: (i) existência de orientação anterior reiterada e estável; e (ii) posterior mudança com conteúdo novo, discrepante e inovador. Ausente o primeiro requisito, inexiste viragem jurisprudencial juridicamente relevante para fins de anualidade eleitoral.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADPF 824/DF, Rel. Min. Nunes Marques, julgado em 17/02/2025 (Info 1165).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="é constitucional lei estadual que institua programa de descentralização da execução de serviços públicos sociais não exclusivos do estado para entidades do terceiro setor, ainda que a seleção dessas entidades não observe critérios públicos e objetivos, desde que haja fiscalização posterior pelo ministério público e pelo tribunal de contas, pois a participação desses órgãos supre eventual déficit de impessoalidade na escolha dos executores. a assertiva está incorreta porque o controle exercido pelo ministério público e pelo tribunal de contas não substitui a exigência constitucional de que o modelo de gestão seja estruturado, desde a origem, com observância dos princípios da **publicidade, objetividade e impessoalidade**. a constitucionalidade da descentralização da execução de serviços públicos não exclusivos para entidades do terceiro setor foi admitida justamente porque a lei estadual impugnada se mantinha dentro desses parâmetros, compatibilizando a opção político-administrativa com o art. 37, caput, da constituição.
+
+além disso, a tese não autoriza qualquer forma de delegação informal ou discricionária sem critérios. o ponto central é que a descentralização deve ser **conduzida de forma pública, objetiva e impessoal**, e apenas **sem prejuízo** da fiscalização do ministério público e do tribunal de contas quanto à utilização de verbas públicas. ou seja, a atuação desses órgãos é mecanismo de controle externo e de tutela da regularidade do gasto público, mas não convalida eventual vício estrutural na seleção das entidades executoras.
+
+também não há ofensa ao art. 175 da constituição, porque a hipótese trata de serviços públicos **não exclusivos**, dentro da autonomia normativa do estado. do mesmo modo, não se reconheceu afronta à diretriz de participação social no sus, pois a norma preservava mecanismos de controle social. assim, a premissa de que a fiscalização posterior supriria a ausência de critérios impessoais na escolha das entidades contraria o núcleo do entendimento firmado. stf. plenário. adi 7.629/mg, rel. min. dias toffoli, julgado em 17/02/2025 (info 1165).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 5</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-5">Não respondida</span>
+</div>
+
+<p class="enunciado">É constitucional lei estadual que institua programa de descentralização da execução de serviços públicos sociais não exclusivos do Estado para entidades do terceiro setor, ainda que a seleção dessas entidades não observe critérios públicos e objetivos, desde que haja fiscalização posterior pelo Ministério Público e pelo Tribunal de Contas, pois a participação desses órgãos supre eventual déficit de impessoalidade na escolha dos executores.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(5, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(5, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-5">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque o controle exercido pelo Ministério Público e pelo Tribunal de Contas não substitui a exigência constitucional de que o modelo de gestão seja estruturado, desde a origem, com observância dos princípios da <strong>publicidade, objetividade e impessoalidade</strong>. A constitucionalidade da descentralização da execução de serviços públicos não exclusivos para entidades do terceiro setor foi admitida justamente porque a lei estadual impugnada se mantinha dentro desses parâmetros, compatibilizando a opção político-administrativa com o art. 37, caput, da Constituição.<br><br>Além disso, a tese não autoriza qualquer forma de delegação informal ou discricionária sem critérios. O ponto central é que a descentralização deve ser <strong>conduzida de forma pública, objetiva e impessoal</strong>, e apenas <strong>sem prejuízo</strong> da fiscalização do Ministério Público e do Tribunal de Contas quanto à utilização de verbas públicas. Ou seja, a atuação desses órgãos é mecanismo de controle externo e de tutela da regularidade do gasto público, mas não convalida eventual vício estrutural na seleção das entidades executoras.<br><br>Também não há ofensa ao art. 175 da Constituição, porque a hipótese trata de serviços públicos <strong>não exclusivos</strong>, dentro da autonomia normativa do Estado. Do mesmo modo, não se reconheceu afronta à diretriz de participação social no SUS, pois a norma preservava mecanismos de controle social. Assim, a premissa de que a fiscalização posterior supriria a ausência de critérios impessoais na escolha das entidades contraria o núcleo do entendimento firmado.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.629/MG, Rel. Min. Dias Toffoli, julgado em 17/02/2025 (Info 1165).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="é constitucional lei estadual que, ao dispensar o regime de substituição tributária do icms apenas nas operações com mercadorias originadas no próprio território do ente federado, cria tratamento fiscal mais favorável para bens de procedência local, ainda que a medida não altere nominalmente a alíquota do imposto, pois se trata de técnica de arrecadação inserida na autonomia tributária estadual. a assertiva está errada porque a vedação constitucional não se limita à majoração ou redução formal de alíquota: também alcança mecanismos indiretos de favorecimento fiscal que produzam discriminação entre mercadorias em razão de sua procedência. a constituição proíbe que os estados estabeleçam diferenciação tributária entre bens e serviços com base na origem ou no destino, justamente para evitar distorções concorrenciais e barreiras ao livre fluxo de mercadorias no mercado interno.
+
+no caso, a dispensa do regime de substituição tributária apenas para mercadorias originadas no próprio estado confere vantagem tributária às mercadorias locais em detrimento das provenientes de outras unidades da federação. ainda que a norma seja apresentada como regra de técnica arrecadatória, seu efeito prático é criar tratamento mais benéfico para produtos de procedência local, o que afronta a não discriminação tributária, a isonomia e a neutralidade fiscal. a autonomia estadual para disciplinar o icms não autoriza a adoção de critérios de favorecimento fundados na origem da mercadoria.
+
+além disso, a neutralidade fiscal exige que o sistema tributário não seja utilizado para induzir artificialmente escolhas econômicas com base na procedência do bem. assim, a norma estadual que condiciona a dispensa de substituição tributária à origem interna da mercadoria é materialmente inconstitucional, por estabelecer vantagem competitiva indevida para produtos locais. stf. plenário. adi 7.476/rj, rel. min. alexandre de moraes, julgado em 17/02/2025 (info 1165).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 6</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-6">Não respondida</span>
+</div>
+
+<p class="enunciado">É constitucional lei estadual que, ao dispensar o regime de substituição tributária do ICMS apenas nas operações com mercadorias originadas no próprio território do ente federado, cria tratamento fiscal mais favorável para bens de procedência local, ainda que a medida não altere nominalmente a alíquota do imposto, pois se trata de técnica de arrecadação inserida na autonomia tributária estadual.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(6, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(6, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-6">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está errada porque a vedação constitucional não se limita à majoração ou redução formal de alíquota: também alcança mecanismos indiretos de favorecimento fiscal que produzam discriminação entre mercadorias em razão de sua procedência. A Constituição proíbe que os Estados estabeleçam diferenciação tributária entre bens e serviços com base na origem ou no destino, justamente para evitar distorções concorrenciais e barreiras ao livre fluxo de mercadorias no mercado interno.<br><br>No caso, a dispensa do regime de substituição tributária apenas para mercadorias originadas no próprio Estado confere vantagem tributária às mercadorias locais em detrimento das provenientes de outras unidades da Federação. Ainda que a norma seja apresentada como regra de técnica arrecadatória, seu efeito prático é criar tratamento mais benéfico para produtos de procedência local, o que afronta a não discriminação tributária, a isonomia e a neutralidade fiscal. A autonomia estadual para disciplinar o ICMS não autoriza a adoção de critérios de favorecimento fundados na origem da mercadoria.<br><br>Além disso, a neutralidade fiscal exige que o sistema tributário não seja utilizado para induzir artificialmente escolhas econômicas com base na procedência do bem. Assim, a norma estadual que condiciona a dispensa de substituição tributária à origem interna da mercadoria é materialmente inconstitucional, por estabelecer vantagem competitiva indevida para produtos locais.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.476/RJ, Rel. Min. Alexandre de Moraes, julgado em 17/02/2025 (Info 1165).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a percepção de auxílio-suplementar concedido com fundamento no art. 9º da lei nº 6.367/1976 pode ser acumulada com aposentadoria por invalidez, ainda que os requisitos para a concessão do benefício previdenciário tenham se aperfeiçoado após 11/11/1997, desde que o segurado já recebesse o auxílio-acidente ou benefício equivalente antes da alteração legislativa promovida pela mp nº 1.596-14/1997. a assertiva está incorreta porque a possibilidade de cumulação não decorre apenas da anterioridade do recebimento do auxílio-suplementar ou de benefício acidentário equivalente. o ponto निर्णante é o momento em que **as condições para a concessão da aposentadoria por invalidez** foram implementadas.
+
+o entendimento fixado estabelece que o auxílio-suplementar, concedido sob a égide do art. 9º da lei nº 6.367/1976, **somente é cumulável** com aposentadoria por invalidez **se** os requisitos dessa aposentadoria tiverem sido preenchidos **na vigência da lei nº 8.213/1991 e antes de 11/11/1997**, data em que entrou em vigor a mp nº 1.596-14/1997, posteriormente convertida na lei nº 9.528/1997.
+
+assim, não basta que o auxílio-suplementar tenha sido concedido anteriormente ou que o segurado já estivesse em gozo de benefício acidentário. se os pressupostos da aposentadoria por invalidez se completaram **após 11/11/1997**, a cumulação não é admitida. a tese, portanto, fixa um marco temporal objetivo ligado à implementação das condições do benefício previdenciário, e não apenas à existência pretérita do auxílio-suplementar. stf. plenário. re 687.813/rs, rel. min. dias toffoli, julgado em 17/02/2025 (repercussão geral – tema 599) (info 1165).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 7</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-7">Não respondida</span>
+</div>
+
+<p class="enunciado">A percepção de auxílio-suplementar concedido com fundamento no art. 9º da Lei nº 6.367/1976 pode ser acumulada com aposentadoria por invalidez, ainda que os requisitos para a concessão do benefício previdenciário tenham se aperfeiçoado após 11/11/1997, desde que o segurado já recebesse o auxílio-acidente ou benefício equivalente antes da alteração legislativa promovida pela MP nº 1.596-14/1997.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(7, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(7, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-7">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque a possibilidade de cumulação não decorre apenas da anterioridade do recebimento do auxílio-suplementar ou de benefício acidentário equivalente. O ponto निर्णante é o momento em que <strong>as condições para a concessão da aposentadoria por invalidez</strong> foram implementadas.<br><br>O entendimento fixado estabelece que o auxílio-suplementar, concedido sob a égide do art. 9º da Lei nº 6.367/1976, <strong>somente é cumulável</strong> com aposentadoria por invalidez <strong>se</strong> os requisitos dessa aposentadoria tiverem sido preenchidos <strong>na vigência da Lei nº 8.213/1991 e antes de 11/11/1997</strong>, data em que entrou em vigor a MP nº 1.596-14/1997, posteriormente convertida na Lei nº 9.528/1997.<br><br>Assim, não basta que o auxílio-suplementar tenha sido concedido anteriormente ou que o segurado já estivesse em gozo de benefício acidentário. Se os pressupostos da aposentadoria por invalidez se completaram <strong>após 11/11/1997</strong>, a cumulação não é admitida. A tese, portanto, fixa um marco temporal objetivo ligado à implementação das condições do benefício previdenciário, e não apenas à existência pretérita do auxílio-suplementar.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. RE 687.813/RS, Rel. Min. Dias Toffoli, julgado em 17/02/2025 (Repercussão Geral – Tema 599) (Info 1165).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="em contratos de terceirização firmados pela administração pública, a condenação subsidiária do ente público pelo inadimplemento das verbas trabalhistas da prestadora de serviços não pode ser fundada apenas na inversão do ônus da prova em favor do empregado, sendo indispensável a demonstração, pela parte autora, de conduta negligente do poder público ou de nexo causal entre a omissão administrativa e o dano; nessa linha, a inércia estatal somente se caracteriza quando, após notificação formal idônea acerca do descumprimento das obrigações trabalhistas pela contratada, a administração permanece silente, sem prejuízo do dever de assegurar condições de segurança, higiene e salubridade quando o labor ocorrer em suas dependências ou em local previamente ajustado no contrato. a assertiva reproduz, em essência, a orientação fixada para a responsabilidade subsidiária da administração pública em contratos de terceirização. o ponto central do entendimento é que não basta presumir a culpa administrativa nem transferir automaticamente ao ente público o ônus de demonstrar a regular fiscalização. para haver condenação subsidiária, é imprescindível a prova, pelo trabalhador, de comportamento negligente do poder público ou de nexo causal entre a conduta comissiva/omissiva estatal e o inadimplemento trabalhista.
+
+o julgado também delimitou quando se pode reconhecer a negligência administrativa: a inércia após o recebimento de notificação formal idônea sobre o descumprimento das obrigações trabalhistas pela empresa contratada. essa notificação pode ser enviada pelo próprio trabalhador, sindicato, ministério do trabalho, ministério público, defensoria pública ou outro meio idôneo.
+
+além disso, a tese ressalva hipótese específica em que a administração assume dever direto de proteção: quando o trabalho é prestado em suas dependências ou em local previamente convencionado no contrato, cabe ao ente público garantir condições de segurança, higiene e salubridade, nos termos do art. 5º-a, § 3º, da lei nº 6.019/1974. assim, a assertiva está correta ao combinar a exigência de prova da culpa/negligência com essa obrigação específica de proteção do ambiente laboral. stf. plenário. re 1.298.647/sp, rel. min. nunes marques, julgado em 17/02/2025 (repercussão geral – tema 1.118) (info 1165).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 8</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-8">Não respondida</span>
+</div>
+
+<p class="enunciado">Em contratos de terceirização firmados pela Administração Pública, a condenação subsidiária do ente público pelo inadimplemento das verbas trabalhistas da prestadora de serviços não pode ser fundada apenas na inversão do ônus da prova em favor do empregado, sendo indispensável a demonstração, pela parte autora, de conduta negligente do Poder Público ou de nexo causal entre a omissão administrativa e o dano; nessa linha, a inércia estatal somente se caracteriza quando, após notificação formal idônea acerca do descumprimento das obrigações trabalhistas pela contratada, a Administração permanece silente, sem prejuízo do dever de assegurar condições de segurança, higiene e salubridade quando o labor ocorrer em suas dependências ou em local previamente ajustado no contrato.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(8, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(8, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-8">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva reproduz, em essência, a orientação fixada para a responsabilidade subsidiária da Administração Pública em contratos de terceirização. O ponto central do entendimento é que não basta presumir a culpa administrativa nem transferir automaticamente ao ente público o ônus de demonstrar a regular fiscalização. Para haver condenação subsidiária, é imprescindível a prova, pelo trabalhador, de comportamento negligente do Poder Público ou de nexo causal entre a conduta comissiva/omissiva estatal e o inadimplemento trabalhista.<br><br>O julgado também delimitou quando se pode reconhecer a negligência administrativa: a inércia após o recebimento de notificação formal idônea sobre o descumprimento das obrigações trabalhistas pela empresa contratada. Essa notificação pode ser enviada pelo próprio trabalhador, sindicato, Ministério do Trabalho, Ministério Público, Defensoria Pública ou outro meio idôneo.<br><br>Além disso, a tese ressalva hipótese específica em que a Administração assume dever direto de proteção: quando o trabalho é prestado em suas dependências ou em local previamente convencionado no contrato, cabe ao ente público garantir condições de segurança, higiene e salubridade, nos termos do art. 5º-A, § 3º, da Lei nº 6.019/1974. Assim, a assertiva está correta ao combinar a exigência de prova da culpa/negligência com essa obrigação específica de proteção do ambiente laboral.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. RE 1.298.647/SP, Rel. Min. Nunes Marques, julgado em 17/02/2025 (Repercussão Geral – Tema 1.118) (Info 1165).</p>
+</div>
+</section>
 
 </div>
 
 <script>
-const totalQuestoes = 8;
-let respostas = JSON.parse(localStorage.getItem(location.pathname + "_respostas") || "{}");
+const storageKey = location.pathname + "_respostas";
+let respostas = JSON.parse(localStorage.getItem(storageKey) || "{}");
 
-function atualizarPainel() {
-    const respondidas = Object.keys(respostas).length;
-    let acertos = 0;
-    let erros = 0;
-
-    for (const key in respostas) {
-        if (respostas[key].correto) acertos++;
-        else erros++;
-    }
-
-    document.getElementById("respondidas").textContent = respondidas;
-    document.getElementById("acertos").textContent = acertos;
-    document.getElementById("erros").textContent = erros;
+function destacar(t){
+ if(t==="CERTO") return '<span class="gabarito-certo">CERTO</span>';
+ if(t==="ERRADO") return '<span class="gabarito-errado">ERRADO</span>';
+ return t;
 }
 
-function responder(numero, resposta) {
-    const card = document.querySelectorAll(".questao")[numero - 1];
-    const gabarito = card.dataset.gabarito;
-    const correto = resposta === gabarito;
-
-    respostas[numero] = {
-        resposta,
-        correto
-    };
-
-    localStorage.setItem(location.pathname + "_respostas", JSON.stringify(respostas));
-
-    mostrarFeedback(numero);
-    atualizarPainel();
+function responder(numero, resposta){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const gabarito=card.dataset.gabarito;
+ const correto=resposta===gabarito;
+ respostas[numero]={resposta,correto};
+ localStorage.setItem(storageKey, JSON.stringify(respostas));
+ mostrarFeedback(numero);
+ atualizarPainel();
+ filtrar();
 }
 
-function mostrarFeedback(numero) {
-    const card = document.querySelectorAll(".questao")[numero - 1];
-    const feedback = document.getElementById("feedback-" + numero);
-    const status = document.getElementById("status-" + numero);
-    const resultado = feedback.querySelector(".resultado");
-
-    const dados = respostas[numero];
-
-    if (!dados) return;
-
-    feedback.style.display = "block";
-    feedback.classList.remove("correto", "errado");
-
-    if (dados.correto) {
-        feedback.classList.add("correto");
-        resultado.textContent = "Você acertou. A resposta é " + card.dataset.gabarito + ".";
-        status.textContent = "Respondida — acerto";
-        status.style.color = "var(--green)";
-    } else {
-        feedback.classList.add("errado");
-        resultado.textContent = "Você errou. O gabarito é " + card.dataset.gabarito + ".";
-        status.textContent = "Respondida — erro";
-        status.style.color = "var(--red)";
-    }
+function mostrarFeedback(numero){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const feedback=document.getElementById("feedback-"+numero);
+ const status=document.getElementById("status-"+numero);
+ const resultado=feedback.querySelector(".resultado");
+ const gabarito=card.dataset.gabarito;
+ const dados=respostas[numero];
+ if(!dados) return;
+ feedback.style.display="block";
+ feedback.classList.remove("correto","errado");
+ if(dados.correto){
+   feedback.classList.add("correto");
+   resultado.innerHTML="Você acertou. A resposta é "+destacar(gabarito)+".";
+   status.textContent="Respondida — acerto";
+   status.style.color="var(--green)";
+ } else {
+   feedback.classList.add("errado");
+   resultado.innerHTML="Você errou. O gabarito é "+destacar(gabarito)+".";
+   status.textContent="Respondida — erro";
+   status.style.color="var(--red)";
+ }
 }
 
-function restaurar() {
-    for (const key in respostas) {
-        mostrarFeedback(Number(key));
-    }
-    atualizarPainel();
+function atualizarPainel(){
+ let respondidas=0, acertos=0, erros=0;
+ for(const k in respostas){
+   respondidas++;
+   if(respostas[k].correto) acertos++; else erros++;
+ }
+ document.getElementById("respondidas").textContent=respondidas;
+ document.getElementById("acertos").textContent=acertos;
+ document.getElementById("erros").textContent=erros;
+ document.getElementById("visiveis").textContent=document.querySelectorAll(".questao:not(.oculta)").length;
 }
 
-function reiniciar() {
-    if (!confirm("Deseja reiniciar este simulado?")) return;
-    localStorage.removeItem(location.pathname + "_respostas");
-    location.reload();
+function filtrar(){
+ const busca=document.getElementById("busca").value.trim().toLowerCase();
+ const disciplina=document.getElementById("disciplina").value;
+ const statusFiltro=document.getElementById("statusFiltro").value;
+ const cards=Array.from(document.querySelectorAll(".questao"));
+ let vis=0;
+ cards.forEach((card,idx)=>{
+   const n=idx+1;
+   const texto=card.dataset.texto||"";
+   const disc=card.dataset.disciplina||"";
+   const r=respostas[n];
+   let passaStatus=true;
+   if(statusFiltro==="nao") passaStatus=!r;
+   if(statusFiltro==="acerto") passaStatus=r && r.correto;
+   if(statusFiltro==="erro") passaStatus=r && !r.correto;
+   const ok=(!busca||texto.includes(busca)) && (!disciplina||disc===disciplina) && passaStatus;
+   card.classList.toggle("oculta", !ok);
+   if(ok) vis++;
+ });
+ document.getElementById("sem-resultados").style.display=vis===0?"block":"none";
+ atualizarPainel();
+}
+
+function reiniciar(){
+ if(!confirm("Deseja reiniciar este simulado?")) return;
+ localStorage.removeItem(storageKey);
+ location.reload();
+}
+
+function restaurar(){
+ for(const k in respostas) mostrarFeedback(Number(k));
+ filtrar();
+ atualizarPainel();
 }
 
 restaurar();
 </script>
-
 </body>
 </html>

@@ -1,0 +1,301 @@
+{
+  "categoria": "INFORMATIVO",
+  "item": "Info 837 STJ",
+  "status_auditoria": "FALTA_GERAR_QUESTOES",
+  "fonte": "/Users/letrpires/Documents/SIMULADOS/projeto - cópia/pdfs/Info 837 STJ.pdf",
+  "esperado_auditoria": null,
+  "itens_extraidos": 11,
+  "questoes_geradas": 11,
+  "status_final": "OK_VALIDADO",
+  "observacao": "",
+  "logs_lotes": [
+    {
+      "lote": 1,
+      "ids_enviados": [
+        "BLOCO-0001"
+      ],
+      "ok": true,
+      "observacao": "OK",
+      "resposta": {
+        "questoes": [
+          {
+            "id": "BLOCO-0001",
+            "titulo_origem": "DIREITO ADMINISTRATIVO",
+            "questao": "A desapropriação para comunidades quilombolas tem caráter exclusivamente econômico, visando apenas a compensação financeira pelo imóvel desapropriado.",
+            "gabarito": "ERRADO",
+            "justificativa": "A desapropriação para comunidades quilombolas possui caráter reparatório e de promoção social, não se limitando a uma mera compensação econômica, mas buscando reparar injustiças históricas e garantir direitos territoriais a essas comunidades."
+          }
+        ]
+      }
+    },
+    {
+      "lote": 2,
+      "ids_enviados": [
+        "BLOCO-0002"
+      ],
+      "ok": true,
+      "observacao": "OK",
+      "resposta": {
+        "questoes": [
+          {
+            "id": "BLOCO-0002",
+            "titulo_origem": "direitos fundamentais, não se aplicando a esse procedimento os prazos de caducidade das",
+            "questao": "No procedimento especial de titulação de terras quilombolas, o prazo decadencial de dois anos para ajuizamento da ação de desapropriação por interesse social previsto na Lei nº 4.132/1962 é plenamente aplicável, devendo ser rigorosamente observado para a validade do ato expropriatório.",
+            "gabarito": "ERRADO",
+            "justificativa": "O Superior Tribunal de Justiça entende que o prazo decadencial de dois anos previsto na Lei nº 4.132/1962 não se aplica às desapropriações para titulação de terras quilombolas, pois estas têm natureza reparatória e visam a promoção de direitos humanos fundamentais. Assim, o instituto da decadência é incompatível com esse procedimento especial, não podendo ser utilizado para invalidar a desapropriação quilombola, mesmo que o ajuizamento da ação ocorra após o prazo previsto para desapropriações comuns."
+          }
+        ]
+      }
+    },
+    {
+      "lote": 3,
+      "ids_enviados": [
+        "BLOCO-0003"
+      ],
+      "ok": true,
+      "observacao": "OK",
+      "resposta": {
+        "questoes": [
+          {
+            "id": "BLOCO-0003",
+            "titulo_origem": "DIREITO CIVIL",
+            "questao": "Em ação de alimentos proposta em favor de pessoa com deficiência, o autor pode desistir da ação antes da contestação, mesmo que isso prejudique os interesses do beneficiário, pois o artigo 485, §4º do CPC assegura a desistência unilateral antes da contestação.",
+            "gabarito": "ERRADO",
+            "justificativa": "Embora o artigo 485, §4º do CPC permita a desistência da ação antes da contestação sem anuência da parte contrária, esse direito não é absoluto em ações de alimentos em favor de pessoa com deficiência. O direito processual de desistir da ação não pode se sobrepor aos interesses do beneficiário, protegidos pelo Estatuto da Pessoa com Deficiência, especialmente quando a desistência é utilizada de má-fé para prejudicar o beneficiário. Portanto, a desistência pode ser indeferida para resguardar os direitos da pessoa com deficiência."
+          }
+        ]
+      }
+    },
+    {
+      "lote": 4,
+      "ids_enviados": [
+        "BLOCO-0004"
+      ],
+      "ok": true,
+      "observacao": "OK",
+      "resposta": {
+        "questoes": [
+          {
+            "id": "BLOCO-0004",
+            "titulo_origem": "direito da demandada pela busca de uma decisão de mérito, ainda que o pedido tenha sido",
+            "questao": "É correto afirmar que a parte demandada possui direito à busca de uma decisão de mérito mesmo que o pedido tenha sido formulado antes da apresentação da contestação, especialmente quando a homologação da decisão possa prejudicar os interesses de pessoa com deficiência, como no caso de síndrome de Down.",
+            "gabarito": "CERTO",
+            "justificativa": "O entendimento firmado reconhece que a parte demandada pode requerer a decisão de mérito independentemente do momento em que o pedido foi apresentado, inclusive antes da contestação, para resguardar interesses de pessoas com deficiência, evitando que a homologação de decisões prejudique tais interesses, garantindo assim a efetividade da tutela jurisdicional e proteção adequada a direitos fundamentais."
+          }
+        ]
+      }
+    },
+    {
+      "lote": 5,
+      "ids_enviados": [
+        "BLOCO-0005"
+      ],
+      "ok": true,
+      "observacao": "OK",
+      "resposta": {
+        "questoes": [
+          {
+            "id": "BLOCO-0005",
+            "titulo_origem": "DIREITO DO CONSUMIDOR",
+            "questao": "A notificação prévia do consumidor acerca da inscrição de seu nome em cadastro de inadimplentes pode ser realizada exclusivamente por meio eletrônico, como e-mail, SMS ou aplicativo WhatsApp, desde que comprovados o envio e o recebimento da comunicação nos contatos fornecidos pelo consumidor ao credor.",
+            "gabarito": "CERTO",
+            "justificativa": "O entendimento do Superior Tribunal de Justiça reconhece a validade da notificação por meio eletrônico para fins do art. 43, § 2º, do Código de Defesa do Consumidor, desde que haja comprovação do envio e do recebimento da mensagem nos contatos indicados pelo consumidor. Tal posicionamento acompanha a evolução tecnológica e a adoção de meios eletrônicos para atos processuais, inclusive no processo penal, afastando a vedação anterior à utilização exclusiva desses meios."
+          }
+        ]
+      }
+    },
+    {
+      "lote": 6,
+      "ids_enviados": [
+        "BLOCO-0006"
+      ],
+      "ok": true,
+      "observacao": "OK",
+      "resposta": {
+        "questoes": [
+          {
+            "id": "BLOCO-0006",
+            "titulo_origem": "DIREITO EMPRESARIAL",
+            "questao": "Em caso de falência de corretora de valores mobiliários, os valores custodiados em nome do investidor integram o patrimônio da corretora e, portanto, não podem ser objeto de pedido de restituição pelo investidor.",
+            "gabarito": "ERRADO",
+            "justificativa": "Os valores custodiados por corretoras de valores mobiliários não integram o patrimônio da corretora, pois estas apenas executam ordens em nome do cliente sem deter disponibilidade sobre os valores. Assim, nos casos de falência, é possível a restituição desses valores ao investidor, conforme previsto na Súmula nº 417/STF e no art. 85 da Lei nº 11.101/2005."
+          }
+        ]
+      }
+    },
+    {
+      "lote": 7,
+      "ids_enviados": [
+        "BLOCO-0007"
+      ],
+      "ok": true,
+      "observacao": "OK",
+      "resposta": {
+        "questoes": [
+          {
+            "id": "BLOCO-0007",
+            "titulo_origem": "DIREITO PROCESSUAL CIVIL",
+            "questao": "No caso de falecimento de servidor público federal que pleiteava diferenças salariais, o dependente habilitado à pensão por morte possui direito exclusivo de receber os valores atrasados, independentemente da existência de inventário em curso.",
+            "gabarito": "ERRADO",
+            "justificativa": "O Superior Tribunal de Justiça firmou entendimento de que, havendo inventário, a sucessão processual deve observar os arts. 110 e 778, § 1º, II, do CPC/2015, não havendo previsão legal que autorize o dependente habilitado à pensão por morte a suceder com exclusividade o servidor público falecido para recebimento de valores atrasados. A habilitação deve ser feita pelo espólio, representado pelo inventariante."
+          }
+        ]
+      }
+    },
+    {
+      "lote": 8,
+      "ids_enviados": [
+        "BLOCO-0008"
+      ],
+      "ok": true,
+      "observacao": "OK",
+      "resposta": {
+        "questoes": [
+          {
+            "id": "BLOCO-0008",
+            "titulo_origem": "PROCESSO COLETIVO",
+            "questao": "Em ações judiciais que tratam da reposição de perdas inflacionárias em cadernetas de poupança, o termo final para a incidência dos juros remuneratórios sobre a parcela recomposta é a data da citação na ação civil pública que originou o cumprimento de sentença, independentemente de a conta poupança ter sido encerrada ou zerada anteriormente.",
+            "gabarito": "ERRADO",
+            "justificativa": "O entendimento é que o termo final da incidência dos juros remuneratórios é a data de encerramento da conta poupança ou aquela em que a conta passa a ter saldo zero, o que ocorrer primeiro, desde que expressamente previsto na sentença coletiva. Caso o banco depositário não comprove essas datas, somente então se adota como termo final a data da citação na ação civil pública. Portanto, a data da citação não é automaticamente o termo final, mas sim uma medida subsidiária na ausência de comprovação pelo banco."
+          }
+        ]
+      }
+    },
+    {
+      "lote": 9,
+      "ids_enviados": [
+        "BLOCO-0009"
+      ],
+      "ok": true,
+      "observacao": "OK",
+      "resposta": {
+        "questoes": [
+          {
+            "id": "BLOCO-0009",
+            "titulo_origem": "DIREITO PENAL",
+            "questao": "No crime de estupro de vulnerável, a tentativa é inadmissível, pois qualquer ato libidinoso contra a vítima menor de 14 anos já configura a consumação do delito, independentemente da interrupção ou superficialidade da conduta.",
+            "gabarito": "CERTO",
+            "justificativa": "O crime de estupro de vulnerável se consuma a partir de qualquer ato libidinoso contra a vítima menor de 14 anos, não sendo possível a modalidade tentada, pois o bem jurídico protegido, a dignidade e liberdade sexual da vítima, já está violado com o primeiro contato libidinoso, mesmo que a conduta seja interrompida ou superficial."
+          }
+        ]
+      }
+    },
+    {
+      "lote": 10,
+      "ids_enviados": [
+        "BLOCO-0010"
+      ],
+      "ok": true,
+      "observacao": "OK",
+      "resposta": {
+        "questoes": [
+          {
+            "id": "BLOCO-0010",
+            "titulo_origem": "DIREITO PROCESSUAL PENAL",
+            "questao": "Em razão da Lei nº 13.964/2019, o juiz não pode, de ofício, decretar ou converter prisão em flagrante em prisão preventiva.",
+            "gabarito": "CERTO",
+            "justificativa": "A Súmula 676 do STJ estabelece que, após a vigência da Lei nº 13.964/2019, não é mais possível ao juiz, de ofício, decretar ou converter prisão em flagrante em prisão preventiva, restringindo essa atuação judicial para garantir o devido processo legal."
+          }
+        ]
+      }
+    },
+    {
+      "lote": 11,
+      "ids_enviados": [
+        "BLOCO-0011"
+      ],
+      "ok": true,
+      "observacao": "OK",
+      "resposta": {
+        "questoes": [
+          {
+            "id": "BLOCO-0011",
+            "titulo_origem": "DIREITO TRIBUTÁRIO",
+            "questao": "A inclusão do PIS e da COFINS na base de cálculo do ICMS é legítima, pois tais contribuições representam repasse econômico e não incidem diretamente sobre o valor final cobrado do consumidor, diferentemente do ICMS e do IPI.",
+            "gabarito": "CERTO",
+            "justificativa": "O entendimento firmado pela 1ª Seção do STJ no julgamento dos Recursos Repetitivos (Tema 1.223) reconhece que o PIS e a COFINS configuram repasse econômico, justificando sua inclusão na base de cálculo do ICMS quando esta é calculada sobre o valor da operação. Isso decorre da distinção entre tributos que incidem diretamente sobre o consumidor e aqueles que representam custos incorporados ao preço, legitimando a inclusão para fins de cálculo do ICMS."
+          }
+        ]
+      }
+    }
+  ],
+  "questoes": [
+    {
+      "id": "BLOCO-0001",
+      "titulo_origem": "DIREITO ADMINISTRATIVO",
+      "questao": "A desapropriação para comunidades quilombolas tem caráter exclusivamente econômico, visando apenas a compensação financeira pelo imóvel desapropriado.",
+      "gabarito": "ERRADO",
+      "justificativa": "A desapropriação para comunidades quilombolas possui caráter reparatório e de promoção social, não se limitando a uma mera compensação econômica, mas buscando reparar injustiças históricas e garantir direitos territoriais a essas comunidades."
+    },
+    {
+      "id": "BLOCO-0002",
+      "titulo_origem": "direitos fundamentais, não se aplicando a esse procedimento os prazos de caducidade das",
+      "questao": "No procedimento especial de titulação de terras quilombolas, o prazo decadencial de dois anos para ajuizamento da ação de desapropriação por interesse social previsto na Lei nº 4.132/1962 é plenamente aplicável, devendo ser rigorosamente observado para a validade do ato expropriatório.",
+      "gabarito": "ERRADO",
+      "justificativa": "O Superior Tribunal de Justiça entende que o prazo decadencial de dois anos previsto na Lei nº 4.132/1962 não se aplica às desapropriações para titulação de terras quilombolas, pois estas têm natureza reparatória e visam a promoção de direitos humanos fundamentais. Assim, o instituto da decadência é incompatível com esse procedimento especial, não podendo ser utilizado para invalidar a desapropriação quilombola, mesmo que o ajuizamento da ação ocorra após o prazo previsto para desapropriações comuns."
+    },
+    {
+      "id": "BLOCO-0003",
+      "titulo_origem": "DIREITO CIVIL",
+      "questao": "Em ação de alimentos proposta em favor de pessoa com deficiência, o autor pode desistir da ação antes da contestação, mesmo que isso prejudique os interesses do beneficiário, pois o artigo 485, §4º do CPC assegura a desistência unilateral antes da contestação.",
+      "gabarito": "ERRADO",
+      "justificativa": "Embora o artigo 485, §4º do CPC permita a desistência da ação antes da contestação sem anuência da parte contrária, esse direito não é absoluto em ações de alimentos em favor de pessoa com deficiência. O direito processual de desistir da ação não pode se sobrepor aos interesses do beneficiário, protegidos pelo Estatuto da Pessoa com Deficiência, especialmente quando a desistência é utilizada de má-fé para prejudicar o beneficiário. Portanto, a desistência pode ser indeferida para resguardar os direitos da pessoa com deficiência."
+    },
+    {
+      "id": "BLOCO-0004",
+      "titulo_origem": "direito da demandada pela busca de uma decisão de mérito, ainda que o pedido tenha sido",
+      "questao": "É correto afirmar que a parte demandada possui direito à busca de uma decisão de mérito mesmo que o pedido tenha sido formulado antes da apresentação da contestação, especialmente quando a homologação da decisão possa prejudicar os interesses de pessoa com deficiência, como no caso de síndrome de Down.",
+      "gabarito": "CERTO",
+      "justificativa": "O entendimento firmado reconhece que a parte demandada pode requerer a decisão de mérito independentemente do momento em que o pedido foi apresentado, inclusive antes da contestação, para resguardar interesses de pessoas com deficiência, evitando que a homologação de decisões prejudique tais interesses, garantindo assim a efetividade da tutela jurisdicional e proteção adequada a direitos fundamentais."
+    },
+    {
+      "id": "BLOCO-0005",
+      "titulo_origem": "DIREITO DO CONSUMIDOR",
+      "questao": "A notificação prévia do consumidor acerca da inscrição de seu nome em cadastro de inadimplentes pode ser realizada exclusivamente por meio eletrônico, como e-mail, SMS ou aplicativo WhatsApp, desde que comprovados o envio e o recebimento da comunicação nos contatos fornecidos pelo consumidor ao credor.",
+      "gabarito": "CERTO",
+      "justificativa": "O entendimento do Superior Tribunal de Justiça reconhece a validade da notificação por meio eletrônico para fins do art. 43, § 2º, do Código de Defesa do Consumidor, desde que haja comprovação do envio e do recebimento da mensagem nos contatos indicados pelo consumidor. Tal posicionamento acompanha a evolução tecnológica e a adoção de meios eletrônicos para atos processuais, inclusive no processo penal, afastando a vedação anterior à utilização exclusiva desses meios."
+    },
+    {
+      "id": "BLOCO-0006",
+      "titulo_origem": "DIREITO EMPRESARIAL",
+      "questao": "Em caso de falência de corretora de valores mobiliários, os valores custodiados em nome do investidor integram o patrimônio da corretora e, portanto, não podem ser objeto de pedido de restituição pelo investidor.",
+      "gabarito": "ERRADO",
+      "justificativa": "Os valores custodiados por corretoras de valores mobiliários não integram o patrimônio da corretora, pois estas apenas executam ordens em nome do cliente sem deter disponibilidade sobre os valores. Assim, nos casos de falência, é possível a restituição desses valores ao investidor, conforme previsto na Súmula nº 417/STF e no art. 85 da Lei nº 11.101/2005."
+    },
+    {
+      "id": "BLOCO-0007",
+      "titulo_origem": "DIREITO PROCESSUAL CIVIL",
+      "questao": "No caso de falecimento de servidor público federal que pleiteava diferenças salariais, o dependente habilitado à pensão por morte possui direito exclusivo de receber os valores atrasados, independentemente da existência de inventário em curso.",
+      "gabarito": "ERRADO",
+      "justificativa": "O Superior Tribunal de Justiça firmou entendimento de que, havendo inventário, a sucessão processual deve observar os arts. 110 e 778, § 1º, II, do CPC/2015, não havendo previsão legal que autorize o dependente habilitado à pensão por morte a suceder com exclusividade o servidor público falecido para recebimento de valores atrasados. A habilitação deve ser feita pelo espólio, representado pelo inventariante."
+    },
+    {
+      "id": "BLOCO-0008",
+      "titulo_origem": "PROCESSO COLETIVO",
+      "questao": "Em ações judiciais que tratam da reposição de perdas inflacionárias em cadernetas de poupança, o termo final para a incidência dos juros remuneratórios sobre a parcela recomposta é a data da citação na ação civil pública que originou o cumprimento de sentença, independentemente de a conta poupança ter sido encerrada ou zerada anteriormente.",
+      "gabarito": "ERRADO",
+      "justificativa": "O entendimento é que o termo final da incidência dos juros remuneratórios é a data de encerramento da conta poupança ou aquela em que a conta passa a ter saldo zero, o que ocorrer primeiro, desde que expressamente previsto na sentença coletiva. Caso o banco depositário não comprove essas datas, somente então se adota como termo final a data da citação na ação civil pública. Portanto, a data da citação não é automaticamente o termo final, mas sim uma medida subsidiária na ausência de comprovação pelo banco."
+    },
+    {
+      "id": "BLOCO-0009",
+      "titulo_origem": "DIREITO PENAL",
+      "questao": "No crime de estupro de vulnerável, a tentativa é inadmissível, pois qualquer ato libidinoso contra a vítima menor de 14 anos já configura a consumação do delito, independentemente da interrupção ou superficialidade da conduta.",
+      "gabarito": "CERTO",
+      "justificativa": "O crime de estupro de vulnerável se consuma a partir de qualquer ato libidinoso contra a vítima menor de 14 anos, não sendo possível a modalidade tentada, pois o bem jurídico protegido, a dignidade e liberdade sexual da vítima, já está violado com o primeiro contato libidinoso, mesmo que a conduta seja interrompida ou superficial."
+    },
+    {
+      "id": "BLOCO-0010",
+      "titulo_origem": "DIREITO PROCESSUAL PENAL",
+      "questao": "Em razão da Lei nº 13.964/2019, o juiz não pode, de ofício, decretar ou converter prisão em flagrante em prisão preventiva.",
+      "gabarito": "CERTO",
+      "justificativa": "A Súmula 676 do STJ estabelece que, após a vigência da Lei nº 13.964/2019, não é mais possível ao juiz, de ofício, decretar ou converter prisão em flagrante em prisão preventiva, restringindo essa atuação judicial para garantir o devido processo legal."
+    },
+    {
+      "id": "BLOCO-0011",
+      "titulo_origem": "DIREITO TRIBUTÁRIO",
+      "questao": "A inclusão do PIS e da COFINS na base de cálculo do ICMS é legítima, pois tais contribuições representam repasse econômico e não incidem diretamente sobre o valor final cobrado do consumidor, diferentemente do ICMS e do IPI.",
+      "gabarito": "CERTO",
+      "justificativa": "O entendimento firmado pela 1ª Seção do STJ no julgamento dos Recursos Repetitivos (Tema 1.223) reconhece que o PIS e a COFINS configuram repasse econômico, justificando sua inclusão na base de cálculo do ICMS quando esta é calculada sobre o valor da operação. Isso decorre da distinção entre tributos que incidem diretamente sobre o consumidor e aqueles que representam custos incorporados ao preço, legitimando a inclusão para fins de cálculo do ICMS."
+    }
+  ]
+}

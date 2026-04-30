@@ -1,0 +1,295 @@
+ 
+Informativo 1184-STF (04/08/2025) – Márcio André Lopes Cavalcante   |  1 
+ 
+Informativo comentado: 
+ 
+Informativo 1184-STF (RESUMIDO) 
+Márcio André Lopes Cavalcante 
+ 
+ 
+ 
+DIREITO CONSTITUCIONAL 
+ 
+TRIBUNAL DE CONTAS 
+Os Tribunais de Contas estaduais podem adotar procedimentos de análise prévia de seletividade 
+para otimizar sua atuação fiscalizatória, priorizando denúncias com maior materialidade, 
+relevância e impacto 
+ 
+ODS 16 
+É constitucional a previsão regimental que submete denúncias ao Tribunal de Contas a uma 
+análise prévia de seletividade por unidade técnica, com base em critérios como risco, 
+relevância e materialidade, desde que tal análise não substitua a decisão final, que deve ser 
+tomada por conselheiros do Tribunal. 
+Essa análise prévia visa otimizar recursos, selecionar denúncias mais relevantes e alinhar a 
+atuação do controle externo ao princípio da eficiência, não caracterizando renúncia de 
+competência fiscalizatória. 
+As normas impugnadas guardam simetria com os procedimentos adotados pelo Tribunal de 
+Contas da União, sendo legítima sua previsão no regimento interno do TCE-ES. 
+STF. Plenário. ADI 7.459/ES, Rel. Min. Dias Toffoli, julgado em 01/07/2025 (Info 1184). 
+ 
+ 
+DIREITO ADMINISTRATIVO 
+ 
+TEMAS DIVERSOS 
+Não é devido o pagamento de diferenças de correção monetária relativas a depósitos em 
+cadernetas de poupança bloqueados pelo Banco Central no contexto do Plano Collor I, pois 
+esses valores não integram o acordo coletivo homologado pelo STF na ADPF 165 
+ 
+ODS 16 
+1. Considerando que o STF declarou a constitucionalidade do Plano Collor I na ADPF 165, o 
+direito a diferenças de correção monetária de depósitos em cadernetas de poupança, por 
+alegados expurgos inflacionários decorrentes de referido plano, dependerá de adesão ao 
+acordo coletivo e seus aditamentos, homologados no âmbito da ADPF 165, no prazo de 24 
+meses da publicação da ata de julgamento da referida ação.  
+2. Com o objetivo de resguardar a segurança jurídica, não caberá ação rescisória ou arguição 
+de inexigibilidade do título com base na constitucionalidade dos planos econômicos de 
+processos já transitados em julgado. 
+STF. Plenário. RE 631.363/SP, Rel. Min. Gilmar Mendes, julgado em 01/07/2025 (Repercussão Geral 
+– Tema 284) (Info 1184). 
+ 
+
+                                                          Informativo                       
+comentado 
+ 
+ 
+ 
+ 
+Informativo 1184-STF (04/08/2025) – Márcio André Lopes Cavalcante   |  2 
+ 
+DIREITO CIVIL 
+ 
+MARCO CIVIL DA INTERNET 
+Responsabilidade dos provedores de aplicações de internet  
+por danos decorrentes de conteúdo gerado por terceiros 
+ 
+Importante!!! 
+ 
+ODS 16 
+Reconhecimento da inconstitucionalidade parcial e progressiva do art. 19 do MCI:  
+1. O art. 19 da Lei nº 12.965/2014 (Marco Civil da Internet), que exige ordem judicial específica 
+para a responsabilização civil de provedor de aplicações de internet por danos decorrentes de 
+conteúdo gerado por terceiros, é parcialmente inconstitucional. Há um estado de omissão 
+parcial que decorre do fato de que a regra geral do art. 19 não confere proteção suficiente a 
+bens jurídicos constitucionais de alta relevância (proteção de direitos fundamentais e da 
+democracia).  
+Interpretação do art. 19 do MCI:  
+2. Enquanto não sobrevier nova legislação, o art. 19 do MCI deve ser interpretado de forma 
+que os provedores de aplicação de internet estão sujeitos à responsabilização civil, ressalvada 
+a aplicação das disposições específicas da legislação eleitoral e os atos normativos expedidos 
+pelo TSE.  
+3. O provedor de aplicações de internet será responsabilizado civilmente, nos termos do art. 
+21 do MCI, pelos danos decorrentes de conteúdos gerados por terceiros em casos de crime ou 
+atos ilícitos, sem prejuízo do dever de remoção do conteúdo. Aplica-se a mesma regra nos 
+casos de contas denunciadas como inautênticas.  
+3.1. Nas hipóteses de crime contra a honra aplica-se o art. 19 do MCI, sem prejuízo da 
+possibilidade de remoção por notificação extrajudicial.  
+3.2. Em se tratando de sucessivas replicações do fato ofensivo já reconhecido por decisão 
+judicial, todos os provedores de redes sociais deverão remover as publicações com idênticos 
+conteúdos, independentemente de novas decisões judiciais, a partir de notificação judicial ou 
+extrajudicial.  
+ 
+Presunção de responsabilidade:  
+4. Fica estabelecida a presunção de responsabilidade dos provedores em caso de conteúdos 
+ilícitos quando se tratar de (a) anúncios e impulsionamentos pagos; ou (b) rede artificial de 
+distribuição (chatbot ou robôs). Nestas hipóteses, a responsabilização poderá se dar 
+independentemente de notificação. Os provedores ficarão excluídos de responsabilidade se 
+comprovarem que atuaram diligentemente e em tempo razoável para tornar indisponível o 
+conteúdo.  
+ 
+Dever de cuidado em caso de circulação massiva de conteúdos ilícitos graves:  
+5. O provedor de aplicações de internet é responsável quando não promover a 
+indisponibilização imediata de conteúdos que configurem as práticas de crimes graves 
+previstas no seguinte rol taxativo:  
+(a) condutas e atos antidemocráticos que se amoldem aos tipos previstos nos artigos 286, 
+parágrafo único, 359-L, 359-M, 359-N, 359-P e 359-R do Código Penal;  
+(b) crimes de terrorismo ou preparatórios de terrorismo, tipificados pela Lei nº 13.260/2016;  
+
+                                                          Informativo                       
+comentado 
+ 
+ 
+ 
+ 
+Informativo 1184-STF (04/08/2025) – Márcio André Lopes Cavalcante   |  3 
+(c) crimes de induzimento, instigação ou auxílio a suicídio ou a automutilação, nos termos do 
+art. 122 do Código Penal;  
+(d) incitação à discriminação em razão de raça, cor, etnia, religião, procedência nacional, 
+sexualidade ou identidade de gênero (condutas homofóbicas e transfóbicas), passível de 
+enquadramento nos arts. 20, 20-A, 20-B e 20-C da Lei nº 7.716, de 1989;  
+(e) crimes praticados contra a mulher em razão da condição do sexo feminino, inclusive 
+conteúdos que propagam ódio às mulheres (Lei nº 11.340/06; Lei nº 10.446/02; Lei nº 
+14.192/21; CP, art. 141, § 3º; art. 146-A; art. 147, § 1º; art. 147-A; e art. 147-B do CP);  
+(f) crimes sexuais contra pessoas vulneráveis, pornografia infantil e crimes graves contra 
+crianças e adolescentes, nos termos dos arts. 217-A, 218, 218-A, 218-B, 218-C, do Código Penal 
+e dos arts. 240, 241-A, 241-C, 241-D do Estatuto da Criança e do Adolescente;  
+g) tráfico de pessoas (CP, art. 149-A).   
+5.1 A responsabilidade dos provedores de aplicações de internet prevista neste item diz 
+respeito à configuração de falha sistêmica.  
+5.2 Considera-se falha sistêmica, imputável ao provedor de aplicações de internet, deixar de 
+adotar adequadas medidas de prevenção ou remoção dos conteúdos ilícitos anteriormente 
+listados, configurando violação ao dever de atuar de forma responsável, transparente e 
+cautelosa.  
+5.3. Consideram-se adequadas as medidas que, conforme o estado da técnica, forneçam os 
+níveis mais elevados de segurança para o tipo de atividade desempenhada pelo provedor.  
+5.4. A existência de conteúdo ilícito de forma isolada, atomizada, não é, por si só, suficiente 
+para ensejar a aplicação da responsabilidade civil do presente item. Contudo, nesta hipótese, 
+incidirá o regime de responsabilidade previsto no art. 21 do MCI.  
+5.5. Nas hipóteses previstas neste item, o responsável pela publicação do conteúdo removido 
+pelo provedor de aplicações de internet poderá requerer judicialmente o seu 
+restabelecimento, mediante demonstração da ausência de ilicitude. Ainda que o conteúdo seja 
+restaurado por ordem judicial, não haverá imposição de indenização ao provedor.  
+ 
+Incidência do art. 19:  
+6. Aplica-se o art. 19 do MCI ao (a) provedor de serviços de e-mail; (b) provedor de aplicações 
+cuja finalidade primordial seja a realização de reuniões fechadas por vídeo ou voz; (c) 
+provedor de serviços de mensageria instantânea (também chamadas de provedores de 
+serviços de mensageria privada), exclusivamente no que diz respeito às comunicações 
+interpessoais, resguardadas pelo sigilo das comunicações (art. 5º, inciso XII, da CF/88).  
+ 
+Marketplaces:  
+7. Os provedores de aplicações de internet que funcionarem como marketplaces respondem 
+civilmente de acordo com o Código de Defesa do Consumidor (Lei nº 8.078/90). 
+ 
+Deveres adicionais:  
+8. Os provedores de aplicações de internet deverão editar autorregulação que abranja, 
+necessariamente, sistema de notificações, devido processo e relatórios anuais de 
+transparência em relação a notificações extrajudiciais, anúncios e impulsionamentos.  
+9. Deverão, igualmente, disponibilizar a usuários e a não usuários canais específicos de 
+atendimento, preferencialmente eletrônicos, que sejam acessíveis e amplamente divulgados 
+nas respectivas plataformas de maneira permanente.  
+
+                                                          Informativo                       
+comentado 
+ 
+ 
+ 
+ 
+Informativo 1184-STF (04/08/2025) – Márcio André Lopes Cavalcante   |  4 
+10. Tais regras deverão ser publicadas e revisadas periodicamente, de forma transparente e 
+acessível ao público.  
+11. Os provedores de aplicações de internet com atuação no Brasil devem constituir e manter 
+sede e representante no país, cuja identificação e informações para contato deverão ser 
+disponibilizadas e estar facilmente acessíveis nos respectivos sítios. Essa representação deve 
+conferir ao representante, necessariamente pessoa jurídica com sede no país, plenos poderes 
+para (a) responder perante as esferas administrativa e judicial; (b) prestar às autoridades 
+competentes informações relativas ao funcionamento do provedor, às regras e aos 
+procedimentos utilizados para moderação de conteúdo e para gestão das reclamações pelos 
+sistemas internos; aos relatórios de transparência, monitoramento e gestão dos riscos 
+sistêmicos; às regras para o perfilamento de usuários (quando for o caso), a veiculação de 
+publicidade e o impulsionamento remunerado de conteúdos; (c) cumprir as determinações 
+judiciais; e (d) responder e cumprir eventuais penalizações, multas e afetações financeiras em 
+que o representado incorrer, especialmente por descumprimento de obrigações legais e 
+judiciais.  
+ 
+Natureza da responsabilidade:  
+12. Não haverá responsabilidade objetiva na aplicação da tese aqui enunciada.  
+ 
+Apelo ao legislador:  
+13. Apela-se ao Congresso Nacional para que seja elaborada legislação capaz de sanar as 
+deficiências do atual regime quanto à proteção de direitos fundamentais.  
+ 
+Modulação dos efeitos temporais:  
+14. Para preservar a segurança jurídica, ficam modulados os efeitos da presente decisão, que 
+somente se aplicará prospectivamente, ressalvadas decisões transitadas em julgado. 
+STF. Plenário. RE 1.057.258/MG, Rel. Min. Luiz Fux, julgado em 27/06/2025 (Repercussão Geral – 
+Tema 533) (Info 1184). 
+STF. Plenário. RE 1.037.396/SP, Rel. Min. Dias Toffoli, julgado em 27/06/2025 (Repercussão Geral – 
+Tema 987) (Info 1184). 
+ 
+ 
+ALIENAÇÃO FIDUCIÁRIA DE BENS MÓVEIS 
+São constitucionais os arts. 8º-B ao 8º-E do DL 911/1969, incluídos pela Lei 14.711/2023; na 
+busca e apreensão extrajudicial prevista no art. 8º-C devem ser adotadas as devidas cautelas 
+para evitar graves violações aos direitos fundamentais do devedor 
+ 
+Importante!!!  
+ODS 16 
+1. São constitucionais os procedimentos extrajudiciais instituídos pela Lei nº 14.711/23 de 
+consolidação da propriedade em contratos de alienação fiduciária de bens móveis, de 
+execução dos créditos garantidos por hipoteca e de execução da garantia imobiliária em 
+concurso de credores.  
+2. Nas diligências para a localização do bem móvel dado em garantia em alienação fiduciária e 
+em sua apreensão, previstas nos §§ 4º, 5º e 7º do art. 8º-C do Decreto-Lei nº 911/69 (redação 
+da Lei nº 14.711/23), devem ser assegurados os direitos à vida privada, à honra e à imagem 
+do devedor; a inviolabilidade do sigilo de dados; a vedação ao uso privado da violência; a 
+inviolabilidade do domicílio; a dignidade da pessoa humana e a autonomia da vontade. 
+
+                                                          Informativo                       
+comentado 
+ 
+ 
+ 
+ 
+Informativo 1184-STF (04/08/2025) – Márcio André Lopes Cavalcante   |  5 
+STF. Plenário. ADI 7.601/DF, ADI 7.608/DF, ADI 7.600/DF, Rel. Min. Dias Toffoli, julgado em 
+01/07/2025 (Info 1184). 
+ 
+ 
+DIREITO PROCESSUAL PENAL 
+ 
+PROVAS 
+A apreensão de celular não exige ordem judicial, mas o acesso aos seus dados depende: (i) em 
+caso de encontro fortuito, pode ser feito sem consentimento ou decisão judicial, desde que 
+justificado depois; (ii) se apreendido nos termos do art. 6º do CPP ou em flagrante, exige 
+consentimento expresso do titular ou prévia decisão judicial 
+ 
+Importante!!! 
+ 
+ODS 16 
+1. A mera apreensão do aparelho celular, nos termos do art. 6º do CPP ou em flagrante delito, 
+não está sujeita à reserva de jurisdição. Contudo, o acesso aos dados nele contidos deve 
+observar as seguintes condicionantes:  
+1.1 Nas hipóteses de encontro fortuito de aparelho celular, o acesso aos respectivos dados 
+para o fim exclusivo de esclarecer a autoria do fato supostamente criminoso, ou de quem seja 
+o seu proprietário, não depende de consentimento ou de prévia decisão judicial, desde que 
+justificada posteriormente a adoção da medida.  
+1.2. Em se tratando de aparelho celular apreendido na forma do art. 6º do CPP ou por ocasião 
+da prisão em flagrante, o acesso aos respectivos dados será condicionado ao consentimento 
+expresso e livre do titular dos dados ou de prévia decisão judicial (art. 7º, III, CF/88 e art. 10, 
+§ 2º, da Lei nº 12.965/2014) que justifique, com base em elementos concretos, a 
+proporcionalidade da medida e delimite sua abrangência à luz de direitos fundamentais à 
+intimidade, à privacidade, à proteção dos dados pessoais e à autodeterminação informacional, 
+inclusive nos meios digitais (art. 5º, X e LXXIX, CF/88). Nesses casos, a celeridade se impõe, 
+devendo a autoridade policial atuar com a maior rapidez e eficiência possíveis e o Poder 
+Judiciário conferir tramitação e apreciação prioritárias aos pedidos dessa natureza, inclusive 
+em regime de plantão.  
+2. A autoridade policial poderá adotar as providências necessárias para a preservação dos 
+dados e metadados contidos no aparelho celular apreendido, antes da autorização judicial, 
+justificando, posteriormente, as razões de referido acesso.  
+3. As teses acima enunciadas só produzirão efeitos prospectivos, ressalvados os pedidos 
+eventualmente formulados por defesas até a data do encerramento do presente julgamento. 
+STF. ARE 1.042.075/RJ, Rel. Min. Dias Toffoli, julgado em 25/06/2025 (Repercussão Geral – Tema 
+977) (Info 1184). 
+ 
+ 
+DIREITO TRIBUTÁRIO 
+ 
+TAXAS 
+Estados não podem cobrar taxas por serviços gerais de segurança pública, mas podem cobrar 
+por serviços específicos e divisíveis prestados em eventos não gratuitos 
+ 
+
+                                                          Informativo                       
+comentado 
+ 
+ 
+ 
+ 
+Informativo 1184-STF (04/08/2025) – Márcio André Lopes Cavalcante   |  6 
+Importante!!! 
+ 
+ODS 11 E 16 
+A segurança pública constitui serviço geral e indivisível, de modo que deve ser remunerada 
+por meio de impostos, jamais de taxas. 
+Os serviços de policiamento ostensivo e vigilância, sendo inerentes à segurança pública, 
+requerem financiamento via impostos e não podem ser remunerados por taxas. 
+Por outro lado, podem ser remunerados por meio de taxa serviços individualizados e 
+mensuráveis. 
+Assim, é constitucional a instituição de taxa por serviços prestados por órgãos de segurança 
+pública relativos:  
+i) à segurança preventiva em eventos esportivos e de lazer com cobrança de ingresso (trata-
+se de serviço divisível e específico); e 
+ii) à emissão de certidões e atestados, desde que não se destinem à defesa de direitos ou ao 
+esclarecimento de interesse pessoal (art. 5º, XXXIV, b, CF/88). 
+STF. Plenário. ADI 3.717/PR, Rel. Min. Nunes Marques, julgado em 01/07/2025 (Info 1184). 
+ 

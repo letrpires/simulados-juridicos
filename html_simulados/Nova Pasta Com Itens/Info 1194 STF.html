@@ -4,476 +4,493 @@
 <meta charset="UTF-8">
 <title>Simulado - Info 1194 STF</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <style>
-:root {
-    --bg: #0f172a;
-    --card: #111827;
-    --card2: #1f2937;
-    --text: #e5e7eb;
-    --muted: #9ca3af;
-    --accent: #38bdf8;
-    --green: #22c55e;
-    --red: #ef4444;
-    --yellow: #facc15;
+:root{
+--bg:#020617;--panel:rgba(15,23,42,.88);--card:rgba(15,23,42,.96);
+--card2:rgba(30,41,59,.92);--border:rgba(148,163,184,.22);
+--text:#e5e7eb;--muted:#94a3b8;--accent:#38bdf8;--accent2:#0ea5e9;
+--green:#22c55e;--red:#ef4444;--yellow:#facc15;--purple:#a78bfa;
 }
-
-* {
-    box-sizing: border-box;
+*{box-sizing:border-box}
+body{
+margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+background:radial-gradient(circle at top left,rgba(56,189,248,.20),transparent 28%),
+radial-gradient(circle at top right,rgba(167,139,250,.15),transparent 28%),
+linear-gradient(135deg,#020617,#0f172a 50%,#020617);
+color:var(--text);line-height:1.65;
 }
-
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(135deg, #020617, #111827);
-    color: var(--text);
-    line-height: 1.6;
+header{padding:44px 20px 32px;text-align:center;border-bottom:1px solid var(--border)}
+header h1{margin:0 0 10px;font-size:clamp(28px,4vw,46px);letter-spacing:-.05em}
+header p{color:var(--muted);margin:0;font-size:16px}
+.container{max-width:1160px;margin:0 auto;padding:26px 16px 80px}
+.painel{
+position:sticky;top:10px;z-index:10;background:var(--panel);backdrop-filter:blur(18px);
+border:1px solid var(--border);border-radius:26px;padding:16px;margin-bottom:22px;
+box-shadow:0 22px 70px rgba(0,0,0,.35)
 }
-
-header {
-    padding: 32px 20px;
-    text-align: center;
-    border-bottom: 1px solid #334155;
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.stat{background:var(--card2);padding:14px;border-radius:18px;text-align:center;border:1px solid rgba(148,163,184,.12)}
+.stat strong{display:block;font-size:25px;color:var(--accent);line-height:1.1}
+.stat span{font-size:12px;color:var(--muted)}
+.filtros{display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:12px;margin-top:14px}
+input,select{
+width:100%;background:rgba(2,6,23,.78);color:var(--text);border:1px solid var(--border);
+border-radius:14px;padding:13px 14px;outline:none;font-size:14px
 }
-
-header h1 {
-    margin: 0 0 10px;
-    font-size: 28px;
+input:focus,select:focus{border-color:var(--accent)}
+.card{
+background:var(--card);border:1px solid var(--border);border-radius:24px;padding:26px;
+margin-bottom:20px;box-shadow:0 18px 50px rgba(0,0,0,.24)
 }
-
-header p {
-    color: var(--muted);
-    margin: 0;
+.questao{scroll-margin-top:190px}
+.questao-topo{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:18px}
+.badge{
+background:linear-gradient(135deg,var(--accent),var(--accent2));color:#00111f;font-weight:900;
+padding:7px 13px;border-radius:999px;display:inline-block
 }
-
-.container {
-    max-width: 980px;
-    margin: 0 auto;
-    padding: 24px 16px 80px;
+.disciplina-tag,.tipo-tag{
+display:inline-block;margin-left:8px;color:var(--muted);background:rgba(148,163,184,.10);
+border:1px solid rgba(148,163,184,.14);padding:6px 10px;border-radius:999px;font-size:12px
 }
-
-.painel {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    background: rgba(15, 23, 42, 0.95);
-    backdrop-filter: blur(8px);
-    border: 1px solid #334155;
-    border-radius: 16px;
-    padding: 16px;
-    margin-bottom: 24px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
+.tipo-tag{color:#ddd6fe;border-color:rgba(167,139,250,.25)}
+.status{color:var(--yellow);font-size:13px;white-space:nowrap}
+.enunciado{font-size:19px;margin:0 0 22px;letter-spacing:-.01em}
+.botoes{display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.btn{
+cursor:pointer;border:0;padding:12px 22px;border-radius:14px;color:white;font-weight:900;
+transition:.18s ease;letter-spacing:.02em
 }
-
-.stat {
-    background: var(--card2);
-    padding: 12px;
-    border-radius: 12px;
-    text-align: center;
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.certo{background:rgba(34,197,94,.20);border:1px solid rgba(34,197,94,.42)}
+.btn.errado{background:rgba(239,68,68,.20);border:1px solid rgba(239,68,68,.42)}
+.btn.neutro{background:rgba(56,189,248,.16);color:var(--text);border:1px solid rgba(56,189,248,.32)}
+.feedback{
+display:none;background:rgba(2,6,23,.72);border:1px solid rgba(148,163,184,.16);
+border-left:5px solid var(--accent);padding:18px;border-radius:18px;margin-top:14px
 }
-
-.stat strong {
-    display: block;
-    font-size: 22px;
-    color: var(--accent);
+.feedback.correto{border-left-color:var(--green)}
+.feedback.errado{border-left-color:var(--red)}
+.resultado{font-size:18px;font-weight:900;margin-top:0}
+.justificativa{margin-top:12px}
+.referencia{color:var(--muted);font-size:13px;margin-top:16px}
+.gabarito-certo{color:var(--green);font-weight:900}
+.gabarito-errado{color:var(--red);font-weight:900}
+.oculta{display:none}
+.sem-resultados{text-align:center;color:var(--muted);display:none;padding:30px}
+.grid-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
+.link-card{
+display:block;padding:20px;background:rgba(15,23,42,.95);border:1px solid rgba(148,163,184,.22);
+color:#e5e7eb;border-radius:22px;text-decoration:none;transition:.2s;box-shadow:0 14px 40px rgba(0,0,0,.22)
 }
-
-.card {
-    background: rgba(17, 24, 39, 0.96);
-    border: 1px solid #334155;
-    border-radius: 18px;
-    padding: 22px;
-    margin-bottom: 20px;
-    box-shadow: 0 12px 30px rgba(0,0,0,.25);
-}
-
-.questao-topo {
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
-    align-items: center;
-    margin-bottom: 16px;
-}
-
-.badge {
-    background: #0ea5e9;
-    color: #00111f;
-    font-weight: bold;
-    padding: 6px 12px;
-    border-radius: 999px;
-}
-
-.status {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-.enunciado {
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-
-.botoes {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 18px;
-}
-
-button {
-    cursor: pointer;
-    border: 0;
-    padding: 12px 22px;
-    border-radius: 12px;
-    background: #334155;
-    color: white;
-    font-weight: bold;
-    transition: 0.2s;
-}
-
-button:hover {
-    transform: translateY(-1px);
-    background: #475569;
-}
-
-.feedback {
-    display: none;
-    background: #020617;
-    border-left: 4px solid var(--accent);
-    padding: 16px;
-    border-radius: 12px;
-    margin-top: 12px;
-}
-
-.feedback.correto {
-    border-left-color: var(--green);
-}
-
-.feedback.errado {
-    border-left-color: var(--red);
-}
-
-.resultado {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.referencia {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-.acoes {
-    text-align: center;
-    margin: 30px 0;
-}
-
-.acoes button {
-    background: #0ea5e9;
-    color: #00111f;
-}
-
-@media (max-width: 700px) {
-    .painel {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .botoes {
-        flex-direction: column;
-    }
-
-    header h1 {
-        font-size: 22px;
-    }
-
-    .enunciado {
-        font-size: 16px;
-    }
+.link-card:hover{transform:translateY(-3px);border-color:#38bdf8}
+.link-card strong{display:block;font-size:17px;margin-bottom:8px}
+.link-card span{color:#94a3b8;font-size:13px}
+.index-tools{display:grid;grid-template-columns:1.5fr 1fr;gap:12px;margin-bottom:20px}
+@media(max-width:850px){
+.stats{grid-template-columns:repeat(2,1fr)}
+.filtros,.index-tools{grid-template-columns:1fr}
+.questao-topo{align-items:flex-start;flex-direction:column}
+.botoes{flex-direction:column}
+.enunciado{font-size:16px}
+.card{padding:20px}
 }
 </style>
 </head>
-
 <body>
-
 <header>
-    <h1>Simulado - Info 1194 STF</h1>
-    <p>Simulado interativo de CERTO ou ERRADO</p>
+<h1>Simulado - Info 1194 STF</h1>
+<p>Informativos • Simulado interativo de CERTO ou ERRADO</p>
 </header>
 
 <div class="container">
+<div class="painel">
+<div class="stats">
+<div class="stat"><strong>8</strong><span>Total</span></div>
+<div class="stat"><strong id="visiveis">8</strong><span>Visíveis</span></div>
+<div class="stat"><strong id="respondidas">0</strong><span>Respondidas</span></div>
+<div class="stat"><strong id="acertos">0</strong><span>Acertos</span></div>
+<div class="stat"><strong id="erros">0</strong><span>Erros</span></div>
+</div>
 
-    <div class="painel">
-        <div class="stat">
-            <strong id="total">8</strong>
-            Total
-        </div>
-        <div class="stat">
-            <strong id="respondidas">0</strong>
-            Respondidas
-        </div>
-        <div class="stat">
-            <strong id="acertos">0</strong>
-            Acertos
-        </div>
-        <div class="stat">
-            <strong id="erros">0</strong>
-            Erros
-        </div>
-    </div>
+<div class="filtros">
+<input id="busca" type="search" placeholder="Buscar por palavra-chave..." oninput="filtrar()">
+<select id="disciplina" onchange="filtrar()">
+<option value="">Todas as disciplinas</option>
+<option value="N/I">N/I</option>
+</select>
+<select id="statusFiltro" onchange="filtrar()">
+<option value="">Todas</option>
+<option value="nao">Não respondidas</option>
+<option value="acerto">Acertos</option>
+<option value="erro">Erros</option>
+</select>
+<button class="btn neutro" onclick="reiniciar()">Reiniciar</button>
+</div>
+</div>
 
-    <div class="acoes">
-        <button onclick="reiniciar()">Reiniciar simulado</button>
-    </div>
+<div id="sem-resultados" class="sem-resultados">Nenhuma questão encontrada com os filtros atuais.</div>
 
-    
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 1</span>
-                <span class="status" id="status-1">Não respondida</span>
-            </div>
 
-            <p class="enunciado">A previsão constitucional de proteção do trabalhador em face da automação, por depender de disciplina legal específica para sua plena eficácia, não pode ser considerada autoaplicável; por isso, diante da persistente inércia legislativa do Congresso Nacional em editar a norma regulamentadora, é juridicamente possível o reconhecimento de mora inconstitucional e a fixação de prazo para a superação da omissão, sem que isso implique, por si só, a criação judicial do conteúdo material do direito social.</p>
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a previsão constitucional de proteção do trabalhador em face da automação, por depender de disciplina legal específica para sua plena eficácia, não pode ser considerada autoaplicável; por isso, diante da persistente inércia legislativa do congresso nacional em editar a norma regulamentadora, é juridicamente possível o reconhecimento de mora inconstitucional e a fixação de prazo para a superação da omissão, sem que isso implique, por si só, a criação judicial do conteúdo material do direito social. o enunciado está correto porque o art. 7º, xxvii, da constituição assegura aos trabalhadores urbanos e rurais a proteção em face da automação, “na forma da lei”, o que evidencia a necessidade de atuação legislativa integrativa para tornar o comando plenamente exequível. a ausência de lei regulamentadora, mantida por longo período, caracteriza omissão inconstitucional do poder legislativo quanto ao dever de concretizar o direito social previsto no texto constitucional.
 
-            <div class="botoes">
-                <button onclick="responder(1, 'CERTO')">CERTO</button>
-                <button onclick="responder(1, 'ERRADO')">ERRADO</button>
-            </div>
+nessa hipótese, o controle jurisdicional da omissão não substitui o legislador na definição do conteúdo normativo do direito, mas reconhece a mora constitucional e pode estabelecer prazo para que o órgão competente supra a lacuna normativa. foi exatamente essa a solução adotada: reconheceu-se que o congresso nacional está em mora em regulamentar o dispositivo e fixou-se o prazo de 24 meses para a edição da lei.
 
-            <div class="feedback" id="feedback-1">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>O enunciado está correto porque o art. 7º, XXVII, da Constituição assegura aos trabalhadores urbanos e rurais a proteção em face da automação, “na forma da lei”, o que evidencia a necessidade de atuação legislativa integrativa para tornar o comando plenamente exequível. A ausência de lei regulamentadora, mantida por longo período, caracteriza omissão inconstitucional do Poder Legislativo quanto ao dever de concretizar o direito social previsto no texto constitucional.<br><br>Nessa hipótese, o controle jurisdicional da omissão não substitui o legislador na definição do conteúdo normativo do direito, mas reconhece a mora constitucional e pode estabelecer prazo para que o órgão competente supra a lacuna normativa. Foi exatamente essa a solução adotada: reconheceu-se que o Congresso Nacional está em mora em regulamentar o dispositivo e fixou-se o prazo de 24 meses para a edição da lei.<br><br>A formulação também está tecnicamente adequada ao destacar que a intervenção judicial não importa, por si só, criação do conteúdo material do direito social, mas sim a imposição de um dever de legislar para viabilizar a eficácia do comando constitucional. Isso é especialmente relevante em matéria de direitos sociais dependentes de conformação legislativa, em que a atuação do Judiciário tende a ser voltada à superação da omissão, e não à substituição do processo legislativo.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADO 73/DF, Rel. Min. Luís Roberto Barroso, julgado 09/10/2025 (Info 1194).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 2</span>
-                <span class="status" id="status-2">Não respondida</span>
-            </div>
+a formulação também está tecnicamente adequada ao destacar que a intervenção judicial não importa, por si só, criação do conteúdo material do direito social, mas sim a imposição de um dever de legislar para viabilizar a eficácia do comando constitucional. isso é especialmente relevante em matéria de direitos sociais dependentes de conformação legislativa, em que a atuação do judiciário tende a ser voltada à superação da omissão, e não à substituição do processo legislativo. stf. plenário. ado 73/df, rel. min. luís roberto barroso, julgado 09/10/2025 (info 1194).">
 
-            <p class="enunciado">É constitucional a inclusão, por emenda parlamentar em projeto de lei de iniciativa do Chefe do Poder Executivo, de dispositivos que instituam vantagem pecuniária e anistia administrativa a servidores públicos, desde que a matéria guarde alguma relação genérica com a política remuneratória tratada na proposição original, ainda que não tenha sido apresentada estimativa de impacto orçamentário e financeiro no curso do processo legislativo.</p>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 1</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-1">Não respondida</span>
+</div>
 
-            <div class="botoes">
-                <button onclick="responder(2, 'CERTO')">CERTO</button>
-                <button onclick="responder(2, 'ERRADO')">ERRADO</button>
-            </div>
+<p class="enunciado">A previsão constitucional de proteção do trabalhador em face da automação, por depender de disciplina legal específica para sua plena eficácia, não pode ser considerada autoaplicável; por isso, diante da persistente inércia legislativa do Congresso Nacional em editar a norma regulamentadora, é juridicamente possível o reconhecimento de mora inconstitucional e a fixação de prazo para a superação da omissão, sem que isso implique, por si só, a criação judicial do conteúdo material do direito social.</p>
 
-            <div class="feedback" id="feedback-2">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque a validade de emendas parlamentares a projeto de iniciativa reservada não se exaure na mera existência de alguma conexão abstrata com o tema originário. Quando a emenda introduz disciplina autônoma sobre matéria submetida à iniciativa privativa do Chefe do Poder Executivo — como regime jurídico, padrão remuneratório, vantagens de servidores, auxílio social a inativos e pensionistas ou anistia por infrações administrativas — há vício formal de iniciativa, especialmente se a inovação legislativa extrapola a temática originalmente encaminhada.<br><br>Além disso, a Constituição veda que emendas parlamentares acarretem aumento de despesa sem a correspondente estimativa de impacto orçamentário e financeiro. O art. 63, I, da Constituição, em conjunto com o art. 113 do ADCT, impõe que proposições legislativas que impliquem despesa sejam acompanhadas do devido estudo de impacto. Assim, não basta a pertinência temática genérica: a ausência de estimativa orçamentária, por si, compromete a constitucionalidade da norma quando houver criação ou majoração de despesa pública.<br><br>No caso julgado, foram reputados inconstitucionais dispositivos inseridos por emenda parlamentar em lei estadual que, embora originariamente voltada à revisão geral anual dos subsídios de servidores, passou a conter regras sobre auxílio social e anistia administrativa. O vício foi duplo: usurpação da iniciativa reservada ao Executivo e afronta às exigências constitucionais de responsabilidade fiscal e de processo legislativo orçamentário.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.145/MG, Rel. Min. Luís Roberto Barroso, julgado em 13/10/2025 (Info 1194).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 3</span>
-                <span class="status" id="status-3">Não respondida</span>
-            </div>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(1, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(1, 'ERRADO')">ERRADO</button>
+</div>
 
-            <p class="enunciado">A previsão legal que atribui ao Defensor Público-Geral da União a representação judicial e extrajudicial da Defensoria Pública da União é incompatível com a Constituição, pois, ausente personalidade jurídica própria da instituição, eventual atuação em juízo deveria ser necessariamente exercida pela Advocacia-Geral da União, em observância à unidade da representação judicial da União e de seus órgãos.</p>
+<div class="feedback" id="feedback-1">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O enunciado está correto porque o art. 7º, XXVII, da Constituição assegura aos trabalhadores urbanos e rurais a proteção em face da automação, “na forma da lei”, o que evidencia a necessidade de atuação legislativa integrativa para tornar o comando plenamente exequível. A ausência de lei regulamentadora, mantida por longo período, caracteriza omissão inconstitucional do Poder Legislativo quanto ao dever de concretizar o direito social previsto no texto constitucional.<br><br>Nessa hipótese, o controle jurisdicional da omissão não substitui o legislador na definição do conteúdo normativo do direito, mas reconhece a mora constitucional e pode estabelecer prazo para que o órgão competente supra a lacuna normativa. Foi exatamente essa a solução adotada: reconheceu-se que o Congresso Nacional está em mora em regulamentar o dispositivo e fixou-se o prazo de 24 meses para a edição da lei.<br><br>A formulação também está tecnicamente adequada ao destacar que a intervenção judicial não importa, por si só, criação do conteúdo material do direito social, mas sim a imposição de um dever de legislar para viabilizar a eficácia do comando constitucional. Isso é especialmente relevante em matéria de direitos sociais dependentes de conformação legislativa, em que a atuação do Judiciário tende a ser voltada à superação da omissão, e não à substituição do processo legislativo.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADO 73/DF, Rel. Min. Luís Roberto Barroso, julgado 09/10/2025 (Info 1194).</p>
+</div>
+</section>
 
-            <div class="botoes">
-                <button onclick="responder(3, 'CERTO')">CERTO</button>
-                <button onclick="responder(3, 'ERRADO')">ERRADO</button>
-            </div>
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="é constitucional a inclusão, por emenda parlamentar em projeto de lei de iniciativa do chefe do poder executivo, de dispositivos que instituam vantagem pecuniária e anistia administrativa a servidores públicos, desde que a matéria guarde alguma relação genérica com a política remuneratória tratada na proposição original, ainda que não tenha sido apresentada estimativa de impacto orçamentário e financeiro no curso do processo legislativo. a assertiva está incorreta porque a validade de emendas parlamentares a projeto de iniciativa reservada não se exaure na mera existência de alguma conexão abstrata com o tema originário. quando a emenda introduz disciplina autônoma sobre matéria submetida à iniciativa privativa do chefe do poder executivo — como regime jurídico, padrão remuneratório, vantagens de servidores, auxílio social a inativos e pensionistas ou anistia por infrações administrativas — há vício formal de iniciativa, especialmente se a inovação legislativa extrapola a temática originalmente encaminhada.
 
-            <div class="feedback" id="feedback-3">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque parte de uma premissa que não se sustenta: a ausência de personalidade jurídica da Defensoria Pública da União não impede o reconhecimento de sua personalidade judiciária, isto é, da capacidade de figurar em juízo para defesa de suas prerrogativas institucionais e de sua esfera de competência. Trata-se de órgão público despersonalizado de estatura constitucional, apto a atuar em nome próprio em relações processuais específicas.<br><br>A disciplina legal que confere ao Defensor Público-Geral da União a representação judicial e extrajudicial da instituição não viola o art. 131 da Constituição, pois esse dispositivo trata da Advocacia-Geral da União como função essencial à representação judicial e extrajudicial da União, não impondo que todo órgão da Administração Pública, ainda que constitucionalmente autônomo em sua atuação institucional, seja necessariamente representado pela AGU. A lógica da unidade da representação jurídica da União não se confunde com a tutela processual de órgãos que precisam defender sua autonomia, suas prerrogativas e sua competência institucional.<br><br>Além disso, o reconhecimento dessa capacidade processual própria evita conflitos de interesse e harmoniza-se com soluções já admitidas para outros órgãos estatais e defensorias estaduais, especialmente quando a controvérsia envolve a própria estrutura, funcionamento ou atribuições da instituição. Assim, a norma impugnada é compatível com a Constituição justamente por permitir que a DPU se defenda institucionalmente sem depender da AGU.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 5.603/DF, Rel. Min. Nunes Marques, redator do acórdão Min. Alexandre de Moraes, julgado em 13/10/2025 (Info 1194).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 4</span>
-                <span class="status" id="status-4">Não respondida</span>
-            </div>
+além disso, a constituição veda que emendas parlamentares acarretem aumento de despesa sem a correspondente estimativa de impacto orçamentário e financeiro. o art. 63, i, da constituição, em conjunto com o art. 113 do adct, impõe que proposições legislativas que impliquem despesa sejam acompanhadas do devido estudo de impacto. assim, não basta a pertinência temática genérica: a ausência de estimativa orçamentária, por si, compromete a constitucionalidade da norma quando houver criação ou majoração de despesa pública.
 
-            <p class="enunciado">É constitucional emenda à Constituição estadual que, em contexto de ajuste fiscal transitório, institui teto de crescimento das despesas primárias aplicável de modo uniforme aos Poderes e aos órgãos autônomos, inclusive à Defensoria Pública, ainda que tal órgão não tenha participado do processo legislativo específico da medida, desde que preservado o exercício de suas atribuições constitucionais e não haja supressão do núcleo essencial da assistência jurídica integral e gratuita.</p>
+no caso julgado, foram reputados inconstitucionais dispositivos inseridos por emenda parlamentar em lei estadual que, embora originariamente voltada à revisão geral anual dos subsídios de servidores, passou a conter regras sobre auxílio social e anistia administrativa. o vício foi duplo: usurpação da iniciativa reservada ao executivo e afronta às exigências constitucionais de responsabilidade fiscal e de processo legislativo orçamentário. stf. plenário. adi 7.145/mg, rel. min. luís roberto barroso, julgado em 13/10/2025 (info 1194).">
 
-            <div class="botoes">
-                <button onclick="responder(4, 'CERTO')">CERTO</button>
-                <button onclick="responder(4, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 2</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-2">Não respondida</span>
+</div>
 
-            <div class="feedback" id="feedback-4">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a lógica central do julgamento: a instituição, por emenda à Constituição estadual, de regime fiscal temporário voltado ao equilíbrio das contas públicas, com incidência indistinta sobre os Poderes e órgãos autônomos, não configura, por si só, violação à autonomia funcional ou administrativa da Defensoria Pública.<br><br>O ponto decisivo é que a limitação imposta não equivale a congelamento absoluto de despesas nem impede o funcionamento institucional da Defensoria. O regime apenas condiciona o crescimento das despesas primárias a parâmetros objetivos, como a variação da receita ou da inflação, preservando-se o núcleo mínimo de atuação do órgão. Assim, não há afronta ao direito fundamental à assistência jurídica integral e gratuita, desde que a instituição continue apta a desempenhar suas atribuições constitucionais.<br><br>Também não se reconhece vício pela ausência de participação específica da Defensoria no processo legislativo da emenda. A prerrogativa de elaboração de proposta orçamentária não é absoluta e deve ser exercida em conformidade com os limites fixados pela Constituição e pela Lei de Diretrizes Orçamentárias. Logo, a inexistência de intervenção formal do órgão na tramitação da emenda não invalida a norma.<br><br>Por fim, o julgamento afastou a alegação de inconstitucionalidade formal relacionada à tramitação em regime de urgência e à inexistência de interstício entre os turnos de votação, por se tratar de matéria interna corporis, insuscetível de controle judicial nesse ponto.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 6.061/CE, Rel. Min. Nunes Marques, julgado em 13/10/2025 (Info 1194).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 5</span>
-                <span class="status" id="status-5">Não respondida</span>
-            </div>
+<p class="enunciado">É constitucional a inclusão, por emenda parlamentar em projeto de lei de iniciativa do Chefe do Poder Executivo, de dispositivos que instituam vantagem pecuniária e anistia administrativa a servidores públicos, desde que a matéria guarde alguma relação genérica com a política remuneratória tratada na proposição original, ainda que não tenha sido apresentada estimativa de impacto orçamentário e financeiro no curso do processo legislativo.</p>
 
-            <p class="enunciado">A aprovação de candidato dentro do número de vagas em concurso público gera direito subjetivo à nomeação, mas esse direito pode ser validamente mitigado se, antes do término do prazo de validade do certame, houver extinção superveniente dos cargos ofertados no edital, devidamente motivada pela superação do limite prudencial de gastos com pessoal previsto em lei complementar que regulamenta o art. 169 da Constituição Federal.</p>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(2, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(2, 'ERRADO')">ERRADO</button>
+</div>
 
-            <div class="botoes">
-                <button onclick="responder(5, 'CERTO')">CERTO</button>
-                <button onclick="responder(5, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="feedback" id="feedback-2">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque a validade de emendas parlamentares a projeto de iniciativa reservada não se exaure na mera existência de alguma conexão abstrata com o tema originário. Quando a emenda introduz disciplina autônoma sobre matéria submetida à iniciativa privativa do Chefe do Poder Executivo — como regime jurídico, padrão remuneratório, vantagens de servidores, auxílio social a inativos e pensionistas ou anistia por infrações administrativas — há vício formal de iniciativa, especialmente se a inovação legislativa extrapola a temática originalmente encaminhada.<br><br>Além disso, a Constituição veda que emendas parlamentares acarretem aumento de despesa sem a correspondente estimativa de impacto orçamentário e financeiro. O art. 63, I, da Constituição, em conjunto com o art. 113 do ADCT, impõe que proposições legislativas que impliquem despesa sejam acompanhadas do devido estudo de impacto. Assim, não basta a pertinência temática genérica: a ausência de estimativa orçamentária, por si, compromete a constitucionalidade da norma quando houver criação ou majoração de despesa pública.<br><br>No caso julgado, foram reputados inconstitucionais dispositivos inseridos por emenda parlamentar em lei estadual que, embora originariamente voltada à revisão geral anual dos subsídios de servidores, passou a conter regras sobre auxílio social e anistia administrativa. O vício foi duplo: usurpação da iniciativa reservada ao Executivo e afronta às exigências constitucionais de responsabilidade fiscal e de processo legislativo orçamentário.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.145/MG, Rel. Min. Luís Roberto Barroso, julgado em 13/10/2025 (Info 1194).</p>
+</div>
+</section>
 
-            <div class="feedback" id="feedback-5">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A regra geral é que o candidato aprovado dentro do número de vagas possui direito subjetivo à nomeação. Contudo, esse direito não é absoluto e pode sofrer mitigação em situação excepcional, desde que presentes requisitos estritos: (i) a extinção dos cargos deve ser superveniente, isto é, ocorrer após a abertura do certame; (ii) deve acontecer dentro do prazo de validade do concurso; e (iii) precisa estar devidamente motivada, com fundamento na superação do limite prudencial de gastos com pessoal, nos termos da lei complementar que disciplina o art. 169 da Constituição Federal.<br><br>O ponto central do entendimento é compatibilizar a proteção da confiança do candidato aprovado com a supremacia do interesse público e com a responsabilidade fiscal da Administração. Assim, a existência de aprovação dentro das vagas não impede, por si só, a frustração da nomeação quando o próprio cargo deixa de existir por motivo juridicamente relevante e constitucionalmente amparado, desde que a Administração demonstre de forma motivada a necessidade da medida e observe o marco temporal do concurso.<br><br>A questão explora justamente a exceção ao direito subjetivo à nomeação: não basta a aprovação dentro das vagas; é necessário verificar se houve fato superveniente apto a afastar a obrigação de nomear. A extinção do cargo por superação do limite prudencial de gastos com pessoal, quando anterior ao fim da validade do concurso e adequadamente justificada, autoriza a mitigação desse direito.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. RE 1.316.010/PA, Rel. Min. Flávio Dino, julgado em 13/10/2025 (Repercussão Geral – tema 1.164) (Info 1194).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 6</span>
-                <span class="status" id="status-6">Não respondida</span>
-            </div>
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a previsão legal que atribui ao defensor público-geral da união a representação judicial e extrajudicial da defensoria pública da união é incompatível com a constituição, pois, ausente personalidade jurídica própria da instituição, eventual atuação em juízo deveria ser necessariamente exercida pela advocacia-geral da união, em observância à unidade da representação judicial da união e de seus órgãos. a assertiva está incorreta porque parte de uma premissa que não se sustenta: a ausência de personalidade jurídica da defensoria pública da união não impede o reconhecimento de sua personalidade judiciária, isto é, da capacidade de figurar em juízo para defesa de suas prerrogativas institucionais e de sua esfera de competência. trata-se de órgão público despersonalizado de estatura constitucional, apto a atuar em nome próprio em relações processuais específicas.
 
-            <p class="enunciado">É constitucional a vedação absoluta, prevista em lei estadual, à nomeação de cônjuge, companheiro ou parente até o terceiro grau de magistrado para cargo em comissão no Poder Judiciário, ainda que se trate de servidor efetivo de carreira, aprovado em concurso público, desde que o provimento ocorra no âmbito do próprio tribunal e inexista prova de favorecimento pessoal, pois a mera relação de parentesco basta para afastar a investidura em cargo de assessoramento jurídico.</p>
+a disciplina legal que confere ao defensor público-geral da união a representação judicial e extrajudicial da instituição não viola o art. 131 da constituição, pois esse dispositivo trata da advocacia-geral da união como função essencial à representação judicial e extrajudicial da união, não impondo que todo órgão da administração pública, ainda que constitucionalmente autônomo em sua atuação institucional, seja necessariamente representado pela agu. a lógica da unidade da representação jurídica da união não se confunde com a tutela processual de órgãos que precisam defender sua autonomia, suas prerrogativas e sua competência institucional.
 
-            <div class="botoes">
-                <button onclick="responder(6, 'CERTO')">CERTO</button>
-                <button onclick="responder(6, 'ERRADO')">ERRADO</button>
-            </div>
+além disso, o reconhecimento dessa capacidade processual própria evita conflitos de interesse e harmoniza-se com soluções já admitidas para outros órgãos estatais e defensorias estaduais, especialmente quando a controvérsia envolve a própria estrutura, funcionamento ou atribuições da instituição. assim, a norma impugnada é compatível com a constituição justamente por permitir que a dpu se defenda institucionalmente sem depender da agu. stf. plenário. adi 5.603/df, rel. min. nunes marques, redator do acórdão min. alexandre de moraes, julgado em 13/10/2025 (info 1194).">
 
-            <div class="feedback" id="feedback-6">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque a vedação não pode ser aplicada de modo absoluto aos servidores efetivos de carreira judiciária, admitidos por concurso público, quando preenchidos requisitos que afastem o risco de nepotismo e preservem a moralidade administrativa sem sacrificar indevidamente a acessibilidade a cargos públicos.<br><br>No caso examinado, a norma estadual que proibia a nomeação de cônjuges e parentes até o terceiro grau de qualquer integrante do Judiciário foi objeto de interpretação conforme, com declaração de inconstitucionalidade parcial sem redução de texto. O ponto central foi afastar a incidência da restrição sobre servidor efetivo concursado, desde que:<br>1. não haja subordinação direta entre o servidor e o magistrado com quem possua vínculo de parentesco; e<br>2. exista compatibilidade entre a formação/qualificação profissional do servidor e a complexidade do cargo em comissão a ser exercido.<br><br>Assim, não se admite uma proibição automática fundada apenas no parentesco. A solução adotada prestigia a efetividade do serviço público e a acessibilidade a cargos públicos, sem descurar dos princípios da moralidade, impessoalidade e eficiência. A mera existência de vínculo familiar, por si só, não torna inconstitucional a nomeação quando o ocupante é servidor efetivo concursado e não há subordinação direta, além de estarem presentes a adequação técnica e a compatibilidade funcional exigidas.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 4.871/SE, Rel. Min. Nunes Marques, redator do acórdão Min. Cristiano Zanin, julgado em 13/10/2025 (Info 1194).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 7</span>
-                <span class="status" id="status-7">Não respondida</span>
-            </div>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 3</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-3">Não respondida</span>
+</div>
 
-            <p class="enunciado">A manutenção da eficácia do dispositivo que instituiu, no processo do trabalho, o requisito da transcendência para o recurso de revista é compatível com a Constituição Federal, ainda que a medida provisória que o veiculou não tenha sido convertida em lei por longo período, pois, nesse contexto, a preservação da estabilidade do modelo processual e a prevalência do interesse público autorizam reconhecer a permanência de seus efeitos, desde que presentes os pressupostos de relevância e urgência exigidos para a edição de medidas provisórias.</p>
+<p class="enunciado">A previsão legal que atribui ao Defensor Público-Geral da União a representação judicial e extrajudicial da Defensoria Pública da União é incompatível com a Constituição, pois, ausente personalidade jurídica própria da instituição, eventual atuação em juízo deveria ser necessariamente exercida pela Advocacia-Geral da União, em observância à unidade da representação judicial da União e de seus órgãos.</p>
 
-            <div class="botoes">
-                <button onclick="responder(7, 'CERTO')">CERTO</button>
-                <button onclick="responder(7, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(3, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(3, 'ERRADO')">ERRADO</button>
+</div>
 
-            <div class="feedback" id="feedback-7">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>O enunciado está correto porque reproduz a lógica central do entendimento firmado: a ausência de conversão da medida provisória em lei, por si só e mesmo após longo lapso temporal, não conduz automaticamente à perda de eficácia do art. 1º da MP nº 2.226/2001, que introduziu o requisito da transcendência no recurso de revista. A Corte assentou que, no caso, devem prevalecer o interesse público, a segurança jurídica e a estabilidade do modelo processual trabalhista, especialmente porque a disciplina veiculada pela medida provisória atendeu aos pressupostos constitucionais de relevância e urgência do art. 62 da Constituição.<br><br>A controvérsia não foi resolvida com base em uma leitura puramente formal da caducidade da medida provisória, mas em uma ponderação institucional voltada a evitar desorganização do sistema processual e ruptura indevida de um regime que permaneceu em vigor e foi aplicado por longo período. Assim, a constitucionalidade foi afirmada em razão da preservação da eficácia normativa do dispositivo, sem que a falta de conversão legislativa, isoladamente, fosse suficiente para afastá-lo.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 2.527/DF, Rel. Min. Cámen Lúcia, julgado em 09/10/2025 (Info 1194).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 8</span>
-                <span class="status" id="status-8">Não respondida</span>
-            </div>
+<div class="feedback" id="feedback-3">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque parte de uma premissa que não se sustenta: a ausência de personalidade jurídica da Defensoria Pública da União não impede o reconhecimento de sua personalidade judiciária, isto é, da capacidade de figurar em juízo para defesa de suas prerrogativas institucionais e de sua esfera de competência. Trata-se de órgão público despersonalizado de estatura constitucional, apto a atuar em nome próprio em relações processuais específicas.<br><br>A disciplina legal que confere ao Defensor Público-Geral da União a representação judicial e extrajudicial da instituição não viola o art. 131 da Constituição, pois esse dispositivo trata da Advocacia-Geral da União como função essencial à representação judicial e extrajudicial da União, não impondo que todo órgão da Administração Pública, ainda que constitucionalmente autônomo em sua atuação institucional, seja necessariamente representado pela AGU. A lógica da unidade da representação jurídica da União não se confunde com a tutela processual de órgãos que precisam defender sua autonomia, suas prerrogativas e sua competência institucional.<br><br>Além disso, o reconhecimento dessa capacidade processual própria evita conflitos de interesse e harmoniza-se com soluções já admitidas para outros órgãos estatais e defensorias estaduais, especialmente quando a controvérsia envolve a própria estrutura, funcionamento ou atribuições da instituição. Assim, a norma impugnada é compatível com a Constituição justamente por permitir que a DPU se defenda institucionalmente sem depender da AGU.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 5.603/DF, Rel. Min. Nunes Marques, redator do acórdão Min. Alexandre de Moraes, julgado em 13/10/2025 (Info 1194).</p>
+</div>
+</section>
 
-            <p class="enunciado">Na fase de cumprimento de sentença trabalhista, é juridicamente admissível o redirecionamento da execução contra empresa integrante do mesmo grupo econômico que não tenha participado da fase de conhecimento, desde que demonstrada, no curso da execução, a existência de responsabilidade solidária e independentemente da instauração do incidente de desconsideração da personalidade jurídica, por se tratar de hipótese autônoma de responsabilização patrimonial.</p>
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="é constitucional emenda à constituição estadual que, em contexto de ajuste fiscal transitório, institui teto de crescimento das despesas primárias aplicável de modo uniforme aos poderes e aos órgãos autônomos, inclusive à defensoria pública, ainda que tal órgão não tenha participado do processo legislativo específico da medida, desde que preservado o exercício de suas atribuições constitucionais e não haja supressão do núcleo essencial da assistência jurídica integral e gratuita. a assertiva está correta porque reproduz a lógica central do julgamento: a instituição, por emenda à constituição estadual, de regime fiscal temporário voltado ao equilíbrio das contas públicas, com incidência indistinta sobre os poderes e órgãos autônomos, não configura, por si só, violação à autonomia funcional ou administrativa da defensoria pública.
 
-            <div class="botoes">
-                <button onclick="responder(8, 'CERTO')">CERTO</button>
-                <button onclick="responder(8, 'ERRADO')">ERRADO</button>
-            </div>
+o ponto decisivo é que a limitação imposta não equivale a congelamento absoluto de despesas nem impede o funcionamento institucional da defensoria. o regime apenas condiciona o crescimento das despesas primárias a parâmetros objetivos, como a variação da receita ou da inflação, preservando-se o núcleo mínimo de atuação do órgão. assim, não há afronta ao direito fundamental à assistência jurídica integral e gratuita, desde que a instituição continue apta a desempenhar suas atribuições constitucionais.
 
-            <div class="feedback" id="feedback-8">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva contraria a orientação firmada para a execução trabalhista em hipóteses de grupo econômico. A regra é que o cumprimento da sentença não pode ser promovido contra empresa que não integrou a fase de conhecimento, ainda que se alegue vínculo de grupo econômico ou responsabilidade solidária. Nessa linha, o reclamante deve indicar, já na petição inicial, as pessoas jurídicas corresponsáveis contra as quais pretende direcionar eventual título judicial, inclusive quando sustentar a existência de grupo econômico, demonstrando concretamente os requisitos legais pertinentes.<br><br>A exceção existe, mas é restrita: admite-se o redirecionamento da execução ao terceiro que não participou do processo de conhecimento apenas nas hipóteses de sucessão empresarial, nos termos do art. 448-A da CLT, ou de abuso da personalidade jurídica, hipótese em que se impõe a observância do procedimento próprio de desconsideração, previsto no art. 855-A da CLT e nos arts. 133 a 137 do CPC, com fundamento material no art. 50 do CC.<br><br>Portanto, não basta a mera alegação de grupo econômico para alcançar, na fase executiva, empresa estranha ao polo passivo da fase cognitiva. A responsabilização solidária por grupo econômico não afasta a exigência de participação prévia no processo de conhecimento, salvo se houver sucessão empresarial ou desconsideração da personalidade jurídica regularmente instaurada. A tese também ressalva a aplicação desse procedimento aos redirecionamentos anteriores à Reforma Trabalhista de 2017, com limites específicos para situações já acobertadas pela coisa julgada, créditos satisfeitos e execuções findas ou definitivamente arquivadas.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. RE 1.387.795/MG, Rel. Min. Dias Toffoli, julgado em 13/10/2025 (Repercussão Geral – Tema 1.232) (Info 1194).</p>
-            </div>
-        </section>
-        
+também não se reconhece vício pela ausência de participação específica da defensoria no processo legislativo da emenda. a prerrogativa de elaboração de proposta orçamentária não é absoluta e deve ser exercida em conformidade com os limites fixados pela constituição e pela lei de diretrizes orçamentárias. logo, a inexistência de intervenção formal do órgão na tramitação da emenda não invalida a norma.
+
+por fim, o julgamento afastou a alegação de inconstitucionalidade formal relacionada à tramitação em regime de urgência e à inexistência de interstício entre os turnos de votação, por se tratar de matéria interna corporis, insuscetível de controle judicial nesse ponto. stf. plenário. adi 6.061/ce, rel. min. nunes marques, julgado em 13/10/2025 (info 1194).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 4</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-4">Não respondida</span>
+</div>
+
+<p class="enunciado">É constitucional emenda à Constituição estadual que, em contexto de ajuste fiscal transitório, institui teto de crescimento das despesas primárias aplicável de modo uniforme aos Poderes e aos órgãos autônomos, inclusive à Defensoria Pública, ainda que tal órgão não tenha participado do processo legislativo específico da medida, desde que preservado o exercício de suas atribuições constitucionais e não haja supressão do núcleo essencial da assistência jurídica integral e gratuita.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(4, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(4, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-4">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a lógica central do julgamento: a instituição, por emenda à Constituição estadual, de regime fiscal temporário voltado ao equilíbrio das contas públicas, com incidência indistinta sobre os Poderes e órgãos autônomos, não configura, por si só, violação à autonomia funcional ou administrativa da Defensoria Pública.<br><br>O ponto decisivo é que a limitação imposta não equivale a congelamento absoluto de despesas nem impede o funcionamento institucional da Defensoria. O regime apenas condiciona o crescimento das despesas primárias a parâmetros objetivos, como a variação da receita ou da inflação, preservando-se o núcleo mínimo de atuação do órgão. Assim, não há afronta ao direito fundamental à assistência jurídica integral e gratuita, desde que a instituição continue apta a desempenhar suas atribuições constitucionais.<br><br>Também não se reconhece vício pela ausência de participação específica da Defensoria no processo legislativo da emenda. A prerrogativa de elaboração de proposta orçamentária não é absoluta e deve ser exercida em conformidade com os limites fixados pela Constituição e pela Lei de Diretrizes Orçamentárias. Logo, a inexistência de intervenção formal do órgão na tramitação da emenda não invalida a norma.<br><br>Por fim, o julgamento afastou a alegação de inconstitucionalidade formal relacionada à tramitação em regime de urgência e à inexistência de interstício entre os turnos de votação, por se tratar de matéria interna corporis, insuscetível de controle judicial nesse ponto.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 6.061/CE, Rel. Min. Nunes Marques, julgado em 13/10/2025 (Info 1194).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a aprovação de candidato dentro do número de vagas em concurso público gera direito subjetivo à nomeação, mas esse direito pode ser validamente mitigado se, antes do término do prazo de validade do certame, houver extinção superveniente dos cargos ofertados no edital, devidamente motivada pela superação do limite prudencial de gastos com pessoal previsto em lei complementar que regulamenta o art. 169 da constituição federal. a regra geral é que o candidato aprovado dentro do número de vagas possui direito subjetivo à nomeação. contudo, esse direito não é absoluto e pode sofrer mitigação em situação excepcional, desde que presentes requisitos estritos: (i) a extinção dos cargos deve ser superveniente, isto é, ocorrer após a abertura do certame; (ii) deve acontecer dentro do prazo de validade do concurso; e (iii) precisa estar devidamente motivada, com fundamento na superação do limite prudencial de gastos com pessoal, nos termos da lei complementar que disciplina o art. 169 da constituição federal.
+
+o ponto central do entendimento é compatibilizar a proteção da confiança do candidato aprovado com a supremacia do interesse público e com a responsabilidade fiscal da administração. assim, a existência de aprovação dentro das vagas não impede, por si só, a frustração da nomeação quando o próprio cargo deixa de existir por motivo juridicamente relevante e constitucionalmente amparado, desde que a administração demonstre de forma motivada a necessidade da medida e observe o marco temporal do concurso.
+
+a questão explora justamente a exceção ao direito subjetivo à nomeação: não basta a aprovação dentro das vagas; é necessário verificar se houve fato superveniente apto a afastar a obrigação de nomear. a extinção do cargo por superação do limite prudencial de gastos com pessoal, quando anterior ao fim da validade do concurso e adequadamente justificada, autoriza a mitigação desse direito. stf. plenário. re 1.316.010/pa, rel. min. flávio dino, julgado em 13/10/2025 (repercussão geral – tema 1.164) (info 1194).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 5</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-5">Não respondida</span>
+</div>
+
+<p class="enunciado">A aprovação de candidato dentro do número de vagas em concurso público gera direito subjetivo à nomeação, mas esse direito pode ser validamente mitigado se, antes do término do prazo de validade do certame, houver extinção superveniente dos cargos ofertados no edital, devidamente motivada pela superação do limite prudencial de gastos com pessoal previsto em lei complementar que regulamenta o art. 169 da Constituição Federal.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(5, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(5, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-5">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A regra geral é que o candidato aprovado dentro do número de vagas possui direito subjetivo à nomeação. Contudo, esse direito não é absoluto e pode sofrer mitigação em situação excepcional, desde que presentes requisitos estritos: (i) a extinção dos cargos deve ser superveniente, isto é, ocorrer após a abertura do certame; (ii) deve acontecer dentro do prazo de validade do concurso; e (iii) precisa estar devidamente motivada, com fundamento na superação do limite prudencial de gastos com pessoal, nos termos da lei complementar que disciplina o art. 169 da Constituição Federal.<br><br>O ponto central do entendimento é compatibilizar a proteção da confiança do candidato aprovado com a supremacia do interesse público e com a responsabilidade fiscal da Administração. Assim, a existência de aprovação dentro das vagas não impede, por si só, a frustração da nomeação quando o próprio cargo deixa de existir por motivo juridicamente relevante e constitucionalmente amparado, desde que a Administração demonstre de forma motivada a necessidade da medida e observe o marco temporal do concurso.<br><br>A questão explora justamente a exceção ao direito subjetivo à nomeação: não basta a aprovação dentro das vagas; é necessário verificar se houve fato superveniente apto a afastar a obrigação de nomear. A extinção do cargo por superação do limite prudencial de gastos com pessoal, quando anterior ao fim da validade do concurso e adequadamente justificada, autoriza a mitigação desse direito.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. RE 1.316.010/PA, Rel. Min. Flávio Dino, julgado em 13/10/2025 (Repercussão Geral – tema 1.164) (Info 1194).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="é constitucional a vedação absoluta, prevista em lei estadual, à nomeação de cônjuge, companheiro ou parente até o terceiro grau de magistrado para cargo em comissão no poder judiciário, ainda que se trate de servidor efetivo de carreira, aprovado em concurso público, desde que o provimento ocorra no âmbito do próprio tribunal e inexista prova de favorecimento pessoal, pois a mera relação de parentesco basta para afastar a investidura em cargo de assessoramento jurídico. a assertiva está incorreta porque a vedação não pode ser aplicada de modo absoluto aos servidores efetivos de carreira judiciária, admitidos por concurso público, quando preenchidos requisitos que afastem o risco de nepotismo e preservem a moralidade administrativa sem sacrificar indevidamente a acessibilidade a cargos públicos.
+
+no caso examinado, a norma estadual que proibia a nomeação de cônjuges e parentes até o terceiro grau de qualquer integrante do judiciário foi objeto de interpretação conforme, com declaração de inconstitucionalidade parcial sem redução de texto. o ponto central foi afastar a incidência da restrição sobre servidor efetivo concursado, desde que:
+1. não haja subordinação direta entre o servidor e o magistrado com quem possua vínculo de parentesco; e
+2. exista compatibilidade entre a formação/qualificação profissional do servidor e a complexidade do cargo em comissão a ser exercido.
+
+assim, não se admite uma proibição automática fundada apenas no parentesco. a solução adotada prestigia a efetividade do serviço público e a acessibilidade a cargos públicos, sem descurar dos princípios da moralidade, impessoalidade e eficiência. a mera existência de vínculo familiar, por si só, não torna inconstitucional a nomeação quando o ocupante é servidor efetivo concursado e não há subordinação direta, além de estarem presentes a adequação técnica e a compatibilidade funcional exigidas. stf. plenário. adi 4.871/se, rel. min. nunes marques, redator do acórdão min. cristiano zanin, julgado em 13/10/2025 (info 1194).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 6</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-6">Não respondida</span>
+</div>
+
+<p class="enunciado">É constitucional a vedação absoluta, prevista em lei estadual, à nomeação de cônjuge, companheiro ou parente até o terceiro grau de magistrado para cargo em comissão no Poder Judiciário, ainda que se trate de servidor efetivo de carreira, aprovado em concurso público, desde que o provimento ocorra no âmbito do próprio tribunal e inexista prova de favorecimento pessoal, pois a mera relação de parentesco basta para afastar a investidura em cargo de assessoramento jurídico.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(6, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(6, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-6">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque a vedação não pode ser aplicada de modo absoluto aos servidores efetivos de carreira judiciária, admitidos por concurso público, quando preenchidos requisitos que afastem o risco de nepotismo e preservem a moralidade administrativa sem sacrificar indevidamente a acessibilidade a cargos públicos.<br><br>No caso examinado, a norma estadual que proibia a nomeação de cônjuges e parentes até o terceiro grau de qualquer integrante do Judiciário foi objeto de interpretação conforme, com declaração de inconstitucionalidade parcial sem redução de texto. O ponto central foi afastar a incidência da restrição sobre servidor efetivo concursado, desde que:<br>1. não haja subordinação direta entre o servidor e o magistrado com quem possua vínculo de parentesco; e<br>2. exista compatibilidade entre a formação/qualificação profissional do servidor e a complexidade do cargo em comissão a ser exercido.<br><br>Assim, não se admite uma proibição automática fundada apenas no parentesco. A solução adotada prestigia a efetividade do serviço público e a acessibilidade a cargos públicos, sem descurar dos princípios da moralidade, impessoalidade e eficiência. A mera existência de vínculo familiar, por si só, não torna inconstitucional a nomeação quando o ocupante é servidor efetivo concursado e não há subordinação direta, além de estarem presentes a adequação técnica e a compatibilidade funcional exigidas.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 4.871/SE, Rel. Min. Nunes Marques, redator do acórdão Min. Cristiano Zanin, julgado em 13/10/2025 (Info 1194).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a manutenção da eficácia do dispositivo que instituiu, no processo do trabalho, o requisito da transcendência para o recurso de revista é compatível com a constituição federal, ainda que a medida provisória que o veiculou não tenha sido convertida em lei por longo período, pois, nesse contexto, a preservação da estabilidade do modelo processual e a prevalência do interesse público autorizam reconhecer a permanência de seus efeitos, desde que presentes os pressupostos de relevância e urgência exigidos para a edição de medidas provisórias. o enunciado está correto porque reproduz a lógica central do entendimento firmado: a ausência de conversão da medida provisória em lei, por si só e mesmo após longo lapso temporal, não conduz automaticamente à perda de eficácia do art. 1º da mp nº 2.226/2001, que introduziu o requisito da transcendência no recurso de revista. a corte assentou que, no caso, devem prevalecer o interesse público, a segurança jurídica e a estabilidade do modelo processual trabalhista, especialmente porque a disciplina veiculada pela medida provisória atendeu aos pressupostos constitucionais de relevância e urgência do art. 62 da constituição.
+
+a controvérsia não foi resolvida com base em uma leitura puramente formal da caducidade da medida provisória, mas em uma ponderação institucional voltada a evitar desorganização do sistema processual e ruptura indevida de um regime que permaneceu em vigor e foi aplicado por longo período. assim, a constitucionalidade foi afirmada em razão da preservação da eficácia normativa do dispositivo, sem que a falta de conversão legislativa, isoladamente, fosse suficiente para afastá-lo. stf. plenário. adi 2.527/df, rel. min. cámen lúcia, julgado em 09/10/2025 (info 1194).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 7</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-7">Não respondida</span>
+</div>
+
+<p class="enunciado">A manutenção da eficácia do dispositivo que instituiu, no processo do trabalho, o requisito da transcendência para o recurso de revista é compatível com a Constituição Federal, ainda que a medida provisória que o veiculou não tenha sido convertida em lei por longo período, pois, nesse contexto, a preservação da estabilidade do modelo processual e a prevalência do interesse público autorizam reconhecer a permanência de seus efeitos, desde que presentes os pressupostos de relevância e urgência exigidos para a edição de medidas provisórias.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(7, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(7, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-7">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O enunciado está correto porque reproduz a lógica central do entendimento firmado: a ausência de conversão da medida provisória em lei, por si só e mesmo após longo lapso temporal, não conduz automaticamente à perda de eficácia do art. 1º da MP nº 2.226/2001, que introduziu o requisito da transcendência no recurso de revista. A Corte assentou que, no caso, devem prevalecer o interesse público, a segurança jurídica e a estabilidade do modelo processual trabalhista, especialmente porque a disciplina veiculada pela medida provisória atendeu aos pressupostos constitucionais de relevância e urgência do art. 62 da Constituição.<br><br>A controvérsia não foi resolvida com base em uma leitura puramente formal da caducidade da medida provisória, mas em uma ponderação institucional voltada a evitar desorganização do sistema processual e ruptura indevida de um regime que permaneceu em vigor e foi aplicado por longo período. Assim, a constitucionalidade foi afirmada em razão da preservação da eficácia normativa do dispositivo, sem que a falta de conversão legislativa, isoladamente, fosse suficiente para afastá-lo.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 2.527/DF, Rel. Min. Cámen Lúcia, julgado em 09/10/2025 (Info 1194).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="na fase de cumprimento de sentença trabalhista, é juridicamente admissível o redirecionamento da execução contra empresa integrante do mesmo grupo econômico que não tenha participado da fase de conhecimento, desde que demonstrada, no curso da execução, a existência de responsabilidade solidária e independentemente da instauração do incidente de desconsideração da personalidade jurídica, por se tratar de hipótese autônoma de responsabilização patrimonial. a assertiva contraria a orientação firmada para a execução trabalhista em hipóteses de grupo econômico. a regra é que o cumprimento da sentença não pode ser promovido contra empresa que não integrou a fase de conhecimento, ainda que se alegue vínculo de grupo econômico ou responsabilidade solidária. nessa linha, o reclamante deve indicar, já na petição inicial, as pessoas jurídicas corresponsáveis contra as quais pretende direcionar eventual título judicial, inclusive quando sustentar a existência de grupo econômico, demonstrando concretamente os requisitos legais pertinentes.
+
+a exceção existe, mas é restrita: admite-se o redirecionamento da execução ao terceiro que não participou do processo de conhecimento apenas nas hipóteses de sucessão empresarial, nos termos do art. 448-a da clt, ou de abuso da personalidade jurídica, hipótese em que se impõe a observância do procedimento próprio de desconsideração, previsto no art. 855-a da clt e nos arts. 133 a 137 do cpc, com fundamento material no art. 50 do cc.
+
+portanto, não basta a mera alegação de grupo econômico para alcançar, na fase executiva, empresa estranha ao polo passivo da fase cognitiva. a responsabilização solidária por grupo econômico não afasta a exigência de participação prévia no processo de conhecimento, salvo se houver sucessão empresarial ou desconsideração da personalidade jurídica regularmente instaurada. a tese também ressalva a aplicação desse procedimento aos redirecionamentos anteriores à reforma trabalhista de 2017, com limites específicos para situações já acobertadas pela coisa julgada, créditos satisfeitos e execuções findas ou definitivamente arquivadas. stf. plenário. re 1.387.795/mg, rel. min. dias toffoli, julgado em 13/10/2025 (repercussão geral – tema 1.232) (info 1194).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 8</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-8">Não respondida</span>
+</div>
+
+<p class="enunciado">Na fase de cumprimento de sentença trabalhista, é juridicamente admissível o redirecionamento da execução contra empresa integrante do mesmo grupo econômico que não tenha participado da fase de conhecimento, desde que demonstrada, no curso da execução, a existência de responsabilidade solidária e independentemente da instauração do incidente de desconsideração da personalidade jurídica, por se tratar de hipótese autônoma de responsabilização patrimonial.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(8, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(8, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-8">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva contraria a orientação firmada para a execução trabalhista em hipóteses de grupo econômico. A regra é que o cumprimento da sentença não pode ser promovido contra empresa que não integrou a fase de conhecimento, ainda que se alegue vínculo de grupo econômico ou responsabilidade solidária. Nessa linha, o reclamante deve indicar, já na petição inicial, as pessoas jurídicas corresponsáveis contra as quais pretende direcionar eventual título judicial, inclusive quando sustentar a existência de grupo econômico, demonstrando concretamente os requisitos legais pertinentes.<br><br>A exceção existe, mas é restrita: admite-se o redirecionamento da execução ao terceiro que não participou do processo de conhecimento apenas nas hipóteses de sucessão empresarial, nos termos do art. 448-A da CLT, ou de abuso da personalidade jurídica, hipótese em que se impõe a observância do procedimento próprio de desconsideração, previsto no art. 855-A da CLT e nos arts. 133 a 137 do CPC, com fundamento material no art. 50 do CC.<br><br>Portanto, não basta a mera alegação de grupo econômico para alcançar, na fase executiva, empresa estranha ao polo passivo da fase cognitiva. A responsabilização solidária por grupo econômico não afasta a exigência de participação prévia no processo de conhecimento, salvo se houver sucessão empresarial ou desconsideração da personalidade jurídica regularmente instaurada. A tese também ressalva a aplicação desse procedimento aos redirecionamentos anteriores à Reforma Trabalhista de 2017, com limites específicos para situações já acobertadas pela coisa julgada, créditos satisfeitos e execuções findas ou definitivamente arquivadas.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. RE 1.387.795/MG, Rel. Min. Dias Toffoli, julgado em 13/10/2025 (Repercussão Geral – Tema 1.232) (Info 1194).</p>
+</div>
+</section>
 
 </div>
 
 <script>
-const totalQuestoes = 8;
-let respostas = JSON.parse(localStorage.getItem(location.pathname + "_respostas") || "{}");
+const storageKey = location.pathname + "_respostas";
+let respostas = JSON.parse(localStorage.getItem(storageKey) || "{}");
 
-function atualizarPainel() {
-    const respondidas = Object.keys(respostas).length;
-    let acertos = 0;
-    let erros = 0;
-
-    for (const key in respostas) {
-        if (respostas[key].correto) acertos++;
-        else erros++;
-    }
-
-    document.getElementById("respondidas").textContent = respondidas;
-    document.getElementById("acertos").textContent = acertos;
-    document.getElementById("erros").textContent = erros;
+function destacar(t){
+ if(t==="CERTO") return '<span class="gabarito-certo">CERTO</span>';
+ if(t==="ERRADO") return '<span class="gabarito-errado">ERRADO</span>';
+ return t;
 }
 
-function responder(numero, resposta) {
-    const card = document.querySelectorAll(".questao")[numero - 1];
-    const gabarito = card.dataset.gabarito;
-    const correto = resposta === gabarito;
-
-    respostas[numero] = {
-        resposta,
-        correto
-    };
-
-    localStorage.setItem(location.pathname + "_respostas", JSON.stringify(respostas));
-
-    mostrarFeedback(numero);
-    atualizarPainel();
+function responder(numero, resposta){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const gabarito=card.dataset.gabarito;
+ const correto=resposta===gabarito;
+ respostas[numero]={resposta,correto};
+ localStorage.setItem(storageKey, JSON.stringify(respostas));
+ mostrarFeedback(numero);
+ atualizarPainel();
+ filtrar();
 }
 
-function mostrarFeedback(numero) {
-    const card = document.querySelectorAll(".questao")[numero - 1];
-    const feedback = document.getElementById("feedback-" + numero);
-    const status = document.getElementById("status-" + numero);
-    const resultado = feedback.querySelector(".resultado");
-
-    const dados = respostas[numero];
-
-    if (!dados) return;
-
-    feedback.style.display = "block";
-    feedback.classList.remove("correto", "errado");
-
-    if (dados.correto) {
-        feedback.classList.add("correto");
-        resultado.textContent = "Você acertou. A resposta é " + card.dataset.gabarito + ".";
-        status.textContent = "Respondida — acerto";
-        status.style.color = "var(--green)";
-    } else {
-        feedback.classList.add("errado");
-        resultado.textContent = "Você errou. O gabarito é " + card.dataset.gabarito + ".";
-        status.textContent = "Respondida — erro";
-        status.style.color = "var(--red)";
-    }
+function mostrarFeedback(numero){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const feedback=document.getElementById("feedback-"+numero);
+ const status=document.getElementById("status-"+numero);
+ const resultado=feedback.querySelector(".resultado");
+ const gabarito=card.dataset.gabarito;
+ const dados=respostas[numero];
+ if(!dados) return;
+ feedback.style.display="block";
+ feedback.classList.remove("correto","errado");
+ if(dados.correto){
+   feedback.classList.add("correto");
+   resultado.innerHTML="Você acertou. A resposta é "+destacar(gabarito)+".";
+   status.textContent="Respondida — acerto";
+   status.style.color="var(--green)";
+ } else {
+   feedback.classList.add("errado");
+   resultado.innerHTML="Você errou. O gabarito é "+destacar(gabarito)+".";
+   status.textContent="Respondida — erro";
+   status.style.color="var(--red)";
+ }
 }
 
-function restaurar() {
-    for (const key in respostas) {
-        mostrarFeedback(Number(key));
-    }
-    atualizarPainel();
+function atualizarPainel(){
+ let respondidas=0, acertos=0, erros=0;
+ for(const k in respostas){
+   respondidas++;
+   if(respostas[k].correto) acertos++; else erros++;
+ }
+ document.getElementById("respondidas").textContent=respondidas;
+ document.getElementById("acertos").textContent=acertos;
+ document.getElementById("erros").textContent=erros;
+ document.getElementById("visiveis").textContent=document.querySelectorAll(".questao:not(.oculta)").length;
 }
 
-function reiniciar() {
-    if (!confirm("Deseja reiniciar este simulado?")) return;
-    localStorage.removeItem(location.pathname + "_respostas");
-    location.reload();
+function filtrar(){
+ const busca=document.getElementById("busca").value.trim().toLowerCase();
+ const disciplina=document.getElementById("disciplina").value;
+ const statusFiltro=document.getElementById("statusFiltro").value;
+ const cards=Array.from(document.querySelectorAll(".questao"));
+ let vis=0;
+ cards.forEach((card,idx)=>{
+   const n=idx+1;
+   const texto=card.dataset.texto||"";
+   const disc=card.dataset.disciplina||"";
+   const r=respostas[n];
+   let passaStatus=true;
+   if(statusFiltro==="nao") passaStatus=!r;
+   if(statusFiltro==="acerto") passaStatus=r && r.correto;
+   if(statusFiltro==="erro") passaStatus=r && !r.correto;
+   const ok=(!busca||texto.includes(busca)) && (!disciplina||disc===disciplina) && passaStatus;
+   card.classList.toggle("oculta", !ok);
+   if(ok) vis++;
+ });
+ document.getElementById("sem-resultados").style.display=vis===0?"block":"none";
+ atualizarPainel();
+}
+
+function reiniciar(){
+ if(!confirm("Deseja reiniciar este simulado?")) return;
+ localStorage.removeItem(storageKey);
+ location.reload();
+}
+
+function restaurar(){
+ for(const k in respostas) mostrarFeedback(Number(k));
+ filtrar();
+ atualizarPainel();
 }
 
 restaurar();
 </script>
-
 </body>
 </html>

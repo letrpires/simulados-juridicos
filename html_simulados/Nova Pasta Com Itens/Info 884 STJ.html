@@ -4,623 +4,731 @@
 <meta charset="UTF-8">
 <title>Simulado - Info 884 STJ</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <style>
-:root {
-    --bg: #0f172a;
-    --card: #111827;
-    --card2: #1f2937;
-    --text: #e5e7eb;
-    --muted: #9ca3af;
-    --accent: #38bdf8;
-    --green: #22c55e;
-    --red: #ef4444;
-    --yellow: #facc15;
+:root{
+--bg:#020617;--panel:rgba(15,23,42,.88);--card:rgba(15,23,42,.96);
+--card2:rgba(30,41,59,.92);--border:rgba(148,163,184,.22);
+--text:#e5e7eb;--muted:#94a3b8;--accent:#38bdf8;--accent2:#0ea5e9;
+--green:#22c55e;--red:#ef4444;--yellow:#facc15;--purple:#a78bfa;
 }
-
-* {
-    box-sizing: border-box;
+*{box-sizing:border-box}
+body{
+margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+background:radial-gradient(circle at top left,rgba(56,189,248,.20),transparent 28%),
+radial-gradient(circle at top right,rgba(167,139,250,.15),transparent 28%),
+linear-gradient(135deg,#020617,#0f172a 50%,#020617);
+color:var(--text);line-height:1.65;
 }
-
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(135deg, #020617, #111827);
-    color: var(--text);
-    line-height: 1.6;
+header{padding:44px 20px 32px;text-align:center;border-bottom:1px solid var(--border)}
+header h1{margin:0 0 10px;font-size:clamp(28px,4vw,46px);letter-spacing:-.05em}
+header p{color:var(--muted);margin:0;font-size:16px}
+.container{max-width:1160px;margin:0 auto;padding:26px 16px 80px}
+.painel{
+position:sticky;top:10px;z-index:10;background:var(--panel);backdrop-filter:blur(18px);
+border:1px solid var(--border);border-radius:26px;padding:16px;margin-bottom:22px;
+box-shadow:0 22px 70px rgba(0,0,0,.35)
 }
-
-header {
-    padding: 32px 20px;
-    text-align: center;
-    border-bottom: 1px solid #334155;
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.stat{background:var(--card2);padding:14px;border-radius:18px;text-align:center;border:1px solid rgba(148,163,184,.12)}
+.stat strong{display:block;font-size:25px;color:var(--accent);line-height:1.1}
+.stat span{font-size:12px;color:var(--muted)}
+.filtros{display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:12px;margin-top:14px}
+input,select{
+width:100%;background:rgba(2,6,23,.78);color:var(--text);border:1px solid var(--border);
+border-radius:14px;padding:13px 14px;outline:none;font-size:14px
 }
-
-header h1 {
-    margin: 0 0 10px;
-    font-size: 28px;
+input:focus,select:focus{border-color:var(--accent)}
+.card{
+background:var(--card);border:1px solid var(--border);border-radius:24px;padding:26px;
+margin-bottom:20px;box-shadow:0 18px 50px rgba(0,0,0,.24)
 }
-
-header p {
-    color: var(--muted);
-    margin: 0;
+.questao{scroll-margin-top:190px}
+.questao-topo{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:18px}
+.badge{
+background:linear-gradient(135deg,var(--accent),var(--accent2));color:#00111f;font-weight:900;
+padding:7px 13px;border-radius:999px;display:inline-block
 }
-
-.container {
-    max-width: 980px;
-    margin: 0 auto;
-    padding: 24px 16px 80px;
+.disciplina-tag,.tipo-tag{
+display:inline-block;margin-left:8px;color:var(--muted);background:rgba(148,163,184,.10);
+border:1px solid rgba(148,163,184,.14);padding:6px 10px;border-radius:999px;font-size:12px
 }
-
-.painel {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    background: rgba(15, 23, 42, 0.95);
-    backdrop-filter: blur(8px);
-    border: 1px solid #334155;
-    border-radius: 16px;
-    padding: 16px;
-    margin-bottom: 24px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
+.tipo-tag{color:#ddd6fe;border-color:rgba(167,139,250,.25)}
+.status{color:var(--yellow);font-size:13px;white-space:nowrap}
+.enunciado{font-size:19px;margin:0 0 22px;letter-spacing:-.01em}
+.botoes{display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.btn{
+cursor:pointer;border:0;padding:12px 22px;border-radius:14px;color:white;font-weight:900;
+transition:.18s ease;letter-spacing:.02em
 }
-
-.stat {
-    background: var(--card2);
-    padding: 12px;
-    border-radius: 12px;
-    text-align: center;
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.certo{background:rgba(34,197,94,.20);border:1px solid rgba(34,197,94,.42)}
+.btn.errado{background:rgba(239,68,68,.20);border:1px solid rgba(239,68,68,.42)}
+.btn.neutro{background:rgba(56,189,248,.16);color:var(--text);border:1px solid rgba(56,189,248,.32)}
+.feedback{
+display:none;background:rgba(2,6,23,.72);border:1px solid rgba(148,163,184,.16);
+border-left:5px solid var(--accent);padding:18px;border-radius:18px;margin-top:14px
 }
-
-.stat strong {
-    display: block;
-    font-size: 22px;
-    color: var(--accent);
+.feedback.correto{border-left-color:var(--green)}
+.feedback.errado{border-left-color:var(--red)}
+.resultado{font-size:18px;font-weight:900;margin-top:0}
+.justificativa{margin-top:12px}
+.referencia{color:var(--muted);font-size:13px;margin-top:16px}
+.gabarito-certo{color:var(--green);font-weight:900}
+.gabarito-errado{color:var(--red);font-weight:900}
+.oculta{display:none}
+.sem-resultados{text-align:center;color:var(--muted);display:none;padding:30px}
+.grid-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
+.link-card{
+display:block;padding:20px;background:rgba(15,23,42,.95);border:1px solid rgba(148,163,184,.22);
+color:#e5e7eb;border-radius:22px;text-decoration:none;transition:.2s;box-shadow:0 14px 40px rgba(0,0,0,.22)
 }
-
-.card {
-    background: rgba(17, 24, 39, 0.96);
-    border: 1px solid #334155;
-    border-radius: 18px;
-    padding: 22px;
-    margin-bottom: 20px;
-    box-shadow: 0 12px 30px rgba(0,0,0,.25);
-}
-
-.questao-topo {
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
-    align-items: center;
-    margin-bottom: 16px;
-}
-
-.badge {
-    background: #0ea5e9;
-    color: #00111f;
-    font-weight: bold;
-    padding: 6px 12px;
-    border-radius: 999px;
-}
-
-.status {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-.enunciado {
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-
-.botoes {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 18px;
-}
-
-button {
-    cursor: pointer;
-    border: 0;
-    padding: 12px 22px;
-    border-radius: 12px;
-    background: #334155;
-    color: white;
-    font-weight: bold;
-    transition: 0.2s;
-}
-
-button:hover {
-    transform: translateY(-1px);
-    background: #475569;
-}
-
-.feedback {
-    display: none;
-    background: #020617;
-    border-left: 4px solid var(--accent);
-    padding: 16px;
-    border-radius: 12px;
-    margin-top: 12px;
-}
-
-.feedback.correto {
-    border-left-color: var(--green);
-}
-
-.feedback.errado {
-    border-left-color: var(--red);
-}
-
-.resultado {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.referencia {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-.acoes {
-    text-align: center;
-    margin: 30px 0;
-}
-
-.acoes button {
-    background: #0ea5e9;
-    color: #00111f;
-}
-
-@media (max-width: 700px) {
-    .painel {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .botoes {
-        flex-direction: column;
-    }
-
-    header h1 {
-        font-size: 22px;
-    }
-
-    .enunciado {
-        font-size: 16px;
-    }
+.link-card:hover{transform:translateY(-3px);border-color:#38bdf8}
+.link-card strong{display:block;font-size:17px;margin-bottom:8px}
+.link-card span{color:#94a3b8;font-size:13px}
+.index-tools{display:grid;grid-template-columns:1.5fr 1fr;gap:12px;margin-bottom:20px}
+@media(max-width:850px){
+.stats{grid-template-columns:repeat(2,1fr)}
+.filtros,.index-tools{grid-template-columns:1fr}
+.questao-topo{align-items:flex-start;flex-direction:column}
+.botoes{flex-direction:column}
+.enunciado{font-size:16px}
+.card{padding:20px}
 }
 </style>
 </head>
-
 <body>
-
 <header>
-    <h1>Simulado - Info 884 STJ</h1>
-    <p>Simulado interativo de CERTO ou ERRADO</p>
+<h1>Simulado - Info 884 STJ</h1>
+<p>Informativos • Simulado interativo de CERTO ou ERRADO</p>
 </header>
 
 <div class="container">
+<div class="painel">
+<div class="stats">
+<div class="stat"><strong>15</strong><span>Total</span></div>
+<div class="stat"><strong id="visiveis">15</strong><span>Visíveis</span></div>
+<div class="stat"><strong id="respondidas">0</strong><span>Respondidas</span></div>
+<div class="stat"><strong id="acertos">0</strong><span>Acertos</span></div>
+<div class="stat"><strong id="erros">0</strong><span>Erros</span></div>
+</div>
 
-    <div class="painel">
-        <div class="stat">
-            <strong id="total">15</strong>
-            Total
-        </div>
-        <div class="stat">
-            <strong id="respondidas">0</strong>
-            Respondidas
-        </div>
-        <div class="stat">
-            <strong id="acertos">0</strong>
-            Acertos
-        </div>
-        <div class="stat">
-            <strong id="erros">0</strong>
-            Erros
-        </div>
-    </div>
+<div class="filtros">
+<input id="busca" type="search" placeholder="Buscar por palavra-chave..." oninput="filtrar()">
+<select id="disciplina" onchange="filtrar()">
+<option value="">Todas as disciplinas</option>
+<option value="Direito Penal">Direito Penal</option>
+<option value="ECA">ECA</option>
+<option value="N/I">N/I</option>
+</select>
+<select id="statusFiltro" onchange="filtrar()">
+<option value="">Todas</option>
+<option value="nao">Não respondidas</option>
+<option value="acerto">Acertos</option>
+<option value="erro">Erros</option>
+</select>
+<button class="btn neutro" onclick="reiniciar()">Reiniciar</button>
+</div>
+</div>
 
-    <div class="acoes">
-        <button onclick="reiniciar()">Reiniciar simulado</button>
-    </div>
+<div id="sem-resultados" class="sem-resultados">Nenhuma questão encontrada com os filtros atuais.</div>
 
-    
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 1</span>
-                <span class="status" id="status-1">Não respondida</span>
-            </div>
 
-            <p class="enunciado">A superveniência da Lei 14.230/2021 não impede, em ação de improbidade administrativa, a condenação dos réus ao pagamento de dano moral coletivo, desde que demonstrada a lesão extrapatrimonial difusa decorrente da conduta ímproba, podendo a tutela reparatória ser fixada no próprio processo de improbidade sem necessidade de ação civil pública autônoma.</p>
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a superveniência da lei 14.230/2021 não impede, em ação de improbidade administrativa, a condenação dos réus ao pagamento de dano moral coletivo, desde que demonstrada a lesão extrapatrimonial difusa decorrente da conduta ímproba, podendo a tutela reparatória ser fixada no próprio processo de improbidade sem necessidade de ação civil pública autônoma. após as alterações introduzidas pela lei 14.230/2021, a orientação firmada é no sentido de que não subsiste, na ação de improbidade administrativa, a possibilidade de condenação por dano moral coletivo. a razão central está na redefinição do regime sancionatório da improbidade, que passou a exigir maior estrita tipicidade e a afastar a utilização dessa via para a tutela de reparações extrapatrimoniais coletivas.
 
-            <div class="botoes">
-                <button onclick="responder(1, 'CERTO')">CERTO</button>
-                <button onclick="responder(1, 'ERRADO')">ERRADO</button>
-            </div>
+a reparação de eventual dano moral coletivo não foi abolida em abstrato do ordenamento, mas deve ser buscada pela via processual adequada, isto é, por ação civil pública própria, e não no bojo da ação de improbidade. assim, ainda que a conduta imputada seja gravemente lesiva à moralidade administrativa e produza repercussão social relevante, isso não autoriza a cumulação de condenação por dano moral coletivo no processo de improbidade após a reforma legislativa.
 
-            <div class="feedback" id="feedback-1">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>Após as alterações introduzidas pela Lei 14.230/2021, a orientação firmada é no sentido de que não subsiste, na ação de improbidade administrativa, a possibilidade de condenação por dano moral coletivo. A razão central está na redefinição do regime sancionatório da improbidade, que passou a exigir maior estrita tipicidade e a afastar a utilização dessa via para a tutela de reparações extrapatrimoniais coletivas.<br><br>A reparação de eventual dano moral coletivo não foi abolida em abstrato do ordenamento, mas deve ser buscada pela via processual adequada, isto é, por ação civil pública própria, e não no bojo da ação de improbidade. Assim, ainda que a conduta imputada seja gravemente lesiva à moralidade administrativa e produza repercussão social relevante, isso não autoriza a cumulação de condenação por dano moral coletivo no processo de improbidade após a reforma legislativa.<br><br>Portanto, é incorreta a afirmação de que a simples demonstração da lesão difusa permitiria a fixação da indenização no próprio processo de improbidade, pois o entendimento consolidado afasta essa possibilidade e remete a pretensão reparatória à via própria.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Turma. AREsp 1.987.837-SP, Rel. Min. Sérgio Kukina, Rel. para acórdão Min. Regina Helena Costa, julgado em 7/4/2026 (Info 884).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 2</span>
-                <span class="status" id="status-2">Não respondida</span>
-            </div>
+portanto, é incorreta a afirmação de que a simples demonstração da lesão difusa permitiria a fixação da indenização no próprio processo de improbidade, pois o entendimento consolidado afasta essa possibilidade e remete a pretensão reparatória à via própria. stj. 1ª turma. aresp 1.987.837-sp, rel. min. sérgio kukina, rel. para acórdão min. regina helena costa, julgado em 7/4/2026 (info 884).">
 
-            <p class="enunciado">Em contrato de seguro rural, a ausência de emissão da apólice na data do sinistro, por si só, afasta o dever de indenizar, ainda que a própria seguradora tenha posteriormente subscrito declaração expressa reconhecendo que o bem segurado estava coberto desde data anterior ao evento danoso e que a apólice se encontrava apenas em processo de emissão.</p>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 1</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-1">Não respondida</span>
+</div>
 
-            <div class="botoes">
-                <button onclick="responder(2, 'CERTO')">CERTO</button>
-                <button onclick="responder(2, 'ERRADO')">ERRADO</button>
-            </div>
+<p class="enunciado">A superveniência da Lei 14.230/2021 não impede, em ação de improbidade administrativa, a condenação dos réus ao pagamento de dano moral coletivo, desde que demonstrada a lesão extrapatrimonial difusa decorrente da conduta ímproba, podendo a tutela reparatória ser fixada no próprio processo de improbidade sem necessidade de ação civil pública autônoma.</p>
 
-            <div class="feedback" id="feedback-2">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque a formalização da apólice não constitui, necessariamente, o único meio de comprovação da existência e do início da cobertura securitária. No caso examinado, a seguradora havia emitido declaração expressa posterior ao sinistro, mas referindo-se a cobertura iniciada em data anterior, o que foi interpretado como reconhecimento vinculante do início da garantia securitária desde a data indicada no próprio documento.<br><br>Em outras palavras, a inexistência de apólice emitida até a data do sinistro não é, por si só, suficiente para excluir a responsabilidade da seguradora quando houver prova documental idônea de que o risco já estava coberto. A declaração da própria seguradora, ao afirmar que o bem estava coberto desde 16/9/2016 e que a apólice estava em processo de emissão, funciona como elemento probatório apto a demonstrar a contratação e o início da cobertura em momento anterior ao incêndio.<br><br>O ponto central do entendimento é que o contrato de seguro pode ser comprovado por outros meios além da apólice formal, especialmente quando há manifestação inequívoca da seguradora reconhecendo a cobertura. Assim, a tese da seguradora de que a ausência de apólice vigente na data do sinistro afastaria automaticamente o dever de indenizar não prevalece diante da declaração expressa de cobertura anterior.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.189.140-SP, Rel. Min. Moura Ribeiro, julgado em 7/4/2026 (Info 884).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 3</span>
-                <span class="status" id="status-3">Não respondida</span>
-            </div>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(1, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(1, 'ERRADO')">ERRADO</button>
+</div>
 
-            <p class="enunciado">A sociedade prestadora de serviços de ativos virtuais que intermedeia a aquisição e a transferência de criptoativos, ainda que autorizada a funcionar pelo Banco Central do Brasil, submete-se ao Código de Defesa do Consumidor e responde objetivamente pelos danos suportados pelo cliente, somente se eximindo quando demonstrar a inexistência de defeito na prestação do serviço ou a culpa exclusiva do consumidor ou de terceiro; contudo, em operações que envolvam mais de uma plataforma, a responsabilização deve ser individualizada conforme o serviço efetivamente prestado por cada agente, não sendo possível imputar à exchange demandada prejuízo decorrente de fraude ocorrida em carteira digital custodiada por terceiro estranho à relação processual.</p>
+<div class="feedback" id="feedback-1">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>Após as alterações introduzidas pela Lei 14.230/2021, a orientação firmada é no sentido de que não subsiste, na ação de improbidade administrativa, a possibilidade de condenação por dano moral coletivo. A razão central está na redefinição do regime sancionatório da improbidade, que passou a exigir maior estrita tipicidade e a afastar a utilização dessa via para a tutela de reparações extrapatrimoniais coletivas.<br><br>A reparação de eventual dano moral coletivo não foi abolida em abstrato do ordenamento, mas deve ser buscada pela via processual adequada, isto é, por ação civil pública própria, e não no bojo da ação de improbidade. Assim, ainda que a conduta imputada seja gravemente lesiva à moralidade administrativa e produza repercussão social relevante, isso não autoriza a cumulação de condenação por dano moral coletivo no processo de improbidade após a reforma legislativa.<br><br>Portanto, é incorreta a afirmação de que a simples demonstração da lesão difusa permitiria a fixação da indenização no próprio processo de improbidade, pois o entendimento consolidado afasta essa possibilidade e remete a pretensão reparatória à via própria.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Turma. AREsp 1.987.837-SP, Rel. Min. Sérgio Kukina, Rel. para acórdão Min. Regina Helena Costa, julgado em 7/4/2026 (Info 884).</p>
+</div>
+</section>
 
-            <div class="botoes">
-                <button onclick="responder(3, 'CERTO')">CERTO</button>
-                <button onclick="responder(3, 'ERRADO')">ERRADO</button>
-            </div>
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="em contrato de seguro rural, a ausência de emissão da apólice na data do sinistro, por si só, afasta o dever de indenizar, ainda que a própria seguradora tenha posteriormente subscrito declaração expressa reconhecendo que o bem segurado estava coberto desde data anterior ao evento danoso e que a apólice se encontrava apenas em processo de emissão. a assertiva está incorreta porque a formalização da apólice não constitui, necessariamente, o único meio de comprovação da existência e do início da cobertura securitária. no caso examinado, a seguradora havia emitido declaração expressa posterior ao sinistro, mas referindo-se a cobertura iniciada em data anterior, o que foi interpretado como reconhecimento vinculante do início da garantia securitária desde a data indicada no próprio documento.
 
-            <div class="feedback" id="feedback-3">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a lógica central do julgado: as exchanges de criptoativos, enquanto prestadoras de serviços de ativos virtuais, inserem-se no âmbito de incidência do CDC, inclusive por força da disciplina legal específica aplicável às SPSAVs, e sua responsabilidade, em regra, é objetiva. Isso significa que, uma vez caracterizado defeito na prestação do serviço e o nexo causal com o dano, surge o dever de indenizar, independentemente de culpa.<br><br>Todavia, essa responsabilidade não é ilimitada. O art. 14, § 3º, do CDC admite excludentes expressas: a prova de que o defeito inexistiu ou de que houve culpa exclusiva do consumidor ou de terceiro. No caso examinado, a controvérsia não se resolveu pela mera constatação de que houve prejuízo ao consumidor, mas pela delimitação do serviço efetivamente prestado pela exchange acionada. Como a fraude se consumou em ambiente de carteira digital vinculada a plataforma distinta, não se demonstrou falha específica da ré na operação por ela executada.<br><br>O ponto decisivo é que, havendo pluralidade de plataformas na cadeia operacional, a responsabilização não pode ser automaticamente solidária por todo e qualquer evento danoso ocorrido em etapas alheias ao serviço prestado pela demandada. É necessário verificar, concretamente, qual agente realizou cada etapa, quais deveres de informação, segurança e proteção lhe eram exigíveis e se houve descumprimento normativo no âmbito da sua atuação. Assim, a mera alegação de que a exchange “não identificou a fraude” não basta, por si só, para impor indenização quando a transferência foi realizada conforme ordem do próprio usuário e o prejuízo decorreu de fraude praticada em ambiente externo à plataforma acionada.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.250.674-MG, Rel. Min. Ricardo Villas Bôas Cueva, julgado 7/4/2026 (Info 884).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 4</span>
-                <span class="status" id="status-4">Não respondida</span>
-            </div>
+em outras palavras, a inexistência de apólice emitida até a data do sinistro não é, por si só, suficiente para excluir a responsabilidade da seguradora quando houver prova documental idônea de que o risco já estava coberto. a declaração da própria seguradora, ao afirmar que o bem estava coberto desde 16/9/2016 e que a apólice estava em processo de emissão, funciona como elemento probatório apto a demonstrar a contratação e o início da cobertura em momento anterior ao incêndio.
 
-            <p class="enunciado">Em ação de obrigação de fazer cumulada com indenização por danos morais, proposta por advogado contra empresa privada responsável por aplicativo de mensagens, na qual se busca a remoção de perfis falsos e o bloqueio de números utilizados em fraude praticada por terceiros mediante uso indevido de nome, imagem e dados profissionais do autor, a competência da Justiça Federal pode ser reconhecida apenas porque os golpistas teriam mencionado processo em trâmite na Justiça Federal, ainda que não haja indício de vazamento, invasão ou falha de segurança em sistema federal e nenhum ente da União integre a relação processual.</p>
+o ponto central do entendimento é que o contrato de seguro pode ser comprovado por outros meios além da apólice formal, especialmente quando há manifestação inequívoca da seguradora reconhecendo a cobertura. assim, a tese da seguradora de que a ausência de apólice vigente na data do sinistro afastaria automaticamente o dever de indenizar não prevalece diante da declaração expressa de cobertura anterior. stj. 3ª turma. resp 2.189.140-sp, rel. min. moura ribeiro, julgado em 7/4/2026 (info 884).">
 
-            <div class="botoes">
-                <button onclick="responder(4, 'CERTO')">CERTO</button>
-                <button onclick="responder(4, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 2</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-2">Não respondida</span>
+</div>
 
-            <div class="feedback" id="feedback-4">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque a competência cível da Justiça Federal, em regra, é definida pelo critério <strong>ratione personae</strong>, previsto no art. 109, I, da Constituição Federal. Isso significa que a presença, no processo, da União, autarquia federal ou empresa pública federal, na condição de autora, ré, assistente ou oponente, é elemento central para deslocar a competência para a Justiça Federal.<br><br>No caso descrito, a demanda foi proposta por particular contra empresa privada, sem participação de qualquer ente federal na relação processual. O simples fato de os fraudadores terem mencionado processo em curso na Justiça Federal não basta, por si só, para atrair a competência federal. Para isso, seria necessário algum elemento concreto de interesse jurídico da União, como indício de vazamento de dados, invasão de sistema ou falha de segurança em serviço federal, o que não ocorreu. Ao contrário, foi afastada a existência de qualquer comprometimento do PJe ou de dados sob guarda da Justiça Federal, destacando-se que o processo citado era público e acessível pelos meios regulares de consulta.<br><br>Assim, tratando-se de golpe praticado por particulares contra particular, sem relação direta com bens, serviços ou interesses da União, a competência permanece com a Justiça Estadual. A mera referência a processo federal, desacompanhada de lesão a interesse jurídico federal, não desloca a competência.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Seção. CC 218.005-CE, Rel. Min. Francisco Falcão, julgado em 17/3/2026 (Info 884).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 5</span>
-                <span class="status" id="status-5">Não respondida</span>
-            </div>
+<p class="enunciado">Em contrato de seguro rural, a ausência de emissão da apólice na data do sinistro, por si só, afasta o dever de indenizar, ainda que a própria seguradora tenha posteriormente subscrito declaração expressa reconhecendo que o bem segurado estava coberto desde data anterior ao evento danoso e que a apólice se encontrava apenas em processo de emissão.</p>
 
-            <p class="enunciado">Em execução ajuizada contra devedor não localizado, a validade da citação por edital depende, como providência indispensável, da prévia expedição de ofícios a concessionárias de serviços públicos e a cadastros de órgãos públicos, de modo que a mera frustração das tentativas de citação nos endereços constantes dos autos e a consulta a sistemas informatizados disponíveis ao juízo não bastam, por si sós, para caracterizar o esgotamento razoável dos meios de localização do réu.</p>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(2, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(2, 'ERRADO')">ERRADO</button>
+</div>
 
-            <div class="botoes">
-                <button onclick="responder(5, 'CERTO')">CERTO</button>
-                <button onclick="responder(5, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="feedback" id="feedback-2">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque a formalização da apólice não constitui, necessariamente, o único meio de comprovação da existência e do início da cobertura securitária. No caso examinado, a seguradora havia emitido declaração expressa posterior ao sinistro, mas referindo-se a cobertura iniciada em data anterior, o que foi interpretado como reconhecimento vinculante do início da garantia securitária desde a data indicada no próprio documento.<br><br>Em outras palavras, a inexistência de apólice emitida até a data do sinistro não é, por si só, suficiente para excluir a responsabilidade da seguradora quando houver prova documental idônea de que o risco já estava coberto. A declaração da própria seguradora, ao afirmar que o bem estava coberto desde 16/9/2016 e que a apólice estava em processo de emissão, funciona como elemento probatório apto a demonstrar a contratação e o início da cobertura em momento anterior ao incêndio.<br><br>O ponto central do entendimento é que o contrato de seguro pode ser comprovado por outros meios além da apólice formal, especialmente quando há manifestação inequívoca da seguradora reconhecendo a cobertura. Assim, a tese da seguradora de que a ausência de apólice vigente na data do sinistro afastaria automaticamente o dever de indenizar não prevalece diante da declaração expressa de cobertura anterior.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.189.140-SP, Rel. Min. Moura Ribeiro, julgado em 7/4/2026 (Info 884).</p>
+</div>
+</section>
 
-            <div class="feedback" id="feedback-5">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque transforma em requisito obrigatório uma diligência que não possui essa natureza. O entendimento firmado é no sentido de que a citação por edital não fica condicionada, necessariamente, à expedição de ofícios a órgãos públicos ou a concessionárias de serviços públicos. O ponto central não é a realização de um rol fechado e pré-determinado de providências, mas a verificação, pelo magistrado, à luz das circunstâncias concretas, de que houve esgotamento razoável dos meios disponíveis para localização do réu.<br><br>No caso paradigma, foram infrutíferas as tentativas de citação pessoal em três endereços e as consultas aos sistemas informatizados acessíveis ao juízo, que apenas reproduziram os mesmos endereços já diligenciados. Ainda assim, a ausência de ofícios às concessionárias de água e energia não gerou nulidade, porque o art. 256, § 3º, do CPC não foi interpretado como impondo a utilização de todos os meios extrajudiciais imagináveis, nem como exigindo, de forma automática, a busca por informações em empresas privadas de serviços públicos.<br><br>Assim, para a validade da citação editalícia, basta que o juiz motive adequadamente a conclusão de que as diligências empreendidas foram suficientes no caso concreto, sendo desnecessário exigir o esgotamento absoluto de todas as fontes possíveis de localização do demandado.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. Corte Especial. REsp 2.166.983-AP e REsp 2.162.483-AP, Rel. Min. Og Fernandes, julgados em 18/3/2026 (Recurso Repetitivo - Tema 1338) (Info 884).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 6</span>
-                <span class="status" id="status-6">Não respondida</span>
-            </div>
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a sociedade prestadora de serviços de ativos virtuais que intermedeia a aquisição e a transferência de criptoativos, ainda que autorizada a funcionar pelo banco central do brasil, submete-se ao código de defesa do consumidor e responde objetivamente pelos danos suportados pelo cliente, somente se eximindo quando demonstrar a inexistência de defeito na prestação do serviço ou a culpa exclusiva do consumidor ou de terceiro; contudo, em operações que envolvam mais de uma plataforma, a responsabilização deve ser individualizada conforme o serviço efetivamente prestado por cada agente, não sendo possível imputar à exchange demandada prejuízo decorrente de fraude ocorrida em carteira digital custodiada por terceiro estranho à relação processual. a assertiva está correta porque reproduz a lógica central do julgado: as exchanges de criptoativos, enquanto prestadoras de serviços de ativos virtuais, inserem-se no âmbito de incidência do cdc, inclusive por força da disciplina legal específica aplicável às spsavs, e sua responsabilidade, em regra, é objetiva. isso significa que, uma vez caracterizado defeito na prestação do serviço e o nexo causal com o dano, surge o dever de indenizar, independentemente de culpa.
 
-            <p class="enunciado">Em execução de título extrajudicial, a requisição de pesquisa patrimonial por meio do SERP-JUD e a eventual adoção de medidas constritivas dele decorrentes dependem, em regra, de prévio exaurimento de todas as diligências extrajudiciais disponíveis ao exequente, sendo insuficiente, para tanto, a mera existência de decisão judicial genérica autorizando a utilização da plataforma.</p>
+todavia, essa responsabilidade não é ilimitada. o art. 14, § 3º, do cdc admite excludentes expressas: a prova de que o defeito inexistiu ou de que houve culpa exclusiva do consumidor ou de terceiro. no caso examinado, a controvérsia não se resolveu pela mera constatação de que houve prejuízo ao consumidor, mas pela delimitação do serviço efetivamente prestado pela exchange acionada. como a fraude se consumou em ambiente de carteira digital vinculada a plataforma distinta, não se demonstrou falha específica da ré na operação por ela executada.
 
-            <div class="botoes">
-                <button onclick="responder(6, 'CERTO')">CERTO</button>
-                <button onclick="responder(6, 'ERRADO')">ERRADO</button>
-            </div>
+o ponto decisivo é que, havendo pluralidade de plataformas na cadeia operacional, a responsabilização não pode ser automaticamente solidária por todo e qualquer evento danoso ocorrido em etapas alheias ao serviço prestado pela demandada. é necessário verificar, concretamente, qual agente realizou cada etapa, quais deveres de informação, segurança e proteção lhe eram exigíveis e se houve descumprimento normativo no âmbito da sua atuação. assim, a mera alegação de que a exchange “não identificou a fraude” não basta, por si só, para impor indenização quando a transferência foi realizada conforme ordem do próprio usuário e o prejuízo decorreu de fraude praticada em ambiente externo à plataforma acionada. stj. 3ª turma. resp 2.250.674-mg, rel. min. ricardo villas bôas cueva, julgado 7/4/2026 (info 884).">
 
-            <div class="feedback" id="feedback-6">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>O entendimento firmado admite a utilização do SERP-JUD como instrumento de pesquisa de bens e direitos registrados, inclusive com potencial repercussão constritiva, desde que haja <strong>ordem judicial devidamente fundamentada</strong>. Não se exige, porém, o <strong>prévio esgotamento das diligências extrajudiciais</strong> como condição para o deferimento da medida.<br><br>A lógica adotada é a mesma que já orienta outros mecanismos eletrônicos de apoio à execução, como BACENJUD, RENAJUD e INFOJUD, em harmonia com os arts. 6º, 139, IV, e 797 do CPC, que reforçam a cooperação processual, os poderes executivos do magistrado e o interesse do exequente na satisfação do crédito. Assim, a exigência de exaurimento prévio, tal como colocada no enunciado, restringe indevidamente a atuação executiva e contraria a orientação consolidada no julgado.<br><br>Além disso, a decisão judicial não pode ser meramente genérica: deve ser <strong>fundamentada</strong> e indicar, com a devida precisão, os sistemas acionados e os requisitos de validade de cada ferramenta. O ponto central, portanto, não é o esgotamento prévio das vias extrajudiciais, mas a existência de fundamentação idônea para justificar o uso do SERP-JUD no caso concreto.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 4ª Turma. REsp 2.226.101-SC, Rel. Min. Luís Carlos Gambogi (Desembargador convocado do TJMG), julgado em 7/4/2026 (Info 884).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 7</span>
-                <span class="status" id="status-7">Não respondida</span>
-            </div>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 3</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-3">Não respondida</span>
+</div>
 
-            <p class="enunciado">A absolvição criminal superveniente à formação da coisa julgada cível não pode, por si só, ser invocada como prova nova para fins de ação rescisória, mas a rescisão é admissível quando a decisão rescindenda tiver assentado a responsabilidade civil sobre pressuposto fático inexistente, ainda que tal equívoco somente se torne perceptível em momento posterior, desde que o fato não tenha sido efetivamente controvertido nem demonstrado nos autos originários.</p>
+<p class="enunciado">A sociedade prestadora de serviços de ativos virtuais que intermedeia a aquisição e a transferência de criptoativos, ainda que autorizada a funcionar pelo Banco Central do Brasil, submete-se ao Código de Defesa do Consumidor e responde objetivamente pelos danos suportados pelo cliente, somente se eximindo quando demonstrar a inexistência de defeito na prestação do serviço ou a culpa exclusiva do consumidor ou de terceiro; contudo, em operações que envolvam mais de uma plataforma, a responsabilização deve ser individualizada conforme o serviço efetivamente prestado por cada agente, não sendo possível imputar à exchange demandada prejuízo decorrente de fraude ocorrida em carteira digital custodiada por terceiro estranho à relação processual.</p>
 
-            <div class="botoes">
-                <button onclick="responder(7, 'CERTO')">CERTO</button>
-                <button onclick="responder(7, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(3, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(3, 'ERRADO')">ERRADO</button>
+</div>
 
-            <div class="feedback" id="feedback-7">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está correta porque distingue adequadamente duas hipóteses rescisórias distintas previstas no art. 966 do CPC.<br><br>Primeiro, a absolvição penal posterior não se enquadra, em regra, como “prova nova” do inciso VII, pois esse fundamento exige documento ou elemento probatório preexistente à decisão rescindenda, mas ignorado ou de impossível utilização à época por motivo alheio à parte. Uma decisão criminal superveniente, formada depois do trânsito em julgado cível, não é prova preexistente; por isso, não serve, tecnicamente, como prova nova.<br><br>Segundo, a rescisão pode ser fundada no inciso VIII do art. 966 quando o julgador, ao decidir a causa, parte de um fato inexistente como premissa decisória, isto é, quando há erro de fato relevante. No caso julgado, a condenação cível foi construída sobre a admissão implícita de que o réu teria participado do ilícito indenizável, embora essa participação não tivesse sido claramente narrada na inicial nem comprovada nos autos. O ponto central não foi reexaminar prova ou rediscutir justiça da conclusão, mas constatar que a decisão rescindenda assentou-se sobre base fática inexistente.<br><br>Também é correta a observação de que a utilização da ação rescisória, nessas circunstâncias, não viola a independência entre as instâncias cível e penal, porque não se está subordinando automaticamente a esfera cível à penal, mas apenas reconhecendo que a decisão civil pode ser desconstituída quando incidir em hipótese legal estrita de erro de fato. Da mesma forma, não há conversão da rescisória em sucedâneo recursal, pois o manejo do remédio excepcional permanece limitado às hipóteses taxativas do art. 966 do CPC.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 4ª Turma. REsp 2.248.144-GO, Rel. Min. João Otávio de Noronha, julgado em 7/4/2026 (Info 884).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 8</span>
-                <span class="status" id="status-8">Não respondida</span>
-            </div>
+<div class="feedback" id="feedback-3">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque reproduz a lógica central do julgado: as exchanges de criptoativos, enquanto prestadoras de serviços de ativos virtuais, inserem-se no âmbito de incidência do CDC, inclusive por força da disciplina legal específica aplicável às SPSAVs, e sua responsabilidade, em regra, é objetiva. Isso significa que, uma vez caracterizado defeito na prestação do serviço e o nexo causal com o dano, surge o dever de indenizar, independentemente de culpa.<br><br>Todavia, essa responsabilidade não é ilimitada. O art. 14, § 3º, do CDC admite excludentes expressas: a prova de que o defeito inexistiu ou de que houve culpa exclusiva do consumidor ou de terceiro. No caso examinado, a controvérsia não se resolveu pela mera constatação de que houve prejuízo ao consumidor, mas pela delimitação do serviço efetivamente prestado pela exchange acionada. Como a fraude se consumou em ambiente de carteira digital vinculada a plataforma distinta, não se demonstrou falha específica da ré na operação por ela executada.<br><br>O ponto decisivo é que, havendo pluralidade de plataformas na cadeia operacional, a responsabilização não pode ser automaticamente solidária por todo e qualquer evento danoso ocorrido em etapas alheias ao serviço prestado pela demandada. É necessário verificar, concretamente, qual agente realizou cada etapa, quais deveres de informação, segurança e proteção lhe eram exigíveis e se houve descumprimento normativo no âmbito da sua atuação. Assim, a mera alegação de que a exchange “não identificou a fraude” não basta, por si só, para impor indenização quando a transferência foi realizada conforme ordem do próprio usuário e o prejuízo decorreu de fraude praticada em ambiente externo à plataforma acionada.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Turma. REsp 2.250.674-MG, Rel. Min. Ricardo Villas Bôas Cueva, julgado 7/4/2026 (Info 884).</p>
+</div>
+</section>
 
-            <p class="enunciado">Em condenação pelo crime do art. 1º, VII, do Decreto-Lei n.º 201/1967, a superveniência da prescrição da pretensão punitiva em relação à pena privativa de liberdade, fixada em patamar inferior a 1 ano, impede, por arrastamento, a subsistência da sanção de perda do cargo e de inabilitação para o exercício de cargo ou função pública, por se tratar de efeito acessório necessariamente vinculado ao mesmo prazo prescricional da pena corporal.</p>
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="em ação de obrigação de fazer cumulada com indenização por danos morais, proposta por advogado contra empresa privada responsável por aplicativo de mensagens, na qual se busca a remoção de perfis falsos e o bloqueio de números utilizados em fraude praticada por terceiros mediante uso indevido de nome, imagem e dados profissionais do autor, a competência da justiça federal pode ser reconhecida apenas porque os golpistas teriam mencionado processo em trâmite na justiça federal, ainda que não haja indício de vazamento, invasão ou falha de segurança em sistema federal e nenhum ente da união integre a relação processual. a assertiva está incorreta porque a competência cível da justiça federal, em regra, é definida pelo critério **ratione personae**, previsto no art. 109, i, da constituição federal. isso significa que a presença, no processo, da união, autarquia federal ou empresa pública federal, na condição de autora, ré, assistente ou oponente, é elemento central para deslocar a competência para a justiça federal.
 
-            <div class="botoes">
-                <button onclick="responder(8, 'CERTO')">CERTO</button>
-                <button onclick="responder(8, 'ERRADO')">ERRADO</button>
-            </div>
+no caso descrito, a demanda foi proposta por particular contra empresa privada, sem participação de qualquer ente federal na relação processual. o simples fato de os fraudadores terem mencionado processo em curso na justiça federal não basta, por si só, para atrair a competência federal. para isso, seria necessário algum elemento concreto de interesse jurídico da união, como indício de vazamento de dados, invasão de sistema ou falha de segurança em serviço federal, o que não ocorreu. ao contrário, foi afastada a existência de qualquer comprometimento do pje ou de dados sob guarda da justiça federal, destacando-se que o processo citado era público e acessível pelos meios regulares de consulta.
 
-            <div class="feedback" id="feedback-8">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque a perda do cargo e a inabilitação para o exercício de cargo ou função pública, previstas no art. 1º, § 2º, do Decreto-Lei n.º 201/1967, não possuem natureza meramente acessória nem se submetem, automaticamente, ao mesmo regime prescricional da pena privativa de liberdade.<br><br>O entendimento firmado é no sentido de que essa sanção tem <strong>autonomia</strong> em relação à pena corporal. Por isso, ainda que a pretensão punitiva esteja prescrita quanto à detenção — no caso, porque a pena aplicada foi inferior a 1 ano, incidindo o prazo de 3 anos do art. 109, VI, do Código Penal —, a sanção de inabilitação pode subsistir, desde que observada a disciplina prescricional própria, calculada a partir da duração da própria pena de inabilitação.<br><br>Em outras palavras, a prescrição da pena privativa de liberdade <strong>não arrasta automaticamente</strong> a prescrição da perda do cargo/inabilitação. Trata-se de consequência jurídica distinta, com prazo prescricional próprio, o que impede a conclusão de que a extinção da punibilidade quanto à pena corporal elimine, por si só, a possibilidade de imposição ou execução da sanção política-funcional prevista no diploma especial.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 6ª Turma. AgRg no AREsp 2.130.713-AP, Rel. Min. Sebastião Reis Júnior, julgado em 10/3/2026 (Info 884).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 9</span>
-                <span class="status" id="status-9">Não respondida</span>
-            </div>
+assim, tratando-se de golpe praticado por particulares contra particular, sem relação direta com bens, serviços ou interesses da união, a competência permanece com a justiça estadual. a mera referência a processo federal, desacompanhada de lesão a interesse jurídico federal, não desloca a competência. stj. 1ª seção. cc 218.005-ce, rel. min. francisco falcão, julgado em 17/3/2026 (info 884).">
 
-            <p class="enunciado">A ausência de lavratura de auto de infração administrativa de trânsito impede o recebimento de denúncia pelo crime de condução de veículo automotor com a capacidade psicomotora alterada em razão da influência de álcool, por inexistir justa causa penal quando não houver prévia autuação na esfera administrativa.</p>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 4</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-4">Não respondida</span>
+</div>
 
-            <div class="botoes">
-                <button onclick="responder(9, 'CERTO')">CERTO</button>
-                <button onclick="responder(9, 'ERRADO')">ERRADO</button>
-            </div>
+<p class="enunciado">Em ação de obrigação de fazer cumulada com indenização por danos morais, proposta por advogado contra empresa privada responsável por aplicativo de mensagens, na qual se busca a remoção de perfis falsos e o bloqueio de números utilizados em fraude praticada por terceiros mediante uso indevido de nome, imagem e dados profissionais do autor, a competência da Justiça Federal pode ser reconhecida apenas porque os golpistas teriam mencionado processo em trâmite na Justiça Federal, ainda que não haja indício de vazamento, invasão ou falha de segurança em sistema federal e nenhum ente da União integre a relação processual.</p>
 
-            <div class="feedback" id="feedback-9">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque a responsabilização penal pelo art. 306 do CTB não depende da prévia lavratura de auto de infração administrativa de trânsito. As esferas administrativa e penal são autônomas e independentes, de modo que a ausência de autuação administrativa não constitui condição de procedibilidade nem requisito indispensável para o início da persecução penal.<br><br>O ponto central é que o crime de embriaguez ao volante é de perigo abstrato e sua configuração não se subordina ao exaurimento da via administrativa. O art. 306, § 2º, do CTB admite a comprovação da alteração da capacidade psicomotora por diversos meios de prova, como exame clínico, perícia, vídeo, prova testemunhal ou outros meios admitidos em direito. Assim, a materialidade delitiva pode ser demonstrada, por exemplo, por termo de constatação de sinais de alteração da capacidade psicomotora e pelos depoimentos dos agentes que presenciaram os sinais externos de embriaguez.<br><br>No caso paradigmático, embora não tenha sido lavrado auto de infração administrativa, havia outros elementos probatórios idôneos: os policiais constataram sinais visíveis de embriaguez, foi lavrado termo de constatação e o condutor admitiu ter ingerido bebida alcoólica. Logo, a ausência do auto administrativo não afasta, por si só, a justa causa para a ação penal.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 5ª Turma. AgRg no AREsp 2.943.421-BA, Rel. Min. Maria Marluce Caldas, julgado em 7/4/2026 (Info 884).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 10</span>
-                <span class="status" id="status-10">Não respondida</span>
-            </div>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(4, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(4, 'ERRADO')">ERRADO</button>
+</div>
 
-            <p class="enunciado">A incidência da agravante genérica prevista no art. 61, II, “f”, do Código Penal, em crimes praticados no contexto de violência doméstica e familiar contra a mulher, não configura bis in idem quando a figura típica aplicada não tem a condição feminina como elementar, razão pela qual, em condenação pelo art. 129, § 9º, do Código Penal, é juridicamente admissível a cumulação da agravante com a Lei Maria da Penha; diversamente, se a imputação recair sobre o art. 129, § 13, do Código Penal, a mesma agravante não pode ser utilizada, porque a violência de gênero já integra a própria estrutura do tipo qualificado.</p>
+<div class="feedback" id="feedback-4">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque a competência cível da Justiça Federal, em regra, é definida pelo critério <strong>ratione personae</strong>, previsto no art. 109, I, da Constituição Federal. Isso significa que a presença, no processo, da União, autarquia federal ou empresa pública federal, na condição de autora, ré, assistente ou oponente, é elemento central para deslocar a competência para a Justiça Federal.<br><br>No caso descrito, a demanda foi proposta por particular contra empresa privada, sem participação de qualquer ente federal na relação processual. O simples fato de os fraudadores terem mencionado processo em curso na Justiça Federal não basta, por si só, para atrair a competência federal. Para isso, seria necessário algum elemento concreto de interesse jurídico da União, como indício de vazamento de dados, invasão de sistema ou falha de segurança em serviço federal, o que não ocorreu. Ao contrário, foi afastada a existência de qualquer comprometimento do PJe ou de dados sob guarda da Justiça Federal, destacando-se que o processo citado era público e acessível pelos meios regulares de consulta.<br><br>Assim, tratando-se de golpe praticado por particulares contra particular, sem relação direta com bens, serviços ou interesses da União, a competência permanece com a Justiça Estadual. A mera referência a processo federal, desacompanhada de lesão a interesse jurídico federal, não desloca a competência.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 1ª Seção. CC 218.005-CE, Rel. Min. Francisco Falcão, julgado em 17/3/2026 (Info 884).</p>
+</div>
+</section>
 
-            <div class="botoes">
-                <button onclick="responder(10, 'CERTO')">CERTO</button>
-                <button onclick="responder(10, 'ERRADO')">ERRADO</button>
-            </div>
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="em execução ajuizada contra devedor não localizado, a validade da citação por edital depende, como providência indispensável, da prévia expedição de ofícios a concessionárias de serviços públicos e a cadastros de órgãos públicos, de modo que a mera frustração das tentativas de citação nos endereços constantes dos autos e a consulta a sistemas informatizados disponíveis ao juízo não bastam, por si sós, para caracterizar o esgotamento razoável dos meios de localização do réu. a assertiva está incorreta porque transforma em requisito obrigatório uma diligência que não possui essa natureza. o entendimento firmado é no sentido de que a citação por edital não fica condicionada, necessariamente, à expedição de ofícios a órgãos públicos ou a concessionárias de serviços públicos. o ponto central não é a realização de um rol fechado e pré-determinado de providências, mas a verificação, pelo magistrado, à luz das circunstâncias concretas, de que houve esgotamento razoável dos meios disponíveis para localização do réu.
 
-            <div class="feedback" id="feedback-10">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está correta porque distingue, de modo tecnicamente relevante, duas situações jurídicas diversas.<br><br>No art. 129, § 9º, do Código Penal, a elementar do tipo é a prática de lesão corporal contra determinadas pessoas em razão da relação doméstica, familiar ou de coabitação, abrangendo vítima homem ou mulher. Assim, a condição feminina não integra a descrição típica. Nessa hipótese, a incidência da agravante do art. 61, II, “f”, do CP — que incide quando o crime é praticado com abuso de autoridade ou prevalecendo-se de relações domésticas, de coabitação ou de hospitalidade, ou com violência contra a mulher na forma da lei específica — não duplica elemento já considerado pelo tipo penal, inexistindo bis in idem.<br><br>Já no art. 129, § 13, do Código Penal, introduzido posteriormente, a violência de gênero passa a compor a própria estrutura do tipo qualificado. Por isso, não se admite somar a agravante do art. 61, II, “f”, ao § 13, pois haveria dupla valoração da mesma circunstância fática-jurídica, o que é vedado no direito penal.<br><br>A tese repetitiva firmada para o Tema 1197 foi construída para a hipótese em que a qualificadora/majorante aplicável não absorve a condição de gênero como elementar do tipo, razão pela qual sua extensão automática ao art. 129, § 13, é indevida. Em síntese: no § 9º, a agravante pode incidir; no § 13, não.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Seção. REsp 2.027.794-MS, REsp 2.029.515-MS e REsp 2.026.129-MS, Rel. Min. Jesuíno Rissato (Desembargador convocado do TJDFT), julgados em 12/6/2024 (Recurso Repetitivo – Tema 1197) (Info 816).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 11</span>
-                <span class="status" id="status-11">Não respondida</span>
-            </div>
+no caso paradigma, foram infrutíferas as tentativas de citação pessoal em três endereços e as consultas aos sistemas informatizados acessíveis ao juízo, que apenas reproduziram os mesmos endereços já diligenciados. ainda assim, a ausência de ofícios às concessionárias de água e energia não gerou nulidade, porque o art. 256, § 3º, do cpc não foi interpretado como impondo a utilização de todos os meios extrajudiciais imagináveis, nem como exigindo, de forma automática, a busca por informações em empresas privadas de serviços públicos.
 
-            <p class="enunciado">Em se tratando de lesão corporal praticada contra a mulher por razões da condição do sexo feminino, a incidência da qualificadora do art. 129, § 13, do Código Penal afasta a possibilidade de reconhecimento simultâneo da agravante genérica do art. 61, II, “f”, do mesmo diploma, sob pena de bis in idem, ainda que o fato tenha ocorrido em contexto de violência doméstica e familiar.</p>
+assim, para a validade da citação editalícia, basta que o juiz motive adequadamente a conclusão de que as diligências empreendidas foram suficientes no caso concreto, sendo desnecessário exigir o esgotamento absoluto de todas as fontes possíveis de localização do demandado. stj. corte especial. resp 2.166.983-ap e resp 2.162.483-ap, rel. min. og fernandes, julgados em 18/3/2026 (recurso repetitivo - tema 1338) (info 884).">
 
-            <div class="botoes">
-                <button onclick="responder(11, 'CERTO')">CERTO</button>
-                <button onclick="responder(11, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 5</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-5">Não respondida</span>
+</div>
 
-            <div class="feedback" id="feedback-11">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está correta porque o art. 129, § 13, do Código Penal, introduzido pela Lei nº 14.188/2021, já contém, em sua própria estrutura típica, a especial reprovabilidade da lesão corporal praticada contra a mulher por razões da condição do sexo feminino. Assim, quando a condenação se dá com base nessa qualificadora, a circunstância de a vítima ser mulher, em contexto de violência de gênero, já foi valorada pelo legislador na definição da pena mais grave.<br><br>Nessas hipóteses, a aplicação cumulativa da agravante genérica do art. 61, II, “f”, do CP — que também incide sobre crimes praticados com violência contra a mulher — implicaria dupla valoração da mesma circunstância fática-jurídica, isto é, a condição feminina da vítima em contexto de violência doméstica ou de gênero. Isso caracteriza bis in idem, vedado no sistema penal.<br><br>A distinção é relevante porque a agravante do art. 61, II, “f”, pode ter incidência em delitos em que a condição de mulher da vítima não constitua elemento já absorvido por tipo penal mais gravoso. Porém, quando a própria figura típica do art. 129, § 13, já qualifica a lesão corporal exatamente por essa razão, não se admite nova exasperação com base no mesmo fundamento.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 5ª Turma. REsp 2.247.908-RS, Rel. Min. Ribeiro Dantas, julgado em 7/4/2026 (Info 884).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 12</span>
-                <span class="status" id="status-12">Não respondida</span>
-            </div>
+<p class="enunciado">Em execução ajuizada contra devedor não localizado, a validade da citação por edital depende, como providência indispensável, da prévia expedição de ofícios a concessionárias de serviços públicos e a cadastros de órgãos públicos, de modo que a mera frustração das tentativas de citação nos endereços constantes dos autos e a consulta a sistemas informatizados disponíveis ao juízo não bastam, por si sós, para caracterizar o esgotamento razoável dos meios de localização do réu.</p>
 
-            <p class="enunciado">A prática de feminicídio por militar da ativa, no interior de dependência sujeita à administração militar, não desloca a competência para a Justiça Militar da União quando a conduta ostenta natureza de crime doloso contra a vida, devendo o feito ser submetido ao Tribunal do Júri; contudo, os delitos autônomos que, no mesmo contexto fático, atingirem diretamente bens jurídicos castrenses — como incêndio, dano ao patrimônio militar, subtração de arma funcional e eventual fraude processual — devem ser processados e julgados pela Justiça Militar, sendo admissível a cisão obrigatória da persecução penal sem afronta ao ne bis in idem.</p>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(5, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(5, 'ERRADO')">ERRADO</button>
+</div>
 
-            <div class="botoes">
-                <button onclick="responder(12, 'CERTO')">CERTO</button>
-                <button onclick="responder(12, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="feedback" id="feedback-5">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque transforma em requisito obrigatório uma diligência que não possui essa natureza. O entendimento firmado é no sentido de que a citação por edital não fica condicionada, necessariamente, à expedição de ofícios a órgãos públicos ou a concessionárias de serviços públicos. O ponto central não é a realização de um rol fechado e pré-determinado de providências, mas a verificação, pelo magistrado, à luz das circunstâncias concretas, de que houve esgotamento razoável dos meios disponíveis para localização do réu.<br><br>No caso paradigma, foram infrutíferas as tentativas de citação pessoal em três endereços e as consultas aos sistemas informatizados acessíveis ao juízo, que apenas reproduziram os mesmos endereços já diligenciados. Ainda assim, a ausência de ofícios às concessionárias de água e energia não gerou nulidade, porque o art. 256, § 3º, do CPC não foi interpretado como impondo a utilização de todos os meios extrajudiciais imagináveis, nem como exigindo, de forma automática, a busca por informações em empresas privadas de serviços públicos.<br><br>Assim, para a validade da citação editalícia, basta que o juiz motive adequadamente a conclusão de que as diligências empreendidas foram suficientes no caso concreto, sendo desnecessário exigir o esgotamento absoluto de todas as fontes possíveis de localização do demandado.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. Corte Especial. REsp 2.166.983-AP e REsp 2.162.483-AP, Rel. Min. Og Fernandes, julgados em 18/3/2026 (Recurso Repetitivo - Tema 1338) (Info 884).</p>
+</div>
+</section>
 
-            <div class="feedback" id="feedback-12">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva reproduz a solução jurídica firmada para hipótese em que militar da ativa pratica feminicídio dentro de quartel, com posterior cometimento de outros delitos conexos de índole castrense. O ponto central é que o feminicídio, por integrar a categoria dos crimes dolosos contra a vida e possuir núcleo de injusto ligado à violência de gênero, atrai a competência constitucional do Tribunal do Júri, ainda que o fato ocorra em ambiente militar e mesmo que o agente e a vítima sejam militares.<br><br>A circunstância de o crime ter sido cometido em dependência militar não basta, por si só, para deslocar a competência ao juízo castrense quando o núcleo do fato principal é homicida e não se vincula à função ou à disciplina militar. Em paralelo, os delitos que tutelam bens jurídicos tipicamente militares — como a integridade do patrimônio, da estrutura e da regularidade da administração castrense — permanecem sob a Justiça Militar da União. Por isso, incêndio, dano às instalações, subtração de arma de serviço e eventual fraude processual, se autônomos e com lesão direta a interesse militar, não acompanham o feminicídio para a Justiça comum.<br><br>A cisão processual, nesse contexto, não é facultativa, mas imposta pela repartição constitucional e legal de competências. Essa separação não configura bis in idem, porque não há dupla punição pelo mesmo fato típico; há, na verdade, persecuções distintas para infrações penais diversas, cada qual submetida ao juízo competente em razão da natureza do bem jurídico atingido.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Seção. CC 218.865-DF, Rel. Min. Ribeiro Dantas, julgado em 8/4/2026 (Info 884).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 13</span>
-                <span class="status" id="status-13">Não respondida</span>
-            </div>
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="em execução de título extrajudicial, a requisição de pesquisa patrimonial por meio do serp-jud e a eventual adoção de medidas constritivas dele decorrentes dependem, em regra, de prévio exaurimento de todas as diligências extrajudiciais disponíveis ao exequente, sendo insuficiente, para tanto, a mera existência de decisão judicial genérica autorizando a utilização da plataforma. o entendimento firmado admite a utilização do serp-jud como instrumento de pesquisa de bens e direitos registrados, inclusive com potencial repercussão constritiva, desde que haja **ordem judicial devidamente fundamentada**. não se exige, porém, o **prévio esgotamento das diligências extrajudiciais** como condição para o deferimento da medida.
 
-            <p class="enunciado">Em processo penal instaurado para apurar suposta injúria racial, é admissível que o órgão acusatório utilize, como suporte probatório para o oferecimento da denúncia, relatório elaborado por investigador de polícia com emprego de ferramentas de inteligência artificial generativa, ainda que duas perícias oficiais anteriores tenham concluído, por escuta técnica e análise espectrográfica, que o áudio não confirmava a pronúncia da expressão imputada, pois a eventual fragilidade metodológica do documento não comprometeria sua aptidão probatória, desde que inexistente ilicitude na obtenção da prova ou quebra da cadeia de custódia.</p>
+a lógica adotada é a mesma que já orienta outros mecanismos eletrônicos de apoio à execução, como bacenjud, renajud e infojud, em harmonia com os arts. 6º, 139, iv, e 797 do cpc, que reforçam a cooperação processual, os poderes executivos do magistrado e o interesse do exequente na satisfação do crédito. assim, a exigência de exaurimento prévio, tal como colocada no enunciado, restringe indevidamente a atuação executiva e contraria a orientação consolidada no julgado.
 
-            <div class="botoes">
-                <button onclick="responder(13, 'CERTO')">CERTO</button>
-                <button onclick="responder(13, 'ERRADO')">ERRADO</button>
-            </div>
+além disso, a decisão judicial não pode ser meramente genérica: deve ser **fundamentada** e indicar, com a devida precisão, os sistemas acionados e os requisitos de validade de cada ferramenta. o ponto central, portanto, não é o esgotamento prévio das vias extrajudiciais, mas a existência de fundamentação idônea para justificar o uso do serp-jud no caso concreto. stj. 4ª turma. resp 2.226.101-sc, rel. min. luís carlos gambogi (desembargador convocado do tjmg), julgado em 7/4/2026 (info 884).">
 
-            <div class="feedback" id="feedback-13">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque, embora não tenha havido discussão sobre ilicitude da prova nem sobre quebra da cadeia de custódia, o ponto निर्णante foi outro: o relatório produzido com uso de inteligência artificial generativa não ostenta confiabilidade epistêmica mínima para servir de prova no processo penal. No caso, havia duas perícias oficiais do Instituto de Criminalística, ambas convergentes no sentido de que o áudio não confirmava a pronúncia da palavra imputada, mas a investigação buscou um novo “relatório técnico” por meio de ferramentas de IA generativa para alcançar conclusão oposta.<br><br>O entendimento firmado destaca que a admissibilidade probatória no processo penal não se esgota na licitude formal da obtenção do elemento informativo; exige também adequação epistêmica, isto é, mínima confiabilidade científica e metodológica. Ferramentas de IA generativa, especialmente as baseadas em grandes modelos de linguagem, apresentam risco de “alucinação”, podem produzir respostas com aparência de precisão sem lastro verificável e não são adequadas para análise fonética de áudio, pois processam texto, não ondas sonoras. Por isso, o relatório assim produzido não pode ser utilizado como prova.<br><br>Além disso, embora o juiz não esteja vinculado ao laudo pericial oficial, a superação de conclusões técnicas exige fundamentação técnico-científica idônea, o que não se satisfaz com relatório gerado por IA generativa, sem metodologia verificável, reprodutibilidade controlada e transparência sobre o caminho lógico empregado. Assim, a tese da questão erra ao tratar a fragilidade metodológica como irrelevante e ao reduzir o problema apenas à licitude da prova ou à cadeia de custódia.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 5ª Turma. HC 1.059.475-SP, Rel. Min. Reynaldo Soares da Fonseca, julgado em 7/4/2026 (Info 884).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 14</span>
-                <span class="status" id="status-14">Não respondida</span>
-            </div>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 6</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-6">Não respondida</span>
+</div>
 
-            <p class="enunciado">A fuga de indivíduo para o interior de residência, ao perceber a aproximação de policiais que realizavam patrulhamento de rotina na região e apuravam notícia de possível tráfico de drogas, por si só, pode caracterizar fundadas razões aptas a legitimar o ingresso domiciliar sem mandado judicial e sem consentimento do morador, desde que a atuação estatal esteja amparada em elementos objetivos contemporâneos ao fato.</p>
+<p class="enunciado">Em execução de título extrajudicial, a requisição de pesquisa patrimonial por meio do SERP-JUD e a eventual adoção de medidas constritivas dele decorrentes dependem, em regra, de prévio exaurimento de todas as diligências extrajudiciais disponíveis ao exequente, sendo insuficiente, para tanto, a mera existência de decisão judicial genérica autorizando a utilização da plataforma.</p>
 
-            <div class="botoes">
-                <button onclick="responder(14, 'CERTO')">CERTO</button>
-                <button onclick="responder(14, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(6, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(6, 'ERRADO')">ERRADO</button>
+</div>
 
-            <div class="feedback" id="feedback-14">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>O entendimento consolidado admite a entrada em domicílio sem mandado quando houver <strong>fundadas razões</strong>, devidamente justificadas a posteriori, de que no local ocorre situação de flagrante delito. Nessa linha, a simples fuga do suspeito para o interior do imóvel, ao notar a aproximação policial durante diligência de rotina, constitui elemento objetivo que reforça a suspeita previamente existente e pode legitimar o ingresso imediato, especialmente quando a atuação policial não se baseia em mera intuição, mas em notícia anterior de tráfico e em circunstância concreta observada no momento da abordagem.<br><br>A lógica do julgado é afastar a tese de ilicitude automática da prova apenas porque não houve mandado ou consentimento. O ponto decisivo é a presença de <strong>fundadas razões</strong>, aferidas à luz do contexto fático contemporâneo: denúncia prévia, aproximação policial em patrulhamento e fuga para dentro da casa. Nessas condições, a entrada domiciliar não se confunde com devassa arbitrária, pois há lastro objetivo suficiente para presumir a ocorrência de flagrante no interior do imóvel.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 6ª Turma. AgRg no HC 1.035.519-SP, Rel. Min. Rogerio Schietti Cruz, julgado em 25/2/2026 (Info 884).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 15</span>
-                <span class="status" id="status-15">Não respondida</span>
-            </div>
+<div class="feedback" id="feedback-6">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O entendimento firmado admite a utilização do SERP-JUD como instrumento de pesquisa de bens e direitos registrados, inclusive com potencial repercussão constritiva, desde que haja <strong>ordem judicial devidamente fundamentada</strong>. Não se exige, porém, o <strong>prévio esgotamento das diligências extrajudiciais</strong> como condição para o deferimento da medida.<br><br>A lógica adotada é a mesma que já orienta outros mecanismos eletrônicos de apoio à execução, como BACENJUD, RENAJUD e INFOJUD, em harmonia com os arts. 6º, 139, IV, e 797 do CPC, que reforçam a cooperação processual, os poderes executivos do magistrado e o interesse do exequente na satisfação do crédito. Assim, a exigência de exaurimento prévio, tal como colocada no enunciado, restringe indevidamente a atuação executiva e contraria a orientação consolidada no julgado.<br><br>Além disso, a decisão judicial não pode ser meramente genérica: deve ser <strong>fundamentada</strong> e indicar, com a devida precisão, os sistemas acionados e os requisitos de validade de cada ferramenta. O ponto central, portanto, não é o esgotamento prévio das vias extrajudiciais, mas a existência de fundamentação idônea para justificar o uso do SERP-JUD no caso concreto.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 4ª Turma. REsp 2.226.101-SC, Rel. Min. Luís Carlos Gambogi (Desembargador convocado do TJMG), julgado em 7/4/2026 (Info 884).</p>
+</div>
+</section>
 
-            <p class="enunciado">Na execução penal, a aprovação do apenado em exames de certificação de conclusão do ensino médio pode ensejar remição da pena, ainda que ele já tenha concluído essa etapa escolar antes do início do cumprimento da sanção; contudo, uma vez reconhecido o benefício em razão da aprovação no ENEM, nova aprovação posterior no mesmo exame, durante a mesma execução, não autoriza outra remição, por caracterizar repetição de fato gerador sem acréscimo de conteúdo formativo, ao passo que a aprovação em exame diverso, como o ENCCEJA, pode fundamentar remição autônoma.</p>
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a absolvição criminal superveniente à formação da coisa julgada cível não pode, por si só, ser invocada como prova nova para fins de ação rescisória, mas a rescisão é admissível quando a decisão rescindenda tiver assentado a responsabilidade civil sobre pressuposto fático inexistente, ainda que tal equívoco somente se torne perceptível em momento posterior, desde que o fato não tenha sido efetivamente controvertido nem demonstrado nos autos originários. a assertiva está correta porque distingue adequadamente duas hipóteses rescisórias distintas previstas no art. 966 do cpc.
 
-            <div class="botoes">
-                <button onclick="responder(15, 'CERTO')">CERTO</button>
-                <button onclick="responder(15, 'ERRADO')">ERRADO</button>
-            </div>
+primeiro, a absolvição penal posterior não se enquadra, em regra, como “prova nova” do inciso vii, pois esse fundamento exige documento ou elemento probatório preexistente à decisão rescindenda, mas ignorado ou de impossível utilização à época por motivo alheio à parte. uma decisão criminal superveniente, formada depois do trânsito em julgado cível, não é prova preexistente; por isso, não serve, tecnicamente, como prova nova.
 
-            <div class="feedback" id="feedback-15">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva reproduz a lógica do entendimento consolidado no caso: a remição por estudo vinculada à aprovação em exames de certificação não é afastada pelo simples fato de o apenado já possuir escolaridade formal anterior ao cárcere, pois o benefício se relaciona ao esforço educacional desenvolvido durante a execução penal. Assim, a aprovação no ENEM pode gerar remição, ainda que o condenado já tivesse concluído o ensino médio antes do cumprimento da pena.<br><br>Por outro lado, o julgado distingue situações em que há efetiva diversidade de fatos geradores. A aprovação no ENEM e a aprovação no ENCCEJA foram tratadas como eventos distintos, com naturezas e finalidades próprias, o que permite o reconhecimento de remições autônomas, desde que cada aprovação corresponda a exame diverso e a um novo esforço educacional juridicamente relevante.<br><br>Todavia, a decisão também fixou um limite importante: não é possível multiplicar remições com base em aprovações sucessivas no mesmo exame, como novas aprovações no ENEM durante a mesma execução penal. Nessa hipótese, a repetição do mesmo resultado não representa avanço pedagógico novo nem fato gerador independente, mas mera reiteração de situação já valorada, de modo que admitir nova remição implicaria bis in idem. Por isso, apenas a primeira aprovação no mesmo exame pode ser computada para esse fim.<br><br>A questão explora justamente essa distinção entre:  <br>1. remição por exame de certificação, mesmo com escolaridade prévia;  <br>2. possibilidade de remições por exames distintos; e  <br>3. vedação de múltiplas remições por repetição do mesmo exame na mesma execução.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STJ. 6ª Turma. AgRg no HC 1.045.443-SP, Rel. Min. Carlos Pires Brandão, julgado em 11/3/2026 (Info 884).</p>
-            </div>
-        </section>
-        
+segundo, a rescisão pode ser fundada no inciso viii do art. 966 quando o julgador, ao decidir a causa, parte de um fato inexistente como premissa decisória, isto é, quando há erro de fato relevante. no caso julgado, a condenação cível foi construída sobre a admissão implícita de que o réu teria participado do ilícito indenizável, embora essa participação não tivesse sido claramente narrada na inicial nem comprovada nos autos. o ponto central não foi reexaminar prova ou rediscutir justiça da conclusão, mas constatar que a decisão rescindenda assentou-se sobre base fática inexistente.
+
+também é correta a observação de que a utilização da ação rescisória, nessas circunstâncias, não viola a independência entre as instâncias cível e penal, porque não se está subordinando automaticamente a esfera cível à penal, mas apenas reconhecendo que a decisão civil pode ser desconstituída quando incidir em hipótese legal estrita de erro de fato. da mesma forma, não há conversão da rescisória em sucedâneo recursal, pois o manejo do remédio excepcional permanece limitado às hipóteses taxativas do art. 966 do cpc. stj. 4ª turma. resp 2.248.144-go, rel. min. joão otávio de noronha, julgado em 7/4/2026 (info 884).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 7</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-7">Não respondida</span>
+</div>
+
+<p class="enunciado">A absolvição criminal superveniente à formação da coisa julgada cível não pode, por si só, ser invocada como prova nova para fins de ação rescisória, mas a rescisão é admissível quando a decisão rescindenda tiver assentado a responsabilidade civil sobre pressuposto fático inexistente, ainda que tal equívoco somente se torne perceptível em momento posterior, desde que o fato não tenha sido efetivamente controvertido nem demonstrado nos autos originários.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(7, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(7, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-7">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque distingue adequadamente duas hipóteses rescisórias distintas previstas no art. 966 do CPC.<br><br>Primeiro, a absolvição penal posterior não se enquadra, em regra, como “prova nova” do inciso VII, pois esse fundamento exige documento ou elemento probatório preexistente à decisão rescindenda, mas ignorado ou de impossível utilização à época por motivo alheio à parte. Uma decisão criminal superveniente, formada depois do trânsito em julgado cível, não é prova preexistente; por isso, não serve, tecnicamente, como prova nova.<br><br>Segundo, a rescisão pode ser fundada no inciso VIII do art. 966 quando o julgador, ao decidir a causa, parte de um fato inexistente como premissa decisória, isto é, quando há erro de fato relevante. No caso julgado, a condenação cível foi construída sobre a admissão implícita de que o réu teria participado do ilícito indenizável, embora essa participação não tivesse sido claramente narrada na inicial nem comprovada nos autos. O ponto central não foi reexaminar prova ou rediscutir justiça da conclusão, mas constatar que a decisão rescindenda assentou-se sobre base fática inexistente.<br><br>Também é correta a observação de que a utilização da ação rescisória, nessas circunstâncias, não viola a independência entre as instâncias cível e penal, porque não se está subordinando automaticamente a esfera cível à penal, mas apenas reconhecendo que a decisão civil pode ser desconstituída quando incidir em hipótese legal estrita de erro de fato. Da mesma forma, não há conversão da rescisória em sucedâneo recursal, pois o manejo do remédio excepcional permanece limitado às hipóteses taxativas do art. 966 do CPC.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 4ª Turma. REsp 2.248.144-GO, Rel. Min. João Otávio de Noronha, julgado em 7/4/2026 (Info 884).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="em condenação pelo crime do art. 1º, vii, do decreto-lei n.º 201/1967, a superveniência da prescrição da pretensão punitiva em relação à pena privativa de liberdade, fixada em patamar inferior a 1 ano, impede, por arrastamento, a subsistência da sanção de perda do cargo e de inabilitação para o exercício de cargo ou função pública, por se tratar de efeito acessório necessariamente vinculado ao mesmo prazo prescricional da pena corporal. a assertiva está incorreta porque a perda do cargo e a inabilitação para o exercício de cargo ou função pública, previstas no art. 1º, § 2º, do decreto-lei n.º 201/1967, não possuem natureza meramente acessória nem se submetem, automaticamente, ao mesmo regime prescricional da pena privativa de liberdade.
+
+o entendimento firmado é no sentido de que essa sanção tem **autonomia** em relação à pena corporal. por isso, ainda que a pretensão punitiva esteja prescrita quanto à detenção — no caso, porque a pena aplicada foi inferior a 1 ano, incidindo o prazo de 3 anos do art. 109, vi, do código penal —, a sanção de inabilitação pode subsistir, desde que observada a disciplina prescricional própria, calculada a partir da duração da própria pena de inabilitação.
+
+em outras palavras, a prescrição da pena privativa de liberdade **não arrasta automaticamente** a prescrição da perda do cargo/inabilitação. trata-se de consequência jurídica distinta, com prazo prescricional próprio, o que impede a conclusão de que a extinção da punibilidade quanto à pena corporal elimine, por si só, a possibilidade de imposição ou execução da sanção política-funcional prevista no diploma especial. stj. 6ª turma. agrg no aresp 2.130.713-ap, rel. min. sebastião reis júnior, julgado em 10/3/2026 (info 884).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 8</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-8">Não respondida</span>
+</div>
+
+<p class="enunciado">Em condenação pelo crime do art. 1º, VII, do Decreto-Lei n.º 201/1967, a superveniência da prescrição da pretensão punitiva em relação à pena privativa de liberdade, fixada em patamar inferior a 1 ano, impede, por arrastamento, a subsistência da sanção de perda do cargo e de inabilitação para o exercício de cargo ou função pública, por se tratar de efeito acessório necessariamente vinculado ao mesmo prazo prescricional da pena corporal.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(8, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(8, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-8">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque a perda do cargo e a inabilitação para o exercício de cargo ou função pública, previstas no art. 1º, § 2º, do Decreto-Lei n.º 201/1967, não possuem natureza meramente acessória nem se submetem, automaticamente, ao mesmo regime prescricional da pena privativa de liberdade.<br><br>O entendimento firmado é no sentido de que essa sanção tem <strong>autonomia</strong> em relação à pena corporal. Por isso, ainda que a pretensão punitiva esteja prescrita quanto à detenção — no caso, porque a pena aplicada foi inferior a 1 ano, incidindo o prazo de 3 anos do art. 109, VI, do Código Penal —, a sanção de inabilitação pode subsistir, desde que observada a disciplina prescricional própria, calculada a partir da duração da própria pena de inabilitação.<br><br>Em outras palavras, a prescrição da pena privativa de liberdade <strong>não arrasta automaticamente</strong> a prescrição da perda do cargo/inabilitação. Trata-se de consequência jurídica distinta, com prazo prescricional próprio, o que impede a conclusão de que a extinção da punibilidade quanto à pena corporal elimine, por si só, a possibilidade de imposição ou execução da sanção política-funcional prevista no diploma especial.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 6ª Turma. AgRg no AREsp 2.130.713-AP, Rel. Min. Sebastião Reis Júnior, julgado em 10/3/2026 (Info 884).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a ausência de lavratura de auto de infração administrativa de trânsito impede o recebimento de denúncia pelo crime de condução de veículo automotor com a capacidade psicomotora alterada em razão da influência de álcool, por inexistir justa causa penal quando não houver prévia autuação na esfera administrativa. a assertiva está incorreta porque a responsabilização penal pelo art. 306 do ctb não depende da prévia lavratura de auto de infração administrativa de trânsito. as esferas administrativa e penal são autônomas e independentes, de modo que a ausência de autuação administrativa não constitui condição de procedibilidade nem requisito indispensável para o início da persecução penal.
+
+o ponto central é que o crime de embriaguez ao volante é de perigo abstrato e sua configuração não se subordina ao exaurimento da via administrativa. o art. 306, § 2º, do ctb admite a comprovação da alteração da capacidade psicomotora por diversos meios de prova, como exame clínico, perícia, vídeo, prova testemunhal ou outros meios admitidos em direito. assim, a materialidade delitiva pode ser demonstrada, por exemplo, por termo de constatação de sinais de alteração da capacidade psicomotora e pelos depoimentos dos agentes que presenciaram os sinais externos de embriaguez.
+
+no caso paradigmático, embora não tenha sido lavrado auto de infração administrativa, havia outros elementos probatórios idôneos: os policiais constataram sinais visíveis de embriaguez, foi lavrado termo de constatação e o condutor admitiu ter ingerido bebida alcoólica. logo, a ausência do auto administrativo não afasta, por si só, a justa causa para a ação penal. stj. 5ª turma. agrg no aresp 2.943.421-ba, rel. min. maria marluce caldas, julgado em 7/4/2026 (info 884).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 9</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-9">Não respondida</span>
+</div>
+
+<p class="enunciado">A ausência de lavratura de auto de infração administrativa de trânsito impede o recebimento de denúncia pelo crime de condução de veículo automotor com a capacidade psicomotora alterada em razão da influência de álcool, por inexistir justa causa penal quando não houver prévia autuação na esfera administrativa.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(9, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(9, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-9">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque a responsabilização penal pelo art. 306 do CTB não depende da prévia lavratura de auto de infração administrativa de trânsito. As esferas administrativa e penal são autônomas e independentes, de modo que a ausência de autuação administrativa não constitui condição de procedibilidade nem requisito indispensável para o início da persecução penal.<br><br>O ponto central é que o crime de embriaguez ao volante é de perigo abstrato e sua configuração não se subordina ao exaurimento da via administrativa. O art. 306, § 2º, do CTB admite a comprovação da alteração da capacidade psicomotora por diversos meios de prova, como exame clínico, perícia, vídeo, prova testemunhal ou outros meios admitidos em direito. Assim, a materialidade delitiva pode ser demonstrada, por exemplo, por termo de constatação de sinais de alteração da capacidade psicomotora e pelos depoimentos dos agentes que presenciaram os sinais externos de embriaguez.<br><br>No caso paradigmático, embora não tenha sido lavrado auto de infração administrativa, havia outros elementos probatórios idôneos: os policiais constataram sinais visíveis de embriaguez, foi lavrado termo de constatação e o condutor admitiu ter ingerido bebida alcoólica. Logo, a ausência do auto administrativo não afasta, por si só, a justa causa para a ação penal.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 5ª Turma. AgRg no AREsp 2.943.421-BA, Rel. Min. Maria Marluce Caldas, julgado em 7/4/2026 (Info 884).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="Direito Penal"
+data-texto="a incidência da agravante genérica prevista no art. 61, ii, “f”, do código penal, em crimes praticados no contexto de violência doméstica e familiar contra a mulher, não configura bis in idem quando a figura típica aplicada não tem a condição feminina como elementar, razão pela qual, em condenação pelo art. 129, § 9º, do código penal, é juridicamente admissível a cumulação da agravante com a lei maria da penha; diversamente, se a imputação recair sobre o art. 129, § 13, do código penal, a mesma agravante não pode ser utilizada, porque a violência de gênero já integra a própria estrutura do tipo qualificado. a assertiva está correta porque distingue, de modo tecnicamente relevante, duas situações jurídicas diversas.
+
+no art. 129, § 9º, do código penal, a elementar do tipo é a prática de lesão corporal contra determinadas pessoas em razão da relação doméstica, familiar ou de coabitação, abrangendo vítima homem ou mulher. assim, a condição feminina não integra a descrição típica. nessa hipótese, a incidência da agravante do art. 61, ii, “f”, do cp — que incide quando o crime é praticado com abuso de autoridade ou prevalecendo-se de relações domésticas, de coabitação ou de hospitalidade, ou com violência contra a mulher na forma da lei específica — não duplica elemento já considerado pelo tipo penal, inexistindo bis in idem.
+
+já no art. 129, § 13, do código penal, introduzido posteriormente, a violência de gênero passa a compor a própria estrutura do tipo qualificado. por isso, não se admite somar a agravante do art. 61, ii, “f”, ao § 13, pois haveria dupla valoração da mesma circunstância fática-jurídica, o que é vedado no direito penal.
+
+a tese repetitiva firmada para o tema 1197 foi construída para a hipótese em que a qualificadora/majorante aplicável não absorve a condição de gênero como elementar do tipo, razão pela qual sua extensão automática ao art. 129, § 13, é indevida. em síntese: no § 9º, a agravante pode incidir; no § 13, não. stj. 3ª seção. resp 2.027.794-ms, resp 2.029.515-ms e resp 2.026.129-ms, rel. min. jesuíno rissato (desembargador convocado do tjdft), julgados em 12/6/2024 (recurso repetitivo – tema 1197) (info 816).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 10</span>
+    <span class="disciplina-tag">Direito Penal</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-10">Não respondida</span>
+</div>
+
+<p class="enunciado">A incidência da agravante genérica prevista no art. 61, II, “f”, do Código Penal, em crimes praticados no contexto de violência doméstica e familiar contra a mulher, não configura bis in idem quando a figura típica aplicada não tem a condição feminina como elementar, razão pela qual, em condenação pelo art. 129, § 9º, do Código Penal, é juridicamente admissível a cumulação da agravante com a Lei Maria da Penha; diversamente, se a imputação recair sobre o art. 129, § 13, do Código Penal, a mesma agravante não pode ser utilizada, porque a violência de gênero já integra a própria estrutura do tipo qualificado.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(10, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(10, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-10">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque distingue, de modo tecnicamente relevante, duas situações jurídicas diversas.<br><br>No art. 129, § 9º, do Código Penal, a elementar do tipo é a prática de lesão corporal contra determinadas pessoas em razão da relação doméstica, familiar ou de coabitação, abrangendo vítima homem ou mulher. Assim, a condição feminina não integra a descrição típica. Nessa hipótese, a incidência da agravante do art. 61, II, “f”, do CP — que incide quando o crime é praticado com abuso de autoridade ou prevalecendo-se de relações domésticas, de coabitação ou de hospitalidade, ou com violência contra a mulher na forma da lei específica — não duplica elemento já considerado pelo tipo penal, inexistindo bis in idem.<br><br>Já no art. 129, § 13, do Código Penal, introduzido posteriormente, a violência de gênero passa a compor a própria estrutura do tipo qualificado. Por isso, não se admite somar a agravante do art. 61, II, “f”, ao § 13, pois haveria dupla valoração da mesma circunstância fática-jurídica, o que é vedado no direito penal.<br><br>A tese repetitiva firmada para o Tema 1197 foi construída para a hipótese em que a qualificadora/majorante aplicável não absorve a condição de gênero como elementar do tipo, razão pela qual sua extensão automática ao art. 129, § 13, é indevida. Em síntese: no § 9º, a agravante pode incidir; no § 13, não.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Seção. REsp 2.027.794-MS, REsp 2.029.515-MS e REsp 2.026.129-MS, Rel. Min. Jesuíno Rissato (Desembargador convocado do TJDFT), julgados em 12/6/2024 (Recurso Repetitivo – Tema 1197) (Info 816).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="em se tratando de lesão corporal praticada contra a mulher por razões da condição do sexo feminino, a incidência da qualificadora do art. 129, § 13, do código penal afasta a possibilidade de reconhecimento simultâneo da agravante genérica do art. 61, ii, “f”, do mesmo diploma, sob pena de bis in idem, ainda que o fato tenha ocorrido em contexto de violência doméstica e familiar. a assertiva está correta porque o art. 129, § 13, do código penal, introduzido pela lei nº 14.188/2021, já contém, em sua própria estrutura típica, a especial reprovabilidade da lesão corporal praticada contra a mulher por razões da condição do sexo feminino. assim, quando a condenação se dá com base nessa qualificadora, a circunstância de a vítima ser mulher, em contexto de violência de gênero, já foi valorada pelo legislador na definição da pena mais grave.
+
+nessas hipóteses, a aplicação cumulativa da agravante genérica do art. 61, ii, “f”, do cp — que também incide sobre crimes praticados com violência contra a mulher — implicaria dupla valoração da mesma circunstância fática-jurídica, isto é, a condição feminina da vítima em contexto de violência doméstica ou de gênero. isso caracteriza bis in idem, vedado no sistema penal.
+
+a distinção é relevante porque a agravante do art. 61, ii, “f”, pode ter incidência em delitos em que a condição de mulher da vítima não constitua elemento já absorvido por tipo penal mais gravoso. porém, quando a própria figura típica do art. 129, § 13, já qualifica a lesão corporal exatamente por essa razão, não se admite nova exasperação com base no mesmo fundamento. stj. 5ª turma. resp 2.247.908-rs, rel. min. ribeiro dantas, julgado em 7/4/2026 (info 884).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 11</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-11">Não respondida</span>
+</div>
+
+<p class="enunciado">Em se tratando de lesão corporal praticada contra a mulher por razões da condição do sexo feminino, a incidência da qualificadora do art. 129, § 13, do Código Penal afasta a possibilidade de reconhecimento simultâneo da agravante genérica do art. 61, II, “f”, do mesmo diploma, sob pena de bis in idem, ainda que o fato tenha ocorrido em contexto de violência doméstica e familiar.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(11, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(11, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-11">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque o art. 129, § 13, do Código Penal, introduzido pela Lei nº 14.188/2021, já contém, em sua própria estrutura típica, a especial reprovabilidade da lesão corporal praticada contra a mulher por razões da condição do sexo feminino. Assim, quando a condenação se dá com base nessa qualificadora, a circunstância de a vítima ser mulher, em contexto de violência de gênero, já foi valorada pelo legislador na definição da pena mais grave.<br><br>Nessas hipóteses, a aplicação cumulativa da agravante genérica do art. 61, II, “f”, do CP — que também incide sobre crimes praticados com violência contra a mulher — implicaria dupla valoração da mesma circunstância fática-jurídica, isto é, a condição feminina da vítima em contexto de violência doméstica ou de gênero. Isso caracteriza bis in idem, vedado no sistema penal.<br><br>A distinção é relevante porque a agravante do art. 61, II, “f”, pode ter incidência em delitos em que a condição de mulher da vítima não constitua elemento já absorvido por tipo penal mais gravoso. Porém, quando a própria figura típica do art. 129, § 13, já qualifica a lesão corporal exatamente por essa razão, não se admite nova exasperação com base no mesmo fundamento.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 5ª Turma. REsp 2.247.908-RS, Rel. Min. Ribeiro Dantas, julgado em 7/4/2026 (Info 884).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a prática de feminicídio por militar da ativa, no interior de dependência sujeita à administração militar, não desloca a competência para a justiça militar da união quando a conduta ostenta natureza de crime doloso contra a vida, devendo o feito ser submetido ao tribunal do júri; contudo, os delitos autônomos que, no mesmo contexto fático, atingirem diretamente bens jurídicos castrenses — como incêndio, dano ao patrimônio militar, subtração de arma funcional e eventual fraude processual — devem ser processados e julgados pela justiça militar, sendo admissível a cisão obrigatória da persecução penal sem afronta ao ne bis in idem. a assertiva reproduz a solução jurídica firmada para hipótese em que militar da ativa pratica feminicídio dentro de quartel, com posterior cometimento de outros delitos conexos de índole castrense. o ponto central é que o feminicídio, por integrar a categoria dos crimes dolosos contra a vida e possuir núcleo de injusto ligado à violência de gênero, atrai a competência constitucional do tribunal do júri, ainda que o fato ocorra em ambiente militar e mesmo que o agente e a vítima sejam militares.
+
+a circunstância de o crime ter sido cometido em dependência militar não basta, por si só, para deslocar a competência ao juízo castrense quando o núcleo do fato principal é homicida e não se vincula à função ou à disciplina militar. em paralelo, os delitos que tutelam bens jurídicos tipicamente militares — como a integridade do patrimônio, da estrutura e da regularidade da administração castrense — permanecem sob a justiça militar da união. por isso, incêndio, dano às instalações, subtração de arma de serviço e eventual fraude processual, se autônomos e com lesão direta a interesse militar, não acompanham o feminicídio para a justiça comum.
+
+a cisão processual, nesse contexto, não é facultativa, mas imposta pela repartição constitucional e legal de competências. essa separação não configura bis in idem, porque não há dupla punição pelo mesmo fato típico; há, na verdade, persecuções distintas para infrações penais diversas, cada qual submetida ao juízo competente em razão da natureza do bem jurídico atingido. stj. 3ª seção. cc 218.865-df, rel. min. ribeiro dantas, julgado em 8/4/2026 (info 884).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 12</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-12">Não respondida</span>
+</div>
+
+<p class="enunciado">A prática de feminicídio por militar da ativa, no interior de dependência sujeita à administração militar, não desloca a competência para a Justiça Militar da União quando a conduta ostenta natureza de crime doloso contra a vida, devendo o feito ser submetido ao Tribunal do Júri; contudo, os delitos autônomos que, no mesmo contexto fático, atingirem diretamente bens jurídicos castrenses — como incêndio, dano ao patrimônio militar, subtração de arma funcional e eventual fraude processual — devem ser processados e julgados pela Justiça Militar, sendo admissível a cisão obrigatória da persecução penal sem afronta ao ne bis in idem.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(12, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(12, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-12">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva reproduz a solução jurídica firmada para hipótese em que militar da ativa pratica feminicídio dentro de quartel, com posterior cometimento de outros delitos conexos de índole castrense. O ponto central é que o feminicídio, por integrar a categoria dos crimes dolosos contra a vida e possuir núcleo de injusto ligado à violência de gênero, atrai a competência constitucional do Tribunal do Júri, ainda que o fato ocorra em ambiente militar e mesmo que o agente e a vítima sejam militares.<br><br>A circunstância de o crime ter sido cometido em dependência militar não basta, por si só, para deslocar a competência ao juízo castrense quando o núcleo do fato principal é homicida e não se vincula à função ou à disciplina militar. Em paralelo, os delitos que tutelam bens jurídicos tipicamente militares — como a integridade do patrimônio, da estrutura e da regularidade da administração castrense — permanecem sob a Justiça Militar da União. Por isso, incêndio, dano às instalações, subtração de arma de serviço e eventual fraude processual, se autônomos e com lesão direta a interesse militar, não acompanham o feminicídio para a Justiça comum.<br><br>A cisão processual, nesse contexto, não é facultativa, mas imposta pela repartição constitucional e legal de competências. Essa separação não configura bis in idem, porque não há dupla punição pelo mesmo fato típico; há, na verdade, persecuções distintas para infrações penais diversas, cada qual submetida ao juízo competente em razão da natureza do bem jurídico atingido.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 3ª Seção. CC 218.865-DF, Rel. Min. Ribeiro Dantas, julgado em 8/4/2026 (Info 884).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="em processo penal instaurado para apurar suposta injúria racial, é admissível que o órgão acusatório utilize, como suporte probatório para o oferecimento da denúncia, relatório elaborado por investigador de polícia com emprego de ferramentas de inteligência artificial generativa, ainda que duas perícias oficiais anteriores tenham concluído, por escuta técnica e análise espectrográfica, que o áudio não confirmava a pronúncia da expressão imputada, pois a eventual fragilidade metodológica do documento não comprometeria sua aptidão probatória, desde que inexistente ilicitude na obtenção da prova ou quebra da cadeia de custódia. a assertiva está incorreta porque, embora não tenha havido discussão sobre ilicitude da prova nem sobre quebra da cadeia de custódia, o ponto निर्णante foi outro: o relatório produzido com uso de inteligência artificial generativa não ostenta confiabilidade epistêmica mínima para servir de prova no processo penal. no caso, havia duas perícias oficiais do instituto de criminalística, ambas convergentes no sentido de que o áudio não confirmava a pronúncia da palavra imputada, mas a investigação buscou um novo “relatório técnico” por meio de ferramentas de ia generativa para alcançar conclusão oposta.
+
+o entendimento firmado destaca que a admissibilidade probatória no processo penal não se esgota na licitude formal da obtenção do elemento informativo; exige também adequação epistêmica, isto é, mínima confiabilidade científica e metodológica. ferramentas de ia generativa, especialmente as baseadas em grandes modelos de linguagem, apresentam risco de “alucinação”, podem produzir respostas com aparência de precisão sem lastro verificável e não são adequadas para análise fonética de áudio, pois processam texto, não ondas sonoras. por isso, o relatório assim produzido não pode ser utilizado como prova.
+
+além disso, embora o juiz não esteja vinculado ao laudo pericial oficial, a superação de conclusões técnicas exige fundamentação técnico-científica idônea, o que não se satisfaz com relatório gerado por ia generativa, sem metodologia verificável, reprodutibilidade controlada e transparência sobre o caminho lógico empregado. assim, a tese da questão erra ao tratar a fragilidade metodológica como irrelevante e ao reduzir o problema apenas à licitude da prova ou à cadeia de custódia. stj. 5ª turma. hc 1.059.475-sp, rel. min. reynaldo soares da fonseca, julgado em 7/4/2026 (info 884).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 13</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-13">Não respondida</span>
+</div>
+
+<p class="enunciado">Em processo penal instaurado para apurar suposta injúria racial, é admissível que o órgão acusatório utilize, como suporte probatório para o oferecimento da denúncia, relatório elaborado por investigador de polícia com emprego de ferramentas de inteligência artificial generativa, ainda que duas perícias oficiais anteriores tenham concluído, por escuta técnica e análise espectrográfica, que o áudio não confirmava a pronúncia da expressão imputada, pois a eventual fragilidade metodológica do documento não comprometeria sua aptidão probatória, desde que inexistente ilicitude na obtenção da prova ou quebra da cadeia de custódia.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(13, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(13, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-13">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque, embora não tenha havido discussão sobre ilicitude da prova nem sobre quebra da cadeia de custódia, o ponto निर्णante foi outro: o relatório produzido com uso de inteligência artificial generativa não ostenta confiabilidade epistêmica mínima para servir de prova no processo penal. No caso, havia duas perícias oficiais do Instituto de Criminalística, ambas convergentes no sentido de que o áudio não confirmava a pronúncia da palavra imputada, mas a investigação buscou um novo “relatório técnico” por meio de ferramentas de IA generativa para alcançar conclusão oposta.<br><br>O entendimento firmado destaca que a admissibilidade probatória no processo penal não se esgota na licitude formal da obtenção do elemento informativo; exige também adequação epistêmica, isto é, mínima confiabilidade científica e metodológica. Ferramentas de IA generativa, especialmente as baseadas em grandes modelos de linguagem, apresentam risco de “alucinação”, podem produzir respostas com aparência de precisão sem lastro verificável e não são adequadas para análise fonética de áudio, pois processam texto, não ondas sonoras. Por isso, o relatório assim produzido não pode ser utilizado como prova.<br><br>Além disso, embora o juiz não esteja vinculado ao laudo pericial oficial, a superação de conclusões técnicas exige fundamentação técnico-científica idônea, o que não se satisfaz com relatório gerado por IA generativa, sem metodologia verificável, reprodutibilidade controlada e transparência sobre o caminho lógico empregado. Assim, a tese da questão erra ao tratar a fragilidade metodológica como irrelevante e ao reduzir o problema apenas à licitude da prova ou à cadeia de custódia.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 5ª Turma. HC 1.059.475-SP, Rel. Min. Reynaldo Soares da Fonseca, julgado em 7/4/2026 (Info 884).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a fuga de indivíduo para o interior de residência, ao perceber a aproximação de policiais que realizavam patrulhamento de rotina na região e apuravam notícia de possível tráfico de drogas, por si só, pode caracterizar fundadas razões aptas a legitimar o ingresso domiciliar sem mandado judicial e sem consentimento do morador, desde que a atuação estatal esteja amparada em elementos objetivos contemporâneos ao fato. o entendimento consolidado admite a entrada em domicílio sem mandado quando houver **fundadas razões**, devidamente justificadas a posteriori, de que no local ocorre situação de flagrante delito. nessa linha, a simples fuga do suspeito para o interior do imóvel, ao notar a aproximação policial durante diligência de rotina, constitui elemento objetivo que reforça a suspeita previamente existente e pode legitimar o ingresso imediato, especialmente quando a atuação policial não se baseia em mera intuição, mas em notícia anterior de tráfico e em circunstância concreta observada no momento da abordagem.
+
+a lógica do julgado é afastar a tese de ilicitude automática da prova apenas porque não houve mandado ou consentimento. o ponto decisivo é a presença de **fundadas razões**, aferidas à luz do contexto fático contemporâneo: denúncia prévia, aproximação policial em patrulhamento e fuga para dentro da casa. nessas condições, a entrada domiciliar não se confunde com devassa arbitrária, pois há lastro objetivo suficiente para presumir a ocorrência de flagrante no interior do imóvel. stj. 6ª turma. agrg no hc 1.035.519-sp, rel. min. rogerio schietti cruz, julgado em 25/2/2026 (info 884).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 14</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-14">Não respondida</span>
+</div>
+
+<p class="enunciado">A fuga de indivíduo para o interior de residência, ao perceber a aproximação de policiais que realizavam patrulhamento de rotina na região e apuravam notícia de possível tráfico de drogas, por si só, pode caracterizar fundadas razões aptas a legitimar o ingresso domiciliar sem mandado judicial e sem consentimento do morador, desde que a atuação estatal esteja amparada em elementos objetivos contemporâneos ao fato.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(14, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(14, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-14">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O entendimento consolidado admite a entrada em domicílio sem mandado quando houver <strong>fundadas razões</strong>, devidamente justificadas a posteriori, de que no local ocorre situação de flagrante delito. Nessa linha, a simples fuga do suspeito para o interior do imóvel, ao notar a aproximação policial durante diligência de rotina, constitui elemento objetivo que reforça a suspeita previamente existente e pode legitimar o ingresso imediato, especialmente quando a atuação policial não se baseia em mera intuição, mas em notícia anterior de tráfico e em circunstância concreta observada no momento da abordagem.<br><br>A lógica do julgado é afastar a tese de ilicitude automática da prova apenas porque não houve mandado ou consentimento. O ponto decisivo é a presença de <strong>fundadas razões</strong>, aferidas à luz do contexto fático contemporâneo: denúncia prévia, aproximação policial em patrulhamento e fuga para dentro da casa. Nessas condições, a entrada domiciliar não se confunde com devassa arbitrária, pois há lastro objetivo suficiente para presumir a ocorrência de flagrante no interior do imóvel.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 6ª Turma. AgRg no HC 1.035.519-SP, Rel. Min. Rogerio Schietti Cruz, julgado em 25/2/2026 (Info 884).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="na execução penal, a aprovação do apenado em exames de certificação de conclusão do ensino médio pode ensejar remição da pena, ainda que ele já tenha concluído essa etapa escolar antes do início do cumprimento da sanção; contudo, uma vez reconhecido o benefício em razão da aprovação no enem, nova aprovação posterior no mesmo exame, durante a mesma execução, não autoriza outra remição, por caracterizar repetição de fato gerador sem acréscimo de conteúdo formativo, ao passo que a aprovação em exame diverso, como o encceja, pode fundamentar remição autônoma. a assertiva reproduz a lógica do entendimento consolidado no caso: a remição por estudo vinculada à aprovação em exames de certificação não é afastada pelo simples fato de o apenado já possuir escolaridade formal anterior ao cárcere, pois o benefício se relaciona ao esforço educacional desenvolvido durante a execução penal. assim, a aprovação no enem pode gerar remição, ainda que o condenado já tivesse concluído o ensino médio antes do cumprimento da pena.
+
+por outro lado, o julgado distingue situações em que há efetiva diversidade de fatos geradores. a aprovação no enem e a aprovação no encceja foram tratadas como eventos distintos, com naturezas e finalidades próprias, o que permite o reconhecimento de remições autônomas, desde que cada aprovação corresponda a exame diverso e a um novo esforço educacional juridicamente relevante.
+
+todavia, a decisão também fixou um limite importante: não é possível multiplicar remições com base em aprovações sucessivas no mesmo exame, como novas aprovações no enem durante a mesma execução penal. nessa hipótese, a repetição do mesmo resultado não representa avanço pedagógico novo nem fato gerador independente, mas mera reiteração de situação já valorada, de modo que admitir nova remição implicaria bis in idem. por isso, apenas a primeira aprovação no mesmo exame pode ser computada para esse fim.
+
+a questão explora justamente essa distinção entre:  
+1. remição por exame de certificação, mesmo com escolaridade prévia;  
+2. possibilidade de remições por exames distintos; e  
+3. vedação de múltiplas remições por repetição do mesmo exame na mesma execução. stj. 6ª turma. agrg no hc 1.045.443-sp, rel. min. carlos pires brandão, julgado em 11/3/2026 (info 884).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 15</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-15">Não respondida</span>
+</div>
+
+<p class="enunciado">Na execução penal, a aprovação do apenado em exames de certificação de conclusão do ensino médio pode ensejar remição da pena, ainda que ele já tenha concluído essa etapa escolar antes do início do cumprimento da sanção; contudo, uma vez reconhecido o benefício em razão da aprovação no ENEM, nova aprovação posterior no mesmo exame, durante a mesma execução, não autoriza outra remição, por caracterizar repetição de fato gerador sem acréscimo de conteúdo formativo, ao passo que a aprovação em exame diverso, como o ENCCEJA, pode fundamentar remição autônoma.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(15, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(15, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-15">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva reproduz a lógica do entendimento consolidado no caso: a remição por estudo vinculada à aprovação em exames de certificação não é afastada pelo simples fato de o apenado já possuir escolaridade formal anterior ao cárcere, pois o benefício se relaciona ao esforço educacional desenvolvido durante a execução penal. Assim, a aprovação no ENEM pode gerar remição, ainda que o condenado já tivesse concluído o ensino médio antes do cumprimento da pena.<br><br>Por outro lado, o julgado distingue situações em que há efetiva diversidade de fatos geradores. A aprovação no ENEM e a aprovação no ENCCEJA foram tratadas como eventos distintos, com naturezas e finalidades próprias, o que permite o reconhecimento de remições autônomas, desde que cada aprovação corresponda a exame diverso e a um novo esforço educacional juridicamente relevante.<br><br>Todavia, a decisão também fixou um limite importante: não é possível multiplicar remições com base em aprovações sucessivas no mesmo exame, como novas aprovações no ENEM durante a mesma execução penal. Nessa hipótese, a repetição do mesmo resultado não representa avanço pedagógico novo nem fato gerador independente, mas mera reiteração de situação já valorada, de modo que admitir nova remição implicaria bis in idem. Por isso, apenas a primeira aprovação no mesmo exame pode ser computada para esse fim.<br><br>A questão explora justamente essa distinção entre:  <br>1. remição por exame de certificação, mesmo com escolaridade prévia;  <br>2. possibilidade de remições por exames distintos; e  <br>3. vedação de múltiplas remições por repetição do mesmo exame na mesma execução.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STJ. 6ª Turma. AgRg no HC 1.045.443-SP, Rel. Min. Carlos Pires Brandão, julgado em 11/3/2026 (Info 884).</p>
+</div>
+</section>
 
 </div>
 
 <script>
-const totalQuestoes = 15;
-let respostas = JSON.parse(localStorage.getItem(location.pathname + "_respostas") || "{}");
+const storageKey = location.pathname + "_respostas";
+let respostas = JSON.parse(localStorage.getItem(storageKey) || "{}");
 
-function atualizarPainel() {
-    const respondidas = Object.keys(respostas).length;
-    let acertos = 0;
-    let erros = 0;
-
-    for (const key in respostas) {
-        if (respostas[key].correto) acertos++;
-        else erros++;
-    }
-
-    document.getElementById("respondidas").textContent = respondidas;
-    document.getElementById("acertos").textContent = acertos;
-    document.getElementById("erros").textContent = erros;
+function destacar(t){
+ if(t==="CERTO") return '<span class="gabarito-certo">CERTO</span>';
+ if(t==="ERRADO") return '<span class="gabarito-errado">ERRADO</span>';
+ return t;
 }
 
-function responder(numero, resposta) {
-    const card = document.querySelectorAll(".questao")[numero - 1];
-    const gabarito = card.dataset.gabarito;
-    const correto = resposta === gabarito;
-
-    respostas[numero] = {
-        resposta,
-        correto
-    };
-
-    localStorage.setItem(location.pathname + "_respostas", JSON.stringify(respostas));
-
-    mostrarFeedback(numero);
-    atualizarPainel();
+function responder(numero, resposta){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const gabarito=card.dataset.gabarito;
+ const correto=resposta===gabarito;
+ respostas[numero]={resposta,correto};
+ localStorage.setItem(storageKey, JSON.stringify(respostas));
+ mostrarFeedback(numero);
+ atualizarPainel();
+ filtrar();
 }
 
-function mostrarFeedback(numero) {
-    const card = document.querySelectorAll(".questao")[numero - 1];
-    const feedback = document.getElementById("feedback-" + numero);
-    const status = document.getElementById("status-" + numero);
-    const resultado = feedback.querySelector(".resultado");
-
-    const dados = respostas[numero];
-
-    if (!dados) return;
-
-    feedback.style.display = "block";
-    feedback.classList.remove("correto", "errado");
-
-    if (dados.correto) {
-        feedback.classList.add("correto");
-        resultado.textContent = "Você acertou. A resposta é " + card.dataset.gabarito + ".";
-        status.textContent = "Respondida — acerto";
-        status.style.color = "var(--green)";
-    } else {
-        feedback.classList.add("errado");
-        resultado.textContent = "Você errou. O gabarito é " + card.dataset.gabarito + ".";
-        status.textContent = "Respondida — erro";
-        status.style.color = "var(--red)";
-    }
+function mostrarFeedback(numero){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const feedback=document.getElementById("feedback-"+numero);
+ const status=document.getElementById("status-"+numero);
+ const resultado=feedback.querySelector(".resultado");
+ const gabarito=card.dataset.gabarito;
+ const dados=respostas[numero];
+ if(!dados) return;
+ feedback.style.display="block";
+ feedback.classList.remove("correto","errado");
+ if(dados.correto){
+   feedback.classList.add("correto");
+   resultado.innerHTML="Você acertou. A resposta é "+destacar(gabarito)+".";
+   status.textContent="Respondida — acerto";
+   status.style.color="var(--green)";
+ } else {
+   feedback.classList.add("errado");
+   resultado.innerHTML="Você errou. O gabarito é "+destacar(gabarito)+".";
+   status.textContent="Respondida — erro";
+   status.style.color="var(--red)";
+ }
 }
 
-function restaurar() {
-    for (const key in respostas) {
-        mostrarFeedback(Number(key));
-    }
-    atualizarPainel();
+function atualizarPainel(){
+ let respondidas=0, acertos=0, erros=0;
+ for(const k in respostas){
+   respondidas++;
+   if(respostas[k].correto) acertos++; else erros++;
+ }
+ document.getElementById("respondidas").textContent=respondidas;
+ document.getElementById("acertos").textContent=acertos;
+ document.getElementById("erros").textContent=erros;
+ document.getElementById("visiveis").textContent=document.querySelectorAll(".questao:not(.oculta)").length;
 }
 
-function reiniciar() {
-    if (!confirm("Deseja reiniciar este simulado?")) return;
-    localStorage.removeItem(location.pathname + "_respostas");
-    location.reload();
+function filtrar(){
+ const busca=document.getElementById("busca").value.trim().toLowerCase();
+ const disciplina=document.getElementById("disciplina").value;
+ const statusFiltro=document.getElementById("statusFiltro").value;
+ const cards=Array.from(document.querySelectorAll(".questao"));
+ let vis=0;
+ cards.forEach((card,idx)=>{
+   const n=idx+1;
+   const texto=card.dataset.texto||"";
+   const disc=card.dataset.disciplina||"";
+   const r=respostas[n];
+   let passaStatus=true;
+   if(statusFiltro==="nao") passaStatus=!r;
+   if(statusFiltro==="acerto") passaStatus=r && r.correto;
+   if(statusFiltro==="erro") passaStatus=r && !r.correto;
+   const ok=(!busca||texto.includes(busca)) && (!disciplina||disc===disciplina) && passaStatus;
+   card.classList.toggle("oculta", !ok);
+   if(ok) vis++;
+ });
+ document.getElementById("sem-resultados").style.display=vis===0?"block":"none";
+ atualizarPainel();
+}
+
+function reiniciar(){
+ if(!confirm("Deseja reiniciar este simulado?")) return;
+ localStorage.removeItem(storageKey);
+ location.reload();
+}
+
+function restaurar(){
+ for(const k in respostas) mostrarFeedback(Number(k));
+ filtrar();
+ atualizarPainel();
 }
 
 restaurar();
 </script>
-
 </body>
 </html>

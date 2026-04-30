@@ -4,371 +4,326 @@
 <meta charset="UTF-8">
 <title>Simulado - Info 1206 STF</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <style>
-:root {
-    --bg: #0f172a;
-    --card: #111827;
-    --card2: #1f2937;
-    --text: #e5e7eb;
-    --muted: #9ca3af;
-    --accent: #38bdf8;
-    --green: #22c55e;
-    --red: #ef4444;
-    --yellow: #facc15;
+:root{
+--bg:#020617;--panel:rgba(15,23,42,.88);--card:rgba(15,23,42,.96);
+--card2:rgba(30,41,59,.92);--border:rgba(148,163,184,.22);
+--text:#e5e7eb;--muted:#94a3b8;--accent:#38bdf8;--accent2:#0ea5e9;
+--green:#22c55e;--red:#ef4444;--yellow:#facc15;--purple:#a78bfa;
 }
-
-* {
-    box-sizing: border-box;
+*{box-sizing:border-box}
+body{
+margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+background:radial-gradient(circle at top left,rgba(56,189,248,.20),transparent 28%),
+radial-gradient(circle at top right,rgba(167,139,250,.15),transparent 28%),
+linear-gradient(135deg,#020617,#0f172a 50%,#020617);
+color:var(--text);line-height:1.65;
 }
-
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(135deg, #020617, #111827);
-    color: var(--text);
-    line-height: 1.6;
+header{padding:44px 20px 32px;text-align:center;border-bottom:1px solid var(--border)}
+header h1{margin:0 0 10px;font-size:clamp(28px,4vw,46px);letter-spacing:-.05em}
+header p{color:var(--muted);margin:0;font-size:16px}
+.container{max-width:1160px;margin:0 auto;padding:26px 16px 80px}
+.painel{
+position:sticky;top:10px;z-index:10;background:var(--panel);backdrop-filter:blur(18px);
+border:1px solid var(--border);border-radius:26px;padding:16px;margin-bottom:22px;
+box-shadow:0 22px 70px rgba(0,0,0,.35)
 }
-
-header {
-    padding: 32px 20px;
-    text-align: center;
-    border-bottom: 1px solid #334155;
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.stat{background:var(--card2);padding:14px;border-radius:18px;text-align:center;border:1px solid rgba(148,163,184,.12)}
+.stat strong{display:block;font-size:25px;color:var(--accent);line-height:1.1}
+.stat span{font-size:12px;color:var(--muted)}
+.filtros{display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:12px;margin-top:14px}
+input,select{
+width:100%;background:rgba(2,6,23,.78);color:var(--text);border:1px solid var(--border);
+border-radius:14px;padding:13px 14px;outline:none;font-size:14px
 }
-
-header h1 {
-    margin: 0 0 10px;
-    font-size: 28px;
+input:focus,select:focus{border-color:var(--accent)}
+.card{
+background:var(--card);border:1px solid var(--border);border-radius:24px;padding:26px;
+margin-bottom:20px;box-shadow:0 18px 50px rgba(0,0,0,.24)
 }
-
-header p {
-    color: var(--muted);
-    margin: 0;
+.questao{scroll-margin-top:190px}
+.questao-topo{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:18px}
+.badge{
+background:linear-gradient(135deg,var(--accent),var(--accent2));color:#00111f;font-weight:900;
+padding:7px 13px;border-radius:999px;display:inline-block
 }
-
-.container {
-    max-width: 980px;
-    margin: 0 auto;
-    padding: 24px 16px 80px;
+.disciplina-tag,.tipo-tag{
+display:inline-block;margin-left:8px;color:var(--muted);background:rgba(148,163,184,.10);
+border:1px solid rgba(148,163,184,.14);padding:6px 10px;border-radius:999px;font-size:12px
 }
-
-.painel {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    background: rgba(15, 23, 42, 0.95);
-    backdrop-filter: blur(8px);
-    border: 1px solid #334155;
-    border-radius: 16px;
-    padding: 16px;
-    margin-bottom: 24px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
+.tipo-tag{color:#ddd6fe;border-color:rgba(167,139,250,.25)}
+.status{color:var(--yellow);font-size:13px;white-space:nowrap}
+.enunciado{font-size:19px;margin:0 0 22px;letter-spacing:-.01em}
+.botoes{display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.btn{
+cursor:pointer;border:0;padding:12px 22px;border-radius:14px;color:white;font-weight:900;
+transition:.18s ease;letter-spacing:.02em
 }
-
-.stat {
-    background: var(--card2);
-    padding: 12px;
-    border-radius: 12px;
-    text-align: center;
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.certo{background:rgba(34,197,94,.20);border:1px solid rgba(34,197,94,.42)}
+.btn.errado{background:rgba(239,68,68,.20);border:1px solid rgba(239,68,68,.42)}
+.btn.neutro{background:rgba(56,189,248,.16);color:var(--text);border:1px solid rgba(56,189,248,.32)}
+.feedback{
+display:none;background:rgba(2,6,23,.72);border:1px solid rgba(148,163,184,.16);
+border-left:5px solid var(--accent);padding:18px;border-radius:18px;margin-top:14px
 }
-
-.stat strong {
-    display: block;
-    font-size: 22px;
-    color: var(--accent);
+.feedback.correto{border-left-color:var(--green)}
+.feedback.errado{border-left-color:var(--red)}
+.resultado{font-size:18px;font-weight:900;margin-top:0}
+.justificativa{margin-top:12px}
+.referencia{color:var(--muted);font-size:13px;margin-top:16px}
+.gabarito-certo{color:var(--green);font-weight:900}
+.gabarito-errado{color:var(--red);font-weight:900}
+.oculta{display:none}
+.sem-resultados{text-align:center;color:var(--muted);display:none;padding:30px}
+.grid-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
+.link-card{
+display:block;padding:20px;background:rgba(15,23,42,.95);border:1px solid rgba(148,163,184,.22);
+color:#e5e7eb;border-radius:22px;text-decoration:none;transition:.2s;box-shadow:0 14px 40px rgba(0,0,0,.22)
 }
-
-.card {
-    background: rgba(17, 24, 39, 0.96);
-    border: 1px solid #334155;
-    border-radius: 18px;
-    padding: 22px;
-    margin-bottom: 20px;
-    box-shadow: 0 12px 30px rgba(0,0,0,.25);
-}
-
-.questao-topo {
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
-    align-items: center;
-    margin-bottom: 16px;
-}
-
-.badge {
-    background: #0ea5e9;
-    color: #00111f;
-    font-weight: bold;
-    padding: 6px 12px;
-    border-radius: 999px;
-}
-
-.status {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-.enunciado {
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-
-.botoes {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 18px;
-}
-
-button {
-    cursor: pointer;
-    border: 0;
-    padding: 12px 22px;
-    border-radius: 12px;
-    background: #334155;
-    color: white;
-    font-weight: bold;
-    transition: 0.2s;
-}
-
-button:hover {
-    transform: translateY(-1px);
-    background: #475569;
-}
-
-.feedback {
-    display: none;
-    background: #020617;
-    border-left: 4px solid var(--accent);
-    padding: 16px;
-    border-radius: 12px;
-    margin-top: 12px;
-}
-
-.feedback.correto {
-    border-left-color: var(--green);
-}
-
-.feedback.errado {
-    border-left-color: var(--red);
-}
-
-.resultado {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.referencia {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-.acoes {
-    text-align: center;
-    margin: 30px 0;
-}
-
-.acoes button {
-    background: #0ea5e9;
-    color: #00111f;
-}
-
-@media (max-width: 700px) {
-    .painel {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .botoes {
-        flex-direction: column;
-    }
-
-    header h1 {
-        font-size: 22px;
-    }
-
-    .enunciado {
-        font-size: 16px;
-    }
+.link-card:hover{transform:translateY(-3px);border-color:#38bdf8}
+.link-card strong{display:block;font-size:17px;margin-bottom:8px}
+.link-card span{color:#94a3b8;font-size:13px}
+.index-tools{display:grid;grid-template-columns:1.5fr 1fr;gap:12px;margin-bottom:20px}
+@media(max-width:850px){
+.stats{grid-template-columns:repeat(2,1fr)}
+.filtros,.index-tools{grid-template-columns:1fr}
+.questao-topo{align-items:flex-start;flex-direction:column}
+.botoes{flex-direction:column}
+.enunciado{font-size:16px}
+.card{padding:20px}
 }
 </style>
 </head>
-
 <body>
-
 <header>
-    <h1>Simulado - Info 1206 STF</h1>
-    <p>Simulado interativo de CERTO ou ERRADO</p>
+<h1>Simulado - Info 1206 STF</h1>
+<p>Informativos • Simulado interativo de CERTO ou ERRADO</p>
 </header>
 
 <div class="container">
+<div class="painel">
+<div class="stats">
+<div class="stat"><strong>3</strong><span>Total</span></div>
+<div class="stat"><strong id="visiveis">3</strong><span>Visíveis</span></div>
+<div class="stat"><strong id="respondidas">0</strong><span>Respondidas</span></div>
+<div class="stat"><strong id="acertos">0</strong><span>Acertos</span></div>
+<div class="stat"><strong id="erros">0</strong><span>Erros</span></div>
+</div>
 
-    <div class="painel">
-        <div class="stat">
-            <strong id="total">3</strong>
-            Total
-        </div>
-        <div class="stat">
-            <strong id="respondidas">0</strong>
-            Respondidas
-        </div>
-        <div class="stat">
-            <strong id="acertos">0</strong>
-            Acertos
-        </div>
-        <div class="stat">
-            <strong id="erros">0</strong>
-            Erros
-        </div>
-    </div>
+<div class="filtros">
+<input id="busca" type="search" placeholder="Buscar por palavra-chave..." oninput="filtrar()">
+<select id="disciplina" onchange="filtrar()">
+<option value="">Todas as disciplinas</option>
+<option value="N/I">N/I</option>
+</select>
+<select id="statusFiltro" onchange="filtrar()">
+<option value="">Todas</option>
+<option value="nao">Não respondidas</option>
+<option value="acerto">Acertos</option>
+<option value="erro">Erros</option>
+</select>
+<button class="btn neutro" onclick="reiniciar()">Reiniciar</button>
+</div>
+</div>
 
-    <div class="acoes">
-        <button onclick="reiniciar()">Reiniciar simulado</button>
-    </div>
+<div id="sem-resultados" class="sem-resultados">Nenhuma questão encontrada com os filtros atuais.</div>
 
-    
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 1</span>
-                <span class="status" id="status-1">Não respondida</span>
-            </div>
 
-            <p class="enunciado">Nas demandas judiciais que versem sobre fármacos para tratamento oncológico incorporados ao SUS, a definição da competência passou a observar a lógica administrativa do AF-ONCO, de modo que compete à Justiça Federal o processamento das ações relativas aos medicamentos de aquisição centralizada pelo Ministério da Saúde, enquanto a Justiça Estadual permanece competente para os medicamentos de negociação nacional ou de aquisição descentralizada; essa disciplina, contudo, somente incide sobre ações ajuizadas a partir de 22/10/2025, permanecendo os processos anteriores no juízo de origem, sem prejuízo da aplicação imediata dos critérios materiais do regime de ressarcimento interfederativo.</p>
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="nas demandas judiciais que versem sobre fármacos para tratamento oncológico incorporados ao sus, a definição da competência passou a observar a lógica administrativa do af-onco, de modo que compete à justiça federal o processamento das ações relativas aos medicamentos de aquisição centralizada pelo ministério da saúde, enquanto a justiça estadual permanece competente para os medicamentos de negociação nacional ou de aquisição descentralizada; essa disciplina, contudo, somente incide sobre ações ajuizadas a partir de 22/10/2025, permanecendo os processos anteriores no juízo de origem, sem prejuízo da aplicação imediata dos critérios materiais do regime de ressarcimento interfederativo. o enunciado está correto porque reproduz a atualização do tema 1.234 quanto aos medicamentos oncológicos incorporados ao sus, introduzida pelo novo acordo interfederativo referendado em 19/02/2026. a inovação central foi vincular a competência jurisdicional à modalidade de aquisição administrativa prevista no af-onco: a justiça federal ficou responsável pelas demandas relativas aos fármacos de aquisição centralizada pelo ministério da saúde, correspondentes ao grupo 1a do ceaf; já a justiça estadual passou a julgar as ações referentes aos medicamentos de negociação nacional ou de aquisição descentralizada, associados ao grupo 1b.
 
-            <div class="botoes">
-                <button onclick="responder(1, 'CERTO')">CERTO</button>
-                <button onclick="responder(1, 'ERRADO')">ERRADO</button>
-            </div>
+a assertiva também acerta ao indicar a modulação temporal ex nunc das novas regras de competência. o stf limitou a incidência do item 6.2 às ações ajuizadas a partir de 22/10/2025, data de publicação da portaria gm/ms nº 8.477/2025, preservando no juízo de origem os processos anteriores. importante notar que essa modulação foi restrita à competência: os critérios materiais do tema 1.234, inclusive os relativos ao ressarcimento interfederativo, aplicam-se a todos os processos, independentemente da data de ajuizamento. assim, a questão explora corretamente a distinção entre regra processual de competência e disciplina material de custeio/ressarcimento, ponto sensível e frequentemente confundido em prova. stf. plenário. re 1.366.243 ref/sc, rel. min. gilmar mendes, julgado em 19/02/2026 (repercussão geral – tema 1.234) (info 1206).">
 
-            <div class="feedback" id="feedback-1">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>O enunciado está correto porque reproduz a atualização do Tema 1.234 quanto aos medicamentos oncológicos incorporados ao SUS, introduzida pelo novo acordo interfederativo referendado em 19/02/2026. A inovação central foi vincular a competência jurisdicional à modalidade de aquisição administrativa prevista no AF-ONCO: a Justiça Federal ficou responsável pelas demandas relativas aos fármacos de aquisição centralizada pelo Ministério da Saúde, correspondentes ao Grupo 1A do CEAF; já a Justiça Estadual passou a julgar as ações referentes aos medicamentos de negociação nacional ou de aquisição descentralizada, associados ao Grupo 1B.<br><br>A assertiva também acerta ao indicar a modulação temporal ex nunc das novas regras de competência. O STF limitou a incidência do item 6.2 às ações ajuizadas a partir de 22/10/2025, data de publicação da Portaria GM/MS nº 8.477/2025, preservando no juízo de origem os processos anteriores. Importante notar que essa modulação foi restrita à competência: os critérios materiais do Tema 1.234, inclusive os relativos ao ressarcimento interfederativo, aplicam-se a todos os processos, independentemente da data de ajuizamento. Assim, a questão explora corretamente a distinção entre regra processual de competência e disciplina material de custeio/ressarcimento, ponto sensível e frequentemente confundido em prova.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. RE 1.366.243 Ref/SC, Rel. Min. Gilmar Mendes, julgado em 19/02/2026 (Repercussão Geral – Tema 1.234) (Info 1206).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 2</span>
-                <span class="status" id="status-2">Não respondida</span>
-            </div>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 1</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-1">Não respondida</span>
+</div>
 
-            <p class="enunciado">É constitucional lei municipal que, a pretexto de disciplinar a organização pedagógica da rede de ensino local, proíba o uso de linguagem neutra em escolas públicas e privadas do município, por se tratar de matéria afeta ao interesse predominantemente local e à proteção da infância, ainda que a norma alcance conteúdos curriculares e perspectivas pedagógicas vinculadas à igualdade de gênero e à diversidade.</p>
+<p class="enunciado">Nas demandas judiciais que versem sobre fármacos para tratamento oncológico incorporados ao SUS, a definição da competência passou a observar a lógica administrativa do AF-ONCO, de modo que compete à Justiça Federal o processamento das ações relativas aos medicamentos de aquisição centralizada pelo Ministério da Saúde, enquanto a Justiça Estadual permanece competente para os medicamentos de negociação nacional ou de aquisição descentralizada; essa disciplina, contudo, somente incide sobre ações ajuizadas a partir de 22/10/2025, permanecendo os processos anteriores no juízo de origem, sem prejuízo da aplicação imediata dos critérios materiais do regime de ressarcimento interfederativo.</p>
 
-            <div class="botoes">
-                <button onclick="responder(2, 'CERTO')">CERTO</button>
-                <button onclick="responder(2, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(1, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(1, 'ERRADO')">ERRADO</button>
+</div>
 
-            <div class="feedback" id="feedback-2">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque a disciplina normativa do uso de linguagem neutra em âmbito escolar não se insere na competência legislativa municipal. A Constituição reserva à União a competência privativa para legislar sobre diretrizes e bases da educação nacional (art. 22, XXIV, da CF/88), o que abrange a definição de parâmetros curriculares, materiais didáticos e orientações pedagógicas. Assim, o município não pode, sob o rótulo de organização local ou proteção da infância, editar lei que interfira no núcleo normativo da política educacional, especialmente para vedar conteúdos, linguagens ou perspectivas pedagógicas relacionadas à igualdade de gênero, à diversidade e aos direitos humanos.<br><br>O ponto central do entendimento é a inconstitucionalidade formal da lei municipal por usurpação de competência da União. Não se trata de mera opção administrativa local, mas de interferência em matéria nacionalmente estruturada pela LDB e pela BNCC, que orientam o ensino básico em redes públicas e privadas. A proteção da infância, embora constitucionalmente relevante, não autoriza o ente municipal a inovar em tema reservado à legislação federal.<br><br>Além disso, o julgado ressalta que o combate à discriminação no ambiente escolar deve observar os preceitos pedagógicos adequados às diferentes faixas etárias e ciclos educacionais, em consonância com o princípio da proteção integral da criança e do adolescente (art. 227 da CF/88). A liberdade de cátedra é ampla, mas não absoluta; contudo, esse limite não legitima a edição de lei municipal proibitiva sobre linguagem neutra, e sim a observância de parâmetros pedagógicos compatíveis com a maturidade dos alunos.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADPF 1.159/SC, Rel. Min. Flávio Dino, julgado em 27/02/2026 (Info 1206).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 3</span>
-                <span class="status" id="status-3">Não respondida</span>
-            </div>
+<div class="feedback" id="feedback-1">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O enunciado está correto porque reproduz a atualização do Tema 1.234 quanto aos medicamentos oncológicos incorporados ao SUS, introduzida pelo novo acordo interfederativo referendado em 19/02/2026. A inovação central foi vincular a competência jurisdicional à modalidade de aquisição administrativa prevista no AF-ONCO: a Justiça Federal ficou responsável pelas demandas relativas aos fármacos de aquisição centralizada pelo Ministério da Saúde, correspondentes ao Grupo 1A do CEAF; já a Justiça Estadual passou a julgar as ações referentes aos medicamentos de negociação nacional ou de aquisição descentralizada, associados ao Grupo 1B.<br><br>A assertiva também acerta ao indicar a modulação temporal ex nunc das novas regras de competência. O STF limitou a incidência do item 6.2 às ações ajuizadas a partir de 22/10/2025, data de publicação da Portaria GM/MS nº 8.477/2025, preservando no juízo de origem os processos anteriores. Importante notar que essa modulação foi restrita à competência: os critérios materiais do Tema 1.234, inclusive os relativos ao ressarcimento interfederativo, aplicam-se a todos os processos, independentemente da data de ajuizamento. Assim, a questão explora corretamente a distinção entre regra processual de competência e disciplina material de custeio/ressarcimento, ponto sensível e frequentemente confundido em prova.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. RE 1.366.243 Ref/SC, Rel. Min. Gilmar Mendes, julgado em 19/02/2026 (Repercussão Geral – Tema 1.234) (Info 1206).</p>
+</div>
+</section>
 
-            <p class="enunciado">A atividade de tradutor e intérprete público, por envolver fé pública e delegação estatal, submete-se integralmente ao regime do art. 37, II e III, da Constituição, de modo que a habilitação profissional somente pode ocorrer mediante concurso público de provas ou de provas e títulos, vedada a dispensa dessa exigência ainda que o interessado comprove proficiência em exames nacionais ou internacionais de excelência.</p>
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="é constitucional lei municipal que, a pretexto de disciplinar a organização pedagógica da rede de ensino local, proíba o uso de linguagem neutra em escolas públicas e privadas do município, por se tratar de matéria afeta ao interesse predominantemente local e à proteção da infância, ainda que a norma alcance conteúdos curriculares e perspectivas pedagógicas vinculadas à igualdade de gênero e à diversidade. a assertiva está incorreta porque a disciplina normativa do uso de linguagem neutra em âmbito escolar não se insere na competência legislativa municipal. a constituição reserva à união a competência privativa para legislar sobre diretrizes e bases da educação nacional (art. 22, xxiv, da cf/88), o que abrange a definição de parâmetros curriculares, materiais didáticos e orientações pedagógicas. assim, o município não pode, sob o rótulo de organização local ou proteção da infância, editar lei que interfira no núcleo normativo da política educacional, especialmente para vedar conteúdos, linguagens ou perspectivas pedagógicas relacionadas à igualdade de gênero, à diversidade e aos direitos humanos.
 
-            <div class="botoes">
-                <button onclick="responder(3, 'CERTO')">CERTO</button>
-                <button onclick="responder(3, 'ERRADO')">ERRADO</button>
-            </div>
+o ponto central do entendimento é a inconstitucionalidade formal da lei municipal por usurpação de competência da união. não se trata de mera opção administrativa local, mas de interferência em matéria nacionalmente estruturada pela ldb e pela bncc, que orientam o ensino básico em redes públicas e privadas. a proteção da infância, embora constitucionalmente relevante, não autoriza o ente municipal a inovar em tema reservado à legislação federal.
 
-            <div class="feedback" id="feedback-3">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>O enunciado está incorreto porque parte de premissa incompatível com a natureza jurídica da atividade de tradutor e intérprete público. Trata-se de agente delegatário de função pública, isto é, particular que exerce atividade dotada de fé pública sem vínculo estatutário ou celetista com a Administração. Por isso, não se aplica, em sua inteireza, o regime constitucional de provimento de cargos e empregos públicos previsto no art. 37, II e III, da Constituição.<br><br>A lógica adotada no julgamento foi justamente a de distinguir essa atividade de um cargo público típico: não há exigência de concurso público nos moldes tradicionais para investidura, embora permaneça o dever estatal de credenciar apenas profissionais efetivamente qualificados, em razão da relevância da fé pública e da necessidade de proteção da segurança jurídica dos atos praticados.<br><br>Além disso, o STF não afastou por completo a possibilidade de dispensa do concurso de aptidão em hipóteses excepcionais. O que ocorreu foi a atribuição de interpretação conforme ao dispositivo que previa a dispensa com base em “grau de excelência” em exames nacionais e internacionais de proficiência. A Corte não declarou a regra inconstitucional em si, mas suspendeu sua eficácia prática até que haja regulamentação objetiva pelo órgão competente, com critérios técnicos uniformes e verificáveis, justamente para evitar subjetivismo na aferição da qualificação.<br><br>Portanto, é errado afirmar que a habilitação depende necessariamente de concurso público do art. 37, II e III, e também que seria vedada, em qualquer hipótese, a dispensa dessa exigência por certificação de proficiência. O entendimento preserva a constitucionalidade do novo regime, mas condiciona a exceção à regulamentação objetiva.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADPF 854 Ref-quinto/DF, Rel. Min. Flávio Dino, julgado em 02/03/2026 (Info 1206).</p>
-            </div>
-        </section>
-        
+além disso, o julgado ressalta que o combate à discriminação no ambiente escolar deve observar os preceitos pedagógicos adequados às diferentes faixas etárias e ciclos educacionais, em consonância com o princípio da proteção integral da criança e do adolescente (art. 227 da cf/88). a liberdade de cátedra é ampla, mas não absoluta; contudo, esse limite não legitima a edição de lei municipal proibitiva sobre linguagem neutra, e sim a observância de parâmetros pedagógicos compatíveis com a maturidade dos alunos. stf. plenário. adpf 1.159/sc, rel. min. flávio dino, julgado em 27/02/2026 (info 1206).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 2</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-2">Não respondida</span>
+</div>
+
+<p class="enunciado">É constitucional lei municipal que, a pretexto de disciplinar a organização pedagógica da rede de ensino local, proíba o uso de linguagem neutra em escolas públicas e privadas do município, por se tratar de matéria afeta ao interesse predominantemente local e à proteção da infância, ainda que a norma alcance conteúdos curriculares e perspectivas pedagógicas vinculadas à igualdade de gênero e à diversidade.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(2, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(2, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-2">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque a disciplina normativa do uso de linguagem neutra em âmbito escolar não se insere na competência legislativa municipal. A Constituição reserva à União a competência privativa para legislar sobre diretrizes e bases da educação nacional (art. 22, XXIV, da CF/88), o que abrange a definição de parâmetros curriculares, materiais didáticos e orientações pedagógicas. Assim, o município não pode, sob o rótulo de organização local ou proteção da infância, editar lei que interfira no núcleo normativo da política educacional, especialmente para vedar conteúdos, linguagens ou perspectivas pedagógicas relacionadas à igualdade de gênero, à diversidade e aos direitos humanos.<br><br>O ponto central do entendimento é a inconstitucionalidade formal da lei municipal por usurpação de competência da União. Não se trata de mera opção administrativa local, mas de interferência em matéria nacionalmente estruturada pela LDB e pela BNCC, que orientam o ensino básico em redes públicas e privadas. A proteção da infância, embora constitucionalmente relevante, não autoriza o ente municipal a inovar em tema reservado à legislação federal.<br><br>Além disso, o julgado ressalta que o combate à discriminação no ambiente escolar deve observar os preceitos pedagógicos adequados às diferentes faixas etárias e ciclos educacionais, em consonância com o princípio da proteção integral da criança e do adolescente (art. 227 da CF/88). A liberdade de cátedra é ampla, mas não absoluta; contudo, esse limite não legitima a edição de lei municipal proibitiva sobre linguagem neutra, e sim a observância de parâmetros pedagógicos compatíveis com a maturidade dos alunos.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADPF 1.159/SC, Rel. Min. Flávio Dino, julgado em 27/02/2026 (Info 1206).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a atividade de tradutor e intérprete público, por envolver fé pública e delegação estatal, submete-se integralmente ao regime do art. 37, ii e iii, da constituição, de modo que a habilitação profissional somente pode ocorrer mediante concurso público de provas ou de provas e títulos, vedada a dispensa dessa exigência ainda que o interessado comprove proficiência em exames nacionais ou internacionais de excelência. o enunciado está incorreto porque parte de premissa incompatível com a natureza jurídica da atividade de tradutor e intérprete público. trata-se de agente delegatário de função pública, isto é, particular que exerce atividade dotada de fé pública sem vínculo estatutário ou celetista com a administração. por isso, não se aplica, em sua inteireza, o regime constitucional de provimento de cargos e empregos públicos previsto no art. 37, ii e iii, da constituição.
+
+a lógica adotada no julgamento foi justamente a de distinguir essa atividade de um cargo público típico: não há exigência de concurso público nos moldes tradicionais para investidura, embora permaneça o dever estatal de credenciar apenas profissionais efetivamente qualificados, em razão da relevância da fé pública e da necessidade de proteção da segurança jurídica dos atos praticados.
+
+além disso, o stf não afastou por completo a possibilidade de dispensa do concurso de aptidão em hipóteses excepcionais. o que ocorreu foi a atribuição de interpretação conforme ao dispositivo que previa a dispensa com base em “grau de excelência” em exames nacionais e internacionais de proficiência. a corte não declarou a regra inconstitucional em si, mas suspendeu sua eficácia prática até que haja regulamentação objetiva pelo órgão competente, com critérios técnicos uniformes e verificáveis, justamente para evitar subjetivismo na aferição da qualificação.
+
+portanto, é errado afirmar que a habilitação depende necessariamente de concurso público do art. 37, ii e iii, e também que seria vedada, em qualquer hipótese, a dispensa dessa exigência por certificação de proficiência. o entendimento preserva a constitucionalidade do novo regime, mas condiciona a exceção à regulamentação objetiva. stf. plenário. adpf 854 ref-quinto/df, rel. min. flávio dino, julgado em 02/03/2026 (info 1206).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 3</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-3">Não respondida</span>
+</div>
+
+<p class="enunciado">A atividade de tradutor e intérprete público, por envolver fé pública e delegação estatal, submete-se integralmente ao regime do art. 37, II e III, da Constituição, de modo que a habilitação profissional somente pode ocorrer mediante concurso público de provas ou de provas e títulos, vedada a dispensa dessa exigência ainda que o interessado comprove proficiência em exames nacionais ou internacionais de excelência.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(3, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(3, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-3">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O enunciado está incorreto porque parte de premissa incompatível com a natureza jurídica da atividade de tradutor e intérprete público. Trata-se de agente delegatário de função pública, isto é, particular que exerce atividade dotada de fé pública sem vínculo estatutário ou celetista com a Administração. Por isso, não se aplica, em sua inteireza, o regime constitucional de provimento de cargos e empregos públicos previsto no art. 37, II e III, da Constituição.<br><br>A lógica adotada no julgamento foi justamente a de distinguir essa atividade de um cargo público típico: não há exigência de concurso público nos moldes tradicionais para investidura, embora permaneça o dever estatal de credenciar apenas profissionais efetivamente qualificados, em razão da relevância da fé pública e da necessidade de proteção da segurança jurídica dos atos praticados.<br><br>Além disso, o STF não afastou por completo a possibilidade de dispensa do concurso de aptidão em hipóteses excepcionais. O que ocorreu foi a atribuição de interpretação conforme ao dispositivo que previa a dispensa com base em “grau de excelência” em exames nacionais e internacionais de proficiência. A Corte não declarou a regra inconstitucional em si, mas suspendeu sua eficácia prática até que haja regulamentação objetiva pelo órgão competente, com critérios técnicos uniformes e verificáveis, justamente para evitar subjetivismo na aferição da qualificação.<br><br>Portanto, é errado afirmar que a habilitação depende necessariamente de concurso público do art. 37, II e III, e também que seria vedada, em qualquer hipótese, a dispensa dessa exigência por certificação de proficiência. O entendimento preserva a constitucionalidade do novo regime, mas condiciona a exceção à regulamentação objetiva.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADPF 854 Ref-quinto/DF, Rel. Min. Flávio Dino, julgado em 02/03/2026 (Info 1206).</p>
+</div>
+</section>
 
 </div>
 
 <script>
-const totalQuestoes = 3;
-let respostas = JSON.parse(localStorage.getItem(location.pathname + "_respostas") || "{}");
+const storageKey = location.pathname + "_respostas";
+let respostas = JSON.parse(localStorage.getItem(storageKey) || "{}");
 
-function atualizarPainel() {
-    const respondidas = Object.keys(respostas).length;
-    let acertos = 0;
-    let erros = 0;
-
-    for (const key in respostas) {
-        if (respostas[key].correto) acertos++;
-        else erros++;
-    }
-
-    document.getElementById("respondidas").textContent = respondidas;
-    document.getElementById("acertos").textContent = acertos;
-    document.getElementById("erros").textContent = erros;
+function destacar(t){
+ if(t==="CERTO") return '<span class="gabarito-certo">CERTO</span>';
+ if(t==="ERRADO") return '<span class="gabarito-errado">ERRADO</span>';
+ return t;
 }
 
-function responder(numero, resposta) {
-    const card = document.querySelectorAll(".questao")[numero - 1];
-    const gabarito = card.dataset.gabarito;
-    const correto = resposta === gabarito;
-
-    respostas[numero] = {
-        resposta,
-        correto
-    };
-
-    localStorage.setItem(location.pathname + "_respostas", JSON.stringify(respostas));
-
-    mostrarFeedback(numero);
-    atualizarPainel();
+function responder(numero, resposta){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const gabarito=card.dataset.gabarito;
+ const correto=resposta===gabarito;
+ respostas[numero]={resposta,correto};
+ localStorage.setItem(storageKey, JSON.stringify(respostas));
+ mostrarFeedback(numero);
+ atualizarPainel();
+ filtrar();
 }
 
-function mostrarFeedback(numero) {
-    const card = document.querySelectorAll(".questao")[numero - 1];
-    const feedback = document.getElementById("feedback-" + numero);
-    const status = document.getElementById("status-" + numero);
-    const resultado = feedback.querySelector(".resultado");
-
-    const dados = respostas[numero];
-
-    if (!dados) return;
-
-    feedback.style.display = "block";
-    feedback.classList.remove("correto", "errado");
-
-    if (dados.correto) {
-        feedback.classList.add("correto");
-        resultado.textContent = "Você acertou. A resposta é " + card.dataset.gabarito + ".";
-        status.textContent = "Respondida — acerto";
-        status.style.color = "var(--green)";
-    } else {
-        feedback.classList.add("errado");
-        resultado.textContent = "Você errou. O gabarito é " + card.dataset.gabarito + ".";
-        status.textContent = "Respondida — erro";
-        status.style.color = "var(--red)";
-    }
+function mostrarFeedback(numero){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const feedback=document.getElementById("feedback-"+numero);
+ const status=document.getElementById("status-"+numero);
+ const resultado=feedback.querySelector(".resultado");
+ const gabarito=card.dataset.gabarito;
+ const dados=respostas[numero];
+ if(!dados) return;
+ feedback.style.display="block";
+ feedback.classList.remove("correto","errado");
+ if(dados.correto){
+   feedback.classList.add("correto");
+   resultado.innerHTML="Você acertou. A resposta é "+destacar(gabarito)+".";
+   status.textContent="Respondida — acerto";
+   status.style.color="var(--green)";
+ } else {
+   feedback.classList.add("errado");
+   resultado.innerHTML="Você errou. O gabarito é "+destacar(gabarito)+".";
+   status.textContent="Respondida — erro";
+   status.style.color="var(--red)";
+ }
 }
 
-function restaurar() {
-    for (const key in respostas) {
-        mostrarFeedback(Number(key));
-    }
-    atualizarPainel();
+function atualizarPainel(){
+ let respondidas=0, acertos=0, erros=0;
+ for(const k in respostas){
+   respondidas++;
+   if(respostas[k].correto) acertos++; else erros++;
+ }
+ document.getElementById("respondidas").textContent=respondidas;
+ document.getElementById("acertos").textContent=acertos;
+ document.getElementById("erros").textContent=erros;
+ document.getElementById("visiveis").textContent=document.querySelectorAll(".questao:not(.oculta)").length;
 }
 
-function reiniciar() {
-    if (!confirm("Deseja reiniciar este simulado?")) return;
-    localStorage.removeItem(location.pathname + "_respostas");
-    location.reload();
+function filtrar(){
+ const busca=document.getElementById("busca").value.trim().toLowerCase();
+ const disciplina=document.getElementById("disciplina").value;
+ const statusFiltro=document.getElementById("statusFiltro").value;
+ const cards=Array.from(document.querySelectorAll(".questao"));
+ let vis=0;
+ cards.forEach((card,idx)=>{
+   const n=idx+1;
+   const texto=card.dataset.texto||"";
+   const disc=card.dataset.disciplina||"";
+   const r=respostas[n];
+   let passaStatus=true;
+   if(statusFiltro==="nao") passaStatus=!r;
+   if(statusFiltro==="acerto") passaStatus=r && r.correto;
+   if(statusFiltro==="erro") passaStatus=r && !r.correto;
+   const ok=(!busca||texto.includes(busca)) && (!disciplina||disc===disciplina) && passaStatus;
+   card.classList.toggle("oculta", !ok);
+   if(ok) vis++;
+ });
+ document.getElementById("sem-resultados").style.display=vis===0?"block":"none";
+ atualizarPainel();
+}
+
+function reiniciar(){
+ if(!confirm("Deseja reiniciar este simulado?")) return;
+ localStorage.removeItem(storageKey);
+ location.reload();
+}
+
+function restaurar(){
+ for(const k in respostas) mostrarFeedback(Number(k));
+ filtrar();
+ atualizarPainel();
 }
 
 restaurar();
 </script>
-
 </body>
 </html>

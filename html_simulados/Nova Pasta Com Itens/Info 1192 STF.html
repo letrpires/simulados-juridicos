@@ -4,497 +4,532 @@
 <meta charset="UTF-8">
 <title>Simulado - Info 1192 STF</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <style>
-:root {
-    --bg: #0f172a;
-    --card: #111827;
-    --card2: #1f2937;
-    --text: #e5e7eb;
-    --muted: #9ca3af;
-    --accent: #38bdf8;
-    --green: #22c55e;
-    --red: #ef4444;
-    --yellow: #facc15;
+:root{
+--bg:#020617;--panel:rgba(15,23,42,.88);--card:rgba(15,23,42,.96);
+--card2:rgba(30,41,59,.92);--border:rgba(148,163,184,.22);
+--text:#e5e7eb;--muted:#94a3b8;--accent:#38bdf8;--accent2:#0ea5e9;
+--green:#22c55e;--red:#ef4444;--yellow:#facc15;--purple:#a78bfa;
 }
-
-* {
-    box-sizing: border-box;
+*{box-sizing:border-box}
+body{
+margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+background:radial-gradient(circle at top left,rgba(56,189,248,.20),transparent 28%),
+radial-gradient(circle at top right,rgba(167,139,250,.15),transparent 28%),
+linear-gradient(135deg,#020617,#0f172a 50%,#020617);
+color:var(--text);line-height:1.65;
 }
-
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(135deg, #020617, #111827);
-    color: var(--text);
-    line-height: 1.6;
+header{padding:44px 20px 32px;text-align:center;border-bottom:1px solid var(--border)}
+header h1{margin:0 0 10px;font-size:clamp(28px,4vw,46px);letter-spacing:-.05em}
+header p{color:var(--muted);margin:0;font-size:16px}
+.container{max-width:1160px;margin:0 auto;padding:26px 16px 80px}
+.painel{
+position:sticky;top:10px;z-index:10;background:var(--panel);backdrop-filter:blur(18px);
+border:1px solid var(--border);border-radius:26px;padding:16px;margin-bottom:22px;
+box-shadow:0 22px 70px rgba(0,0,0,.35)
 }
-
-header {
-    padding: 32px 20px;
-    text-align: center;
-    border-bottom: 1px solid #334155;
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.stat{background:var(--card2);padding:14px;border-radius:18px;text-align:center;border:1px solid rgba(148,163,184,.12)}
+.stat strong{display:block;font-size:25px;color:var(--accent);line-height:1.1}
+.stat span{font-size:12px;color:var(--muted)}
+.filtros{display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:12px;margin-top:14px}
+input,select{
+width:100%;background:rgba(2,6,23,.78);color:var(--text);border:1px solid var(--border);
+border-radius:14px;padding:13px 14px;outline:none;font-size:14px
 }
-
-header h1 {
-    margin: 0 0 10px;
-    font-size: 28px;
+input:focus,select:focus{border-color:var(--accent)}
+.card{
+background:var(--card);border:1px solid var(--border);border-radius:24px;padding:26px;
+margin-bottom:20px;box-shadow:0 18px 50px rgba(0,0,0,.24)
 }
-
-header p {
-    color: var(--muted);
-    margin: 0;
+.questao{scroll-margin-top:190px}
+.questao-topo{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:18px}
+.badge{
+background:linear-gradient(135deg,var(--accent),var(--accent2));color:#00111f;font-weight:900;
+padding:7px 13px;border-radius:999px;display:inline-block
 }
-
-.container {
-    max-width: 980px;
-    margin: 0 auto;
-    padding: 24px 16px 80px;
+.disciplina-tag,.tipo-tag{
+display:inline-block;margin-left:8px;color:var(--muted);background:rgba(148,163,184,.10);
+border:1px solid rgba(148,163,184,.14);padding:6px 10px;border-radius:999px;font-size:12px
 }
-
-.painel {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    background: rgba(15, 23, 42, 0.95);
-    backdrop-filter: blur(8px);
-    border: 1px solid #334155;
-    border-radius: 16px;
-    padding: 16px;
-    margin-bottom: 24px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
+.tipo-tag{color:#ddd6fe;border-color:rgba(167,139,250,.25)}
+.status{color:var(--yellow);font-size:13px;white-space:nowrap}
+.enunciado{font-size:19px;margin:0 0 22px;letter-spacing:-.01em}
+.botoes{display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.btn{
+cursor:pointer;border:0;padding:12px 22px;border-radius:14px;color:white;font-weight:900;
+transition:.18s ease;letter-spacing:.02em
 }
-
-.stat {
-    background: var(--card2);
-    padding: 12px;
-    border-radius: 12px;
-    text-align: center;
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.certo{background:rgba(34,197,94,.20);border:1px solid rgba(34,197,94,.42)}
+.btn.errado{background:rgba(239,68,68,.20);border:1px solid rgba(239,68,68,.42)}
+.btn.neutro{background:rgba(56,189,248,.16);color:var(--text);border:1px solid rgba(56,189,248,.32)}
+.feedback{
+display:none;background:rgba(2,6,23,.72);border:1px solid rgba(148,163,184,.16);
+border-left:5px solid var(--accent);padding:18px;border-radius:18px;margin-top:14px
 }
-
-.stat strong {
-    display: block;
-    font-size: 22px;
-    color: var(--accent);
+.feedback.correto{border-left-color:var(--green)}
+.feedback.errado{border-left-color:var(--red)}
+.resultado{font-size:18px;font-weight:900;margin-top:0}
+.justificativa{margin-top:12px}
+.referencia{color:var(--muted);font-size:13px;margin-top:16px}
+.gabarito-certo{color:var(--green);font-weight:900}
+.gabarito-errado{color:var(--red);font-weight:900}
+.oculta{display:none}
+.sem-resultados{text-align:center;color:var(--muted);display:none;padding:30px}
+.grid-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
+.link-card{
+display:block;padding:20px;background:rgba(15,23,42,.95);border:1px solid rgba(148,163,184,.22);
+color:#e5e7eb;border-radius:22px;text-decoration:none;transition:.2s;box-shadow:0 14px 40px rgba(0,0,0,.22)
 }
-
-.card {
-    background: rgba(17, 24, 39, 0.96);
-    border: 1px solid #334155;
-    border-radius: 18px;
-    padding: 22px;
-    margin-bottom: 20px;
-    box-shadow: 0 12px 30px rgba(0,0,0,.25);
-}
-
-.questao-topo {
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
-    align-items: center;
-    margin-bottom: 16px;
-}
-
-.badge {
-    background: #0ea5e9;
-    color: #00111f;
-    font-weight: bold;
-    padding: 6px 12px;
-    border-radius: 999px;
-}
-
-.status {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-.enunciado {
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-
-.botoes {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 18px;
-}
-
-button {
-    cursor: pointer;
-    border: 0;
-    padding: 12px 22px;
-    border-radius: 12px;
-    background: #334155;
-    color: white;
-    font-weight: bold;
-    transition: 0.2s;
-}
-
-button:hover {
-    transform: translateY(-1px);
-    background: #475569;
-}
-
-.feedback {
-    display: none;
-    background: #020617;
-    border-left: 4px solid var(--accent);
-    padding: 16px;
-    border-radius: 12px;
-    margin-top: 12px;
-}
-
-.feedback.correto {
-    border-left-color: var(--green);
-}
-
-.feedback.errado {
-    border-left-color: var(--red);
-}
-
-.resultado {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.referencia {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-.acoes {
-    text-align: center;
-    margin: 30px 0;
-}
-
-.acoes button {
-    background: #0ea5e9;
-    color: #00111f;
-}
-
-@media (max-width: 700px) {
-    .painel {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .botoes {
-        flex-direction: column;
-    }
-
-    header h1 {
-        font-size: 22px;
-    }
-
-    .enunciado {
-        font-size: 16px;
-    }
+.link-card:hover{transform:translateY(-3px);border-color:#38bdf8}
+.link-card strong{display:block;font-size:17px;margin-bottom:8px}
+.link-card span{color:#94a3b8;font-size:13px}
+.index-tools{display:grid;grid-template-columns:1.5fr 1fr;gap:12px;margin-bottom:20px}
+@media(max-width:850px){
+.stats{grid-template-columns:repeat(2,1fr)}
+.filtros,.index-tools{grid-template-columns:1fr}
+.questao-topo{align-items:flex-start;flex-direction:column}
+.botoes{flex-direction:column}
+.enunciado{font-size:16px}
+.card{padding:20px}
 }
 </style>
 </head>
-
 <body>
-
 <header>
-    <h1>Simulado - Info 1192 STF</h1>
-    <p>Simulado interativo de CERTO ou ERRADO</p>
+<h1>Simulado - Info 1192 STF</h1>
+<p>Informativos • Simulado interativo de CERTO ou ERRADO</p>
 </header>
 
 <div class="container">
+<div class="painel">
+<div class="stats">
+<div class="stat"><strong>9</strong><span>Total</span></div>
+<div class="stat"><strong id="visiveis">9</strong><span>Visíveis</span></div>
+<div class="stat"><strong id="respondidas">0</strong><span>Respondidas</span></div>
+<div class="stat"><strong id="acertos">0</strong><span>Acertos</span></div>
+<div class="stat"><strong id="erros">0</strong><span>Erros</span></div>
+</div>
 
-    <div class="painel">
-        <div class="stat">
-            <strong id="total">9</strong>
-            Total
-        </div>
-        <div class="stat">
-            <strong id="respondidas">0</strong>
-            Respondidas
-        </div>
-        <div class="stat">
-            <strong id="acertos">0</strong>
-            Acertos
-        </div>
-        <div class="stat">
-            <strong id="erros">0</strong>
-            Erros
-        </div>
-    </div>
+<div class="filtros">
+<input id="busca" type="search" placeholder="Buscar por palavra-chave..." oninput="filtrar()">
+<select id="disciplina" onchange="filtrar()">
+<option value="">Todas as disciplinas</option>
+<option value="Direito Penal">Direito Penal</option>
+<option value="ECA">ECA</option>
+<option value="N/I">N/I</option>
+</select>
+<select id="statusFiltro" onchange="filtrar()">
+<option value="">Todas</option>
+<option value="nao">Não respondidas</option>
+<option value="acerto">Acertos</option>
+<option value="erro">Erros</option>
+</select>
+<button class="btn neutro" onclick="reiniciar()">Reiniciar</button>
+</div>
+</div>
 
-    <div class="acoes">
-        <button onclick="reiniciar()">Reiniciar simulado</button>
-    </div>
+<div id="sem-resultados" class="sem-resultados">Nenhuma questão encontrada com os filtros atuais.</div>
 
-    
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 1</span>
-                <span class="status" id="status-1">Não respondida</span>
-            </div>
 
-            <p class="enunciado">É incompatível com a laicidade estatal e com a isonomia a norma estadual que, ao disciplinar o acervo de bibliotecas públicas, autoriza a aquisição e a manutenção de exemplares da Bíblia Sagrada, ainda que sem impor quantitativo mínimo ou dever jurídico de inclusão, pois a presença de livro de conteúdo religioso em espaço público implicaria favorecimento indevido de determinada confissão.</p>
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="ECA"
+data-texto="é incompatível com a laicidade estatal e com a isonomia a norma estadual que, ao disciplinar o acervo de bibliotecas públicas, autoriza a aquisição e a manutenção de exemplares da bíblia sagrada, ainda que sem impor quantitativo mínimo ou dever jurídico de inclusão, pois a presença de livro de conteúdo religioso em espaço público implicaria favorecimento indevido de determinada confissão. a inconstitucionalidade recai sobre a imposição estatal de aquisição e manutenção obrigatória de obra religiosa em espaço público, e não sobre a mera autorização normativa para que o poder público, no exercício de sua discricionariedade administrativa e cultural, possa incluir exemplares da bíblia em bibliotecas públicas. a interpretação constitucionalmente adequada da lei estadual é a de que ela **permite**, mas **não obriga**, a aquisição e a manutenção de livros religiosos no acervo público.
 
-            <div class="botoes">
-                <button onclick="responder(1, 'CERTO')">CERTO</button>
-                <button onclick="responder(1, 'ERRADO')">ERRADO</button>
-            </div>
+nesse sentido, não há violação automática à isonomia, à liberdade religiosa ou à laicidade estatal quando a norma apenas faculta a presença da bíblia no acervo, sem estabelecer preferência coercitiva, exclusividade ou imposição de conteúdo confessional. o vício constitucional surge quando o legislador determina, de forma cogente, que o estado adquira e mantenha exemplares religiosos em espaços públicos, pois aí há indevida atuação estatal em matéria de crença, com potencial de comprometer a neutralidade exigida pelo art. 19, i, da constituição.
 
-            <div class="feedback" id="feedback-1">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A inconstitucionalidade recai sobre a imposição estatal de aquisição e manutenção obrigatória de obra religiosa em espaço público, e não sobre a mera autorização normativa para que o Poder Público, no exercício de sua discricionariedade administrativa e cultural, possa incluir exemplares da Bíblia em bibliotecas públicas. A interpretação constitucionalmente adequada da lei estadual é a de que ela <strong>permite</strong>, mas <strong>não obriga</strong>, a aquisição e a manutenção de livros religiosos no acervo público.<br><br>Nesse sentido, não há violação automática à isonomia, à liberdade religiosa ou à laicidade estatal quando a norma apenas faculta a presença da Bíblia no acervo, sem estabelecer preferência coercitiva, exclusividade ou imposição de conteúdo confessional. O vício constitucional surge quando o legislador determina, de forma cogente, que o Estado adquira e mantenha exemplares religiosos em espaços públicos, pois aí há indevida atuação estatal em matéria de crença, com potencial de comprometer a neutralidade exigida pelo art. 19, I, da Constituição.<br><br>A solução adotada foi de <strong>interpretação conforme</strong>, preservando-se a validade da lei naquilo que ela autoriza a inclusão da Bíblia, mas afastando qualquer leitura que a transforme em comando obrigatório. Assim, a presença de obra religiosa em biblioteca pública, por si só, não é vedada; o que é vedado é a imposição legislativa de sua aquisição e manutenção.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 5.255/RN, Rel. Min. Nunes Marques, redator do acórdão Min. Cristiano Zanin, julgado em 27/09/2025 (Info 1192).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 2</span>
-                <span class="status" id="status-2">Não respondida</span>
-            </div>
+a solução adotada foi de **interpretação conforme**, preservando-se a validade da lei naquilo que ela autoriza a inclusão da bíblia, mas afastando qualquer leitura que a transforme em comando obrigatório. assim, a presença de obra religiosa em biblioteca pública, por si só, não é vedada; o que é vedado é a imposição legislativa de sua aquisição e manutenção. stf. plenário. adi 5.255/rn, rel. min. nunes marques, redator do acórdão min. cristiano zanin, julgado em 27/09/2025 (info 1192).">
 
-            <p class="enunciado">A ausência de lei complementar federal prevista no art. 18, § 4º, da Constituição Federal, por si só, não autoriza concluir pela mora legislativa do Congresso Nacional quando houver demonstração de que o Parlamento apreciou e aprovou sucessivos projetos de lei complementar destinados a regulamentar a matéria, ainda que todos tenham sido integralmente vetados pela Presidência da República por razões de interesse público.</p>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 1</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-1">Não respondida</span>
+</div>
 
-            <div class="botoes">
-                <button onclick="responder(2, 'CERTO')">CERTO</button>
-                <button onclick="responder(2, 'ERRADO')">ERRADO</button>
-            </div>
+<p class="enunciado">É incompatível com a laicidade estatal e com a isonomia a norma estadual que, ao disciplinar o acervo de bibliotecas públicas, autoriza a aquisição e a manutenção de exemplares da Bíblia Sagrada, ainda que sem impor quantitativo mínimo ou dever jurídico de inclusão, pois a presença de livro de conteúdo religioso em espaço público implicaria favorecimento indevido de determinada confissão.</p>
 
-            <div class="feedback" id="feedback-2">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>O art. 18, § 4º, da CF/88 condiciona a criação, a incorporação, a fusão e o desmembramento de municípios à edição de lei complementar federal, além de lei estadual e plebiscito, o que evidencia a centralidade da atuação legislativa federal na disciplina da matéria. Embora a falta dessa lei complementar tenha levado, em momento anterior, ao reconhecimento de mora legislativa em controle por omissão, a conclusão não é automática nem perpétua: é necessário verificar se persiste inércia deliberativa do Congresso Nacional.<br><br>No caso examinado, o STF entendeu que não havia omissão inconstitucional atual porque o Legislativo não permaneceu inerte. Ao contrário, houve aprovação de três projetos de lei complementar voltados à regulamentação do dispositivo constitucional, entre 2013 e 2014, os quais foram vetados pela Presidência da República. Essa circunstância foi considerada suficiente para afastar a ideia de negligência legislativa, pois a ausência da norma decorreu do próprio processo político-constitucional de formação da vontade estatal, e não de paralisação do Parlamento.<br><br>A Corte, assim, distinguiu a mera inexistência da lei da configuração de mora legislativa: para haver omissão inconstitucional, não basta que o comando constitucional continue sem regulamentação; é preciso que se evidencie inércia relevante do órgão competente. Se o Congresso deliberou e aprovou projetos, mas a norma não ingressou no ordenamento em razão de veto presidencial, não se caracteriza, nesse contexto, mora do Legislativo. Trata-se de consequência das dinâmicas institucionais do processo legislativo, e não de omissão imputável ao Congresso Nacional.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADO 70/PA, Rel. Min. Dias Toffoli, julgado em 27/09/2025 (Info 1192).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 3</span>
-                <span class="status" id="status-3">Não respondida</span>
-            </div>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(1, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(1, 'ERRADO')">ERRADO</button>
+</div>
 
-            <p class="enunciado">É formalmente inconstitucional lei estadual que, ao instituir programa de recuperação fiscal voltado à regularização de débitos tributários, preveja a suspensão da pretensão punitiva estatal e a extinção da punibilidade de crimes contra a ordem tributária e previdenciária condicionadas, respectivamente, à permanência do contribuinte no parcelamento e ao pagamento integral do débito, pois tal disciplina, embora conectada à matéria tributária, possui natureza despenalizadora e invade competência legislativa privativa da União para dispor sobre direito penal.</p>
+<div class="feedback" id="feedback-1">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A inconstitucionalidade recai sobre a imposição estatal de aquisição e manutenção obrigatória de obra religiosa em espaço público, e não sobre a mera autorização normativa para que o Poder Público, no exercício de sua discricionariedade administrativa e cultural, possa incluir exemplares da Bíblia em bibliotecas públicas. A interpretação constitucionalmente adequada da lei estadual é a de que ela <strong>permite</strong>, mas <strong>não obriga</strong>, a aquisição e a manutenção de livros religiosos no acervo público.<br><br>Nesse sentido, não há violação automática à isonomia, à liberdade religiosa ou à laicidade estatal quando a norma apenas faculta a presença da Bíblia no acervo, sem estabelecer preferência coercitiva, exclusividade ou imposição de conteúdo confessional. O vício constitucional surge quando o legislador determina, de forma cogente, que o Estado adquira e mantenha exemplares religiosos em espaços públicos, pois aí há indevida atuação estatal em matéria de crença, com potencial de comprometer a neutralidade exigida pelo art. 19, I, da Constituição.<br><br>A solução adotada foi de <strong>interpretação conforme</strong>, preservando-se a validade da lei naquilo que ela autoriza a inclusão da Bíblia, mas afastando qualquer leitura que a transforme em comando obrigatório. Assim, a presença de obra religiosa em biblioteca pública, por si só, não é vedada; o que é vedado é a imposição legislativa de sua aquisição e manutenção.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 5.255/RN, Rel. Min. Nunes Marques, redator do acórdão Min. Cristiano Zanin, julgado em 27/09/2025 (Info 1192).</p>
+</div>
+</section>
 
-            <div class="botoes">
-                <button onclick="responder(3, 'CERTO')">CERTO</button>
-                <button onclick="responder(3, 'ERRADO')">ERRADO</button>
-            </div>
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="a ausência de lei complementar federal prevista no art. 18, § 4º, da constituição federal, por si só, não autoriza concluir pela mora legislativa do congresso nacional quando houver demonstração de que o parlamento apreciou e aprovou sucessivos projetos de lei complementar destinados a regulamentar a matéria, ainda que todos tenham sido integralmente vetados pela presidência da república por razões de interesse público. o art. 18, § 4º, da cf/88 condiciona a criação, a incorporação, a fusão e o desmembramento de municípios à edição de lei complementar federal, além de lei estadual e plebiscito, o que evidencia a centralidade da atuação legislativa federal na disciplina da matéria. embora a falta dessa lei complementar tenha levado, em momento anterior, ao reconhecimento de mora legislativa em controle por omissão, a conclusão não é automática nem perpétua: é necessário verificar se persiste inércia deliberativa do congresso nacional.
 
-            <div class="feedback" id="feedback-3">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está correta porque a criação de causas de suspensão da pretensão punitiva e de extinção da punibilidade não se limita a organizar um regime fiscal de parcelamento: ela interfere diretamente no regime jurídico penal, ao disciplinar efeitos penais de condutas tipificadas como crimes contra a ordem tributária e previdenciária. Ainda que a norma estadual esteja inserida em programa de recuperação fiscal, o conteúdo material dessas previsões é despenalizador, pois altera a incidência da persecução penal e a própria punibilidade.<br><br>Esse tipo de disciplina extrapola a competência legislativa concorrente em matéria tributária, porque a definição de causas extintivas de punibilidade e de suspensão da pretensão punitiva integra o campo do direito penal, cuja competência legislativa é privativa da União, nos termos do art. 22, I, da Constituição Federal. Assim, não basta que a norma tenha finalidade arrecadatória ou esteja associada à regularização de débitos fiscais: o critério decisivo é o seu conteúdo normativo, que, ao produzir efeitos penais, invade esfera reservada ao legislador federal.<br><br>A inconstitucionalidade, portanto, é formal, por vício de competência legislativa. O fato de a medida estar vinculada a débitos tributários não afasta essa conclusão, pois a conexão temática com tributos não autoriza o ente estadual a inovar em matéria penal, especialmente quando a norma cria hipóteses de suspensão da persecução penal e de extinção da punibilidade.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 2.957/SC, Rel. Min. Nunes Marques, julgado em 27/09/2025 (Info 1192).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 4</span>
-                <span class="status" id="status-4">Não respondida</span>
-            </div>
+no caso examinado, o stf entendeu que não havia omissão inconstitucional atual porque o legislativo não permaneceu inerte. ao contrário, houve aprovação de três projetos de lei complementar voltados à regulamentação do dispositivo constitucional, entre 2013 e 2014, os quais foram vetados pela presidência da república. essa circunstância foi considerada suficiente para afastar a ideia de negligência legislativa, pois a ausência da norma decorreu do próprio processo político-constitucional de formação da vontade estatal, e não de paralisação do parlamento.
 
-            <p class="enunciado">É constitucional lei estadual de iniciativa parlamentar que, ao disciplinar a atuação do Tribunal de Contas, condiciona a aplicação de multa e a responsabilização pessoal de gestores públicos à comprovação de desvio de recursos em benefício próprio ou de familiares, bem como à demonstração de dolo na ordenação de despesas, por se tratar de mera opção legislativa de conformação do regime sancionador do controle externo.</p>
+a corte, assim, distinguiu a mera inexistência da lei da configuração de mora legislativa: para haver omissão inconstitucional, não basta que o comando constitucional continue sem regulamentação; é preciso que se evidencie inércia relevante do órgão competente. se o congresso deliberou e aprovou projetos, mas a norma não ingressou no ordenamento em razão de veto presidencial, não se caracteriza, nesse contexto, mora do legislativo. trata-se de consequência das dinâmicas institucionais do processo legislativo, e não de omissão imputável ao congresso nacional. stf. plenário. ado 70/pa, rel. min. dias toffoli, julgado em 27/09/2025 (info 1192).">
 
-            <div class="botoes">
-                <button onclick="responder(4, 'CERTO')">CERTO</button>
-                <button onclick="responder(4, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 2</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-2">Não respondida</span>
+</div>
 
-            <div class="feedback" id="feedback-4">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque a lei estadual, além de invadir matéria reservada à iniciativa privativa do próprio Tribunal de Contas, também restringe indevidamente o alcance do seu poder sancionador.<br><br>No plano formal, a disciplina de aspectos que afetem a organização, a estrutura interna e o funcionamento do Tribunal de Contas insere-se no âmbito de competências normativas privativas da própria Corte, por força da sistemática dos arts. 73, 75 e 96, II, d, da Constituição. Assim, lei de iniciativa parlamentar não pode inovar nesse campo, sob pena de vício formal de iniciativa.<br><br>No plano material, a exigência de prova de desvio de recursos em benefício próprio ou de familiares, bem como de dolo na ordenação de despesas, para só então admitir multa e responsabilização pessoal, esvazia o conteúdo do art. 71, VIII, da Constituição, que confere ao Tribunal de Contas competência para aplicar sanções em caso de irregularidades apuradas no exercício do controle externo. A imposição de condicionantes não previstas na Constituição compromete a efetividade da fiscalização, reduz o alcance da atuação sancionadora e enfraquece a tutela do erário.<br><br>Em síntese, não se trata de simples conformação legislativa legítima, mas de restrição inconstitucional ao poder de controle e punição do Tribunal de Contas, tanto por vício de iniciativa quanto por afronta direta à Constituição.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.082/BA, Rel. Min. Cristiano Zanin, julgado em 27/09/2025 (Info 1192).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="ERRADO">
-            <div class="questao-topo">
-                <span class="badge">Questão 5</span>
-                <span class="status" id="status-5">Não respondida</span>
-            </div>
+<p class="enunciado">A ausência de lei complementar federal prevista no art. 18, § 4º, da Constituição Federal, por si só, não autoriza concluir pela mora legislativa do Congresso Nacional quando houver demonstração de que o Parlamento apreciou e aprovou sucessivos projetos de lei complementar destinados a regulamentar a matéria, ainda que todos tenham sido integralmente vetados pela Presidência da República por razões de interesse público.</p>
 
-            <p class="enunciado">A contratação temporária ou terceirizada realizada pela Administração, ainda que durante a validade de concurso público e para suprir necessidades sazonais do serviço, configura, por si só, preterição arbitrária e imotivada dos candidatos aprovados, inclusive daqueles classificados fora do número inicial de vagas, impondo-se a nomeação de todos os remanescentes, independentemente da demonstração de ausência de justificativa legítima para a medida excepcional.</p>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(2, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(2, 'ERRADO')">ERRADO</button>
+</div>
 
-            <div class="botoes">
-                <button onclick="responder(5, 'CERTO')">CERTO</button>
-                <button onclick="responder(5, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="feedback" id="feedback-2">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O art. 18, § 4º, da CF/88 condiciona a criação, a incorporação, a fusão e o desmembramento de municípios à edição de lei complementar federal, além de lei estadual e plebiscito, o que evidencia a centralidade da atuação legislativa federal na disciplina da matéria. Embora a falta dessa lei complementar tenha levado, em momento anterior, ao reconhecimento de mora legislativa em controle por omissão, a conclusão não é automática nem perpétua: é necessário verificar se persiste inércia deliberativa do Congresso Nacional.<br><br>No caso examinado, o STF entendeu que não havia omissão inconstitucional atual porque o Legislativo não permaneceu inerte. Ao contrário, houve aprovação de três projetos de lei complementar voltados à regulamentação do dispositivo constitucional, entre 2013 e 2014, os quais foram vetados pela Presidência da República. Essa circunstância foi considerada suficiente para afastar a ideia de negligência legislativa, pois a ausência da norma decorreu do próprio processo político-constitucional de formação da vontade estatal, e não de paralisação do Parlamento.<br><br>A Corte, assim, distinguiu a mera inexistência da lei da configuração de mora legislativa: para haver omissão inconstitucional, não basta que o comando constitucional continue sem regulamentação; é preciso que se evidencie inércia relevante do órgão competente. Se o Congresso deliberou e aprovou projetos, mas a norma não ingressou no ordenamento em razão de veto presidencial, não se caracteriza, nesse contexto, mora do Legislativo. Trata-se de consequência das dinâmicas institucionais do processo legislativo, e não de omissão imputável ao Congresso Nacional.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADO 70/PA, Rel. Min. Dias Toffoli, julgado em 27/09/2025 (Info 1192).</p>
+</div>
+</section>
 
-            <div class="feedback" id="feedback-5">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> ERRADO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está incorreta porque a mera existência de contratações temporárias ou terceirizadas não basta, isoladamente, para caracterizar preterição arbitrária de candidatos aprovados em concurso público. O entendimento firmado foi no sentido de que, em contexto de demanda sazonal e com justificativa legítima para a contratação excepcional, não há direito automático à nomeação de todos os aprovados, especialmente quando o certame já se encontra fora do prazo de validade.<br><br>O ponto central é que a preterição exige demonstração de conduta administrativa incompatível com a ordem constitucional do concurso, e não apenas a prova de que a Administração recorreu a vínculos precários para atender necessidades transitórias do serviço. Quando as contratações temporárias se mostram justificadas pela natureza sazonal da atividade — como picos de demanda e operações específicas —, não se pode presumir, sem mais, que houve burla ao concurso.<br><br>Além disso, a decisão ressalta a necessidade de preservar a segurança jurídica e evitar impacto econômico desproporcional, sobretudo quando se pretende impor a convocação de candidatos fora do número de vagas após o término da validade do certame. Nessa hipótese, a pretensão de nomeação automática não encontra amparo apenas na existência de contratações excepcionais, sendo indispensável a demonstração de que elas foram realizadas sem justificativa legítima e com finalidade de contornar a ordem classificatória.<br><br>Por isso, a tese não autoriza concluir que toda contratação temporária ou terceirizada, por si só, gera direito subjetivo à nomeação de todos os remanescentes do concurso.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. RE 632.115/CE, Rel. Min. Luís Roberto Barroso, julgado em 27/09/2025 (Repercussão Geral – Tema 950) (Info 1192).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 6</span>
-                <span class="status" id="status-6">Não respondida</span>
-            </div>
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="Direito Penal"
+data-texto="é formalmente inconstitucional lei estadual que, ao instituir programa de recuperação fiscal voltado à regularização de débitos tributários, preveja a suspensão da pretensão punitiva estatal e a extinção da punibilidade de crimes contra a ordem tributária e previdenciária condicionadas, respectivamente, à permanência do contribuinte no parcelamento e ao pagamento integral do débito, pois tal disciplina, embora conectada à matéria tributária, possui natureza despenalizadora e invade competência legislativa privativa da união para dispor sobre direito penal. a assertiva está correta porque a criação de causas de suspensão da pretensão punitiva e de extinção da punibilidade não se limita a organizar um regime fiscal de parcelamento: ela interfere diretamente no regime jurídico penal, ao disciplinar efeitos penais de condutas tipificadas como crimes contra a ordem tributária e previdenciária. ainda que a norma estadual esteja inserida em programa de recuperação fiscal, o conteúdo material dessas previsões é despenalizador, pois altera a incidência da persecução penal e a própria punibilidade.
 
-            <p class="enunciado">Nas ações individuais de indenização propostas contra a União por filhos de pessoas atingidas pela hanseníase que foram separados compulsoriamente de seus pais no contexto da política estatal de isolamento, a pretensão não é imprescritível; aplica-se o prazo quinquenal do Decreto n.º 20.910/1932, cujo termo inicial é a publicação da ata de julgamento da decisão que reconheceu a possibilidade de reparação, sem prejuízo da demonstração, em cada caso, dos pressupostos da responsabilidade civil do Estado.</p>
+esse tipo de disciplina extrapola a competência legislativa concorrente em matéria tributária, porque a definição de causas extintivas de punibilidade e de suspensão da pretensão punitiva integra o campo do direito penal, cuja competência legislativa é privativa da união, nos termos do art. 22, i, da constituição federal. assim, não basta que a norma tenha finalidade arrecadatória ou esteja associada à regularização de débitos fiscais: o critério decisivo é o seu conteúdo normativo, que, ao produzir efeitos penais, invade esfera reservada ao legislador federal.
 
-            <div class="botoes">
-                <button onclick="responder(6, 'CERTO')">CERTO</button>
-                <button onclick="responder(6, 'ERRADO')">ERRADO</button>
-            </div>
+a inconstitucionalidade, portanto, é formal, por vício de competência legislativa. o fato de a medida estar vinculada a débitos tributários não afasta essa conclusão, pois a conexão temática com tributos não autoriza o ente estadual a inovar em matéria penal, especialmente quando a norma cria hipóteses de suspensão da persecução penal e de extinção da punibilidade. stf. plenário. adi 2.957/sc, rel. min. nunes marques, julgado em 27/09/2025 (info 1192).">
 
-            <div class="feedback" id="feedback-6">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva reproduz a solução firmada no julgamento: o STF afastou a tese de imprescritibilidade, embora tenha reconhecido a gravidade histórica e a violação de direitos humanos decorrente da política de isolamento compulsório de pessoas com hanseníase e da separação forçada de seus filhos. A Corte entendeu que a imprescritibilidade, além de não ser a solução adotada, poderia comprometer a segurança jurídica e o equilíbrio financeiro do Estado.<br><br>Em vez disso, manteve-se a incidência do prazo prescricional de 5 anos previsto no Decreto n.º 20.910/1932 para pretensões indenizatórias contra a União. A peculiaridade decisiva é o marco inicial: o prazo não corre desde os fatos históricos nem desde a edição das leis que reconheceram parcialmente a situação das vítimas, mas sim a partir da publicação da ata de julgamento da própria decisão do STF, conferindo às vítimas tempo razoável para o exercício da pretensão.<br><br>Além disso, a tese não dispensa a análise individual dos requisitos da responsabilidade civil estatal. Ou seja, ainda que o prazo prescricional tenha sido fixado de modo favorável às vítimas, permanece necessária a demonstração, em cada caso concreto, dos pressupostos do dever de indenizar, como o nexo causal e os demais elementos pertinentes.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADPF 1.060/DF, Rel. Min. Dias Toffoli, julgado em 27/09/2025 (Info 1192).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 7</span>
-                <span class="status" id="status-7">Não respondida</span>
-            </div>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 3</span>
+    <span class="disciplina-tag">Direito Penal</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-3">Não respondida</span>
+</div>
 
-            <p class="enunciado">A reorganização, por lei estadual de iniciativa do Tribunal de Justiça, dos serviços notariais e de registro, com desacumulação de atribuições e redução do número de delegações em determinados municípios, é compatível com a Constituição Federal, desde que precedida de estudo prévio de viabilidade e justificada por interesse público, ainda que tal medida repercuta na diminuição da oferta de serventias e na redistribuição territorial dos serviços.</p>
+<p class="enunciado">É formalmente inconstitucional lei estadual que, ao instituir programa de recuperação fiscal voltado à regularização de débitos tributários, preveja a suspensão da pretensão punitiva estatal e a extinção da punibilidade de crimes contra a ordem tributária e previdenciária condicionadas, respectivamente, à permanência do contribuinte no parcelamento e ao pagamento integral do débito, pois tal disciplina, embora conectada à matéria tributária, possui natureza despenalizadora e invade competência legislativa privativa da União para dispor sobre direito penal.</p>
 
-            <div class="botoes">
-                <button onclick="responder(7, 'CERTO')">CERTO</button>
-                <button onclick="responder(7, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="botoes">
+  <button class="btn certo" onclick="responder(3, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(3, 'ERRADO')">ERRADO</button>
+</div>
 
-            <div class="feedback" id="feedback-7">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está correta porque a reestruturação dos serviços notariais e registrais, embora possa implicar redução do número de tabelionatos ou alteração da distribuição territorial das delegações, não é, por si só, incompatível com a Constituição. O ponto central do entendimento é que a especialização e a reorganização desses serviços, quando implementadas por lei estadual de iniciativa do Tribunal de Justiça, são admitidas desde que observados requisitos materiais e procedimentais relevantes: motivação em interesse público, estudo prévio de viabilidade, respeito ao concurso público e preservação dos direitos adquiridos dos titulares.<br><br>O julgado reconhece que a Administração pode estruturar os serviços extrajudiciais com base em critérios objetivos, como população, distância entre municípios, volume de atos praticados e arrecadação de emolumentos, justamente para conferir maior eficiência operacional, em consonância com o art. 37, caput, da Constituição. Assim, a simples alegação de que a medida reduz serventias ou concentra a prestação do serviço não basta para infirmar sua validade, desde que a reorganização não desborde dos limites constitucionais e legais aplicáveis.<br><br>O erro que costuma induzir o candidato é supor que qualquer diminuição no número de cartórios ou qualquer alteração na distribuição das delegações violaria, automaticamente, princípios como livre iniciativa, impessoalidade ou razoabilidade. O entendimento firmado afasta essa premissa: a reorganização é constitucional quando orientada por finalidade pública legítima e por critérios técnicos prévios, sem afastar a exigência de concurso público nem atingir situações jurídicas já consolidadas.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADPF 424/DF, Rel. Min. Cristiano Zanin, julgado em 27/09/2025 (Info 1192).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 8</span>
-                <span class="status" id="status-8">Não respondida</span>
-            </div>
+<div class="feedback" id="feedback-3">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque a criação de causas de suspensão da pretensão punitiva e de extinção da punibilidade não se limita a organizar um regime fiscal de parcelamento: ela interfere diretamente no regime jurídico penal, ao disciplinar efeitos penais de condutas tipificadas como crimes contra a ordem tributária e previdenciária. Ainda que a norma estadual esteja inserida em programa de recuperação fiscal, o conteúdo material dessas previsões é despenalizador, pois altera a incidência da persecução penal e a própria punibilidade.<br><br>Esse tipo de disciplina extrapola a competência legislativa concorrente em matéria tributária, porque a definição de causas extintivas de punibilidade e de suspensão da pretensão punitiva integra o campo do direito penal, cuja competência legislativa é privativa da União, nos termos do art. 22, I, da Constituição Federal. Assim, não basta que a norma tenha finalidade arrecadatória ou esteja associada à regularização de débitos fiscais: o critério decisivo é o seu conteúdo normativo, que, ao produzir efeitos penais, invade esfera reservada ao legislador federal.<br><br>A inconstitucionalidade, portanto, é formal, por vício de competência legislativa. O fato de a medida estar vinculada a débitos tributários não afasta essa conclusão, pois a conexão temática com tributos não autoriza o ente estadual a inovar em matéria penal, especialmente quando a norma cria hipóteses de suspensão da persecução penal e de extinção da punibilidade.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 2.957/SC, Rel. Min. Nunes Marques, julgado em 27/09/2025 (Info 1192).</p>
+</div>
+</section>
 
-            <p class="enunciado">A delegação conferida ao Poder Executivo para, a qualquer tempo, majorar ou reduzir as alíquotas de PIS e COFINS incidentes sobre o biodiesel, com base em critérios extrafiscais ligados à matéria-prima, à região produtora e ao tipo de produtor, é compatível com a Constituição, mas eventual aumento da carga tributária dela decorrente somente pode produzir efeitos após o decurso da anterioridade nonagesimal; além disso, a redução que importe renúncia de receita exige prévio estudo de impacto orçamentário e financeiro, e o cancelamento do registro especial por inadimplemento fiscal somente se legitima quando o crédito for relevante, houver motivação específica quanto ao uso do não pagamento como vantagem competitiva e for assegurado recurso com efeito suspensivo.</p>
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="é constitucional lei estadual de iniciativa parlamentar que, ao disciplinar a atuação do tribunal de contas, condiciona a aplicação de multa e a responsabilização pessoal de gestores públicos à comprovação de desvio de recursos em benefício próprio ou de familiares, bem como à demonstração de dolo na ordenação de despesas, por se tratar de mera opção legislativa de conformação do regime sancionador do controle externo. a assertiva está incorreta porque a lei estadual, além de invadir matéria reservada à iniciativa privativa do próprio tribunal de contas, também restringe indevidamente o alcance do seu poder sancionador.
 
-            <div class="botoes">
-                <button onclick="responder(8, 'CERTO')">CERTO</button>
-                <button onclick="responder(8, 'ERRADO')">ERRADO</button>
-            </div>
+no plano formal, a disciplina de aspectos que afetem a organização, a estrutura interna e o funcionamento do tribunal de contas insere-se no âmbito de competências normativas privativas da própria corte, por força da sistemática dos arts. 73, 75 e 96, ii, d, da constituição. assim, lei de iniciativa parlamentar não pode inovar nesse campo, sob pena de vício formal de iniciativa.
 
-            <div class="feedback" id="feedback-8">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>O enunciado reproduz, de forma tecnicamente fiel, os limites impostos à disciplina legal do biodiesel. A norma que autoriza o Executivo a modular as alíquotas de PIS e COFINS foi reputada válida porque possui nítida finalidade extrafiscal, voltada ao incentivo da produção sustentável e regional. Contudo, essa delegação não é irrestrita: quando a alteração resultar em aumento da carga tributária, deve ser respeitada a anterioridade nonagesimal, em observância à proteção da previsibilidade e da segurança jurídica tributária.<br><br>Da mesma forma, a redução de tributo que implique renúncia de receita não pode ser implementada sem a observância do art. 113 do ADCT, exigindo-se estudo de impacto orçamentário e financeiro, em prestígio à responsabilidade fiscal. O julgado também reconheceu a constitucionalidade do mecanismo de cancelamento do registro especial por inadimplemento, mas condicionou sua aplicação à proporcionalidade: o crédito tributário deve ser relevante a ponto de afetar a concorrência, o ato precisa ser motivado com demonstração de que o não pagamento foi utilizado como instrumento de vantagem competitiva, e deve haver recurso com efeito suspensivo ao Ministro da Fazenda.<br><br>Assim, o item está correto ao reunir os principais condicionamentos constitucionais fixados para a validade da disciplina legal, sem extrapolar o conteúdo do precedente.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 3.465/DF, Rel. Min. Luís Roberto Barroso, redator do acórdão Min. Dias Toffoli, julgado em 27/09/2025 (Info 1192).</p>
-            </div>
-        </section>
-        
-        <section class="card questao" data-gabarito="CERTO">
-            <div class="questao-topo">
-                <span class="badge">Questão 9</span>
-                <span class="status" id="status-9">Não respondida</span>
-            </div>
+no plano material, a exigência de prova de desvio de recursos em benefício próprio ou de familiares, bem como de dolo na ordenação de despesas, para só então admitir multa e responsabilização pessoal, esvazia o conteúdo do art. 71, viii, da constituição, que confere ao tribunal de contas competência para aplicar sanções em caso de irregularidades apuradas no exercício do controle externo. a imposição de condicionantes não previstas na constituição compromete a efetividade da fiscalização, reduz o alcance da atuação sancionadora e enfraquece a tutela do erário.
 
-            <p class="enunciado">A alteração promovida pela EC 33/2001 no regime constitucional do ICMS incidente sobre combustíveis derivados de petróleo, ao atribuir a arrecadação ao Estado de consumo, não afronta a imunidade tributária recíproca, pois não institui tributação sobre patrimônio, renda ou serviços de outro ente federativo, mas apenas redefine, no plano constitucional, o sujeito ativo da exação, em busca de maior equilíbrio federativo.</p>
+em síntese, não se trata de simples conformação legislativa legítima, mas de restrição inconstitucional ao poder de controle e punição do tribunal de contas, tanto por vício de iniciativa quanto por afronta direta à constituição. stf. plenário. adi 7.082/ba, rel. min. cristiano zanin, julgado em 27/09/2025 (info 1192).">
 
-            <div class="botoes">
-                <button onclick="responder(9, 'CERTO')">CERTO</button>
-                <button onclick="responder(9, 'ERRADO')">ERRADO</button>
-            </div>
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 4</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-4">Não respondida</span>
+</div>
 
-            <div class="feedback" id="feedback-9">
-                <p class="resultado"></p>
-                <p><strong>Gabarito:</strong> CERTO</p>
-                <p><strong>Justificativa:</strong><br>A assertiva está correta. A controvérsia examinada girou em torno da compatibilidade do art. 155, § 4º, I, da Constituição, introduzido pela EC 33/2001, com a imunidade tributária recíproca. O ponto central é que a emenda não criou tributação em favor de um ente sobre patrimônio, renda ou serviços de outro, hipótese vedada pelo art. 150, VI, “a”, da Constituição. O que houve foi uma redistribuição constitucional da competência e da titularidade da arrecadação do ICMS incidente sobre combustíveis derivados de petróleo, deslocando o sujeito ativo para o Estado consumidor.<br><br>Esse desenho normativo foi considerado legítimo porque a regra não desnatura a imunidade recíproca: não se trata de exigir imposto de um ente federado sobre sua própria riqueza, nem de submeter bens, rendas ou serviços de outro ente a uma carga tributária incompatível com o pacto federativo. Ao contrário, a alteração buscou corrigir a lógica anterior de concentração arrecadatória no Estado de origem e promover maior equilíbrio entre os entes federados.<br><br>Também foi afastada a pretensão de invalidar o dispositivo originário da Constituição que vedava a incidência do ICMS em determinadas operações interestaduais com petróleo, pois não cabe controle de constitucionalidade de norma constitucional originária por ausência de parâmetro hierarquicamente superior. Além disso, o texto do art. 155, § 2º, X, “b”, foi considerado claro e não comporta interpretação ampliativa para criar hipótese de incidência tributária não prevista.<br><br>Assim, a conclusão foi pela constitucionalidade do art. 155, § 4º, I, da CF, por compatibilidade com a imunidade tributária recíproca e com a preservação do pacto federativo.</p>
-                <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 6.250/DF, Rel. Min. Nunes Marques, julgado em 27/09/2025 (Info 1192).</p>
-            </div>
-        </section>
-        
+<p class="enunciado">É constitucional lei estadual de iniciativa parlamentar que, ao disciplinar a atuação do Tribunal de Contas, condiciona a aplicação de multa e a responsabilização pessoal de gestores públicos à comprovação de desvio de recursos em benefício próprio ou de familiares, bem como à demonstração de dolo na ordenação de despesas, por se tratar de mera opção legislativa de conformação do regime sancionador do controle externo.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(4, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(4, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-4">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque a lei estadual, além de invadir matéria reservada à iniciativa privativa do próprio Tribunal de Contas, também restringe indevidamente o alcance do seu poder sancionador.<br><br>No plano formal, a disciplina de aspectos que afetem a organização, a estrutura interna e o funcionamento do Tribunal de Contas insere-se no âmbito de competências normativas privativas da própria Corte, por força da sistemática dos arts. 73, 75 e 96, II, d, da Constituição. Assim, lei de iniciativa parlamentar não pode inovar nesse campo, sob pena de vício formal de iniciativa.<br><br>No plano material, a exigência de prova de desvio de recursos em benefício próprio ou de familiares, bem como de dolo na ordenação de despesas, para só então admitir multa e responsabilização pessoal, esvazia o conteúdo do art. 71, VIII, da Constituição, que confere ao Tribunal de Contas competência para aplicar sanções em caso de irregularidades apuradas no exercício do controle externo. A imposição de condicionantes não previstas na Constituição compromete a efetividade da fiscalização, reduz o alcance da atuação sancionadora e enfraquece a tutela do erário.<br><br>Em síntese, não se trata de simples conformação legislativa legítima, mas de restrição inconstitucional ao poder de controle e punição do Tribunal de Contas, tanto por vício de iniciativa quanto por afronta direta à Constituição.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 7.082/BA, Rel. Min. Cristiano Zanin, julgado em 27/09/2025 (Info 1192).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="ERRADO"
+data-disciplina="N/I"
+data-texto="a contratação temporária ou terceirizada realizada pela administração, ainda que durante a validade de concurso público e para suprir necessidades sazonais do serviço, configura, por si só, preterição arbitrária e imotivada dos candidatos aprovados, inclusive daqueles classificados fora do número inicial de vagas, impondo-se a nomeação de todos os remanescentes, independentemente da demonstração de ausência de justificativa legítima para a medida excepcional. a assertiva está incorreta porque a mera existência de contratações temporárias ou terceirizadas não basta, isoladamente, para caracterizar preterição arbitrária de candidatos aprovados em concurso público. o entendimento firmado foi no sentido de que, em contexto de demanda sazonal e com justificativa legítima para a contratação excepcional, não há direito automático à nomeação de todos os aprovados, especialmente quando o certame já se encontra fora do prazo de validade.
+
+o ponto central é que a preterição exige demonstração de conduta administrativa incompatível com a ordem constitucional do concurso, e não apenas a prova de que a administração recorreu a vínculos precários para atender necessidades transitórias do serviço. quando as contratações temporárias se mostram justificadas pela natureza sazonal da atividade — como picos de demanda e operações específicas —, não se pode presumir, sem mais, que houve burla ao concurso.
+
+além disso, a decisão ressalta a necessidade de preservar a segurança jurídica e evitar impacto econômico desproporcional, sobretudo quando se pretende impor a convocação de candidatos fora do número de vagas após o término da validade do certame. nessa hipótese, a pretensão de nomeação automática não encontra amparo apenas na existência de contratações excepcionais, sendo indispensável a demonstração de que elas foram realizadas sem justificativa legítima e com finalidade de contornar a ordem classificatória.
+
+por isso, a tese não autoriza concluir que toda contratação temporária ou terceirizada, por si só, gera direito subjetivo à nomeação de todos os remanescentes do concurso. stf. plenário. re 632.115/ce, rel. min. luís roberto barroso, julgado em 27/09/2025 (repercussão geral – tema 950) (info 1192).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 5</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-5">Não respondida</span>
+</div>
+
+<p class="enunciado">A contratação temporária ou terceirizada realizada pela Administração, ainda que durante a validade de concurso público e para suprir necessidades sazonais do serviço, configura, por si só, preterição arbitrária e imotivada dos candidatos aprovados, inclusive daqueles classificados fora do número inicial de vagas, impondo-se a nomeação de todos os remanescentes, independentemente da demonstração de ausência de justificativa legítima para a medida excepcional.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(5, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(5, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-5">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>ERRADO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está incorreta porque a mera existência de contratações temporárias ou terceirizadas não basta, isoladamente, para caracterizar preterição arbitrária de candidatos aprovados em concurso público. O entendimento firmado foi no sentido de que, em contexto de demanda sazonal e com justificativa legítima para a contratação excepcional, não há direito automático à nomeação de todos os aprovados, especialmente quando o certame já se encontra fora do prazo de validade.<br><br>O ponto central é que a preterição exige demonstração de conduta administrativa incompatível com a ordem constitucional do concurso, e não apenas a prova de que a Administração recorreu a vínculos precários para atender necessidades transitórias do serviço. Quando as contratações temporárias se mostram justificadas pela natureza sazonal da atividade — como picos de demanda e operações específicas —, não se pode presumir, sem mais, que houve burla ao concurso.<br><br>Além disso, a decisão ressalta a necessidade de preservar a segurança jurídica e evitar impacto econômico desproporcional, sobretudo quando se pretende impor a convocação de candidatos fora do número de vagas após o término da validade do certame. Nessa hipótese, a pretensão de nomeação automática não encontra amparo apenas na existência de contratações excepcionais, sendo indispensável a demonstração de que elas foram realizadas sem justificativa legítima e com finalidade de contornar a ordem classificatória.<br><br>Por isso, a tese não autoriza concluir que toda contratação temporária ou terceirizada, por si só, gera direito subjetivo à nomeação de todos os remanescentes do concurso.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. RE 632.115/CE, Rel. Min. Luís Roberto Barroso, julgado em 27/09/2025 (Repercussão Geral – Tema 950) (Info 1192).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="N/I"
+data-texto="nas ações individuais de indenização propostas contra a união por filhos de pessoas atingidas pela hanseníase que foram separados compulsoriamente de seus pais no contexto da política estatal de isolamento, a pretensão não é imprescritível; aplica-se o prazo quinquenal do decreto n.º 20.910/1932, cujo termo inicial é a publicação da ata de julgamento da decisão que reconheceu a possibilidade de reparação, sem prejuízo da demonstração, em cada caso, dos pressupostos da responsabilidade civil do estado. a assertiva reproduz a solução firmada no julgamento: o stf afastou a tese de imprescritibilidade, embora tenha reconhecido a gravidade histórica e a violação de direitos humanos decorrente da política de isolamento compulsório de pessoas com hanseníase e da separação forçada de seus filhos. a corte entendeu que a imprescritibilidade, além de não ser a solução adotada, poderia comprometer a segurança jurídica e o equilíbrio financeiro do estado.
+
+em vez disso, manteve-se a incidência do prazo prescricional de 5 anos previsto no decreto n.º 20.910/1932 para pretensões indenizatórias contra a união. a peculiaridade decisiva é o marco inicial: o prazo não corre desde os fatos históricos nem desde a edição das leis que reconheceram parcialmente a situação das vítimas, mas sim a partir da publicação da ata de julgamento da própria decisão do stf, conferindo às vítimas tempo razoável para o exercício da pretensão.
+
+além disso, a tese não dispensa a análise individual dos requisitos da responsabilidade civil estatal. ou seja, ainda que o prazo prescricional tenha sido fixado de modo favorável às vítimas, permanece necessária a demonstração, em cada caso concreto, dos pressupostos do dever de indenizar, como o nexo causal e os demais elementos pertinentes. stf. plenário. adpf 1.060/df, rel. min. dias toffoli, julgado em 27/09/2025 (info 1192).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 6</span>
+    <span class="disciplina-tag">N/I</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-6">Não respondida</span>
+</div>
+
+<p class="enunciado">Nas ações individuais de indenização propostas contra a União por filhos de pessoas atingidas pela hanseníase que foram separados compulsoriamente de seus pais no contexto da política estatal de isolamento, a pretensão não é imprescritível; aplica-se o prazo quinquenal do Decreto n.º 20.910/1932, cujo termo inicial é a publicação da ata de julgamento da decisão que reconheceu a possibilidade de reparação, sem prejuízo da demonstração, em cada caso, dos pressupostos da responsabilidade civil do Estado.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(6, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(6, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-6">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva reproduz a solução firmada no julgamento: o STF afastou a tese de imprescritibilidade, embora tenha reconhecido a gravidade histórica e a violação de direitos humanos decorrente da política de isolamento compulsório de pessoas com hanseníase e da separação forçada de seus filhos. A Corte entendeu que a imprescritibilidade, além de não ser a solução adotada, poderia comprometer a segurança jurídica e o equilíbrio financeiro do Estado.<br><br>Em vez disso, manteve-se a incidência do prazo prescricional de 5 anos previsto no Decreto n.º 20.910/1932 para pretensões indenizatórias contra a União. A peculiaridade decisiva é o marco inicial: o prazo não corre desde os fatos históricos nem desde a edição das leis que reconheceram parcialmente a situação das vítimas, mas sim a partir da publicação da ata de julgamento da própria decisão do STF, conferindo às vítimas tempo razoável para o exercício da pretensão.<br><br>Além disso, a tese não dispensa a análise individual dos requisitos da responsabilidade civil estatal. Ou seja, ainda que o prazo prescricional tenha sido fixado de modo favorável às vítimas, permanece necessária a demonstração, em cada caso concreto, dos pressupostos do dever de indenizar, como o nexo causal e os demais elementos pertinentes.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADPF 1.060/DF, Rel. Min. Dias Toffoli, julgado em 27/09/2025 (Info 1192).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="ECA"
+data-texto="a reorganização, por lei estadual de iniciativa do tribunal de justiça, dos serviços notariais e de registro, com desacumulação de atribuições e redução do número de delegações em determinados municípios, é compatível com a constituição federal, desde que precedida de estudo prévio de viabilidade e justificada por interesse público, ainda que tal medida repercuta na diminuição da oferta de serventias e na redistribuição territorial dos serviços. a assertiva está correta porque a reestruturação dos serviços notariais e registrais, embora possa implicar redução do número de tabelionatos ou alteração da distribuição territorial das delegações, não é, por si só, incompatível com a constituição. o ponto central do entendimento é que a especialização e a reorganização desses serviços, quando implementadas por lei estadual de iniciativa do tribunal de justiça, são admitidas desde que observados requisitos materiais e procedimentais relevantes: motivação em interesse público, estudo prévio de viabilidade, respeito ao concurso público e preservação dos direitos adquiridos dos titulares.
+
+o julgado reconhece que a administração pode estruturar os serviços extrajudiciais com base em critérios objetivos, como população, distância entre municípios, volume de atos praticados e arrecadação de emolumentos, justamente para conferir maior eficiência operacional, em consonância com o art. 37, caput, da constituição. assim, a simples alegação de que a medida reduz serventias ou concentra a prestação do serviço não basta para infirmar sua validade, desde que a reorganização não desborde dos limites constitucionais e legais aplicáveis.
+
+o erro que costuma induzir o candidato é supor que qualquer diminuição no número de cartórios ou qualquer alteração na distribuição das delegações violaria, automaticamente, princípios como livre iniciativa, impessoalidade ou razoabilidade. o entendimento firmado afasta essa premissa: a reorganização é constitucional quando orientada por finalidade pública legítima e por critérios técnicos prévios, sem afastar a exigência de concurso público nem atingir situações jurídicas já consolidadas. stf. plenário. adpf 424/df, rel. min. cristiano zanin, julgado em 27/09/2025 (info 1192).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 7</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-7">Não respondida</span>
+</div>
+
+<p class="enunciado">A reorganização, por lei estadual de iniciativa do Tribunal de Justiça, dos serviços notariais e de registro, com desacumulação de atribuições e redução do número de delegações em determinados municípios, é compatível com a Constituição Federal, desde que precedida de estudo prévio de viabilidade e justificada por interesse público, ainda que tal medida repercuta na diminuição da oferta de serventias e na redistribuição territorial dos serviços.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(7, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(7, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-7">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta porque a reestruturação dos serviços notariais e registrais, embora possa implicar redução do número de tabelionatos ou alteração da distribuição territorial das delegações, não é, por si só, incompatível com a Constituição. O ponto central do entendimento é que a especialização e a reorganização desses serviços, quando implementadas por lei estadual de iniciativa do Tribunal de Justiça, são admitidas desde que observados requisitos materiais e procedimentais relevantes: motivação em interesse público, estudo prévio de viabilidade, respeito ao concurso público e preservação dos direitos adquiridos dos titulares.<br><br>O julgado reconhece que a Administração pode estruturar os serviços extrajudiciais com base em critérios objetivos, como população, distância entre municípios, volume de atos praticados e arrecadação de emolumentos, justamente para conferir maior eficiência operacional, em consonância com o art. 37, caput, da Constituição. Assim, a simples alegação de que a medida reduz serventias ou concentra a prestação do serviço não basta para infirmar sua validade, desde que a reorganização não desborde dos limites constitucionais e legais aplicáveis.<br><br>O erro que costuma induzir o candidato é supor que qualquer diminuição no número de cartórios ou qualquer alteração na distribuição das delegações violaria, automaticamente, princípios como livre iniciativa, impessoalidade ou razoabilidade. O entendimento firmado afasta essa premissa: a reorganização é constitucional quando orientada por finalidade pública legítima e por critérios técnicos prévios, sem afastar a exigência de concurso público nem atingir situações jurídicas já consolidadas.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADPF 424/DF, Rel. Min. Cristiano Zanin, julgado em 27/09/2025 (Info 1192).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="ECA"
+data-texto="a delegação conferida ao poder executivo para, a qualquer tempo, majorar ou reduzir as alíquotas de pis e cofins incidentes sobre o biodiesel, com base em critérios extrafiscais ligados à matéria-prima, à região produtora e ao tipo de produtor, é compatível com a constituição, mas eventual aumento da carga tributária dela decorrente somente pode produzir efeitos após o decurso da anterioridade nonagesimal; além disso, a redução que importe renúncia de receita exige prévio estudo de impacto orçamentário e financeiro, e o cancelamento do registro especial por inadimplemento fiscal somente se legitima quando o crédito for relevante, houver motivação específica quanto ao uso do não pagamento como vantagem competitiva e for assegurado recurso com efeito suspensivo. o enunciado reproduz, de forma tecnicamente fiel, os limites impostos à disciplina legal do biodiesel. a norma que autoriza o executivo a modular as alíquotas de pis e cofins foi reputada válida porque possui nítida finalidade extrafiscal, voltada ao incentivo da produção sustentável e regional. contudo, essa delegação não é irrestrita: quando a alteração resultar em aumento da carga tributária, deve ser respeitada a anterioridade nonagesimal, em observância à proteção da previsibilidade e da segurança jurídica tributária.
+
+da mesma forma, a redução de tributo que implique renúncia de receita não pode ser implementada sem a observância do art. 113 do adct, exigindo-se estudo de impacto orçamentário e financeiro, em prestígio à responsabilidade fiscal. o julgado também reconheceu a constitucionalidade do mecanismo de cancelamento do registro especial por inadimplemento, mas condicionou sua aplicação à proporcionalidade: o crédito tributário deve ser relevante a ponto de afetar a concorrência, o ato precisa ser motivado com demonstração de que o não pagamento foi utilizado como instrumento de vantagem competitiva, e deve haver recurso com efeito suspensivo ao ministro da fazenda.
+
+assim, o item está correto ao reunir os principais condicionamentos constitucionais fixados para a validade da disciplina legal, sem extrapolar o conteúdo do precedente. stf. plenário. adi 3.465/df, rel. min. luís roberto barroso, redator do acórdão min. dias toffoli, julgado em 27/09/2025 (info 1192).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 8</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-8">Não respondida</span>
+</div>
+
+<p class="enunciado">A delegação conferida ao Poder Executivo para, a qualquer tempo, majorar ou reduzir as alíquotas de PIS e COFINS incidentes sobre o biodiesel, com base em critérios extrafiscais ligados à matéria-prima, à região produtora e ao tipo de produtor, é compatível com a Constituição, mas eventual aumento da carga tributária dela decorrente somente pode produzir efeitos após o decurso da anterioridade nonagesimal; além disso, a redução que importe renúncia de receita exige prévio estudo de impacto orçamentário e financeiro, e o cancelamento do registro especial por inadimplemento fiscal somente se legitima quando o crédito for relevante, houver motivação específica quanto ao uso do não pagamento como vantagem competitiva e for assegurado recurso com efeito suspensivo.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(8, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(8, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-8">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>O enunciado reproduz, de forma tecnicamente fiel, os limites impostos à disciplina legal do biodiesel. A norma que autoriza o Executivo a modular as alíquotas de PIS e COFINS foi reputada válida porque possui nítida finalidade extrafiscal, voltada ao incentivo da produção sustentável e regional. Contudo, essa delegação não é irrestrita: quando a alteração resultar em aumento da carga tributária, deve ser respeitada a anterioridade nonagesimal, em observância à proteção da previsibilidade e da segurança jurídica tributária.<br><br>Da mesma forma, a redução de tributo que implique renúncia de receita não pode ser implementada sem a observância do art. 113 do ADCT, exigindo-se estudo de impacto orçamentário e financeiro, em prestígio à responsabilidade fiscal. O julgado também reconheceu a constitucionalidade do mecanismo de cancelamento do registro especial por inadimplemento, mas condicionou sua aplicação à proporcionalidade: o crédito tributário deve ser relevante a ponto de afetar a concorrência, o ato precisa ser motivado com demonstração de que o não pagamento foi utilizado como instrumento de vantagem competitiva, e deve haver recurso com efeito suspensivo ao Ministro da Fazenda.<br><br>Assim, o item está correto ao reunir os principais condicionamentos constitucionais fixados para a validade da disciplina legal, sem extrapolar o conteúdo do precedente.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 3.465/DF, Rel. Min. Luís Roberto Barroso, redator do acórdão Min. Dias Toffoli, julgado em 27/09/2025 (Info 1192).</p>
+</div>
+</section>
+
+<section class="card questao"
+data-gabarito="CERTO"
+data-disciplina="ECA"
+data-texto="a alteração promovida pela ec 33/2001 no regime constitucional do icms incidente sobre combustíveis derivados de petróleo, ao atribuir a arrecadação ao estado de consumo, não afronta a imunidade tributária recíproca, pois não institui tributação sobre patrimônio, renda ou serviços de outro ente federativo, mas apenas redefine, no plano constitucional, o sujeito ativo da exação, em busca de maior equilíbrio federativo. a assertiva está correta. a controvérsia examinada girou em torno da compatibilidade do art. 155, § 4º, i, da constituição, introduzido pela ec 33/2001, com a imunidade tributária recíproca. o ponto central é que a emenda não criou tributação em favor de um ente sobre patrimônio, renda ou serviços de outro, hipótese vedada pelo art. 150, vi, “a”, da constituição. o que houve foi uma redistribuição constitucional da competência e da titularidade da arrecadação do icms incidente sobre combustíveis derivados de petróleo, deslocando o sujeito ativo para o estado consumidor.
+
+esse desenho normativo foi considerado legítimo porque a regra não desnatura a imunidade recíproca: não se trata de exigir imposto de um ente federado sobre sua própria riqueza, nem de submeter bens, rendas ou serviços de outro ente a uma carga tributária incompatível com o pacto federativo. ao contrário, a alteração buscou corrigir a lógica anterior de concentração arrecadatória no estado de origem e promover maior equilíbrio entre os entes federados.
+
+também foi afastada a pretensão de invalidar o dispositivo originário da constituição que vedava a incidência do icms em determinadas operações interestaduais com petróleo, pois não cabe controle de constitucionalidade de norma constitucional originária por ausência de parâmetro hierarquicamente superior. além disso, o texto do art. 155, § 2º, x, “b”, foi considerado claro e não comporta interpretação ampliativa para criar hipótese de incidência tributária não prevista.
+
+assim, a conclusão foi pela constitucionalidade do art. 155, § 4º, i, da cf, por compatibilidade com a imunidade tributária recíproca e com a preservação do pacto federativo. stf. plenário. adi 6.250/df, rel. min. nunes marques, julgado em 27/09/2025 (info 1192).">
+
+<div class="questao-topo">
+  <div>
+    <span class="badge">Questão 9</span>
+    <span class="disciplina-tag">ECA</span>
+    <span class="tipo-tag">Informativos</span>
+  </div>
+  <span class="status" id="status-9">Não respondida</span>
+</div>
+
+<p class="enunciado">A alteração promovida pela EC 33/2001 no regime constitucional do ICMS incidente sobre combustíveis derivados de petróleo, ao atribuir a arrecadação ao Estado de consumo, não afronta a imunidade tributária recíproca, pois não institui tributação sobre patrimônio, renda ou serviços de outro ente federativo, mas apenas redefine, no plano constitucional, o sujeito ativo da exação, em busca de maior equilíbrio federativo.</p>
+
+<div class="botoes">
+  <button class="btn certo" onclick="responder(9, 'CERTO')">CERTO</button>
+  <button class="btn errado" onclick="responder(9, 'ERRADO')">ERRADO</button>
+</div>
+
+<div class="feedback" id="feedback-9">
+  <p class="resultado"></p>
+  <p><strong>Gabarito:</strong> <span>CERTO</span></p>
+  <div class="justificativa"><strong>Justificativa:</strong><br>A assertiva está correta. A controvérsia examinada girou em torno da compatibilidade do art. 155, § 4º, I, da Constituição, introduzido pela EC 33/2001, com a imunidade tributária recíproca. O ponto central é que a emenda não criou tributação em favor de um ente sobre patrimônio, renda ou serviços de outro, hipótese vedada pelo art. 150, VI, “a”, da Constituição. O que houve foi uma redistribuição constitucional da competência e da titularidade da arrecadação do ICMS incidente sobre combustíveis derivados de petróleo, deslocando o sujeito ativo para o Estado consumidor.<br><br>Esse desenho normativo foi considerado legítimo porque a regra não desnatura a imunidade recíproca: não se trata de exigir imposto de um ente federado sobre sua própria riqueza, nem de submeter bens, rendas ou serviços de outro ente a uma carga tributária incompatível com o pacto federativo. Ao contrário, a alteração buscou corrigir a lógica anterior de concentração arrecadatória no Estado de origem e promover maior equilíbrio entre os entes federados.<br><br>Também foi afastada a pretensão de invalidar o dispositivo originário da Constituição que vedava a incidência do ICMS em determinadas operações interestaduais com petróleo, pois não cabe controle de constitucionalidade de norma constitucional originária por ausência de parâmetro hierarquicamente superior. Além disso, o texto do art. 155, § 2º, X, “b”, foi considerado claro e não comporta interpretação ampliativa para criar hipótese de incidência tributária não prevista.<br><br>Assim, a conclusão foi pela constitucionalidade do art. 155, § 4º, I, da CF, por compatibilidade com a imunidade tributária recíproca e com a preservação do pacto federativo.</div>
+  <p class="referencia"><strong>Referência:</strong><br>STF. Plenário. ADI 6.250/DF, Rel. Min. Nunes Marques, julgado em 27/09/2025 (Info 1192).</p>
+</div>
+</section>
 
 </div>
 
 <script>
-const totalQuestoes = 9;
-let respostas = JSON.parse(localStorage.getItem(location.pathname + "_respostas") || "{}");
+const storageKey = location.pathname + "_respostas";
+let respostas = JSON.parse(localStorage.getItem(storageKey) || "{}");
 
-function atualizarPainel() {
-    const respondidas = Object.keys(respostas).length;
-    let acertos = 0;
-    let erros = 0;
-
-    for (const key in respostas) {
-        if (respostas[key].correto) acertos++;
-        else erros++;
-    }
-
-    document.getElementById("respondidas").textContent = respondidas;
-    document.getElementById("acertos").textContent = acertos;
-    document.getElementById("erros").textContent = erros;
+function destacar(t){
+ if(t==="CERTO") return '<span class="gabarito-certo">CERTO</span>';
+ if(t==="ERRADO") return '<span class="gabarito-errado">ERRADO</span>';
+ return t;
 }
 
-function responder(numero, resposta) {
-    const card = document.querySelectorAll(".questao")[numero - 1];
-    const gabarito = card.dataset.gabarito;
-    const correto = resposta === gabarito;
-
-    respostas[numero] = {
-        resposta,
-        correto
-    };
-
-    localStorage.setItem(location.pathname + "_respostas", JSON.stringify(respostas));
-
-    mostrarFeedback(numero);
-    atualizarPainel();
+function responder(numero, resposta){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const gabarito=card.dataset.gabarito;
+ const correto=resposta===gabarito;
+ respostas[numero]={resposta,correto};
+ localStorage.setItem(storageKey, JSON.stringify(respostas));
+ mostrarFeedback(numero);
+ atualizarPainel();
+ filtrar();
 }
 
-function mostrarFeedback(numero) {
-    const card = document.querySelectorAll(".questao")[numero - 1];
-    const feedback = document.getElementById("feedback-" + numero);
-    const status = document.getElementById("status-" + numero);
-    const resultado = feedback.querySelector(".resultado");
-
-    const dados = respostas[numero];
-
-    if (!dados) return;
-
-    feedback.style.display = "block";
-    feedback.classList.remove("correto", "errado");
-
-    if (dados.correto) {
-        feedback.classList.add("correto");
-        resultado.textContent = "Você acertou. A resposta é " + card.dataset.gabarito + ".";
-        status.textContent = "Respondida — acerto";
-        status.style.color = "var(--green)";
-    } else {
-        feedback.classList.add("errado");
-        resultado.textContent = "Você errou. O gabarito é " + card.dataset.gabarito + ".";
-        status.textContent = "Respondida — erro";
-        status.style.color = "var(--red)";
-    }
+function mostrarFeedback(numero){
+ const card=document.querySelectorAll(".questao")[numero-1];
+ const feedback=document.getElementById("feedback-"+numero);
+ const status=document.getElementById("status-"+numero);
+ const resultado=feedback.querySelector(".resultado");
+ const gabarito=card.dataset.gabarito;
+ const dados=respostas[numero];
+ if(!dados) return;
+ feedback.style.display="block";
+ feedback.classList.remove("correto","errado");
+ if(dados.correto){
+   feedback.classList.add("correto");
+   resultado.innerHTML="Você acertou. A resposta é "+destacar(gabarito)+".";
+   status.textContent="Respondida — acerto";
+   status.style.color="var(--green)";
+ } else {
+   feedback.classList.add("errado");
+   resultado.innerHTML="Você errou. O gabarito é "+destacar(gabarito)+".";
+   status.textContent="Respondida — erro";
+   status.style.color="var(--red)";
+ }
 }
 
-function restaurar() {
-    for (const key in respostas) {
-        mostrarFeedback(Number(key));
-    }
-    atualizarPainel();
+function atualizarPainel(){
+ let respondidas=0, acertos=0, erros=0;
+ for(const k in respostas){
+   respondidas++;
+   if(respostas[k].correto) acertos++; else erros++;
+ }
+ document.getElementById("respondidas").textContent=respondidas;
+ document.getElementById("acertos").textContent=acertos;
+ document.getElementById("erros").textContent=erros;
+ document.getElementById("visiveis").textContent=document.querySelectorAll(".questao:not(.oculta)").length;
 }
 
-function reiniciar() {
-    if (!confirm("Deseja reiniciar este simulado?")) return;
-    localStorage.removeItem(location.pathname + "_respostas");
-    location.reload();
+function filtrar(){
+ const busca=document.getElementById("busca").value.trim().toLowerCase();
+ const disciplina=document.getElementById("disciplina").value;
+ const statusFiltro=document.getElementById("statusFiltro").value;
+ const cards=Array.from(document.querySelectorAll(".questao"));
+ let vis=0;
+ cards.forEach((card,idx)=>{
+   const n=idx+1;
+   const texto=card.dataset.texto||"";
+   const disc=card.dataset.disciplina||"";
+   const r=respostas[n];
+   let passaStatus=true;
+   if(statusFiltro==="nao") passaStatus=!r;
+   if(statusFiltro==="acerto") passaStatus=r && r.correto;
+   if(statusFiltro==="erro") passaStatus=r && !r.correto;
+   const ok=(!busca||texto.includes(busca)) && (!disciplina||disc===disciplina) && passaStatus;
+   card.classList.toggle("oculta", !ok);
+   if(ok) vis++;
+ });
+ document.getElementById("sem-resultados").style.display=vis===0?"block":"none";
+ atualizarPainel();
+}
+
+function reiniciar(){
+ if(!confirm("Deseja reiniciar este simulado?")) return;
+ localStorage.removeItem(storageKey);
+ location.reload();
+}
+
+function restaurar(){
+ for(const k in respostas) mostrarFeedback(Number(k));
+ filtrar();
+ atualizarPainel();
 }
 
 restaurar();
 </script>
-
 </body>
 </html>
