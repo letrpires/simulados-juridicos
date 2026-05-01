@@ -1,0 +1,492 @@
+# Info 874 STJ
+
+**Status geral:** Estruturado automaticamente
+
+---
+
+## Julgado 1
+
+**Disciplina:** Direito Constitucional
+
+**Subtema:** Defensoria Pública
+
+**ODS:** 16
+
+**Título do julgado:**
+
+Os honorários sucumbenciais devidos à Defensoria Pública são de sua livre gestão, não cabendo ao Judiciário, ante eventual ausência ou pendência de regulamentação do Fundo de Aparelhamento da Instituição, determinar que sejam depositados em conta judicial Importante!!!
+
+**Tese / entendimento:**
+
+Caso hipotético: João, assistido pela DPE, ajuizou ação de indenização contra o Município. O
+pedido foi julgado procedente. Além da indenização, o juiz também condenou o Município a
+pagar honorários advocatícios sucumbenciais em favor da Defensoria Pública. O TJ manteve a
+condenação, mas determinou que os honorários advocatícios fossem depositados em conta
+judicial vinculada ao processo, onde ficariam retidos até que fosse formalmente criado o
+Fundo de Aparelhamento da Defensoria Pública previsto na legislação estadual. O STJ não
+concordou com a determinação do TJ.
+A Defensoria Pública é instituição permanente e essencial à função jurisdicional do Estado,
+dotada de autonomia funcional, administrativa e financeira, conforme garantido pelas ECs
+45/2004, 74/2013 e 80/2014 e pela LC 80/1994.
+A determinação judicial que condiciona o levantamento das verbas sucumbenciais à futura e
+incerta criação de um fundo institucional representa indevida ingerência do Poder Judiciário
+na gestão administrativa e financeira da Defensoria Pública.
+A competência para administrar e dar a correta destinação aos recursos provenientes de
+honorários sucumbenciais pertence exclusivamente à própria instituição, que não pode ser
+privada da disponibilidade de suas receitas.
+
+**Referência:**
+
+STJ. 3ª Turma. REsp 2.180.416-MG, Rel. Min. Humberto Martins, julgado em 9/12/2025 (Info 874).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 2
+
+**Disciplina:** Direito Administrativo
+
+**Subtema:** Processo Administrativo
+
+**ODS:** 16
+
+**Título do julgado:**
+
+A prescrição intercorrente nos processos administrativos estadual ou municipal somente pode ser aplicada se houver lei local prevendo; não é possível reconhecer prescrição intercorrente em processo administrativo estadual ou municipal com base no Decreto 20.910/32, por analogia Importante!!!
+
+**Tese / entendimento:**
+
+Caso hipotético: o PROCON estadual instaurou processo administrativo sancionatório contra
+uma empresa. O processo ficou paralisado por mais de cinco anos, sem qualquer
+movimentação. A empresa ajuizou ação pedindo o reconhecimento da prescrição
+intercorrente, com base na aplicação analógica do prazo quinquenal do art. 1º do Decreto
+20.910/1932. O STJ afirmou que isso não é possível.
+Tese fixada: O Decreto n. 20.910/1932 não dispõe sobre a prescrição intercorrente, não
+podendo ser utilizado como referência normativa para o seu reconhecimento em processos
+administrativos estaduais e municipais, ainda que por analogia.
+
+**Referência:**
+
+STJ. 1ª Seção. REsp 2.002.589-PR e REsp 2.137.071-MG, Rel. Min. Afrânio Vilela, julgados em 10/12/2025 (Recurso Repetitivo - Tema 1294) (Info 874).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 3
+
+**Disciplina:** Direito Administrativo
+
+**Subtema:** Temas Diversos
+
+**ODS:** 16
+
+**Título do julgado:**
+
+Reconhecido judicialmente o direito à indenização por danos morais decorrentes de perseguição política sofrida durante a ditadura militar, os juros de mora devem incidir a partir do evento danoso, nos termos da Súmula 54 do STJ
+
+**Tese / entendimento:**
+
+Caso hipotético: João foi perseguido politicamente durante a ditadura militar e obteve, na via
+administrativa, a reparação econômica prevista no art. 8º do ADCT, regulamentado pela Lei nº
+10.559/2002. Posteriormente, João ajuizou ação pleiteando indenização por danos morais
+decorrentes da mesma perseguição política.
+A pretensão de indenização por danos morais nesse contexto é imprescritível, não se
+aplicando o prazo do Decreto nº 20.910/1932 (Súmula 647 do STJ).
+Além disso, é possível cumular a reparação econômica administrativa com a indenização
+judicial por danos morais, já que possuem fundamentos distintos: a primeira indeniza
+prejuízos patrimoniais, enquanto a segunda visa compensar o sofrimento moral (Súmula 624
+do STJ).
+Reconhecido judicialmente o direito aos danos morais, são devidos correção monetária e
+juros de mora como consectários legais.
+A correção monetária incide a partir da data do arbitramento da indenização, nos termos da
+Súmula 362 do STJ.
+Os juros de mora fluem desde o evento danoso, conforme a Súmula 54 do STJ.
+
+**Referência:**
+
+STJ. 1ª Seção. REsp 2.031.813-SC e REsp 2.032.021-RS, Rel. Min. Afrânio Vilela, julgados 10/12/2025 (Recurso Repetitivo - Tema 1251) (Info 874).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 4
+
+**Disciplina:** Direito Administrativo
+
+**Subtema:** Temas Diversos
+
+**ODS:** 16
+
+**Título do julgado:**
+
+O saque integral do principal dá início ao prazo prescricional da pretensão de reparação por desfalques em conta individualizada do PASEP
+
+**Tese / entendimento:**
+
+Caso hipotético: João, servidor público federal, aposentou-se em março de 2012 e, na ocasião,
+realizou o saque integral do saldo principal de sua conta vinculada ao PASEP. Em 2024, após
+obter os extratos da conta, identificou supostos lançamentos indevidos e ajuizou ação contra
+o Banco do Brasil pleiteando reparação. A instituição arguiu prescrição decenal, sustentando
+que o prazo começou a correr em 2012, com o saque integral. João contra-argumentou
+alegando que somente tomou ciência dos desfalques em 2024, quando recebeu os extratos.
+O STJ concordou com o Banco do Brasil.
+O saque integral é marco suficiente. Ao sacar todo o principal, o participante toma
+conhecimento do valor que o Banco do Brasil considera devido e não tem mais razão para
+esperar complementação. A partir de então, cabe a ele buscar eventual diferença. Não se exige
+conhecimento técnico para perceber que, zerada a conta, a instituição não oferecerá
+pagamentos adicionais.
+Tese fixada: O saque integral do principal dá início ao prazo prescricional da pretensão de
+reparação por falha na prestação do serviço, por saques indevidos, por desfalques, ou por
+ausência de aplicação dos rendimentos estabelecidos em conta individualizada do PASEP.
+
+**Referência:**
+
+STJ. 1ª Seção. REsp 2.214.879-PE e REsp 2.214.864-PE, Rel. Min. Maria Thereza de Assis Moura, julgados em 10/12/2025 (Recurso Repetitivo - Tema 1387) (Info 874).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 5
+
+**Disciplina:** Direito Civil
+
+**Subtema:** Alienação Fiduciária Em Garantia > Alienação Fiduciária De Bens Imóveis
+
+**ODS:** 16 1
+
+**Título do julgado:**
+
+Nos contratos de mútuo imobiliário com pacto adjeto de alienação fiduciária, é possível que o devedor fiduciante faça a purgação da mora após a consolidação da propriedade em nome do fiduciário? Importante!!!
+
+**Tese / entendimento:**
+
+1) Antes da entrada em vigor da Lei n. 13.465/2017, nas situações em que já consolidada a
+propriedade e purgada a mora nos termos do art. 34 do Decreto-Lei n. 70/1966 (ato jurídico
+perfeito), impõe-se o desfazimento do ato de consolidação, com a consequente retomada do
+contrato de financiamento imobiliário; e
+2) A partir da entrada em vigor da Lei n. 13.465/2017, nas situações em que consolidada a
+propriedade, mas não purgada a mora, é assegurado ao devedor fiduciante tão somente o
+exercício do direito de preferência previsto no § 2º-B do art. 27 da Lei n. 9.514/1997.
+
+**Referência:**
+
+STJ. 2ª Seção. REsp 2.126.726-SP, Rel. Min. Ricardo Villas Bôas Cueva, julgado em 10/12/2025 (Recurso Repetitivo - Tema 1288) (Info 874).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 6
+
+**Disciplina:** Direito Civil
+
+**Subtema:** Direitos Reais > Usucapião
+
+**ODS:** 16
+
+**Título do julgado:**
+
+A ocupação de imóvel em Área de Preservação Permanente não gera direito à aquisição por usucapião Importante!!!
+
+**Tese / entendimento:**
+
+Caso hipotético: João ocupava parte do imóvel de Antônio há mais de 20 anos. João pediu o
+reconhecimento da usucapião extraordinária. Ficou comprovado, contudo, que a área
+ocupada estava situada em uma APP, próxima a curso d'água. Diante disso, não foi possível
+reconhecer a usucapião.
+A partir de uma interpretação teleológica dos arts. 7º e 8º do Código Florestal, invasões e
+ocupações irregulares de imóveis situados em Áreas de Preservação Permanente são
+antijurídicas, na medida em que favorecem a supressão da vegetação e dificultam ao Poder
+Público o exercício do poder de polícia ambiental.
+Logo, a posse exercida sobre imóvel situado em APP, ainda que pacífica e duradoura, não pode
+gerar efeitos jurídicos aptos ao reconhecimento da usucapião.
+
+**Referência:**
+
+STJ. 3ª Turma. REsp 2.211.711-MT, Rel. Min. Nancy Andrighi, julgado em 9/12/2025 (Info 874).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 7
+
+**Disciplina:** Direito Civil
+
+**Subtema:** Casamento > Divórcio
+
+**ODS:** 16
+
+**Título do julgado:**
+
+É possível a partilha de imóvel construído durante o casamento sob separação convencional de bens, desde que demonstrado esforço comum na edificação
+
+**Tese / entendimento:**
+
+Caso hipotético: João e Regina se casaram pelo regime de separação convencional de bens.
+Durante o casamento, adquiriram conjuntamente um terreno vazio (50% para cada, conforme
+constou na escritura). Sobre esse lote, construíram a casa que serviu de moradia para a
+família. Ao se divorciarem, João alegou que a construção foi custeada exclusivamente por ele
+e que não deveria ser partilhada. Regina, por sua vez, apresentou comprovantes de que
+contribuiu para a edificação. João, intimado a produzir provas, declarou não tê-las. O juiz
+determinou a partilha da casa na proporção de 50% para cada cônjuge. A sentença foi mantida
+pelo TJ e pelo STJ.
+De acordo com o art. 1.253 do Código Civil, toda construção existente em um terreno presume-
+se feita pelo proprietário e à sua custa. Sendo o terreno de propriedade de ambos os cônjuges
+em partes iguais, presume-se que a construção também lhes pertence na mesma proporção.
+Essa presunção é relativa (juris tantum) e pode ser afastada por prova em contrário.
+No caso, o cônjuge que alegava ter custeado sozinho a edificação não produziu qualquer prova
+nesse sentido, ao passo que a outra parte demonstrou ter contribuído para a construção.
+Assim, prevaleceu a presunção legal, sendo devida a partilha igualitária do imóvel edificado.
+Ainda que adotado pelo casal o regime da separação convencional de bens, sendo o terreno
+adquirido por ambos os cônjuges, em igual proporção, presume-se que também lhes pertence,
+na mesma proporção, a construção nele realizada, conforme dispõe o art. 1.253 do Código
+Civil.
+
+**Referência:**
+
+STJ. 4ª Turma. REsp 2.126.992-DF, Rel. Min. Raul Araújo, julgado em 9/12/2025 (Info 874).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 8
+
+**Disciplina:** Direito Processual Civil
+
+**Subtema:** Competência
+
+**ODS:** 16
+
+**Título do julgado:**
+
+Compete à Justiça Estadual o julgamento de ação de reintegração de posse, ajuizada pelo Banco do Brasil, de imóvel adquirido com recursos do Fundo de Arrendamento Residencial - FAR, no âmbito do Programa Minha Casa Minha Vida
+
+**Tese / entendimento:**
+
+Caso hipotético: o Governo Federal mantém o programa habitacional Minha Casa Minha Vida,
+que ajuda famílias de baixa renda a adquirir a casa própria. Regina foi contemplada pelo
+programa e comprou um imóvel financiado com recursos do Fundo de Arrendamento
+Residencial (FAR). O Banco do Brasil intermediou a contratação, atuando como representante
+do FAR. Regina descumpriu o contrato e o imóvel passou a ser ocupado indevidamente por
+terceiros. O banco ajuizou ação de reintegração de posse. O STJ decidiu que se trata de
+competência da Justiça Estadual.
+Compete à Justiça Estadual o julgamento de ação de reintegração de posse, ajuizada pelo
+Banco do Brasil, de imóvel adquirido com recursos do Fundo de Arrendamento Residencial -
+FAR, no âmbito do Programa Minha Casa Minha Vida.
+Embora a Caixa Econômica Federal seja a gestora do FAR, o Decreto nº 7.499/2011 autoriza
+que outras instituições financeiras oficiais federais operacionalizem o Minha Casa Minha Vida.
+Quando isso ocorre, essas instituições detêm legitimidade para defender os direitos do FAR
+em juízo (art. 9º, parágrafo único, II).
+A legitimidade da CEF nas causas do Minha Casa Minha Vida somente se verifica quando ela
+atua além de mero agente financiador. O simples fato de o imóvel ter sido adquirido com
+recursos do FAR não implica, automaticamente, interesse da União ou da Caixa.
+
+**Referência:**
+
+STJ. 3ª Turma. REsp 2.204.632-MG, Rel. Min. Nancy Andrighi, julgado em 9/12/2025 (Info 874).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 9
+
+**Disciplina:** Direito Processual Civil
+
+**Subtema:** Execução
+
+**ODS:** 16
+
+**Título do julgado:**
+
+Requisitos para a imposição de meios executivos atípicos (art. 139, IV, do CPC) nas execuções cíveis regidas exclusivamente pelo CPC Importante!!!
+
+**Tese / entendimento:**
+
+Nas execuções cíveis, submetidas exclusivamente às regras do Código de Processo Civil, a
+adoção judicial de meios executivos atípicos é cabível desde que, cumulativamente:
+i) sejam ponderados os princípios da efetividade e da menor onerosidade do executado;
+ii) seja realizada de modo prioritariamente subsidiário;
+iii) a decisão contenha fundamentação adequada às especificidades do caso;
+iv) sejam observados os princípios do contraditório, da proporcionalidade, da razoabilidade,
+inclusive quanto à sua vigência temporal.
+
+**Referência:**
+
+STJ. 2ª Seção. REsp 1.955.539-SP e REsp 1.955.574-SP, Rel. Min. Marco Buzzi, julgados em 4/12/2025 (Recurso Repetitivo - Tema 1137) (Info 874).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 10
+
+**Disciplina:** Direito Penal
+
+**Subtema:** Crimes Contra A Dignidade Sexual > Crimes Sexuais Contra Vulnerável
+
+**ODS:** 16
+
+**Título do julgado:**
+
+O crime do art. 218-A do CP pode ser praticado por meio de videochamada, não se exigindo que agente e vítima estejam no mesmo ambiente físico Importante!!!
+
+**Tese / entendimento:**
+
+Caso hipotético: Roberto, homem de 22 anos, utilizando perfil falso em aplicativo de
+mensagens, convenceu M, de 12 anos, a participar de uma videochamada. Durante a ligação,
+ciente de que estava sendo visto ao vivo pela criança, passou a se masturbar diante da câmera.
+O homem foi denunciado pelo crime do art. 218-A do CP:
+Art. 218-A. Praticar, na presença de alguém menor de 14 (catorze) anos, ou induzi-lo a
+presenciar, conjunção carnal ou outro ato libidinoso, a fim de satisfazer lascívia própria ou de
+outrem: (...)
+A defesa alegou que a conduta seria atípica porque o tipo penal exigiria a presença física da
+vítima no mesmo ambiente.
+O termo ‘presenciar’, contido no art. 218-A do CP, significa assistir, ver ou testemunhar.
+Não há, na literalidade do tipo, exigência de coabitação física entre agente e vítima.
+A comunicação por vídeo em tempo real é meio idôneo para que o menor seja compelido a
+assistir ao ato libidinoso, e o bem jurídico tutelado (a dignidade sexual e o adequado
+desenvolvimento do menor) é atingido pela visualização do ato, independentemente da
+distância geográfica.
+
+**Referência:**
+
+STJ. 6ª Turma. REsp 2.107.993-BA, Rel. Min. Sebastião Reis Júnior, julgado em 18/11/2025 (Info 874).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 11
+
+**Disciplina:** Direito Tributário
+
+**Subtema:** Ipi
+
+**ODS:** 16
+
+**Título do julgado:**
+
+ICMS, PIS e COFINS integram o valor da operação para fins de cálculo do IPI, não sendo possível sua exclusão com base no conceito legal de base de cálculo do tributo Importante!!!
+
+**Tese / entendimento:**
+
+Caso hipotético: uma indústria de móveis impetrou mandado de segurança pedindo a exclusão
+do ICMS, PIS e COFINS da base de cálculo do IPI. Argumentou que esses tributos, por serem
+meros repasses ao Fisco, não representam riqueza própria e não deveriam compor o “valor da
+operação”. Invocou, por analogia, o Tema 69 do STF, que excluiu o ICMS da base do PIS/COFINS.
+O STJ não concordou com os argumentos da indústria.
+O conceito de valor da operação para fins de apuração do IPI corresponde ao valor total da
+operação de saída do bem do estabelecimento industrial ou equiparado, abrangendo os
+tributos que compõem o preço do produto.
+A inclusão dos valores relativos ao ICMS, PIS e COFINS na base de cálculo do IPI é compatível
+com o art. 47 do CTN e o art. 14 da Lei n. 4.502/1964, não havendo previsão legal para sua
+exclusão.
+O raciocínio do Tema 69 do STF (RE 574.706/PR), que trata da exclusão do ICMS da base de
+cálculo do PIS e da COFINS, não é aplicável ao IPI, porque as materialidades e bases de cálculo
+são distintas.
+Tese fixada: Não é possível excluir o ICMS, o PIS e a COFINS da base de cálculo do IPI, a partir
+do conceito de “valor da operação” inserto no art. 47, II, a, do CTN; e no art. 14, II, da Lei n.
+4.502/1964.
+
+**Referência:**
+
+STJ. 1ª Seção. REsps 2.119.311-SC, 2.143.866-SP e 2.143.997-SP, Rel. Min. Teodoro Silva Santos, julgado em 10/12/2025 (Recurso Repetitivo - Tema 1304) (Info 874).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 12
+
+**Disciplina:** Direito Tributário
+
+**Subtema:** Itcmd
+
+**ODS:** 16 1
+
+**Título do julgado:**
+
+O Fisco pode arbitrar o valor venal de imóvel para fins de ITCMD quando a declaração do contribuinte for omissa ou não merecer fé, ainda que a legislação estadual estabeleça critério específico de apuração Importante!!!
+
+**Tese / entendimento:**
+
+1. A prerrogativa da Administração fazendária de promover o procedimento administrativo
+de arbitramento do valor venal do imóvel transmitido decorre diretamente do Código
+Tributário Nacional, em seu art. 148 (norma geral, de aplicação uniforme perante todos os
+entes federados).
+2. A legislação estadual tem plena liberdade para eleger o critério de apuração da base de
+cálculo do ITCMD. Não obstante, a prerrogativa de instauração do procedimento de
+arbitramento, nos casos previstos no art. 148 do CTN, destinado à apuração do valor do bem
+transmitido, em substituição ao critério inicial que se mostrou inidôneo a esse fim, a viabilizar
+o lançamento tributário, não implica em violação do direito estadual, tampouco pode ser
+genericamente suprimida por decisão judicial.
+3. O exercício da prerrogativa do arbitramento dá-se pela instauração regular e prévia de
+procedimento individualizado, apenas quando as declarações, as informações ou os
+documentos apresentados pelo contribuinte, necessários ao lançamento tributário,
+mostrarem-se omissos ou não merecerem fé à finalidade a que se destinam, competindo à
+administração fazendária comprovar que a importância então alcançada encontra-se
+absolutamente fora do valor de mercado, observada, necessariamente, a ampla defesa e o
+contraditório.
+
+**Referência:**
+
+STJ. 1ª Seção. REsp 2.175.094-SP e REsp 2.213.551-SP, Rel. Min. Maria Thereza de Assis Moura, Rel. para acórdão Min. Marco Aurélio Bellizze, julgados em 10/12/2025 (Recurso Repetitivo - Tema 1371) (Info 874).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---

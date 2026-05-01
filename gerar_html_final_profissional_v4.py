@@ -2,6 +2,15 @@ from pathlib import Path
 import json
 import shutil
 
+import sys
+
+fonte_filtrar = None
+
+if "--fonte" in sys.argv:
+    i = sys.argv.index("--fonte")
+    if i + 1 < len(sys.argv):
+        fonte_filtrar = sys.argv[i + 1]
+
 PASTA_DATA = Path('data')
 ARQUIVO_QUESTOES = PASTA_DATA / 'questoes.json'
 PASTA_SAIDA = Path('html_final')
@@ -160,18 +169,53 @@ init().catch(e=>{document.body.innerHTML='<pre style="padding:24px">Erro ao carr
 
 
 def main():
-    resumo = carregar_resumo()
     PASTA_ASSETS.mkdir(parents=True, exist_ok=True)
     PASTA_DADOS.mkdir(parents=True, exist_ok=True)
-    (PASTA_SAIDA / 'index.html').write_text(INDEX_HTML, encoding='utf-8')
-    (PASTA_ASSETS / 'styles.css').write_text(STYLES, encoding='utf-8')
-    (PASTA_ASSETS / 'app.js').write_text(APP_JS, encoding='utf-8')
-    shutil.copy2(ARQUIVO_QUESTOES, PASTA_DADOS / 'questoes.json')
-    print('✅ HTML final gerado com sucesso!')
-    print(f'📁 Pasta: {PASTA_SAIDA}')
-    print(f'🌐 Abra: {PASTA_SAIDA / "index.html"}')
-    print(f'📊 Questões: {resumo["total"]} | Módulos: {resumo["modulos"]} | Categorias: {resumo["categorias"]}')
+    (PASTA_SAIDA / "simulados").mkdir(parents=True, exist_ok=True)
 
+    # Define o arquivo HTML de saída
+    if fonte_filtrar:
+        nome_arquivo = fonte_filtrar.lower().replace(" ", "-")
+        caminho_html = PASTA_SAIDA / "simulados" / f"{nome_arquivo}.html"
+    else:
+        caminho_html = PASTA_SAIDA / "index.html"
+
+    # Escreve os arquivos do site
+    caminho_html.write_text(INDEX_HTML, encoding="utf-8")
+    (PASTA_ASSETS / "styles.css").write_text(STYLES, encoding="utf-8")
+    (PASTA_ASSETS / "app.js").write_text(APP_JS, encoding="utf-8")
+
+    # Carrega todas as questões
+    questoes = json.loads(ARQUIVO_QUESTOES.read_text(encoding="utf-8"))
+
+    # Se veio --fonte, gera JSON filtrado para o HTML
+    if fonte_filtrar:
+        questoes = [
+            q for q in questoes
+            if fonte_filtrar.lower() in (q.get("fonte") or "").lower()
+        ]
+
+        print(f"🎯 Filtrando HTML: {fonte_filtrar} | {len(questoes)} questões")
+
+        (PASTA_DADOS / "questoes.json").write_text(
+            json.dumps(questoes, ensure_ascii=False, indent=2),
+            encoding="utf-8"
+        )
+
+    # Caso normal: copia o JSON completo
+    else:
+        shutil.copy2(ARQUIVO_QUESTOES, PASTA_DADOS / "questoes.json")
+
+    resumo = {
+        "total": len(questoes),
+        "modulos": len(set(q.get("modulo", "") for q in questoes)),
+        "categorias": len(set(q.get("categoria", "") for q in questoes)),
+    }
+
+    print("✅ HTML final gerado com sucesso!")
+    print(f"🌐 Abra: {caminho_html}")
+    print(f'📊 Questões: {resumo["total"]} | Módulos: {resumo["modulos"]} | Categorias: {resumo["categorias"]}')
 
 if __name__ == '__main__':
     main()
+

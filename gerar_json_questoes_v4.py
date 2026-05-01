@@ -44,7 +44,6 @@ def limpar_campo(txt: str) -> str:
     txt = txt.replace("\r\n", "\n").replace("\r", "\n")
     txt = re.sub(r"<!--.*?-->", "", txt, flags=re.DOTALL)
 
-    # Limpezas específicas de resíduos de teste
     txt = txt.replace("[DRY-RUN]", "")
     txt = txt.replace("[DRY RUN]", "")
     txt = txt.replace("Questão simulada.", "")
@@ -58,7 +57,12 @@ def limpar_campo(txt: str) -> str:
 
 def contem_dry_run(txt: str) -> bool:
     n = normalizar_texto(txt)
-    return "dry-run" in n or "dry run" in n or "questao simulada" in n or "justificativa simulada" in n
+    return (
+        "dry-run" in n
+        or "dry run" in n
+        or "questao simulada" in n
+        or "justificativa simulada" in n
+    )
 
 
 def slug(txt: str) -> str:
@@ -70,6 +74,77 @@ def slug(txt: str) -> str:
 def deve_ignorar(path: Path) -> bool:
     nome = normalizar_texto(path.name)
     return any(p in nome for p in IGNORAR_NOMES)
+
+
+def extrair_ano_da_referencia(texto: str):
+    texto = texto or ""
+
+    m = re.search(
+        r"julgad[oa]s?\s+em\s+\d{1,2}/\d{1,2}/(20\d{2})",
+        texto,
+        flags=re.I,
+    )
+    if m:
+        return int(m.group(1))
+
+    m = re.search(r"\b\d{1,2}/\d{1,2}/(20\d{2})\b", texto)
+    if m:
+        return int(m.group(1))
+
+    return None
+
+
+# ============================================================
+# BLINDAGEM DE MÓDULO POR CATEGORIA
+# ============================================================
+
+def normalizar_modulo_por_categoria(metadados: dict) -> str:
+    categoria = metadados.get("categoria")
+    disciplina = metadados.get("disciplina", "")
+    modulo = metadados.get("modulo", "")
+
+    mapa_area = {
+        "Direito Administrativo": "Administrativo",
+        "Direito Ambiental": "Ambiental",
+        "Direito Civil": "Civil",
+        "Direito do Consumidor": "Consumidor",
+        "Direito Consumidor": "Consumidor",
+        "Direito Empresarial": "Empresarial",
+        "Direito Penal": "Penal",
+        "Direito Processual Civil": "Processo Civil",
+        "Direito Processual Penal": "Processo Penal",
+        "Direito Tributário": "Tributário",
+        "Direito Eleitoral": "Eleitoral",
+        "Direito Constitucional": "Constitucional",
+    }
+
+    trocas_modulos = {
+        "Repetitivo - Tributário": "Repetitivo - Tributário",
+        "RG - Tributário": "RG - Tributário",
+        "Repetitivo Ambiental": "Repetitivo - Ambiental",
+        "Repercussão Geral": "RG - Geral",
+    }
+
+    if modulo in trocas_modulos:
+        modulo = trocas_modulos[modulo]
+
+    area = mapa_area.get(disciplina.strip(), "")
+
+    if categoria == "Repercussão Geral":
+        if area:
+            return f"RG - {area}"
+        if modulo.startswith("RG -"):
+            return modulo
+        return "RG - Geral"
+
+    if categoria == "Repetitivos":
+        if area:
+            return f"Repetitivo - {area}"
+        if modulo.startswith("Repetitivo -"):
+            return modulo
+        return "Repetitivos"
+
+    return modulo
 
 
 # ============================================================
@@ -157,12 +232,13 @@ def identificar_metadados(nome_arquivo: str) -> dict:
     if numero:
         informativo = numero
 
-    # Ed. Extraordinária STJ: no seu projeto, Infos 22 a 30 são extras.
+    # Edição Extraordinária STJ
     if tribunal == "STJ" and informativo:
         n = int(informativo)
         if 22 <= n <= 30:
             tipo = "edicao_extraordinaria"
             categoria = "Edição Extraordinária"
+
             if 22 <= n <= 27:
                 ano = 2025
                 modulo = "STJ Edição Extraordinária 2025"
@@ -272,6 +348,7 @@ def extrair_gabarito(bloco: str) -> str:
         bloco,
         flags=re.IGNORECASE,
     )
+
     if m:
         valor = normalizar_texto(m.group(2))
         if valor in ["e", "errado"]:
@@ -305,15 +382,6 @@ def extrair_enunciado(bloco: str) -> str:
 
 
 def extrair_justificativa_robusta(bloco: str) -> str:
-    """
-    Captura a justificativa dos arquivos novos e antigos.
-
-    Estratégia:
-    1. Tenta capturar o campo **Justificativa:** até Referência/Fonte/nova questão/fim.
-    2. Se falhar, captura tudo depois do gabarito.
-    3. Remove referência seca, comentários HTML e resíduos de DRY-RUN.
-    """
-
     padroes = [
         r"\*\*\s*Justificativa\s*:\s*\*\*\s*(.*?)(?=\n\s*\*\*\s*Refer[eê]ncia\s*:\s*\*\*|\n\s*\*\*\s*Fonte\s*:\s*\*\*|\n\s*#{1,6}\s*Quest[aã]o\s+\d+|\n\s*---\s*$|\Z)",
         r"\*\*\s*Explica[cç][aã]o\s*:\s*\*\*\s*(.*?)(?=\n\s*\*\*\s*Refer[eê]ncia\s*:\s*\*\*|\n\s*\*\*\s*Fonte\s*:\s*\*\*|\n\s*#{1,6}\s*Quest[aã]o\s+\d+|\n\s*---\s*$|\Z)",
@@ -327,12 +395,12 @@ def extrair_justificativa_robusta(bloco: str) -> str:
             if texto:
                 return texto
 
-    # Fallback forte: tudo depois do gabarito até referência/fim.
     m = re.search(
         r"\*\*\s*(?:Gabarito|Resposta|Resposta correta|Gabarito correto)\s*:\s*\*\*\s*(?:CERTO|ERRADO|C|E|REVISAR MANUALMENTE)?\s*(.*?)(?=\n\s*\*\*\s*Refer[eê]ncia\s*:\s*\*\*|\n\s*\*\*\s*Fonte\s*:\s*\*\*|\n\s*#{1,6}\s*Quest[aã]o\s+\d+|\n\s*---\s*$|\Z)",
         bloco,
         flags=re.IGNORECASE | re.DOTALL | re.MULTILINE,
     )
+
     if m:
         texto = limpar_campo(m.group(1))
         texto = re.sub(r"^\*\*\s*Justificativa\s*:\s*\*\*", "", texto, flags=re.IGNORECASE).strip()
@@ -347,14 +415,43 @@ def extrair_referencia(bloco: str) -> str:
     return extrair_campo(bloco, ["Referência", "Referencia", "Fonte"])
 
 
+def calcular_ano_majoritario(blocos: list[str]):
+    anos = []
+
+    for bloco in blocos:
+        ref = extrair_referencia(bloco)
+        ano = extrair_ano_da_referencia(ref)
+        if ano:
+            anos.append(ano)
+
+    if not anos:
+        return None
+
+    return Counter(anos).most_common(1)[0][0]
+
+
+def referencia_sumula_por_numero(metadados: dict, numero_questao: int, referencia_atual: str) -> str:
+    modulo = metadados.get("modulo", "")
+
+    if modulo == "Súmulas STF" and referencia_atual == "Súmulas STF":
+        return f"Súmula {numero_questao} STF"
+
+    if modulo == "Súmulas STJ" and referencia_atual == "Súmulas STJ":
+        return f"Súmula {numero_questao} STJ"
+
+    return referencia_atual
+
+
 # ============================================================
 # PROCESSAMENTO PRINCIPAL
 # ============================================================
 
-def processar_arquivo(caminho: Path) -> tuple[list[dict], list[str]]:
+def processar_arquivo(caminho: Path, enunciados_vistos: set) -> tuple[list[dict], list[str]]:
     conteudo = caminho.read_text(encoding="utf-8", errors="ignore")
     metadados = identificar_metadados(caminho.name)
     blocos = dividir_blocos_questoes(conteudo)
+
+    ano_majoritario = calcular_ano_majoritario(blocos)
 
     questoes = []
     alertas = []
@@ -376,6 +473,23 @@ def processar_arquivo(caminho: Path) -> tuple[list[dict], list[str]]:
         explicacao = extrair_justificativa_robusta(bloco)
         referencia = extrair_referencia(bloco)
 
+        metadados_questao = metadados.copy()
+        metadados_questao["disciplina"] = disciplina
+
+        # 1. Informativos: ano pelo ano majoritário das referências do arquivo
+        if metadados_questao.get("categoria") == "Informativos" and ano_majoritario:
+            metadados_questao["ano"] = ano_majoritario
+            metadados_questao["modulo"] = f"Informativos {metadados_questao.get('tribunal')} {ano_majoritario}"
+
+        # 2. Blindagem final de módulo por categoria
+        metadados_questao["modulo"] = normalizar_modulo_por_categoria(metadados_questao)
+
+        # 3. Referência de súmulas STF/STJ
+        referencia = referencia_sumula_por_numero(metadados_questao, numero_questao, referencia)
+
+        if not referencia:
+            referencia = metadados_questao.get("modulo", "")
+
         if not enunciado:
             alertas.append(f"[SEM ENUNCIADO] {caminho.name} | Questão {numero_questao}")
         if not resposta:
@@ -385,22 +499,38 @@ def processar_arquivo(caminho: Path) -> tuple[list[dict], list[str]]:
         if contem_dry_run(bloco):
             alertas.append(f"[QUESTÃO COM DRY-RUN] {caminho.name} | Questão {numero_questao}")
 
-        tribunal_slug = slug(metadados["tribunal"] or "sem-tribunal")
-        tipo_slug = "extra" if metadados["tipo"] == "edicao_extraordinaria" else slug(metadados["tipo"])
-        ano_slug = str(metadados["ano"] or "sem-ano")
-        info_slug = metadados["informativo"] or slug(metadados["modulo"])
+        tribunal_slug = slug(metadados_questao["tribunal"] or "sem-tribunal")
+        tipo_slug = "extra" if metadados_questao["tipo"] == "edicao_extraordinaria" else slug(metadados_questao["tipo"])
+        ano_slug = str(metadados_questao["ano"] or "sem-ano")
+        info_slug = metadados_questao["informativo"] or slug(metadados_questao["modulo"])
 
         id_questao = f"{tribunal_slug}-{ano_slug}-{tipo_slug}-{info_slug}-q{i:03d}"
+
+        # Trava de duplicação segura:
+        # não remove RG/Repetitivo que tenha origem no mesmo informativo,
+        # pois categoria/módulo/referência entram na chave.
+        chave_dup = "|".join([
+            normalizar_texto(metadados_questao.get("categoria", "")),
+            normalizar_texto(metadados_questao.get("modulo", "")),
+            normalizar_texto(referencia),
+            normalizar_texto(enunciado),
+        ])
+
+        if chave_dup in enunciados_vistos:
+            alertas.append(f"[QUESTÃO DUPLICADA IGNORADA] {caminho.name} | Questão {numero_questao}")
+            continue
+
+        enunciados_vistos.add(chave_dup)
 
         tags = [
             x
             for x in [
-                metadados["tribunal"],
-                metadados["categoria"],
-                metadados["modulo"],
+                metadados_questao["tribunal"],
+                metadados_questao["categoria"],
+                metadados_questao["modulo"],
                 disciplina,
                 tema,
-                metadados["fonte"],
+                metadados_questao["fonte"],
             ]
             if x
         ]
@@ -408,19 +538,19 @@ def processar_arquivo(caminho: Path) -> tuple[list[dict], list[str]]:
         questoes.append(
             {
                 "id": id_questao,
-                "modulo": metadados["modulo"],
-                "tribunal": metadados["tribunal"],
-                "ano": metadados["ano"],
-                "tipo": metadados["tipo"],
-                "categoria": metadados["categoria"],
-                "informativo": metadados["informativo"],
+                "modulo": metadados_questao["modulo"],
+                "tribunal": metadados_questao["tribunal"],
+                "ano": metadados_questao["ano"],
+                "tipo": metadados_questao["tipo"],
+                "categoria": metadados_questao["categoria"],
+                "informativo": metadados_questao["informativo"],
                 "disciplina": disciplina,
                 "tema": tema,
                 "enunciado": enunciado,
                 "respostaCorreta": resposta,
                 "explicacao": explicacao,
                 "referencia": referencia,
-                "fonte": metadados["fonte"],
+                "fonte": metadados_questao["fonte"],
                 "nivel": "medio",
                 "tags": tags,
             }
@@ -439,18 +569,20 @@ def main():
     arquivos_md = [p for p in sorted(PASTA_ENTRADA.glob("*.md")) if not deve_ignorar(p)]
 
     todas_questoes = []
+    enunciados_vistos = set()
     todos_alertas = []
 
     print("\n🔎 Iniciando leitura dos arquivos .md...\n")
 
     for arquivo in arquivos_md:
-        questoes, alertas = processar_arquivo(arquivo)
+        questoes, alertas = processar_arquivo(arquivo, enunciados_vistos)
         todas_questoes.extend(questoes)
         todos_alertas.extend(alertas)
         print(f"📄 {arquivo.name}: {len(questoes)} questão(ões) extraída(s)")
 
     ids = [q["id"] for q in todas_questoes]
     ids_duplicados = sorted([k for k, v in Counter(ids).items() if v > 1])
+
     for id_dup in ids_duplicados:
         todos_alertas.append(f"[ID DUPLICADO] {id_dup}")
 
@@ -498,13 +630,16 @@ def main():
     auditoria.append(f"Alertas de DRY-RUN: {len(dry_run)}")
     auditoria.append(f"IDs duplicados: {len(ids_duplicados)}")
     auditoria.append("")
+
     auditoria.append("RESUMO POR CATEGORIA:")
     for k, v in sorted(por_categoria.items()):
         auditoria.append(f"- {k}: {v}")
+
     auditoria.append("")
     auditoria.append("RESUMO POR MÓDULO:")
     for k, v in sorted(por_modulo.items()):
         auditoria.append(f"- {k}: {v}")
+
     auditoria.append("")
     auditoria.append("DETALHES DOS ALERTAS:")
     auditoria.append("")

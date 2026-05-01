@@ -2,11 +2,10 @@ import fitz  # PyMuPDF
 import re
 from pathlib import Path
 
-PASTA_PDFS = Path("reprocessar_criticos")
+PASTA_PDFS = Path("pdfs")
 PASTA_SAIDA = Path("md_criticos_reprocessados")
 
 PASTA_SAIDA.mkdir(exist_ok=True)
-
 
 # =========================
 # 1. EXTRAIR TEXTO DO PDF

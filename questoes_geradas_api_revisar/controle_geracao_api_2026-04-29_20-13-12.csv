@@ -1,2 +1,0 @@
-﻿categoria,item,status_auditoria,fonte,esperado_auditoria,itens_extraidos,questoes_geradas,status_final,observacao,arquivo_saida_md,arquivo_saida_json
-INFORMATIVO,Info 28 STJ,FALTA_GERAR_QUESTOES,/Users/letrpires/Documents/SIMULADOS/projeto - cópia/pdfs/Info 28 STJ.pdf,,14,14,OK_VALIDADO,,/Users/letrpires/Documents/SIMULADOS/projeto - cópia/questoes_geradas_api_revisar/informativo_info_28_stj.md,/Users/letrpires/Documents/SIMULADOS/projeto - cópia/questoes_geradas_api_revisar/informativo_info_28_stj.json

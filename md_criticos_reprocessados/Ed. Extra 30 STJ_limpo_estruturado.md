@@ -1,0 +1,961 @@
+# Ed. Extra 30 STJ
+
+**Status geral:** Estruturado automaticamente
+
+---
+
+## Julgado 1
+
+**Disciplina:** Direito Constitucional
+
+**Subtema:** Defensoria Pública
+
+**ODS:** 16
+
+**Título do julgado:**
+
+A Defensoria Pública tem legitimidade para ajuizar ação em defesa de prerrogativas institucionais, mesmo quando a sanção atinge pessoalmente o defensor público, desde que no exercício da função Importante!!!
+
+**Tese / entendimento:**
+
+Caso hipotético: Regina, Defensora Pública, foi multada pela juíza de uma Vara Criminal por
+suposta ausência em audiência. A multa foi inscrita em dívida ativa em nome da Defensora
+(pessoa física). A Defensoria Pública impetrou mandado de segurança, mas o writ foi extinto
+por decadência. Posteriormente, a instituição ajuizou ação declaratória de inexigibilidade de
+débito. A Fazenda Estadual alegou ilegitimidade ativa da Defensoria (porque a multa foi
+aplicada à pessoa física) e inadequação da via eleita (em razão da extinção do MS anterior). O
+STJ concordou com a Defensoria e determinou o prosseguimento da ação.
+Teses de julgamento:
+1. A Defensoria Pública possui legitimidade ativa para ajuizar ações em defesa de
+prerrogativas institucionais, mesmo quando a sanção pecuniária é imposta diretamente à
+pessoa física do defensor público, desde que o ato tenha ocorrido no exercício de suas funções.
+2. A extinção de mandado de segurança por decadência não impede o ajuizamento de ação
+própria para discutir os efeitos patrimoniais do ato, nos termos do art. 19 da Lei n.
+12.016/2009.
+
+**Referência:**
+
+STJ. 5ª Turma. AgRg no AREsp 1.984.328-SP, Rel. Min. Maria Marluce Caldas, julgado em 11/11/2025 (Info 30 - Edição Extraordinária).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 2
+
+**Disciplina:** Direito Penal
+
+**Subtema:** Pena Restritiva De Direitos
+
+**ODS:** 16
+
+**Título do julgado:**
+
+A interdição temporária do exercício profissional (art. 47, II, do CP) só é admissível quando a atividade exigir habilitação especial, licença ou autorização do poder público Importante!!!
+
+**Tese / entendimento:**
+
+Caso hipotético: um instrutor de hipismo foi condenado por importunação sexual (art. 215-A
+do CP) praticada contra uma aluna durante a aula. O juiz substituiu a pena privativa de
+liberdade por penas restritivas de direitos, sendo uma delas a proibição de exercer a atividade
+de instrutor de hipismo (art. 47, II, do CP). O juiz poderia ter aplicado essa pena? É possível
+aplicar, como pena restritiva de direitos, a interdição temporária do exercício da atividade de
+instrutor de hipismo? Não.
+A interdição temporária de direitos, consistente na proibição do exercício de profissão,
+somente é aplicável quando a atividade depende de habilitação especial, licença ou
+autorização do poder público, conforme interpretação restritiva do art. 47, II, do Código Penal.
+A atividade de instrutor de hipismo não se enquadra no conceito legal do art. 47, II, do CP por
+não exigir habilitação especial, licença ou autorização estatal para seu exercício.
+
+**Referência:**
+
+STJ. 6ª Turma. REsp 2.149.249-PR, Rel. Min. Og Fernandes, julgado em 29/10/2025 (Info 30 - Edição Extraordinária).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 3
+
+**Disciplina:** Direito Penal
+
+**Subtema:** Crimes Contra A Vida > Homicídio
+
+**ODS:** 16
+
+**Título do julgado:**
+
+A qualificadora do art. 121, § 2º, VIII, do Código Penal (homicídio cometido com emprego de arma de fogo de uso restrito ou proibido) NÃO pode ser aplicada quando a arma utilizada é de uso permitido, ainda que com numeração de série suprimida Importante!!!
+
+**Tese / entendimento:**
+
+O art. 121, § 2º, VIII, do Código Penal, prevê pena maior quando o homicídio é cometido com
+arma de fogo de uso restrito ou proibido:
+Art. 121 (...) § 2º Se o homicídio é cometido: (...) VIII - com emprego de arma de fogo de uso
+restrito ou proibido: (...) Pena - reclusão, de doze a trinta anos.
+A qualificadora do art. 121, § 2º, VIII, do Código Penal (homicídio cometido com emprego de
+arma de fogo de uso restrito ou proibido) NÃO pode ser aplicada quando a arma utilizada é de
+uso permitido, ainda que com numeração de série suprimida.
+A equiparação entre arma com numeração raspada e arma de uso restrito, prevista no art. 16,
+§ 1º, I, do Estatuto do Desarmamento, tem finalidade específica (punir a posse ou porte ilegal)
+e não se estende ao Código Penal para qualificar o homicídio.
+Admitir essa extensão configuraria analogia in malam partem, vedada pelo princípio da
+legalidade.
+Tese de julgamento:
+1. A qualificadora do homicídio que trata do emprego de arma de fogo de uso restrito ou
+proibido não abrange a utilização de artefato de uso permitido com numeração suprimida.
+2. A equiparação entre eles, prevista na legislação específica sobre armas, não se estende ao
+Código Penal para qualificar o crime de homicídio, sob pena de violação do princípio da
+legalidade estrita.
+Ex: João matou Pedro com um revólver .38 (arma de uso permitido). Esse revólver estava com
+a numeração de série raspada. Mesmo assim, continua sendo uma arma de uso permitido.
+Logo, não se pode imputar ao réu a qualificadora do art. 121, § 2º, VIII, do CP.
+
+**Referência:**
+
+STJ. 5ª Turma. AgRg no REsp 2.104.061-MG, Rel. Min. Carlos Cini Marchionatti (Desembargador Convocado do TJRS), julgado em 19/8/2025 (Info 30 - Edição Extraordinária).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 4
+
+**Disciplina:** Direito Penal
+
+**Subtema:** Crimes Contra A Honra
+
+**ODS:** 16
+
+**Título do julgado:**
+
+A retratação nos crimes contra a honra é ato unilateral que pode ser apresentada por escrito antes da sentença, dispensando aceitação do ofendido e bastando sua juntada aos autos para extinguir a punibilidade Importante!!!
+
+**Tese / entendimento:**
+
+Caso hipotético: Bento e Capitu foram casados. Após descobrir que não era o pai biológico do
+filho Ezequiel, Bento publicou nas redes sociais textos narrando um suposto caso
+extraconjugal de Capitu. Além disso, enviou-lhe mensagens de WhatsApp com xingamentos.
+Capitu ajuizou queixa-crime por difamação e injúria. Antes da sentença, Bento apresentou
+retratação escrita de próprio punho. O juiz intimou Capitu para se manifestar sobre a
+‘aceitação’ da retratação. Ela não aceitou. O juiz não reconheceu a retratação e condenou Bento
+por ambos os crimes. O Tribunal de Justiça manteve a condenação, argumentando que a
+retratação deveria ter sido feita pelos mesmos meios da ofensa (redes sociais).
+O STJ reconheceu a validade da retratação?
+SIM. A retratação prevista no art. 143 do Código Penal constitui ato unilateral, que independe
+de aceitação do ofendido. A lei não exige forma específica, bastando que seja formalizada por
+escrito e juntada aos autos antes da sentença.
+Quanto ao parágrafo único do art. 143, a retratação pelos mesmos meios da ofensa somente é
+exigida se o ofendido assim desejar. Trata-se de faculdade da vítima, não de requisito
+obrigatório. Como a querelante não manifestou interesse nesse sentido, a retratação escrita
+era plenamente válida.
+O STJ extinguiu a punibilidade quanto ao crime de difamação, mantendo, porém, a condenação
+pelo crime de injúria, cuja autoria foi comprovada por prova testemunhal e pela admissão
+parcial do querelado.
+Teses de julgamento:
+1) A retratação prevista no art. 143, parágrafo único, do Código Penal constitui ato unilateral,
+dispensando aceitação do ofendido e podendo ser realizada por escrito antes da sentença,
+bastando a juntada aos autos.
+2) A retratação pelos mesmos meios da ofensa somente é exigida se a vítima assim requerer.
+3) A palavra da vítima, corroborada por outros elementos, é suficiente para embasar
+condenação em crimes de injúria.
+
+**Referência:**
+
+STJ. 5ª Turma. AgRg no HC 1.014.496-SP, Rel. Min. Reynaldo Soares da Fonseca, Rel. para acórdão Min. Maria Marluce Caldas, julgado em 4/11/2025 (Info 30 - Edição Extraordinária).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 5
+
+**Disciplina:** Direito Penal
+
+**Subtema:** Lei De Drogas (Lei 11.343/2006)
+
+**ODS:** 16
+
+**Título do julgado:**
+
+A utilização de veículo automotor como meio para o tráfico de drogas justifica a imposição do efeito da condenação de inabilitação para dirigir, nos termos do art. 92, III, do CP
+
+**Tese / entendimento:**
+
+Caso hipotético: dois réus foram condenados por tráfico internacional de drogas após serem
+flagrados transportando muitos quilos de maconha do Paraguai. Para isso, eles utilizaram dois
+veículos de forma coordenada: um veículo foi usado como ‘batedor’, indo na frente para
+verificar se havia policiais, e o outro ia atrás carregando a droga. Além da pena privativa de
+liberdade, o magistrado aplicou, como efeito da condenação, a inabilitação para dirigir veículo
+automotor, pelo prazo da pena imposta, com fundamento no art. 92, III, do CP. A defesa
+recorreu, mas o STJ manteve a condenação à inabilitação para dirigir.
+A utilização de veículos automotores para a prática de crime de tráfico de drogas justifica a
+aplicação do efeito da condenação previsto no art. 92, III, do Código Penal, consistente na
+inabilitação para condução de veículo.
+A aplicação do efeito da condenação deve observar a adequação legal e social da medida,
+especialmente em regiões de fronteira.
+
+**Referência:**
+
+STJ. 5ª Turma. AgRg no REsp 2.220.076-SP, Rel. Min. Joel Ilan Paciornik, julgado em 19/11/2025 (Info 30 - Edição Extraordinária).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 6
+
+**Disciplina:** Direito Penal
+
+**Subtema:** Lei Dos Crimes Ambientais (Lei 9.605/1998)
+
+**ODS:** 16
+
+**Título do julgado:**
+
+O crime de fazer funcionar atividade potencialmente poluidora sem licença ambiental (art. 60 da Lei 9.605/1998) é permanente, e o prazo prescricional só começa a correr quando cessar a atividade ou for obtida a licença
+
+**Tese / entendimento:**
+
+Caso hipotético: João perfurou um poço artesiano em sua propriedade rural em 2019 para
+captar água subterrânea, mas não obteve a outorga de uso da água, licença ambiental
+obrigatória. Fiscais constataram o funcionamento do poço sem autorização e o MP ofereceu
+denúncia pelo delito do art. 60 da Lei de Crimes Ambientais, que pune a instalação ou
+funcionamento de atividade potencialmente poluidora sem licença. O juiz declarou a
+punibilidade extinta pela prescrição, entendendo que o crime se consumou no momento da
+perfuração (2019) e, como a pena máxima é de seis meses, o prazo prescricional seria de três
+anos já ultrapassado quando a denúncia foi oferecida em 2023. O Ministério Público recorreu,
+defendendo que, na modalidade ‘fazer funcionar’, o crime é permanente. Assim, enquanto o
+poço operasse sem licença, a infração continuaria, e a prescrição só começaria com o fim da
+atividade irregular. O STJ concordou com o MP.
+Na modalidade “fazer funcionar”, o delito previsto no art. 60 da Lei nº 9.605/1998 é crime
+permanente, iniciando-se a contagem do prazo prescricional com a cessação da permanência,
+nos termos do art. 111, III, do Código Penal.
+
+**Referência:**
+
+STJ. 5ª Turma. AgRg no REsp 2.200.357-MG, Rel. Min. Reynaldo Soares da Fonseca, julgado em 21/10/2025 (Info 30 - Edição Extraordinária).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 7
+
+**Disciplina:** Direito Penal
+
+**Subtema:** Lei Dos Crimes Ambientais (Lei 9.605/1998)
+
+**ODS:** 14 E 16
+
+**Título do julgado:**
+
+Réu foi denunciado por pescar acima da profundidade mínima exigida; no curso do processo, a portaria reduziu a profundidade mínima; essa portaria, que é o complemento da norma penal em branco do art. 34 da LCA, pode retroagir para beneficiar o réu Importante!!!
+
+**Tese / entendimento:**
+
+Caso hipotético: João foi denunciado por crime ambiental (art. 34) por pescar polvo a 50
+metros de profundidade, em contrariedade à norma vigente à época (IN SEAP/PR nº 26/2008),
+que somente permitia em profundidade igual ou acima de 70 metros. Durante a tramitação do
+processo, entrou em vigor a Portaria SAP/MAPA nº 452/2021, que reduziu a profundidade
+mínima para 35 metros, tornando permitida, portanto, a pesca a 50 metros.
+O STJ decidiu que a Portaria SAP/MAPA nº 452/2021, ao permitir a pesca de polvo em
+profundidades anteriormente vedadas, tornou a conduta de João atípica, devendo retroagir
+em benefício do réu.
+Tratando-se de norma penal em branco, a modificação superveniente que altera os critérios
+de tipicidade da conduta deve ser aplicada retroativamente, quando mais benéfica ao réu, nos
+termos do art. 2º, parágrafo único, do Código Penal.
+No caso, a referida Portaria não apenas modificou um regulamento técnico-administrativo,
+mas redefiniu o próprio conteúdo típico da infração, ao permitir a pesca de polvo em
+profundidades anteriormente vedadas. Trata-se de típica hipótese de novatio legis in mellius,
+cuja retroatividade é imperativa.
+Teses de julgamento:
+1. A norma penal em branco retroagirá se for mais benéfica ao réu, alterando o critério de
+tipicidade da conduta.
+2. A Portaria SAP/MAPA n. 452/2021, ao permitir a pesca de polvo em profundidades
+anteriormente vedadas, torna a conduta atípica, devendo retroagir em benefício do réu.
+
+**Referência:**
+
+STJ. 5ª Turma. REsp 2.215.385-RS, Rel. Min. Carlos Cini Marchionatti (Desembargador convocado do TJRS), julgado em 2/9/2025 (Info 30 - Edição Extraordinária).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 8
+
+**Disciplina:** Direito Processual Penal
+
+**Subtema:** Competência
+
+**ODS:** 16
+
+**Título do julgado:**
+
+O fato de as investigações terem início na Polícia Federal não tem o condão, por si só, de firmar a competência da Justiça Federal para o processamento e julgamento de crimes afetos à Justiça Estadual
+
+**Tese / entendimento:**
+
+Caso adaptado: Renato Cariani, influenciador fitness, é sócio de uma indústria que atua com
+produtos químicos controlados. Esses produtos são fiscalizados pela Polícia Federal por meio
+do sistema SIPROQUIM. Esse sistema registra licenças e movimentações dessas substâncias
+tendo em vista o risco de que elas possam ser usadas na produção de drogas ilícitas.
+Durante fiscalização, a PF identificou indícios de dados falsos no sistema para ocultar desvio
+de produtos químicos. A investigação apontou que a empresa ligada a Cariani teria emitido
+notas fiscais de vendas para indústrias farmacêuticas, sem que isso tivesse realmente
+acontecido. Os produtos supostamente vendidos para farmacêuticas teriam, na verdade, sido
+repassados para a produção de drogas ilícitas.
+Embora a apuração tenha começado na Polícia Federal, concluiu-se que os crimes investigados
+(tráfico, associação para o tráfico e lavagem de dinheiro) não atingiam bens ou interesses da
+União, afastando a competência da Justiça Federal. Diante disso, os autos foram encaminhados
+à Justiça Estadual.
+A defesa impetrou habeas corpus alegando que, por envolver sistema federal e conexão entre
+crimes, o caso deveria ir para a Justiça Federal (Súmula 122 do STJ).
+O STJ, porém, rejeitou esse argumento e manteve a competência da Justiça Estadual.
+A atuação da Polícia Federal na investigação não implica o deslocamento automático da
+competência para a Justiça Federal.
+O fato de as investigações terem início na Polícia Federal não tem o condão, por si só, de firmar
+a competência da Justiça Federal para o processamento e julgamento de crimes afetos à Justiça
+Estadual.
+A competência jurisdicional é definida pela natureza dos crimes imputados na denúncia, e não
+pelo órgão policial que conduziu as apurações.
+Ademais, a inserção de dados falsos em sistema gerenciado por órgão federal não atrai, por si
+só, a competência da Justiça Federal, sendo necessária a demonstração de ofensa direta a bens,
+serviços ou interesses da União.
+
+**Referência:**
+
+STJ. 6ª Turma. RHC 205.658-SP, Rel. Min. Sebastião Reis Júnior, julgado em 7/10/2025 (Info 30 - Edição Extraordinária).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 9
+
+**Disciplina:** Direito Processual Penal
+
+**Subtema:** Competência
+
+**ODS:** 16
+
+**Título do julgado:**
+
+A especialização de varas em razão da matéria configura competência territorial relativa, permitindo a ratificação dos atos praticados por juiz inicialmente incompetente
+
+**Tese / entendimento:**
+
+Caso hipotético: João, servidor público federal em Castanhal/PA, passou a ser investigado pela
+Polícia Federal por suspeita de corrupção passiva. O juízo federal da subseção de Castanhal
+autorizou medidas cautelares, como busca e apreensão e quebras de sigilo bancário e fiscal,
+das quais resultaram diversas provas. Com o avanço das investigações, surgiram indícios
+também de lavagem de dinheiro, crime cuja apuração, no Pará, é de competência da 4ª Vara
+Federal de Belém, especializada nesse tipo de delito e com jurisdição sobre todo o estado. Por
+isso, o inquérito foi remetido a essa vara especializada, que posteriormente recebeu a
+denúncia contra João. A defesa impetrou habeas corpus alegando nulidade das provas iniciais,
+sob o argumento de que foram produzidas por juízo absolutamente incompetente, já que a
+competência em razão da matéria seria da vara especializada. O STJ, porém, não acolheu essa
+tese.
+A especialização de varas em razão da matéria constitui competência territorial relativa,
+permitindo a ratificação dos atos decisórios pelo juiz competente.
+
+**Referência:**
+
+STJ. 5ª Turma. AgRg no AREsp 2.717.611-PA, Rel. Min. Messod Azulay Neto, julgado em 14/10/2025 (Info 30 - Edição Extraordinária).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 10
+
+**Disciplina:** Direito Processual Penal
+
+**Subtema:** Citações E Intimações
+
+**ODS:** 16
+
+**Título do julgado:**
+
+O réu preso advogado que atua em causa própria deve ser intimado pessoalmente ou por carta com aviso de recebimento, em observância ao direito constitucional à ampla defesa
+
+**Tese / entendimento:**
+
+Caso hipotético: João é advogado e está preso. Ele responde a uma ação penal e atua em causa
+própria (atua como seu próprio advogado). O STJ proferiu decisão monocrática negando
+provimento ao seu recurso. A decisão foi publicada no DJe, mas João não viu. Como nenhum
+recurso foi interposto, certificou-se o trânsito em julgado. João opôs embargos de declaração
+alegando que, por ser réu preso e advogado atuando em causa própria, deveria ter sido
+intimado pessoalmente ou por carta com aviso de recebimento. O STJ acolheu os embargos e
+tornou sem efeito a certidão de trânsito em julgado.
+O réu preso advogado que atua em causa própria deve ser intimado pessoalmente ou por carta
+com aviso de recebimento, em observância ao direito constitucional à ampla defesa, que inclui
+o direito à autodefesa.
+
+**Referência:**
+
+STJ. 6ª Turma. EDcl no AgRg no RHC 193.740-MG, Rel. Min. Carlos Pires Brandão, julgado em 12/11/2025 (Info 30 - Edição Extraordinária).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 11
+
+**Disciplina:** Direito Processual Penal
+
+**Subtema:** Prisão / Audiência De Custódia
+
+**ODS:** 16
+
+**Título do julgado:**
+
+A não realização de audiência de custódia no prazo de 24 horas não acarreta a automática nulidade da prisão em flagrante, devendo ser demonstrado o efetivo prejuízo à luz do art. 563 do CPP Importante!!!
+
+**Tese / entendimento:**
+
+Caso hipotético: João foi preso em flagrante, durante o regime de plantão judiciário. A
+audiência de custódia, contudo, só foi realizada dois dias depois, poucas horas após o prazo
+legal de 24 horas. Na audiência, o juiz converteu a prisão em flagrante em preventiva. A defesa
+alegou nulidade da prisão pelo descumprimento do prazo. O STJ rejeitou esse argumento.
+A audiência de custódia realizada poucas horas após o prazo legal de 24 horas, quando
+devidamente justificada (por exemplo, por ter a prisão em flagrante ocorrido em regime de
+plantão), não acarreta a automática nulidade da prisão em flagrante.
+Além disso, o STJ possui entendimento consolidado de que a não realização da audiência de
+custódia no prazo legal não gera nulidade automática, sendo necessária a demonstração do
+efetivo prejuízo (art. 563 do CPP).
+A conversão da prisão em flagrante em preventiva constitui novo título a justificar a privação
+da liberdade, ficando superada a alegação de nulidade decorrente da ausência de
+apresentação do preso no prazo legal.
+
+**Referência:**
+
+STJ. 6ª Turma. AgRg no RHC 224.104-MG, Rel. Min. Antonio Saldanha Palheiro, julgado em 12/11/2025 (Info 30 - Edição Extraordinária).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 12
+
+**Disciplina:** Direito Processual Penal
+
+**Subtema:** Prisão
+
+**ODS:** 16
+
+**Título do julgado:**
+
+A revisão periódica prevista no parágrafo único do art. 316 do CPP não se aplica a medidas cautelares alternativas à prisão Importante!!!
+
+**Tese / entendimento:**
+
+Caso hipotético: o juízo determinou que João, réu em ação penal, cumprisse medidas
+cautelares alternativas à prisão (monitoração eletrônica, proibição de frequentar
+determinados lugares e de se comunicar com outros investigados). Após mais de 1.000 dias
+sem qualquer descumprimento, a defesa requereu a revogação das medidas, alegando que o
+art. 316, parágrafo único, do CPP exige revisão periódica das medidas cautelares a cada 90
+dias. O pedido foi indeferido.
+O art. 316, parágrafo único, do CPP impõe ao juiz o dever de revisar, de ofício, a necessidade
+da prisão preventiva a cada 90 dias. Esse dispositivo, contudo, não se aplica às medidas
+cautelares alternativas à prisão.
+A reavaliação das medidas cautelares deve ser requerida pela parte interessada, não havendo
+dever de revisão de ofício a cada 90 dias.
+Ademais, mesmo em relação à prisão preventiva, o descumprimento do prazo de revisão não
+implica revogação automática da custódia.
+A manutenção das medidas cautelares por período prolongado pode ser justificada pela
+complexidade do processo e pela necessidade de assegurar o vínculo do réu ao processo, não
+conferindo o cumprimento regular das medidas, por si só, direito à sua revogação.
+
+**Referência:**
+
+STJ. Corte Especial. AgRg na Pet 16.308-DF, Rel. Min. Og Fernandes, julgado em 12/8/2025 (Info 30 - Edição Extraordinária).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 13
+
+**Disciplina:** Direito Processual Penal
+
+**Subtema:** Provas
+
+**ODS:** 16
+
+**Título do julgado:**
+
+Mandado de busca e apreensão domiciliar deve ser cumprido entre 5h e 21h, conforme previsão estabelecida pela Lei de Abuso de Autoridade Importante!!! Atualize o Info 800-STJ Mudança de entendimento
+
+**Tese / entendimento:**
+
+A Constituição Federal (art. 5º, XI) e o Código de Processo Penal (art. 245) exigem que a busca
+domiciliar seja realizada ‘de dia’, mas não definem o que se deve entender por ‘dia’ ou ‘noite’.
+A doutrina sempre divergiu sobre o tema.
+Com o advento da Lei nº 13.869/2019 (Lei de Abuso de Autoridade), essa controvérsia foi
+superada. O art. 22, § 1º, III, ao tipificar como crime o cumprimento de mandado de busca
+domiciliar ‘após as 21h ou antes das 5h’, estabeleceu um marco temporal objetivo.
+Não há como desconsiderar a alteração legislativa que veio a definir como crime a busca
+promovida ‘antes’ das 5 horas. A norma não fala ‘antes de se iniciar o dia’, fala especificamente
+em um ‘horário certo e definido”. A interpretação do direito há de levar em conta todo o
+arcabouço normativo e não apenas um dispositivo específico. Se há dúvidas quanto ao
+conceito de ‘dia’ e “noite”, não tendo o art. 245 do CPP indicado com clareza o que é dia e o que
+é noite, e se há uma lei que criminaliza o descumprimento da execução do mandado de busca
+e apreensão fora do “horário determinado e certo’, deve o primeiro dispositivo ser
+compreendido em conjunto com o segundo.
+Em suma: depois do advento do art. 22, § 1º, III, da Lei nº 13.869/2019 (Lei de Abuso de
+Autoridade), passou a ser válido o cumprimento de mandado de busca e apreensão domiciliar
+no período compreendido entre 5h e 21h.
+Configura abuso de autoridade o cumprimento de mandado de busca e apreensão domiciliar
+após às 21 horas e antes das 5 horas.
+
+**Referência:**
+
+STJ. 3ª Seção. RHC 196.496-RN, Rel. Min. Sebastião Reis Júnior, julgado em 10/12/2025 (Info 30 - Edição Extraordinária).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 14
+
+**Disciplina:** Direito Processual Penal
+
+**Subtema:** Provas
+
+**ODS:** 16
+
+**Título do julgado:**
+
+O procedimento formal de reconhecimento de pessoa (art. 226 do CPP) pode ser dispensado quando a vítima identifica o autor do crime com certeza; o reconhecimento espontâneo, sem sugestionamento policial, é válido para comprovar a autoria Importante!!!
+
+**Tese / entendimento:**
+
+Caso hipotético: Pedro, policial militar de folga, foi vítima de um assalto à mão armada e
+acabou baleado. Pedro, mesmo ferido, conseguiu também acertar um tiro no assaltante. Pedro
+foi socorrido e levado ao hospital. Pouco tempo depois, um homem também ferido por arma
+de fogo deu entrada no mesmo hospital. Pedro o reconheceu imediatamente como o autor do
+roubo e informou o policial de plantão, que registrou a identificação por foto. O suspeito,
+chamado Rodrigo, foi preso em flagrante, e uma testemunha do crime também o reconheceu
+durante o inquérito. Na ação penal, a defesa alegou nulidade do reconhecimento, afirmando
+que não foram seguidas as formalidades do art. 226 do CPP. Para o STJ, houve nulidade? Não.
+O procedimento de reconhecimento de pessoa previsto no art. 226 do CPP é dispensável
+quando a vítima é capaz de identificar o autor do fato com certeza, sem necessidade de
+metodologia formal.
+O reconhecimento espontâneo realizado pela vítima, sem sugestionamento por parte das
+autoridades, é válido e suficiente para fins de identificação do autor do crime.
+
+**Referência:**
+
+STJ. 5ª Turma. AgRg no HC 1.029.656-BA, Rel. Min. Ribeiro Dantas, julgado em 15/10/2025 (Info 30 - Edição Extraordinária).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 15
+
+**Disciplina:** Direito Processual Penal
+
+**Subtema:** Provas
+
+**ODS:** 16
+
+**Título do julgado:**
+
+Mesmo que o mandado de busca seja cumprido após o prazo indicado pelo juiz, a diligência é considerada válida desde que permaneçam contemporâneos os fatos que motivaram o deferimento da medida Importante!!!
+
+**Tese / entendimento:**
+
+Caso hipotético: João era investigado por integrar organização criminosa. O juiz deferiu
+mandados de busca e apreensão nos endereços vinculados ao investigado, fixando prazo de
+10 dias para o cumprimento. A polícia, contudo, somente executou a diligência após o
+vencimento do prazo estipulado. Na busca, foram apreendidas armas de fogo e objetos
+destinados à preparação de drogas. A defesa alegou que o cumprimento do mandado fora do
+prazo tornaria a diligência ilegal e as provas ilícitas. O STJ não concordou com a defesa.
+Não há, no ordenamento jurídico brasileiro, prazo específico para o cumprimento do mandado
+de busca e apreensão. Entre os requisitos do mandado de busca previstos no art. 243 do CPP,
+não se encontra a fixação de prazo para o seu cumprimento.
+Eventual prazo indicado pelo juiz será impróprio, não vinculando a autoridade policial e
+tampouco invalidando a diligência cumprida após o seu vencimento.
+Assim, considera-se válido o cumprimento de mandado de busca vencido desde que
+permaneçam contemporâneos os fatos que motivaram o deferimento da medida.
+
+**Referência:**
+
+STJ. 6ª Turma. AgRg no HC 897.802-SP, Rel. Min. Antonio Saldanha Palheiro, julgado em 2/9/2025 (Info 30 - Edição Extraordinária).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 16
+
+**Disciplina:** Direito Processual Penal
+
+**Subtema:** Outros Temas > Colaboração Premiada
+
+**ODS:** 16
+
+**Título do julgado:**
+
+Advogado não pode celebrar colaboração premiada para delatar cliente, mesmo que o acordo seja anterior à Lei 14.365/2022 Importante!!!
+
+**Tese / entendimento:**
+
+É nula a colaboração premiada firmada por advogado que delata fatos cobertos pelo sigilo
+profissional da relação com seu cliente.
+Essa vedação independe da Lei nº 14.365/2022, que inseriu § 6º-I no art. 7º do Estatuto da
+OAB. Isso porque essa proibição decorre de princípio constitucional, qual seja, o sigilo
+profissional inerente à relação de confiança entre advogado e cliente, que visa à proteção do
+direito de defesa.
+Assim, a vedação à celebração de colaboração premiada por advogado contra quem seja ou
+tenha sido seu cliente, introduzida pela Lei n. 14.365/2022, aplica-se aos acordos
+homologados anteriormente a sua entrada em vigor, pois se trata de consolidação de princípio
+constitucional.
+
+**Referência:**
+
+STJ. 5ª Turma. AgRg no RHC 194.064-SP, Rel. Min. Reynaldo Soares da Fonseca, julgado em 7/10/2025 (Info 30 - Edição Extraordinária).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 17
+
+**Disciplina:** Direito Processual Penal
+
+**Subtema:** Tribunal Do Júri
+
+**ODS:** 16
+
+**Título do julgado:**
+
+É obrigatória a formulação de quesito próprio sobre o excesso culposo na legítima defesa, ainda que os jurados tenham rejeitado o quesito absolutório genérico; a rejeição da tese de legítima defesa não prejudica a quesitação de tese subsidiária sobre o excesso culposo Importante!!!
+
+**Tese / entendimento:**
+
+Caso hipotético: João foi pronunciado por homicídio qualificado. Em plenário, a defesa
+sustentou, como tese principal, a legítima defesa e, subsidiariamente, o excesso culposo. Os
+jurados reconheceram a materialidade e a autoria e, em seguida, responderam NÃO ao
+terceiro quesito (‘O jurado absolve o acusado?’), rejeitando a legítima defesa. Diante dessa
+resposta, o Juiz-Presidente considerou prejudicado o quesito seguinte, que indagava sobre o
+excesso culposo. João foi condenado por homicídio qualificado. Houve nulidade? Sim.
+O excesso culposo na legítima defesa (art. 23, parágrafo único, do CP) ocorre quando o agente,
+embora inicialmente amparado pela excludente, ultrapassa seus limites por imprudência,
+negligência ou imperícia. Se acolhida essa tese em caso de homicídio doloso, o resultado é a
+desclassificação para homicídio culposo.
+Por ter natureza desclassificatória, o excesso culposo exige quesitação própria e autônoma,
+nos termos do art. 483, § 4º, do CPP.
+As teses de legítima defesa (que leva à absolvição) e de excesso culposo (que leva à
+desclassificação) são mutuamente excludentes, e não complementares. A rejeição do quesito
+absolutório não prejudica, mas sim viabiliza a análise do excesso culposo como tese
+subsidiária.
+A omissão do quesito configura nulidade absoluta (art. 564, III, "k", do CPP e Súmula 156 do
+STF), impondo-se a realização de novo julgamento.
+
+**Referência:**
+
+STJ. 3ª Seção. REsp 2.043.554-AL, Rel. Min. Rogerio Schietti Cruz, julgado em 6/11/2025 (Info 30 - Edição Extraordinária).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 18
+
+**Disciplina:** Direito Processual Penal
+
+**Subtema:** Tribunal Do Júri
+
+**ODS:** 16
+
+**Título do julgado:**
+
+Excepcionalmente, é possível a pronúncia com base em testemunhos indiretos quando houver contexto fático excepcional de atuação de grupo de extermínio que amedronta a comunidade e inviabiliza outras formas de prova Assunto já apreciado no Info 844-STJ
+
+**Tese / entendimento:**
+
+A jurisprudência do STJ exige, para a pronúncia, que os indícios de autoria sejam claros e
+convincentes (clear and convincing evidence). Por isso, testemunhos indiretos (‘de ouvir
+dizer’) não são, em regra, suficientes para submeter o acusado ao Tribunal do Júri.
+Há, contudo, situações excepcionais que justificam distinguishing. É o caso de crimes
+praticados por organização criminosa que atua como grupo de extermínio e exerce forte
+intimidação sobre a comunidade local, a ponto de inibir testemunhos diretos.
+Nesse contexto, exigir o padrão probatório comum equivaleria a garantir a impunidade dos
+integrantes do grupo. Assim, demonstrada a impossibilidade prática de obtenção de outras
+provas e havendo indícios que, embora indiretos, revelem a idoneidade da tese acusatória,
+admite-se a pronúncia.
+Em suma: particularidades do contexto fático, indicando que o crime de homicídio foi
+praticado por grupo criminoso, provocando relevante temor na comunidade local, justifica o
+distinguishing em relação à jurisprudência consolidada do STJ, de modo a autorizar a
+pronúncia dos réus com apoio em testemunhos indiretos.
+
+**Referência:**
+
+STJ. 5ª Turma. AgRg no AREsp 2.937.604-MG, Rel. Min. Ribeiro Dantas, julgado em 19/8/2025 (Info 30 - Edição Extraordinária).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 19
+
+**Disciplina:** Direito Processual Penal
+
+**Subtema:** Habeas Corpus
+
+**ODS:** 16
+
+**Título do julgado:**
+
+Não ajuizada revisão criminal, é possível o conhecimento de habeas corpus contra condenação transitada em julgado, desde que haja flagrante ilegalidade e desnecessidade de dilação fático- probatória
+
+**Tese / entendimento:**
+
+O habeas corpus é cabível após o trânsito em julgado?
+O STJ admite sua utilização como substitutivo de revisão criminal quando presentes dois
+requisitos:
+a) lesão ou ameaça à liberdade de locomoção; e
+b) fatos líquidos e incontroversos, que dispensem dilação probatória.
+Havendo flagrante ilegalidade verificável de plano, o writ é admissível mesmo após o trânsito
+em julgado, especialmente quando não houve ajuizamento de revisão criminal.
+
+**Referência:**
+
+STJ. 6ª Turma. AgRg no HC 1.011.096-RS, Rel. Min. Rogerio Schietti Cruz, julgado em 1º/10/2025 (Info 30 - Edição Extraordinária).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 20
+
+**Disciplina:** Direito Processual Penal
+
+**Subtema:** Execução Penal
+
+**ODS:** 8 E 16
+
+**Título do julgado:**
+
+Condenado que cumpre pena em regime semiaberto ou aberto e que realize trabalho externo em empresa privada, sem convênio com a administração penitenciária, pode ter vínculo empregatício reconhecido pela Justiça do Trabalho Importante!!!
+
+**Tese / entendimento:**
+
+A Justiça do Trabalho é competente para processar e julgar demandas trabalhistas
+decorrentes de trabalho externo realizado por apenado em regimes semiaberto ou aberto,
+desde que presentes os requisitos caracterizadores do vínculo empregatício e inexistente
+convênio entre a administração penitenciária e a empresa privada.
+A competência dos Juízos de Execução Penal abrange:
+a) o trabalho realizado em regime fechado; e
+b) o trabalho em regimes semiaberto ou aberto quando lastrado por convênio entre a
+administração penitenciária e a empresa privada.
+O trabalho prisional realizado externamente por apenado em regimes semiaberto ou aberto,
+com vínculo direto com empresa privada e sem intermediação da administração
+penitenciária, pode configurar relação de emprego sujeita à legislação trabalhista, sem
+prejuízo da finalidade reabilitadora prevista na Lei de Execução Penal.
+
+**Referência:**
+
+STJ. 3ª Seção. CC 216.070-PA, Rel. Min. Joel Ilan Paciornik, julgado em 6/11/2025 (Info 30 - Edição Extraordinária).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 21
+
+**Disciplina:** Direito Processual Penal
+
+**Subtema:** Execução Penal > Progressão De Regime
+
+**ODS:** 16
+
+**Título do julgado:**
+
+Condenado por associação para o tráfico de drogas com a majorante de uso de arma de fogo ou intimidação coletiva deve cumprir 25% da pena para progressão de regime, nos termos do art. 40, IV, da Lei 11.343/2006
+
+**Tese / entendimento:**
+
+Caso hipotético: o réu foi condenado por associação para o tráfico de drogas (art. 35 da Lei nº
+11.343/2006), com a majorante do art. 40, IV (uso de arma de fogo para intimidação coletiva).
+Na execução, a defesa pleiteou progressão com base no percentual de 16% (art. 112, I, da LEP),
+argumentando que o tipo penal do art. 35 não contém violência ou grave ameaça como
+elementar e que a aplicação do percentual de 25% configuraria analogia in malam partem. O
+STJ rejeitou a tese.
+A majorante prevista no art. 40, inciso IV, da Lei nº 11.343/2006 justifica a aplicação da fração
+de 25% para progressão de regime no crime de associação para o tráfico de drogas,
+considerando a gravidade concreta da conduta e a maior reprovabilidade das ações praticadas
+com emprego de arma de fogo ou intimidação coletiva.
+Art. 40. As penas previstas nos arts. 33 a 37 desta Lei são aumentadas de um sexto a dois terços,
+se: IV - o crime tiver sido praticado com violência, grave ameaça, emprego de arma de fogo, ou
+qualquer processo de intimidação difusa ou coletiva;
+
+**Referência:**
+
+STJ. 5ª Turma. AgRg no HC 1.032.005-RJ, Rel. Min. Messod Azulay Neto, julgado em 11/11/2025 (Info 30 - Edição Extraordinária).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 22
+
+**Disciplina:** Direito Processual Penal
+
+**Subtema:** Execução Penal
+
+**ODS:** 4 E 16
+
+**Título do julgado:**
+
+A remição da pena por estudo exige que a atividade tenha sido realizada durante a execução penal, sendo inviável o reconhecimento do benefício com base em estudos realizados anteriormente ao início do cumprimento da pena Importante!!!
+
+**Tese / entendimento:**
+
+Caso hipotético: João praticou um crime. Ele ficou respondendo em liberdade o processo penal
+por esse delito. Depois de praticar o crime, mas antes de ser condenado, ele se matriculou em
+um curso supletivo e concluiu o ensino médio. No momento da matrícula, ele ainda respondia
+ao processo em liberdade. Tempos depois, já condenado em definitivo, João começou a
+cumprir pena em regime fechado e, durante a execução, solicitou ao juiz da vara de execuções
+penais o reconhecimento da remição de pena pelo estudo, com base no curso que havia
+concluído anteriormente, quando ainda estava solto. João não tem direito à remição.
+A remição da pena por estudo exige que a atividade educacional tenha sido realizada durante
+a execução penal, sendo inviável o reconhecimento do benefício com base em estudos
+realizados antes do início do cumprimento da pena.
+Assim, não se admite o cômputo de atividades educacionais desenvolvidas em liberdade como
+causa de remição, por ausência de amparo legal e de supervisão estatal.
+A finalidade ressocializadora da remição impõe a simultaneidade entre a causa do benefício e
+a execução da pena.
+
+**Referência:**
+
+STJ. 6ª Turma. AgRg no AgRg no HC 888.428-MG, Rel. Min. Og Fernandes, julgado em 10/9/2025 (Info 30 - Edição Extraordinária).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 23
+
+**Disciplina:** Direito Processual Penal
+
+**Subtema:** Execução Penal
+
+**ODS:** 16
+
+**Título do julgado:**
+
+É vedada a progressão de regime a apenado custodiado em presídio federal de segurança máxima se persistirem razões de segurança pública que motivaram sua inclusão no sistema federal Importante!!! Concursos federais
+
+**Tese / entendimento:**
+
+A concessão de progressão de regime a preso em presídio federal de segurança máxima está
+condicionada à ausência dos motivos que justificaram sua transferência ou manutenção no
+sistema federal.
+A permanência em presídio federal de segurança máxima é incompatível com a progressão de
+regime enquanto subsistirem os fundamentos que ensejaram a inclusão no regime
+diferenciado.
+
+**Referência:**
+
+STJ. 6ª Turma. AgRg no HC 1.015.327-DF, Rel. Min. Carlos Pires Brandão, julgado em 12/11/2025 (Info 30 - Edição Extraordinária).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---

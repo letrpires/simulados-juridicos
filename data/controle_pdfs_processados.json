@@ -1,0 +1,694 @@
+{
+  "Info 1209 STF.pdf": {
+    "hash": "7ec3d41b145ee31cfa65f950628798be",
+    "processado_em": "2026-05-01T13:54:41.616483"
+  },
+  "Info 878 STJ.pdf": {
+    "hash": "7aec354a1eefe37d1f886d7233fee238",
+    "processado_em": "2026-05-01T13:54:41.628125"
+  },
+  "Info 868 STJ.pdf": {
+    "hash": "98743f76caa1963199ab69f2bd3d7bd5",
+    "processado_em": "2026-05-01T13:54:41.629205"
+  },
+  "Info 1140 STF.pdf": {
+    "hash": "a0331d009d3ed35137e87b22659df861",
+    "processado_em": "2026-05-01T13:54:41.630117"
+  },
+  "Info 1150 STF.pdf": {
+    "hash": "9c1f7cedbc71e413d13917ff5ce4d2f8",
+    "processado_em": "2026-05-01T13:54:41.631106"
+  },
+  "Info 847 STJ.pdf": {
+    "hash": "7e258209149395c866c6caf23f12ad5e",
+    "processado_em": "2026-05-01T13:54:41.632239"
+  },
+  "Info 857 STJ.pdf": {
+    "hash": "7a650c811d69ffda1b3bdd60a8364417",
+    "processado_em": "2026-05-01T13:54:41.633312"
+  },
+  "Info 835 STJ.pdf": {
+    "hash": "a79abcdcd1c1e71843189f6aac80d44e",
+    "processado_em": "2026-05-01T13:54:41.634367"
+  },
+  "Info 1122 STF.pdf": {
+    "hash": "e11d261aaf7ac49150ce6623549f3567",
+    "processado_em": "2026-05-01T13:54:41.635114"
+  },
+  "Info 1132 STF.pdf": {
+    "hash": "6cfa6153f3276454eaa597876d8f8d6b",
+    "processado_em": "2026-05-01T13:54:41.635994"
+  },
+  "Info 1200 STF.pdf": {
+    "hash": "693dfd1bef9a8cb6cb4fe3f5703d4e45",
+    "processado_em": "2026-05-01T13:54:41.636978"
+  },
+  "Info 1210 STF.pdf": {
+    "hash": "4c61a3008a21615451e33121565ff1b3",
+    "processado_em": "2026-05-01T13:54:41.648438"
+  },
+  "Info 1166 STF.pdf": {
+    "hash": "c6a7b9259f39eea0ccabe73e3cb196ec",
+    "processado_em": "2026-05-01T13:54:41.649380"
+  },
+  "Info 1176 STF.pdf": {
+    "hash": "0faf4f1a53ceec9a8b4e37f86a50e144",
+    "processado_em": "2026-05-01T13:54:41.650205"
+  },
+  "Info 861 STJ.pdf": {
+    "hash": "4506b36da8b75f70b46d7cdc712024e0",
+    "processado_em": "2026-05-01T13:54:41.651130"
+  },
+  "Info 871 STJ.pdf": {
+    "hash": "3d60014a4e20ef896282578e4a857293",
+    "processado_em": "2026-05-01T13:54:41.652247"
+  },
+  "Ed. Extra 25 STJ.pdf": {
+    "hash": "c96a63284eb9405aa3294a111b9a3eb2",
+    "processado_em": "2026-05-01T13:54:41.653388"
+  },
+  "Info 1182 STF.pdf": {
+    "hash": "fdf11af2f6a666178747c6442183b929",
+    "processado_em": "2026-05-01T13:54:41.654275"
+  },
+  "Info 1192 STF.pdf": {
+    "hash": "6e3a9bbb0cbe85e8fba8c63f8ed312af",
+    "processado_em": "2026-05-01T13:54:41.655341"
+  },
+  "Info 1159 STF.pdf": {
+    "hash": "d32a742c364886db3bb694d06e147478",
+    "processado_em": "2026-05-01T13:54:41.656124"
+  },
+  "Info 1149 STF.pdf": {
+    "hash": "3889547e2b1428e8744bfe3984795eec",
+    "processado_em": "2026-05-01T13:54:41.657059"
+  },
+  "Ed. Extra 24 STJ.pdf": {
+    "hash": "fcaf4afe1a07514adf6caa0738324679",
+    "processado_em": "2026-05-01T13:54:41.658229"
+  },
+  "Rep Penal.pdf": {
+    "hash": "f513d00eff420832f4648fadd96a131c",
+    "processado_em": "2026-05-01T13:54:41.659338"
+  },
+  "Info 1211 STF.pdf": {
+    "hash": "f4ea84301a1a61205720509d3a0b413d",
+    "processado_em": "2026-05-01T13:54:41.670621"
+  },
+  "Info 1201 STF.pdf": {
+    "hash": "10fba24ec931757c9439790174396c40",
+    "processado_em": "2026-05-01T13:54:41.671568"
+  },
+  "Info 870 STJ.pdf": {
+    "hash": "b7858c90e599e3bb3437619023e2c964",
+    "processado_em": "2026-05-01T13:54:41.672730"
+  },
+  "Info 1177 STF.pdf": {
+    "hash": "d7636409cf130ccbb772cb498c62b0bd",
+    "processado_em": "2026-05-01T13:54:41.673464"
+  },
+  "Info 1167 STF.pdf": {
+    "hash": "697a9b011ec660a3473b47220daeedb6",
+    "processado_em": "2026-05-01T13:54:41.674435"
+  },
+  "Info 1193 STF.pdf": {
+    "hash": "370e927e35ae8adda94b8bb5ff401cb9",
+    "processado_em": "2026-05-01T13:54:41.675366"
+  },
+  "Info 1183 STF.pdf": {
+    "hash": "70fb797913f3cef7953157d718b0b1a3",
+    "processado_em": "2026-05-01T13:54:41.676186"
+  },
+  "Info 884 STJ.pdf": {
+    "hash": "45d2cb5e31eec699251329980c0a6fb5",
+    "processado_em": "2026-05-01T13:54:41.687578"
+  },
+  "RG Civil.pdf": {
+    "hash": "82aafdd547525f357e1fe17bc06854eb",
+    "processado_em": "2026-05-01T13:54:41.688932"
+  },
+  "Info 1148 STF.pdf": {
+    "hash": "8f0b693810b8b22fb8b9f13755266dc6",
+    "processado_em": "2026-05-01T13:54:41.689753"
+  },
+  "Info 1158 STF.pdf": {
+    "hash": "92cde9360adee4cb6451c4e1898b08b6",
+    "processado_em": "2026-05-01T13:54:41.690698"
+  },
+  "Info 1208 STF.pdf": {
+    "hash": "cc932f981b17a64617806d0b9f6de702",
+    "processado_em": "2026-05-01T13:54:41.702035"
+  },
+  "Info 869 STJ.pdf": {
+    "hash": "915f5a664832fcf9c2e9ff44fc0c8f5e",
+    "processado_em": "2026-05-01T13:54:41.703155"
+  },
+  "Info 879 STJ.pdf": {
+    "hash": "aff26bea4a5d471561ab941577107486",
+    "processado_em": "2026-05-01T13:54:41.714984"
+  },
+  "Info 856 STJ.pdf": {
+    "hash": "ea9323049a0454c04486be4cd45b8fb4",
+    "processado_em": "2026-05-01T13:54:41.716366"
+  },
+  "Info 846 STJ.pdf": {
+    "hash": "ad129a9cbca3c90d17f504b0224ee099",
+    "processado_em": "2026-05-01T13:54:41.717484"
+  },
+  "Info 1151 STF.pdf": {
+    "hash": "c4663847a6cc57d2b5c37553de66b132",
+    "processado_em": "2026-05-01T13:54:41.718389"
+  },
+  "Info 1141 STF.pdf": {
+    "hash": "a1f0e712baf459e3c6ed8870182dce53",
+    "processado_em": "2026-05-01T13:54:41.719271"
+  },
+  "Info 1133 STF.pdf": {
+    "hash": "a394703da696ccdc8c72df278d8109f5",
+    "processado_em": "2026-05-01T13:54:41.720127"
+  },
+  "Info 1123 STF.pdf": {
+    "hash": "9affeba516f1cdf4cbbb7d6646f1029d",
+    "processado_em": "2026-05-01T13:54:41.721081"
+  },
+  "Info 834 STJ.pdf": {
+    "hash": "235e7779cfd36c3d2195aebdcd2a22f4",
+    "processado_em": "2026-05-01T13:54:41.722177"
+  },
+  "Ed. Extra 26 STJ.pdf": {
+    "hash": "f1e0706d7a659eb4402847ee40a9f4a2",
+    "processado_em": "2026-05-01T13:54:41.723368"
+  },
+  "RG Penal.pdf": {
+    "hash": "64ed6c6ceda22a2e9772260fc4b034ae",
+    "processado_em": "2026-05-01T13:54:41.724560"
+  },
+  "Info 1165 STF.pdf": {
+    "hash": "3891720ab15cda3f388ab1839ef77da1",
+    "processado_em": "2026-05-01T13:54:41.725478"
+  },
+  "Info 1175 STF.pdf": {
+    "hash": "fb16c1a0cc4927543c2e5a43fefde294",
+    "processado_em": "2026-05-01T13:54:41.726255"
+  },
+  "Info 862 STJ.pdf": {
+    "hash": "1740cb6fb9f92dd24636b8e0767d1cf1",
+    "processado_em": "2026-05-01T13:54:41.727326"
+  },
+  "Info 872 STJ.pdf": {
+    "hash": "c1afb19d4fa56331653e881c9b21f09d",
+    "processado_em": "2026-05-01T13:54:41.728417"
+  },
+  "Info 1203 STF.pdf": {
+    "hash": "9dd81ccd89eb4c3effc62c8055272c99",
+    "processado_em": "2026-05-01T13:54:41.729545"
+  },
+  "Info 1181 STF.pdf": {
+    "hash": "b5f0aff723b81deeaad939b8314b4d09",
+    "processado_em": "2026-05-01T13:54:41.730430"
+  },
+  "Info 1191 STF.pdf": {
+    "hash": "9c3bbfb8081b287fff184c8b20df65e7",
+    "processado_em": "2026-05-01T13:54:41.731371"
+  },
+  "Rep Civil.pdf": {
+    "hash": "e12bf1684290d78fb88be09baaf28d54",
+    "processado_em": "2026-05-01T13:54:41.732906"
+  },
+  "RG Ambiental.pdf": {
+    "hash": "c565fbab361f57bdd74eb16d7fba023b",
+    "processado_em": "2026-05-01T13:54:41.733830"
+  },
+  "Info 1138 STF.pdf": {
+    "hash": "61f89883e9435f78913adfa49ad087ad",
+    "processado_em": "2026-05-01T13:54:41.734710"
+  },
+  "Info 1128 STF.pdf": {
+    "hash": "a87fa7aeb5c30b11bc2ddd9886ca62b8",
+    "processado_em": "2026-05-01T13:54:41.735546"
+  },
+  "RG Administrativo.pdf": {
+    "hash": "fdaebd8ad59727f666d704b4aceaaa9e",
+    "processado_em": "2026-05-01T13:54:41.738600"
+  },
+  "Sumulas STJ.pdf": {
+    "hash": "216d224b7a7b6c3de7483c7987cf382b",
+    "processado_em": "2026-05-01T13:54:41.739760"
+  },
+  "Rep Tributa\u0301rio.pdf": {
+    "hash": "86031b75af7a5c112f9fab03935638ef",
+    "processado_em": "2026-05-01T13:54:41.741207"
+  },
+  "Info 1198 STF.pdf": {
+    "hash": "c52e1fb1c320c1355190c8791a1a7c0f",
+    "processado_em": "2026-05-01T13:54:41.742096"
+  },
+  "Info 1188 STF.pdf": {
+    "hash": "9a3ab7fb893bfe33c99c706fe932b297",
+    "processado_em": "2026-05-01T13:54:41.743082"
+  },
+  "Info 836 STJ.pdf": {
+    "hash": "51f2360c5faa72f8959980b440441346",
+    "processado_em": "2026-05-01T13:54:41.744118"
+  },
+  "Info 1121 STF.pdf": {
+    "hash": "9a18fd323b63ca7c1a65567cf9326259",
+    "processado_em": "2026-05-01T13:54:41.745134"
+  },
+  "Info 1131 STF.pdf": {
+    "hash": "820ed9d73ab3e07a17635858ca54e35d",
+    "processado_em": "2026-05-01T13:54:41.746045"
+  },
+  "Info 1143 STF.pdf": {
+    "hash": "fb5aae33afee162b9662b28c1dc0b69e",
+    "processado_em": "2026-05-01T13:54:41.747044"
+  },
+  "Info 1153 STF.pdf": {
+    "hash": "f3559836d1b1b2978564c23885ac6f12",
+    "processado_em": "2026-05-01T13:54:41.747960"
+  },
+  "Info 844 STJ.pdf": {
+    "hash": "0a3ce3d0aa91de00ea2742c6d850f51c",
+    "processado_em": "2026-05-01T13:54:41.749058"
+  },
+  "Info 854 STJ.pdf": {
+    "hash": "c388301656a52df5d759f548cefa18cb",
+    "processado_em": "2026-05-01T13:54:41.750094"
+  },
+  "Rep Ambiental.pdf": {
+    "hash": "f9566f27112aa0c6b4516628f3c01645",
+    "processado_em": "2026-05-01T13:54:41.750774"
+  },
+  "Info 1130 STF.pdf": {
+    "hash": "7812ce3f8f46e214d3ba8dcd293a013e",
+    "processado_em": "2026-05-01T13:54:41.751542"
+  },
+  "Info 837 STJ.pdf": {
+    "hash": "64027b7ca59d2de3c9f786eb5c6c0875",
+    "processado_em": "2026-05-01T13:54:41.752618"
+  },
+  "RG Tributa\u0301rio.pdf": {
+    "hash": "97c49cd6178a83609058aad81693dc41",
+    "processado_em": "2026-05-01T13:54:41.754635"
+  },
+  "Info 1189 STF.pdf": {
+    "hash": "09d3918b7f133c2c147021cfaf370b5a",
+    "processado_em": "2026-05-01T13:54:41.755544"
+  },
+  "Info 1199 STF.pdf": {
+    "hash": "e7c78cafada092fd713b4d006108ce32",
+    "processado_em": "2026-05-01T13:54:41.756485"
+  },
+  "Info 855 STJ.pdf": {
+    "hash": "8ff7e0e7c3f5b16d10fb195b8cf2e472",
+    "processado_em": "2026-05-01T13:54:41.757470"
+  },
+  "Info 845 STJ.pdf": {
+    "hash": "6712e5064bb12173a03aa3ec38e36b18",
+    "processado_em": "2026-05-01T13:54:41.758505"
+  },
+  "Info 1152 STF.pdf": {
+    "hash": "a15b0e02e8f7c9a4e0761b098a73a925",
+    "processado_em": "2026-05-01T13:54:41.759613"
+  },
+  "Info 1142 STF.pdf": {
+    "hash": "3f339221d8364c7c5529e52148a8dc10",
+    "processado_em": "2026-05-01T13:54:41.760432"
+  },
+  "Info 873 STJ.pdf": {
+    "hash": "5887c8f74a900a892465490da7392ba7",
+    "processado_em": "2026-05-01T13:54:41.761561"
+  },
+  "Info 863 STJ.pdf": {
+    "hash": "d89127a2b5709f5a67802d01a12c8b31",
+    "processado_em": "2026-05-01T13:54:41.762738"
+  },
+  "Info 1174 STF.pdf": {
+    "hash": "e1688582176035c7281dd6beef7f44b2",
+    "processado_em": "2026-05-01T13:54:41.763645"
+  },
+  "Info 1164 STF.pdf": {
+    "hash": "a149ff9f60ef6d0ca964677dd2b82dc4",
+    "processado_em": "2026-05-01T13:54:41.764528"
+  },
+  "Info 1212 STF.pdf": {
+    "hash": "bab97e8a7d1be31306d662b69ba63bc8",
+    "processado_em": "2026-05-01T13:54:41.775859"
+  },
+  "Info 1202 STF.pdf": {
+    "hash": "70a4e287f2104ab4eda7e4bc1e3bcd5d",
+    "processado_em": "2026-05-01T13:54:41.776979"
+  },
+  "Ed. Extra 27 STJ.pdf": {
+    "hash": "5db044c79509c070ea659a73cf572785",
+    "processado_em": "2026-05-01T13:54:41.778192"
+  },
+  "RG Eleitoral.pdf": {
+    "hash": "0e931148350337c9e559241624413c19",
+    "processado_em": "2026-05-01T13:54:41.779182"
+  },
+  "Info 1129 STF.pdf": {
+    "hash": "ea92cfe5db1a23c557ef59bcaac34b38",
+    "processado_em": "2026-05-01T13:54:41.780097"
+  },
+  "Info 1139 STF.pdf": {
+    "hash": "4cddf6cc1d8d320caacbd633b4597d15",
+    "processado_em": "2026-05-01T13:54:41.781016"
+  },
+  "Info 1190 STF.pdf": {
+    "hash": "b6e35d110867f012c52c6bd79cc7ccd0",
+    "processado_em": "2026-05-01T13:54:41.782056"
+  },
+  "Info 1180 STF.pdf": {
+    "hash": "dea21b0c25aba3dc7dc4475d0e0c87f1",
+    "processado_em": "2026-05-01T13:54:41.783104"
+  },
+  "Info 859 STJ.pdf": {
+    "hash": "b02eb96b1ac2b49420ff720f3e2c3c45",
+    "processado_em": "2026-05-01T13:54:41.784740"
+  },
+  "Info 849 STJ.pdf": {
+    "hash": "e8a3bf6c56f81afaa262550887032dbb",
+    "processado_em": "2026-05-01T13:54:41.786019"
+  },
+  "Info 1185 STF.pdf": {
+    "hash": "4aaa65a41f0ac349a87c4994e3274114",
+    "processado_em": "2026-05-01T13:54:41.787112"
+  },
+  "Info 1195 STF.pdf": {
+    "hash": "e3bdf35a163bcdfd97442f2359201329",
+    "processado_em": "2026-05-01T13:54:41.788157"
+  },
+  "Info 882 STJ.pdf": {
+    "hash": "41a323d06012519c84b6ed77088ef2ba",
+    "processado_em": "2026-05-01T13:54:41.800931"
+  },
+  "Info 1207 STF.pdf": {
+    "hash": "2dfce6dc7aaa43c66d3d7d4c34ae0155",
+    "processado_em": "2026-05-01T13:54:41.812971"
+  },
+  "Info 866 STJ.pdf": {
+    "hash": "039787e1c27025faa45785c385ec7075",
+    "processado_em": "2026-05-01T13:54:41.814101"
+  },
+  "Info 876 STJ.pdf": {
+    "hash": "9e9c7fc144b2baab6dfad6791302f3cb",
+    "processado_em": "2026-05-01T13:54:41.815452"
+  },
+  "Info 1161 STF.pdf": {
+    "hash": "dcba244890d3f91aa2df363bfcb3a68c",
+    "processado_em": "2026-05-01T13:54:41.816256"
+  },
+  "Info 1171 STF.pdf": {
+    "hash": "a8cca3e9e50e729430392e2a37f14a98",
+    "processado_em": "2026-05-01T13:54:41.817224"
+  },
+  "Sumulas Vinculantes STF.pdf": {
+    "hash": "2b7d9c917ebb7055fe48be58af97da17",
+    "processado_em": "2026-05-01T13:54:41.817429"
+  },
+  "Ed. Extra 22 STJ.pdf": {
+    "hash": "3ee84649d6059bfd2836770b9743f38f",
+    "processado_em": "2026-05-01T13:54:41.818611"
+  },
+  "RG Proc Civil.pdf": {
+    "hash": "2d6a38a00174d1d94ed53c628be14408",
+    "processado_em": "2026-05-01T13:54:41.820326"
+  },
+  "Info 1125 STF.pdf": {
+    "hash": "8a6bbe45ed6ad61e289dfbdaf9018465",
+    "processado_em": "2026-05-01T13:54:41.821146"
+  },
+  "Info 1135 STF.pdf": {
+    "hash": "1dcc84a62f29c11486142f64a0915708",
+    "processado_em": "2026-05-01T13:54:41.822034"
+  },
+  "Info 840 STJ.pdf": {
+    "hash": "835446f9d5a183a791cd7fecd1efa418",
+    "processado_em": "2026-05-01T13:54:41.823039"
+  },
+  "Info 850 STJ.pdf": {
+    "hash": "911dc51a94992dc6eade7ed6586da99c",
+    "processado_em": "2026-05-01T13:54:41.824193"
+  },
+  "Info 1147 STF.pdf": {
+    "hash": "fe5ec226f82fb0296c93337fb3655422",
+    "processado_em": "2026-05-01T13:54:41.825176"
+  },
+  "Info 1157 STF.pdf": {
+    "hash": "eb2e8b0d6cab06f5b9a759e77a4d5672",
+    "processado_em": "2026-05-01T13:54:41.826109"
+  },
+  "Info 1178 STF.pdf": {
+    "hash": "243b787b3335f84649aaee487f9a9bd0",
+    "processado_em": "2026-05-01T13:54:41.827101"
+  },
+  "Info 1168 STF.pdf": {
+    "hash": "6d1ed030090c64887a954160bdd54c21",
+    "processado_em": "2026-05-01T13:54:41.827939"
+  },
+  "Rep Empresarial.pdf": {
+    "hash": "3cde5e6fe19687429228d1b5b8e00798",
+    "processado_em": "2026-05-01T13:54:41.828519"
+  },
+  "Info 833 STJ.pdf": {
+    "hash": "639ca5b2d2d76cfa27e00d1436e3aaa4",
+    "processado_em": "2026-05-01T13:54:41.829592"
+  },
+  "Info 1134 STF.pdf": {
+    "hash": "3998c308e63ecb5bc096e8d83c73549c",
+    "processado_em": "2026-05-01T13:54:41.830527"
+  },
+  "Info 1124 STF.pdf": {
+    "hash": "863a6f72a6d7b9cb58320297bee8907f",
+    "processado_em": "2026-05-01T13:54:41.831200"
+  },
+  "Info 1156 STF.pdf": {
+    "hash": "d1cbc22ee9af8e440f9fd6ae767f63e7",
+    "processado_em": "2026-05-01T13:54:41.832105"
+  },
+  "Info 1146 STF.pdf": {
+    "hash": "5aac2f2f2c1841170010bcecc20d75bd",
+    "processado_em": "2026-05-01T13:54:41.833103"
+  },
+  "Info 851 STJ.pdf": {
+    "hash": "b9dea975e5eb4ce9951717be6fdaed92",
+    "processado_em": "2026-05-01T13:54:41.834169"
+  },
+  "Info 841 STJ.pdf": {
+    "hash": "997ed02e3e27d8c0b9249776729637c1",
+    "processado_em": "2026-05-01T13:54:41.835223"
+  },
+  "Info 1169 STF.pdf": {
+    "hash": "5c28a7b101508d8076b9870478084f8f",
+    "processado_em": "2026-05-01T13:54:41.836156"
+  },
+  "Info 1179 STF.pdf": {
+    "hash": "bc6878b6ab637dda2562ebe125d5b599",
+    "processado_em": "2026-05-01T13:54:41.837243"
+  },
+  "Info 848 STJ.pdf": {
+    "hash": "75dfb4fc8cd45003974503a8f89b57e9",
+    "processado_em": "2026-05-01T13:54:41.838246"
+  },
+  "Info 858 STJ.pdf": {
+    "hash": "bdd8fb2cb67883a1ac286fab65607600",
+    "processado_em": "2026-05-01T13:54:41.839360"
+  },
+  "Info 883 STJ.pdf": {
+    "hash": "aaa77c74eb4da21a92cfee3f98f8755c",
+    "processado_em": "2026-05-01T13:54:41.851184"
+  },
+  "Info 1194 STF.pdf": {
+    "hash": "4c07a03e476dadc5b22ae23aadfb2a8e",
+    "processado_em": "2026-05-01T13:54:41.852240"
+  },
+  "Info 1184 STF.pdf": {
+    "hash": "1070e93beea63e359f96a40a3e800592",
+    "processado_em": "2026-05-01T13:54:41.853259"
+  },
+  "Ed. Extra 23 STJ.pdf": {
+    "hash": "ee59ec34be0b60bf110c60efa6b31412",
+    "processado_em": "2026-05-01T13:54:41.854559"
+  },
+  "Info 1206 STF.pdf": {
+    "hash": "0d80e07840530ea00d63d2334c112888",
+    "processado_em": "2026-05-01T13:54:41.866500"
+  },
+  "Info 1170 STF.pdf": {
+    "hash": "c94b1a212a403e83c1cf53aba4aa41d9",
+    "processado_em": "2026-05-01T13:54:41.867501"
+  },
+  "Info 1160 STF.pdf": {
+    "hash": "9619e70e41f7e02ac7535745923d7c3e",
+    "processado_em": "2026-05-01T13:54:41.868414"
+  },
+  "Info 867 STJ.pdf": {
+    "hash": "3ce937d4ff3e26ca43308d4244ea5d1c",
+    "processado_em": "2026-05-01T13:54:41.869488"
+  },
+  "Rep Proc Civil.pdf": {
+    "hash": "adfdbc9c85b7f60116cbe874deb28b0b",
+    "processado_em": "2026-05-01T13:54:41.872025"
+  },
+  "Info 843 STJ.pdf": {
+    "hash": "45d1243ca01d0d6c7e74634ba8fb3ca5",
+    "processado_em": "2026-05-01T13:54:41.873150"
+  },
+  "Info 853 STJ.pdf": {
+    "hash": "96b3785717f9b387747b526c389a0979",
+    "processado_em": "2026-05-01T13:54:41.874275"
+  },
+  "Info 1144 STF.pdf": {
+    "hash": "e31b27cf44a1613ba4fa36d741dc84e2",
+    "processado_em": "2026-05-01T13:54:41.875258"
+  },
+  "Info 1154 STF.pdf": {
+    "hash": "e393800601e532ab691a98fcfb87462b",
+    "processado_em": "2026-05-01T13:54:41.876223"
+  },
+  "Info 1126 STF.pdf": {
+    "hash": "d1c70bad45da68f57f3c5963c30518aa",
+    "processado_em": "2026-05-01T13:54:41.877165"
+  },
+  "Info 1136 STF.pdf": {
+    "hash": "a46efb91ab03e884fb843f3816c0b9f9",
+    "processado_em": "2026-05-01T13:54:41.878125"
+  },
+  "Ed. Extra 28 STJ.pdf": {
+    "hash": "6879657250fdde2ac81d963fec758610",
+    "processado_em": "2026-05-01T13:54:41.879413"
+  },
+  "RG Consumidor.pdf": {
+    "hash": "639a693452a436b8bc0105fcb84adb5d",
+    "processado_em": "2026-05-01T13:54:41.880640"
+  },
+  "Info 1186 STF.pdf": {
+    "hash": "5a1df474e9e06263629c8f249983f586",
+    "processado_em": "2026-05-01T13:54:41.881702"
+  },
+  "Info 1196 STF.pdf": {
+    "hash": "6899d9235a1ffc8a527cefbe55a3b27e",
+    "processado_em": "2026-05-01T13:54:41.882800"
+  },
+  "Info 881 STJ.pdf": {
+    "hash": "d9168823ded629bc4f031f97092d5a0d",
+    "processado_em": "2026-05-01T13:54:41.894791"
+  },
+  "Info 838 STJ.pdf": {
+    "hash": "18e207821144901cdcb11588946cb686",
+    "processado_em": "2026-05-01T13:54:41.895886"
+  },
+  "Rep Proc Penal.pdf": {
+    "hash": "0a47041485752af00747379eb829a4d8",
+    "processado_em": "2026-05-01T13:54:41.896865"
+  },
+  "Sumulas STF (ate\u0301 736).pdf": {
+    "hash": "bb72327d0af95024ea2659871234db08",
+    "processado_em": "2026-05-01T13:54:41.897869"
+  },
+  "Info 865 STJ.pdf": {
+    "hash": "9c942cfcaa57348cc97a8a40f04f05f9",
+    "processado_em": "2026-05-01T13:54:41.899021"
+  },
+  "Info 875 STJ.pdf": {
+    "hash": "60d25d7180a7051981b965aa6b1baead",
+    "processado_em": "2026-05-01T13:54:41.900636"
+  },
+  "Info 1162 STF.pdf": {
+    "hash": "132fb8d7ee9aa945c6a71d55000f8cd8",
+    "processado_em": "2026-05-01T13:54:41.901561"
+  },
+  "Info 1172 STF.pdf": {
+    "hash": "9d45112db1b669861c9c402daf51484c",
+    "processado_em": "2026-05-01T13:54:41.902594"
+  },
+  "Info 1204 STF.pdf": {
+    "hash": "16000d961df2ac47436d8dcd85b1cbd9",
+    "processado_em": "2026-05-01T13:54:41.903787"
+  },
+  "Rep Administrativo.pdf": {
+    "hash": "2e6f453b943836594699b33c5e1bf9f3",
+    "processado_em": "2026-05-01T13:54:41.905139"
+  },
+  "Info 839 STJ.pdf": {
+    "hash": "1d6946b77644bfb6eba5cd5751ae03a7",
+    "processado_em": "2026-05-01T13:54:41.906203"
+  },
+  "Info 880 STJ.pdf": {
+    "hash": "e1f5192deb52167c72ae052ebac437fb",
+    "processado_em": "2026-05-01T13:54:41.918501"
+  },
+  "Info 1197 STF.pdf": {
+    "hash": "e1b1d42099126b8803c44f7a566d9c3b",
+    "processado_em": "2026-05-01T13:54:41.919496"
+  },
+  "Info 1187 STF.pdf": {
+    "hash": "4dd5fb108789c263057763bd1f945e6e",
+    "processado_em": "2026-05-01T13:54:41.920442"
+  },
+  "RG Proc Penal.pdf": {
+    "hash": "a39dca7d54a39bce6e65c6e2e30f52de",
+    "processado_em": "2026-05-01T13:54:41.921825"
+  },
+  "Info 1173 STF.pdf": {
+    "hash": "b92957a4d72a97feb02b9f0f79731dfb",
+    "processado_em": "2026-05-01T13:54:41.922803"
+  },
+  "Info 1163 STF.pdf": {
+    "hash": "bd62414b47322bfabf106acbcbb3e173",
+    "processado_em": "2026-05-01T13:54:41.923847"
+  },
+  "Info 874 STJ.pdf": {
+    "hash": "80ba2733d069dfc36875fcd33996ab62",
+    "processado_em": "2026-05-01T13:54:41.925009"
+  },
+  "Info 864 STJ.pdf": {
+    "hash": "c5fd67ed536fd67d36a62f8e75cd3295",
+    "processado_em": "2026-05-01T13:54:41.926183"
+  },
+  "Info 1205 STF.pdf": {
+    "hash": "d5475ce1d075ebf222d74d4e8f7558c2",
+    "processado_em": "2026-05-01T13:54:41.937982"
+  },
+  "Ed. Extra 30 STJ.pdf": {
+    "hash": "9348333bc436c0a6b842b3fa8bd6edf3",
+    "processado_em": "2026-05-01T13:54:41.939195"
+  },
+  "Info 1155 STF.pdf": {
+    "hash": "918baf314133e2d4f6bab0b80ca131a0",
+    "processado_em": "2026-05-01T13:54:41.940180"
+  },
+  "Info 1145 STF.pdf": {
+    "hash": "d96b4eada978bf1c920178700c7dc29f",
+    "processado_em": "2026-05-01T13:54:41.941050"
+  },
+  "Info 852 STJ.pdf": {
+    "hash": "7a75cce3d0f9ce9b6ef52fa6a6b497e6",
+    "processado_em": "2026-05-01T13:54:41.942208"
+  },
+  "Info 842 STJ.pdf": {
+    "hash": "30d6e298e5fd282865fa1da594d15acf",
+    "processado_em": "2026-05-01T13:54:41.943470"
+  },
+  "Info 1137 STF.pdf": {
+    "hash": "ecff90f87da60448898ef5ebe8903f07",
+    "processado_em": "2026-05-01T13:54:41.944332"
+  },
+  "Info 1127 STF.pdf": {
+    "hash": "a73cfdde0ba8283300c614ed6331e986",
+    "processado_em": "2026-05-01T13:54:41.945268"
+  },
+  "Ed. Extra 29 STJ.pdf": {
+    "hash": "40ca4ac60645f8026f4eddb38fd84737",
+    "processado_em": "2026-05-01T13:54:41.946627"
+  },
+  "Rep Consumidor.pdf": {
+    "hash": "6859f2a68ecc6b35a73f4d3c1a8e0e39",
+    "processado_em": "2026-05-01T13:54:41.947575"
+  },
+  "Info 832 STJ.pdf": {
+    "hash": "370062b1c18d686b37c8d60a8701b0fe",
+    "processado_em": "2026-05-01T15:30:02.185232"
+  }
+}

@@ -1,2 +1,0 @@
-arquivo,item,sumulas_extraidas,sumulas_puladas,geradas,status,observacao
-sumulas_extraidas_md/blocos_stf/sumula_stf_bloco_001_001_a_050.md,sumula_stf_bloco_001_001_a_050,50,0,0,PULADO_JA_EXISTE,Arquivo já existia. Use --sobrescrever para gerar novamente.

@@ -133,6 +133,7 @@ class Pendencia:
     questoes_md: int
     questoes_html: int
     status: str
+    fonte_forcada: str = ""
 
 
 @dataclass
@@ -223,6 +224,7 @@ def ler_pendencias(caminho: Path) -> List[Pendencia]:
                     questoes_md=inteiro_ou_none(get(row, "Questões MD")) or 0,
                     questoes_html=inteiro_ou_none(get(row, "Questões HTML")) or 0,
                     status=get(row, "Pendência", "Status").strip(),
+                    fonte_forcada=(get(row, "mds").strip() or get(row, "pdfs").strip()),
                 )
             )
     return pendencias
@@ -707,7 +709,19 @@ def processar_pendencia(
             arquivo_saida_json=str(saida_json),
         )
 
-    fonte = localizar_fonte(p, fontes, permitir_extracao=permitir_extracao)
+    fonte = None
+    if getattr(p, "fonte_forcada", ""):
+        candidato = Path(p.fonte_forcada).expanduser()
+        if candidato.exists():
+            fonte = candidato
+        else:
+            candidato_rel = BASE_DIR / p.fonte_forcada
+            if candidato_rel.exists():
+                fonte = candidato_rel
+
+    if fonte is None:
+        fonte = localizar_fonte(p, fontes, permitir_extracao=permitir_extracao)
+
     if not fonte:
         return ResultadoArquivo(
             categoria=p.categoria,

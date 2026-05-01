@@ -1,8 +1,8 @@
 AUDITORIA DE GERAÇÃO DO JSON
-Data/hora: 29/04/2026 21:03:23
+Data/hora: 01/05/2026 15:22:15
 
-Total de arquivos lidos: 129
-Total de questões extraídas: 3926
+Total de arquivos lidos: 173
+Total de questões extraídas: 4178
 Questões marcadas para revisão manual: 5
 Arquivos sem questões detectadas: 0
 Questões sem gabarito: 0
@@ -13,16 +13,20 @@ IDs duplicados: 0
 
 RESUMO POR CATEGORIA:
 - Edição Extraordinária: 175
-- Informativos: 955
+- Informativos: 1207
 - Repercussão Geral: 568
 - Repetitivos: 795
 - Súmulas: 1433
 
 RESUMO POR MÓDULO:
-- Informativos STF 2025: 227
-- Informativos STF 2026: 48
-- Informativos STJ 2025: 548
-- Informativos STJ 2026: 132
+- Informativos STF: 209
+- Informativos STF 2024: 19
+- Informativos STF 2025: 216
+- Informativos STF 2026: 38
+- Informativos STJ: 45
+- Informativos STJ 2024: 46
+- Informativos STJ 2025: 539
+- Informativos STJ 2026: 95
 - RG - Administrativo: 231
 - RG - Ambiental: 3
 - RG - Civil: 30
@@ -31,16 +35,16 @@ RESUMO POR MÓDULO:
 - RG - Penal: 32
 - RG - Processo Civil: 84
 - RG - Processo Penal: 34
-- RG - Tributário: 136
+- RG - Tributário: 136
 - Repetitivo - Administrativo: 104
+- Repetitivo - Ambiental: 4
 - Repetitivo - Civil: 116
 - Repetitivo - Consumidor: 49
 - Repetitivo - Empresarial: 1
 - Repetitivo - Penal: 71
 - Repetitivo - Processo Civil: 267
 - Repetitivo - Processo Penal: 59
-- Repetitivo - Tributário: 124
-- Repetitivo Ambiental: 4
+- Repetitivo - Tributário: 124
 - STJ Edição Extraordinária 2025: 133
 - STJ Edição Extraordinária 2026: 42
 - Súmulas STF: 735

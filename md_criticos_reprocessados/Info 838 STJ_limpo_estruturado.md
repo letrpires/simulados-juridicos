@@ -1,0 +1,560 @@
+# Info 838 STJ
+
+**Status geral:** Estruturado automaticamente
+
+---
+
+## Julgado 1
+
+**Disciplina:** Direito Constitucional
+
+**Subtema:** Índios
+
+**ODS:** 6 E 16
+
+**Título do julgado:**
+
+Os entes estaduais são partes legítimas para figurar no polo passivo de ação que busca garantir o fornecimento regular de água potável e saneamento básico a terra indígena
+
+**Tese / entendimento:**
+
+Caso concreto: o Ministério Público Federal ajuizou ação civil pública contra o Estado do
+Paraná, a SANEPAR, a União e a FUNAI, visando a implementação de serviços de saneamento
+básico e indenização por danos morais coletivos para a comunidade indígena Tekoha Tatury,
+em Guaíra-PR, que vivia em condições precárias sem acesso adequado a água potável e
+saneamento básico. O Estado do Paraná arguiu sua legitimidade passiva, alegando que a
+responsabilidade pelo saneamento em terras indígenas seria exclusivamente da União.
+O STJ decidiu que o Estado-membro é parte legítima para figurar no polo passivo da ação. Isso
+porque o caso não se trata apenas de fornecimento de saneamento básico, mas da prestação
+desse serviço como meio indispensável à manutenção da saúde indígena. A decisão baseou-se
+no artigo 19-E da Lei nº 8.080/90, que prevê a possibilidade de Estados atuarem
+complementarmente no custeio e execução das ações de saúde indígena.
+A Lei nº 11.445/2007 também não exclui a responsabilidade do Estado, pois o caso não trata
+da competência para estabelecer o Plano Nacional de Saneamento Básico (exclusiva da União),
+mas sim da obrigação de prestar serviços locais e regionais de saneamento, cuja execução
+ocorre de forma articulada com os Estados, reforçando assim a legitimidade passiva do ente
+estadual.
+
+**Referência:**
+
+STJ. 1ª Turma. AREsp 2.381.292-PR, Rel. Min. Gurgel de Faria, julgado em 10/12/2024 (Info 838).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 2
+
+**Disciplina:** Direito Civil
+
+**Subtema:** Lei Geral De Proteção De Dados Pessoais - Lgpd / Direito Digital
+
+**ODS:** 16
+
+**Título do julgado:**
+
+Mesmo em caso de vazamento de dados pessoais não sensíveis decorrentes de ataque hacker, o agente de tratamento de dados permanece sujeito às obrigações previstas no art. 19, II, da LGPD
+
+**Tese / entendimento:**
+
+A empresa enquadrada como agente de tratamento de dados tem o dever legal de adotar todas
+as medidas de segurança necessárias para proteger as informações dos titulares, garantindo
+conformidade com a LGPD, boas práticas e governança.
+O tratamento de dados é considerado irregular quando não atende à expectativa de legítima
+proteção do titular, levando em conta as técnicas disponíveis à época do tratamento.
+A excludente de responsabilidade prevista no art. 43, III, da LGPD não se aplica quando o
+agente de tratamento não comprova que o vazamento decorreu exclusivamente de incidente
+de segurança causado por terceiro.
+Diante da falha na proteção dos dados, é cabível a condenação do agente de tratamento na
+obrigação de fornecer informações completas ao titular sobre o uso, origem, finalidade e
+compartilhamento de seus dados.
+É passível a imputação das obrigações previstas no art. 19, II, da Lei Geral de Proteção de
+Dados Pessoais (LGPD), ao agente de tratamento de dados, na ocasião de vazamento de dados
+pessoais não sensíveis do titular, decorrente de atividade alegadamente ilícita (ataque
+hacker).
+
+**Referência:**
+
+STJ. 3ª Turma. REsp 2.147.374-SP, Rel. Min. Ricardo Villas Bôas Cueva, julgado em 3/12/2024 (Info 838).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 3
+
+**Disciplina:** Direito Civil
+
+**Subtema:** Contratos
+
+**ODS:** 8 E 16
+
+**Título do julgado:**
+
+Compete à Justiça comum, e não à Justiça do Trabalho, julgar demanda ajuizada por motorista de aplicativo em face da empresa gestora de plataforma digital, tendo em vista a relação de natureza civil existente entre as partes Importante!!!
+
+**Tese / entendimento:**
+
+A relação entre o motorista e a plataforma digital (ex: Uber) é de natureza civil. Isso porque
+não estão presentes os requisitos caracterizadores da relação de emprego, dentre eles a não
+eventualidade e a subordinação.
+A plataforma digital atua apenas como intermediadora da contratação entre motorista e
+consumidor, configurando prestação de serviço autônomo no contexto da gig economy e da
+economia compartilhada.
+No caso concreto, o autor (ex-motorista da Uber) ingressou com ação de indenização por ter
+sido excluído da plataforma. Neste caso, a competência para julgamento da demanda é da
+Justiça Comum estadual considerando que a pretensão possui natureza eminentemente civil,
+conforme o pedido e a causa de pedir.
+
+**Referência:**
+
+STJ. 3ª Turma. REsp 2.144.902-MG, Rel. Min. Ricardo Villas Bôas Cueva, julgado em 3/12/2024 (Info 838).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 4
+
+**Disciplina:** Direito Civil
+
+**Subtema:** Sucessões
+
+**ODS:** 16
+
+**Título do julgado:**
+
+O valor nominal, constante de escritura pública, não é suficiente, por si só, para quantificar o valor do bem herdado, no caso de transferência de título de crédito por sucessão
+
+**Tese / entendimento:**
+
+Caso hipotético: João vendeu mercadorias para a empresa Alfa e recebeu como pagamento
+uma nota promissória de R$ 600.000,00. Após seu falecimento, seus filhos Pedro e Letícia
+herdaram o título em partes iguais através de inventário extrajudicial. O Banco Delta, credor
+de João no valor de R$ 400.000,00, executou os herdeiros e conseguiu a penhora de suas contas
+bancárias, baseando-se no valor registrado no inventário.
+Os herdeiros recorreram da decisão argumentando que, embora a nota promissória tivesse
+valor nominal de R$ 600.000,00, seu valor real era muito inferior, pois a empresa Alfa havia
+pedido falência e as chances de recebimento eram mínimas. Alegaram que a penhora de suas
+contas bancárias os forçaria a pagar a dívida do pai com seu patrimônio pessoal.
+O STJ concordou com os herdeiros e decidiu que, embora a nota promissória integre a herança
+como bem móvel, seu valor nominal registrado na escritura pública não é suficiente para
+quantificar o valor real do bem herdado. Diante disso, o STJ determinou que a penhora deve
+respeitar o valor real de mercado do título e depender da liquidação do crédito no processo
+falimentar, evitando que a responsabilidade dos herdeiros ultrapasse os limites da herança.
+
+**Referência:**
+
+STJ. 3ª Turma. REsp 2.168.268-SC, Rel. Min. Ricardo Villas Bôas Cueva, julgado em 3/12/2024 (Info 838).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 5
+
+**Disciplina:** Direito Do Consumidor
+
+**Subtema:** Responsabilidade Pelo Fato Do Produto Ou Do Serviço
+
+**ODS:** 3 E 16
+
+**Título do julgado:**
+
+Em se tratando de cirurgia plástica estética não reparadora, caso o resultado seja desarmonioso, segundo o senso comum, presume-se a culpa do profissional e o dever de indenizar, ainda que não tenha sido verificada imperícia, negligência ou imprudência Importante!!!
+
+**Tese / entendimento:**
+
+Em cirurgia plástica estética não reparadora, existe consenso na jurisprudência e na doutrina
+de que se trata de obrigação de resultado.
+A responsabilidade dos cirurgiões plásticos estéticos é subjetiva, havendo presunção de culpa,
+com inversão do ônus da prova.
+A inversão do ônus da prova autoriza que o médico faça prova de que o resultado alcançado
+foi satisfatório, segundo o senso comum, e não segundo critérios subjetivos de cada paciente.
+Em cirurgia plástica estética não reparadora, quando não verificada imperícia, negligência ou
+imprudência do médico, mas o resultado não agradar o paciente, somente se pode presumir a
+culpa do profissional se o resultado for desarmonioso, segundo o senso comum.
+
+**Referência:**
+
+STJ. 4ª Turma. REsp 2.173.636-MT, Rel. Min. Maria Isabel Gallotti, julgado em 10/12/2024 (Info 838).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 6
+
+**Disciplina:** Direito Do Consumidor
+
+**Subtema:** Práticas Comerciais
+
+**ODS:** 16
+
+**Título do julgado:**
+
+No contrato de compra e venda de imóvel é válida a cláusula contratual que transfere ao comprador os custos de instalações e ligações definitivas de serviços públicos, desde que tenha sido redigida com destaque
+
+**Tese / entendimento:**
+
+Caso hipotético: João e Regina adquiriram um apartamento na planta da construtora Alfa. No
+contrato de compra e venda, havia uma cláusula que estabelecia que eles teriam que pagar
+pelas instalações e ligações definitivas dos serviços públicos (água, luz, esgoto etc.) quando o
+imóvel estivesse pronto.
+Essa cláusula, por ter sido redigida com destaque, foi considerada válida.
+É válida a cláusula contratual que transfere ao promitente comprador a obrigação de pagar
+pelos custos de instalações e ligações definitivas de serviços públicos em contratos de
+incorporação imobiliária, desde que redigida com destaque, ainda que sem quantificação
+exata do valor.
+A cobrança de valores desproporcionais pode ser questionada judicialmente caso ultrapasse
+o razoavelmente esperado na relação contratual.
+
+**Referência:**
+
+STJ. 3ª Turma. REsp 2.041.654-RS, Rel. Min. Nancy Andrighi, julgado em 10/12/2024 (Info 838).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 7
+
+**Disciplina:** Direito Processual Civil
+
+**Subtema:** Competência
+
+**ODS:** 8 E 16
+
+**Título do julgado:**
+
+Compete à Justiça comum, e não à Justiça do Trabalho, julgar demanda ajuizada por motorista de aplicativo em face da empresa gestora de plataforma digital, tendo em vista a relação de natureza civil existente entre as partes Importante!!!
+
+**Tese / entendimento:**
+
+A relação entre o motorista e a plataforma digital (ex: Uber) é de natureza civil. Isso porque
+não estão presentes os requisitos caracterizadores da relação de emprego, dentre eles a não
+eventualidade e a subordinação.
+A plataforma digital atua apenas como intermediadora da contratação entre motorista e
+consumidor, configurando prestação de serviço autônomo no contexto da gig economy e da
+economia compartilhada.
+No caso concreto, o autor (ex-motorista da Uber) ingressou com ação de indenização por ter
+sido excluído da plataforma. Neste caso, a competência para julgamento da demanda é da
+Justiça Comum estadual considerando que a pretensão possui natureza eminentemente civil,
+conforme o pedido e a causa de pedir.
+
+**Referência:**
+
+STJ. 3ª Turma. REsp 2.144.902-MG, Rel. Min. Ricardo Villas Bôas Cueva, julgado em 3/12/2024 (Info 838).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 8
+
+**Disciplina:** Direito Processual Civil
+
+**Subtema:** Execução
+
+**ODS:** 16
+
+**Título do julgado:**
+
+Na hipótese de execução singular frustrada, é desnecessária a prévia desistência do processo de execução, bastando que fique suspenso até a prolação de sentença definitiva na ação de insolvência civil
+
+**Tese / entendimento:**
+
+Caso hipotético: o banco ajuizou execução individual (execução singular) contra João. Não
+foram encontrados bens penhoráveis. Diante disso, o banco moveu uma ação de insolvência
+civil contra João, procedimento similar à falência, mas aplicável a devedores não empresários,
+regulada temporariamente pelo CPC/1973 até a criação de legislação específica.
+João alegou que o banco deveria desistir da execução singular antes de ingressar com a ação
+de insolvência. O STJ rejeitou esse argumento.
+O processo de insolvência civil tem duas fases: a primeira, de natureza cognitiva, verifica a
+existência da insolvência; a segunda, se confirmada, inicia a execução coletiva.
+A vedação de múltiplas vias só ocorre após a declaração de insolvência.
+Assim, a melhor solução é suspender a execução individual até a decisão da insolvência. Se
+reconhecida, os autos da execução serão remetidos ao juízo universal da insolvência para
+correta administração dos bens.
+
+**Referência:**
+
+STJ. 4ª Turma. AgInt no REsp 2.034.944-RS, Rel. Min. Marco Buzzi, julgado em 12/11/2024 (Info 838).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 9
+
+**Disciplina:** Direito Processual Civil
+
+**Subtema:** Execução Fiscal
+
+**ODS:** 16
+
+**Título do julgado:**
+
+Nas execuções fiscais, o prazo para oposição de embargos à execução deve iniciar-se após a intimação do executado acerca do aceite do seguro garantia pelo Juiz
+
+**Tese / entendimento:**
+
+Caso hipotético: a Fazenda Pública ingressou com execução fiscal contra a Telefônica. Em
+25/05, a empresa ofereceu seguro garantia nos autos. Em 24/09, o juiz o juiz proferiu decisão
+aceitando formalmente a garantia (decisão de aceite do seguro garantia).
+Em 15/10, ou seja, dentro do prazo de 30 dias contados da decisão de aceite, a empresa
+apresentou embargos à execução.
+O juiz, contudo, afirmou que os embargos eram intempestivos porque o prazo teria começado
+desde a apresentação da garantia nos autos (24/09) e não da decisão de aceite (24/09).
+O STJ não concordou com o entendimento do magistrado.
+Nas execuções fiscais, o prazo para oposição de embargos só deve começar após a intimação
+do executado sobre o aceite do seguro garantia pelo juiz. Este entendimento se alinha aos
+princípios da segurança jurídica e do devido processo legal, pois garante que a validade da
+garantia seja confirmada antes do início do prazo para embargar, evitando situações em que
+embargos poderiam ser opostos sem uma garantia efetivamente aceita.
+
+**Referência:**
+
+STJ. 1ª Turma. REsp 2.185.262-RJ, Rel. Min. Paulo Sérgio Domingues, julgado em 17/12/2024 (Info 838).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 10
+
+**Disciplina:** Direito Processual Civil
+
+**Subtema:** Execução Fiscal
+
+**ODS:** 16
+
+**Título do julgado:**
+
+É possível que a parte executada apresente exceção de pré-executividade após os embargos à execução fiscal que ela havia ingressado terem sido rejeitados?
+
+**Tese / entendimento:**
+
+É possível que a parte executada apresente exceção de pré-executividade após os embargos à
+execução fiscal que ela havia ingressado terem sido rejeitados?
+1ª Turma do STJ: NÃO, mesmo que sejam alegados novos argumentos de ordem pública.
+Após a propositura e o julgamento de improcedência dos embargos à execução fiscal, está
+configurada a preclusão consumativa, não sendo mais cabível a apresentação de exceção de
+pré-executividade mesmo sob o fundamento de matérias suscetíveis de conhecimento de
+ofício, ou de quaisquer nulidades do título.
+A preclusão consumativa impede que a parte executada complemente sua defesa após a
+improcedência definitiva dos embargos à execução fiscal.
+Matérias que poderiam ter sido alegadas nos embargos não podem ser suscitadas
+posteriormente por meio de exceção de pré-executividade.
+Além disso, a retroação de lei mais benéfica para redução de multa moratória não se enquadra
+como matéria de ordem pública e está sujeita à preclusão. O art. 106, II, do CTN veda a
+retroação para alcançar crédito cuja validade já foi definitivamente reconhecida.
+
+**Referência:**
+
+STJ. 1ª Turma. REsp 2.130.489-RJ, Rel. Min. Paulo Sérgio Domingues, julgado em 17/12/2024 (Info 838).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 11
+
+**Disciplina:** Direito Processual Civil
+
+**Subtema:** 2ª Turma Do Stj: Sim, Desde Que Não Se Trate De Reiteração De Matérias Já Decididas Em
+
+**ODS:** 16
+
+**Título do julgado:**
+
+Embargos à execução. A exceção de pré-executividade pode ser admitida antes do trânsito em julgado dos embargos à execução, desde que trate de matéria não arguida nem decidida na via autônoma de impugnação (embargos à execução). A eficácia preclusiva da coisa julgada não se aplica quando a exceção de pré-executividade é apresentada antes do trânsito em julgado dos embargos à execução. Desde que não haja reiteração de matéria já decidida e sejam atendidos os requisitos de cabimento, a apresentação da exceção de pré-executividade é possível mesmo após o ajuizamento dos embargos. STJ. 2ª Turma. REsp 2.045.492/RJ, Rel. Min. Teodoro Silva Santos, julgado em 10/12/2024. PROCESSO COLETIVO Decisões interlocutórias proferidas em ações do microssistema de tutela coletiva podem ser impugnadas por agravo de instrumento, independentemente do rol do art. 1.015 do CPC/2015 Importante!!!
+
+**Tese / entendimento:**
+
+No microssistema de tutela coletiva, aplica-se a norma específica que prevê a impugnação de
+decisões interlocutórias mediante agravo de instrumento (art. 19 da Lei n. 4.717/65), não
+sendo afastada pelo rol taxativo do art. 1.015 do CPC/2015, uma vez que o inciso XIII deste
+dispositivo contempla o cabimento do recurso em outros casos expressamente referidos em
+lei.
+
+**Referência:**
+
+STJ. 1ª Turma. AREsp 2.159.586-RJ, Rel. Min. Gurgel de Faria, julgado em 3/12/2024 (Info 838).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 12
+
+**Disciplina:** Direito Processual Penal
+
+**Subtema:** Competência
+
+**ODS:** 16
+
+**Título do julgado:**
+
+É possível que fique caracterizado o conflito de competência se os dois juízos se declaram incompetentes mesmo que ainda não tenha sido oferecida denúncia
+
+**Tese / entendimento:**
+
+Caso hipotético: Lucas, de 19 anos, teria ameaçado verbalmente um adolescente de 16 anos
+em um shopping de Aracaju, levando os pais da vítima a registrarem um boletim de
+ocorrência.
+O caso foi encaminhado ao Juizado Especial Criminal por se tratar de uma infração de menor
+potencial ofensivo, mas o Promotor de Justiça do Juizado entendeu que a competência era da
+6ª Vara Criminal, especializada em crimes contra crianças e adolescentes.
+O Juiz do Juizado concordou e remeteu os autos à Vara Criminal, mas, ao chegar lá, o Promotor
+de Justiça dessa Vara alegou que o caso deveria permanecer no Juizado Especial, já que a
+infração tinha pena máxima inferior a dois anos. O Juiz da 6ª Vara acolheu esse entendimento
+e devolveu o processo ao Juizado.
+Diante da divergência, o Ministério Público suscitou conflito de competência no Tribunal de
+Justiça, que decidiu não conhecer do conflito, argumentando que se tratava de um conflito de
+atribuições do MP já que não havia ainda denúncia.
+O STJ discordou do TJ. Houve conflito de competência, mesmo sem denúncia formal, pois a
+discordância entre os juízos sobre a atribuição para conduzir a investigação é suficiente para
+caracterizar conflito de competência, na forma do art. 114, I, do CPP.
+
+**Referência:**
+
+STJ. 5ª Turma. REsp 2.162.562-SE, Rel. Min. Daniela Teixeira, julgado em 3/12/2024 (Info 838).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 13
+
+**Disciplina:** Direito Processual Penal
+
+**Subtema:** Provas > Cadeia De Custódia
+
+**ODS:** 16
+
+**Título do julgado:**
+
+A corrupção de parte dos arquivos compromete a integralidade da prova, inviabilizando sua utilização
+
+**Tese / entendimento:**
+
+Caso adaptado: João e Pedro, sócios de uma empresa, foram investigados por supostos crimes
+financeiros, resultando na apreensão de dados digitais por meio de um HD externo da SEFAZ.
+Os arquivos copiados foram armazenados sob custódia do Ministério Público, mas a defesa só
+obteve acesso ao material em 2022, constatando que parte significativa dos dados estava
+corrompida e inacessível. A defesa solicitou a entrega do HD original e esclarecimentos sobre
+a falha, mas os pedidos foram negados sob o argumento de que a corrupção afetava ambas as
+partes igualmente, sem prejuízo à defesa.
+A defesa recorreu ao STJ, alegando que a perda dos arquivos inviabilizava a verificação da
+integridade das provas, comprometia a paridade de armas e tornava impossível saber se o
+Ministério Público acessou os dados antes da corrupção.
+O STJ acatou os argumentos e declarou inadmissíveis as provas digitais obtidas na busca e
+apreensão, bem como todas as provas delas derivadas, com base no art. 157, § 1º, do CPP.
+O Estado foi responsável pela perda da informação e que não se pode presumir a validade das
+provas restantes sem comprovação da cadeia de custódia.
+O STJ determinou que o juízo de origem identifique e exclua todas as provas derivadas das
+provas invalidadas e avalie se, mesmo após essa exclusão, ainda existem elementos suficientes
+para manter a denúncia. Foram fixadas duas teses:
+1. A prova digital deve ser completa e íntegra para ser admitida em juízo.
+2. A corrupção de parte dos arquivos compromete a integralidade da prova, inviabilizando sua
+utilização.
+
+**Referência:**
+
+STJ. 5ª Turma. AgRg no RHC 184.003-SP, Rel. Min. Daniela Teixeira, Rel. para acórdão Min. Ribeiro Dantas, julgado em 10/12/2024 (Info 838).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
+
+## Julgado 14
+
+**Disciplina:** Direito Tributário
+
+**Subtema:** Icms
+
+**ODS:** 16
+
+**Título do julgado:**
+
+Os gases ventados constituem perdas inerentes a qualquer processo produtivo e, ainda que não comercializados, não afastam o direito ao crédito de ICMS, visto que a energia elétrica foi consumida no processo de industrialização
+
+**Tese / entendimento:**
+
+Caso adaptado: a empresa White Martins, que produz gases industriais, utilizava créditos de
+ICMS referentes à energia elétrica consumida no processo de industrialização, incluindo a
+produção de gases que não atendiam aos padrões de qualidade e eram descartados na
+atmosfera (“gases ventados”).
+O Estado de Minas Gerais exigiu o estorno desses créditos, argumentando que a energia
+elétrica usada na produção dos gases não comercializados não deveria gerar direito ao crédito
+de ICMS, conforme o art. 21, II, da LC 87/1996 (Lei Kandir). A empresa, por sua vez, sustentou
+que a energia foi essencial ao processo industrial e que a legislação não condiciona o direito
+ao crédito à comercialização do produto final.
+O STJ decidiu em favor da empresa, entendendo que os gases ventados são refugos naturais do
+processo produtivo e que a energia elétrica utilizada na industrialização permite a
+apropriação dos créditos de ICMS, conforme previsto no art. 33, II, b, da Lei Kandir.
+
+**Referência:**
+
+STJ. 1ª Turma. REsp 1.854.143-MG, Rel. Min. Paulo Sérgio Domingues, julgado em 10/12/2024 (Info 838).
+
+**Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
+
+---
