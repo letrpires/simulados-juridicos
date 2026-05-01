@@ -1,0 +1,20 @@
+__pycache__/
+*.backup*
+*.save
+.DS_Store
+
+arquivo_antigo/
+arquivo_intermediario/
+scripts antigos/
+logs_pipeline/
+
+questoes_geradas_api_revisar/
+questoes_geradas_api_revisar_grandes/
+questoes_geradas_api_revisar_sumulas/
+
+auditoria_final/
+controle_processamento/
+
+pdfs/
+
+data/backups/
