@@ -35,3 +35,4 @@ data/backups/
 # Se quiser garantir que só o JSON principal suba:
 # data/*
 # !data/questoes.json
+.DS_Store
