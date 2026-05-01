@@ -27,7 +27,10 @@ questoes_geradas_api_revisar_sumulas/
 
 auditoria_final/
 
+# 📁 PDFs (matéria-prima - NÃO sobe)
 pdfs/
+*.pdf
+pdfs.zip
 
 data/backups/
 
@@ -35,4 +38,4 @@ data/backups/
 # Se quiser garantir que só o JSON principal suba:
 # data/*
 # !data/questoes.json
-.DS_Store
+
