@@ -1,20 +1,37 @@
+# 🧠 Python
 __pycache__/
+*.pyc
+*.pyo
+
+# 💾 Backups e temporários
 *.backup*
 *.save
+*.tmp
+*.log
+index.backup*
+questoes_*backup*.json
+
+# 🍎 Sistema
 .DS_Store
 
+# 📁 Pastas de trabalho (NÃO publicar)
 arquivo_antigo/
 arquivo_intermediario/
 scripts antigos/
 logs_pipeline/
+controle_processamento/
 
 questoes_geradas_api_revisar/
 questoes_geradas_api_revisar_grandes/
 questoes_geradas_api_revisar_sumulas/
 
 auditoria_final/
-controle_processamento/
 
 pdfs/
 
 data/backups/
+
+# 🚨 OPCIONAL (cuidado!)
+# Se quiser garantir que só o JSON principal suba:
+# data/*
+# !data/questoes.json
