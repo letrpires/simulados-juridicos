@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Central de Simulados</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: #f7f3ed;
+            color: #1f2937;
+        }
+
+        header {
+            padding: 40px 28px;
+            background: #fffaf3;
+            border-bottom: 1px solid #e5ded4;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.2rem;
+        }
+
+        p {
+            color: #6b7280;
+            font-size: 1.05rem;
+        }
+
+        main {
+            padding: 28px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        section {
+            margin-bottom: 36px;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            margin-bottom: 16px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 14px;
+        }
+
+        .card {
+            display: block;
+            text-decoration: none;
+            background: white;
+            color: #111827;
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            padding: 18px;
+            font-weight: 700;
+            box-shadow: 0 8px 20px rgba(0,0,0,.04);
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 26px rgba(0,0,0,.08);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Central de Simulados</h1>
+        <p>Escolha um caderno para resolver questões por informativo, súmula, repercussão geral ou repetitivo.</p>
+    </header>
+
+    <main>
+        
+        <section>
+            <h2>Informativos STF</h2>
+            <div class="grid">
+                <a class="card" href="simulados/info-1121-stf.html">Info 1121 STF</a><a class="card" href="simulados/sumulas-stf-(até-736).html">Sumulas STF (Até 736)</a>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Informativos STJ</h2>
+            <div class="grid">
+                <a class="card" href="simulados/info-823-stj.html">Info 823 STJ</a><a class="card" href="simulados/info-824-stj.html">Info 824 STJ</a><a class="card" href="simulados/info-825-stj.html">Info 825 STJ</a><a class="card" href="simulados/info-826-stj.html">Info 826 STJ</a><a class="card" href="simulados/info-827-stj.html">Info 827 STJ</a><a class="card" href="simulados/info-828-stj.html">Info 828 STJ</a><a class="card" href="simulados/info-829-stj.html">Info 829 STJ</a><a class="card" href="simulados/info-830-stj.html">Info 830 STJ</a><a class="card" href="simulados/info-831-stj.html">Info 831 STJ</a><a class="card" href="simulados/info-832-stj.html">Info 832 STJ</a>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Outros</h2>
+            <div class="grid">
+                <a class="card" href="simulados/rep-tributário.html">Rep Tributário</a>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Repercussão Geral</h2>
+            <div class="grid">
+                <a class="card" href="simulados/rg-tributário.html">Rg Tributário</a>
+            </div>
+        </section>
+        
+    </main>
+</body>
+</html>

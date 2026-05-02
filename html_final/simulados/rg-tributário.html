@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulados Jurídicos STF/STJ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fraunces:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <div id="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">⚖️</div>
+        <div>
+          <h1>Simulados</h1>
+          <p>STF · STJ · Súmulas</p>
+        </div>
+      </div>
+      <nav class="nav" aria-label="Navegação principal">
+        <button data-view="dashboard" class="nav-btn active">🏠 <span>Dashboard</span></button>
+        <button data-view="study" class="nav-btn">🧠 <span>Estudar</span></button>
+        <button data-view="review" class="nav-btn">🔁 <span>Revisão</span></button>
+        <button data-view="library" class="nav-btn">📚 <span>Biblioteca</span></button>
+        <button data-view="settings" class="nav-btn">⚙️ <span>Ajustes</span></button>
+      </nav>
+      <div class="sidebar-footer">
+        <button id="themeToggle" class="ghost-btn">🌙 Modo escuro</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Banco local de questões</p>
+          <h2 id="viewTitle">Dashboard</h2>
+        </div>
+        <div class="top-actions">
+          <button id="continueBtn" class="primary-btn">Continuar</button>
+        </div>
+      </header>
+      <section id="content" class="content"></section>
+    </main>
+
+    <nav class="bottom-nav" aria-label="Navegação mobile">
+      <button data-view="dashboard" class="nav-btn active">🏠<small>Início</small></button>
+      <button data-view="study" class="nav-btn">🧠<small>Estudar</small></button>
+      <button data-view="review" class="nav-btn">🔁<small>Revisão</small></button>
+      <button data-view="library" class="nav-btn">📚<small>Base</small></button>
+      <button data-view="settings" class="nav-btn">⚙️<small>Ajustes</small></button>
+    </nav>
+  </div>
+  <script src="assets/app.js"></script>
+</body>
+</html>
