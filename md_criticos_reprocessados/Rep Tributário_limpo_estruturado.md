@@ -1,4 +1,4 @@
-# Rep Tributário
+# Rep Tributário
 
 **Status geral:** Estruturado automaticamente
 

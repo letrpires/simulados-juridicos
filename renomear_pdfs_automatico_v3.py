@@ -20,18 +20,37 @@ def ler_texto(pdf_path):
 
 
 def identificar_info(texto, nome_arquivo):
-    # padrão normal
-    m = re.search(r"Informativo\s+(\d{3,4}).*?(STJ|STF)", texto, re.I)
+    # Cabeçalho principal: Informativo 1202-STF / Informativo 16-STJ
+    m = re.search(r"Informativo\s+(\d{2,4})\s*[-–—]?\s*(STJ|STF)", texto, re.I)
+
     if m:
-        return m.group(1), m.group(2).upper(), "normal"
+        numero = m.group(1)
+        tribunal = m.group(2).upper()
 
-    # fallback pelo nome (edição extra STJ)
-    m2 = re.search(r"Info\s*(\d{2})\s*STJ", nome_arquivo, re.I)
+        # Regra segura:
+        # STJ com número pequeno (16, 22, 30 etc.) = edição extraordinária
+        if tribunal == "STJ" and int(numero) < 100:
+            return numero, tribunal, "extra"
+
+        return numero, tribunal, "normal"
+
+    # fallback pelo nome do arquivo
+    m2 = re.search(
+        r"(?:Info\s*(\d{2,4})\s*(STJ|STF)|Ed\.?\s*Extra(?:ordin[aá]ria)?\s*(\d{2,4})\s*STJ)",
+        nome_arquivo,
+        re.I
+    )
+
     if m2:
-        return m2.group(1), "STJ", "extra"
+        if m2.group(3):
+            return m2.group(3), "STJ", "extra"
 
-    return None
+        numero = m2.group(1)
+        tribunal = m2.group(2).upper()
+        tipo = "extra" if tribunal == "STJ" and int(numero) < 100 else "normal"
+        return numero, tribunal, tipo
 
+    return None, None, None
 
 def extrair_temas(texto):
     encontrados = set()
@@ -63,7 +82,9 @@ def main():
             info = identificar_info(texto, pdf.name)
             temas = extrair_temas(texto)
 
-            if not info:
+            numero, tribunal, tipo = info
+            
+            if not numero or not tribunal:
                 print(f"⚠️ Não identificado: {pdf.name}")
                 registros.append({
                     "arquivo": pdf.name,
@@ -71,8 +92,7 @@ def main():
                     "temas": temas
                 })
                 continue
-
-            numero, tribunal, tipo = info
+          
             novo_nome = nome_final(numero, tribunal, tipo)
 
             # 🔒 NÃO RENOMEIA SE JÁ ESTÁ CERTO

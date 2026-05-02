@@ -10,6 +10,8 @@
 
 **Subtema:** Tribunal De Contas
 
+**ODS:** 16
+
 **Título do julgado:**
 
 É ilegal o ato praticado pelos Conselheiros do TCE que, durante Sessão Plenária Administrativa, sem a participação do Ministério Público de Contas, delibera sobre matérias relativas a atos praticados pelo Procurador-Geral do MPC
@@ -38,6 +40,10 @@ STJ. 2ª Turma. AgInt no RMS 50.353-MS, Rel. Min. Teodoro Silva Santos, julgado 
 
 **Status:** Completo
 
+**Observações de saneamento:**
+
+Nenhuma.
+
 ---
 
 ## Julgado 2
@@ -45,6 +51,8 @@ STJ. 2ª Turma. AgInt no RMS 50.353-MS, Rel. Min. Teodoro Silva Santos, julgado 
 **Disciplina:** Direito Constitucional
 
 **Subtema:** Ministério Público
+
+**ODS:** 16
 
 **Título do julgado:**
 
@@ -74,6 +82,10 @@ STJ. 2ª Turma. RMS 71.079-DF, Rel. Min. Afrânio Vilela, julgado em 15/10/2024 
 
 **Status:** Completo
 
+**Observações de saneamento:**
+
+Nenhuma.
+
 ---
 
 ## Julgado 3
@@ -81,6 +93,8 @@ STJ. 2ª Turma. RMS 71.079-DF, Rel. Min. Afrânio Vilela, julgado em 15/10/2024 
 **Disciplina:** Direito Civil
 
 **Subtema:** Bem De Família
+
+**ODS:** 16
 
 **Título do julgado:**
 
@@ -110,6 +124,10 @@ STJ. 1ª Turma. REsp 2.133.984-RJ, Rel. Min. Paulo Sérgio Domingues, julgado em
 
 **Status:** Completo
 
+**Observações de saneamento:**
+
+Nenhuma.
+
 ---
 
 ## Julgado 4
@@ -117,6 +135,8 @@ STJ. 1ª Turma. REsp 2.133.984-RJ, Rel. Min. Paulo Sérgio Domingues, julgado em
 **Disciplina:** Direito Civil
 
 **Subtema:** Responsabilidade Civil
+
+**ODS:** 16
 
 **Título do julgado:**
 
@@ -153,6 +173,10 @@ STJ. 4ª Turma. REsp 1.697.723-RJ, Rel. Min. Raul Araújo, julgado em 1/10/2024 
 
 **Status:** Completo
 
+**Observações de saneamento:**
+
+Nenhuma.
+
 ---
 
 ## Julgado 5
@@ -160,6 +184,8 @@ STJ. 4ª Turma. REsp 1.697.723-RJ, Rel. Min. Raul Araújo, julgado em 1/10/2024 
 **Disciplina:** Direito Civil
 
 **Subtema:** Alienação Fiduciária Em Garantia
+
+**ODS:** 16
 
 **Título do julgado:**
 
@@ -192,6 +218,10 @@ STJ. 3ª Turma. REsp 2.167.264-PI, Rel. Min. Nancy Andrighi, julgado em 15/10/20
 
 **Status:** Completo
 
+**Observações de saneamento:**
+
+Nenhuma.
+
 ---
 
 ## Julgado 6
@@ -199,6 +229,8 @@ STJ. 3ª Turma. REsp 2.167.264-PI, Rel. Min. Nancy Andrighi, julgado em 15/10/20
 **Disciplina:** Direito Empresarial
 
 **Subtema:** Falência
+
+**ODS:** 16
 
 **Título do julgado:**
 
@@ -229,6 +261,10 @@ STJ. 2ª Seção. CC 200.512-RJ, Rel. Min. Nancy Andrighi, julgado em 9/10/2024 
 
 **Status:** Completo
 
+**Observações de saneamento:**
+
+Nenhuma.
+
 ---
 
 ## Julgado 7
@@ -236,6 +272,8 @@ STJ. 2ª Seção. CC 200.512-RJ, Rel. Min. Nancy Andrighi, julgado em 9/10/2024 
 **Disciplina:** Direito Empresarial
 
 **Subtema:** Recuperação Judicial
+
+**ODS:** 16
 
 **Título do julgado:**
 
@@ -266,6 +304,10 @@ STJ. 3ª Turma. REsp 2.070.288-PR, Rel. Min. Ricardo Villas Bôas Cueva, julgado
 
 **Status:** Completo
 
+**Observações de saneamento:**
+
+Nenhuma.
+
 ---
 
 ## Julgado 8
@@ -273,6 +315,8 @@ STJ. 3ª Turma. REsp 2.070.288-PR, Rel. Min. Ricardo Villas Bôas Cueva, julgado
 **Disciplina:** Eca
 
 **Subtema:** Infrações Administrativas
+
+**ODS:** 16
 
 **Título do julgado:**
 
@@ -297,6 +341,10 @@ STJ. 4ª Turma. REsp 1.944.020-MG, Rel. Min. Antonio Carlos Ferreira, julgado em
 
 **Status:** Completo
 
+**Observações de saneamento:**
+
+Nenhuma.
+
 ---
 
 ## Julgado 9
@@ -304,6 +352,8 @@ STJ. 4ª Turma. REsp 1.944.020-MG, Rel. Min. Antonio Carlos Ferreira, julgado em
 **Disciplina:** Direito Processual Civil
 
 **Subtema:** Citação Por Edital
+
+**ODS:** 16
 
 **Título do julgado:**
 
@@ -331,6 +381,10 @@ STJ. 4ª Turma. REsp 2.152.938-DF, Rel. Min. Antonio Carlos Ferreira, julgado em
 
 **Status:** Completo
 
+**Observações de saneamento:**
+
+Nenhuma.
+
 ---
 
 ## Julgado 10
@@ -338,6 +392,8 @@ STJ. 4ª Turma. REsp 2.152.938-DF, Rel. Min. Antonio Carlos Ferreira, julgado em
 **Disciplina:** Direito Processual Civil
 
 **Subtema:** Irdr
+
+**ODS:** 16
 
 **Título do julgado:**
 
@@ -363,6 +419,10 @@ STJ. 1ª Seção. AgInt no REsp 2.056.198-PR, Rel. Min. Gurgel de Faria, julgado
 
 **Status:** Completo
 
+**Observações de saneamento:**
+
+Nenhuma.
+
 ---
 
 ## Julgado 11
@@ -370,6 +430,8 @@ STJ. 1ª Seção. AgInt no REsp 2.056.198-PR, Rel. Min. Gurgel de Faria, julgado
 **Disciplina:** Direito Processual Civil
 
 **Subtema:** Execução
+
+**ODS:** 16
 
 **Título do julgado:**
 
@@ -410,6 +472,10 @@ STJ. 3ª Turma. REsp 2.165.124-DF, Rel. Min. Nancy Andrighi, julgado em 15/10/20
 
 **Status:** Completo
 
+**Observações de saneamento:**
+
+Nenhuma.
+
 ---
 
 ## Julgado 12
@@ -417,6 +483,8 @@ STJ. 3ª Turma. REsp 2.165.124-DF, Rel. Min. Nancy Andrighi, julgado em 15/10/20
 **Disciplina:** Direito Processual Civil
 
 **Subtema:** Execução Fiscal
+
+**ODS:** 16
 
 **Título do julgado:**
 
@@ -457,6 +525,10 @@ STJ. 1ª Turma. AREsp 2.670.058-TO, Rel. Min. Gurgel de Faria, julgado em 22/10/
 
 **Status:** Completo
 
+**Observações de saneamento:**
+
+Nenhuma.
+
 ---
 
 ## Julgado 13
@@ -496,6 +568,10 @@ STJ. 5ª Turma. REsp 2.066.642-MG, Rel. Min. Ribeiro Dantas, julgado em 13/8/202
 
 **Status:** Completo
 
+**Observações de saneamento:**
+
+Nenhuma.
+
 ---
 
 ## Julgado 14
@@ -503,6 +579,8 @@ STJ. 5ª Turma. REsp 2.066.642-MG, Rel. Min. Ribeiro Dantas, julgado em 13/8/202
 **Disciplina:** Direito Penal
 
 **Subtema:** Estatuto Da Pessoa Com Deficiência
+
+**ODS:** 16
 
 **Título do julgado:**
 
@@ -536,6 +614,10 @@ STJ. 5ª Turma. AgRg no RHC 193.928-SP, Rel. Min. Reynaldo Soares da Fonseca, ju
 
 **Status:** Completo
 
+**Observações de saneamento:**
+
+Nenhuma.
+
 ---
 
 ## Julgado 15
@@ -543,6 +625,8 @@ STJ. 5ª Turma. AgRg no RHC 193.928-SP, Rel. Min. Reynaldo Soares da Fonseca, ju
 **Disciplina:** Direito Processual Penal
 
 **Subtema:** Competência
+
+**ODS:** 16
 
 **Título do julgado:**
 
@@ -561,6 +645,10 @@ STJ. 6ª Turma. AgRg no HC 717.984-SC, Rel. Min. Otávio de Almeida Toledo (Dese
 
 **Status:** Completo
 
+**Observações de saneamento:**
+
+Nenhuma.
+
 ---
 
 ## Julgado 16
@@ -568,6 +656,8 @@ STJ. 6ª Turma. AgRg no HC 717.984-SC, Rel. Min. Otávio de Almeida Toledo (Dese
 **Disciplina:** Direito Processual Penal
 
 **Subtema:** Provas
+
+**ODS:** 16
 
 **Título do julgado:**
 
@@ -600,6 +690,10 @@ STJ. 3ª Seção. AgRg na Rcl 47.883-RJ, Rel. Min. Reynaldo Soares da Fonseca, j
 
 **Status:** Completo
 
+**Observações de saneamento:**
+
+Nenhuma.
+
 ---
 
 ## Julgado 17
@@ -607,6 +701,8 @@ STJ. 3ª Seção. AgRg na Rcl 47.883-RJ, Rel. Min. Reynaldo Soares da Fonseca, j
 **Disciplina:** Direito Processual Penal
 
 **Subtema:** Recursos
+
+**ODS:** 16
 
 **Título do julgado:**
 
@@ -635,6 +731,10 @@ STJ. 6ª Turma. AgRg no RtPaut no REsp 2.125.449-SP, Rel. Min. Antonio Saldanha 
 
 **Status:** Completo
 
+**Observações de saneamento:**
+
+Nenhuma.
+
 ---
 
 ## Julgado 18
@@ -642,6 +742,8 @@ STJ. 6ª Turma. AgRg no RtPaut no REsp 2.125.449-SP, Rel. Min. Antonio Saldanha 
 **Disciplina:** Direito Tributário
 
 **Subtema:** Outros Temas
+
+**ODS:** 16
 
 **Título do julgado:**
 
@@ -668,5 +770,9 @@ Especial de Regularização Cambial e Tributária (RERCT).
 STJ. 1ª Turma. REsp 2.090.730-RJ, Rel. Min. Paulo Sérgio Domingues, julgado em 8/10/2024 (Info 832).
 
 **Status:** Completo
+
+**Observações de saneamento:**
+
+Nenhuma.
 
 ---

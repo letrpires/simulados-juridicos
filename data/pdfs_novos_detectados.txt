@@ -1,1 +1,3 @@
-pdfs/Info 832 STJ.pdf
+pdfs/Ed. Extra 24 STJ.pdf
+pdfs/Ed. Extra 19 STJ.pdf
+pdfs/Ed. Extra 15 STJ.pdf

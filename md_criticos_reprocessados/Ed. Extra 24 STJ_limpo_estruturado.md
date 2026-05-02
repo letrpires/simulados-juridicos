@@ -10,8 +10,6 @@
 
 **Subtema:** Crimes Contra A Pessoa > Crimes Contra A Vida > Lesão Corporal
 
-**ODS:** 16
-
 **Título do julgado:**
 
 A decisão médica em contexto de urgência, como a do parto, deve ser respeitada, dentro dos limites da responsabilidade civil, especialmente quando o procedimento adotado se revelar necessário para a segurança da parturiente e do recém-nascido
@@ -45,10 +43,6 @@ STJ. 5ª Turma. AREsp 2.587.582-SP, Rel. Min. Ribeiro Dantas, Rel. para acórdã
 
 **Status:** Completo
 
-**Observações de saneamento:**
-
-Nenhuma.
-
 ---
 
 ## Julgado 2
@@ -56,8 +50,6 @@ Nenhuma.
 **Disciplina:** Direito Penal
 
 **Subtema:** Crimes Contra A Administração Pública > Corrupção Passiva
-
-**ODS:** 16
 
 **Título do julgado:**
 
@@ -86,10 +78,6 @@ STJ. 6ª Turma. AREsp 920.664-DF, Rel. Min. Antonio Saldanha Palheiro, julgado e
 
 **Status:** Completo
 
-**Observações de saneamento:**
-
-Nenhuma.
-
 ---
 
 ## Julgado 3
@@ -97,8 +85,6 @@ Nenhuma.
 **Disciplina:** Direito Penal
 
 **Subtema:** Crimes Contra A Ordem Tributária
-
-**ODS:** 16
 
 **Título do julgado:**
 
@@ -125,10 +111,6 @@ STJ. 6ª Turma. AgRg no RHC 200.315-SP, Rel. Min. Og Fernandes, julgado em 4/11/
 
 **Status:** Completo
 
-**Observações de saneamento:**
-
-Nenhuma.
-
 ---
 
 ## Julgado 4
@@ -136,8 +118,6 @@ Nenhuma.
 **Disciplina:** Direito Penal
 
 **Subtema:** Lei De Drogas
-
-**ODS:** 16
 
 **Título do julgado:**
 
@@ -169,10 +149,6 @@ STJ. 5ª Turma. HC 888.877-MS, Rel. Min. Daniela Teixeira, julgado em 22/10/2024
 
 **Status:** Completo
 
-**Observações de saneamento:**
-
-Nenhuma.
-
 ---
 
 ## Julgado 5
@@ -180,8 +156,6 @@ Nenhuma.
 **Disciplina:** Direito Penal
 
 **Subtema:** Lei Maria Da Penha
-
-**ODS:** 5 E 16
 
 **Título do julgado:**
 
@@ -212,10 +186,6 @@ STJ. 5ª Turma. AgRg no HC 860.073-SC, Rel. Min. Ribeiro Dantas, julgado em 13/1
 
 **Status:** Completo
 
-**Observações de saneamento:**
-
-Nenhuma.
-
 ---
 
 ## Julgado 6
@@ -224,7 +194,7 @@ Nenhuma.
 
 **Subtema:** Ação Penal
 
-**ODS:** 16 1
+1
 
 **Título do julgado:**
 
@@ -254,10 +224,6 @@ STJ. 3ª Seção. AgRg no CC 208.449-SC, Rel. Min. Messod Azulay Neto, julgado e
 
 **Status:** Completo
 
-**Observações de saneamento:**
-
-Nenhuma.
-
 ---
 
 ## Julgado 7
@@ -265,8 +231,6 @@ Nenhuma.
 **Disciplina:** Direito Processual Penal
 
 **Subtema:** Competência
-
-**ODS:** 16
 
 **Título do julgado:**
 
@@ -291,10 +255,6 @@ STJ. 3ª Seção. CC 205.569-SP, Rel. Min. Messod Azulay Neto, julgado em 13/11/
 
 **Status:** Completo
 
-**Observações de saneamento:**
-
-Nenhuma.
-
 ---
 
 ## Julgado 8
@@ -302,8 +262,6 @@ Nenhuma.
 **Disciplina:** Direito Processual Penal
 
 **Subtema:** Provas
-
-**ODS:** 16
 
 **Título do julgado:**
 
@@ -327,10 +285,6 @@ STJ. 6ª Turma. HC 783.927/MG, Rel. Min. Sebastião Reis Júnior, julgado em 14/
 
 **Status:** Completo
 
-**Observações de saneamento:**
-
-Nenhuma.
-
 ---
 
 ## Julgado 9
@@ -347,17 +301,11 @@ N/I
 
 **Tese / entendimento:**
 
-
-
 **Referência:**
 
 STJ. 5ª Turma. AgRg no RHC 181.907/MG, Rel. Min. Daniela Teixeira, julgado em 4/12/2024 (Info 24 - Edição Extraordinária).
 
 **Status:** Revisão crítica
-
-**Observações de saneamento:**
-
-Verificar: subtema, título, tese curta.
 
 ---
 
@@ -367,7 +315,7 @@ Verificar: subtema, título, tese curta.
 
 **Subtema:** Provas
 
-**ODS:** 16 1
+1
 
 **Título do julgado:**
 
@@ -387,10 +335,6 @@ STJ. 5ª Turma. RHC 201.851-DF, Rel. Min. Ribeiro Dantas, julgado em 17/12/2024 
 
 **Status:** Completo
 
-**Observações de saneamento:**
-
-Nenhuma.
-
 ---
 
 ## Julgado 11
@@ -398,8 +342,6 @@ Nenhuma.
 **Disciplina:** Direito Processual Penal
 
 **Subtema:** Provas
-
-**ODS:** 16
 
 **Título do julgado:**
 
@@ -436,10 +378,6 @@ STJ. 6ª Turma. HC 908.010-SC, Rel. Min. Sebastião Reis Júnior, julgado em 17/
 
 **Status:** Completo
 
-**Observações de saneamento:**
-
-Nenhuma.
-
 ---
 
 ## Julgado 12
@@ -447,8 +385,6 @@ Nenhuma.
 **Disciplina:** Direito Processual Penal
 
 **Subtema:** Provas
-
-**ODS:** 16
 
 **Título do julgado:**
 
@@ -474,10 +410,6 @@ STJ. 6ª Turma. AgRg no HC 886.071-AL, Rel. Min. Sebastião Reis Júnior, julgad
 
 **Status:** Completo
 
-**Observações de saneamento:**
-
-Nenhuma.
-
 ---
 
 ## Julgado 13
@@ -485,8 +417,6 @@ Nenhuma.
 **Disciplina:** Direito Processual Penal
 
 **Subtema:** Interceptação Telefônica
-
-**ODS:** 16
 
 **Título do julgado:**
 
@@ -515,10 +445,6 @@ STJ. 6ª Turma. AgRg no HC 910.860-PB, Rel. Min. Antonio Saldanha Palheiros, Rel
 
 **Status:** Completo
 
-**Observações de saneamento:**
-
-Nenhuma.
-
 ---
 
 ## Julgado 14
@@ -526,8 +452,6 @@ Nenhuma.
 **Disciplina:** Direito Processual Penal
 
 **Subtema:** Colaboração Premiada
-
-**ODS:** 16
 
 **Título do julgado:**
 
@@ -560,10 +484,6 @@ STJ. 5ª Turma. AgRg no RHC 203.874-RJ, Rel. Min. Reynaldo Soares da Fonseca, ju
 
 **Status:** Completo
 
-**Observações de saneamento:**
-
-Nenhuma.
-
 ---
 
 ## Julgado 15
@@ -571,8 +491,6 @@ Nenhuma.
 **Disciplina:** Direito Processual Penal
 
 **Subtema:** Sentença
-
-**ODS:** 16
 
 **Título do julgado:**
 
@@ -590,10 +508,6 @@ STJ. 3ª Seção. HC 462.253-SC, Rel. Min. Nefi Cordeiro, julgado em 28/11/2018 
 
 **Status:** Completo
 
-**Observações de saneamento:**
-
-Nenhuma.
-
 ---
 
 ## Julgado 16
@@ -610,17 +524,11 @@ N/I
 
 **Tese / entendimento:**
 
-
-
 **Referência:**
 
 STJ. 6ª Turma. AgRg no HC 902.892-PI, Rel. Min. Antonio Saldanha Palheiro, julgado em 3/9/2024 (Info 24 - Edição Extraordinária).
 
 **Status:** Revisão crítica
-
-**Observações de saneamento:**
-
-Verificar: subtema, título, tese curta.
 
 ---
 
@@ -629,8 +537,6 @@ Verificar: subtema, título, tese curta.
 **Disciplina:** Direito Processual Penal
 
 **Subtema:** Outros Temas > Fundamentação
-
-**ODS:** 16
 
 **Título do julgado:**
 
@@ -663,10 +569,6 @@ STJ. 5ª Turma. AgRg no HC 876.612-SP, Rel. Min. Daniela Teixeira, Rel. para ac�
 
 **Status:** Completo
 
-**Observações de saneamento:**
-
-Nenhuma.
-
 ---
 
 ## Julgado 18
@@ -674,8 +576,6 @@ Nenhuma.
 **Disciplina:** Direito Processual Penal
 
 **Subtema:** Tribunal Do Júri
-
-**ODS:** 16
 
 **Título do julgado:**
 
@@ -700,10 +600,6 @@ STJ. 5ª Turma. HC 778.503-MG, Rel. Min. Daniela Teixeira, julgado em 12/3/2024 
 
 **Status:** Completo
 
-**Observações de saneamento:**
-
-Nenhuma.
-
 ---
 
 ## Julgado 19
@@ -720,17 +616,11 @@ N/I
 
 **Tese / entendimento:**
 
-
-
 **Referência:**
 
 STJ. 6ª Turma. HC 945.012-SP, Rel. Min. Og Fernandes, julgado em 15/10/2024 (Info 24 - Edição Extraordinária).
 
 **Status:** Revisão crítica
-
-**Observações de saneamento:**
-
-Verificar: subtema, título, tese curta.
 
 ---
 
@@ -739,8 +629,6 @@ Verificar: subtema, título, tese curta.
 **Disciplina:** Direito Processual Penal
 
 **Subtema:** Tribunal Do Júri
-
-**ODS:** 16
 
 **Título do julgado:**
 
@@ -771,10 +659,6 @@ STJ. 6ª Turma. HC 947.076-MG, Rel. Min. Rogerio Schietti Cruz, julgado em 3/12/
 
 **Status:** Completo
 
-**Observações de saneamento:**
-
-Nenhuma.
-
 ---
 
 ## Julgado 21
@@ -782,8 +666,6 @@ Nenhuma.
 **Disciplina:** Direito Processual Penal
 
 **Subtema:** Execução Penal
-
-**ODS:** 16
 
 **Título do julgado:**
 
@@ -817,10 +699,6 @@ STJ. 5ª Turma. AgRg no HC 954.277-SP, Rel. Min. Reynaldo Soares da Fonseca, jul
 
 **Status:** Completo
 
-**Observações de saneamento:**
-
-Nenhuma.
-
 ---
 
 ## Julgado 22
@@ -828,8 +706,6 @@ Nenhuma.
 **Disciplina:** Direito Processual Penal
 
 **Subtema:** Execução Penal
-
-**ODS:** 16
 
 **Título do julgado:**
 
@@ -858,9 +734,5 @@ de multa são compatíveis com os regimes semiaberto e fechado.
 STJ. 6ª Turma. AgRg no HC 914.911-DF, Rel. Min. Otávio de Almeida Toledo (Desembargador convocado do TJSP), julgado em 30/9/2024 (Info 24 - Edição Extraordinária).
 
 **Status:** Completo
-
-**Observações de saneamento:**
-
-Nenhuma.
 
 ---

@@ -1,4 +1,4 @@
-# Sumulas STF (até 736)
+# Sumulas STF (até 736)
 
 **Status geral:** Estruturado automaticamente
 

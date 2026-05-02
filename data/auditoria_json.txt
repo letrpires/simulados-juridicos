@@ -1,19 +1,19 @@
 AUDITORIA DE GERAÇÃO DO JSON
-Data/hora: 01/05/2026 15:22:15
+Data/hora: 01/05/2026 22:45:20
 
-Total de arquivos lidos: 173
-Total de questões extraídas: 4178
+Total de arquivos lidos: 206
+Total de questões extraídas: 4600
 Questões marcadas para revisão manual: 5
 Arquivos sem questões detectadas: 0
 Questões sem gabarito: 0
 Questões sem enunciado: 0
 Questões sem explicação: 0
 Alertas de DRY-RUN: 0
-IDs duplicados: 0
+IDs duplicados: 6
 
 RESUMO POR CATEGORIA:
-- Edição Extraordinária: 175
-- Informativos: 1207
+- Edição Extraordinária: 197
+- Informativos: 1607
 - Repercussão Geral: 568
 - Repetitivos: 795
 - Súmulas: 1433
@@ -23,7 +23,7 @@ RESUMO POR MÓDULO:
 - Informativos STF 2024: 19
 - Informativos STF 2025: 216
 - Informativos STF 2026: 38
-- Informativos STJ: 45
+- Informativos STJ: 445
 - Informativos STJ 2024: 46
 - Informativos STJ 2025: 539
 - Informativos STJ 2026: 95
@@ -45,7 +45,7 @@ RESUMO POR MÓDULO:
 - Repetitivo - Processo Civil: 267
 - Repetitivo - Processo Penal: 59
 - Repetitivo - Tributário: 124
-- STJ Edição Extraordinária 2025: 133
+- STJ Edição Extraordinária 2025: 155
 - STJ Edição Extraordinária 2026: 42
 - Súmulas STF: 735
 - Súmulas STJ: 637
@@ -53,4 +53,9 @@ RESUMO POR MÓDULO:
 
 DETALHES DOS ALERTAS:
 
-Nenhum alerta encontrado.
+[ID DUPLICADO] stj-2025-extra-24-q001
+[ID DUPLICADO] stj-2025-extra-24-q002
+[ID DUPLICADO] stj-2025-extra-24-q003
+[ID DUPLICADO] stj-2025-extra-24-q004
+[ID DUPLICADO] stj-2025-extra-24-q005
+[ID DUPLICADO] stj-2025-extra-24-q006

@@ -34,10 +34,13 @@ fi
 
 echo ""
 echo "⚡ 3.1) Gerando HTML apenas dos novos PDFs..."
-python3 gerar_html_por_pdf_novo.py
+echo ""
+echo "⚡ 3.1) Gerando HTML apenas dos novos PDFs..."
+# python3 gerar_html_por_pdf_novo.py
+
 echo ""
 echo "🧭 Gerando menu central..."
-python3 gerar_menu_central.py
+# python3 gerar_menu_central.py
 
 echo ""
 echo "🔎 4) Corrigindo referências..."
