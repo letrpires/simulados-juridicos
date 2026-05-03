@@ -3,13 +3,6 @@ const LS_KEY='simulados_juridicos_estado_v1';
 let questions=[]; let state=loadState(); let currentView='dashboard'; let session=[]; let currentIndex=0;
 function today(){return new Date().toISOString().slice(0,10)}
 function addDays(d,n){const x=new Date(d||today());x.setDate(x.getDate()+n);return x.toISOString().slice(0,10)}
-function shuffle(array){
-  for(let i = array.length - 1; i > 0; i--){
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-  return array;
-}
 function loadState(){try{return JSON.parse(localStorage.getItem(LS_KEY))||defaultState()}catch{return defaultState()}}
 function defaultState(){return{answers:{},marked:{},xp:0,badges:[],sessions:[],settings:{theme:localStorage.getItem('theme')||''},lastSession:null,studySeconds:0}}
 function save(){localStorage.setItem(LS_KEY,JSON.stringify(state))}
@@ -53,35 +46,7 @@ function filtered(){
   })
 }
 function startSessionFromFilters(){const label=document.getElementById('info')?.selectedOptions?.[0]?.text || document.getElementById('mod').value || document.getElementById('cat').value || 'Sessão personalizada';startSession({list:filtered(),label})}
-function startSession(opts={}){
-  let list = opts.list;
-  let startAt = 0;
-
-  if(!list){
-    if(opts.mode === 'continue' && state.lastSession?.ids?.length){
-      list = state.lastSession.ids
-        .map(id => questions.find(q => q.id === id))
-        .filter(Boolean);
-
-      startAt = list.findIndex(q => !qState(q.id).seen);
-
-      if(startAt < 0){
-        list = shuffle(questions.filter(q => !qState(q.id).seen)).slice(0,30);
-        startAt = 0;
-      }
-    } else {
-      list = shuffle(questions.filter(q => !qState(q.id).seen)).slice(0,30);
-    }
-  } else {
-    list = shuffle([...list]);
-  }
-
-  session = list.slice(0,50);
-  currentIndex = Math.min(startAt, Math.max(session.length - 1, 0));
-  state.lastSession = { ids: session.map(q => q.id) };
-  save();
-  renderQuestion();
-};let startAt=0;if(!list){if(opts.mode==='continue'&&state.lastSession?.ids?.length){list=state.lastSession.ids.map(id=>questions.find(q=>q.id===id)).filter(Boolean);startAt=list.findIndex(q=>!qState(q.id).seen);if(startAt<0){list=questions.filter(q=>!qState(q.id).seen).slice(0,30);startAt=0}}else{list=questions.filter(q=>!qState(q.id).seen).slice(0,30)}} session=list.slice(0,50); currentIndex=Math.min(startAt,Math.max(session.length-1,0)); state.lastSession={ids:session.map(q=>q.id)}; save(); renderQuestion()}
+function startSession(opts={}){let list=opts.list;let startAt=0;if(!list){if(opts.mode==='continue'&&state.lastSession?.ids?.length){list=state.lastSession.ids.map(id=>questions.find(q=>q.id===id)).filter(Boolean);startAt=list.findIndex(q=>!qState(q.id).seen);if(startAt<0){list=questions.filter(q=>!qState(q.id).seen).slice(0,30);startAt=0}}else{list=questions.filter(q=>!qState(q.id).seen).slice(0,30)}} session=list.slice(0,50); currentIndex=Math.min(startAt,Math.max(session.length-1,0)); state.lastSession={ids:session.map(q=>q.id)}; save(); renderQuestion()}
 
 
 function referenciaFinal(q){
@@ -116,7 +81,7 @@ function limparExplicacaoFinal(txt){
 }
 
 function renderQuestion(){if(!session.length){document.getElementById('content').innerHTML='<div class="card"><h3>Nenhuma questão encontrada.</h3></div>';return} if(currentIndex>=session.length){finishSession();return} const q=session[currentIndex], st=qState(q.id), pct=Math.round(currentIndex/session.length*100); document.getElementById('viewTitle').textContent='Sessão de estudo'; document.getElementById('content').innerHTML=`<div class="card question-card"><div class="progress-bar"><span style="width:${pct}%"></span></div><p class="eyebrow">Questão ${currentIndex+1} de ${session.length}</p><div class="question-meta"><span>${q.modulo}</span><span>•</span><span>${q.fonte||''}</span><span>•</span><span>${q.disciplina||''}</span></div><div class="question-text">${escapeHtml(q.enunciado)}</div><div class="answers"><button class="answer-btn" onclick="answer('C')">CERTO</button><button class="answer-btn" onclick="answer('E')">ERRADO</button></div><div class="pill-row" style="margin-top:12px"><button class="pill ${state.marked[q.id]?'active':''}" onclick="toggleMark('${q.id}')">⭐ Marcar</button><button class="pill" onclick="currentIndex++;renderQuestion()">Pular</button></div><div id="feedback"></div></div>`}
-function answer(resp){const q=session[currentIndex];const correct=q.respostaCorreta===resp;let st=qState(q.id);st.seen=true;st.correct=correct;st.attempts=(st.attempts||0)+1;st.lastReviewed=today();st.interval=correct?Math.max(2,(st.interval||1)*2):1;st.nextReview=addDays(today(),st.interval);st.history=[...(st.history||[]),{date:today(),resp,correct}];state.answers[q.id]=st;state.xp+=(correct?10:3);save();document.querySelectorAll('.answer-btn').forEach(b=>{const val=b.textContent.trim().charAt(0);if(val===q.respostaCorreta){b.classList.add('correct')}else if(val===resp){b.classList.add('wrong')}b.disabled=true});document.getElementById('feedback').innerHTML=`<div class="feedback"><b>${correct?'✅ Acertou':'❌ Errou'}.</b> Gabarito: <b>${q.respostaCorreta==='C'?'CERTO':'ERRADO'}</b><br><br>${limparExplicacaoFinal(q.explicacao||'Sem explicação cadastrada.')}<br><br><div class="referencia-box"><strong>Referência:</strong><br>${escapeHtml(referenciaFinal(q))}</div><br><button class="primary-btn" style="margin-top:12px" onclick="currentIndex++;renderQuestion()">Próxima</button></div>`}
+function answer(resp){const q=session[currentIndex];const correct=q.respostaCorreta===resp;let st=qState(q.id);st.seen=true;st.correct=correct;st.attempts=(st.attempts||0)+1;st.lastReviewed=today();st.interval=correct?Math.max(2,(st.interval||1)*2):1;st.nextReview=addDays(today(),st.interval);st.history=[...(st.history||[]),{date:today(),resp,correct}];state.answers[q.id]=st;state.xp+=(correct?10:3);save();document.querySelectorAll('.answer-btn').forEach(b=>{const val=b.textContent.trim().charAt(0);if(val===q.respostaCorreta){b.classList.add('correct')}else if(val===resp){b.classList.add('wrong')}b.disabled=true});document.getElementById('feedback').innerHTML=`<div class="feedback"><b>${correct?'✅ Acertou':'❌ Errou'}.</b> Gabarito: <b>${q.respostaCorreta==='C'?'CERTO':'ERRADO'}</b><br><br>${limparExplicacaoFinal(q.explicacao||'Sem explicação cadastrada.')}<br><br><small>${escapeHtml(referenciaFinal(q))}</small><br><button class="primary-btn" style="margin-top:12px" onclick="currentIndex++;renderQuestion()">Próxima</button></div>`}
 function toggleMark(id){state.marked[id]=!state.marked[id];save();renderQuestion()}
 function finishSession(){const ids=session.map(q=>q.id);const correct=ids.filter(id=>qState(id).correct===true).length;state.sessions.push({date:today(),label:'Sessão',total:ids.length,correct});save();document.getElementById('content').innerHTML=`<div class="card question-card"><h2>Sessão concluída</h2><p>Você acertou <b>${correct}</b> de <b>${ids.length}</b>.</p><p>XP atual: <b>${state.xp}</b></p><button class="primary-btn" onclick="render('dashboard')">Ver dashboard</button></div>`}
 function renderReview(){const due=questions.filter(q=>{const s=qState(q.id);return s.nextReview&&s.nextReview<=today()});document.getElementById('content').innerHTML=`<div class="card"><h3>Revisões de hoje</h3><p>${due.length} questão(ões) vencidas para revisão.</p><button class="primary-btn" onclick='startSession({list:${JSON.stringify(due.map(q=>q.id))}.map(id=>questions.find(q=>q.id===id)).filter(Boolean),label:"Revisão"})'>Iniciar revisão</button></div>`}

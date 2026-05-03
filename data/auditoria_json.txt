@@ -1,8 +1,8 @@
 AUDITORIA DE GERAÇÃO DO JSON
-Data/hora: 01/05/2026 22:45:20
+Data/hora: 02/05/2026 11:47:42
 
-Total de arquivos lidos: 206
-Total de questões extraídas: 4600
+Total de arquivos lidos: 212
+Total de questões extraídas: 4756
 Questões marcadas para revisão manual: 5
 Arquivos sem questões detectadas: 0
 Questões sem gabarito: 0
@@ -13,7 +13,7 @@ IDs duplicados: 6
 
 RESUMO POR CATEGORIA:
 - Edição Extraordinária: 197
-- Informativos: 1607
+- Informativos: 1763
 - Repercussão Geral: 568
 - Repetitivos: 795
 - Súmulas: 1433
@@ -23,7 +23,7 @@ RESUMO POR MÓDULO:
 - Informativos STF 2024: 19
 - Informativos STF 2025: 216
 - Informativos STF 2026: 38
-- Informativos STJ: 445
+- Informativos STJ: 601
 - Informativos STJ 2024: 46
 - Informativos STJ 2025: 539
 - Informativos STJ 2026: 95

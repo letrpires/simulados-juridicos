@@ -20,6 +20,9 @@ O entendimento firmado é que, no período entre a publicação da Lei nº 11.48
 
 ---
 
+**Referência:**
+STJ. 1a Seção. REsps 2.015.301-MA e 2.036.429-MA, Rel. Min. Paulo Sérgio Domingues, julgado em 13/9/2023 (Recurso Repetitivo - Tema 1199) (Info 17 - Edição Extraordinária).
+
 ## Questão 2
 
 <!-- ID_ORIGEM: JULGADO-2 -->
@@ -34,6 +37,9 @@ No âmbito do Direito Ambiental brasileiro, o direito de acesso à informação 
 A transparência ativa exige a publicação dos documentos ambientais não sujeitos a sigilo, ou seja, a Administração não é obrigada a publicar informações protegidas por sigilo legal. Assim, o direito de acesso à informação ambiental não é absoluto para documentos sigilosos, havendo restrições legais que justificam a não divulgação.
 
 ---
+
+**Referência:**
+STJ. 1a Seção. REsp 1.857.098-MS, Rel. Min. Og Fernandes, julgado em 11/05/2022 (Tema IAC 13) (Info 17 - Edição Extraordinária).
 
 ## Questão 3
 
@@ -50,6 +56,9 @@ O Superior Tribunal de Justiça firmou entendimento de que a ausência de manife
 
 ---
 
+**Referência:**
+STJ. 2a Turma. REsp 1.728.334-RJ, Rel. Min. Herman Benjamin, julgado em 5/6/2018 (Info 17 - Edição Extraordinária).
+
 ## Questão 4
 
 <!-- ID_ORIGEM: JULGADO-4 -->
@@ -64,6 +73,9 @@ A consolidação da intervenção antropizada em Área de Preservação Permanen
 Não existe direito adquirido à poluição ou à degradação ambiental. A antropização consolidada de área degradada não legitima a permanência de construções irregulares, ainda que licenciadas anteriormente, pois a obrigação de recuperar o meio ambiente é propter rem, ou seja, vinculada ao imóvel, independentemente do responsável pela degradação anterior. Portanto, a manutenção da situação lesiva ao meio ambiente não é autorizada pela consolidação da intervenção na APP.
 
 ---
+
+**Referência:**
+Código Florestal e da Súmula 623 do STJ. STJ. 2a Turma. REsp 1.877.192-PR, Rel. Min. Francisco Falcão, julgado em 9/11/2023 (Info 17 - Edição Extraordinária).
 
 ## Questão 5
 
@@ -80,6 +92,9 @@ A capitalização de juros com periodicidade inferior a um ano em contratos cele
 
 ---
 
+**Referência:**
+STJ. 2a Seção. REsp 973.827-RS, Rel. originário Min. Luis Felipe Salomão, Rel. para o acórdão Min. Maria Isabel Gallotti, julgado em 27/6/2012 (Recurso Repetitivo - Temas 246 e 247) (Info 17 - Edição Extraordinária).
+
 ## Questão 6
 
 <!-- ID_ORIGEM: JULGADO-6 -->
@@ -94,6 +109,9 @@ A capitalização de juros em contratos de mútuo é válida mesmo que não haja
 A capitalização de juros somente é válida se houver expressa pactuação no contrato, independentemente da periodicidade. O artigo 591 do Código Civil permite a capitalização anual, mas não a impõe automaticamente, sendo indispensável a previsão contratual para sua aplicação.
 
 ---
+
+**Referência:**
+STJ. 2a Seção. REsp 1.388.972-SC, Rel. Min. Marco Buzzi, julgado em 8/2/2017 (Recurso Repetitivo - Tema 953) (Info 17 - Edição Extraordinária).
 
 ## Questão 7
 
@@ -110,6 +128,9 @@ A transmissão de músicas por streaming, incluindo webcasting e simulcasting, c
 
 ---
 
+**Referência:**
+STJ. 2a Seção. REsp 1.559.264/RJ, Rel. Min. Ricardo Villas Bôas Cueva, julgado em 08/02/2017 (Info 17 - Edição Extraordinária).
+
 ## Questão 8
 
 <!-- ID_ORIGEM: JULGADO-8 -->
@@ -124,6 +145,9 @@ Em condomínios residenciais com convenção que impõe destinação exclusivame
 A jurisprudência do STJ reconhece que a convenção condominial que estabelece destinação residencial exclusiva pode proibir a locação por curto prazo, como via Airbnb, pois essa modalidade caracteriza exploração econômica eventual e transitória, que contraria a finalidade residencial do condomínio. Tal restrição visa preservar o sossego, a segurança e a salubridade, afetados pela alta rotatividade de pessoas estranhas à comunidade, garantindo o direito de propriedade voltado à moradia e à paz dos condôminos. Ademais, a alteração dessa destinação somente pode ocorrer mediante deliberação em assembleia com maioria qualificada (2/3 das frações ideais), para permitir a hospedagem atípica e posterior incorporação à convenção.
 
 ---
+
+**Referência:**
+STJ. 4a Turma REsp 1819075/RS, Rel. Min. Luis Felipe Salomão, Rel. p/ Acórdão Min. Raul Araújo, julgado em 20/04/2021 (Info 17 - Edição Extraordinária).
 
 ## Questão 9
 
@@ -140,6 +164,9 @@ O Superior Tribunal de Justiça reconhece a possibilidade de aquisição da prop
 
 ---
 
+**Referência:**
+STJ. 2a Seção. REsp 1.818.564-DF, Rel. Min. Moura Ribeiro, julgado em 09/06/2021 (Recurso Repetitivo - Tema 1025) (Info 17 - Edição Extraordinária).
+
 ## Questão 10
 
 <!-- ID_ORIGEM: JULGADO-10 -->
@@ -154,6 +181,9 @@ Com a proclamação da República, os imóveis adquiridos a título de dote com 
 A decisão do STJ foi no sentido de que a proclamação da República extinguiu os privilégios da família imperial relacionados aos imóveis adquiridos com recursos públicos, como o Palácio Guanabara, que retornou ao patrimônio do Estado. Assim, o imóvel não permaneceu como propriedade privada da família, mas sim como bem público, em razão da origem dos recursos e da mudança do regime político.
 
 ---
+
+**Referência:**
+STJ. 4a Turma. REsp 1.149.487-RJ, Rel. Min. Antonio Carlos Ferreira, julgado em 6/12/2018 (Info 17 - Edição Extraordinária).
 
 ## Questão 11
 
@@ -170,6 +200,9 @@ Conforme entendimento da 3ª Turma do STJ, a omissão do genitor no dever de cui
 
 ---
 
+**Referência:**
+STJ. 3a Turma. REsp 1.159.242-SP, Rel. Min. Nancy Andrighi, julgado em 24/4/2012 (Info 17 - Edição Extraordinária).
+
 ## Questão 12
 
 <!-- ID_ORIGEM: JULGADO-12 -->
@@ -184,6 +217,9 @@ O cancelamento de voos sem razões técnicas ou de segurança inequívocas confi
 O entendimento consolidado é que o transporte aéreo, por ser serviço essencial e pressupor continuidade, não pode sofrer cancelamentos arbitrários. Cancelar voos sem razões técnicas ou de segurança inequívocas caracteriza prática abusiva, conforme previsto no direito do consumidor. Ademais, há o dever de informar o consumidor por escrito e justificadamente sobre o cancelamento, garantindo transparência e proteção ao consumidor. Essa proteção não implica a inclusão da agência reguladora como litisconsorte passivo nas ações que discutem a relação de consumo entre concessionária e consumidores, pois a controvérsia não envolve a regulamentação, mas a prestação do serviço em si.
 
 ---
+
+**Referência:**
+STJ. 2a Turma. REsp 1.469.087-AC, Rel. Min. Humberto Martins, julgado em 18/8/2016 (Info 17 - Edição Extraordinária).
 
 ## Questão 13
 
@@ -200,6 +236,9 @@ O acionista minoritário não detém legitimidade extraordinária para buscar a 
 
 ---
 
+**Referência:**
+STJ. 2a Seção. CC 185.702/DF, Rel. Min. Marco Aurélio Bellizze, julgado em 22/06/2022 (Info 17 - Edição Extraordinária).
+
 ## Questão 14
 
 <!-- ID_ORIGEM: JULGADO-14 -->
@@ -214,6 +253,9 @@ O acionista minoritário não detém legitimidade extraordinária para buscar a 
 O entendimento consolidado é que a adoção por pessoa que mantém união homoafetiva com companheira que já adotou os mesmos filhos é possível, desde que haja vínculo afetivo e qualidade no ambiente familiar. A legislação e a jurisprudência priorizam o melhor interesse da criança, não vedando a adoção múltipla nesse contexto, desde que respeitados os requisitos legais.
 
 ---
+
+**Referência:**
+STJ. 4a Turma. REsp 889.852-RS, Rel. Min. Luis Felipe Salomão, julgado em 27/4/2010 (Info 17 - Edição Extraordinária).
 
 ## Questão 15
 
@@ -230,6 +272,9 @@ O entendimento do STJ é que a competência da Justiça Federal limita-se aos im
 
 ---
 
+**Referência:**
+STJ. 1a Seção. CC 146.213-DF, Rel. Min. Napoleão Nunes Maia Filho, Rel. para acordão Min. Mauro Campbell Marques, julgado em 13/6/2018 (Info 17 - Edição Extraordinária).
+
 ## Questão 16
 
 <!-- ID_ORIGEM: JULGADO-16 -->
@@ -244,6 +289,9 @@ Na execução de dívida de natureza não alimentar, é vedada a penhora de sal�
 Embora a regra geral seja a impenhorabilidade dos salários, existe exceção implícita que permite a penhora de salário para dívida não alimentar, desde que o valor penhorado seja razoável e não comprometa a dignidade ou subsistência do devedor e de sua família, independentemente de ultrapassar o limite de 50 salários mínimos.
 
 ---
+
+**Referência:**
+STJ. Corte Especial. EREsp 1.874.222-DF, Rel. Min. João Otávio de Noronha, julgado em 19/4/2023 (Info 17 - Edição Extraordinária).
 
 ## Questão 17
 
@@ -260,6 +308,9 @@ O entendimento firmado estabelece que o prazo decadencial para impetrar mandado 
 
 ---
 
+**Referência:**
+STJ. 2a Turma. AgInt no AgInt no RMS 32.325-CE, Rel. Min. Afrânio Vilela, julgado em 6/2/2024 (Info 17 - Edição Extraordinária).
+
 ## Questão 18
 
 <!-- ID_ORIGEM: JULGADO-18 -->
@@ -274,6 +325,9 @@ Para fins de pedido de uniformização de interpretação de lei federal, a expr
 A locução 'jurisprudência dominante', para fins de pedido de uniformização de interpretação de lei federal (PUIL), não se limita às hipóteses do art. 927, III, do CPC. Ela também abrange os acórdãos do STJ proferidos em embargos de divergência e em pedidos de uniformização de lei federal, conforme entendimento consolidado no julgamento do PUIL 825-RS, garantindo maior amplitude e segurança jurídica na uniformização da interpretação da lei federal.
 
 ---
+
+**Referência:**
+STJ. 1a Seção. PUIL 825-RS, Rel. Min. Sérgio Kukina, julgado em 24/5/23 (Info 17 - Edição Extraordinária).
 
 ## Questão 19
 
@@ -290,6 +344,9 @@ O entendimento consolidado é que o comprador do suposto prestígio não é suje
 
 ---
 
+**Referência:**
+STJ. 6a Turma. RHC 55.940-SP, Rel. Min. Antonio Saldanha Palheiro, julgado em 4/9/2018 (Info 17 - Edição Extraordinária).
+
 ## Questão 20
 
 <!-- ID_ORIGEM: JULGADO-20 -->
@@ -304,6 +361,9 @@ A manutenção das medidas assecuratórias, como o sequestro de bens no processo
 O entendimento firmado pelo STJ estabelece que as medidas assecuratórias devem ser proporcionais e razoáveis, podendo ser revistas pelo juízo diante de fatos novos que modifiquem o contexto processual. No caso, a anulação da decisão que recebeu a denúncia e a inexistência de previsão para julgamento em prazo razoável justificam a revogação do sequestro e arresto, evitando constrangimento ilegal e respeitando o princípio da razoabilidade.
 
 ---
+
+**Referência:**
+STJ. 5a Turma. EDcl nos EDcl no AgRg no AREsp 1.792.372/PR, Rel. Min. Joel Ilan Paciornik, julgado em 8/3/2022 (Info 17 - Edição Extraordinária).
 
 ## Questão 21
 
@@ -320,6 +380,9 @@ O entendimento do STJ estabelece que, para ingresso sem mandado em domicílio na
 
 ---
 
+**Referência:**
+STJ. 6a Turma HC 598051/SP, Rel. Min. Rogério Schietti Cruz, julgado em 02/03/2021 (Info 17 - Edição Extraordinária).
+
 ## Questão 22
 
 <!-- ID_ORIGEM: JULGADO-22 -->
@@ -334,6 +397,9 @@ A gravação ambiental realizada por um dos interlocutores, com a participação
 A participação dos órgãos de persecução estatal na gravação ambiental sem prévia autorização judicial acarreta a ilicitude da prova, pois a atuação estatal deve se restringir às fórmulas legais previstas, respeitando o devido processo legal. A jurisprudência atual do STJ entende que a cooperação estatal sem autorização judicial pode incentivar abusos e violações de direitos, tornando a prova ilícita. Além disso, a Lei nº 9.034/95, vigente à época dos fatos, exigia autorização judicial circunstanciada para captação ambiental, o que não foi observado no caso. Portanto, a prova obtida nessas condições é ilícita e inadmissível.
 
 ---
+
+**Referência:**
+STJ. 6ª Turma. AgRg no RHC 150.343-GO, Rel. Min. Rogerio Schietti Cruz, Rel. para acórdão Min. Sebastião Reis Júnior, julgado em 15/8/2023 (Info 17 – Edição Extraordinária).
 
 ## Questão 23
 
@@ -350,6 +416,9 @@ A teoria da perda de uma chance probatória reconhece que, quando o Estado deixa
 
 ---
 
+**Referência:**
+STJ. 6a Turma. HC 829.723-PR, Rel. Min. Teodoro Silva Santos, julgado em 12/12/2023 (Info 17 - Edição Extraordinária).
+
 ## Questão 24
 
 <!-- ID_ORIGEM: JULGADO-24 -->
@@ -364,6 +433,9 @@ A decretação da quebra de sigilo fiscal sem a demonstração de indícios conc
 A jurisprudência do STJ estabelece que a quebra de sigilo fiscal deve estar fundamentada na demonstração do fumus commissi delicti, ou seja, indícios concretos da prática de ilícito penal. A ausência dessa demonstração torna a medida nula, pois viola o direito à intimidade e o sigilo constitucionalmente protegidos, configurando excesso na investigação criminal.
 
 ---
+
+**Referência:**
+STJ. 6a Turma. HC 59.257/RJ, Rel. Min. Maria Thereza de Assis Moura, julgado em 22/8/2006 (Info 17 - Edição Extraordinária).
 
 ## Questão 25
 
@@ -380,6 +452,9 @@ A jurisprudência do STJ é clara ao afirmar que a ausência de registro documen
 
 ---
 
+**Referência:**
+STJ. 5a Turma. RHC 143169/RJ, Rel. Min. Messod Azulay Neto, Rel. Acd. Min. Ribeiro Dantas, julgado em 7/2/2023 (Info 17 - Edição Extraordinária).
+
 ## Questão 26
 
 <!-- ID_ORIGEM: JULGADO-26 -->
@@ -394,6 +469,9 @@ Na esfera penal, é possível a fixação de indenização mínima por danos mor
 A jurisprudência do STJ estabelece que, diferentemente das pessoas naturais, as pessoas jurídicas não têm direito à presunção de dano moral ipso facto, pois o conceito de 'esfera íntima' não se aplica a elas. Assim, para a fixação de indenização por danos morais à pessoa jurídica na esfera penal, é imprescindível a comprovação efetiva do abalo à honra objetiva, não sendo suficiente a mera presunção decorrente da prática do crime.
 
 ---
+
+**Referência:**
+STJ. 5a Turma. AgRg no AREsp 2.267.828-MG, Rel. Min. Messod Azulay Neto, julgado em 17/10/2023 (Info 17 - Edição Extraordinária).
 
 ## Questão 27
 
@@ -410,6 +488,9 @@ A Constituição Federal assegura a presunção de inocência, que se manifesta 
 
 ---
 
+**Referência:**
+STJ. 5a Turma. EDcl no AgRg no AREsp 2.376.855-AL, Rel. Min. Daniela Teixeira, julgado em 6/2/2024 (Info 17 - Edição Extraordinária).
+
 ## Questão 28
 
 <!-- ID_ORIGEM: JULGADO-28 -->
@@ -424,6 +505,9 @@ Considerando a Resolução da Corte Interamericana de Direitos Humanos de 22/11/
 O entendimento firmado é que o cômputo da pena em dobro deve incidir sobre todo o período de pena cumprido no IPPSC, sem modulação temporal. Isso porque a situação degradante do estabelecimento prisional já perdurava antes da notificação formal, não sendo possível limitar os efeitos da Resolução apenas ao período posterior ao conhecimento do Brasil. Assim, a determinação abrange a totalidade da pena cumprida, excetuando-se apenas os condenados por crimes contra a vida, integridade física ou crimes sexuais.
 
 ---
+
+**Referência:**
+STJ. 5a Turma. AgRg no RHC 136.961-RJ, Rel. Min. Reynaldo Soares da Fonseca, julgado em 15/06/2021, DJe 21/06/2021 (Info 17 - Edição Extraordinária).
 
 ## Questão 29
 
@@ -440,6 +524,9 @@ O entendimento consolidado é que o crédito presumido de ICMS não compõe a ba
 
 ---
 
+**Referência:**
+STJ. 1a Seção. EREsp 1517492-PR, Rel. Min. Og Fernandes, Rel. Acd. Min. Regina Helena Costa, julgado em 08/11/2017 (Info 17 - Edição Extraordinária).
+
 ## Questão 30
 
 <!-- ID_ORIGEM: JULGADO-30 -->
@@ -455,6 +542,9 @@ O entendimento firmado pelo STJ no REsp 1.767.631-SC e REsp 1.772.470-RS esclare
 
 ---
 
+**Referência:**
+STJ. 1a Seção. REsp 1.767.631-SC e REsp 1.772.470-RS, Rel. Min. Regina Helena Costa, Rel. para acórdão Min. Gurgel de Faria, julgado em 10/5/2023 (Recurso Repetitivo - Tema 1008) (Info 17 - Edição Extraordinária).
+
 ## Questão 31
 
 <!-- ID_ORIGEM: JULGADO-31 -->
@@ -469,3 +559,6 @@ A concessão de medicamentos não incorporados em atos normativos do SUS pelo po
 O STJ estabeleceu que o fornecimento de medicamentos não incorporados ao SUS depende da presença cumulativa de três requisitos: (a) laudo médico fundamentado que comprove a imprescindibilidade do medicamento e a ineficácia dos fármacos fornecidos pelo SUS; (b) incapacidade financeira do paciente; e (c) existência de registro do medicamento na ANVISA, observados os usos autorizados pela agência. O uso off-label, ou seja, fora da bula, não pode ser exigido do poder público, salvo se autorizado pela ANVISA. Essa interpretação decorre da retificação do terceiro requisito feita pelo STJ em 12/09/2018, que restringiu a concessão para usos autorizados pela agência reguladora, evitando o fornecimento indiscriminado de medicamentos para usos não aprovados. Portanto, a questão está correta ao afirmar que o fornecimento para uso off-label não autorizado é vedado.
 
 ---
+
+**Referência:**
+STJ. 1a Seção. REsp 1.767.631-SC e REsp 1.772.470-RS, Rel. Min. Regina Helena Costa, Rel. para acórdão Min. Gurgel de Faria, julgado em 10/5/2023 (Recurso Repetitivo - Tema 1008) (Info 17 - Edição Extraordinária).

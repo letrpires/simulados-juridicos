@@ -20,6 +20,9 @@ O entendimento firmado é que o mero inadimplemento contratual decorrente de atr
 
 ---
 
+**Referência:**
+STJ. 4a Turma. AgInt no AREsp 2.150.150-SP, Rel. Min. João Otávio de Noronha, Rel. para o Acórdão Min. Raul Araújo, julgado em 21/5/2024 (Info 20 - Edição Extraordinária).
+
 ## Questão 2
 
 <!-- ID_ORIGEM: JULGADO-2 -->
@@ -34,6 +37,9 @@ Na hipótese de ruptura abrupta das tratativas pré-contratuais para aquisição
 O Superior Tribunal de Justiça reconheceu que a FIFA, ao romper abruptamente as tratativas para aquisição da patente do spray desenvolvido pela SPUNI Ltda, violou o princípio da boa-fé objetiva e a legítima expectativa criada na fase pré-contratual. Tal conduta configurou responsabilidade civil, ensejando a condenação ao pagamento de indenização por danos morais e materiais, pois a quebra da confiança prejudicou a introdução do produto no mercado futebolístico.
 
 ---
+
+**Referência:**
+STJ. 3a Turma. REsp 2.078.517-RJ, Rel. Min. Humberto Martins, julgado em 14/5/2024 (Info 20 - Edição Extraordinária).
 
 ## Questão 3
 
@@ -50,6 +56,9 @@ O entendimento é que o pagamento de aluguel pelo período de uso do imóvel é 
 
 ---
 
+**Referência:**
+STJ. 4a Turma. AgInt nos EDcl no REsp 1.811.724-GO, Rel. Min. João Otávio de Noronha, julgado em 24/6/2024 (Info 20 - Edição Extraordinária).
+
 ## Questão 4
 
 <!-- ID_ORIGEM: JULGADO-4 -->
@@ -64,6 +73,9 @@ A seguradora pode recusar a renovação do contrato de seguro de vida em grupo s
 A recusa da seguradora em renovar o contrato de seguro de vida em grupo somente é legítima se houver notificação prévia ao segurado e apresentação de proposta alternativa, que deve ser recusada pelo segurado. A ausência de notificação prévia torna a recusa abusiva e contrária à boa-fé objetiva.
 
 ---
+
+**Referência:**
+STJ. 4a Turma. AgInt no REsp 1.585.935-SP, Rel. Min. Marco Buzzi, julgado em 26/2/2024 (Info 20 - Edição Extraordinária).
 
 ## Questão 5
 
@@ -80,6 +92,9 @@ Embora o pagamento do seguro DPVAT não dependa da comprovação de culpa, a dem
 
 ---
 
+**Referência:**
+STJ. 4a Turma. AgInt no REsp 1.585.076-RS, Rel. Min. Maria Isabel Gallotti, julgado em 8/4/2024 (Info 20 - Edição Extraordinária).
+
 ## Questão 6
 
 <!-- ID_ORIGEM: JULGADO-6 -->
@@ -94,6 +109,9 @@ No âmbito do SPVAT, a Lei Complementar 207/2024 determina que a indenização s
 A LC 207/2024, em seu art. 3º, estabelece expressamente que o pagamento da indenização do SPVAT independe da existência de dolo ou culpa, superando a regulamentação anterior que excluía o pagamento em casos de dolo, conforme o art. 3º, § 3º, da Resolução CNSP 399/2020. Assim, o entendimento atual é que o dolo não impede o pagamento da indenização.
 
 ---
+
+**Referência:**
+STJ. 4a Turma. REsp 1.791.674-MG, Rel. Min. João Otávio de Noronha, julgado em 20/2/2024 (Info 20 - Edição Extraordinária).
 
 ## Questão 7
 
@@ -110,6 +128,9 @@ O art. 1.604 do Código Civil permite que qualquer interessado, seja moral ou ma
 
 ---
 
+**Referência:**
+STJ. 3a Turma. REsp 1.952.565/DF, Rel. Min. Marco Aurélio Bellizze, julgado em 12/3/2024 (Info 20 - Edição Extraordinária).
+
 ## Questão 8
 
 <!-- ID_ORIGEM: JULGADO-8 -->
@@ -124,6 +145,9 @@ Em ação de investigação de paternidade em que não foi realizado exame de DN
 O Superior Tribunal de Justiça admitiu a relativização da coisa julgada em ação de investigação de paternidade quando, apesar da recusa inicial do exame de DNA, posteriormente foi realizado teste genético autorizado pelo Judiciário que comprovou a inexistência do vínculo biológico. A decisão anterior, baseada em outras provas, não pode prevalecer diante da prova científica inequívoca, pois não seria adequado manter a paternidade presumida diante da comprovação da ausência de vínculo genético.
 
 ---
+
+**Referência:**
+STJ. 4a Turma. Resp 1.639.372-SC, Rel. Min. Raul Araújo, julgado em 4/6/2024 (Info 20 - Edição Extraordinária).
 
 ## Questão 9
 
@@ -140,6 +164,9 @@ Embora a revelia implique presunção relativa de veracidade das alegações do 
 
 ---
 
+**Referência:**
+STJ. 3a Turma. REsp 1.971.966/SP, Rel. Min. Marco Aurélio Bellizze, julgado em 5/3/2024 (Info 20 - Edição Extraordinária).
+
 ## Questão 10
 
 <!-- ID_ORIGEM: JULGADO-10 -->
@@ -154,6 +181,9 @@ Embora a revelia implique presunção relativa de veracidade das alegações do 
 O ordenamento jurídico brasileiro proíbe a renúncia antecipada de herança de pessoa viva, vedando o chamado Pacto de Corvina. No caso, a cláusula do acordo judicial que impôs a renúncia antecipada do direito hereditário ao herdeiro, mesmo que homologada, é nula, pois viola essa proibição legal. O STJ decidiu que tal cláusula, firmada em transação judicial para encerrar ação de investigação de paternidade, não é válida, pois o genitor não pode exigir renúncia antecipada do herdeiro em troca de reconhecimento e indenização.
 
 ---
+
+**Referência:**
+STJ. 4a Turma. REsp 2.112.700/SP, Rel. Min. Marco Buzzi, julgado em 23/4/2024 (Info 20 - Edição Extraordinária).
 
 ## Questão 11
 
@@ -170,6 +200,9 @@ A responsabilidade civil objetiva dos donos de estabelecimento que alugam por di
 
 ---
 
+**Referência:**
+STJ. 3a Turma. REsp 2.114.079-RS, Rel. Min. Nancy Andrighi, Rel. para acórdão Min. Moura Ribeiro, julgado em 23/4/2024 (Info 20 - Edição Extraordinária).
+
 ## Questão 12
 
 <!-- ID_ORIGEM: JULGADO-12 -->
@@ -184,6 +217,9 @@ No direito do consumidor, é admissível a restituição integral do valor pago 
 A restituição integral do valor pago só é cabível quando a resolução do contrato ocorrer de forma imediata, ou seja, logo após a constatação de que o produto é impróprio para uso. Se o vício foi devidamente reparado e o consumidor continuou utilizando o bem por longo período, não se justifica a restituição, pois a rescisão contratual é medida extrema, aplicável quando a assistência técnica não é eficaz. Além disso, a pretensão de restituição após anos configura abuso de direito e afronta à boa-fé objetiva.
 
 ---
+
+**Referência:**
+STJ. 3a Turma. REsp 2.103.427-GO, Rel. Min. Nancy Andrighi, Rel. para Acórdão Min. Moura Ribeiro, julgado em 18/6/2024 (Info 20 - Edição Extraordinária).
 
 ## Questão 13
 
@@ -200,6 +236,9 @@ O Superior Tribunal de Justiça firmou entendimento de que o fornecedor está vi
 
 ---
 
+**Referência:**
+STJ. 4a Turma. AgInt no AREsp 2.103.156-DF, Rel. Min. Marco Buzzi, julgado em 12/3/2024 (Info 20 - Edição Extraordinária).
+
 ## Questão 14
 
 <!-- ID_ORIGEM: JULGADO-14 -->
@@ -214,6 +253,9 @@ A autorização da ANVISA para a importação de medicamento para uso próprio, 
 O entendimento do STJ é que a autorização da ANVISA para importação de medicamento para uso próprio, ainda que não substitua o registro definitivo, demonstra segurança sanitária suficiente para obrigar a cobertura pelo plano de saúde. Assim, a operadora deve fornecer o medicamento importado autorizado, diferentemente do Tema Repetitivo 990, que trata da ausência de obrigação para medicamentos não registrados e sem autorização de importação.
 
 ---
+
+**Referência:**
+STJ. 3a Turma. AgInt no REsp 2.058.692-SP, Rel. Min. Humberto Martins, julgado em 8/4/2024 (Info 20 - Edição Extraordinária).
 
 ## Questão 15
 
@@ -230,6 +272,9 @@ O entendimento firmado é que a compra de palavras-chave referentes à marca de 
 
 ---
 
+**Referência:**
+STJ. 3a Turma. REsp 2.096.417-SP, Rel. Min. Nancy Andrighi, julgado em 20/2/2024 (Info 20 - Edição Extraordinária).
+
 ## Questão 16
 
 <!-- ID_ORIGEM: JULGADO-16 -->
@@ -244,6 +289,9 @@ Em ação conexa ajuizada em 2017 para revisão do valor do crédito habilitado 
 O entendimento do STJ é que, embora o processo falimentar tenha se iniciado sob a vigência do Decreto-Lei no 7.661/1945, a ação conexa ajuizada em 2017 deve ser regida pela Lei no 11.101/2005, vigente à época. O art. 192 da Lei no 11.101/2005 determina que processos iniciados sob a antiga lei continuem regidos por ela, mas não se aplica a ações conexas ajuizadas muito tempo depois, como no caso, em que transcorreram mais de 15 anos. Além disso, a ausência de intervenção do Ministério Público só justifica anulação se houver efetivo prejuízo à parte, o que não ocorreu, razão pela qual o pedido de desconstituição da coisa julgada foi rejeitado.
 
 ---
+
+**Referência:**
+STJ. 3a Turma. REsp 2.084.837-MG, Rel. Min. Ricardo Villas Bôas Cueva, julgado em 18/6/2024 (Info 20 - Edição Extraordinária).
 
 ## Questão 17
 
@@ -260,6 +308,9 @@ A Lei 14.112/2020 alterou dispositivos das Leis 10.522/2002 e 11.101/2005, estab
 
 ---
 
+**Referência:**
+STJ. 4a Turma. REsp 2.084.986-SP, Rel. Min. João Otávio de Noronha, Rel. para acórdão Min. Raul Araújo, julgado em 12/3/2024 (Info 20 - Edição Extraordinária).
+
 ## Questão 18
 
 <!-- ID_ORIGEM: JULGADO-18 -->
@@ -274,6 +325,9 @@ Após o término do stay period na recuperação judicial, compete exclusivament
 Com a Lei nº 14.112/2020, após o stay period, a execução de créditos trabalhistas extraconcursais compete ao Juízo trabalhista, não ao Juízo da recuperação judicial. A competência do Juízo da recuperação restringe-se à suspensão de atos de constrição que afetem bens essenciais durante o período de blindagem, não podendo impedir a satisfação individual do crédito extraconcursal após esse período.
 
 ---
+
+**Referência:**
+STJ. 2a Seção. CC 191.533-MT, Rel. Min. Marco Aurélio Bellizze, julgado em 18/4/2024 (Info 20 - Edição Extraordinária).
 
 ## Questão 19
 
@@ -290,6 +344,9 @@ O Superior Tribunal de Justiça entende que o dinheiro não pode ser considerado
 
 ---
 
+**Referência:**
+STJ. 2a Seção. CC 196.553-PE, Rel. Min. Ricardo Villas Bôas Cueva, julgado em 18/4/2024 (Info 20 - Edição Extraordinária).
+
 ## Questão 20
 
 <!-- ID_ORIGEM: JULGADO-20 -->
@@ -304,6 +361,9 @@ No âmbito do direito ambiental, a pretensão de indenização por danos ambient
 A jurisprudência do STJ estabelece que os danos ambientais individuais, por afetarem interesses particulares, estão sujeitos à prescrição conforme o Código Civil, iniciando-se a contagem a partir da ciência inequívoca dos efeitos do fato gerador. Por outro lado, os danos ambientais coletivos, que atingem interesses difusos ou coletivos, possuem pretensão imprescritível, conforme fixado no Tema 999 do STJ, garantindo a proteção contínua desses bens jurídicos de natureza coletiva.
 
 ---
+
+**Referência:**
+STJ. 4a Turma. AgInt no REsp 2.029.870-MA, Rel. Min. Maria Isabel Gallotti, julgado em 26/2/2024 (Info 20 - Edição Extraordinária).
 
 ## Questão 21
 
@@ -320,6 +380,9 @@ O Superior Tribunal de Justiça entendeu que não há interesse processual do Mi
 
 ---
 
+**Referência:**
+STJ. 3a Turma. REsp 2.126.256/SC, Rel. Min. Nancy Andrighi, Rel. para acórdão Min. Ricardo Villas Bôas Cueva, julgado em 21/5/2024 (Info 20 - Edição Extraordinária).
+
 ## Questão 22
 
 <!-- ID_ORIGEM: JULGADO-22 -->
@@ -334,6 +397,9 @@ Em regra, a transferência de criança do acolhimento familiar para o acolhiment
 O entendimento é que, em regra, não se deve retirar a criança do acolhimento familiar para colocá-la em acolhimento institucional, salvo duas exceções: quando for necessário evitar a formação de laços afetivos em contexto de possível adoção irregular, ou quando houver risco concreto à integridade física e psicológica da criança. Portanto, a transferência não é recomendada indiscriminadamente, mas apenas em situações específicas que visam proteger o melhor interesse do menor.
 
 ---
+
+**Referência:**
+STJ. 4a Turma. HC 909.659-SP, Rel. Min. Antonio Carlos Ferreira, julgado em 18/6/2024 (Info 20 - Edição Extraordinária).
 
 ## Questão 23
 
@@ -350,6 +416,9 @@ O entendimento firmado estabelece que ambos os pais possuem igual e pleno exerc�
 
 ---
 
+**Referência:**
+STJ. 4a Turma. REsp 1.462.840-MG, Rel. Min. Maria Isabel Gallotti, julgado em 14/5/2024 (Info 20 - Edição Extraordinária).
+
 ## Questão 24
 
 <!-- ID_ORIGEM: JULGADO-24 -->
@@ -364,6 +433,9 @@ Em ações que reconhecem o direito à cobertura de tratamento médico cumulada 
 Nos casos em que há condenação cumulada para custeio do tratamento de saúde e pagamento de indenização por danos morais, a base de cálculo dos honorários advocatícios sucumbenciais deve abranger a soma dos valores referentes à cobertura negada (tratamento médico) e à verba indenizatória (danos morais). Portanto, os honorários incidem sobre ambas as condenações, não apenas sobre a indenização por danos morais.
 
 ---
+
+**Referência:**
+STJ. 4a Turma. AgInt no AREsp 1.759.571-MS, Rel. Min. Antonio Carlos Ferreira, julgado em 20/5/2024 (Info 20 - Edição Extraordinária).
 
 ## Questão 25
 
@@ -380,6 +452,9 @@ O Superior Tribunal de Justiça firmou entendimento de que os depósitos judicia
 
 ---
 
+**Referência:**
+juros, conforme entendimento pacificado no STJ. A taxa SELIC não é aplicável aos depósitos judiciais, uma vez que possui caráter remuneratório e não se destina à correção monetária. STJ. 4a Turma. REsp 1.993.327-RS, Rel. Min. João Otávio de Noronha, julgado em 14/5/2024 (Info 20 - Edição Extraordinária).
+
 ## Questão 26
 
 <!-- ID_ORIGEM: JULGADO-26 -->
@@ -394,6 +469,9 @@ Em caso de afastamento do advogado por motivo de saúde comprovado por atestado 
 O entendimento do STJ é que, quando o advogado está afastado do trabalho por motivo de saúde comprovado por atestado médico, não há como substabelecer os poderes a outro advogado, pois o substabelecimento configura ato do advogado, o qual está impossibilitado de realizar. Ademais, não existe procedimento específico para a devolução do prazo recursal, podendo o pedido ser formulado incidentalmente no recurso, conforme o caso concreto analisado.
 
 ---
+
+**Referência:**
+STJ. 3a Turma. AgInt no AREsp 1.720.052-PR, Rel. Min. Moura Ribeiro, julgado em 8/4/2024 (Info 20 - Edição Extraordinária).
 
 ## Questão 27
 
@@ -410,6 +488,9 @@ O entendimento do STJ é que o pagamento realizado perante o correspondente banc
 
 ---
 
+**Referência:**
+STJ. 4a Turma. AgInt nos EDcl no AREsp 2.283.710-AP, Rel. Min. Antonio Carlos Ferreira, julgado em 13/5/2024 (Info 20 - Edição Extraordinária).
+
 ## Questão 28
 
 <!-- ID_ORIGEM: JULGADO-28 -->
@@ -424,6 +505,9 @@ No âmbito do processo de execução, o devedor é responsável pelo pagamento d
 A responsabilidade pelo pagamento de juros e correção monetária durante o período em que os valores permanecem bloqueados via Sisbajud, sem atualização, não pode ser imputada ao devedor, pois a demora na transferência para a conta judicial vinculada não decorre de sua conduta. A parte exequente é quem deve requerer a agilização da transferência, de modo que o prejuízo causado pela demora não é atribuível ao executado.
 
 ---
+
+**Referência:**
+STJ. 3a Turma. AgInt no REsp 1.763.569-RN, Rel. Min. Humberto Martins, julgado em 27/5/2024 (Info 20 - Edição Extraordinária).
 
 ## Questão 29
 
@@ -440,6 +524,9 @@ A caução locatícia em bens imóveis, quando averbada na matrícula do imóvel
 
 ---
 
+**Referência:**
+STJ. 3a Turma. REsp 2.123.225-SP, Rel. Min. Nancy Andrighi, julgado em 21/5/2024 (Info 20 - Edição Extraordinária).
+
 ## Questão 30
 
 <!-- ID_ORIGEM: JULGADO-30 -->
@@ -455,6 +542,9 @@ A utilização da CNIB pelo Juízo Cível em execução de título extrajudicial
 
 ---
 
+**Referência:**
+STJ. 3a Turma. REsp 2.141.068-PR, Rel. Min. Nancy Andrighi, julgado em 18/6/2024 (Info 20 - Edição Extraordinária).
+
 ## Questão 31
 
 <!-- ID_ORIGEM: JULGADO-31 -->
@@ -469,3 +559,6 @@ A validade da citação realizada em processo judicial estrangeiro deve ser afer
 A validade da citação em processo judicial estrangeiro deve ser verificada tanto pelas normas processuais do país onde ocorreu a citação quanto pelo que estiver pactuado em contrato entre as partes, como a designação de agente para receber notificações. No caso, a citação na pessoa do agente de serviço, prevista contratualmente e conforme a lei inglesa, foi considerada válida pelo STJ.
 
 ---
+
+**Referência:**
+STJ. Corte Especial. AgInt nos EDcl na HDE 3.384-EX, Rel. Min. Ricardo Villas Bôas Cueva, julgado em 21/5/2024 (Info 20 - Edição Extraordinária).

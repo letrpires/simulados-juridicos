@@ -1,0 +1,220 @@
+# Simulado - Info 878 STJ
+
+**Arquivo de origem:** Info 878 STJ_limpo_estruturado.md
+**Total de julgados:** 13
+
+---
+
+## Questão 1
+
+Em se tratando de abono de permanência especial, a prescrição quinquenal dos efeitos financeiros deve ser contada, em regra, da data do primeiro requerimento administrativo formulado pelo servidor, ainda que, naquele momento, a documentação apresentada fosse insuficiente para demonstrar a origem da deficiência ou outro requisito indispensável ao reconhecimento do direito, pois a posterior complementação probatória apenas confirma situação jurídica já existente.
+
+**Gabarito:** ERRADO
+
+**Justificativa (robusta):**
+A assertiva está incorreta porque o marco inicial da prescrição quinquenal, para fins de efeitos financeiros do abono de permanência especial, não é automaticamente a data do primeiro requerimento administrativo. O ponto decisivo é a data em que o servidor **efetivamente comprova o direito vindicado**.
+
+No caso examinado, o primeiro pedido foi indeferido por insuficiência probatória quanto à origem da deficiência. Somente no segundo requerimento, instruído com laudos mais completos, houve a comprovação apta ao deferimento. Nessa hipótese, o termo inicial da prescrição quinquenal desloca-se para a data do **segundo requerimento**, e não para a do primeiro, porque foi apenas então que o direito se tornou demonstrado de forma suficiente perante a Administração.
+
+A lógica do entendimento é a seguinte:
+- se o primeiro requerimento já continha prova bastante e a Administração indeferiu indevidamente, o marco pode retroagir ao primeiro pedido;
+- porém, se a prova necessária só é apresentada posteriormente, o prazo prescricional conta-se do pedido em que o direito foi efetivamente comprovado.
+
+Assim, a tese não admite a fixação automática do termo inicial no primeiro requerimento quando a própria insuficiência documental impediu o reconhecimento administrativo do benefício.
+
+**Referência:**
+STJ. 1ª Turma. RMS 65.384-DF, Rel. Min. Gurgel de Faria, julgado em 3/2/2026 (Info 878).
+
+## Questão 2
+
+A ação individual proposta por atingido pelo rompimento da barragem de Fundão, na qual se postula o reconhecimento judicial do direito de aderir ao Programa Indenizatório Definitivo (PID) instituído no âmbito da repactuação homologada pelo Supremo Tribunal Federal, deve ser processada e julgada pela Justiça Estadual, porque a controvérsia se limita à responsabilidade civil entre particulares e não atrai, por si só, a competência da Justiça Federal.
+
+**Gabarito:** ERRADO
+
+**Justificativa (robusta):**
+A assertiva está incorreta porque, nas demandas cujo objeto é o próprio Programa Indenizatório Definitivo (PID) relacionado ao desastre de Mariana/MG, a controvérsia não se restringe a uma típica ação de responsabilidade civil entre particulares. O ponto central passa a ser a interpretação, a aplicação e o alcance do acordo de repactuação homologado pelo STF, que estruturou o PID e definiu seus requisitos, condições e efeitos.
+
+Nessa hipótese, a competência é da Justiça Federal, mais especificamente do TRF da 6ª Região, pois a causa envolve diretamente a execução e a conformação jurídica de um arranjo institucional homologado na jurisdição constitucional, com repercussão sobre a disciplina do programa indenizatório. Assim, ainda que a ação seja proposta contra empresas privadas e fundação vinculada ao caso, o objeto litigioso é a própria fruição do PID, o que desloca a competência para a Justiça Federal.
+
+O erro da proposição está em tratar a controvérsia como se fosse apenas uma demanda indenizatória comum, ignorando que o pedido de reconhecimento do direito ao PID exige exame do pacto de repactuação e de seus critérios de elegibilidade. Esse elemento é decisivo para a definição da competência.
+
+**Referência:**
+STJ. 1ª Seção. CC 215.613-MG, Rel. Min. Paulo Sérgio Domingues, julgado em 5/2/2026 (Info 878).
+
+## Questão 3
+
+A transação extrajudicial celebrada entre a segurada e a transportadora, com quitação ampla e sem participação da seguradora sub-rogada, não impede o exercício da ação regressiva pela seguradora; contudo, na hipótese de transporte aéreo internacional submetido à Convenção de Montreal, a pretensão regressiva permanece limitada ao teto indenizatório convencional, salvo se houver declaração especial de valor acompanhada do pagamento da quantia suplementar exigida, não bastando a mera indicação do valor da mercadoria em faturas ou no conhecimento aéreo para afastar esse limite.
+
+**Gabarito:** CERTO
+
+**Justificativa (robusta):**
+A assertiva reúne, de forma tecnicamente correta, os dois pontos centrais do entendimento aplicado ao caso.
+
+Primeiro, a quitação dada pela segurada à transportadora, ainda que em termos amplos e com menção a eventual liberação de terceiros, não produz efeitos extintivos sobre o direito regressivo da seguradora quando esta não participou da transação nem anuiu com ela. Isso decorre da lógica da sub-rogação: após o pagamento da indenização securitária, a seguradora se sub-roga nos direitos da segurada até o limite do que desembolsou, de modo que a segurada não pode, unilateralmente e sem a participação do sub-rogado, dispor de direito que já foi transferido por efeito legal. Assim, a transação entre segurada e causador do dano não elimina, por si só, a pretensão regressiva da seguradora.
+
+Segundo, embora a ação regressiva subsista, ela não amplia a posição jurídica da seguradora além daquela ocupada pela segurada originária. Em transporte aéreo internacional, a responsabilidade do transportador é regida pela Convenção de Montreal, cujo art. 22, item 3, estabelece limite indenizatório por quilograma, afastável apenas mediante declaração especial de valor e, quando cabível, pagamento de quantia suplementar. Não basta, para superar o teto convencional, que o remetente tenha informado o valor da carga por faturas, conhecimento aéreo ou documentos equivalentes. A sub-rogação transmite à seguradora exatamente os direitos que a segurada possuía no momento do pagamento, sem criar prerrogativas indenizatórias maiores do que aquelas admitidas pelo regime convencional aplicável.
+
+**Referência:**
+STJ. 4ª Turma. AgInt nos EDcl no AREsp 2.372.854-SP, Rel. Min. Antonio Carlos Ferreira, julgado em 16/12/2025 (Info 878).
+
+## Questão 4
+
+Em contrato de seguro de vida em grupo que preveja cobertura restrita à invalidez permanente por acidente, a ocorrência de doença ocupacional com nexo causal com a atividade laboral não autoriza, por si só, o pagamento da indenização securitária quando a apólice contém cláusula expressa de exclusão da invalidez decorrente de doença profissional, sendo inviável ampliar a cobertura por analogia com a disciplina trabalhista e previdenciária.
+
+**Gabarito:** CERTO
+
+**Justificativa (robusta):**
+A assertiva está correta porque, em contratos de seguro, a interpretação das cláusulas deve observar a delimitação objetiva do risco assumido pela seguradora, sem ampliação judicial da cobertura para hipóteses não contratadas. No caso examinado, a apólice previa cobertura apenas para invalidez permanente por acidente, com exclusão expressa da invalidez decorrente de doença ocupacional. Assim, ainda que a perícia tenha reconhecido contribuição das atividades laborais para o quadro degenerativo, isso não basta para impor o dever de indenizar na esfera securitária.
+
+O ponto central é que não se pode transportar automaticamente para o contrato de seguro as categorias próprias do direito do trabalho e da previdência social, nas quais há disciplina específica para acidente de trabalho e doença ocupacional. A equiparação entre doença profissional e acidente de trabalho, útil em outros ramos jurídicos, não prevalece quando o contrato de seguro delimitou de forma restritiva a cobertura e excluiu expressamente a doença laboral. Em outras palavras, a existência de nexo com o trabalho não substitui a exigência contratual de ocorrência de acidente coberto pela apólice.
+
+Além disso, a solução prestigia a lógica atuarial do seguro: a seguradora calcula prêmio e risco com base nas coberturas expressamente assumidas. Se o contrato exclui a invalidez por doença ocupacional, admitir indenização por via interpretativa implicaria ampliar o risco contratado sem a correspondente contraprestação, o que contraria a própria estrutura do negócio securitário.
+
+**Referência:**
+STJ. 4ª Turma. REsp 2.206.239-MS, Rel. Min. Marco Buzzi, julgado em 1/12/2025 (Info 878).
+
+## Questão 5
+
+Em ação de indenização por dano moral decorrente da morte de filha adolescente durante excursão escolar organizada por colégio particular, a fixação judicial de compensação em patamar superior à faixa ordinariamente adotada para hipóteses de morte de familiar não configura, por si só, excesso indenizatório, sobretudo quando as circunstâncias do caso revelarem gravidade extraordinária, a exemplo de omissão relevante na prestação de socorro, demora injustificada na comunicação aos pais e sofrimento agravado pela violência do evento; nessa hipótese, a redução do quantum pelo tribunal local sem enfrentamento das peculiaridades concretas autoriza o restabelecimento do valor originariamente arbitrado, com juros de mora a partir da citação e correção monetária desde o arbitramento.
+
+**Gabarito:** CERTO
+
+**Justificativa (robusta):**
+A assertiva está correta porque reproduz a lógica central do entendimento firmado: a faixa de 300 a 500 salários-mínimos funciona apenas como parâmetro orientador usual para indenizações por morte de familiar, não como teto absoluto ou intervalo rígido. Quando o caso concreto apresenta gravidade extraordinária — como a morte violenta de adolescente em atividade escolar, a demora na percepção do desaparecimento, a comunicação tardia e deficiente aos pais e a necessidade de atuação direta do genitor para localizar o corpo — é juridicamente possível superar esse patamar.
+
+Além disso, o dano moral decorrente da morte de filho por homicídio foi tratado como dano moral in re ipsa qualificado, pois ao sofrimento da perda soma-se a angústia adicional de saber que a vítima enfrentou violência e desamparo em seus últimos momentos. Também se reconheceu que a redução do valor indenizatório pelo tribunal local, sem fundamentação vinculada às particularidades do caso concreto, permite controle excepcional na instância superior, com restabelecimento do montante fixado na origem.
+
+Por fim, a assertiva acerta ao indicar os consectários legais: em responsabilidade contratual, os juros de mora fluem da citação; e a correção monetária da indenização por dano moral incide desde a data do arbitramento, nos termos da orientação sumulada.
+
+**Referência:**
+STJ. 4ª Turma. REsp 2.240.249-SP, Rel. Min. Antonio Carlos Ferreira, julgado em 3/2/2026 (Info 878).
+
+## Questão 6
+
+Em ação de responsabilidade civil por falha médico-hospitalar envolvendo recém-nascido prematuro e de baixo peso que contraiu infecção hospitalar em UTI neonatal, é juridicamente admissível afastar o nexo causal com base na alegação de que as condições prévias do bebê constituiriam concausas predominantes, de modo que, uma vez reconhecido o dever de indenizar, a condenação deve limitar-se aos danos já quantificados, sem impor ao hospital o custeio integral e contínuo de tratamentos, terapias, medicamentos e demais despesas futuras, nem restabelecer pensão mensal em valor integral fixado na sentença.
+
+**Gabarito:** ERRADO
+
+**Justificativa (robusta):**
+A assertiva contraria o entendimento firmado no caso. Em responsabilidade civil por falha médico-hospitalar, a prematuridade e o baixo peso do recém-nascido não foram considerados fatores aptos a romper o nexo causal, pois integram o risco da própria atividade hospitalar, especialmente em ambiente de UTI neonatal. Aplicou-se a teoria da causalidade adequada, em conjunto com o regime de responsabilidade objetiva do art. 14 do CDC, afastando-se a tese de concausas predominantes sustentada pelo hospital.
+
+Além disso, uma vez reconhecido o ato ilícito e a responsabilidade civil, prevalece o princípio da reparação integral, previsto nos arts. 944, 949 e 950 do Código Civil. Por isso, a condenação não se limita aos prejuízos já apurados: o hospital deve arcar integralmente, sem limitação temporal, com todos os tratamentos, terapias, medicamentos e despesas futuras necessários ao atendimento das sequelas da vítima, com apuração em fase de liquidação, conforme a evolução do quadro clínico.
+
+Também houve reconhecimento de omissão quanto à pensão, com restabelecimento do valor fixado na sentença, em quatro salários-mínimos, a partir dos 18 anos de idade. Assim, é incorreto afirmar que a indenização ficaria restrita a valores já quantificados ou que não haveria custeio integral e contínuo das despesas futuras.
+
+**Referência:**
+STJ. 4ª Turma. EDcl no REsp 2.069.914/DF, Rel. Min. Marco Buzzi, julgado em 3/2/2026 (Info 878).
+
+## Questão 7
+
+Em demanda previdenciária ajuizada contra o INSS, a ausência de indicação expressa do valor total da condenação na sentença impõe, por si só, a remessa necessária, ainda que o decisum tenha fixado todos os critérios indispensáveis à apuração do montante devido por simples cálculos aritméticos e seja possível concluir, desde logo, que a condenação não ultrapassará o limite legal de dispensa do reexame obrigatório.
+
+**Gabarito:** ERRADO
+
+**Justificativa (robusta):**
+A assertiva está incorreta porque a obrigatoriedade da remessa necessária não decorre, automaticamente, da mera ausência de valor expresso na sentença. Em demandas previdenciárias, se a condenação puder ser apurada por simples cálculos aritméticos a partir dos parâmetros definidos no próprio provimento judicial — como termo inicial do benefício, parcelas vencidas, juros e correção monetária — e for possível estimar, com segurança, que o montante não excederá o patamar legal de dispensa previsto no art. 496, § 3º, I, do CPC, não se justifica o reexame obrigatório.
+
+O ponto central do entendimento é afastar uma leitura puramente formal da iliquidez da sentença. Embora a Súmula 490 do STJ tenha tradicionalmente associado a sentença ilíquida à necessidade de remessa necessária, esse raciocínio não prevalece quando a iliquidez é apenas aparente e o valor pode ser obtido por operação aritmética simples, sem necessidade de nova atividade cognitiva relevante. Nessa hipótese, a finalidade do reexame necessário — proteger o erário em condenações de maior expressão econômica — não é comprometida, pois a própria estrutura da sentença permite concluir que a condenação ficará abaixo do teto legal.
+
+Assim, o critério decisivo não é a existência de valor nominal expresso na sentença, mas a possibilidade de aferição objetiva do quantum debeatur e a constatação de que ele não superará o limite legal. Por isso, a remessa necessária deve ser dispensada quando a condenação previdenciária for estimável por simples cálculos aritméticos e inferior ao patamar de 1.000 salários-mínimos.
+
+**Referência:**
+STJ. Corte Especial. REsp 1.882.236-RS, REsp 1.893.709-RS e REsp 1.894.666-SC, Rel. Min. Og Fernandes, julgados em 4/2/2026 (Recurso Repetitivo - Tema 1081) (Info 878).
+
+## Questão 8
+
+A percepção de pensão por morte por cônjuge sobrevivente, quando lastreada em casamento formalmente válido e inexistente prova de nulidade civil do vínculo, não configura vantagem ilícita para fins do art. 171, § 3º, do Código Penal, ainda que se alegue que a união foi celebrada com finalidade exclusivamente patrimonial e que parte do benefício tenha sido repassada a terceiro, pois a eventual motivação torpe dos nubentes não desconstitui, por si só, o preenchimento dos requisitos legais do benefício.
+
+**Gabarito:** CERTO
+
+**Justificativa (robusta):**
+A afirmação está correta porque o enquadramento típico do estelionato previdenciário exige obtenção de vantagem indevida mediante fraude apta a induzir a Administração em erro. No caso examinado, a pensão por morte foi requerida por cônjuge sobrevivente com base em certidão de casamento formalmente válida, sem demonstração de nulidade civil do vínculo.
+
+O ponto central é que, para a concessão da pensão por morte ao cônjuge, a lei exige, em essência, a ocorrência do óbito do segurado e a existência de casamento válido. Se esses requisitos estão presentes, o benefício é juridicamente devido. Assim, ainda que haja suspeita de que o casamento tenha sido celebrado por interesse patrimonial, isso não basta, por si só, para afastar a validade civil do matrimônio nem para transformar em indevida a vantagem recebida.
+
+A decisão também afasta a ideia de que a mera alegação de simulação afetiva ou a existência de repasses do benefício a terceiro, sem prova de fraude no preenchimento dos requisitos legais, seja suficiente para caracterizar o delito. Em outras palavras, a intenção subjetiva dos nubentes não substitui a exigência de demonstração de fraude concreta capaz de tornar indevido o benefício.
+
+Portanto, quem recebe prestação previdenciária a que efetivamente faz jus não obtém vantagem indevida, faltando elemento essencial do tipo penal do art. 171, § 3º, do CP.
+
+**Referência:**
+STJ. 5ª Turma. AgRg no REsp 2.230.017-PB, Rel. Min. Joel Ilan Paciornik, julgado em 9/12/2025 (Info 878).
+
+## Questão 9
+
+A apreensão de celulares e de um DVR contendo registros potencialmente incriminadores, seguida de extração manual do conteúdo por agente policial, sem emprego de ferramenta forense nem geração de hash, não autoriza, por si só, a invalidação automática da prova; entretanto, se houver dúvida razoável quanto à integridade e à autenticidade do material digital e ele constituir o principal suporte da imputação, impõe-se a realização de perícia oficial, sendo desproporcional manter a prisão preventiva do investigado até a conclusão da diligência técnica, devendo ser substituída por medidas cautelares diversas.
+
+**Gabarito:** CERTO
+
+**Justificativa (robusta):**
+A assertiva está de acordo com a orientação firmada no caso. O ponto central não é a nulidade automática de toda prova digital sempre que houver falha formal na coleta, mas a existência de **dúvida razoável** sobre a integridade, a autenticidade e a rastreabilidade do conteúdo extraído. Nessa hipótese, a confiabilidade do material fica comprometida, especialmente quando a prova digital é relevante para a própria demonstração da autoria.
+
+Por isso, a solução adequada é a **realização de perícia oficial**, apta a verificar tecnicamente se houve preservação da cadeia de custódia e se os dados extraídos correspondem, de fato, ao conteúdo original dos dispositivos. A exigência de exame pericial decorre da necessidade de assegurar o contraditório e a confiabilidade da prova, sobretudo quando a extração foi feita de modo manual, sem ferramentas forenses e sem geração de hash, circunstâncias que aumentam a incerteza sobre a integridade do material.
+
+Além disso, o entendimento também prestigia a **proporcionalidade** na tutela cautelar. Se os principais elementos de autoria dependem justamente dessas provas digitais ainda não submetidas à confirmação técnica, a manutenção da prisão preventiva se mostra excessiva até a conclusão da perícia. Nessa situação, a medida adequada é a substituição da custódia por **medidas cautelares diversas**, preservando-se a investigação e o processo sem impor restrição mais gravosa do que o necessário enquanto persiste a dúvida sobre a robustez probatória.
+
+**Referência:**
+STJ. 6ª Turma. AgRg no HC 1.014.212-ES, Rel. Min. Carlos Pires Brandão, julgado em 10/2/2026 (Info 878).
+
+## Questão 10
+
+A concessão de prisão domiciliar humanitária à mulher condenada definitivamente e recolhida em regime fechado, por ser mãe de criança menor de 12 anos, independe de demonstração concreta de que sua presença seja imprescindível aos cuidados da filha, bastando o vínculo materno e a idade da menor para autorizar, por si sós, a substituição da custódia prisional, ainda que haja elementos nos autos indicando que a criança se encontra amparada por outros familiares aptos a assumir sua guarda.
+
+**Gabarito:** ERRADO
+
+**Justificativa (robusta):**
+A assertiva contraria o entendimento firmado no julgado, que exige prova inequívoca da imprescindibilidade da presença materna para a concessão da prisão domiciliar humanitária. Não basta a mera condição de mãe de criança menor de 12 anos, nem a invocação abstrata de proteção integral da infância, quando os elementos concretos do caso revelam que a menor está assistida por outros familiares e não há demonstração de prejuízo específico decorrente da ausência materna.
+
+No caso examinado, a condenada cumpria pena em regime fechado por tráfico de drogas e pleiteava prisão domiciliar com base na aplicação analógica dos arts. 318 e 318-A do CPP e na interpretação extensiva do art. 117 da LEP. O pedido foi negado porque não se comprovou a imprescindibilidade da presença da mãe, especialmente diante de relatório indicando que a criança estava sob os cuidados da avó paterna e de seu marido, com perspectiva de guarda provisória, sem notícia de dificuldades de adaptação da menor ao novo núcleo familiar.
+
+Assim, a tese não admite presunção absoluta de necessidade materna. A análise é casuística e depende de prova concreta da indispensabilidade da presença da genitora, sobretudo quando a situação fática aponta para a existência de rede de apoio familiar apta a suprir os cuidados da criança. A mera existência do vínculo familiar, isoladamente, não impõe a prisão domiciliar.
+
+**Referência:**
+STJ. 5ª Turma. AgRg no HC 731648-SC, Rel. Min. Joel Ilan Paciornik, Rel. Acd. Min. João Otávio de Noronha, julgado em 07/06/2022 (Info 742).
+
+## Questão 11
+
+A concessão de prisão domiciliar humanitária à mulher com filho menor de 12 anos depende, em qualquer hipótese, da demonstração concreta e inequívoca de que a presença materna é imprescindível aos cuidados da criança, não bastando a mera comprovação da maternidade nem a invocação genérica do princípio da proteção integral para afastar a custódia cautelar em estabelecimento prisional.
+
+**Gabarito:** ERRADO
+
+**Justificativa (robusta):**
+O enunciado adota a segunda corrente como regra absoluta, mas o entendimento firmado no julgado aponta precisamente o oposto no tocante à hipótese legal de mulher com filho de até 12 anos incompletos: a imprescindibilidade dos cuidados maternos é legalmente presumida, de modo que não se exige, como condição ordinária, prova concreta e inequívoca dessa necessidade. Assim, a simples existência do vínculo materno-filial, quando presentes os requisitos legais, não pode ser tratada como insuficiente por si só.
+
+A armadilha da assertiva está em misturar essa hipótese legal com a lógica da prisão domiciliar humanitária fundada em razões excepcionais, na qual pode haver exigência de demonstração concreta da vulnerabilidade da criança. O julgado, porém, distingue a presunção legal associada à mãe de filho menor de 12 anos da tese mais restritiva que condiciona o benefício à prova da imprescindibilidade materna. Logo, não é correto afirmar que, “em qualquer hipótese”, a concessão dependerá dessa prova robusta.
+
+**Referência:**
+STJ. 6ª Turma. AgRg no HC 1.035.233-PR, Rel. Min. Carlos Pires Brandão, julgado em 25/11/2025 (Info 878).
+
+## Questão 12
+
+A renovação do CEBAS de entidade beneficente que presta atendimento ao SUS não pode ser indeferida com fundamento exclusivo em exigências materiais previstas em decreto ou em ato infralegal, pois, enquanto não sobrevier lei complementar disciplinando diversamente a matéria, o exame do pedido deve se orientar pelos requisitos do art. 14 do CTN, sendo inválida a imposição de contrapartidas adicionais para fruição da imunidade do art. 195, § 7º, da Constituição.
+
+**Gabarito:** CERTO
+
+**Justificativa (robusta):**
+A assertiva está correta porque reproduz a lógica central do entendimento aplicado ao caso: a imunidade das entidades beneficentes em relação às contribuições sociais, prevista no art. 195, § 7º, da Constituição, não pode ser condicionada por exigências materiais criadas por decreto, portaria ou outro ato infralegal, nem por lei ordinária, quando tais exigências extrapolam os requisitos constitucionalmente admitidos.
+
+O ponto decisivo é que a disciplina das contrapartidas para fruição dessa imunidade depende de lei complementar. Enquanto não houver lei complementar válida e específica que disponha de modo diverso, o parâmetro de controle permanece sendo o art. 14 do CTN, que estabelece os requisitos tradicionais para o gozo da imunidade tributária das entidades sem fins lucrativos. Assim, se o indeferimento do CEBAS se apoia exclusivamente em descumprimento de regra infralegal — como ocorreu no caso concreto, com base em decreto —, o ato é ilegal.
+
+A conclusão também se harmoniza com a orientação firmada no controle concentrado e no RE 566.622/RS, no sentido de que leis ordinárias e decretos não podem inovar validamente para impor requisitos materiais adicionais à imunidade do art. 195, § 7º, da CF. Em outras palavras, a Administração não pode transformar exigências infralegais em obstáculo autônomo à renovação ou concessão do certificado, se não houver demonstração de violação aos requisitos do art. 14 do CTN.
+
+Atenção ao limite do entendimento: a tese não afirma que toda negativa de CEBAS é ilegal, mas apenas que o indeferimento não pode se fundar exclusivamente em exigências materiais criadas por decreto ou norma infralegal, sem apontar descumprimento dos requisitos legalmente pertinentes.
+
+**Referência:**
+STJ. 1ª Seção. AgInt no MS 27.589-DF, Rel. Min. Teodoro Silva Santos, julgado em 5/2/2026 (Info 878).
+
+## Questão 13
+
+A contribuição previdenciária patronal incide sobre o terço constitucional de férias gozadas, por se tratar de verba de natureza remuneratória, sendo irrelevante, para afastar a exação, a circunstância de o pagamento decorrer do gozo regular do período de férias, de modo que, em juízo de retratação, o órgão julgador deve adequar sua orientação ao entendimento vinculante fixado em repercussão geral.
+
+**Gabarito:** CERTO
+
+**Justificativa (robusta):**
+A assertiva está correta. O ponto central do julgado é a superação do entendimento anteriormente adotado pelo STJ, que havia afastado a incidência da contribuição previdenciária patronal sobre o terço constitucional de férias gozadas, em razão de sua suposta natureza indenizatória. Com o posterior pronunciamento do STF em repercussão geral, firmou-se a compreensão de que essa parcela possui natureza remuneratória, legitimando a incidência da contribuição social a cargo do empregador.
+
+No caso examinado, o processo retornou ao STJ para juízo de retratação, nos termos do art. 1.030, II, do CPC, justamente para adequação do acórdão recorrido ao precedente vinculante do Supremo. Assim, a Corte Superior retratou-se para alinhar sua decisão à tese fixada pelo STF.
+
+É importante notar que a tese não se refere a férias indenizadas ou a outras parcelas distintas, mas especificamente ao terço constitucional de férias gozadas. Também houve modulação dos efeitos pelo STF, com eficácia prospectiva a partir de 15/9/2020, ressalvadas as contribuições já pagas e não questionadas até essa data. Contudo, essa modulação não altera a conclusão jurídica sobre a incidência da exação, apenas delimita seus efeitos temporais.
+
+**Referência:**
+STJ. 2ª Turma. REsp 1.559.926-RS, Rel. Min. Maria Thereza de Assis Moura, julgado em 10/2/2026 (Info 878).

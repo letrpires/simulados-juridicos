@@ -20,6 +20,9 @@ O entendimento firmado é que tais empresas estatais, apesar de possuírem perso
 
 ---
 
+**Referência:**
+STJ. Corte Especial. EREsp 1.725.030-SP, Rel. Min. Raul Araújo, julgado em 14/12/2023 (Info 14 - Edição Extraordinária).
+
 ## Questão 2
 
 <!-- ID_ORIGEM: JULGADO-2 -->
@@ -34,6 +37,9 @@ Em concursos públicos, o direito à participação nas vagas reservadas para pe
 O entendimento consolidado é que a identificação para vagas reservadas a pessoas negras em concursos públicos deve se fundamentar no fenótipo, ou seja, nas características físicas visíveis, e não no genótipo ou ancestralidade. Isso porque a proteção visa combater a discriminação baseada na aparência, que é o que efetivamente gera o preconceito racial, conforme decidido pelo STJ na 1ª Turma no julgamento do AgInt nos EDcl no RMS 69.978-BA em 23/10/2023.
 
 ---
+
+**Referência:**
+STJ. 1a Turma. AgInt nos EDcl no RMS 69.978-BA, Rel. Min. Paulo Sérgio Domingues, julgado em 23/10/2023 (Info 14 - Edição Extraordinária).
 
 ## Questão 3
 
@@ -50,6 +56,9 @@ A GACEN possui natureza pro labore faciendo e, embora paga indistintamente aos s
 
 ---
 
+**Referência:**
+STJ. 1a Turma. AgInt no REsp 1.966.052-PR, Rel. Min. Benedito Gonçalves, julgado em 2/10/2023 (Info 14 - Edição Extraordinária).
+
 ## Questão 4
 
 <!-- ID_ORIGEM: JULGADO-4 -->
@@ -64,6 +73,9 @@ A interposição de recurso administrativo contra a multa administrativa suspend
 Conforme o entendimento do STJ, a interposição de recurso administrativo não afasta a incidência dos juros moratórios, os quais devem incidir a partir do primeiro dia subsequente ao vencimento do prazo previsto para o pagamento da multa, independentemente da interposição do recurso. Portanto, os juros começam a contar a partir do término do prazo inicial para pagamento, e não da decisão que nega o recurso.
 
 ---
+
+**Referência:**
+STJ. 1a Turma. AgInt no AREsp 1.716.010-RJ, Rel. Min. Sérgio Kukina, julgado em 25/9/2023 (Info 14 - Edição Extraordinária).
 
 ## Questão 5
 
@@ -80,6 +92,9 @@ Embora o artigo 57 da Lei nº 9.784/99 preveja o trâmite recursal por até trê
 
 ---
 
+**Referência:**
+STJ. 1a Seção. MS 27.102-DF, Rel. Min. Sérgio Kukina, julgado em 23/8/2023 (Info 14 - Edição Extraordinária).
+
 ## Questão 6
 
 <!-- ID_ORIGEM: JULGADO-6 -->
@@ -94,6 +109,9 @@ O contrato de financiamento habitacional firmado por empresa pública estadual d
 A jurisprudência do STJ reconhece que empresas públicas estaduais que atuam na política habitacional podem incluir cláusula de alienação fiduciária em seus contratos de financiamento habitacional, mesmo para mutuários de baixa renda. Ademais, a execução da garantia fiduciária por meio de leilão público do imóvel inadimplido não configura ilegalidade, estando em conformidade com o ordenamento jurídico e a finalidade social do contrato.
 
 ---
+
+**Referência:**
+STJ. 1a Turma. AREsp 1.776.983-SP, Rel. Min. Gurgel de Faria, julgado em 19/9/2023 (Info 14 - Edição Extraordinária).
 
 ## Questão 7
 
@@ -110,6 +128,9 @@ O Superior Tribunal de Justiça reconhece que o ente federado pode promover dire
 
 ---
 
+**Referência:**
+STJ. 1a Turma. REsp 1.945.959-RS, Rel. Min. Gurgel de Faria, julgado em 17/10/2023 (Info 14 - Edição Extraordinária).
+
 ## Questão 8
 
 <!-- ID_ORIGEM: JULGADO-8 -->
@@ -124,6 +145,9 @@ O militar temporário não estável que comprovar cegueira, seja em um ou ambos 
 O entendimento firmado reconhece que o direito à reforma para o militar temporário não estável decorre da comprovação da cegueira, sem necessidade de comprovar nexo causal com o serviço militar. O inciso V do art. 108 da Lei nº 6.880/80 prevê a cegueira como causa de incapacidade definitiva, sem distinção entre um ou ambos os olhos, garantindo a proteção previdenciária sem restrições adicionais que não estejam no texto legal.
 
 ---
+
+**Referência:**
+STJ. 1a Turma. Processo em segredo de justiça, Rel. Min. Benedito Gonçalves, julgado em 2/10/2023 (Info 14 - Edição Extraordinária).
 
 ## Questão 9
 
@@ -140,6 +164,9 @@ O entendimento firmado reconhece que os cartões de desconto em serviços de sa�
 
 ---
 
+**Referência:**
+STJ. 2a Turma. AgInt no AREsp 2.183.704-SP, Rel. Min. Herman Benjamin, julgado em 2/10/2023 (Info 14 - Edição Extraordinária).
+
 ## Questão 10
 
 <!-- ID_ORIGEM: JULGADO-10 -->
@@ -154,6 +181,9 @@ No processo administrativo federal de infração ambiental, a partir da alteraç
 Antes do Decreto 9.760/2019, a intimação por edital era permitida quando não havia agravamento da penalidade, mas com a alteração, a notificação para apresentação de alegações finais deve ser feita por via postal com aviso de recebimento ou por outro meio que assegure a certeza da ciência do autuado, não sendo mais admitida a intimação por edital, mesmo que não haja agravamento da penalidade.
 
 ---
+
+**Referência:**
+STJ. 2a Turma. REsp 2.021.212-PR, Rel. Min. Assusete Magalhães, julgado em 21/11/2023 (Info 14 - Edição Extraordinária).
 
 ## Questão 11
 
@@ -170,6 +200,9 @@ O entendimento consolidado no julgado estabelece que o desmatamento sem autoriza
 
 ---
 
+**Referência:**
+STJ. 2a Turma. REsp 1.989.778-MT, Rel. Min. Assusete Magalhães, julgado em 19/9/2023 (Info 14 - Edição Extraordinária).
+
 ## Questão 12
 
 <!-- ID_ORIGEM: JULGADO-12 -->
@@ -184,6 +217,9 @@ Em ação de reintegração de posse envolvendo imóvel situado em comunidade qu
 A competência da Justiça Federal decorre do interesse da União, previsto no art. 109, I, da CF/88, que abrange causas em que a União, suas autarquias ou empresas públicas federais forem interessadas. A atuação do INCRA, autarquia federal responsável pela gestão das terras quilombolas, configura esse interesse jurídico, mesmo que a disputa seja entre particulares. Assim, a Justiça Federal é competente para julgar a ação de reintegração de posse de imóvel em comunidade quilombola, conforme entendimento consolidado pelo STJ.
 
 ---
+
+**Referência:**
+STJ. 1a Seção. CC 190.297-AP, Rel. Min. Francisco Falcão, julgado em 27/9/2023 (Info 14 - Edição Extraordinária).
 
 ## Questão 13
 
@@ -200,6 +236,9 @@ A coisa julgada protege a imutabilidade da decisão judicial definitiva, inclusi
 
 ---
 
+**Referência:**
+STJ. 2a Turma. AgInt no REsp 2.097.689-PB, Rel. Min. Mauro Campbell Marques, julgado em 4/12/2023 (Info 14 - Edição Extraordinária).
+
 ## Questão 14
 
 <!-- ID_ORIGEM: JULGADO-14 -->
@@ -214,6 +253,9 @@ Considerando o regime jurídico dos Certificados financeiros do Tesouro Série E
 Os CFT-E são impenhoráveis enquanto destinados à quitação de tributos federais, conforme o art. 833, I, do CPC. Contudo, quando a instituição de ensino não possui débitos tributários ou após a quitação destes, os certificados podem ser recomprados pelo FNDE, que resgata os títulos e entrega o valor financeiro atualizado. Nesse momento, o valor financeiro auferido deixa de ser um título impenhorável e pode ser penhorado, conforme entendimento consolidado no REsp 2.039.092-SP.
 
 ---
+
+**Referência:**
+STJ. 1a Turma. REsp 2.039.092-SP, Rel. Min. Regina Helena Costa, julgado em 22/8/2023 (Info 14 - Edição Extraordinária).
 
 ## Questão 15
 
@@ -230,6 +272,9 @@ O entendimento firmado pelo STJ no Tema 444, referente ao redirecionamento contr
 
 ---
 
+**Referência:**
+STJ. 1a Turma. AgInt nos EDcl no REsp 1.733.325-SP, Rel. Min. Paulo Sérgio Domingues, julgado em 23/10/2023 (Info 14 - Edição Extraordinária).
+
 ## Questão 16
 
 <!-- ID_ORIGEM: JULGADO-16 -->
@@ -244,6 +289,9 @@ No cumprimento de sentença coletiva que visa a execução individual dos direit
 O entendimento consolidado pelo STF no ARE 709.212/DF é aplicável ao cumprimento de sentença coletiva que busca a execução individual dos direitos referentes à cobrança de valores não depositados no FGTS, conforme reafirmado pelo STJ no REsp 2.084.126-SP. Portanto, a aplicação desse entendimento é obrigatória nesse contexto.
 
 ---
+
+**Referência:**
+STJ. 2a Turma. REsp 2.084.126-SP, Rel. Min. Francisco Falcão, julgado em 24/10/2023 (Info 14 - Edição Extraordinária).
 
 ## Questão 17
 
@@ -260,6 +308,9 @@ Os protocolos anexos aos tratados internacionais firmados entre o Brasil e os pa
 
 ---
 
+**Referência:**
+STJ. 1a Turma. REsp 2.102.886-RS, Rel. Min. Regina Helena Costa, julgado em 28/11/2023 (Info 14 - Edição Extraordinária).
+
 ## Questão 18
 
 <!-- ID_ORIGEM: JULGADO-18 -->
@@ -275,6 +326,9 @@ O Superior Tribunal de Justiça reconheceu que o art. 9º da Lei 9.249/95 não i
 
 ---
 
+**Referência:**
+STJ. 2a Turma. REsp 1.950.577-SP, Rel. Min. Mauro Campbell Marques, julgado em 3/10/2023 (Info 14 - Edição Extraordinária).
+
 ## Questão 19
 
 <!-- ID_ORIGEM: JULGADO-19 -->
@@ -289,3 +343,6 @@ A variação positiva do valor do investimento em empresa controlada ou coligada
 O entendimento firmado é de que o § 1º do art. 7º da IN SRF 213/2002 é ilegal por permitir a tributação do resultado positivo da equivalência patrimonial de empresas controladas ou coligadas no exterior além dos lucros efetivamente realizados, contrariando a legislação vigente. Assim, a variação positiva ou negativa do valor do investimento, embora influencie o lucro líquido, não impacta as bases de cálculo do IRPJ e da CSLL.
 
 ---
+
+**Referência:**
+STJ. 2a Turma. AgInt nos EDcl no REsp 1.760.205-SP, Rel. Min. Herman Benjamin, julgado em 22/8/2023 (Info 14 - Edição Extraordinária).

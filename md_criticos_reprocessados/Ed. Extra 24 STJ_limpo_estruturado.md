@@ -1,6 +1,8 @@
 # Ed. Extra 24 STJ
 
-**Status geral:** Estruturado automaticamente
+**Status geral:** Reestruturado automaticamente - V2
+**Julgados esperados:** 19
+**Julgados encontrados:** 20
 
 ---
 
@@ -8,14 +10,11 @@
 
 **Disciplina:** Direito Penal
 
-**Subtema:** Crimes Contra A Pessoa > Crimes Contra A Vida > Lesão Corporal
-
-**Título do julgado:**
-
-A decisão médica em contexto de urgência, como a do parto, deve ser respeitada, dentro dos limites da responsabilidade civil, especialmente quando o procedimento adotado se revelar necessário para a segurança da parturiente e do recém-nascido
-
 **Tese / entendimento:**
 
+A decisão médica em contexto de urgência, como a do parto, deve ser respeitada, dentro dos
+limites da responsabilidade civil, especialmente quando o procedimento adotado se revelar
+necessário para a segurança da parturiente e do recém-nascido
 Caso adaptado: uma gestante que desejava parto natural expressou claramente não querer
 realizar episeotomia (corte cirúrgico para facilitar a saída do bebê). Durante o parto, diante
 de possíveis complicações, o médico realizou uma manobra de Kristeller, técnica consistente
@@ -38,8 +37,7 @@ o médico precisa tomar decisões rápidas, não podendo ser responsabilizado pe
 quando age dentro dos padrões técnicos adequados.
 
 **Referência:**
-
-STJ. 5ª Turma. AREsp 2.587.582-SP, Rel. Min. Ribeiro Dantas, Rel. para acórdão Min. Joel Ilan Paciornik, julgado em 27/8/2024 (Info 24 - Edição Extraordinária).
+STJ. 5a Turma. AREsp 2.587.582-SP, Rel. Min. Ribeiro Dantas, Rel. para acórdão Min. Joel Ilan Paciornik, julgado em 27/8/2024 (Info 24 - Edição Extraordinária).
 
 **Status:** Completo
 
@@ -49,14 +47,11 @@ STJ. 5ª Turma. AREsp 2.587.582-SP, Rel. Min. Ribeiro Dantas, Rel. para acórdã
 
 **Disciplina:** Direito Penal
 
-**Subtema:** Crimes Contra A Administração Pública > Corrupção Passiva
-
-**Título do julgado:**
-
-O delito de corrupção ativa é crime formal e unissubsistente, ou seja, exaure-se com o mero conhecimento da oferta ou promessa de vantagem indevida, independentemente do seu pagamento posterior, ainda que em parcelas
-
 **Tese / entendimento:**
 
+O delito de corrupção ativa é crime formal e unissubsistente, ou seja, exaure-se com o mero
+conhecimento da oferta ou promessa de vantagem indevida, independentemente do seu
+pagamento posterior, ainda que em parcelas
 Caso hipotético: João, sócio da empresa Alfa, ofereceu R$ 54.000,00 em propina a Pedro,
 supervisor técnico de um órgão público, para manter contratos emergenciais com o governo
 do Estado X. O pagamento foi realizado em 6 parcelas entre 2005 e 2006.
@@ -73,8 +68,7 @@ criminosa, podendo influenciar na dosimetria da pena, mas não caracterizando co
 delitiva.
 
 **Referência:**
-
-STJ. 6ª Turma. AREsp 920.664-DF, Rel. Min. Antonio Saldanha Palheiro, julgado em 17/12/2024 (Info 24 - Edição Extraordinária).
+STJ. 6a Turma. AREsp 920.664-DF, Rel. Min. Antonio Saldanha Palheiro, julgado em 17/12/2024 (Info 24 - Edição Extraordinária).
 
 **Status:** Completo
 
@@ -84,30 +78,26 @@ STJ. 6ª Turma. AREsp 920.664-DF, Rel. Min. Antonio Saldanha Palheiro, julgado e
 
 **Disciplina:** Direito Penal
 
-**Subtema:** Crimes Contra A Ordem Tributária
-
-**Título do julgado:**
-
-O parcelamento de crédito tributário realizado após o recebimento da denúncia não suspende a ação penal de sonegação tributária, conforme o art. 83, § 2º, da Lei 9.430/1996, com a redação dada pelo art. 6º da Lei 12.382/2011
-
 **Tese / entendimento:**
 
-De acordo com a redação originária do art. 83 da Lei nº 9.430/1996, se o contribuinte aderisse
+O parcelamento de crédito tributário realizado após o recebimento da denúncia não suspende a
+ação penal de sonegação tributária, conforme o art. 83, § 2o, da Lei 9.430/1996, com a redação
+dada pelo art. 6o da Lei 12.382/2011
+De acordo com a redação originária do art. 83 da Lei no 9.430/1996, se o contribuinte aderisse
 ao parcelamento, mesmo após o recebimento da denúncia, ficava suspensa a pretensão
 punitiva do Estado e o prazo prescricional.
-Ocorre que a Lei nº 12.382/2011, trouxe um regramento mais rigoroso. Essa lei incluiu o § 2º
-no art. 83 da Lei nº 9.430/1996 prevendo que o parcelamento somente irá suspender a ação
+Ocorre que a Lei no 12.382/2011, trouxe um regramento mais rigoroso. Essa lei incluiu o § 2o
+no art. 83 da Lei no 9.430/1996 prevendo que o parcelamento somente irá suspender a ação
 penal se for formalizado antes do recebimento da denúncia.
 Em suma: o parcelamento do crédito tributário precisa ser antes do recebimento da denúncia?
-• Créditos tributários constituídos antes da Lei nº 12.382/2011: NÃO. O parcelamento podia
+• Créditos tributários constituídos antes da Lei no 12.382/2011: NÃO. O parcelamento podia
 ser feito após o recebimento da denúncia.
-• Créditos tributários constituídos após a Lei nº 12.382/2011: SIM. O parcelamento do crédito
+• Créditos tributários constituídos após a Lei no 12.382/2011: SIM. O parcelamento do crédito
 tributário, realizado após o recebimento da denúncia, não extingue a punibilidade do ilícito
 penal.
 
 **Referência:**
-
-STJ. 6ª Turma. AgRg no RHC 200.315-SP, Rel. Min. Og Fernandes, julgado em 4/11/2024 (Info 24 - Edição Extraordinária).
+STJ. 6a Turma. AgRg no RHC 200.315-SP, Rel. Min. Og Fernandes, julgado em 4/11/2024 (Info 24 - Edição Extraordinária).
 
 **Status:** Completo
 
@@ -117,23 +107,19 @@ STJ. 6ª Turma. AgRg no RHC 200.315-SP, Rel. Min. Og Fernandes, julgado em 4/11/
 
 **Disciplina:** Direito Penal
 
-**Subtema:** Lei De Drogas
-
-**Título do julgado:**
-
-Quantidade reduzida de droga e ausência de elementos concretos de traficância justificam a desclassificação do crime de tráfico para posse para consumo próprio
-
 **Tese / entendimento:**
 
+Quantidade reduzida de droga e ausência de elementos concretos de traficância justificam a
+desclassificação do crime de tráfico para posse para consumo próprio
 Caso adaptado: durante uma revista em um presídio, policiais encontraram 37g de maconha
 escondidas em pedaços de carne dentro da marmita levada por Ananda para seu pai, João, que
 cumpria pena. Ananda afirmou que recebeu a marmita de um mototaxista e não sabia da
-presença da droga. João foi denunciado e condenado por tráfico de drogas (art. 33 da Lei nº
+presença da droga. João foi denunciado e condenado por tráfico de drogas (art. 33 da Lei no
 11.343/2006), com a sentença mantida pelo Tribunal de Justiça.
 A defesa impetrou habeas corpus no STJ argumentando que a quantidade da droga era
 pequena e que não havia provas de sua destinação mercantil.
 O STJ concedeu o habeas corpus e desclassificou a conduta para posse de drogas para consumo
-próprio (art. 28 da Lei nº 11.343/2006), determinando que o processo voltasse à primeira
+próprio (art. 28 da Lei no 11.343/2006), determinando que o processo voltasse à primeira
 instância para aplicação de sanções administrativas.
 A distinção entre os crimes (art. 28 ou art. 33) depende da finalidade da posse da droga, sendo
 necessário avaliar fatores como a quantidade apreendida, as circunstâncias do flagrante e o perfil
@@ -144,8 +130,7 @@ Na ausência de provas claras sobre a intenção de venda, deve prevalecer a pre
 para uso pessoal, especialmente em casos envolvendo pequenas quantidades.
 
 **Referência:**
-
-STJ. 5ª Turma. HC 888.877-MS, Rel. Min. Daniela Teixeira, julgado em 22/10/2024 (Info 24 - Edição Extraordinária).
+STJ. 5a Turma. HC 888.877-MS, Rel. Min. Daniela Teixeira, julgado em 22/10/2024 (Info 24 - Edição Extraordinária).
 
 **Status:** Completo
 
@@ -155,14 +140,11 @@ STJ. 5ª Turma. HC 888.877-MS, Rel. Min. Daniela Teixeira, julgado em 22/10/2024
 
 **Disciplina:** Direito Penal
 
-**Subtema:** Lei Maria Da Penha
-
-**Título do julgado:**
-
-O consentimento da vítima não afasta a tipicidade do crime de descumprimento de medida protetiva (art. 24-A da Lei Maria da Penha) se o agente gera intimidação na vítima e, assim, consegue esse consentimento Importante!!!
-
 **Tese / entendimento:**
 
+O consentimento da vítima não afasta a tipicidade do crime de descumprimento de medida
+protetiva (art. 24-A da Lei Maria da Penha) se o agente gera intimidação na vítima e, assim,
+consegue esse consentimento
 Caso hipotético: Gustavo empurrou e ameaçou matar sua mãe, Regina, uma idosa de 82 anos.
 A Justiça determinou medidas protetivas proibindo Gustavo de se aproximar ou manter
 contato com a mãe.
@@ -175,14 +157,13 @@ descumprimento de medidas protetivas, conforme o art. 24-A da Lei Maria da Penha
 A defesa argumentou que Gustavo esteve na residência com o consentimento da mãe,
 sustentando que isso afastaria a tipicidade do crime.
 Em regra, o STJ entende que o consentimento da vítima afasta a tipicidade do crime do art. 24-
-A da Lei nº 11.340/2006. No entanto, para que isso ocorra, a autorização da vítima deve ser
+A da Lei no 11.340/2006. No entanto, para que isso ocorra, a autorização da vítima deve ser
 livre e espontânea. No caso concreto, o STJ entendeu que Regina não o convidou e que seu
 consentimento estava viciado pelo medo e pela intimidação sofridos, o que tornava inválida
 sua autorização.
 
 **Referência:**
-
-STJ. 5ª Turma. AgRg no HC 860.073-SC, Rel. Min. Ribeiro Dantas, julgado em 13/11/2024 (Info 24 - Edição Extraordinária).
+STJ. 5a Turma. AgRg no HC 860.073-SC, Rel. Min. Ribeiro Dantas, julgado em 13/11/2024 (Info 24 - Edição Extraordinária).
 
 **Status:** Completo
 
@@ -192,35 +173,20 @@ STJ. 5ª Turma. AgRg no HC 860.073-SC, Rel. Min. Ribeiro Dantas, julgado em 13/1
 
 **Disciplina:** Direito Processual Penal
 
-**Subtema:** Ação Penal
-
-1
-
-**Título do julgado:**
-
-Nos crimes contra a honra de servidor público, a legitimidade para a ação penal é concorrente, mas a representação do ofendido ao MP preclui a possibilidade de ajuizar ação penal privada, mesmo que o ofendido discorde do enquadramento legal dado pelo órgão ministerial
-
 **Tese / entendimento:**
 
+Nos crimes contra a honra de servidor público, a legitimidade para a ação penal é concorrente,
+mas a representação do ofendido ao MP preclui a possibilidade de ajuizar ação penal privada,
+mesmo que o ofendido discorde do enquadramento legal dado pelo órgão ministerial
 1. A ação penal privada subsidiária da pública é incabível na ausência de inércia do Ministério
 Público.
 2. A discordância do querelante quanto à tipificação dos fatos dada pelo Ministério Público
 não autoriza a propositura de queixa-crime.
 3. Nos crimes contra a honra de servidor público, a representação ao Ministério Público
 preclui a via da ação penal privada.
-STJ. Corte Especial. QC 13-DF, Rel. Min. Antonio Carlos Ferreira, julgado em 4/12/2024 (Info 24 -
-Edição Extraordinária).
-COMPETÊNCIA
-A Justiça Federal é competente para julgar crimes ambientais
-contra espécies ameaçadas de extinção
-Importante!!!
-A competência da Justiça Federal para julgar crimes ambientais é atraída quando a conduta
-envolve espécies constantes na Lista Nacional de Espécies Ameaçadas de Extinção,
-configurando interesse da União.
 
 **Referência:**
-
-STJ. 3ª Seção. AgRg no CC 208.449-SC, Rel. Min. Messod Azulay Neto, julgado em 11/12/2024 (Info 24 - Edição Extraordinária).
+STJ. Corte Especial. QC 13-DF, Rel. Min. Antonio Carlos Ferreira, julgado em 4/12/2024 (Info 24 - Edição Extraordinária).
 
 **Status:** Completo
 
@@ -230,28 +196,16 @@ STJ. 3ª Seção. AgRg no CC 208.449-SC, Rel. Min. Messod Azulay Neto, julgado e
 
 **Disciplina:** Direito Processual Penal
 
-**Subtema:** Competência
-
-**Título do julgado:**
-
-Compete à Justiça Federal julgar o crime de discriminação contra pessoa com deficiência, previsto no art. 88 da Lei 13.146/2015, quando praticado mediante publicação de conteúdo em rede social aberta, em face da presunção de transnacionalidade do delito Importante!!!
-
 **Tese / entendimento:**
 
-Caso adaptado: em um show de stand-up, um comediante fez piadas discriminatórias contra
-pessoas com deficiência. O vídeo com uma dessas piadas foi divulgado pelo humorista em seu
-Instagram.
-O Ministério Público instaurou procedimento investigatório para apurar a eventual prática do
-crime previsto no art. 88 da Lei nº 13.146/2015 (Estatuto da Pessoa com Deficiência).
-De quem é a competência para julgar o delito?
-Justiça Federal.
-Compete à Justiça Federal processar e julgar o crime de discriminação contra pessoa com
-deficiência, previsto no art. 88 da Lei nº 13.146/2015, quando praticado mediante publicação
-de conteúdo em rede social aberta, em face da presunção de transnacionalidade do delito.
+A Justiça Federal é competente para julgar crimes ambientais
+contra espécies ameaçadas de extinção
+A competência da Justiça Federal para julgar crimes ambientais é atraída quando a conduta
+envolve espécies constantes na Lista Nacional de Espécies Ameaçadas de Extinção,
+configurando interesse da União.
 
 **Referência:**
-
-STJ. 3ª Seção. CC 205.569-SP, Rel. Min. Messod Azulay Neto, julgado em 13/11/2024 (Info 24 - Edição Extraordinária).
+STJ. 3a Seção. AgRg no CC 208.449-SC, Rel. Min. Messod Azulay Neto, julgado em 11/12/2024 (Info 24 - Edição Extraordinária).
 
 **Status:** Completo
 
@@ -261,14 +215,37 @@ STJ. 3ª Seção. CC 205.569-SP, Rel. Min. Messod Azulay Neto, julgado em 13/11/
 
 **Disciplina:** Direito Processual Penal
 
-**Subtema:** Provas
+**Tese / entendimento:**
 
-**Título do julgado:**
+Compete à Justiça Federal julgar o crime de discriminação contra pessoa com deficiência,
+previsto no art. 88 da Lei 13.146/2015, quando praticado mediante publicação de conteúdo em
+rede social aberta, em face da presunção de transnacionalidade do delito
+Caso adaptado: em um show de stand-up, um comediante fez piadas discriminatórias contra
+pessoas com deficiência. O vídeo com uma dessas piadas foi divulgado pelo humorista em seu
+Instagram.
+O Ministério Público instaurou procedimento investigatório para apurar a eventual prática do
+crime previsto no art. 88 da Lei no 13.146/2015 (Estatuto da Pessoa com Deficiência).
+De quem é a competência para julgar o delito?
+Justiça Federal.
+Compete à Justiça Federal processar e julgar o crime de discriminação contra pessoa com
+deficiência, previsto no art. 88 da Lei no 13.146/2015, quando praticado mediante publicação
+de conteúdo em rede social aberta, em face da presunção de transnacionalidade do delito.
 
-A ação penal deve ser trancada quando fundada exclusivamente em provas obtidas por violação do sigilo médico
+**Referência:**
+STJ. 3a Seção. CC 205.569-SP, Rel. Min. Messod Azulay Neto, julgado em 13/11/2024 (Info 24 - Edição Extraordinária).
+
+**Status:** Completo
+
+---
+
+## Julgado 9
+
+**Disciplina:** Direito Processual Penal
 
 **Tese / entendimento:**
 
+A ação penal deve ser trancada quando fundada exclusivamente
+em provas obtidas por violação do sigilo médico
 O sigilo profissional médico é protegido por norma de ordem pública, sendo inadmissível sua
 quebra para denunciar crimes praticados pelo próprio paciente, salvo exceções legais
 específicas.
@@ -280,32 +257,9 @@ exercício de sua profissão sem autorização expressa do paciente. Diante da i
 provas, a ação penal deve ser trancada.
 
 **Referência:**
-
-STJ. 6ª Turma. HC 783.927/MG, Rel. Min. Sebastião Reis Júnior, julgado em 14/3/2023 (Info 767).
+STJ. 6a Turma. HC 783.927/MG, Rel. Min. Sebastião Reis Júnior, julgado em 14/3/2023 (Info 767). STJ. 5a Turma. AgRg no RHC 181.907/MG, Rel. Min. Daniela Teixeira, julgado em 4/12/2024 (Info 24 - Edição Extraordinária).
 
 **Status:** Completo
-
----
-
-## Julgado 9
-
-**Disciplina:** Direito Processual Penal
-
-**Subtema:** N/I
-
-**ODS:** N/I
-
-**Título do julgado:**
-
-N/I
-
-**Tese / entendimento:**
-
-**Referência:**
-
-STJ. 5ª Turma. AgRg no RHC 181.907/MG, Rel. Min. Daniela Teixeira, julgado em 4/12/2024 (Info 24 - Edição Extraordinária).
-
-**Status:** Revisão crítica
 
 ---
 
@@ -313,16 +267,11 @@ STJ. 5ª Turma. AgRg no RHC 181.907/MG, Rel. Min. Daniela Teixeira, julgado em 4
 
 **Disciplina:** Direito Processual Penal
 
-**Subtema:** Provas
-
-1
-
-**Título do julgado:**
-
-A presença de intérprete é suficiente para garantir o direito de defesa de indígenas no processo penal, sendo desnecessária a tradução da denúncia para a língua indígena quando não há comprovação de hipossuficiência linguística
-
 **Tese / entendimento:**
 
+A presença de intérprete é suficiente para garantir o direito de defesa de indígenas no processo
+penal, sendo desnecessária a tradução da denúncia para a língua indígena quando não há
+comprovação de hipossuficiência linguística
 1. A presença de intérprete é suficiente para garantir o direito de defesa de indígenas no
 processo penal.
 2. A tradução da denúncia para a língua indígena é desnecessária quando não há comprovação
@@ -330,8 +279,7 @@ de hipossuficiência linguística dos acusados.
 3. A assistência de advogados constitui garantia adicional ao exercício do direito de defesa.
 
 **Referência:**
-
-STJ. 5ª Turma. RHC 201.851-DF, Rel. Min. Ribeiro Dantas, julgado em 17/12/2024 (Info 24 - Edição Extraordinária).
+STJ. 5a Turma. RHC 201.851-DF, Rel. Min. Ribeiro Dantas, julgado em 17/12/2024 (Info 24 - Edição Extraordinária).
 
 **Status:** Completo
 
@@ -341,14 +289,11 @@ STJ. 5ª Turma. RHC 201.851-DF, Rel. Min. Ribeiro Dantas, julgado em 17/12/2024 
 
 **Disciplina:** Direito Processual Penal
 
-**Subtema:** Provas
-
-**Título do julgado:**
-
-O trancamento da ação penal com base na teoria da perda da chance probatória exige que se demonstre concretamente como a prova perdida seria relevante para a defesa e poderia influenciar significativamente o resultado do processo Importante!!!
-
 **Tese / entendimento:**
 
+O trancamento da ação penal com base na teoria da perda da chance probatória exige que se
+demonstre concretamente como a prova perdida seria relevante para a defesa e poderia
+influenciar significativamente o resultado do processo
 Caso hipotético: João, servidor público, foi investigado por suposta participação em esquema
 de tráfico de medicamentos controlados. Após seu afastamento das funções, seu e-mail
 funcional foi desativado e, seguindo procedimento padrão da Microsoft, o conteúdo foi
@@ -373,8 +318,7 @@ clareza como essa prova específica poderia impactar substancialmente o resultad
 julgamento.
 
 **Referência:**
-
-STJ. 6ª Turma. HC 908.010-SC, Rel. Min. Sebastião Reis Júnior, julgado em 17/9/2024 (Info 24 - Edição Extraordinária).
+STJ. 6a Turma. HC 908.010-SC, Rel. Min. Sebastião Reis Júnior, julgado em 17/9/2024 (Info 24 - Edição Extraordinária).
 
 **Status:** Completo
 
@@ -384,14 +328,11 @@ STJ. 6ª Turma. HC 908.010-SC, Rel. Min. Sebastião Reis Júnior, julgado em 17/
 
 **Disciplina:** Direito Processual Penal
 
-**Subtema:** Provas
-
-**Título do julgado:**
-
-Não há ilegalidade na busca domiciliar nos casos em que o acusado, o qual estava consumindo e divulgando o material ilícito através de uma transmissão ao vivo (live), empreende fuga após visualizar a viatura policial
-
 **Tese / entendimento:**
 
+Não há ilegalidade na busca domiciliar nos casos em que o acusado, o qual estava consumindo e
+divulgando o material ilícito através de uma transmissão ao vivo (live), empreende fuga após
+visualizar a viatura policial
 Caso hipotético: em uma transmissão ao vivo no Instagram, Lucas foi filmado consumindo
 maconha e exibindo substâncias que aparentavam ser droga, além de dinheiro em espécie,
 sugerindo a venda de entorpecentes. Após denúncia anônima, policiais foram até sua
@@ -405,8 +346,7 @@ elementos objetivos que justificavam as diligências, como a transmissão ao viv
 ilícito e a tentativa de fuga do suspeito.
 
 **Referência:**
-
-STJ. 6ª Turma. AgRg no HC 886.071-AL, Rel. Min. Sebastião Reis Júnior, julgado em 2/9/2024 (Info 24 - Edição Extraordinária).
+STJ. 6a Turma. AgRg no HC 886.071-AL, Rel. Min. Sebastião Reis Júnior, julgado em 2/9/2024 (Info 24 - Edição Extraordinária).
 
 **Status:** Completo
 
@@ -416,15 +356,12 @@ STJ. 6ª Turma. AgRg no HC 886.071-AL, Rel. Min. Sebastião Reis Júnior, julgad
 
 **Disciplina:** Direito Processual Penal
 
-**Subtema:** Interceptação Telefônica
-
-**Título do julgado:**
-
-Cabe ao juiz externar fundamentação, ainda que sucinta, baseada na situação concreta do momento em que proferida a decisão de prorrogação das medidas cautelares de interceptação telefônica, não sendo suficiente a mera referência à decisão inicial que deferiu a medida
-
 **Tese / entendimento:**
 
-A renovação de interceptação telefônica é lícita quando presentes os requisitos do art. 2º da
+Cabe ao juiz externar fundamentação, ainda que sucinta, baseada na situação concreta do
+momento em que proferida a decisão de prorrogação das medidas cautelares de interceptação
+telefônica, não sendo suficiente a mera referência à decisão inicial que deferiu a medida
+A renovação de interceptação telefônica é lícita quando presentes os requisitos do art. 2o da
 Lei n. 9.296/1996, desde que a decisão judicial inicial e as prorrogações sejam fundamentadas
 de forma legítima, ainda que sucinta, com base na necessidade da medida e na complexidade
 da investigação.
@@ -440,8 +377,7 @@ especialmente quando deferir novas interceptações, não sendo suficiente mera 
 decisão inaugural.
 
 **Referência:**
-
-STJ. 6ª Turma. AgRg no HC 910.860-PB, Rel. Min. Antonio Saldanha Palheiros, Rel. para acórdão Min. Otávio de Almeida Toledo (Desembargador convocado do TJSP), julgado em 12/11/2024 (Info 24 - Edição Extraordinária).
+STJ. 6a Turma. AgRg no HC 910.860-PB, Rel. Min. Antonio Saldanha Palheiros, Rel. para acórdão Min. Otávio de Almeida Toledo (Desembargador convocado do TJSP), julgado em 12/11/2024 (Info 24 - Edição Extraordinária).
 
 **Status:** Completo
 
@@ -451,14 +387,11 @@ STJ. 6ª Turma. AgRg no HC 910.860-PB, Rel. Min. Antonio Saldanha Palheiros, Rel
 
 **Disciplina:** Direito Processual Penal
 
-**Subtema:** Colaboração Premiada
-
-**Título do julgado:**
-
-Não havendo provas de simulação da relação advogado-cliente, prevalece a impossibilidade de o advogado firmar acordo de colaboração premiada para delatar fatos contra o cliente, sob pena de se fragilizar o direito de defesa
-
 **Tese / entendimento:**
 
+Não havendo provas de simulação da relação advogado-cliente, prevalece a impossibilidade de
+o advogado firmar acordo de colaboração premiada para delatar fatos contra o cliente, sob pena
+de se fragilizar o direito de defesa
 Caso hipotético: A Polícia Federal e o Ministério Público Federal investigaram advogados e
 policiais por suposta venda de facilidades a empresários presos. No decorrer das
 investigações, o advogado Lucas, apontado como operador do esquema, firmou um acordo de
@@ -479,8 +412,7 @@ anuladas, garantindo a proteção ao direito de defesa e à confiança essencial
 advogado-cliente.
 
 **Referência:**
-
-STJ. 5ª Turma. AgRg no RHC 203.874-RJ, Rel. Min. Reynaldo Soares da Fonseca, julgado em 27/11/2024 (Info 24 - Edição Extraordinária).
+STJ. 5a Turma. AgRg no RHC 203.874-RJ, Rel. Min. Reynaldo Soares da Fonseca, julgado em 27/11/2024 (Info 24 - Edição Extraordinária).
 
 **Status:** Completo
 
@@ -490,21 +422,16 @@ STJ. 5ª Turma. AgRg no RHC 203.874-RJ, Rel. Min. Reynaldo Soares da Fonseca, ju
 
 **Disciplina:** Direito Processual Penal
 
-**Subtema:** Sentença
-
-**Título do julgado:**
-
-A ausência de degravação completa da sentença não prejudica o contraditório ou a segurança do registro nos autos, do mesmo modo que igualmente ocorre com a prova oral
-
 **Tese / entendimento:**
 
+A ausência de degravação completa da sentença não prejudica o contraditório ou a segurança
+do registro nos autos, do mesmo modo que igualmente ocorre com a prova oral
 A ausência de transcrição integral da sentença oral não configura ilegalidade, pois o registro
 audiovisual tem o mesmo valor probatório da sentença escrita, não prejudicando o
 contraditório nem a segurança do processo.
 
 **Referência:**
-
-STJ. 3ª Seção. HC 462.253-SC, Rel. Min. Nefi Cordeiro, julgado em 28/11/2018 (Info 641).
+STJ. 3a Seção. HC 462.253-SC, Rel. Min. Nefi Cordeiro, julgado em 28/11/2018 (Info 641). STJ. 6a Turma. AgRg no HC 902.892-PI, Rel. Min. Antonio Saldanha Palheiro, julgado em 3/9/2024 (Info 24 - Edição Extraordinária).
 
 **Status:** Completo
 
@@ -514,36 +441,10 @@ STJ. 3ª Seção. HC 462.253-SC, Rel. Min. Nefi Cordeiro, julgado em 28/11/2018 
 
 **Disciplina:** Direito Processual Penal
 
-**Subtema:** N/I
-
-**ODS:** N/I
-
-**Título do julgado:**
-
-N/I
-
 **Tese / entendimento:**
 
-**Referência:**
-
-STJ. 6ª Turma. AgRg no HC 902.892-PI, Rel. Min. Antonio Saldanha Palheiro, julgado em 3/9/2024 (Info 24 - Edição Extraordinária).
-
-**Status:** Revisão crítica
-
----
-
-## Julgado 17
-
-**Disciplina:** Direito Processual Penal
-
-**Subtema:** Outros Temas > Fundamentação
-
-**Título do julgado:**
-
-A fundamentação per relationem é válida quando a manifestação processual referenciada contém fundamentação suficiente e acessível às partes
-
-**Tese / entendimento:**
-
+A fundamentação per relationem é válida quando a manifestação processual
+referenciada contém fundamentação suficiente e acessível às partes
 Caso hipotético: a polícia, após diversas diligências de investigação, pediu a busca e apreensão
 na residência do suspeito de tráfico de drogas. A juíza deferiu o pedido utilizando a
 fundamentação per relationem, ou seja, referindo-se diretamente ao relatório policial sem
@@ -564,25 +465,20 @@ No caso em análise, a decisão judicial, ainda que sucinta, foi considerada leg
 com os parâmetros estabelecidos pelo STJ, afastando a alegação de nulidade.
 
 **Referência:**
-
-STJ. 5ª Turma. AgRg no HC 876.612-SP, Rel. Min. Daniela Teixeira, Rel. para acórdão Min. Joel Ilan Paciornik, julgado em 8/10/2024 (Info 24 - Edição Extraordinária).
+STJ. 5a Turma. AgRg no HC 876.612-SP, Rel. Min. Daniela Teixeira, Rel. para acórdão Min. Joel Ilan Paciornik, julgado em 8/10/2024 (Info 24 - Edição Extraordinária).
 
 **Status:** Completo
 
 ---
 
-## Julgado 18
+## Julgado 17
 
 **Disciplina:** Direito Processual Penal
 
-**Subtema:** Tribunal Do Júri
-
-**Título do julgado:**
-
-Configura constrangimento ilegal a decisão que indefere genericamente o pedido de utilização de roupas civis pelo réu durante seu julgamento pelo Tribunal do Júri
-
 **Tese / entendimento:**
 
+Configura constrangimento ilegal a decisão que indefere genericamente o pedido de utilização
+de roupas civis pelo réu durante seu julgamento pelo Tribunal do Júri
 O réu tem o direito de comparecer ao júri trajando roupas civis, salvo se houver
 fundamentação concreta para o indeferimento do pedido.
 O juiz presidente do júri pode indeferir requerimentos probatórios que sejam irrelevantes,
@@ -595,47 +491,21 @@ comuns, do dia a dia, que qualquer cidadão usaria, em oposição ao uniforme pa
 sistema prisional.
 
 **Referência:**
-
-STJ. 5ª Turma. HC 778.503-MG, Rel. Min. Daniela Teixeira, julgado em 12/3/2024 (Info 804).
+STJ. 5a Turma. HC 778.503-MG, Rel. Min. Daniela Teixeira, julgado em 12/3/2024 (Info 804). STJ. 6a Turma. HC 945.012-SP, Rel. Min. Og Fernandes, julgado em 15/10/2024 (Info 24 - Edição Extraordinária).
 
 **Status:** Completo
 
 ---
 
-## Julgado 19
+## Julgado 18
 
 **Disciplina:** Direito Processual Penal
 
-**Subtema:** N/I
-
-**ODS:** N/I
-
-**Título do julgado:**
-
-N/I
-
 **Tese / entendimento:**
 
-**Referência:**
-
-STJ. 6ª Turma. HC 945.012-SP, Rel. Min. Og Fernandes, julgado em 15/10/2024 (Info 24 - Edição Extraordinária).
-
-**Status:** Revisão crítica
-
----
-
-## Julgado 20
-
-**Disciplina:** Direito Processual Penal
-
-**Subtema:** Tribunal Do Júri
-
-**Título do julgado:**
-
-O uso pela defesa de apenas fração do tempo disponível nos debates no plenário do Júri, somado à inércia em sustentar a principal tese absolutória presente nos autos configuram defesa deficiente, ensejando a nulidade do julgamento
-
-**Tese / entendimento:**
-
+O uso pela defesa de apenas fração do tempo disponível nos debates no plenário do Júri,
+somado à inércia em sustentar a principal tese absolutória presente nos autos configuram
+defesa deficiente, ensejando a nulidade do julgamento
 Caso adaptado: Rodrigo foi vítima de uma tentativa de homicídio e identificou Leonardo como
 um dos autores do crime. Durante todo o processo, Leonardo negou envolvimento, mas, no
 julgamento pelo Tribunal do Júri, seu advogado mudou a estratégia e não sustentou a tese de
@@ -654,36 +524,32 @@ ao acusado, o tribunal determinou a anulação da sessão plenária e a realiza�
 julgamento.
 
 **Referência:**
-
-STJ. 6ª Turma. HC 947.076-MG, Rel. Min. Rogerio Schietti Cruz, julgado em 3/12/2024 (Info 24 - Edição Extraordinária).
+STJ. 6a Turma. HC 947.076-MG, Rel. Min. Rogerio Schietti Cruz, julgado em 3/12/2024 (Info 24 - Edição Extraordinária).
 
 **Status:** Completo
 
 ---
 
-## Julgado 21
+## Julgado 19
 
 **Disciplina:** Direito Processual Penal
 
-**Subtema:** Execução Penal
-
-**Título do julgado:**
-
-A alteração legislativa promovida pela Lei 14.843/2024, ao tornar obrigatório o exame criminológico para fins de progressão de regime, não pode ser aplicada retroativamente para atingir fatos praticados sob a égide da legislação anterior
-
 **Tese / entendimento:**
 
+A alteração legislativa promovida pela Lei 14.843/2024, ao tornar obrigatório o exame
+criminológico para fins de progressão de regime, não pode ser aplicada retroativamente para
+atingir fatos praticados sob a égide da legislação anterior
 Caso hipotético: Pedro, condenado em 2023 e cumprindo pena em regime fechado, pediu a
 progressão para o semiaberto em 2024, após cumprir os requisitos necessários.
 O Tribunal de Justiça afirmou que Pedro somente poderia progredir se realizasse o exame
-criminológico obrigatório previsto na Lei nº 14.843/2024, que entrou em vigor desde abril de
+criminológico obrigatório previsto na Lei no 14.843/2024, que entrou em vigor desde abril de
 2024.
 O STJ não concordou com a interpretação do TJ.
-A exigência do exame criminológico para progressão de regime imposta pela Lei nº
+A exigência do exame criminológico para progressão de regime imposta pela Lei no
 14.843/2024 configura novatio legis in pejus, tornando mais difícil a obtenção de regime
 menos gravoso.
 A aplicação retroativa dessa norma é inconstitucional, por violar o princípio da
-irretroatividade da lei penal mais gravosa (art. 5º, XL, da CF) e ilegal, conforme o art. 2º do
+irretroatividade da lei penal mais gravosa (art. 5o, XL, da CF) e ilegal, conforme o art. 2o do
 Código Penal.
 No caso concreto, a condenação do apenado ocorreu antes da vigência da nova lei,
 impossibilitando sua aplicação retroativa.
@@ -694,32 +560,27 @@ não apresentou fundamentos concretos que justificassem a necessidade da realiza
 exame.
 
 **Referência:**
-
-STJ. 5ª Turma. AgRg no HC 954.277-SP, Rel. Min. Reynaldo Soares da Fonseca, julgado em 4/12/2024 (Info 24 - Edição Extraordinária).
+STJ. 5a Turma. AgRg no HC 954.277-SP, Rel. Min. Reynaldo Soares da Fonseca, julgado em 4/12/2024 (Info 24 - Edição Extraordinária).
 
 **Status:** Completo
 
 ---
 
-## Julgado 22
+## Julgado 20
 
 **Disciplina:** Direito Processual Penal
 
-**Subtema:** Execução Penal
-
-**Título do julgado:**
-
-É possível o cumprimento simultâneo de medida restritiva de direito consistente em prestação pecuniária, mesmo diante nova condenação a reprimenda de reclusão no regime semiaberto
-
 **Tese / entendimento:**
 
+É possível o cumprimento simultâneo de medida restritiva de direito consistente em prestação
+pecuniária, mesmo diante nova condenação a reprimenda de reclusão no regime semiaberto
 Caso hipotético: João foi condenado a um ano de prisão. Essa pena privativa de liberdade foi
 substituída por pena restritiva de direitos (prestação pecuniária, a ser paga em 12 parcelas
 mensais). No terceiro mês, João foi novamente condenado por um segundo delito, recebendo
 pena privativa de liberdade de 2 anos em regime semiaberto.
 A Vara de Execuções determinou a reconversão da prestação pecuniária em pena privativa de
 liberdade e sua unificação com a segunda sentença, baseando-se no Tema 1106 do STJ.
-A defesa impetrou habeas corpus no STJ, argumentando que, conforme o art. 44, §5º do CP, a
+A defesa impetrou habeas corpus no STJ, argumentando que, conforme o art. 44, §5o do CP, a
 conversão não deveria ser automática, sendo possível, no caso, o cumprimento simultâneo da
 prestação pecuniária com a pena privativa de liberdade.
 O STJ concordou com a defesa.
@@ -730,9 +591,6 @@ Somente certas penas restritivas de direitos (prestação pecuniária e perda de
 de multa são compatíveis com os regimes semiaberto e fechado.
 
 **Referência:**
-
-STJ. 6ª Turma. AgRg no HC 914.911-DF, Rel. Min. Otávio de Almeida Toledo (Desembargador convocado do TJSP), julgado em 30/9/2024 (Info 24 - Edição Extraordinária).
+STJ. 6a Turma. AgRg no HC 914.911-DF, Rel. Min. Otávio de Almeida Toledo (Desembargador convocado do TJSP), julgado em 30/9/2024 (Info 24 - Edição Extraordinária).
 
 **Status:** Completo
-
----

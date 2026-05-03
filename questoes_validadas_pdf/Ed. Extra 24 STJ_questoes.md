@@ -1,7 +1,5 @@
 # Ed. Extra 24 STJ
 
-**Categoria:** INFORMATIVO
-**Status de validação:** VALIDADO
 
 ---
 
@@ -10,13 +8,19 @@
 <!-- ID_ORIGEM: JULGADO-1 -->
 <!-- TITULO_ORIGEM: ## Julgado 1 -->
 
-Em situação de urgência obstétrica, o médico que realiza manobras necessárias para a segurança da parturiente e do recém-nascido, mesmo diante da recusa expressa da paciente quanto a procedimentos como a episiotomia, não pode ser responsabilizado penalmente por lesão corporal ou violência psicológica se as lesões constatadas forem compatíveis com o parto natural e não houver provas de negligência, imprudência ou imperícia.
+Em situação de urgência obstétrica, o médico que realiza manobras para facilitar o parto, mesmo contra a recusa expressa da parturiente quanto a procedimentos invasivos como a episiotomia, não pode ser penalmente responsabilizado por lesão corporal ou violência psicológica se as lesões constatadas forem compatíveis com o parto natural e não houver provas de negligência, imprudência ou imperícia.
 
 **Gabarito:** CERTO
 
 **Justificativa:**
 
-O entendimento do STJ é que, em contexto de urgência, o médico deve agir conforme os padrões técnicos adequados para garantir a segurança da mãe e do bebê. A recusa da paciente por procedimentos como a episiotomia não exime o médico de tomar decisões rápidas e necessárias. A perícia que constatou que as lesões eram compatíveis com o parto natural e a ausência de provas de negligência, imprudência ou imperícia afastam a responsabilidade penal do médico por lesão corporal ou violência psicológica.
+O entendimento do STJ é que, em contexto de urgência, o médico deve tomar decisões rápidas visando a segurança da mãe e do bebê, respeitando os limites da responsabilidade civil. No caso, as lesões sofridas pela parturiente eram compatíveis com a passagem natural do feto, sem evidências de que as manobras tenham contribuído para laceração. Além disso, não houve comprovação de negligência, imprudência ou imperícia. Portanto, não há crime de lesão corporal nem de violência psicológica, mesmo diante da recusa da episiotomia, pois o médico agiu dentro dos padrões técnicos adequados.
+
+---
+
+**Referência:**
+STJ. 5a Turma. AREsp 2.587.582-SP, Rel. Min. Ribeiro Dantas, Rel. para acórdão Min. Joel Ilan Paciornik, julgado em 27/8/2024 (Info 24 - Edição Extraordinária).
+
 
 ---
 
@@ -25,13 +29,19 @@ O entendimento do STJ é que, em contexto de urgência, o médico deve agir conf
 <!-- ID_ORIGEM: JULGADO-2 -->
 <!-- TITULO_ORIGEM: ## Julgado 2 -->
 
-No crime de corrupção ativa, a prática delituosa se consuma apenas com a oferta ou promessa de vantagem indevida, de modo que o pagamento posterior, mesmo que parcelado, configura crimes autônomos e distintos, ensejando múltiplas condenações por cada parcela paga.
+No crime de corrupção ativa, a consumação ocorre somente com o pagamento integral da vantagem indevida, de modo que o parcelamento do pagamento configura múltiplos crimes autônomos, ensejando a aplicação do regime de continuidade delitiva.
 
 **Gabarito:** ERRADO
 
 **Justificativa:**
 
-O entendimento consolidado é que o crime de corrupção ativa é formal e unissubsistente, consumando-se com a mera oferta ou promessa de vantagem indevida. O pagamento posterior, ainda que parcelado, não configura novos crimes, mas apenas exaure a conduta criminosa inicial, podendo influenciar na dosimetria da pena, não caracterizando continuidade delitiva ou múltiplas infrações penais.
+O crime de corrupção ativa é formal e unissubsistente, consumando-se com a mera oferta ou promessa de vantagem indevida, independentemente do pagamento posterior, mesmo que parcelado. Assim, o pagamento em parcelas não configura múltiplos crimes, mas apenas o exaurimento da conduta criminosa, podendo influenciar na dosimetria da pena, mas não caracterizando continuidade delitiva.
+
+---
+
+**Referência:**
+STJ. 6a Turma. AREsp 920.664-DF, Rel. Min. Antonio Saldanha Palheiro, julgado em 17/12/2024 (Info 24 - Edição Extraordinária).
+
 
 ---
 
@@ -40,13 +50,19 @@ O entendimento consolidado é que o crime de corrupção ativa é formal e uniss
 <!-- ID_ORIGEM: JULGADO-3 -->
 <!-- TITULO_ORIGEM: ## Julgado 3 -->
 
-Considerando o entendimento atual do STJ, o parcelamento do crédito tributário realizado após o recebimento da denúncia em ação penal por sonegação tributária suspende a pretensão punitiva do Estado e o prazo prescricional.
+Considerando a legislação vigente após a Lei 12.382/2011, o parcelamento do crédito tributário efetuado após o recebimento da denúncia em ação penal por sonegação tributária suspende a pretensão punitiva do Estado e o prazo prescricional.
 
 **Gabarito:** ERRADO
 
 **Justificativa:**
 
-Com a redação dada pelo art. 6º da Lei 12.382/2011 ao art. 83 da Lei 9.430/1996, o parcelamento do crédito tributário somente suspende a ação penal se formalizado antes do recebimento da denúncia. Parcelamentos realizados após esse momento não suspendem a pretensão punitiva nem o prazo prescricional, conforme entendimento consolidado pelo STJ.
+Com a alteração promovida pela Lei 12.382/2011, o parcelamento do crédito tributário só suspende a ação penal e o prazo prescricional se for formalizado antes do recebimento da denúncia. Parcelamentos realizados após o recebimento da denúncia não suspendem a pretensão punitiva, conforme o art. 83, § 2º, da Lei 9.430/1996, na redação dada pela Lei 12.382/2011.
+
+---
+
+**Referência:**
+STJ. 6a Turma. AgRg no RHC 200.315-SP, Rel. Min. Og Fernandes, julgado em 4/11/2024 (Info 24 - Edição Extraordinária).
+
 
 ---
 
@@ -55,13 +71,19 @@ Com a redação dada pelo art. 6º da Lei 12.382/2011 ao art. 83 da Lei 9.430/19
 <!-- ID_ORIGEM: JULGADO-4 -->
 <!-- TITULO_ORIGEM: ## Julgado 4 -->
 
-Em caso de apreensão de pequena quantidade de droga, como 37 gramas de maconha, sem elementos concretos que indiquem a destinação mercantil, a condenação por tráfico de drogas (art. 33 da Lei nº 11.343/2006) é adequada, mesmo que não haja provas suficientes sobre a finalidade de venda.
+No caso em que foram apreendidos 37 gramas de maconha escondidas em uma marmita destinada a um preso, a condenação por tráfico de drogas é adequada mesmo na ausência de provas concretas da destinação mercantil, pois a quantidade, por si só, caracteriza o tráfico.
 
 **Gabarito:** ERRADO
 
 **Justificativa:**
 
-A condenação por tráfico de drogas exige prova concreta da destinação mercantil da droga. Quando há pequena quantidade apreendida e ausência de elementos que indiquem a intenção de venda, deve-se aplicar o princípio do in dubio pro reo, desclassificando a conduta para posse para consumo próprio (art. 28 da Lei nº 11.343/2006). No caso, a quantidade reduzida e a falta de provas suficientes justificam a desclassificação e a aplicação de sanções administrativas, não a condenação por tráfico.
+A decisão do STJ no caso analisado considerou que a quantidade reduzida de droga (37g) e a ausência de elementos concretos que comprovassem a destinação mercantil justificam a desclassificação do crime de tráfico para posse para consumo próprio. A Corte aplicou o princípio do in dubio pro reo, entendendo que, na dúvida, deve prevalecer a presunção de posse para uso pessoal, especialmente quando não há provas claras da intenção de venda.
+
+---
+
+**Referência:**
+STJ. 5a Turma. HC 888.877-MS, Rel. Min. Daniela Teixeira, julgado em 22/10/2024 (Info 24 - Edição Extraordinária).
+
 
 ---
 
@@ -70,13 +92,19 @@ A condenação por tráfico de drogas exige prova concreta da destinação merca
 <!-- ID_ORIGEM: JULGADO-5 -->
 <!-- TITULO_ORIGEM: ## Julgado 5 -->
 
-No crime de descumprimento de medida protetiva previsto no art. 24-A da Lei Maria da Penha, o consentimento da vítima obtido sob intimidação ou medo não afasta a tipicidade do delito, pois tal autorização não é considerada livre e espontânea.
+No crime previsto no art. 24-A da Lei Maria da Penha, o consentimento da vítima obtido mediante intimidação ou medo não afasta a tipicidade do descumprimento de medida protetiva, pois tal consentimento é considerado viciado e inválido.
 
 **Gabarito:** CERTO
 
 **Justificativa:**
 
-O entendimento consolidado é que o consentimento da vítima somente afasta a tipicidade do crime se for livre e espontâneo. Quando o consentimento é obtido mediante intimidação ou medo, como no caso em que a vítima teme represálias, essa autorização é viciada e não valida a conduta do agente, mantendo-se a tipicidade do descumprimento da medida protetiva.
+O entendimento consolidado é que, para que o consentimento da vítima afaste a tipicidade do crime de descumprimento de medida protetiva, ele deve ser livre e espontâneo. Quando o consentimento é obtido mediante intimidação ou medo, como no caso em que a vítima teme represálias, tal autorização é considerada viciada e inválida, não afastando a tipicidade do delito previsto no art. 24-A da Lei Maria da Penha.
+
+---
+
+**Referência:**
+STJ. 5a Turma. AgRg no HC 860.073-SC, Rel. Min. Ribeiro Dantas, julgado em 13/11/2024 (Info 24 - Edição Extraordinária).
+
 
 ---
 
@@ -85,13 +113,19 @@ O entendimento consolidado é que o consentimento da vítima somente afasta a ti
 <!-- ID_ORIGEM: JULGADO-6 -->
 <!-- TITULO_ORIGEM: ## Julgado 6 -->
 
-Nos crimes contra a honra de servidor público, a propositura de ação penal privada é possível mesmo após a representação do ofendido ao Ministério Público, caso este tenha feito uma tipificação diversa da conduta, pois a discordância quanto ao enquadramento legal permite a queixa-crime.
+Nos crimes contra a honra de servidor público, a apresentação de representação pelo ofendido ao Ministério Público impede o ajuizamento de ação penal privada, mesmo que o ofendido discorde da qualificação legal adotada pelo órgão ministerial.
 
-**Gabarito:** ERRADO
+**Gabarito:** CERTO
 
 **Justificativa:**
 
-A ação penal privada subsidiária da pública é incabível na ausência de inércia do Ministério Público. A representação do ofendido ao Ministério Público preclui a possibilidade de ajuizamento da ação penal privada, mesmo que o ofendido discorde da tipificação dada pelo órgão ministerial, pois a discordância quanto à tipificação não autoriza a propositura de queixa-crime.
+A legitimidade para a ação penal nos crimes contra a honra de servidor público é concorrente; contudo, a apresentação de representação ao Ministério Público preclui a possibilidade de ajuizamento de ação penal privada, mesmo que o ofendido não concorde com a tipificação legal adotada pelo Ministério Público. Ademais, a ação penal privada subsidiária da pública somente é cabível diante da inércia do Ministério Público, o que não ocorre com a simples discordância do querelante quanto à tipificação.
+
+---
+
+**Referência:**
+STJ. Corte Especial. QC 13-DF, Rel. Min. Antonio Carlos Ferreira, julgado em 4/12/2024 (Info 24 - Edição Extraordinária).
+
 
 ---
 
@@ -100,13 +134,19 @@ A ação penal privada subsidiária da pública é incabível na ausência de in
 <!-- ID_ORIGEM: JULGADO-7 -->
 <!-- TITULO_ORIGEM: ## Julgado 7 -->
 
-Compete à Justiça Estadual processar e julgar o crime de discriminação contra pessoa com deficiência, previsto no art. 88 da Lei 13.146/2015, quando a conduta for praticada mediante publicação de conteúdo em rede social aberta, pois não há presunção de transnacionalidade do delito.
+A Justiça Federal possui competência para processar e julgar crimes ambientais que envolvam espécies listadas na Lista Nacional de Espécies Ameaçadas de Extinção, em razão do interesse da União configurado por tais condutas.
 
-**Gabarito:** ERRADO
+**Gabarito:** CERTO
 
 **Justificativa:**
 
-O entendimento firmado é que compete à Justiça Federal processar e julgar o crime previsto no art. 88 da Lei 13.146/2015 quando praticado por meio de publicação em rede social aberta, devido à presunção de transnacionalidade do delito, afastando a competência da Justiça Estadual nesse caso.
+A competência da Justiça Federal para julgar crimes ambientais é atraída quando a conduta envolve espécies constantes na Lista Nacional de Espécies Ameaçadas de Extinção, pois isso configura interesse da União, conforme entendimento consolidado no julgamento do AgRg no CC 208.449-SC pelo STJ.
+
+---
+
+**Referência:**
+STJ. 3a Seção. AgRg no CC 208.449-SC, Rel. Min. Messod Azulay Neto, julgado em 11/12/2024 (Info 24 - Edição Extraordinária).
+
 
 ---
 
@@ -115,13 +155,19 @@ O entendimento firmado é que compete à Justiça Federal processar e julgar o c
 <!-- ID_ORIGEM: JULGADO-8 -->
 <!-- TITULO_ORIGEM: ## Julgado 8 -->
 
-A ação penal fundada exclusivamente em provas obtidas por violação do sigilo médico deve ser trancada, pois o sigilo profissional médico é norma de ordem pública e sua quebra, salvo exceções legais específicas, torna ilícitas as provas, conforme o art. 207 do CPP que proíbe médicos de depor sobre fatos relacionados ao exercício da profissão sem autorização expressa do paciente.
+Compete à Justiça Estadual processar e julgar o crime de discriminação contra pessoa com deficiência previsto no art. 88 da Lei 13.146/2015, mesmo quando o delito for praticado mediante publicação de conteúdo em rede social aberta, pois não há presunção de transnacionalidade nesse tipo penal.
 
-**Gabarito:** CERTO
+**Gabarito:** ERRADO
 
 **Justificativa:**
 
-O sigilo profissional médico é protegido por norma de ordem pública, e sua violação configura ilícito que contamina as provas dele derivadas. O art. 207 do CPP expressamente proíbe que médicos depõem sobre fatos relacionados ao exercício da profissão sem autorização do paciente, tornando ilícitas as provas obtidas por meio dessa violação. Assim, a ação penal baseada exclusivamente nessas provas deve ser trancada para preservar direitos fundamentais e a legalidade processual.
+O entendimento consolidado é que compete à Justiça Federal processar e julgar o crime previsto no art. 88 da Lei 13.146/2015 quando praticado mediante publicação em rede social aberta, devido à presunção de transnacionalidade do delito, afastando a competência da Justiça Estadual nesse caso.
+
+---
+
+**Referência:**
+STJ. 3a Seção. CC 205.569-SP, Rel. Min. Messod Azulay Neto, julgado em 13/11/2024 (Info 24 - Edição Extraordinária).
+
 
 ---
 
@@ -130,13 +176,19 @@ O sigilo profissional médico é protegido por norma de ordem pública, e sua vi
 <!-- ID_ORIGEM: JULGADO-9 -->
 <!-- TITULO_ORIGEM: ## Julgado 9 -->
 
-No âmbito do Direito Processual Penal, o Agravo Regimental no Recurso em Habeas Corpus nº 181.907/MG, julgado pela 5ª Turma do Superior Tribunal de Justiça em 4 de dezembro de 2024, não trouxe alterações significativas ao entendimento consolidado sobre a matéria, mantendo a jurisprudência anterior sem revisão crítica.
+A ação penal deve ser trancada quando fundada exclusivamente em provas obtidas por violação do sigilo médico, pois o sigilo profissional médico é norma de ordem pública e sua quebra para denunciar crimes praticados pelo próprio paciente é inadmissível, salvo exceções legais específicas.
 
-**Gabarito:** ERRADO
+**Gabarito:** CERTO
 
 **Justificativa:**
 
-O julgado mencionado está em fase de revisão crítica, o que indica que o entendimento anterior está sendo reavaliado e pode sofrer alterações. Portanto, afirmar que não houve alterações significativas e que a jurisprudência foi mantida é incorreto, pois o status de 'Revisão crítica' demonstra justamente a possibilidade de mudança no entendimento consolidado.
+O sigilo profissional médico é protegido por norma de ordem pública, conforme o art. 207 do CPP, que proíbe o médico de depor sobre fatos relacionados ao exercício da profissão sem autorização expressa do paciente. A violação desse sigilo para obtenção de provas torna-as ilícitas, o que impõe o trancamento da ação penal fundada exclusivamente nessas provas.
+
+---
+
+**Referência:**
+STJ. 6a Turma. HC 783.927/MG, Rel. Min. Sebastião Reis Júnior, julgado em 14/3/2023 (Info 767). STJ. 5a Turma. AgRg no RHC 181.907/MG, Rel. Min. Daniela Teixeira, julgado em 4/12/2024 (Info 24 - Edição Extraordinária).
+
 
 ---
 
@@ -145,13 +197,19 @@ O julgado mencionado está em fase de revisão crítica, o que indica que o ente
 <!-- ID_ORIGEM: JULGADO-10 -->
 <!-- TITULO_ORIGEM: ## Julgado 10 -->
 
-No processo penal envolvendo indígenas, a simples presença de intérprete é suficiente para assegurar o direito de defesa, não sendo necessária a tradução da denúncia para a língua indígena quando não houver comprovação de hipossuficiência linguística dos acusados.
+No processo penal, a simples presença de intérprete é suficiente para assegurar o direito de defesa de indígenas, dispensando-se a tradução da denúncia para a língua indígena quando não houver comprovação de hipossuficiência linguística dos acusados.
 
 **Gabarito:** CERTO
 
 **Justificativa:**
 
-O entendimento firmado estabelece que a presença de intérprete garante o direito de defesa dos indígenas no processo penal, dispensando a tradução da denúncia para a língua indígena na ausência de comprovação de hipossuficiência linguística. Além disso, a assistência de advogados é considerada uma garantia adicional para o exercício do direito de defesa.
+A jurisprudência entende que a presença de intérprete garante a comunicação adequada e o pleno exercício do direito de defesa dos indígenas no processo penal. A tradução da denúncia para a língua indígena é necessária apenas quando há comprovação de hipossuficiência linguística, caso contrário, não se exige tal medida. Além disso, a assistência de advogados é uma garantia adicional para o exercício do direito de defesa, mas não substitui a função do intérprete.
+
+---
+
+**Referência:**
+STJ. 5a Turma. RHC 201.851-DF, Rel. Min. Ribeiro Dantas, julgado em 17/12/2024 (Info 24 - Edição Extraordinária).
+
 
 ---
 
@@ -160,13 +218,19 @@ O entendimento firmado estabelece que a presença de intérprete garante o direi
 <!-- ID_ORIGEM: JULGADO-11 -->
 <!-- TITULO_ORIGEM: ## Julgado 11 -->
 
-No processo penal, para que seja possível o trancamento da ação penal com base na teoria da perda da chance probatória, basta que a defesa alegue genericamente a perda de uma prova, sem a necessidade de demonstrar concretamente sua relevância para a tese de inocência do réu.
+Para que seja possível o trancamento da ação penal com base na teoria da perda da chance probatória, basta que a defesa alegue genericamente a perda de prova, sem necessidade de demonstrar concretamente a relevância dessa prova para a tese de inocência do acusado.
 
 **Gabarito:** ERRADO
 
 **Justificativa:**
 
-A teoria da perda da chance probatória exige que a parte demonstre de forma concreta e específica como a prova perdida seria relevante para a defesa e poderia influenciar significativamente o resultado do julgamento. A simples alegação genérica não é suficiente para justificar o trancamento da ação penal, conforme entendimento do STJ no caso apresentado.
+O trancamento da ação penal com fundamento na teoria da perda da chance probatória exige que a parte demonstre de forma concreta e específica como a prova perdida seria relevante para a defesa e poderia influenciar significativamente o resultado do processo. Alegações genéricas não são suficientes para justificar o trancamento, conforme entendimento do STJ no caso apresentado.
+
+---
+
+**Referência:**
+STJ. 6a Turma. HC 908.010-SC, Rel. Min. Sebastião Reis Júnior, julgado em 17/9/2024 (Info 24 - Edição Extraordinária).
+
 
 ---
 
@@ -175,13 +239,19 @@ A teoria da perda da chance probatória exige que a parte demonstre de forma con
 <!-- ID_ORIGEM: JULGADO-12 -->
 <!-- TITULO_ORIGEM: ## Julgado 12 -->
 
-Em situação na qual o acusado é flagrado consumindo e exibindo drogas em transmissão ao vivo e tenta fugir ao avistar a polícia, a realização de busca domiciliar sem mandado judicial é ilegal, configurando violação do domicílio.
+A realização de busca domiciliar sem mandado judicial é legítima quando o acusado, flagrado consumindo e exibindo drogas em transmissão ao vivo, tenta fugir ao avistar a polícia, configurando elementos objetivos que autorizam a diligência sem violação do domicílio.
 
-**Gabarito:** ERRADO
+**Gabarito:** CERTO
 
 **Justificativa:**
 
-O Superior Tribunal de Justiça entendeu que, diante da existência de elementos objetivos como a transmissão ao vivo do consumo e exibição de drogas, além da tentativa de fuga do suspeito ao avistar a viatura policial, a busca domiciliar realizada sem mandado judicial não configura ilegalidade, pois há fundada suspeita e situação de flagrante que autorizam a diligência, afastando a violação do domicílio.
+A jurisprudência do STJ admite a busca domiciliar sem mandado judicial em situações excepcionais, como quando há elementos objetivos que indicam a prática de crime e risco de perda de provas, especialmente se o acusado tenta fugir ao avistar a polícia. No caso, a transmissão ao vivo exibindo drogas e a tentativa de fuga configuram fundados indícios e circunstâncias que autorizam a entrada imediata, afastando a ilegalidade da busca e a violação do domicílio.
+
+---
+
+**Referência:**
+STJ. 6a Turma. AgRg no HC 886.071-AL, Rel. Min. Sebastião Reis Júnior, julgado em 2/9/2024 (Info 24 - Edição Extraordinária).
+
 
 ---
 
@@ -190,13 +260,19 @@ O Superior Tribunal de Justiça entendeu que, diante da existência de elementos
 <!-- ID_ORIGEM: JULGADO-13 -->
 <!-- TITULO_ORIGEM: ## Julgado 13 -->
 
-A decisão judicial que prorroga a interceptação telefônica pode limitar-se a remeter-se aos fundamentos da decisão inicial, sem necessidade de fundamentação específica baseada na situação concreta do momento da prorrogação.
+A decisão judicial que prorroga medidas cautelares de interceptação telefônica pode limitar-se a remeter-se aos fundamentos da decisão inicial, desde que esta esteja devidamente fundamentada, dispensando análise específica da situação concreta do momento da prorrogação.
 
 **Gabarito:** ERRADO
 
 **Justificativa:**
 
-A prorrogação da interceptação telefônica exige fundamentação própria, ainda que sucinta, baseada na situação concreta do momento da decisão, conforme os requisitos do art. 2º da Lei n. 9.296/1996. A mera repetição dos fundamentos da decisão inicial configura fundamentação genérica e indevida, não atendendo ao rigor exigido para a renovação da medida cautelar.
+A jurisprudência exige que cada decisão de prorrogação das interceptações telefônicas seja fundamentada de forma legítima, ainda que sucinta, com base na situação concreta do momento em que a decisão é proferida. A mera referência à decisão inicial, sem análise específica da situação fática atual, configura fundamentação genérica e indevida, não atendendo aos requisitos legais e constitucionais de motivação das decisões judiciais.
+
+---
+
+**Referência:**
+STJ. 6a Turma. AgRg no HC 910.860-PB, Rel. Min. Antonio Saldanha Palheiros, Rel. para acórdão Min. Otávio de Almeida Toledo (Desembargador convocado do TJSP), julgado em 12/11/2024 (Info 24 - Edição Extraordinária).
+
 
 ---
 
@@ -205,13 +281,19 @@ A prorrogação da interceptação telefônica exige fundamentação própria, a
 <!-- ID_ORIGEM: JULGADO-14 -->
 <!-- TITULO_ORIGEM: ## Julgado 14 -->
 
-É lícito que um advogado, mesmo mantendo relação profissional comprovada com seu cliente, firme acordo de colaboração premiada delatando fatos contra esse cliente, desde que não haja indícios de simulação da relação advogado-cliente.
+É lícito que um advogado firme acordo de colaboração premiada delatando fatos contra seu cliente, desde que não haja indícios de simulação da relação advogado-cliente, pois o direito de defesa não é afetado nessa hipótese.
 
 **Gabarito:** ERRADO
 
 **Justificativa:**
 
-O entendimento do STJ é no sentido de que, na ausência de provas de simulação da relação advogado-cliente, é vedado ao advogado firmar acordo de colaboração premiada para delatar fatos contra seu cliente, sob pena de violar o sigilo profissional e fragilizar o direito de defesa. No caso concreto, a relação foi comprovada e não havia indícios de simulação, razão pela qual a delação foi considerada ilícita e anulada, assim como as provas dela derivadas.
+O entendimento firmado é que, na ausência de provas de simulação da relação advogado-cliente, prevalece a impossibilidade de o advogado firmar acordo de colaboração premiada para delatar fatos contra o cliente, sob pena de fragilizar o direito de defesa. No caso concreto, o STJ anulou o acordo firmado pelo advogado que delatou seu cliente, reconhecendo a violação ao sigilo profissional e a proteção da relação de confiança essencial entre advogado e cliente.
+
+---
+
+**Referência:**
+STJ. 5a Turma. AgRg no RHC 203.874-RJ, Rel. Min. Reynaldo Soares da Fonseca, julgado em 27/11/2024 (Info 24 - Edição Extraordinária).
+
 
 ---
 
@@ -220,13 +302,19 @@ O entendimento do STJ é no sentido de que, na ausência de provas de simulaçã
 <!-- ID_ORIGEM: JULGADO-15 -->
 <!-- TITULO_ORIGEM: ## Julgado 15 -->
 
-A ausência de transcrição integral da sentença oral em processo penal configura ilegalidade, pois prejudica o contraditório e compromete a segurança do registro nos autos.
+A ausência de transcrição integral da sentença oral não configura ilegalidade, pois o registro audiovisual possui valor probatório equivalente ao da sentença escrita, não comprometendo o contraditório nem a segurança do processo.
 
-**Gabarito:** ERRADO
+**Gabarito:** CERTO
 
 **Justificativa:**
 
-A ausência de degravação completa da sentença oral não configura ilegalidade, pois o registro audiovisual possui o mesmo valor probatório da sentença escrita, não prejudicando o contraditório nem a segurança do processo, conforme entendimento consolidado pelo STJ.
+O entendimento consolidado é que a falta de degravação completa da sentença oral não prejudica o contraditório nem a segurança do registro nos autos, uma vez que o registro audiovisual tem o mesmo valor probatório da sentença escrita, garantindo a integridade e a transparência do processo.
+
+---
+
+**Referência:**
+STJ. 3a Seção. HC 462.253-SC, Rel. Min. Nefi Cordeiro, julgado em 28/11/2018 (Info 641). STJ. 6a Turma. AgRg no HC 902.892-PI, Rel. Min. Antonio Saldanha Palheiro, julgado em 3/9/2024 (Info 24 - Edição Extraordinária).
+
 
 ---
 
@@ -235,13 +323,19 @@ A ausência de degravação completa da sentença oral não configura ilegalidad
 <!-- ID_ORIGEM: JULGADO-16 -->
 <!-- TITULO_ORIGEM: ## Julgado 16 -->
 
-No âmbito do Direito Processual Penal, a 6ª Turma do Superior Tribunal de Justiça, ao julgar o Agravo Regimental no Habeas Corpus 902.892-PI em 3 de setembro de 2024, consolidou entendimento que não admite revisão crítica do julgado em questão.
+A fundamentação per relationem é considerada válida quando a decisão judicial remete a manifestação processual anterior que contenha fundamentação suficiente e acessível às partes, permitindo o controle da decisão, mesmo que a decisão própria seja sucinta.
 
-**Gabarito:** ERRADO
+**Gabarito:** CERTO
 
 **Justificativa:**
 
-O julgado mencionado está em fase de revisão crítica, o que indica que o entendimento ainda está sendo analisado e não foi consolidado como definitivo. Portanto, afirmar que o STJ consolidou entendimento que não admite revisão crítica é incorreto.
+A fundamentação per relationem consiste em remeter a decisão a fundamentação constante em manifestação processual anterior, desde que esta contenha fundamentação suficiente e acessível às partes, permitindo a compreensão dos motivos da decisão e seu controle. No julgado, o STJ reconheceu a validade dessa técnica, afastando a nulidade da decisão que deferiu busca e apreensão com base em relatório policial detalhado, mesmo sem fundamentação individualizada detalhada na decisão própria.
+
+---
+
+**Referência:**
+STJ. 5a Turma. AgRg no HC 876.612-SP, Rel. Min. Daniela Teixeira, Rel. para acórdão Min. Joel Ilan Paciornik, julgado em 8/10/2024 (Info 24 - Edição Extraordinária).
+
 
 ---
 
@@ -250,13 +344,19 @@ O julgado mencionado está em fase de revisão crítica, o que indica que o ente
 <!-- ID_ORIGEM: JULGADO-17 -->
 <!-- TITULO_ORIGEM: ## Julgado 17 -->
 
-A fundamentação per relationem é considerada válida quando a decisão judicial remete a manifestação processual anterior que contenha fundamentação suficiente e acessível às partes, permitindo o controle e compreensão dos motivos da decisão, mesmo que a decisão própria seja sucinta.
+É lícito que o juiz presidente do Tribunal do Júri indefira genericamente o pedido do réu para utilizar roupas civis durante o julgamento, fundamentando a decisão apenas em razões genéricas como segurança e facilidade de reconhecimento, sem apresentar motivação concreta.
 
-**Gabarito:** CERTO
+**Gabarito:** ERRADO
 
 **Justificativa:**
 
-A fundamentação per relationem consiste em remeter a decisão a uma manifestação anterior que já contenha fundamentação detalhada e acessível às partes. O STJ entende que essa técnica é válida desde que a fundamentação referenciada permita compreender os motivos da decisão e possibilite o controle pelas partes, afastando nulidade por falta de fundamentação individualizada. No caso, a juíza embasou sua decisão no relatório policial detalhado, o que foi considerado suficiente para justificar a medida de busca e apreensão, tornando legítima a decisão mesmo que sucinta.
+O entendimento é que a decisão que indefere genericamente o pedido de utilização de roupas civis pelo réu configura constrangimento ilegal. O réu tem direito de comparecer ao júri trajando roupas civis, salvo se houver fundamentação concreta para o indeferimento. Justificativas genéricas, como segurança e reconhecimento, não são suficientes para impedir esse direito, sendo necessária motivação adequada e específica para o indeferimento.
+
+---
+
+**Referência:**
+STJ. 5a Turma. HC 778.503-MG, Rel. Min. Daniela Teixeira, julgado em 12/3/2024 (Info 804). STJ. 6a Turma. HC 945.012-SP, Rel. Min. Og Fernandes, julgado em 15/10/2024 (Info 24 - Edição Extraordinária).
+
 
 ---
 
@@ -265,13 +365,19 @@ A fundamentação per relationem consiste em remeter a decisão a uma manifesta�
 <!-- ID_ORIGEM: JULGADO-18 -->
 <!-- TITULO_ORIGEM: ## Julgado 18 -->
 
-É admissível que o juiz presidente do Tribunal do Júri indefira genericamente o pedido do réu para comparecer ao julgamento trajando roupas civis, fundamentando a decisão apenas em razões genéricas como segurança e facilidade de reconhecimento, sem necessidade de motivação concreta.
+No julgamento pelo Tribunal do Júri, a defesa que utiliza apenas uma fração do tempo disponível para sustentação oral e deixa de sustentar a principal tese absolutória configurando defesa deficiente, enseja a nulidade do julgamento, desde que haja prejuízo concreto ao réu.
 
-**Gabarito:** ERRADO
+**Gabarito:** CERTO
 
 **Justificativa:**
 
-O réu possui o direito de comparecer ao julgamento pelo Tribunal do Júri usando roupas civis, salvo se houver fundamentação concreta e específica para o indeferimento do pedido. Decisões que neguem genericamente o uso de vestes civis, baseando-se apenas em justificativas genéricas como segurança e reconhecimento, configuram constrangimento ilegal, pois não atendem ao requisito de motivação adequada exigido para indeferir requerimentos probatórios ou pedidos do acusado.
+A defesa técnica no Tribunal do Júri deve ser combativa e tecnicamente capacitada, garantindo a plenitude de defesa e o direito à autodefesa. A utilização insuficiente do tempo para sustentação oral, aliada à inércia em sustentar a principal tese absolutória, configura defesa deficiente que compromete o julgamento justo. Quando essa falha acarreta prejuízo concreto ao réu, é cabível a anulação da sessão plenária e a realização de novo julgamento, conforme entendimento do STJ no HC 947.076-MG.
+
+---
+
+**Referência:**
+STJ. 6a Turma. HC 947.076-MG, Rel. Min. Rogerio Schietti Cruz, julgado em 3/12/2024 (Info 24 - Edição Extraordinária).
+
 
 ---
 
@@ -280,13 +386,19 @@ O réu possui o direito de comparecer ao julgamento pelo Tribunal do Júri usand
 <!-- ID_ORIGEM: JULGADO-19 -->
 <!-- TITULO_ORIGEM: ## Julgado 19 -->
 
-No âmbito do Direito Processual Penal, a 6ª Turma do Superior Tribunal de Justiça, no julgamento do HC 945.012-SP em 15/10/2024, consolidou entendimento que não admite revisão crítica de decisões penais transitadas em julgado.
+A exigência do exame criminológico para progressão de regime, prevista na Lei 14.843/2024, pode ser aplicada retroativamente a condenações anteriores à vigência da norma, desde que o apenado ainda não tenha requerido a progressão.
 
 **Gabarito:** ERRADO
 
 **Justificativa:**
 
-O julgado mencionado está em status de revisão crítica, o que indica que o entendimento da 6ª Turma do STJ admite a possibilidade de revisão crítica em determinadas situações, não havendo vedação absoluta à revisão de decisões penais transitadas em julgado, especialmente quando há questões relevantes de direito ou fatos novos que justifiquem tal medida.
+A alteração legislativa que torna obrigatório o exame criminológico para progressão de regime não pode ser aplicada retroativamente para fatos praticados sob a égide da legislação anterior, pois configura novatio legis in pejus, violando o princípio da irretroatividade da lei penal mais gravosa previsto no art. 5º, XL, da Constituição Federal, além de ser ilegal conforme o art. 2º do Código Penal. No caso concreto, a condenação ocorreu antes da vigência da nova lei, impedindo sua aplicação retroativa.
+
+---
+
+**Referência:**
+STJ. 5a Turma. AgRg no HC 954.277-SP, Rel. Min. Reynaldo Soares da Fonseca, julgado em 4/12/2024 (Info 24 - Edição Extraordinária).
+
 
 ---
 
@@ -295,42 +407,15 @@ O julgado mencionado está em status de revisão crítica, o que indica que o en
 <!-- ID_ORIGEM: JULGADO-20 -->
 <!-- TITULO_ORIGEM: ## Julgado 20 -->
 
-No julgamento pelo Tribunal do Júri, a utilização pela defesa de apenas uma fração do tempo disponível para sustentação oral, aliada à ausência de sustentação da principal tese absolutória constante nos autos, não configura defesa técnica deficiente capaz de ensejar a nulidade do julgamento.
-
-**Gabarito:** ERRADO
-
-**Justificativa:**
-
-A defesa técnica no Tribunal do Júri exige atuação combativa e tecnicamente capacitada, incluindo a sustentação das principais teses absolutórias presentes nos autos. A utilização insuficiente do tempo disponível para sustentação oral, somada à inércia em defender a tese principal, caracteriza defesa deficiente, o que pode prejudicar o réu e ensejar a nulidade do julgamento, conforme entendimento do STJ no caso concreto em que a ausência da tese absolutória e a atuação limitada da defesa comprometeram a plenitude do direito de defesa e a autodefesa do acusado.
-
----
-
-## Questão 21
-
-<!-- ID_ORIGEM: JULGADO-21 -->
-<!-- TITULO_ORIGEM: ## Julgado 21 -->
-
-A exigência do exame criminológico para progressão de regime, prevista na Lei 14.843/2024, pode ser aplicada retroativamente a condenações anteriores à vigência da lei, desde que o apenado ainda não tenha progredido de regime.
-
-**Gabarito:** ERRADO
-
-**Justificativa:**
-
-A aplicação retroativa da Lei 14.843/2024, que tornou obrigatório o exame criminológico para progressão de regime, configura novatio legis in pejus, violando o princípio constitucional da irretroatividade da lei penal mais gravosa (art. 5º, XL, CF) e o art. 2º do Código Penal. Assim, para condenações anteriores à vigência da lei, a exigência não pode ser imposta retroativamente, como no caso de Pedro, condenado em 2023 e que pediu progressão em 2024.
-
----
-
-## Questão 22
-
-<!-- ID_ORIGEM: JULGADO-22 -->
-<!-- TITULO_ORIGEM: ## Julgado 22 -->
-
 A pena restritiva de direitos consistente em prestação pecuniária pode ser cumprida simultaneamente com pena privativa de liberdade em regime semiaberto, não sendo obrigatória a reconversão automática da prestação pecuniária em pena privativa de liberdade quando há unificação das penas.
 
 **Gabarito:** CERTO
 
 **Justificativa:**
 
-O entendimento firmado pelo STJ é no sentido de que, conforme o art. 44, §5º do Código Penal, a conversão da pena restritiva de direitos em privativa de liberdade não é automática, sendo possível o cumprimento simultâneo da prestação pecuniária com a pena privativa de liberdade em regime semiaberto. Além disso, apenas certas penas restritivas de direitos, como a prestação pecuniária e a perda de bens, bem como a pena de multa, são compatíveis com os regimes semiaberto e fechado, o que confirma a possibilidade de cumprimento simultâneo sem a necessidade de reconversão.
+O entendimento firmado pelo STJ é que a prestação pecuniária, como pena restritiva de direitos, é compatível com o cumprimento simultâneo de pena privativa de liberdade em regime semiaberto, conforme previsto no art. 44, §5º do Código Penal. Dessa forma, a reconversão automática da prestação pecuniária em pena privativa de liberdade não deve ocorrer, permitindo o cumprimento concomitante das penas, em respeito à interpretação do Tema 1106 do STJ e à jurisprudência atual.
 
 ---
+
+**Referência:**
+STJ. 6a Turma. AgRg no HC 914.911-DF, Rel. Min. Otávio de Almeida Toledo (Desembargador convocado do TJSP), julgado em 30/9/2024 (Info 24 - Edição Extraordinária).

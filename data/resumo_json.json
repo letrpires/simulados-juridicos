@@ -1,7 +1,7 @@
 {
-  "geradoEm": "2026-05-01T22:45:20.831416",
-  "totalArquivos": 206,
-  "totalQuestoes": 4600,
+  "geradoEm": "2026-05-02T11:47:42.295848",
+  "totalArquivos": 212,
+  "totalQuestoes": 4756,
   "revisarManualmente": 5,
   "arquivosSemQuestoes": 0,
   "questoesSemGabarito": 0,
@@ -11,7 +11,7 @@
   "idsDuplicados": 6,
   "porCategoria": {
     "Edição Extraordinária": 197,
-    "Informativos": 1607,
+    "Informativos": 1763,
     "Repercussão Geral": 568,
     "Repetitivos": 795,
     "Súmulas": 1433
@@ -21,7 +21,7 @@
     "Informativos STF 2024": 19,
     "Informativos STF 2025": 216,
     "Informativos STF 2026": 38,
-    "Informativos STJ": 445,
+    "Informativos STJ": 601,
     "Informativos STJ 2024": 46,
     "Informativos STJ 2025": 539,
     "Informativos STJ 2026": 95,

@@ -20,6 +20,9 @@ Para a configuração dos crimes de difamação e injúria, é imprescindível a
 
 ---
 
+**Referência:**
+STJ. Corte Especial. Inq 1.656/DF, Rel. Min. Antonio Carlos Ferreira, julgado em 9/11/2023 (Info 16 - Edição Extraordinária).
+
 ## Questão 2
 
 <!-- ID_ORIGEM: JULGADO-2 -->
@@ -34,6 +37,9 @@ Nos termos do entendimento do STJ, o consentimento da vítima menor de 14 anos e
 Conforme o entendimento consolidado, o consentimento da vítima menor de 14 anos e o namoro com o acusado não afastam a existência do delito de estupro de vulnerável. Contudo, o STJ admite o distinguishing em casos excepcionais, como quando a diferença de idade não é tão grande e há convivência marital prolongada, com reconhecimento da paternidade, o que pode indicar ausência de afetação relevante do bem jurídico, afastando a atuação punitiva estatal. Portanto, o consentimento e o namoro não afastam automaticamente o delito, salvo em situações específicas analisadas sob a sistemática dos recursos repetitivos.
 
 ---
+
+**Referência:**
+STJ. 6a Turma. AgRg no REsp 2.015.310/MG, Rel. Min. Jesuíno Rissato (Desembargador convocado do TJDFT), julgado em 12/9/2023 (Info 16 - Edição Extraordinária).
 
 ## Questão 3
 
@@ -50,6 +56,9 @@ A jurisprudência do STJ admite a cumulação das causas de aumento de pena da c
 
 ---
 
+**Referência:**
+STJ. 5a Turma. AgRg no REsp 2.018.231-MG, Rel. Min. Joel Ilan Paciornik, julgado em 30/10/2023 (Info 16 - Edição Extraordinária).
+
 ## Questão 4
 
 <!-- ID_ORIGEM: JULGADO-4 -->
@@ -64,6 +73,9 @@ No contexto do tráfico privilegiado previsto no art. 33, § 4º, da Lei nº 11.
 O entendimento consolidado é que a condição de 'mula', por si só, não afasta o reconhecimento do tráfico privilegiado. A quantidade e natureza da droga podem influenciar a dosimetria da pena, mas o transporte para terceiros não caracteriza dedicação a atividades criminosas que justifique a exclusão do privilégio previsto no art. 33, § 4º, da Lei nº 11.343/2006.
 
 ---
+
+**Referência:**
+STJ. 6a Turma. AgRg no HC 842.630-SC, Rel. Min. Antonio Saldanha Palheiro, julgado em 18/12/2023 (Info 16 - Edição Extraordinária).
 
 ## Questão 5
 
@@ -80,6 +92,9 @@ O crime de organização criminosa é considerado um delito autônomo, cuja pers
 
 ---
 
+**Referência:**
+STJ. 5a Turma. AgRg no HC 865.042-SP, Rel. Min. Reynaldo Soares da Fonseca, julgado em 21/11/2023 (Info 16 - Edição Extraordinária).
+
 ## Questão 6
 
 <!-- ID_ORIGEM: JULGADO-6 -->
@@ -94,6 +109,9 @@ No âmbito do Direito Processual Penal, é obrigatório que o Ministério Públi
 O entendimento consolidado é que o Ministério Público não tem a obrigação de notificar extrajudicialmente o investigado sobre a recusa em propor o acordo de não persecução penal. Basta que o MP faça uma cota na denúncia explicando os motivos da não proposição. A ciência do investigado sobre a recusa ocorre na citação, momento em que poderá requerer a remessa dos autos ao órgão de revisão ministerial, conforme o art. 28-A, § 14, do CPP.
 
 ---
+
+**Referência:**
+STJ. 5a Turma. AgRg no REsp 2.039.021-TO, Rel. Min. Messod Azulay Neto, julgado em 8/8/2023 (Info 16 - Edição Extraordinária).
 
 ## Questão 7
 
@@ -110,6 +128,9 @@ O entendimento firmado é que a habitualidade delitiva impede a celebração do 
 
 ---
 
+**Referência:**
+STJ. 6a Turma. AgRg no HC 788.419-PB, Rel. Min. Jesuíno Rissato (Desembargador convocado do TJDFT), julgado em 11/9/2023 (Info 16 - Edição Extraordinária).
+
 ## Questão 8
 
 <!-- ID_ORIGEM: JULGADO-8 -->
@@ -124,6 +145,9 @@ O Juízo Federal possui competência para determinar a suspensão de inquérito 
 O Superior Tribunal de Justiça firmou entendimento de que o Juízo Federal não detém competência para suspender inquérito penal militar, cabendo essa decisão exclusivamente ao Juízo Militar, que é competente para o processo e julgamento do crime investigado. A Justiça Federal pode exercer apenas o controle da legalidade da sindicância administrativa no âmbito disciplinar, não interferindo no inquérito penal militar.
 
 ---
+
+**Referência:**
+STJ. 3a Seção. CC 200.708-PE, Rel. Min. Antonio Saldanha Palheiro, julgado em 13/12/2023 (Info 16 - Edição Extraordinária).
 
 ## Questão 9
 
@@ -140,6 +164,9 @@ O Superior Tribunal de Justiça entende que, na colisão entre direitos fundamen
 
 ---
 
+**Referência:**
+STJ. 5a Turma. HC 812.310/RJ, Rel. Min. Ribeiro Dantas, julgado em 21/11/2023 (Info 16 - Edição Extraordinária).
+
 ## Questão 10
 
 <!-- ID_ORIGEM: JULGADO-10 -->
@@ -154,6 +181,9 @@ A Receita Federal do Brasil pode investigar delitos sem repercussão direta na r
 A Receita Federal possui poderes para apurar condutas de repercussão penal apenas quando inseridas no espectro de suas atribuições e em atenção à finalidade fiscal, ou seja, deve haver pertinência temática com a relação jurídica tributária ou aduaneira, e a atividade deve perseguir a tutela fiscal. Investigar delitos desconectados dessa relação e finalidade configura desvio de finalidade e resulta na nulidade dos elementos de prova produzidos, conforme entendimento do STJ no julgamento citado.
 
 ---
+
+**Referência:**
+STJ. 5a Turma. AgRg no RHC 167.539/SP, Rel. Min. Messod Azulay Neto, julgado em 12/12/2023 (Info 16 - Edição Extraordinária).
 
 ## Questão 11
 
@@ -170,6 +200,9 @@ O entendimento consolidado é que o simples recebimento da denúncia, em cogniç
 
 ---
 
+**Referência:**
+STJ. 6a Turma. AgRg no HC 852.949-CE, Rel. Min. Laurita Vaz, Rel. para acórdão Min. Rogerio Schietti Cruz, julgado em 30/11/2023 (Info 16 - Edição Extraordinária).
+
 ## Questão 12
 
 <!-- ID_ORIGEM: JULGADO-12 -->
@@ -184,6 +217,9 @@ A ausência de localização do réu, por si só, é suficiente para a decretaç
 A prisão preventiva não pode ser decretada apenas pela ausência de localização do réu. É imprescindível a demonstração de outros elementos que justifiquem a necessidade da segregação cautelar, como risco à ordem pública, à instrução criminal ou à aplicação da lei penal, para que a medida seja legítima.
 
 ---
+
+**Referência:**
+STJ. 5a Turma. AgRg no RHC 170.036-MG, Rel. Min. João Batista Moreira (Desembargador convocado do TRF da 1a Região), julgado em 21/11/2023 (Info 16 - Edição Extraordinária).
 
 ## Questão 13
 
@@ -200,6 +236,9 @@ O entendimento consolidado é que, embora não se exija instrução probatória 
 
 ---
 
+**Referência:**
+STJ. 3a Seção. REsp 1.986.672-SC, Rel. Min. Ribeiro Dantas, julgado em 8/11/2023 (Info 16 - Edição Extraordinária).
+
 ## Questão 14
 
 <!-- ID_ORIGEM: JULGADO-14 -->
@@ -214,6 +253,9 @@ Em recurso exclusivo da defesa que impugna a dosimetria da pena, o Tribunal de o
 O Tribunal de origem, ao julgar recurso exclusivo da defesa, possui efeito devolutivo que lhe permite reexaminar os fundamentos da sentença condenatória e, mesmo não alterando o percentual da redução da pena, pode apresentar novos argumentos para justificar a decisão, desde que não agrave a situação do réu, conforme entendimento consolidado no julgamento do AgRg no HC 829.263-RS pela 6ª Turma do STJ.
 
 ---
+
+**Referência:**
+STJ. 6a Turma. AgRg no HC 829.263-RS, Rel. Min. Sebastião Reis Júnior, julgado em 28/8/2023 (Info 16 - Edição Extraordinária).
 
 ## Questão 15
 
@@ -230,6 +272,9 @@ O pedido de reconsideração não possui natureza recursal, motivo pelo qual nã
 
 ---
 
+**Referência:**
+STJ. 5a Turma. AgRg no HC 843.142-SP, Rel. Min. João Batista Moreira (Desembargador convocado do TRF1), julgado em 19/10/2023 (Info 16 - Edição Extraordinária).
+
 ## Questão 16
 
 <!-- ID_ORIGEM: JULGADO-16 -->
@@ -244,6 +289,9 @@ O pedido de reconsideração não possui natureza recursal, motivo pelo qual nã
 O Superior Tribunal de Justiça entende que, embora não seja cabível intervenção de terceiros em habeas corpus relacionado a ação penal pública, a decisão que defere a habilitação de terceiro, mesmo que equivocada, não afeta a liberdade de locomoção do paciente. Portanto, é inadmissível a impetração de novo habeas corpus para impugnar tal decisão monocrática, pois não há lesão direta à liberdade de locomoção que justifique a medida.
 
 ---
+
+**Referência:**
+STJ. 5a Turma. AgRg no HC 849.502-SP, Rel. Min. Reynaldo Soares da Fonseca, Rel. para acórdão Min. Ribeiro Dantas, julgado em 19/10/2023 (Info 16 - Edição Extraordinária).
 
 ## Questão 17
 
@@ -260,6 +308,9 @@ O entendimento do STJ é no sentido de que a fixação de condição especial ao
 
 ---
 
+**Referência:**
+STJ. 5a Turma. AgRg no REsp 2.026.477-SP, Rel. Min. Joel Ilan Paciornik, julgado em 27/11/2023 (Info 16 - Edição Extraordinária).
+
 ## Questão 18
 
 <!-- ID_ORIGEM: JULGADO-18 -->
@@ -274,3 +325,6 @@ Para a concessão do indulto natalino previsto no Decreto Presidencial nº 11.30
 O entendimento é que não se pode utilizar a soma das penas unificadas para obstar o indulto em crimes praticados em contextos diversos. Apenas quando há crime impeditivo cometido em concurso com crime não impeditivo é exigido o cumprimento integral da reprimenda do crime impeditivo para concessão do indulto, conforme o Decreto nº 11.302/2022.
 
 ---
+
+**Referência:**
+STJ. 3a Seção. AgRg no HC 856.053-SC, Rel. Min. Sebastião Reis Júnior, julgado em 8/11/2023 (Info 16 - Edição Extraordinária).

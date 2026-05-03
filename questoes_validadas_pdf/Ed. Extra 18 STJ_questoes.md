@@ -20,6 +20,9 @@ O entendimento firmado pelo STJ é que a informação pública deve estar dispon
 
 ---
 
+**Referência:**
+STJ. 2a Turma. REsp 1.852.629-SP, Rel. Min. Og Fernandes, julgado em 06/10/2020 (Info 18 - Edição Extraordinária).
+
 ## Questão 2
 
 <!-- ID_ORIGEM: JULGADO-2 -->
@@ -34,6 +37,9 @@ Pessoas idosas que possuem direito à gratuidade no transporte coletivo interest
 A jurisprudência do STJ estabelece que a gratuidade para pessoas idosas no transporte coletivo interestadual, com renda até dois salários-mínimos, não se limita ao valor da passagem, mas inclui também os custos diretamente relacionados ao transporte, como as tarifas de pedágio e de utilização dos terminais. Portanto, essas pessoas são isentas dessas tarifas, não devendo pagá-las.
 
 ---
+
+**Referência:**
+STJ. 1a Turma. REsp 1.543.465-RS, Rel. Min. Napoleão Nunes Maia Filho, julgado em 13/12/2018 (Info 18 - Edição Extraordinária).
 
 ## Questão 3
 
@@ -50,6 +56,8 @@ O entendimento firmado pelo STJ é no sentido de que a distinção entre indíge
 
 ---
 
+**Referência:**
+
 ## Questão 4
 
 <!-- ID_ORIGEM: JULGADO-4 -->
@@ -64,6 +72,9 @@ Para a confirmação do direito do candidato às vagas reservadas para negros, a
 O entendimento firmado é que a comissão de heteroidentificação deve utilizar o critério baseado no fenótipo do candidato para confirmar o direito à concorrência nas vagas reservadas para negros, e não meramente no genótipo ou na ancestralidade. Isso porque o fenótipo é o elemento determinante para a identificação da condição racial no contexto das políticas afirmativas, conforme consolidado no julgado citado.
 
 ---
+
+**Referência:**
+STJ. 1a Turma. AgInt nos EDcl no RMS 69.978-BA, Rel. Min. Paulo Sérgio Domingues, julgado em 23/10/2023 (Info 14 - Edição Extraordinária). STJ. 2a Turma. AREsp 1.407.431-RS, Rel. Min. Mauro Campbell Marques, julgado em 14/5/2019 (Info 18 - Edição Extraordinária).
 
 ## Questão 5
 
@@ -80,6 +91,9 @@ O entendimento firmado pelo STJ reconhece que, mesmo antes da MP 2.164-41/2001, 
 
 ---
 
+**Referência:**
+STJ. 2a Turma. REsp 560.723-SC, Rel. Min. Eliana Calmon, julgado em 4/11/2003 (Info 18 - Edição Extraordinária).
+
 ## Questão 6
 
 <!-- ID_ORIGEM: JULGADO-6 -->
@@ -94,6 +108,9 @@ O dano moral coletivo ambiental exige a comprovação de que a coletividade afet
 O dano moral coletivo ambiental atinge direitos de personalidade do grupo massificado, não sendo necessária a demonstração de que a coletividade sinta dor, repulsa ou indignação como um indivíduo isolado. A reparação deve considerar as características próprias dos interesses difusos e coletivos, sem exigir sentimentos individuais para sua configuração.
 
 ---
+
+**Referência:**
+STJ. 2a Turma. REsp 1.269.494-MG, Rel. Min. Eliana Calmon, julgado em 24/9/2013 (Info 18 - Edição Extraordinária).
 
 ## Questão 7
 
@@ -110,6 +127,9 @@ A responsabilidade civil da Administração Pública por danos ambientais decorr
 
 ---
 
+**Referência:**
+STJ. 2a Turma. REsp 1.071.741-SP, Rel. Min. Herman Benjamin, julgado em 24/3/2009 (Info 18 - Edição Extraordinária).
+
 ## Questão 8
 
 <!-- ID_ORIGEM: JULGADO-8 -->
@@ -124,6 +144,9 @@ O direito fundamental do transexual à alteração do prenome e do gênero no re
 O entendimento consolidado é que o direito do transexual à retificação do prenome e do sexo/gênero no registro civil não está condicionado à realização da cirurgia de transgenitalização. Basta a manifestação de vontade do indivíduo, que pode exercer essa alteração tanto pela via judicial quanto administrativa, sem a necessidade de cirurgia.
 
 ---
+
+**Referência:**
+STJ. 4a Turma. REsp 1.626.739-RS, Rel. Min. Luis Felipe Salomão, julgado em 9/5/2017 (Info 18 - Edição Extraordinária).
 
 ## Questão 9
 
@@ -140,6 +163,9 @@ O STJ firmou entendimento de que, em ações negatórias de paternidade ajuizada
 
 ---
 
+**Referência:**
+STJ. 4a Turma. REsp 1.352.529-SP, Rel. Min. Luis Felipe Salomão, julgado em 24/2/2015 (Info 18 - Edição Extraordinária).
+
 ## Questão 10
 
 <!-- ID_ORIGEM: JULGADO-10 -->
@@ -154,6 +180,9 @@ Sob a Constituição Federal de 1988, o pedido de habilitação para casamento c
 A Constituição Federal de 1988 inaugurou uma nova fase do direito de família, reconhecendo o pluralismo familiar e conferindo especial proteção do Estado a arranjos familiares diversos, inclusive aqueles formados por pessoas do mesmo sexo. O STF interpretou o art. 1.723 do Código Civil de modo a excluir qualquer impedimento ao reconhecimento da união estável homoafetiva como entidade familiar, permitindo assim o pedido de habilitação para casamento civil entre pessoas do mesmo sexo, que é uma forma de proteção da dignidade humana e da pluralidade familiar.
 
 ---
+
+**Referência:**
+STJ. 4a Turma. REsp 1.183.378-RS, Rel. Min. Luis Felipe Salomão, julgado em 25/10/2011. (Info 18 - Edição Extraordinária).
 
 ## Questão 11
 
@@ -170,6 +199,9 @@ O ordenamento jurídico brasileiro não contém vedação explícita ao reconhec
 
 ---
 
+**Referência:**
+STJ. 4a Turma. REsp 827.962-RS, Rel. Min. João Otávio de Noronha, julgado em 21/6/2011 (Info 18 - Edição Extraordinária).
+
 ## Questão 12
 
 <!-- ID_ORIGEM: JULGADO-12 -->
@@ -184,6 +216,9 @@ Os provedores de conteúdo são responsáveis objetivamente pelos danos morais d
 Os provedores de conteúdo não respondem objetivamente pela inserção de informações ilegais feitas por terceiros em seus sites. A responsabilidade só ocorre se, após notificação inequívoca da existência do conteúdo ilícito, não removerem imediatamente o material, passando a responder solidariamente pelos danos decorrentes. Além disso, não podem ser obrigados a exercer controle prévio sobre o conteúdo postado pelos usuários.
 
 ---
+
+**Referência:**
+STJ. 3a Turma. REsp 1.193.764-SP, Rel. Min. Nancy Andrighi, julgado em 14/12/2010 (Info 18 - Edição Extraordinária).
 
 ## Questão 13
 
@@ -200,6 +235,9 @@ A companhia aérea integra a cadeia de fornecimento e, portanto, possui responsa
 
 ---
 
+**Referência:**
+STJ. 4a Turma. REsp 1.611.915-RS, Rel. Min. Marco Buzzi, julgado em 06/12/2018 (Info 18 - Edição Extraordinária).
+
 ## Questão 14
 
 <!-- ID_ORIGEM: JULGADO-14 -->
@@ -214,6 +252,9 @@ No contexto da responsabilidade civil no direito do consumidor, quando um evento
 O Superior Tribunal de Justiça entendeu que a responsabilidade no âmbito do direito do consumidor é solidária entre todos os fornecedores que integram a cadeia de consumo, incluindo a empresa organizadora do evento e a empresa terceirizada que explora parte da estrutura, como o camarote. O fato exclusivo de terceiro, previsto no art. 14, § 3º, II, do CDC, somente exclui a responsabilidade quando o terceiro não integra a cadeia de consumo, o que não ocorre no caso. Assim, a empresa organizadora responde pelos danos causados ao consumidor, mesmo que parte do serviço seja prestado por outra empresa da cadeia.
 
 ---
+
+**Referência:**
+STJ. 3a Turma. REsp 1.912.548/SP, Rel. Min. Nancy Andrighi, julgado em 4/5/2021 (Info 18 - Edição Extraordinária).
 
 ## Questão 15
 
@@ -230,6 +271,9 @@ O dever da operadora do plano de saúde de custear as despesas de acompanhante p
 
 ---
 
+**Referência:**
+STJ. 3a Turma. REsp 1.793.840-RJ, Rel. Min. Ricardo Villas Bôas Cueva, julgado em 05/11/2019 (Info 18 - Edição Extraordinária).
+
 ## Questão 16
 
 <!-- ID_ORIGEM: JULGADO-16 -->
@@ -244,6 +288,9 @@ O dever da operadora do plano de saúde de custear as despesas de acompanhante p
 A publicidade de alimentos direcionada a crianças é considerada abusiva, pois crianças não possuem capacidade jurídica para consentir e são vulneráveis à manipulação publicitária. O Código de Defesa do Consumidor, em seu art. 37, § 2º, proíbe campanhas que utilizem o universo lúdico infantil para evitar a indução ao consumo inadequado, especialmente diante do grave problema de obesidade infantil, cabendo aos pais a decisão sobre a compra de gêneros alimentícios.
 
 ---
+
+**Referência:**
+STJ. 2a Turma. REsp 1.613.561-SP, Rel. Min. Herman Benjamin, julgado em 25/04/2017 (Info 18 - Edição Extraordinária).
 
 ## Questão 17
 
@@ -260,6 +307,9 @@ O entendimento consolidado é que a prática do “no show”, que consiste no c
 
 ---
 
+**Referência:**
+STJ. 4a Turma. REsp 1.595.731-RO, Rel. Min. Luis Felipe Salomão, julgado em 14/11/2017 (Info 618). STJ. 3a Turma. REsp 1.699.780-SP, Rel. Min. Marco Aurélio Bellizze, julgado em 11/9/2018 (Info 18 - Edição Extraordinária).
+
 ## Questão 18
 
 <!-- ID_ORIGEM: JULGADO-18 -->
@@ -274,6 +324,9 @@ O entendimento consolidado é que a prática do “no show”, que consiste no c
 A jurisprudência do STJ estabelece que a cirurgia plástica de caráter reparador ou funcional, indicada pelo médico assistente em paciente pós-cirurgia bariátrica, deve ser custeada pelo plano de saúde, pois integra o tratamento da obesidade mórbida, não se tratando de procedimento meramente estético.
 
 ---
+
+**Referência:**
+STJ. 2a Seção. REsps 1.870.834-SP e 1.872.321-SP, Rel. Min. Ricardo Villas Bôas Cueva, julgado em 13/09/2023 (Recurso Repetitivo - Tema 1069) (Info 18 - Edição Extraordinária).
 
 ## Questão 19
 
@@ -290,6 +343,9 @@ O Superior Tribunal de Justiça entende que a cobertura dos planos de saúde abr
 
 ---
 
+**Referência:**
+STJ. 3a Turma REsp 1815796-RJ, Rel. Min. Paulo de Tarso Sanseverino, julgado em 26/05/2020. (Info 18 - Edição Extraordinária).
+
 ## Questão 20
 
 <!-- ID_ORIGEM: JULGADO-20 -->
@@ -304,6 +360,9 @@ No âmbito do Direito Penal ambiental, a responsabilização penal da pessoa jur
 O entendimento consolidado pelo Superior Tribunal de Justiça e pelo Supremo Tribunal Federal é no sentido de que a pessoa jurídica pode ser responsabilizada penalmente por crimes ambientais independentemente da responsabilização concomitante da pessoa física que atua em seu nome. A antiga teoria da dupla imputação, que exigia a responsabilização simultânea da pessoa física, foi superada, permitindo a imputação direta à pessoa jurídica, conforme decisões recentes do STJ e STF.
 
 ---
+
+**Referência:**
+Info 18 - Edição Extraordinária).
 
 ## Questão 21
 
@@ -320,6 +379,9 @@ A Lei Maria da Penha presume a hipossuficiência e vulnerabilidade da mulher em 
 
 ---
 
+**Referência:**
+STJ. Corte Especial. AgRg na MPUMP 6-DF, Rel. Min. Nancy Andrighi, julgado em 18/5/2022 (Info 18 - Edição Extraordinária).
+
 ## Questão 22
 
 <!-- ID_ORIGEM: JULGADO-22 -->
@@ -334,6 +396,9 @@ O princípio da insignificância é inaplicável aos crimes praticados com viol�
 O entendimento consolidado pelo STJ e STF é no sentido de que os delitos praticados com violência contra a mulher no contexto doméstico possuem elevada ofensividade, periculosidade social e reprovabilidade, o que afasta a aplicação do princípio da insignificância. Ademais, a reconciliação do casal não descaracteriza a tipicidade material da conduta nem elimina a necessidade de aplicação da pena, dada a relevância penal da conduta.
 
 ---
+
+**Referência:**
+STJ. 5a Turma. AgRg no REsp 1.973.072/TO, Rel. Min. Ribeiro Dantas, julgado em 22/2/2022. STJ. 6a Turma. AgRg nos EDcl no AREsp 2.174.546/GO, Rel. Min. Laurita Vaz, julgado em 27/6/2023. STF. 2a Turma. RHC 213760 AgR, Rel. Min. Gilmar Mendes, julgado em 22/02/2023. STJ. 6a Turma. RHC 35.769-RJ, Rel. Min. Maria Thereza de Assis Moura, julgado em 25/11/2014 (Info 18 - Edição Extraordinária).
 
 ## Questão 23
 
@@ -350,6 +415,9 @@ A jurisprudência consolidada estabelece que a ação penal nos crimes de lesão
 
 ---
 
+**Referência:**
+STJ. 3a Seção. Pet 11.805-DF, Rel. Min. Rogerio Schietti Cruz, julgado em 10/5/2017 (Recurso Repetitivo - Tema 177) (Info 18 - Edição Extraordinária).
+
 ## Questão 24
 
 <!-- ID_ORIGEM: JULGADO-24 -->
@@ -364,6 +432,9 @@ A ausência de confissão do investigado durante o inquérito policial impede a 
 O entendimento firmado é que a falta de confissão no inquérito policial não afasta o cabimento do acordo de não persecução penal (ANPP). Ademais, o juiz deve remeter os autos à Procuradoria-Geral de Justiça para avaliação do oferecimento do acordo, conforme previsto no art. 28-A, § 14 do Código de Processo Penal, independentemente da confissão do investigado.
 
 ---
+
+**Referência:**
+STJ. 6a Turma. HC 657.165-RJ, Rel. Min. Rogerio Schietti Cruz, julgado em 9/8/2022 (Info 18 - Edição Extraordinária).
 
 ## Questão 25
 
@@ -380,6 +451,9 @@ O entendimento do STJ no HC 46.525-MT estabelece que, para a responsabilização
 
 ---
 
+**Referência:**
+STJ. 5a Turma. HC 46.525-MT, Rel. Min. Arnaldo Esteves Lima, julgado em 21/3/2006 (Info 18 - Edição Extraordinária).
+
 ## Questão 26
 
 <!-- ID_ORIGEM: JULGADO-26 -->
@@ -394,6 +468,9 @@ A busca pessoal sem mandado judicial pode ser realizada com base na mera percep�
 O entendimento firmado é que a busca pessoal sem mandado judicial exige fundada suspeita objetiva, baseada em indícios e circunstâncias concretas que indiquem a posse de drogas, armas ou objetos que constituam corpo de delito, não sendo suficiente a mera impressão subjetiva ou atitude suspeita genérica. O artigo 244 do CPP condiciona a busca pessoal a essa fundada suspeita, vedando buscas realizadas como rotina ou com motivação exploratória. A ausência de fundada suspeita anterior à diligência torna a busca ilegal, e as provas dela decorrentes ilícitas.
 
 ---
+
+**Referência:**
+STJ. 6a Turma. RHC 158.580-BA, Rel. Min. Rogerio Schietti Cruz, julgado em 19/4/2022 (Info 18 - Edição Extraordinária).
 
 ## Questão 27
 
@@ -410,6 +487,9 @@ A extração de dados e conversas do Whatsapp diretamente pela polícia, sem pr�
 
 ---
 
+**Referência:**
+STJ. 6a Turma. RHC 51.531-RO, Rel. Min. Nefi Cordeiro, julgado em 19/4/2016 (Info 18 - Edição Extraordinária).
+
 ## Questão 28
 
 <!-- ID_ORIGEM: JULGADO-28 -->
@@ -424,6 +504,9 @@ O reconhecimento de pessoas realizado em desconformidade com as formalidades pre
 O art. 226 do CPP estabelece formalidades essenciais para o reconhecimento pessoal, que garantem a segurança jurídica do procedimento. A inobservância dessas formalidades acarreta nulidade do reconhecimento, pois o ato viciado não pode servir de base para condenação, mesmo que posteriormente confirmado em juízo, devido aos riscos de erro e prejuízo à defesa.
 
 ---
+
+**Referência:**
+STJ. 6a Turma. HC 598.886-SC, Rel. Min. Rogerio Schietti Cruz, julgado em 27/10/2020 (Info 18 - Edição Extraordinária).
 
 ## Questão 29
 
@@ -440,6 +523,9 @@ O entendimento firmado pelo STJ admite que, embora a Lei 12.850/2013 discipline 
 
 ---
 
+**Referência:**
+STJ. Corte Especial. AgRg nos EDcl na Pet n. 13.974-DF, Rel. Min. Nancy Andrighi, relator para acórdão Min. Og Fernandes, julgado em 5/10/2022 (Info 18 - Edição Extraordinária).
+
 ## Questão 30
 
 <!-- ID_ORIGEM: JULGADO-30 -->
@@ -454,6 +540,9 @@ Para fins de concessão de aposentadoria rural por idade, a qualificação profi
 A qualificação profissional do marido como rurícola, constante em atos do registro civil, pode ser estendida à esposa, constituindo razoável início de prova material para o deferimento da aposentadoria rural por idade, conforme entendimento consolidado no julgado referido.
 
 ---
+
+**Referência:**
+STJ. 5a Turma. REsp 131.765-SP, Rel. Min. José Dantas, julgado em 4/11/1997 (Info 18 - Edição Extraordinária).
 
 ## Questão 31
 
@@ -470,6 +559,9 @@ O procedimento de demarcação das terras indígenas, conforme o Decreto 1.775/9
 
 ---
 
+**Referência:**
+STJ. 2ª Turma. REsp 1.064.009-SC, Rel. Min. Herman Benjamin, julgado em 4/8/2009 (Info 401). (Info 18 - Edição Extraordinária).
+
 ## Questão 32
 
 <!-- ID_ORIGEM: JULGADO-32 -->
@@ -484,6 +576,9 @@ O direito real de habitação previsto no parágrafo único do art. 7º da Lei 9
 O direito real de habitação previsto no parágrafo único do art. 7º da Lei 9.278/96 estende-se também ao companheiro ou companheira da união estável, pois essa previsão não foi revogada pelo Código Civil de 2002. A legislação especial permanece vigente diante da omissão do Código Civil em disciplinar expressamente o direito real de habitação para aqueles que convivem em união estável, garantindo assim a proteção ao companheiro sobrevivente.
 
 ---
+
+**Referência:**
+STJ. 4ª Turma. REsp 1.156.744-MG, Rel. Min. Marco Buzzi, julgado em 9/10/2012 (Info 18 – Edição Extraordinária).
 
 ## Questão 33
 
@@ -500,6 +595,9 @@ O Superior Tribunal de Justiça firmou entendimento de que os planos de saúde d
 
 ---
 
+**Referência:**
+STJ. 4ª Turma. AgInt no REsp 1.900.671-SP, Rel. Min. Marco Buzzi, julgado em 12/12/2022 (Info 18 – Edição Extraordinária).
+
 ## Questão 34
 
 <!-- ID_ORIGEM: JULGADO-34 -->
@@ -515,6 +613,9 @@ A Lei Maria da Penha visa proteger mulheres em situação de violência domésti
 
 ---
 
+**Referência:**
+STJ. 6ª Turma. REsp 1.977.124-SP, Rel. Min. Rogerio Schietti Cruz, julgado em 5/4/2022 (Info 18 – Edição Extraordinária).
+
 ## Questão 35
 
 <!-- ID_ORIGEM: JULGADO-35 -->
@@ -529,3 +630,6 @@ A pessoa vivendo com o vírus HIV tem direito ao benefício de prestação conti
 O entendimento do STJ é que a pessoa vivendo com HIV tem direito ao benefício quando incapaz para o trabalho, mesmo que o laudo médico-pericial ateste capacidade para a vida independente baseada apenas na possibilidade de realizar atividades rotineiras sem auxílio de terceiros. Ou seja, a incapacidade para o trabalho é o critério essencial, e a capacidade para a vida independente não afasta o direito ao benefício.
 
 ---
+
+**Referência:**
+STJ. 5ª Turma. REsp 360.202-AL, Rel. Min. Gilson Dipp, julgado em 4/6/2002 (Info 137). (Info 18 – Edição Extraordinária).
