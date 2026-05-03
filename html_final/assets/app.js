@@ -23,10 +23,16 @@ function sessionSizeLabel(){
   return n >= 9999 ? "Tudo" : String(n);
 }
 function setSessionSize(n){
-  state.settings.sessionSize = Number(n);
-  localStorage.setItem("sessionSize", n);
+  state.settings.sessionSize = n; // ✅ CORRETO
   save();
-  alert("Sessão: " + (n === 9999 ? "Tudo" : n));
+
+  // visual
+  document.querySelectorAll('.pill').forEach(btn=>{
+    btn.classList.remove('active');
+    if(btn.textContent.trim() == (n == 9999 ? 'Tudo' : String(n))){
+      btn.classList.add('active');
+    }
+  });
 }
 function sessionSizeButtons(){
   const atual = Number(state.settings.sessionSize || 100);
@@ -66,7 +72,8 @@ function filtered(){
   })
 }
 function startSessionFromFilters(){const label=document.getElementById('info')?.selectedOptions?.[0]?.text || document.getElementById('mod').value || document.getElementById('cat').value || 'Sessão personalizada';startSession({list:filtered(),label})}
-function startSession(opts={}){let list=opts.list;let startAt=0;if(!list){if(opts.mode==='continue'&&state.lastSession?.ids?.length){list=state.lastSession.ids.map(id=>questions.find(q=>q.id===id)).filter(Boolean);startAt=list.findIndex(q=>!qState(q.id).seen);if(startAt<0){list=questions.filter(q=>!qState(q.id).seen).slice(0,30);startAt=0}}else{list=questions.filter(q=>!qState(q.id).seen).slice(0,30)}} session=list.slice(0,state.settings.sessionSize||100); currentIndex=Math.min(startAt,Math.max(session.length-1,0)); state.lastSession={ids:session.map(q=>q.id)}; save(); renderQuestion()}
+function startSession(opts={}){let list=opts.list;let startAt=0;if(!list){if(opts.mode==='continue'&&state.lastSession?.ids?.length){list=state.lastSession.ids.map(id=>questions.find(q=>q.id===id)).filter(Boolean);startAt=list.findIndex(q=>!qState(q.id).seen);if(startAt<0){list=questions.filter(q=>!qState(q.id).seen).slice(0,30);startAt=0}}else{list=questions.filter(q=>!qState(q.id).seen).slice(0,30)}} const size = Number(state.settings.sessionSize || 100);
+session = size >= 9999 ? list : list.slice(0, size); currentIndex=Math.min(startAt,Math.max(session.length-1,0)); state.lastSession={ids:session.map(q=>q.id)}; save(); renderQuestion()}
 
 
 function referenciaFinal(q){
@@ -108,7 +115,6 @@ function renderReview(){const due=questions.filter(q=>{const s=qState(q.id);retu
 function renderLibrary(){const cats=Object.entries(by(questions,'categoria')).sort();const mods=Object.entries(by(questions,'modulo')).sort();document.getElementById('content').innerHTML=`<div class="grid"><div class="card side"><h3>Categorias</h3>${cats.map(([k,v])=>`<p><b>${k}</b><br><span class="eyebrow">${v} questões</span></p>`).join('')}</div><div class="card wide"><h3>Módulos</h3><table class="table">${mods.map(([k,v])=>`<tr><td>${k}</td><td>${v}</td></tr>`).join('')}</table></div></div>`}
 function renderSettings(){document.getElementById('content').innerHTML=`<div class="card"><h3>Dados e progresso</h3><p>Seu progresso fica salvo neste navegador.</p><button class="secondary-btn" onclick="exportProgress()">Exportar progresso</button> <button class="danger-btn" onclick="resetProgress()">Resetar tudo</button><br><br><textarea id="importBox" placeholder="Cole aqui um JSON de progresso para importar" style="width:100%;min-height:120px;border-radius:14px;padding:12px;background:var(--surface);color:var(--text);border:1px solid var(--line)"></textarea><br><button class="primary-btn" onclick="importProgress()">Importar progresso</button></div>`}
 function exportProgress(){const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='progresso-simulados.json';a.click()}
-function importProgress(){try{state=JSON.parse(document.getElementById('importBox').value);save();alert('Importado com sucesso.');render('dashboard')}catch(e){alert('JSON inválido.')}}
 function resetProgress(){if(confirm('Tem certeza?')&&confirm('Confirma apagar todo o progresso?')){state=defaultState();save();render('dashboard')}}
 function escapeHtml(s){return String(s||'').replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m])).replace(/\n/g,'<br>')}
 init().catch(e=>{document.body.innerHTML='<pre style="padding:24px">Erro ao carregar data/questoes.json:\n'+e+'</pre>'})
