@@ -57,6 +57,7 @@ O entendimento firmado pelo STJ é no sentido de que a distinção entre indíge
 ---
 
 **Referência:**
+STJ. 2a Turma. REsp 1.064.009-SC, Rel. Min. Herman Benjamin, julgado em 4/8/2009 (Info 401).
 
 ## Questão 4
 
