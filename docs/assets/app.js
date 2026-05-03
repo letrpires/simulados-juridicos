@@ -24,9 +24,9 @@ function sessionSizeLabel(){
 }
 function setSessionSize(n){
   state.settings.sessionSize = Number(n);
-  localStorage.setItem("sessionSize", String(n));
+  localStorage.setItem("sessionSize", n);
   save();
-  renderStudy();
+  alert("Sessão: " + (n === 9999 ? "Tudo" : n));
 }
 function sessionSizeButtons(){
   const atual = Number(state.settings.sessionSize || 100);
@@ -66,7 +66,7 @@ function filtered(){
   })
 }
 function startSessionFromFilters(){const label=document.getElementById('info')?.selectedOptions?.[0]?.text || document.getElementById('mod').value || document.getElementById('cat').value || 'Sessão personalizada';startSession({list:filtered(),label})}
-function startSession(opts={}){let list=opts.list;let startAt=0;if(!list){if(opts.mode==='continue'&&state.lastSession?.ids?.length){list=state.lastSession.ids.map(id=>questions.find(q=>q.id===id)).filter(Boolean);startAt=list.findIndex(q=>!qState(q.id).seen);if(startAt<0){list=questions.filter(q=>!qState(q.id).seen).slice(0,30);startAt=0}}else{list=questions.filter(q=>!qState(q.id).seen).slice(0,30)}} session=list.slice(0,50); currentIndex=Math.min(startAt,Math.max(session.length-1,0)); state.lastSession={ids:session.map(q=>q.id)}; save(); renderQuestion()}
+function startSession(opts={}){let list=opts.list;let startAt=0;if(!list){if(opts.mode==='continue'&&state.lastSession?.ids?.length){list=state.lastSession.ids.map(id=>questions.find(q=>q.id===id)).filter(Boolean);startAt=list.findIndex(q=>!qState(q.id).seen);if(startAt<0){list=questions.filter(q=>!qState(q.id).seen).slice(0,30);startAt=0}}else{list=questions.filter(q=>!qState(q.id).seen).slice(0,30)}} session=list.slice(0,state.settings.sessionSize||100); currentIndex=Math.min(startAt,Math.max(session.length-1,0)); state.lastSession={ids:session.map(q=>q.id)}; save(); renderQuestion()}
 
 
 function referenciaFinal(q){
