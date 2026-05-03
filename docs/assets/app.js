@@ -3,6 +3,13 @@ const LS_KEY='simulados_juridicos_estado_v1';
 let questions=[]; let state=loadState(); let currentView='dashboard'; let session=[]; let currentIndex=0;
 function today(){return new Date().toISOString().slice(0,10)}
 function addDays(d,n){const x=new Date(d||today());x.setDate(x.getDate()+n);return x.toISOString().slice(0,10)}
+function shuffle(array){
+  for(let i = array.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
 function loadState(){try{return JSON.parse(localStorage.getItem(LS_KEY))||defaultState()}catch{return defaultState()}}
 function defaultState(){return{answers:{},marked:{},xp:0,badges:[],sessions:[],settings:{theme:localStorage.getItem('theme')||''},lastSession:null,studySeconds:0}}
 function save(){localStorage.setItem(LS_KEY,JSON.stringify(state))}
@@ -46,7 +53,35 @@ function filtered(){
   })
 }
 function startSessionFromFilters(){const label=document.getElementById('info')?.selectedOptions?.[0]?.text || document.getElementById('mod').value || document.getElementById('cat').value || 'Sessão personalizada';startSession({list:filtered(),label})}
-function startSession(opts={}){let list=opts.list;let startAt=0;if(!list){if(opts.mode==='continue'&&state.lastSession?.ids?.length){list=state.lastSession.ids.map(id=>questions.find(q=>q.id===id)).filter(Boolean);startAt=list.findIndex(q=>!qState(q.id).seen);if(startAt<0){list=questions.filter(q=>!qState(q.id).seen).slice(0,30);startAt=0}}else{list=questions.filter(q=>!qState(q.id).seen).slice(0,30)}} session=list.slice(0,50); currentIndex=Math.min(startAt,Math.max(session.length-1,0)); state.lastSession={ids:session.map(q=>q.id)}; save(); renderQuestion()}
+function startSession(opts={}){
+  let list = opts.list;
+  let startAt = 0;
+
+  if(!list){
+    if(opts.mode === 'continue' && state.lastSession?.ids?.length){
+      list = state.lastSession.ids
+        .map(id => questions.find(q => q.id === id))
+        .filter(Boolean);
+
+      startAt = list.findIndex(q => !qState(q.id).seen);
+
+      if(startAt < 0){
+        list = shuffle(questions.filter(q => !qState(q.id).seen)).slice(0,30);
+        startAt = 0;
+      }
+    } else {
+      list = shuffle(questions.filter(q => !qState(q.id).seen)).slice(0,30);
+    }
+  } else {
+    list = shuffle([...list]);
+  }
+
+  session = list.slice(0,50);
+  currentIndex = Math.min(startAt, Math.max(session.length - 1, 0));
+  state.lastSession = { ids: session.map(q => q.id) };
+  save();
+  renderQuestion();
+};let startAt=0;if(!list){if(opts.mode==='continue'&&state.lastSession?.ids?.length){list=state.lastSession.ids.map(id=>questions.find(q=>q.id===id)).filter(Boolean);startAt=list.findIndex(q=>!qState(q.id).seen);if(startAt<0){list=questions.filter(q=>!qState(q.id).seen).slice(0,30);startAt=0}}else{list=questions.filter(q=>!qState(q.id).seen).slice(0,30)}} session=list.slice(0,50); currentIndex=Math.min(startAt,Math.max(session.length-1,0)); state.lastSession={ids:session.map(q=>q.id)}; save(); renderQuestion()}
 
 
 function referenciaFinal(q){
