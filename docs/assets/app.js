@@ -4,7 +4,7 @@ let questions=[]; let state=loadState(); let currentView='dashboard'; let sessio
 function today(){return new Date().toISOString().slice(0,10)}
 function addDays(d,n){const x=new Date(d||today());x.setDate(x.getDate()+n);return x.toISOString().slice(0,10)}
 function loadState(){try{return JSON.parse(localStorage.getItem(LS_KEY))||defaultState()}catch{return defaultState()}}
-function defaultState(){return{answers:{},marked:{},xp:0,badges:[],sessions:[],settings:{theme:localStorage.getItem('theme')||'',sessionSize:Number(localStorage.getItem('sessionSize')||100)},lastSession:null,studySeconds:0}}
+function defaultState(){return{answers:{},marked:{},xp:0,badges:[],sessions:[],settings:{theme:localStorage.getItem('theme')||'',sessionSize:Number(localStorage.getItem('sessionSize')||100),randomMode:localStorage.getItem('randomMode')!=='false'},lastSession:null,studySeconds:0}}
 function save(){localStorage.setItem(LS_KEY,JSON.stringify(state))}
 function qState(id){return state.answers[id]||{seen:false,correct:null,attempts:0,interval:1,lastReviewed:null,nextReview:null,history:[]}}
 function setTheme(t){document.documentElement.dataset.theme=t;localStorage.setItem('theme',t);state.settings.theme=t;save();document.getElementById('themeToggle').textContent=t==='dark'?'☀️ Modo claro':'🌙 Modo escuro'}
@@ -43,13 +43,37 @@ function sessionSizeButtons(){
   </div>`;
 }
 
+function shuffleList(arr){
+  const a=[...arr];
+  for(let i=a.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [a[i],a[j]]=[a[j],a[i]];
+  }
+  return a;
+}
+
+function toggleRandomMode(){
+  state.settings.randomMode = !state.settings.randomMode;
+  localStorage.setItem('randomMode', String(state.settings.randomMode));
+  save();
+  renderStudy();
+}
+
+function randomModeButtons(){
+  return `<div class="pill-row" style="margin-top:8px">
+    <span class="eyebrow">Ordem:</span>
+    <button class="pill ${state.settings.randomMode ? 'active' : ''}" onclick="toggleRandomMode()">🔀 Aleatória</button>
+    <button class="pill ${!state.settings.randomMode ? 'active' : ''}" onclick="toggleRandomMode()">📚 Original</button>
+  </div>`;
+}
+
 function infoLabel(q){if(q.tipo==='edicao_extraordinaria')return `Ed. Extra ${q.informativo} STJ`; if(q.informativo)return `Info ${q.informativo} ${q.tribunal||''}`.trim(); return q.fonte||''}
 function renderStudy(){
   const tribunais=uniqueSorted(questions.map(q=>q.tribunal));
   const cats=uniqueSorted(questions.map(q=>q.categoria));
   const mods=uniqueSorted(questions.map(q=>q.modulo));
   const infos=uniqueSorted(questions.filter(q=>q.informativo).map(q=>`${String(q.informativo).padStart(4,'0')}|${infoLabel(q)}|${q.informativo}|${q.tribunal||''}|${q.tipo||''}`));
-  document.getElementById('content').innerHTML=`<div class="card"><h3>Monte sua sessão</h3><p class="eyebrow">Use o filtro por informativo para estudar exatamente um caderno, como Info 1162 STF ou Ed. Extra 28 STJ.</p><div class="filters"><input id="search" placeholder="Buscar enunciado, tema, fonte..."><select id="trib"><option value="">Todos tribunais</option>${tribunais.map(x=>`<option>${x}</option>`).join('')}</select><select id="cat"><option value="">Todas categorias</option>${cats.map(x=>`<option>${x}</option>`).join('')}</select><select id="mod"><option value="">Todos módulos</option>${mods.map(x=>`<option>${x}</option>`).join('')}</select><select id="info"><option value="">Todos informativos</option>${infos.map(raw=>{const [,label,num,trib,tipo]=raw.split('|');const value=`${num}|${trib}|${tipo}`;return `<option value="${value}">${label}</option>`}).join('')}</select><select id="mode"><option value="all">Todas</option><option value="unseen">Não vistas</option><option value="wrong">Erradas</option><option value="marked">Marcadas</option></select></div><br>${sessionSizeButtons()}<br><button class="primary-btn" onclick="startSessionFromFilters()">Começar</button></div>`
+  document.getElementById('content').innerHTML=`<div class="card"><h3>Monte sua sessão</h3><p class="eyebrow">Use o filtro por informativo para estudar exatamente um caderno, como Info 1162 STF ou Ed. Extra 28 STJ.</p><div class="filters"><input id="search" placeholder="Buscar enunciado, tema, fonte..."><select id="trib"><option value="">Todos tribunais</option>${tribunais.map(x=>`<option>${x}</option>`).join('')}</select><select id="cat"><option value="">Todas categorias</option>${cats.map(x=>`<option>${x}</option>`).join('')}</select><select id="mod"><option value="">Todos módulos</option>${mods.map(x=>`<option>${x}</option>`).join('')}</select><select id="info"><option value="">Todos informativos</option>${infos.map(raw=>{const [,label,num,trib,tipo]=raw.split('|');const value=`${num}|${trib}|${tipo}`;return `<option value="${value}">${label}</option>`}).join('')}</select><select id="mode"><option value="all">Todas</option><option value="unseen">Não vistas</option><option value="wrong">Erradas</option><option value="marked">Marcadas</option></select></div><br>${sessionSizeButtons()}${randomModeButtons()}<br><button class="primary-btn" onclick="startSessionFromFilters()">Começar</button></div>`
 }
 function filtered(){
   const term=(document.getElementById('search')?.value||'').toLowerCase();
@@ -71,7 +95,7 @@ function filtered(){
     return true
   })
 }
-function startSessionFromFilters(){const label=document.getElementById('info')?.selectedOptions?.[0]?.text || document.getElementById('mod').value || document.getElementById('cat').value || 'Sessão personalizada';startSession({list:filtered(),label})}
+function startSessionFromFilters(){const label=document.getElementById('info')?.selectedOptions?.[0]?.text || document.getElementById('mod').value || document.getElementById('cat').value || 'Sessão personalizada';let lista=filtered();if(state.settings.randomMode){lista=shuffleList(lista)}startSession({list:lista,label})}
 function startSession(opts={}){let list=opts.list;let startAt=0;if(!list){if(opts.mode==='continue'&&state.lastSession?.ids?.length){list=state.lastSession.ids.map(id=>questions.find(q=>q.id===id)).filter(Boolean);startAt=list.findIndex(q=>!qState(q.id).seen);if(startAt<0){list=questions.filter(q=>!qState(q.id).seen).slice(0,30);startAt=0}}else{list=questions.filter(q=>!qState(q.id).seen).slice(0,30)}} const size = Number(state.settings.sessionSize || 100);
 session = size >= 9999 ? list : list.slice(0, size); currentIndex=Math.min(startAt,Math.max(session.length-1,0)); state.lastSession={ids:session.map(q=>q.id)}; save(); renderQuestion()}
 
