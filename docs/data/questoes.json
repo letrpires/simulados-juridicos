@@ -47450,29 +47450,6 @@
     ]
   },
   {
-    "id": "stf-sem-ano-repercussao-geral-rg-administrativo-q006",
-    "modulo": "RG - Administrativo",
-    "tribunal": "STF",
-    "ano": null,
-    "tipo": "repercussao_geral",
-    "categoria": "Repercussão Geral",
-    "informativo": "",
-    "disciplina": "Direito Constitucional",
-    "tema": "Tema 23",
-    "enunciado": "A possibilidade de equiparação dos proventos dos Procuradores de Autarquia e dos Procuradores de Estado para fins de incidência do teto remuneratório previsto na Emenda Constitucional n. 41/2003 possui repercussão geral, dada a sua relevância econômica, política, social ou jurídica que ultrapassa o interesse das partes envolvidas.",
-    "respostaCorreta": "E",
-    "explicacao": "A tese estabelece que a questão da equiparação dos proventos entre Procuradores de Autarquia e Procuradores de Estado para incidência do teto remuneratório da EC n. 41/2003 não possui repercussão geral, pois não apresenta relevância econômica, política, social ou jurídica que transcenda o interesse das partes. Portanto, afirmar que possui repercussão geral contraria o entendimento firmado, tornando o item incorreto.",
-    "referencia": "Tema 23",
-    "fonte": "RG - Administrativo",
-    "nivel": "medio",
-    "tags": [
-      "STF",
-      "Repercussão Geral",
-      "RG - Administrativo",
-      "RG - Administrativo"
-    ]
-  },
-  {
     "id": "stf-sem-ano-repercussao-geral-rg-administrativo-q007",
     "modulo": "RG - Administrativo",
     "tribunal": "STF",
@@ -47749,52 +47726,6 @@
     ]
   },
   {
-    "id": "stf-sem-ano-repercussao-geral-rg-administrativo-q019",
-    "modulo": "RG - Administrativo",
-    "tribunal": "STF",
-    "ano": null,
-    "tipo": "repercussao_geral",
-    "categoria": "Repercussão Geral",
-    "informativo": "",
-    "disciplina": "Direito Administrativo",
-    "tema": "Tema 73",
-    "enunciado": "A ausência de repercussão geral na questão do direito do servidor público ao pagamento de diferenças pecuniárias decorrentes do exercício de trabalho em desvio de função decorre da inexistência de relevância econômica, política, social ou jurídica que ultrapasse o interesse das partes envolvidas.",
-    "respostaCorreta": "C",
-    "explicacao": "A repercussão geral é requisito para a admissibilidade de recursos extraordinários no Supremo Tribunal Federal, exigindo que a questão transcenda o interesse subjetivo das partes, apresentando relevância econômica, política, social ou jurídica. No caso do direito do servidor público ao pagamento de diferenças pecuniárias por desvio de função, o entendimento consolidado é que tal matéria não possui repercussão geral, pois não ultrapassa o interesse individual das partes, não apresentando impacto significativo para a coletividade ou para o ordenamento jurídico como um todo.",
-    "referencia": "Tema 73",
-    "fonte": "RG - Administrativo",
-    "nivel": "medio",
-    "tags": [
-      "STF",
-      "Repercussão Geral",
-      "RG - Administrativo",
-      "RG - Administrativo"
-    ]
-  },
-  {
-    "id": "stf-sem-ano-repercussao-geral-rg-administrativo-q020",
-    "modulo": "RG - Administrativo",
-    "tribunal": "STF",
-    "ano": null,
-    "tipo": "repercussao_geral",
-    "categoria": "Repercussão Geral",
-    "informativo": "",
-    "disciplina": "Direito Administrativo",
-    "tema": "Tema 119",
-    "enunciado": "A possibilidade de acumulação de dois cargos públicos na área de saúde por militares, sendo um de natureza militar e outro municipal, não possui repercussão geral por não apresentar relevância econômica, política, social ou jurídica que ultrapasse o interesse das partes envolvidas.",
-    "respostaCorreta": "C",
-    "explicacao": "A repercussão geral é requisito para o conhecimento de recursos extraordinários no Supremo Tribunal Federal, devendo haver relevância que transcenda o interesse subjetivo das partes, abrangendo aspectos econômicos, políticos, sociais ou jurídicos de impacto coletivo. No caso da acumulação de cargos públicos por militares na área de saúde, a ausência de tais elementos impede o reconhecimento da repercussão geral, limitando a controvérsia ao interesse restrito das partes, conforme entendimento consolidado.",
-    "referencia": "Tema 119",
-    "fonte": "RG - Administrativo",
-    "nivel": "medio",
-    "tags": [
-      "STF",
-      "Repercussão Geral",
-      "RG - Administrativo",
-      "RG - Administrativo"
-    ]
-  },
-  {
     "id": "stf-sem-ano-repercussao-geral-rg-administrativo-q021",
     "modulo": "RG - Administrativo",
     "tribunal": "STF",
@@ -47808,29 +47739,6 @@
     "respostaCorreta": "E",
     "explicacao": "A Constituição Federal de 1988, em seu art. 142, § 3º, X, estabelece que somente a lei pode definir os requisitos para ingresso nas Forças Armadas, incluindo o requisito de idade. Dessa forma, a expressão “nos regulamentos da Marinha, do Exército e da Aeronáutica” constante do art. 10 da Lei 6.880/1980 não foi recepcionada, pois a regulamentação por outra espécie normativa, ainda que por delegação legal, não é admitida para definir tais requisitos.",
     "referencia": "Tema 121",
-    "fonte": "RG - Administrativo",
-    "nivel": "medio",
-    "tags": [
-      "STF",
-      "Repercussão Geral",
-      "RG - Administrativo",
-      "RG - Administrativo"
-    ]
-  },
-  {
-    "id": "stf-sem-ano-repercussao-geral-rg-administrativo-q022",
-    "modulo": "RG - Administrativo",
-    "tribunal": "STF",
-    "ano": null,
-    "tipo": "repercussao_geral",
-    "categoria": "Repercussão Geral",
-    "informativo": "",
-    "disciplina": "Direito Administrativo",
-    "tema": "Tema 122",
-    "enunciado": "A ausência de repercussão geral na questão relativa ao direito do servidor que teve seu regime jurídico alterado de celetista para estatutário à contagem em dobro do período de licença especial não usufruída como tempo de serviço público decorre da inexistência de relevância econômica, política, social ou jurídica que ultrapasse o interesse das partes envolvidas.",
-    "respostaCorreta": "C",
-    "explicacao": "A repercussão geral, prevista no artigo 102, §3º, da Constituição Federal, exige que a questão jurídica tenha relevância que transcenda o interesse subjetivo das partes, abrangendo aspectos econômicos, políticos, sociais ou jurídicos de maior alcance. No caso da contagem em dobro do período de licença especial não usufruída para servidor que teve seu regime alterado de celetista para estatutário, entende-se que tal matéria não possui essa relevância ampliada, restringindo-se ao interesse particular do servidor, motivo pelo qual não se reconhece repercussão geral.",
-    "referencia": "Tema 122",
     "fonte": "RG - Administrativo",
     "nivel": "medio",
     "tags": [
@@ -49176,29 +49084,6 @@
     ]
   },
   {
-    "id": "stf-sem-ano-repercussao-geral-rg-administrativo-q081",
-    "modulo": "RG - Administrativo",
-    "tribunal": "STF",
-    "ano": null,
-    "tipo": "repercussao_geral",
-    "categoria": "Repercussão Geral",
-    "informativo": "",
-    "disciplina": "Direito Constitucional",
-    "tema": "Tema 493",
-    "enunciado": "A discussão sobre a constitucionalidade da progressão funcional prevista na Lei 6.110/94, do Estado do Maranhão, possui repercussão geral nos termos do art. 323-B do Regimento Interno do Supremo Tribunal Federal, conforme redação dada pela Emenda Regimental nº 54, de 1º de julho de 2020.",
-    "respostaCorreta": "E",
-    "explicacao": "A controvérsia acerca da constitucionalidade da progressão funcional prevista na Lei 6.110/94, do Estado do Maranhão, não possui repercussão geral nos termos do art. 323-B do Regimento Interno do Supremo Tribunal Federal, conforme redação dada pela Emenda Regimental nº 54, de 1º de julho de 2020. Isso significa que o STF não reconhece a relevância jurídica, política, social ou econômica suficiente para que a matéria seja objeto de repercussão geral, requisito necessário para a admissibilidade do recurso extraordinário.",
-    "referencia": "Tema 493",
-    "fonte": "RG - Administrativo",
-    "nivel": "medio",
-    "tags": [
-      "STF",
-      "Repercussão Geral",
-      "RG - Administrativo",
-      "RG - Administrativo"
-    ]
-  },
-  {
     "id": "stf-sem-ano-repercussao-geral-rg-administrativo-q082",
     "modulo": "RG - Administrativo",
     "tribunal": "STF",
@@ -50201,52 +50086,6 @@
     "respostaCorreta": "E",
     "explicacao": "A aposentadoria compulsória prevista no art. 40, § 1º, II, da Constituição Federal aplica-se apenas aos servidores ocupantes de cargo de provimento efetivo, não alcançando os ocupantes de cargo exclusivamente em comissão. Ademais, não existe idade limite constitucional para nomeação a cargo em comissão. Por fim, o servidor efetivo aposentado compulsoriamente pode ser nomeado para cargo em comissão, pois tal nomeação não configura continuidade ou criação de vínculo efetivo com a Administração, desde que não haja impedimentos infraconstitucionais.",
     "referencia": "Tema 763",
-    "fonte": "RG - Administrativo",
-    "nivel": "medio",
-    "tags": [
-      "STF",
-      "Repercussão Geral",
-      "RG - Administrativo",
-      "RG - Administrativo"
-    ]
-  },
-  {
-    "id": "stf-sem-ano-repercussao-geral-rg-administrativo-q126",
-    "modulo": "RG - Administrativo",
-    "tribunal": "STF",
-    "ano": null,
-    "tipo": "repercussao_geral",
-    "categoria": "Repercussão Geral",
-    "informativo": "",
-    "disciplina": "Direito Administrativo",
-    "tema": "Tema 764",
-    "enunciado": "A controvérsia acerca do direito dos servidores públicos do extinto Departamento de Pesquisa e de Pesca do Rio Grande do Sul ao reajuste previsto na Lei nº 13.444/2010 possui repercussão geral reconhecida pelo Supremo Tribunal Federal.",
-    "respostaCorreta": "E",
-    "explicacao": "O Supremo Tribunal Federal entende que a controvérsia sobre o direito dos servidores públicos do extinto Departamento de Pesquisa e de Pesca do Rio Grande do Sul ao reajuste concedido pela Lei nº 13.444/2010 não possui repercussão geral. Isso significa que a questão não ultrapassa os interesses subjetivos das partes envolvidas, não afetando a ordem econômica, política, social ou jurídica de forma ampla, motivo pelo qual não é admitida a repercussão geral para o recurso extraordinário que trate do tema.",
-    "referencia": "Tema 764",
-    "fonte": "RG - Administrativo",
-    "nivel": "medio",
-    "tags": [
-      "STF",
-      "Repercussão Geral",
-      "RG - Administrativo",
-      "RG - Administrativo"
-    ]
-  },
-  {
-    "id": "stf-sem-ano-repercussao-geral-rg-administrativo-q127",
-    "modulo": "RG - Administrativo",
-    "tribunal": "STF",
-    "ano": null,
-    "tipo": "repercussao_geral",
-    "categoria": "Repercussão Geral",
-    "informativo": "",
-    "disciplina": "Direito Administrativo",
-    "tema": "Tema 767",
-    "enunciado": "A controvérsia acerca da aplicação do Estatuto dos Servidores Públicos Civis do Estado para o pagamento do adicional noturno ao magistério público estadual possui repercussão geral reconhecida pelo Supremo Tribunal Federal.",
-    "respostaCorreta": "E",
-    "explicacao": "O Supremo Tribunal Federal não reconhece repercussão geral para controvérsias relativas à aplicação do Estatuto dos Servidores Públicos Civis do Estado no que tange ao pagamento do adicional noturno ao magistério público estadual, o que significa que tais questões não são consideradas de relevância jurídica e social suficiente para serem objeto de análise em recursos extraordinários com repercussão geral.",
-    "referencia": "Tema 767",
     "fonte": "RG - Administrativo",
     "nivel": "medio",
     "tags": [
@@ -51292,29 +51131,6 @@
     ]
   },
   {
-    "id": "stf-sem-ano-repercussao-geral-rg-administrativo-q173",
-    "modulo": "RG - Administrativo",
-    "tribunal": "STF",
-    "ano": null,
-    "tipo": "repercussao_geral",
-    "categoria": "Repercussão Geral",
-    "informativo": "",
-    "disciplina": "Direito Administrativo",
-    "tema": "Tema 1008",
-    "enunciado": "A controvérsia acerca da incorporação do adicional de interiorização devido pela prestação de serviço público por policial militar no interior do Estado possui repercussão geral, independentemente da necessidade de exame das normas estaduais que regem a respectiva parcela remuneratória.",
-    "respostaCorreta": "E",
-    "explicacao": "A controvérsia relativa à incorporação do adicional de interiorização para policiais militares no interior do Estado não possui repercussão geral, pois depende do exame específico das normas estaduais que disciplinam essa parcela remuneratória. Assim, a análise da questão exige a consideração das regras locais, o que afasta a possibilidade de reconhecimento da repercussão geral no âmbito do Supremo Tribunal Federal.",
-    "referencia": "Tema 1008",
-    "fonte": "RG - Administrativo",
-    "nivel": "medio",
-    "tags": [
-      "STF",
-      "Repercussão Geral",
-      "RG - Administrativo",
-      "RG - Administrativo"
-    ]
-  },
-  {
     "id": "stf-sem-ano-repercussao-geral-rg-administrativo-q174",
     "modulo": "RG - Administrativo",
     "tribunal": "STF",
@@ -51869,29 +51685,6 @@
     ]
   },
   {
-    "id": "stf-sem-ano-repercussao-geral-rg-administrativo-q198",
-    "modulo": "RG - Administrativo",
-    "tribunal": "STF",
-    "ano": null,
-    "tipo": "repercussao_geral",
-    "categoria": "Repercussão Geral",
-    "informativo": "",
-    "disciplina": "Direito Administrativo",
-    "tema": "Tema 1129",
-    "enunciado": "É vedada a retroação dos percentuais de revisão anual concedidos por lei específica à data-base prevista na legislação local, de modo que a revisão somente produz efeitos a partir da publicação da lei que a concede.",
-    "respostaCorreta": "E",
-    "explicacao": "A jurisprudência consolidada admite a retroação dos percentuais de revisão anual concedidos por lei específica à data-base prevista na legislação local, reconhecendo que a revisão deve produzir efeitos financeiros desde a data-base, ainda que a lei que a concede seja publicada posteriormente. Tal entendimento visa assegurar a preservação do valor real do vencimento ou remuneração, respeitando o direito adquirido e a irredutibilidade salarial, princípios fundamentais do direito administrativo e do direito do trabalho aplicáveis ao servidor público.",
-    "referencia": "Tema 1129",
-    "fonte": "RG - Administrativo",
-    "nivel": "medio",
-    "tags": [
-      "STF",
-      "Repercussão Geral",
-      "RG - Administrativo",
-      "RG - Administrativo"
-    ]
-  },
-  {
     "id": "stf-sem-ano-repercussao-geral-rg-administrativo-q199",
     "modulo": "RG - Administrativo",
     "tribunal": "STF",
@@ -51974,29 +51767,6 @@
     "respostaCorreta": "E",
     "explicacao": "O servidor público aposentado pelo Regime Geral de Previdência Social, quando a vacância do cargo está prevista em lei local, não possui direito à reintegração ou à manutenção no cargo, pois tal situação viola a regra do concurso público e a vedação à acumulação de proventos e remuneração não acumuláveis em atividade. A legislação assegura que a aposentadoria implica a vacância do cargo, impedindo a permanência do servidor aposentado no exercício do cargo público, garantindo a observância do princípio do concurso público e da vedação à acumulação indevida de rendimentos públicos.",
     "referencia": "Tema 1150",
-    "fonte": "RG - Administrativo",
-    "nivel": "medio",
-    "tags": [
-      "STF",
-      "Repercussão Geral",
-      "RG - Administrativo",
-      "RG - Administrativo"
-    ]
-  },
-  {
-    "id": "stf-sem-ano-repercussao-geral-rg-administrativo-q203",
-    "modulo": "RG - Administrativo",
-    "tribunal": "STF",
-    "ano": null,
-    "tipo": "repercussao_geral",
-    "categoria": "Repercussão Geral",
-    "informativo": "",
-    "disciplina": "Direito Constitucional",
-    "tema": "Tema 1152",
-    "enunciado": "A controvérsia sobre a necessidade de comprovação concreta da inobservância do artigo 40, § 2º, da Constituição Federal, na redação dada pela Emenda Constitucional 20/1998, possui repercussão geral, mesmo após a declaração de inconstitucionalidade do artigo 23, § 4º, da Lei 21.710/2015 do Estado de Minas Gerais, que autorizava pagamento de proventos de aposentadoria superiores ao valor percebido no cargo efetivo.",
-    "respostaCorreta": "E",
-    "explicacao": "A controvérsia relativa à necessidade de comprovação concreta da inobservância do artigo 40, § 2º, da Constituição Federal (na redação dada pela Emenda Constitucional 20/1998) não possui repercussão geral após a declaração de inconstitucionalidade do artigo 23, § 4º, da Lei 21.710/2015 do Estado de Minas Gerais, que autorizava o pagamento de proventos de aposentadoria em montante superior ao que o servidor percebia no cargo efetivo. Isso porque a Suprema Corte firmou entendimento de que a controvérsia sobre o pagamento acima do teto constitucional não se estende para a análise da necessidade de comprovação concreta da inobservância do dispositivo constitucional mencionado, não sendo, portanto, tema com repercussão geral reconhecida.",
-    "referencia": "Tema 1152",
     "fonte": "RG - Administrativo",
     "nivel": "medio",
     "tags": [
@@ -52444,29 +52214,6 @@
     ]
   },
   {
-    "id": "stf-sem-ano-repercussao-geral-rg-administrativo-q223",
-    "modulo": "RG - Administrativo",
-    "tribunal": "STF",
-    "ano": null,
-    "tipo": "repercussao_geral",
-    "categoria": "Repercussão Geral",
-    "informativo": "",
-    "disciplina": "Direito Constitucional",
-    "tema": "Tema 1316",
-    "enunciado": "A indisponibilidade do bem de família é absoluta e impede o ressarcimento integral ao erário decorrente da prática de ato de improbidade administrativa, não sendo possível conciliar os artigos 6º e 37, §4º da Constituição Federal para permitir tal ressarcimento.",
-    "respostaCorreta": "E",
-    "explicacao": "Embora o artigo 6º da Constituição Federal assegure a proteção do bem de família, o artigo 37, §4º, impõe a obrigação de ressarcimento integral ao erário em caso de ato de improbidade administrativa. A interpretação sistemática e conciliatória desses dispositivos permite que, mesmo diante da proteção constitucional do bem de família, seja possível a indisponibilidade e o ressarcimento integral para garantir a reparação do dano causado ao patrimônio público, não se tratando de proteção absoluta que inviabilize a responsabilização do agente público.",
-    "referencia": "Tema 1316",
-    "fonte": "RG - Administrativo",
-    "nivel": "medio",
-    "tags": [
-      "STF",
-      "Repercussão Geral",
-      "RG - Administrativo",
-      "RG - Administrativo"
-    ]
-  },
-  {
     "id": "stf-sem-ano-repercussao-geral-rg-administrativo-q224",
     "modulo": "RG - Administrativo",
     "tribunal": "STF",
@@ -52480,52 +52227,6 @@
     "respostaCorreta": "E",
     "explicacao": "O § 8º do art. 100 da Constituição Federal veda o fracionamento de precatórios para fins de pagamento parcelado ou para burlar a ordem cronológica. Contudo, a execução de créditos individuais e divisíveis decorrentes de título judicial coletivo, quando promovida por substituto processual, não configura tal fracionamento, pois cada crédito individual é autônomo e passível de execução própria, não havendo divisão artificial do precatório para fins de pagamento. Assim, a execução individualizada por substituto processual não viola a vedação constitucional ao fracionamento do precatório.",
     "referencia": "Tema 1317",
-    "fonte": "RG - Administrativo",
-    "nivel": "medio",
-    "tags": [
-      "STF",
-      "Repercussão Geral",
-      "RG - Administrativo",
-      "RG - Administrativo"
-    ]
-  },
-  {
-    "id": "stf-sem-ano-repercussao-geral-rg-administrativo-q225",
-    "modulo": "RG - Administrativo",
-    "tribunal": "STF",
-    "ano": null,
-    "tipo": "repercussao_geral",
-    "categoria": "Repercussão Geral",
-    "informativo": "",
-    "disciplina": "Direito Administrativo",
-    "tema": "Tema 1324",
-    "enunciado": "É possível a aplicação de medidas administrativas provisórias que dependam de julgamento de mérito para sua efetivação, desde que haja fundamentação adequada e urgência na situação.",
-    "respostaCorreta": "E",
-    "explicacao": "Medidas administrativas provisórias não podem depender de julgamento de mérito para sua aplicação, pois sua natureza é justamente a adoção de providências imediatas e temporárias, enquanto se aguarda a decisão definitiva sobre o mérito. A efetivação dessas medidas deve se basear em elementos objetivos e urgência, não podendo ser condicionada a análise do mérito, que é posterior e definitiva.",
-    "referencia": "Tema 1324",
-    "fonte": "RG - Administrativo",
-    "nivel": "medio",
-    "tags": [
-      "STF",
-      "Repercussão Geral",
-      "RG - Administrativo",
-      "RG - Administrativo"
-    ]
-  },
-  {
-    "id": "stf-sem-ano-repercussao-geral-rg-administrativo-q226",
-    "modulo": "RG - Administrativo",
-    "tribunal": "STF",
-    "ano": null,
-    "tipo": "repercussao_geral",
-    "categoria": "Repercussão Geral",
-    "informativo": "",
-    "disciplina": "Direito Constitucional",
-    "tema": "Tema 1332",
-    "enunciado": "A ausência de verificação da repercussão geral impede o exame do mérito recursal pelo Supremo Tribunal Federal.",
-    "respostaCorreta": "C",
-    "explicacao": "A repercussão geral é requisito de admissibilidade dos recursos extraordinários no Supremo Tribunal Federal (STF), conforme o artigo 102, §3º, da Constituição Federal. Enquanto não for verificada a repercussão geral, o STF não examina o mérito da questão constitucional suscitada, limitando-se a declarar a ausência de repercussão e, consequentemente, não admitindo o recurso para julgamento de mérito.",
-    "referencia": "Tema 1332",
     "fonte": "RG - Administrativo",
     "nivel": "medio",
     "tags": [
@@ -52717,29 +52418,6 @@
       "Repercussão Geral",
       "RG - Ambiental",
       "RG - Ambiental"
-    ]
-  },
-  {
-    "id": "stf-sem-ano-repercussao-geral-rg-civil-q001",
-    "modulo": "RG - Civil",
-    "tribunal": "STF",
-    "ano": null,
-    "tipo": "repercussao_geral",
-    "categoria": "Repercussão Geral",
-    "informativo": "",
-    "disciplina": "Direito Civil",
-    "tema": "Tema 9",
-    "enunciado": "A discussão acerca do dever de indenizar por danos morais e materiais decorrentes de manipulação de resultados de partidas de futebol integra a competência do Supremo Tribunal Federal para apreciação por repercussão geral, por ostentar relevância jurídica e social que ultrapassa o interesse estrito das partes.",
-    "respostaCorreta": "E",
-    "explicacao": "O STF entendeu que a controvérsia sobre indenização por manipulação de resultados em partidas de futebol não preenche o requisito de repercussão geral previsto no art. 102, §3º, da CF, por ausentar relevância econômica, política, social ou jurídica que transcenda ao interesse das partes. Assim, tais demandas não se prestam, em regra, a orientar o julgamento de múltiplas causas com repercussão geral, razão pela qual o tema foi considerado ausente de repercussão geral.",
-    "referencia": "Tema 9",
-    "fonte": "RG - Civil",
-    "nivel": "medio",
-    "tags": [
-      "STF",
-      "Repercussão Geral",
-      "RG - Civil",
-      "RG - Civil"
     ]
   },
   {
@@ -53032,29 +52710,6 @@
     "respostaCorreta": "E",
     "explicacao": "O STF considerou incompatível com a Constituição a ideia de um direito ao esquecimento entendido como vedação automática à divulgação de fatos verídicos em razão do tempo. Eventuais restrições devem ser analisadas casuisticamente mediante ponderação entre liberdade de expressão/informação e direitos da personalidade (honra, imagem, privacidade), conforme parâmetros constitucionais e legislação penal/civil aplicável.",
     "referencia": "Tema 786",
-    "fonte": "RG - Civil",
-    "nivel": "medio",
-    "tags": [
-      "STF",
-      "Repercussão Geral",
-      "RG - Civil",
-      "RG - Civil"
-    ]
-  },
-  {
-    "id": "stf-sem-ano-repercussao-geral-rg-civil-q015",
-    "modulo": "RG - Civil",
-    "tribunal": "STF",
-    "ano": null,
-    "tipo": "repercussao_geral",
-    "categoria": "Repercussão Geral",
-    "informativo": "",
-    "disciplina": "Direito Constitucional",
-    "tema": "Tema 800",
-    "enunciado": "O cabimento de recurso extraordinário em processos originados nos Juizados Especiais Cíveis exige, além dos pressupostos genéricos, que o recorrente demonstre especificamente o prequestionamento constitucional e a relevância concreta da questão, sobrepondo-se à presunção de inexistência de repercussão geral dessas lides.",
-    "respostaCorreta": "C",
-    "explicacao": "O STF exigiu requisitos adicionais para recurso extraordinário interposto de causas processadas nos Juizados Especiais Cíveis: (a) demonstração objetiva do prequestionamento (indicação do trecho do acórdão) e (b) fundamentação concreta da relevância capaz de afastar a presunção de ausência de repercussão geral para essas lides, unificando entendimento nos Temas 797, 798 e 800.",
-    "referencia": "Tema 800",
     "fonte": "RG - Civil",
     "nivel": "medio",
     "tags": [
@@ -53607,52 +53262,6 @@
     "respostaCorreta": "E",
     "explicacao": "O Tema 546 do STF reconheceu a existência de previsão normativa local para coibir fraudes no âmbito do serviço público de transporte coletivo, mas declarou ser inconstitucional condicionar a liberação de veículo apreendido ao pagamento de multas, preços públicos e demais encargos decorrentes da infração. A vedação funda-se na proteção de direitos fundamentais e na ilegalidade de transformar medida de natureza administrativa em mecanismo de efetiva penalização pecuniária prévia para reaver o bem, quando tal condicionamento afronta princípios constitucionais ou excede competência.",
     "referencia": "Tema 546",
-    "fonte": "RG - Consumidor",
-    "nivel": "medio",
-    "tags": [
-      "STF",
-      "Repercussão Geral",
-      "RG - Consumidor",
-      "RG - Consumidor"
-    ]
-  },
-  {
-    "id": "stf-sem-ano-repercussao-geral-rg-consumidor-q010",
-    "modulo": "RG - Consumidor",
-    "tribunal": "STF",
-    "ano": null,
-    "tipo": "repercussao_geral",
-    "categoria": "Repercussão Geral",
-    "informativo": "",
-    "disciplina": "Direito do Consumidor",
-    "tema": "Tema 681",
-    "enunciado": "A utilização do valor do salário mínimo como parâmetro para correção monetária do período anterior à edição da Lei nº 4.357/1964 configura questão de repercussão geral reconhecida pelo Supremo Tribunal Federal, em razão de sua potencial relevância econômica e social que transcende os interesses subjetivos das partes.",
-    "respostaCorreta": "E",
-    "explicacao": "O Tema 681 do STF concluiu que a matéria relativa ao emprego do salário mínimo como indexador para correção monetária no período prévio à Lei nº 4.357/1964 não ostenta repercussão geral, por faltar-lhe relevância econômica, política, social ou jurídica que exceda o interesse das partes litigantes. Assim, a afirmação que declara reconhecida repercussão geral é contrária ao posicionamento da Corte.",
-    "referencia": "Tema 681",
-    "fonte": "RG - Consumidor",
-    "nivel": "medio",
-    "tags": [
-      "STF",
-      "Repercussão Geral",
-      "RG - Consumidor",
-      "RG - Consumidor"
-    ]
-  },
-  {
-    "id": "stf-sem-ano-repercussao-geral-rg-consumidor-q011",
-    "modulo": "RG - Consumidor",
-    "tribunal": "STF",
-    "ano": null,
-    "tipo": "repercussao_geral",
-    "categoria": "Repercussão Geral",
-    "informativo": "",
-    "disciplina": "Direito Constitucional",
-    "tema": "Tema 798",
-    "enunciado": "Para fins de admissibilidade de recurso extraordinário oriundo de causas processadas nos Juizados Especiais Cíveis (Lei nº 9.099/1995), exige-se que o recorrente demonstre, de forma específica e objetiva, o prequestionamento da matéria constitucional no acórdão recorrido e apresente fundamentação concreta acerca da relevância da questão, de modo a afastar a presunção de inexistência de repercussão geral das lides daquele ramo jurisdicional.",
-    "respostaCorreta": "C",
-    "explicacao": "O Tema 798 (unificado com os Temas 797 e 800) estabeleceu dois requisitos adicionais de admissibilidade para os RE interpostos de decisões dos Juizados Especiais: (a) demonstração específica e objetiva do prequestionamento constitucional na decisão recorrida; e (b) fundamentação quanto à relevância calcada em elementos concretos que revertam a presunção de ausência de repercussão geral. A exigência visa filtrar recursos que não atendam aos requisitos do STF, em respeito à finalidade dos Juizados e à sistemática recursal.",
-    "referencia": "Tema 798",
     "fonte": "RG - Consumidor",
     "nivel": "medio",
     "tags": [
@@ -54330,29 +53939,6 @@
     ]
   },
   {
-    "id": "stf-sem-ano-repercussao-geral-rg-penal-q023",
-    "modulo": "RG - Penal",
-    "tribunal": "STF",
-    "ano": null,
-    "tipo": "repercussao_geral",
-    "categoria": "Repercussão Geral",
-    "informativo": "",
-    "disciplina": "Direito Penal",
-    "tema": "Tema 929",
-    "enunciado": "O Supremo Tribunal Federal reconheceu a repercussão geral da questão relativa à possibilidade de compensação entre a agravante da reincidência e a atenuante da confissão espontânea, de modo que a matéria deve vincular todos os tribunais.",
-    "respostaCorreta": "E",
-    "explicacao": "O Tema 929 do STF determinou que não há repercussão geral na controvérsia sobre a compensação da agravante da reincidência com a atenuante da confissão espontânea. Assim, a matéria não foi reconhecida como de repercussão geral vinculante pelo STF.",
-    "referencia": "Tema 929",
-    "fonte": "RG - Penal",
-    "nivel": "medio",
-    "tags": [
-      "STF",
-      "Repercussão Geral",
-      "RG - Penal",
-      "RG - Penal"
-    ]
-  },
-  {
     "id": "stf-sem-ano-repercussao-geral-rg-penal-q024",
     "modulo": "RG - Penal",
     "tribunal": "STF",
@@ -54412,29 +53998,6 @@
     "respostaCorreta": "E",
     "explicacao": "O Tema 1120 do STF fixou que, quando não há desrespeito às normas constitucionais, é vedado ao Poder Judiciário exercer controle jurisdicional sobre a interpretação e alcance de normas meramente regimentais das Casas Legislativas (matéria interna corporis), em respeito ao princípio da separação dos Poderes. Só se justifica intervenção judicial se houver ofensa constitucional.",
     "referencia": "Tema 1120",
-    "fonte": "RG - Penal",
-    "nivel": "medio",
-    "tags": [
-      "STF",
-      "Repercussão Geral",
-      "RG - Penal",
-      "RG - Penal"
-    ]
-  },
-  {
-    "id": "stf-sem-ano-repercussao-geral-rg-penal-q027",
-    "modulo": "RG - Penal",
-    "tribunal": "STF",
-    "ano": null,
-    "tipo": "repercussao_geral",
-    "categoria": "Repercussão Geral",
-    "informativo": "",
-    "disciplina": "Direito Penal",
-    "tema": "Tema 1147",
-    "enunciado": "O Tema 1147 do STF encontra-se pendente de julgamento de mérito, razão por que ainda não há tese firmada sobre a matéria que possa ser utilizada como orientação vinculante.",
-    "respostaCorreta": "C",
-    "explicacao": "A própria menção no arquivo indica que o Tema 1147 está \"Aguardando julgamento de mérito\", o que significa ausência de tese firmada até o pronunciamento definitivo do Tribunal.",
-    "referencia": "Tema 1147",
     "fonte": "RG - Penal",
     "nivel": "medio",
     "tags": [
@@ -54560,29 +54123,6 @@
     ]
   },
   {
-    "id": "stf-sem-ano-repercussao-geral-rg-processo-civil-q001",
-    "modulo": "RG - Processo Civil",
-    "tribunal": "STF",
-    "ano": null,
-    "tipo": "repercussao_geral",
-    "categoria": "Repercussão Geral",
-    "informativo": "",
-    "disciplina": "Direito Civil",
-    "tema": "Tema 7",
-    "enunciado": "É correto afirmar que o Supremo Tribunal Federal reconheceu repercussão geral acerca da possibilidade de o magistrado reduzir, de ofício, a multa cominatória imposta em sentença por descumprimento de obrigação de fazer ou não fazer (art. 461, §6º/CPC antigo; atual art. 537, §1º), por envolver matéria de relevância jurídica que transcende o interesse das partes?",
-    "respostaCorreta": "E",
-    "explicacao": "O Tema 7 do STF firmou a tese de que a questão referente à possibilidade de redução judicial, de ofício, da multa cominatória não possui repercussão geral, por ausentar relevância econômica, política, social ou jurídica que transcenda ao interesse das partes. Assim, não houve reconhecimento de repercussão geral para o tema, o que afasta sua discussão em recurso extraordinário com fundamento em repercussão geral.",
-    "referencia": "Tema 7",
-    "fonte": "RG - Processo Civil",
-    "nivel": "medio",
-    "tags": [
-      "STF",
-      "Repercussão Geral",
-      "RG - Processo Civil",
-      "RG - Processo Civil"
-    ]
-  },
-  {
     "id": "stf-sem-ano-repercussao-geral-rg-processo-civil-q002",
     "modulo": "RG - Processo Civil",
     "tribunal": "STF",
@@ -54619,29 +54159,6 @@
     "respostaCorreta": "E",
     "explicacao": "O Tema 28 firmou a tese de que há compatibilidade constitucional para a expedição de precatório ou requisição de pequeno valor para pagamento da parte incontroversa e autônoma do pronunciamento judicial transitado em julgado, observada, para fins de enquadramento no regime de pequeno valor, a importância total executada. Portanto, é possível a expedição de precatório/RPV para a parcela incontroversa, com a observância do critério de dimensionamento previsto.",
     "referencia": "Tema 28",
-    "fonte": "RG - Processo Civil",
-    "nivel": "medio",
-    "tags": [
-      "STF",
-      "Repercussão Geral",
-      "RG - Processo Civil",
-      "RG - Processo Civil"
-    ]
-  },
-  {
-    "id": "stf-sem-ano-repercussao-geral-rg-processo-civil-q004",
-    "modulo": "RG - Processo Civil",
-    "tribunal": "STF",
-    "ano": null,
-    "tipo": "repercussao_geral",
-    "categoria": "Repercussão Geral",
-    "informativo": "",
-    "disciplina": "Direito Constitucional",
-    "tema": "Tema 35",
-    "enunciado": "Em conflito envolvendo consumidor e concessionária de serviço de telefonia sobre a cobrança da assinatura básica mensal, estando ausente intervenção da ANATEL nos autos, é correto afirmar que compete à Justiça estadual processar e julgar a demanda, inclusive na via dos Juizados Especiais, visto que a controvérsia é de natureza predominantemente fática e complexa?",
-    "respostaCorreta": "E",
-    "explicacao": "O Tema 35 estipula: (I) compete à Justiça estadual processar e julgar causas entre consumidor e concessionária de telefonia quando a ANATEL não atue nos autos; (II) não viola o art. 98, I, da Constituição o processamento em juizado especial, por se tratar de matéria exclusivamente de direito que não apresenta complexidade; (III) a resolução do mérito depende da interpretação de legislação infraconstitucional. Assim, a afirmação que descreve a matéria como predominantemente fática e complexa é contrária ao tema.",
-    "referencia": "Tema 35",
     "fonte": "RG - Processo Civil",
     "nivel": "medio",
     "tags": [
@@ -54951,29 +54468,6 @@
     ]
   },
   {
-    "id": "stf-sem-ano-repercussao-geral-rg-processo-civil-q018",
-    "modulo": "RG - Processo Civil",
-    "tribunal": "STF",
-    "ano": null,
-    "tipo": "repercussao_geral",
-    "categoria": "Repercussão Geral",
-    "informativo": "",
-    "disciplina": "Direito Civil",
-    "tema": "Tema 134",
-    "enunciado": "A respeito da Defensoria Pública receber honorários sucumbenciais quando representa vencedores de demandas contra o ente federativo ao qual está vinculada, é correto afirmar que a questão possui repercussão geral reconhecida pelo STF por envolver relevantes consequências sociais?",
-    "respostaCorreta": "E",
-    "explicacao": "O Tema 134 declarou que a questão da Defensoria Pública, representando vencedor da demanda, receber honorários sucumbenciais nas causas contra o ente ao qual está vinculada não tem repercussão geral, por ausente relevância econômica, política, social ou jurídica que transcenda ao interesse das partes.",
-    "referencia": "Tema 134",
-    "fonte": "RG - Processo Civil",
-    "nivel": "medio",
-    "tags": [
-      "STF",
-      "Repercussão Geral",
-      "RG - Processo Civil",
-      "RG - Processo Civil"
-    ]
-  },
-  {
     "id": "stf-sem-ano-repercussao-geral-rg-processo-civil-q019",
     "modulo": "RG - Processo Civil",
     "tribunal": "STF",
@@ -55217,29 +54711,6 @@
     "respostaCorreta": "C",
     "explicacao": "O Tema 305 definiu que compete à Justiça comum estadual processar e julgar as ações de cobrança ou executivas de honorários arbitrados a advogado dativo em ações cíveis e criminais. A competência se pauta pelo juízo comum local, salvo vínculo com a Justiça Federal quando a parte envolver ente federal na seara correspondente.",
     "referencia": "Tema 305",
-    "fonte": "RG - Processo Civil",
-    "nivel": "medio",
-    "tags": [
-      "STF",
-      "Repercussão Geral",
-      "RG - Processo Civil",
-      "RG - Processo Civil"
-    ]
-  },
-  {
-    "id": "stf-sem-ano-repercussao-geral-rg-processo-civil-q030",
-    "modulo": "RG - Processo Civil",
-    "tribunal": "STF",
-    "ano": null,
-    "tipo": "repercussao_geral",
-    "categoria": "Repercussão Geral",
-    "informativo": "",
-    "disciplina": "Direito Civil",
-    "tema": "Tema 321",
-    "enunciado": "A validade de regulamento judicial estadual que determina a convolação de ação individual em incidente de liquidação no bojo da execução de sentença coletiva proferida em juízo diverso é matéria de repercussão geral reconhecida pelo STF, segundo o tema correspondente?",
-    "respostaCorreta": "E",
-    "explicacao": "O Tema 321 declarou a inexistência de repercussão geral na controvérsia que questiona a validade do regulamento estadual judiciário que determina tal convolação, razão pela qual o STF não reconheceu repercussão geral para a matéria.",
-    "referencia": "Tema 321",
     "fonte": "RG - Processo Civil",
     "nivel": "medio",
     "tags": [
@@ -55894,29 +55365,6 @@
     ]
   },
   {
-    "id": "stf-sem-ano-repercussao-geral-rg-processo-civil-q059",
-    "modulo": "RG - Processo Civil",
-    "tribunal": "STF",
-    "ano": null,
-    "tipo": "repercussao_geral",
-    "categoria": "Repercussão Geral",
-    "informativo": "",
-    "disciplina": "Direito Civil",
-    "tema": "Tema 780",
-    "enunciado": "No âmbito da execução fiscal, a incompetência do juízo não pode ser reconhecida de ofício quando houver inobservância do art. 578 do CPC, de modo que somente a parte pode suscitar a incompetência nessa hipótese?",
-    "respostaCorreta": "C",
-    "explicacao": "O Tema 780 confirmou a legitimidade do conhecimento de ofício da incompetência para o julgamento de execução fiscal na hipótese de inobservância do art. 578 do CPC (atual dispositivo afeto à regra de distribuição e competência), autorizando o juízo a reconhecer a incompetência ex officio diante de irregularidade processual relevante.",
-    "referencia": "Tema 780",
-    "fonte": "RG - Processo Civil",
-    "nivel": "medio",
-    "tags": [
-      "STF",
-      "Repercussão Geral",
-      "RG - Processo Civil",
-      "RG - Processo Civil"
-    ]
-  },
-  {
     "id": "stf-sem-ano-repercussao-geral-rg-processo-civil-q060",
     "modulo": "RG - Processo Civil",
     "tribunal": "STF",
@@ -55930,29 +55378,6 @@
     "respostaCorreta": "E",
     "explicacao": "O Tema 792 firmou que a lei disciplinadora da submissão de crédito ao sistema de execução via precatório tem natureza material e processual, sendo inaplicável a situação jurídica constituída em data que a antecede, o que impede a retroatividade para alterar situações já consolidadas.",
     "referencia": "Tema 792",
-    "fonte": "RG - Processo Civil",
-    "nivel": "medio",
-    "tags": [
-      "STF",
-      "Repercussão Geral",
-      "RG - Processo Civil",
-      "RG - Processo Civil"
-    ]
-  },
-  {
-    "id": "stf-sem-ano-repercussao-geral-rg-processo-civil-q061",
-    "modulo": "RG - Processo Civil",
-    "tribunal": "STF",
-    "ano": null,
-    "tipo": "repercussao_geral",
-    "categoria": "Repercussão Geral",
-    "informativo": "",
-    "disciplina": "Direito Civil",
-    "tema": "Tema 797",
-    "enunciado": "A admissão de recurso extraordinário em causas processadas nos Juizados Especiais Cíveis da Lei 9.099/1995 exige do recorrente a demonstração específica e objetiva do prequestionamento e a indicação de elementos concretos de repercussão geral que revertam a presunção de inexistência de repercussão, conforme tese unificada do STF?",
-    "respostaCorreta": "C",
-    "explicacao": "O Tema 797 (unificado com 798 e 800) estabeleceu requisitos adicionais para admissibilidade de recurso extraordinário nas causas dos Juizados Especiais Cíveis: (a) demonstração específica do prequestionamento com indicação clara do trecho do acórdão; (b) fundamentação acerca da relevância com dados concretos que afastem a presunção de inexistência de repercussão geral. Assim, a afirmação está correta.",
-    "referencia": "Tema 797",
     "fonte": "RG - Processo Civil",
     "nivel": "medio",
     "tags": [
@@ -57665,29 +57090,6 @@
     ]
   },
   {
-    "id": "stf-sem-ano-repercussao-geral-rg-tributario-q018",
-    "modulo": "RG - Tributário",
-    "tribunal": "STF",
-    "ano": null,
-    "tipo": "repercussao_geral",
-    "categoria": "Repercussão Geral",
-    "informativo": "",
-    "disciplina": "Direito Penal",
-    "tema": "Tema 115",
-    "enunciado": "A decisão proferida no RE 580.264 estabeleceu tese de repercussão geral aplicável a todos os casos idênticos, por conter fundamentos de alcance geral.",
-    "respostaCorreta": "E",
-    "explicacao": "O Tema 115 explicita que não foi fixada tese de repercussão geral no caso, pelo que a decisão do RE 580.264 valeu apenas para o caso concreto em razão de suas peculiaridades.",
-    "referencia": "Tema 115",
-    "fonte": "RG - Tributário",
-    "nivel": "medio",
-    "tags": [
-      "STF",
-      "Repercussão Geral",
-      "RG - Tributário",
-      "RG - Tributário"
-    ]
-  },
-  {
     "id": "stf-sem-ano-repercussao-geral-rg-tributario-q019",
     "modulo": "RG - Tributário",
     "tribunal": "STF",
@@ -58046,29 +57448,6 @@
     "respostaCorreta": "C",
     "explicacao": "O Tema 217 autorizou a taxa de renovação de funcionamento/localização desde que o poder de polícia seja efetivamente exercido, com demonstração de estrutura e órgão competente.",
     "referencia": "Tema 217",
-    "fonte": "RG - Tributário",
-    "nivel": "medio",
-    "tags": [
-      "STF",
-      "Repercussão Geral",
-      "RG - Tributário",
-      "RG - Tributário"
-    ]
-  },
-  {
-    "id": "stf-sem-ano-repercussao-geral-rg-tributario-q035",
-    "modulo": "RG - Tributário",
-    "tribunal": "STF",
-    "ano": null,
-    "tipo": "repercussao_geral",
-    "categoria": "Repercussão Geral",
-    "informativo": "",
-    "disciplina": "Direito Tributário",
-    "tema": "Tema 218",
-    "enunciado": "O direito de supermercado a crédito de ICMS relativo à energia elétrica empregada no processo produtivo de alimentos que comercializa teve repercussão geral reconhecida pelo STF, de modo que há tese aplicável a todos os casos.",
-    "respostaCorreta": "E",
-    "explicacao": "O Tema 218 registrou que o debate sobre tal direito não possui repercussão geral, razão pela qual não restou consolidada tese vinculante.",
-    "referencia": "Tema 218",
     "fonte": "RG - Tributário",
     "nivel": "medio",
     "tags": [
@@ -60149,29 +59528,6 @@
     ]
   },
   {
-    "id": "stf-sem-ano-repercussao-geral-rg-tributario-q126",
-    "modulo": "RG - Tributário",
-    "tribunal": "STF",
-    "ano": null,
-    "tipo": "repercussao_geral",
-    "categoria": "Repercussão Geral",
-    "informativo": "",
-    "disciplina": "Direito Tributário",
-    "tema": "Tema 1217",
-    "enunciado": "Municípios podem adotar índices de correção monetária e juros de mora sobre seus créditos fiscais em percentual superior à taxa SELIC aplicada pela União, por autonomia financeira.",
-    "respostaCorreta": "E",
-    "explicacao": "O Tema 1217 veda aos municípios a adoção de índices e juros de mora superiores ao percentual praticado pela União para fins análogos, limitando sua autonomia normativa.",
-    "referencia": "Tema 1217",
-    "fonte": "RG - Tributário",
-    "nivel": "medio",
-    "tags": [
-      "STF",
-      "Repercussão Geral",
-      "RG - Tributário",
-      "RG - Tributário"
-    ]
-  },
-  {
     "id": "stf-sem-ano-repercussao-geral-rg-tributario-q127",
     "modulo": "RG - Tributário",
     "tribunal": "STF",
@@ -60287,29 +59643,6 @@
     ]
   },
   {
-    "id": "stf-sem-ano-repercussao-geral-rg-tributario-q132",
-    "modulo": "RG - Tributário",
-    "tribunal": "STF",
-    "ano": null,
-    "tipo": "repercussao_geral",
-    "categoria": "Repercussão Geral",
-    "informativo": "",
-    "disciplina": "Direito Tributário",
-    "tema": "Tema 1348",
-    "enunciado": "O Tema 1348 informa a existência de repercussão geral verificada e tese consolidada sobre matéria tributária, pelo que a questão já encontra-se pacificada.",
-    "respostaCorreta": "E",
-    "explicacao": "O texto do Tema 1348 indica aguardo de manifestação quanto à existência de repercussão geral, logo não houve ainda consolidação de tese.",
-    "referencia": "Tema 1348",
-    "fonte": "RG - Tributário",
-    "nivel": "medio",
-    "tags": [
-      "STF",
-      "Repercussão Geral",
-      "RG - Tributário",
-      "RG - Tributário"
-    ]
-  },
-  {
     "id": "stf-sem-ano-repercussao-geral-rg-tributario-q133",
     "modulo": "RG - Tributário",
     "tribunal": "STF",
@@ -60369,29 +59702,6 @@
     "respostaCorreta": "C",
     "explicacao": "O Tema 1419 do STF assentou que a taxa SELIC é aplicável para atualização de valores em discussões ou condenações da Fazenda Pública, inclusive em cobrança judicial de créditos tributários.",
     "referencia": "Tema 1419",
-    "fonte": "RG - Tributário",
-    "nivel": "medio",
-    "tags": [
-      "STF",
-      "Repercussão Geral",
-      "RG - Tributário",
-      "RG - Tributário"
-    ]
-  },
-  {
-    "id": "stf-sem-ano-repercussao-geral-rg-tributario-q136",
-    "modulo": "RG - Tributário",
-    "tribunal": "STF",
-    "ano": null,
-    "tipo": "repercussao_geral",
-    "categoria": "Repercussão Geral",
-    "informativo": "",
-    "disciplina": "Direito Penal",
-    "tema": "Tema 1446",
-    "enunciado": "O Tema 1446 já contém tese de repercussão geral firmada pelo STF sobre matéria tributária, de modo que sua aplicação é imediata e vinculante.",
-    "respostaCorreta": "E",
-    "explicacao": "O Tema 1446 indica apenas que aguarda verificação da repercussão geral, não havendo ainda tese consolidada pelo STF.",
-    "referencia": "Tema 1446",
     "fonte": "RG - Tributário",
     "nivel": "medio",
     "tags": [
@@ -62150,29 +61460,6 @@
     ]
   },
   {
-    "id": "stj-sem-ano-repetitivo-repetitivo-administrativo-q077",
-    "modulo": "Repetitivo - Administrativo",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito Administrativo",
-    "tema": "Tema 1096",
-    "enunciado": "A conduta de frustrar a licitude do processo licitatório ou dispensá‑lo indevidamente, por sua própria natureza, sempre configura ato de improbidade que causa dano presumido ao erário (in re ipsa), dispensando a prova do efetivo prejuízo.",
-    "respostaCorreta": "E",
-    "explicacao": "Tema 1096 indica a necessidade de definir se tal conduta configura dano presumido in re ipsa; não há afirmativa conclusiva no enunciado do tema. Assim, não se pode afirmar categoricamente que sempre configura dano presumido; a caracterização depende da análise fática e do elemento de lesão ao patrimônio.\n(A tese indica debate)",
-    "referencia": "Tema 1096",
-    "fonte": "Repetitivo - Administrativo",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Administrativo",
-      "Repetitivo - Administrativo"
-    ]
-  },
-  {
     "id": "stj-sem-ano-repetitivo-repetitivo-administrativo-q078",
     "modulo": "Repetitivo - Administrativo",
     "tribunal": "STJ",
@@ -62472,29 +61759,6 @@
     ]
   },
   {
-    "id": "stj-sem-ano-repetitivo-repetitivo-administrativo-q091",
-    "modulo": "Repetitivo - Administrativo",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito Administrativo",
-    "tema": "Tema 1275",
-    "enunciado": "Tema 1275 encontra‑se em julgamento de mérito e, por isso, já possui enunciado jurisprudencial vinculante sobre a matéria.",
-    "respostaCorreta": "E",
-    "explicacao": "O enunciado do Tema 1275 indica \"Aguardando julgamento de mérito\", o que significa que não há decisão consolidada nem enunciado definitivo, logo não há jurisprudência vinculante formada sobre o tema.",
-    "referencia": "Tema 1275",
-    "fonte": "Repetitivo - Administrativo",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Administrativo",
-      "Repetitivo - Administrativo"
-    ]
-  },
-  {
     "id": "stj-sem-ano-repetitivo-repetitivo-administrativo-q092",
     "modulo": "Repetitivo - Administrativo",
     "tribunal": "STJ",
@@ -62541,75 +61805,6 @@
     ]
   },
   {
-    "id": "stj-sem-ano-repetitivo-repetitivo-administrativo-q094",
-    "modulo": "Repetitivo - Administrativo",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito Administrativo",
-    "tema": "Tema 1301",
-    "enunciado": "Tema 1301 encontra‑se pendente de julgamento de mérito, pelo que não há tese consolidada aplicável ao tema.",
-    "respostaCorreta": "C",
-    "explicacao": "O enunciado \"Aguardando julgamento de mérito\" indica que o tema 1301 não possui tese definida, devendo aguardar decisão para formar jurisprudência, cabendo reconhecer inexistência de enunciado consolidado.",
-    "referencia": "Tema 1301",
-    "fonte": "Repetitivo - Administrativo",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Administrativo",
-      "Repetitivo - Administrativo"
-    ]
-  },
-  {
-    "id": "stj-sem-ano-repetitivo-repetitivo-administrativo-q095",
-    "modulo": "Repetitivo - Administrativo",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito Administrativo",
-    "tema": "Tema 1305",
-    "enunciado": "Tema 1305 está com julgamento de mérito pendente e, portanto, não se pode afirmar qual é a tese a ser adotada, inexistindo entendimento pacificado.",
-    "respostaCorreta": "C",
-    "explicacao": "Conforme o documento, Tema 1305 está \"Aguardando julgamento de mérito\", o que implica ausência de tese consolidada e impossibilidade de extração de enunciado vinculante até o pronunciamento final.",
-    "referencia": "Tema 1305",
-    "fonte": "Repetitivo - Administrativo",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Administrativo",
-      "Repetitivo - Administrativo"
-    ]
-  },
-  {
-    "id": "stj-sem-ano-repetitivo-repetitivo-administrativo-q096",
-    "modulo": "Repetitivo - Administrativo",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito Administrativo",
-    "tema": "Tema 1324",
-    "enunciado": "Tema 1324 aguarda julgamento de mérito, razão pela qual não existe enunciado vinculante formado sobre o tema.",
-    "respostaCorreta": "C",
-    "explicacao": "O arquivo indica que Tema 1324 está \"Aguardando julgamento de mérito\", significando falta de tese consolidada, o que torna improcedente qualquer afirmação conclusiva sobre o tema.",
-    "referencia": "Tema 1324",
-    "fonte": "Repetitivo - Administrativo",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Administrativo",
-      "Repetitivo - Administrativo"
-    ]
-  },
-  {
     "id": "stj-sem-ano-repetitivo-repetitivo-administrativo-q097",
     "modulo": "Repetitivo - Administrativo",
     "tribunal": "STJ",
@@ -62633,29 +61828,6 @@
     ]
   },
   {
-    "id": "stj-sem-ano-repetitivo-repetitivo-administrativo-q098",
-    "modulo": "Repetitivo - Administrativo",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito Administrativo",
-    "tema": "Tema 1344",
-    "enunciado": "Tema 1344 ainda encontra‑se sem julgamento de mérito, não havendo enunciado jurisprudencial consolidado aplicável.",
-    "respostaCorreta": "C",
-    "explicacao": "O arquivo indica \"Aguardando julgamento de mérito\" para o Tema 1344, confirmando inexistência de tese consolidada até decisão final.",
-    "referencia": "Tema 1344",
-    "fonte": "Repetitivo - Administrativo",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Administrativo",
-      "Repetitivo - Administrativo"
-    ]
-  },
-  {
     "id": "stj-sem-ano-repetitivo-repetitivo-administrativo-q099",
     "modulo": "Repetitivo - Administrativo",
     "tribunal": "STJ",
@@ -62669,121 +61841,6 @@
     "respostaCorreta": "E",
     "explicacao": "A menção é sintética e não constitui enunciado jurídico autônomo; o Tema 1387 remete à aplicação do art. 1040 do CPC, mas a afirmação absoluta de aplicação direta sem contextualização é improcedente, pois depende do caso concreto e da compatibilidade processual.",
     "referencia": "Tema 1387",
-    "fonte": "Repetitivo - Administrativo",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Administrativo",
-      "Repetitivo - Administrativo"
-    ]
-  },
-  {
-    "id": "stj-sem-ano-repetitivo-repetitivo-administrativo-q100",
-    "modulo": "Repetitivo - Administrativo",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito Administrativo",
-    "tema": "Tema 1395",
-    "enunciado": "Tema 1395 está pendente de julgamento de mérito, não existindo tese consolidada sobre a matéria até a decisão final.",
-    "respostaCorreta": "C",
-    "explicacao": "O arquivo registra \"Aguardando julgamento de mérito\" para o Tema 1395, o que demonstra ausência de enunciado final e consequente inexistência de jurisprudência vinculante.",
-    "referencia": "Tema 1395",
-    "fonte": "Repetitivo - Administrativo",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Administrativo",
-      "Repetitivo - Administrativo"
-    ]
-  },
-  {
-    "id": "stj-sem-ano-repetitivo-repetitivo-administrativo-q101",
-    "modulo": "Repetitivo - Administrativo",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito Administrativo",
-    "tema": "Tema 1397",
-    "enunciado": "Tema 1397 já foi definitivamente julgado e contém tese consolidada aplicável a futuros litígios envolvendo a matéria.",
-    "respostaCorreta": "E",
-    "explicacao": "No documento, Tema 1397 aparece como \"Aguardando julgamento de mérito\", indicando que não foi ainda definitivamente julgado e, portanto, não há tese consolidada.",
-    "referencia": "Tema 1397",
-    "fonte": "Repetitivo - Administrativo",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Administrativo",
-      "Repetitivo - Administrativo"
-    ]
-  },
-  {
-    "id": "stj-sem-ano-repetitivo-repetitivo-administrativo-q102",
-    "modulo": "Repetitivo - Administrativo",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito Administrativo",
-    "tema": "Tema 1400",
-    "enunciado": "Tema 1400 ainda aguarda julgamento de mérito, não sendo possível extrair dele qualquer enunciado jurisprudencial vinculante neste momento.",
-    "respostaCorreta": "C",
-    "explicacao": "Conforme o arquivo, Tema 1400 está \"Aguardando julgamento de mérito\", o que impede a extração de tese consolidada até pronunciamento final do tribunal.",
-    "referencia": "Tema 1400",
-    "fonte": "Repetitivo - Administrativo",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Administrativo",
-      "Repetitivo - Administrativo"
-    ]
-  },
-  {
-    "id": "stj-sem-ano-repetitivo-repetitivo-administrativo-q103",
-    "modulo": "Repetitivo - Administrativo",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito Administrativo",
-    "tema": "Tema 1410",
-    "enunciado": "Tema 1410 permanece pendente de julgamento de mérito, não havendo tese jurídica delineada no material fornecido.",
-    "respostaCorreta": "C",
-    "explicacao": "O documento indica \"Aguardando julgamento de mérito\" para o Tema 1410, confirmando a ausência de enunciado final e a necessidade de aguardar julgamento.",
-    "referencia": "Tema 1410",
-    "fonte": "Repetitivo - Administrativo",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Administrativo",
-      "Repetitivo - Administrativo"
-    ]
-  },
-  {
-    "id": "stj-sem-ano-repetitivo-repetitivo-administrativo-q104",
-    "modulo": "Repetitivo - Administrativo",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito Administrativo",
-    "tema": "Tema 1417",
-    "enunciado": "Tema 1417 encontra‑se em estado de pendência de julgamento de mérito, o que impede a formulação de enunciado jurisprudencial consolidado aplicável à matéria.",
-    "respostaCorreta": "C",
-    "explicacao": "O arquivo aponta \"Aguardando julgamento de mérito\" para o Tema 1417, denotando inexistência de tese pacificada até decisão do colegiado, razão pela qual não há enunciado vinculante.",
-    "referencia": "Tema 1417",
     "fonte": "Repetitivo - Administrativo",
     "nivel": "medio",
     "tags": [
@@ -65969,29 +65026,6 @@
     ]
   },
   {
-    "id": "stj-sem-ano-repetitivo-repetitivo-consumidor-q023",
-    "modulo": "Repetitivo - Consumidor",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito do Consumidor",
-    "tema": "Tema 929",
-    "enunciado": "O Tema 929 encontra-se em julgamento pendente, de modo que não é possível afirmar qualquer tese consolidada sobre a matéria sem alteração jurisprudencial posterior.",
-    "respostaCorreta": "C",
-    "explicacao": "O próprio conteúdo do arquivo indica que o Tema 929 está \"Aguardando julgamento de mérito\". Nessa situação não existe tese vinculante consolidada pelo STJ, razão pela qual qualquer afirmação categórica sobre a matéria careceria de respaldo jurisprudencial definitivo até o julgamento.",
-    "referencia": "Tema 929",
-    "fonte": "Repetitivo - Consumidor",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Consumidor",
-      "Repetitivo - Consumidor"
-    ]
-  },
-  {
     "id": "stj-sem-ano-repetitivo-repetitivo-consumidor-q024",
     "modulo": "Repetitivo - Consumidor",
     "tribunal": "STJ",
@@ -66005,29 +65039,6 @@
     "respostaCorreta": "E",
     "explicacao": "O Tema 952 admite o reajuste por mudança de faixa etária desde que (i) haja previsão contratual, (ii) sejam observadas normas regulatórias e (iii) não sejam aplicados percentuais desarrazoados ou sem base atuarial, de modo que o reajuste não é sempre inválido; pode ser válido se observadas essas condições.",
     "referencia": "Tema 952",
-    "fonte": "Repetitivo - Consumidor",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Consumidor",
-      "Repetitivo - Consumidor"
-    ]
-  },
-  {
-    "id": "stj-sem-ano-repetitivo-repetitivo-consumidor-q025",
-    "modulo": "Repetitivo - Consumidor",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito do Consumidor",
-    "tema": "Tema 954",
-    "enunciado": "O Tema 954 está pendente de julgamento, de modo que não se pode extrair tese consolidada do STJ a respeito do tema por ora.",
-    "respostaCorreta": "C",
-    "explicacao": "O arquivo registra \"Aguardando julgamento de mérito\" para o Tema 954, o que significa ausência de entendimento definitivo pelo tribunal sobre o assunto, impedindo a extração de tese vinculante até o julgamento.",
-    "referencia": "Tema 954",
     "fonte": "Repetitivo - Consumidor",
     "nivel": "medio",
     "tags": [
@@ -66314,52 +65325,6 @@
     ]
   },
   {
-    "id": "stj-sem-ano-repetitivo-repetitivo-consumidor-q038",
-    "modulo": "Repetitivo - Consumidor",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito do Consumidor",
-    "tema": "Tema 1116",
-    "enunciado": "O Tema 1116 consta como \"Aguardando julgamento de mérito\", razão pela qual já existem parâmetros vinculantes do STJ sobre o assunto que devem ser observados pelos juízes de primeira instância.",
-    "respostaCorreta": "E",
-    "explicacao": "Como o Tema 1116 está indicado no arquivo como \"Aguardando julgamento de mérito\", não há tese consolidada. Portanto, não se pode afirmar que existam parâmetros vinculantes do STJ aplicáveis ao tema até que ocorra o julgamento de mérito.",
-    "referencia": "Tema 1116",
-    "fonte": "Repetitivo - Consumidor",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Consumidor",
-      "Repetitivo - Consumidor"
-    ]
-  },
-  {
-    "id": "stj-sem-ano-repetitivo-repetitivo-consumidor-q039",
-    "modulo": "Repetitivo - Consumidor",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito do Consumidor",
-    "tema": "Tema 1119",
-    "enunciado": "O tema 1119 encontra-se pendente de julgamento pelo STJ, o que impede a extração de conclusões definitivas sobre a matéria até eventual decisão colegiada.",
-    "respostaCorreta": "C",
-    "explicacao": "O arquivo registra \"Aguardando julgamento de mérito\" para o Tema 1119; desse modo, não existe ainda tese consolidada pelo tribunal, o que justifica a afirmação de pendência de julgamento e a impossibilidade de conclusões definitivas.",
-    "referencia": "Tema 1119",
-    "fonte": "Repetitivo - Consumidor",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Consumidor",
-      "Repetitivo - Consumidor"
-    ]
-  },
-  {
     "id": "stj-sem-ano-repetitivo-repetitivo-consumidor-q040",
     "modulo": "Repetitivo - Consumidor",
     "tribunal": "STJ",
@@ -66406,75 +65371,6 @@
     ]
   },
   {
-    "id": "stj-sem-ano-repetitivo-repetitivo-consumidor-q042",
-    "modulo": "Repetitivo - Consumidor",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito do Consumidor",
-    "tema": "Tema 1211",
-    "enunciado": "O Tema 1211 ainda aguarda julgamento do STJ, o que impede a formulação de enunciado vinculante sobre a matéria neste momento.",
-    "respostaCorreta": "C",
-    "explicacao": "Conforme o arquivo, o Tema 1211 encontra-se \"Aguardando julgamento de mérito\", o que significa ausência de tese consolidada pelo tribunal, impossibilitando afirmar conclusão vinculante até decisão colegiada.",
-    "referencia": "Tema 1211",
-    "fonte": "Repetitivo - Consumidor",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Consumidor",
-      "Repetitivo - Consumidor"
-    ]
-  },
-  {
-    "id": "stj-sem-ano-repetitivo-repetitivo-consumidor-q043",
-    "modulo": "Repetitivo - Consumidor",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito do Consumidor",
-    "tema": "Tema 1280",
-    "enunciado": "O Tema 1280 possui orientações jurisprudenciais definitivamente consolidadas pelo STJ, cabendo sua imediata aplicação em todas as demandas idênticas sem exame casuístico.",
-    "respostaCorreta": "E",
-    "explicacao": "O arquivo indica que o Tema 1280 está \"Aguardando julgamento de mérito\", não havendo tese consolidada. Assim, não existem orientações vinculantes definitivas para aplicação automática; cada caso requer exame conforme jurisprudência vigente até eventual consolidação.",
-    "referencia": "Tema 1280",
-    "fonte": "Repetitivo - Consumidor",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Consumidor",
-      "Repetitivo - Consumidor"
-    ]
-  },
-  {
-    "id": "stj-sem-ano-repetitivo-repetitivo-consumidor-q044",
-    "modulo": "Repetitivo - Consumidor",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito do Consumidor",
-    "tema": "Tema 1314",
-    "enunciado": "O Tema 1314 encontra-se pendente de julgamento, razão pela qual não se pode afirmar que haja tese vinculante sobre o seu conteúdo.",
-    "respostaCorreta": "C",
-    "explicacao": "O arquivo registra \"Aguardando julgamento de mérito\" para o Tema 1314, o que torna correta a afirmação de pendência e a impossibilidade de extração de tese consolidada pelo STJ até o julgamento.",
-    "referencia": "Tema 1314",
-    "fonte": "Repetitivo - Consumidor",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Consumidor",
-      "Repetitivo - Consumidor"
-    ]
-  },
-  {
     "id": "stj-sem-ano-repetitivo-repetitivo-consumidor-q045",
     "modulo": "Repetitivo - Consumidor",
     "tribunal": "STJ",
@@ -66498,52 +65394,6 @@
     ]
   },
   {
-    "id": "stj-sem-ano-repetitivo-repetitivo-consumidor-q046",
-    "modulo": "Repetitivo - Consumidor",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito do Consumidor",
-    "tema": "Tema 1340",
-    "enunciado": "O Tema 1340 encontra-se em fase de julgamento, já sendo possível aplicá-lo como enunciado vinculado a todas as instâncias, mesmo sem trânsito em julgado.",
-    "respostaCorreta": "E",
-    "explicacao": "O arquivo indica que o Tema 1340 está \"Aguardando julgamento de mérito\"; portanto, não há enunciado vinculante formado e aplicável. A aplicação como tese vinculante só ocorre após a devida formação jurisprudencial pelo STJ.",
-    "referencia": "Tema 1340",
-    "fonte": "Repetitivo - Consumidor",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Consumidor",
-      "Repetitivo - Consumidor"
-    ]
-  },
-  {
-    "id": "stj-sem-ano-repetitivo-repetitivo-consumidor-q047",
-    "modulo": "Repetitivo - Consumidor",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito do Consumidor",
-    "tema": "Tema 1343",
-    "enunciado": "O Tema 1343, estando em pendência de julgamento, não enseja a existência de tese consolidada pelo tribunal, o que impede sua invocação como norma vinculante até decisão definitiva.",
-    "respostaCorreta": "C",
-    "explicacao": "O arquivo informa \"Aguardando julgamento de mérito\" para o Tema 1343, confirmando a ausência de tese consolidada e impedindo sua utilização como enunciado vinculante até julgamento colegiado.",
-    "referencia": "Tema 1343",
-    "fonte": "Repetitivo - Consumidor",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Consumidor",
-      "Repetitivo - Consumidor"
-    ]
-  },
-  {
     "id": "stj-sem-ano-repetitivo-repetitivo-consumidor-q048",
     "modulo": "Repetitivo - Consumidor",
     "tribunal": "STJ",
@@ -66557,29 +65407,6 @@
     "respostaCorreta": "E",
     "explicacao": "O Tema 1365 define que a simples recusa indevida de cobertura não gera dano moral presumido automaticamente; é imprescindível a demonstração de elementos que comprovem alteração anímica da vítima em grau além do mero aborrecimento. Assim, não há presunção automática do dano.",
     "referencia": "Tema 1365",
-    "fonte": "Repetitivo - Consumidor",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Consumidor",
-      "Repetitivo - Consumidor"
-    ]
-  },
-  {
-    "id": "stj-sem-ano-repetitivo-repetitivo-consumidor-q049",
-    "modulo": "Repetitivo - Consumidor",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito do Consumidor",
-    "tema": "Tema 1404",
-    "enunciado": "O Tema 1404 continua pendente de julgamento, razão pela qual não existe ainda posição definitiva do STJ sobre a matéria constante do referido tema.",
-    "respostaCorreta": "C",
-    "explicacao": "O arquivo indica que o Tema 1404 está \"Aguardando julgamento de mérito\", o que implica inexistência de tese consolidada pelo tribunal sobre o tema até decisão colegiada.",
-    "referencia": "Tema 1404",
     "fonte": "Repetitivo - Consumidor",
     "nivel": "medio",
     "tags": [
@@ -67280,29 +66107,6 @@
     ]
   },
   {
-    "id": "stj-sem-ano-repetitivo-repetitivo-penal-q030",
-    "modulo": "Repetitivo - Penal",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito Penal",
-    "tema": "Tema 1107",
-    "enunciado": "Enquanto o Tema 1107 permanece sem julgamento definitivo, as teses por ele suscitadas não constituem orientação jurisprudencial vinculante para a Corte Superior.",
-    "respostaCorreta": "C",
-    "explicacao": "A expressão \"aguardando julgamento de mérito\" indica a ausência de decisão colegiada definitiva; nessa situação, não há precedente vinculante emanado do Tribunal e a matéria permanece sem caráter vinculante até apreciação e eventual enunciação.",
-    "referencia": "Tema 1107",
-    "fonte": "Repetitivo - Penal",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Penal",
-      "Repetitivo - Penal"
-    ]
-  },
-  {
     "id": "stj-sem-ano-repetitivo-repetitivo-penal-q031",
     "modulo": "Repetitivo - Penal",
     "tribunal": "STJ",
@@ -67418,29 +66222,6 @@
     ]
   },
   {
-    "id": "stj-sem-ano-repetitivo-repetitivo-penal-q036",
-    "modulo": "Repetitivo - Penal",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito Penal",
-    "tema": "Tema 1154",
-    "enunciado": "A permanência do Tema 1154 sem julgamento definitivo impede que o enunciado correspondente produza qualquer orientação jurisprudencial vinculante perante os Tribunais Superiores.",
-    "respostaCorreta": "E",
-    "explicacao": "A assertiva é incorreta porque o tema permanece pendente; nesse contexto, não há enunciado consolidado e, portanto, não se pode atribuir-lhe caráter vinculante. A negativa da questão, no formado apresentado, incorre em erro lógico: afirmar que a pendência impede vinculação é verdadeiro; mas a questão pedida foi formulada negativamente. (Observação: o tema encontra‑se sem julgamento.)",
-    "referencia": "Tema 1154",
-    "fonte": "Repetitivo - Penal",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Penal",
-      "Repetitivo - Penal"
-    ]
-  },
-  {
     "id": "stj-sem-ano-repetitivo-repetitivo-penal-q037",
     "modulo": "Repetitivo - Penal",
     "tribunal": "STJ",
@@ -67523,29 +66304,6 @@
     "respostaCorreta": "E",
     "explicacao": "Segundo o entendimento consolidado, a reincidência específica como fundamento único para agravar além de 1/6 apenas se admite em hipóteses excepcionais e exige fundamentação pormenorizada e baseada em dados concretos acerca do caso, sob pena de violação dos princípios da individualização e da motivação.",
     "referencia": "Tema 1172",
-    "fonte": "Repetitivo - Penal",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Penal",
-      "Repetitivo - Penal"
-    ]
-  },
-  {
-    "id": "stj-sem-ano-repetitivo-repetitivo-penal-q041",
-    "modulo": "Repetitivo - Penal",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito Penal",
-    "tema": "Tema 1185",
-    "enunciado": "Aguardando julgamento de mérito, o Tema 1185 não ostenta atualmente conteúdo consolidado que vincule o entendimento da Corte sobre a matéria nele tratada.",
-    "respostaCorreta": "C",
-    "explicacao": "A expressão \"aguardando julgamento de mérito\" indica ausência de decisão colegiada definitiva; enquanto não houver julgamento, não existe tese vinculante extraída daquele tema.",
-    "referencia": "Tema 1185",
     "fonte": "Repetitivo - Penal",
     "nivel": "medio",
     "tags": [
@@ -67671,29 +66429,6 @@
     ]
   },
   {
-    "id": "stj-sem-ano-repetitivo-repetitivo-penal-q047",
-    "modulo": "Repetitivo - Penal",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito Penal",
-    "tema": "Tema 1216",
-    "enunciado": "É admissível o reconhecimento da consunção quando a conduta de conduzir veículo sem habilitação (art. 309 do CTB) estiver completamente absorvida pela prática do crime de embriaguez ao volante (art. 306 do CTB), de modo a configurar causa de exclusão de um dos delitos.",
-    "respostaCorreta": "C",
-    "explicacao": "O STJ admitiu a possibilidade de reconhecimento da consunção quando a conduta de dirigir sem habilitação estiver inserida na mesma ação típica constituída pela embriaguez ao volante, com o delito mais grave englobando o ato de dirigir sem habilitação, justificando a absorção por consunção.",
-    "referencia": "Tema 1216",
-    "fonte": "Repetitivo - Penal",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Penal",
-      "Repetitivo - Penal"
-    ]
-  },
-  {
     "id": "stj-sem-ano-repetitivo-repetitivo-penal-q048",
     "modulo": "Repetitivo - Penal",
     "tribunal": "STJ",
@@ -67740,52 +66475,6 @@
     ]
   },
   {
-    "id": "stj-sem-ano-repetitivo-repetitivo-penal-q050",
-    "modulo": "Repetitivo - Penal",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito Penal",
-    "tema": "Tema 1222",
-    "enunciado": "Agentes da Polícia Federal possuem, livremente e sem necessidade de supervisão judicial, atribuição para criar e operar sites ou fóruns online como expediente investigativo para identificar e localizar pessoas que compartilhem arquivos de pornografia infantil.",
-    "respostaCorreta": "E",
-    "explicacao": "A matéria encontra‑se em análise pelo Tema 1222; a mera sugestão de possibilidade investigativa não autoriza conclusão absoluta sobre a licitude sem observar limites legais, garantia de direitos fundamentais e, quando aplicável, controle judicial prévio. A atuação da PF em meios online exige observância dos marcos legais e das garantias constitucionais.",
-    "referencia": "Tema 1222",
-    "fonte": "Repetitivo - Penal",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Penal",
-      "Repetitivo - Penal"
-    ]
-  },
-  {
-    "id": "stj-sem-ano-repetitivo-repetitivo-penal-q051",
-    "modulo": "Repetitivo - Penal",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito Penal",
-    "tema": "Tema 1227",
-    "enunciado": "Quanto à tipificação do roubo, ainda carece de definição vinculante se a violência exigida pelo tipo deve ser necessariamente dirigida à pessoa da vítima, ou se abrange também a violência exercida contra um objeto com o propósito de facilitar a subtração; por ora, a matéria não possui solução jurisprudencial definitiva.",
-    "respostaCorreta": "C",
-    "explicacao": "O Tema 1227 está formulado para definir ponto controvertido sobre a direção da violência no roubo e indica temática ainda sujeita à apreciação da Corte. Enquanto não houver decisão colegiada consolidada, não existe entendimento vinculante sobre se a violência contra objetos é suficiente, isoladamente, para configurar o tipo do roubo.",
-    "referencia": "Tema 1227",
-    "fonte": "Repetitivo - Penal",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Penal",
-      "Repetitivo - Penal"
-    ]
-  },
-  {
     "id": "stj-sem-ano-repetitivo-repetitivo-penal-q052",
     "modulo": "Repetitivo - Penal",
     "tribunal": "STJ",
@@ -67799,29 +66488,6 @@
     "respostaCorreta": "E",
     "explicacao": "A assertiva como enunciada pretende negar a necessidade de integração ao PPP; na realidade, o STJ exige a prévia integração da instituição ao PPP da unidade prisional para que a remição por EAD seja válida, não bastando apenas o credenciamento junto ao MEC, devendo ainda ser comprovada a frequência e realização das atividades. Assim, a frase negativa torna‑se equivocada — o correto é que a integração é exigida.",
     "referencia": "Tema 1236",
-    "fonte": "Repetitivo - Penal",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Penal",
-      "Repetitivo - Penal"
-    ]
-  },
-  {
-    "id": "stj-sem-ano-repetitivo-repetitivo-penal-q053",
-    "modulo": "Repetitivo - Penal",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito Penal",
-    "tema": "Tema 1241",
-    "enunciado": "O Tema 1241 encontra‑se pendente de julgamento de mérito, de modo que não há, por enquanto, orientação consolidada pela Corte sobre a matéria por ele suscitada.",
-    "respostaCorreta": "C",
-    "explicacao": "A expressão \"aguardando julgamento de mérito\" indica ausência de julgamento final; logo, não existe tese consolidada capaz de nortear decisões dos tribunais como precedente vinculante.",
-    "referencia": "Tema 1241",
     "fonte": "Repetitivo - Penal",
     "nivel": "medio",
     "tags": [
@@ -67947,29 +66613,6 @@
     ]
   },
   {
-    "id": "stj-sem-ano-repetitivo-repetitivo-penal-q059",
-    "modulo": "Repetitivo - Penal",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito Penal",
-    "tema": "Tema 1331",
-    "enunciado": "O enunciado do Tema 1331 indica admissibilidade da pretensão recursal na via ordinária, com a observação de que eventual provimento não defere a suspensão automática dos efeitos do ato recorrido.",
-    "respostaCorreta": "C",
-    "explicacao": "A formulação sucinta do Tema 1331 sugere que se admite a medida (admissibilidade normal) com a ressalva de que não acarreta suspensão automática (não suspensão), o que corresponde à prática processual de controlar admissibilidade sem deferir efeito suspensivo de ofício.",
-    "referencia": "Tema 1331",
-    "fonte": "Repetitivo - Penal",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Penal",
-      "Repetitivo - Penal"
-    ]
-  },
-  {
     "id": "stj-sem-ano-repetitivo-repetitivo-penal-q060",
     "modulo": "Repetitivo - Penal",
     "tribunal": "STJ",
@@ -68016,121 +66659,6 @@
     ]
   },
   {
-    "id": "stj-sem-ano-repetitivo-repetitivo-penal-q062",
-    "modulo": "Repetitivo - Penal",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito Penal",
-    "tema": "Tema 1337",
-    "enunciado": "O Tema 1337 encontra‑se pendente de julgamento de mérito, pelo que ainda não existe enunciado definitivo apto a orientar de forma vinculante a jurisprudência sobre a matéria.",
-    "respostaCorreta": "C",
-    "explicacao": "A designação \"aguardando julgamento de mérito\" significa ausência de decisão colegiada final sobre o tema, de modo que não há posição consolidada do Tribunal Superior a ser aplicada como precedente obrigatório.",
-    "referencia": "Tema 1337",
-    "fonte": "Repetitivo - Penal",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Penal",
-      "Repetitivo - Penal"
-    ]
-  },
-  {
-    "id": "stj-sem-ano-repetitivo-repetitivo-penal-q063",
-    "modulo": "Repetitivo - Penal",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito Penal",
-    "tema": "Tema 1351",
-    "enunciado": "O Tema 1351 permanece sem decisão de mérito, razão pela qual qualquer afirmação de caráter vinculante decorrente daquele tema ainda seria precipitada.",
-    "respostaCorreta": "C",
-    "explicacao": "A pendência de julgamento impede a extração de tese vinculante; até a conclusão do julgamento colegiado, não se pode atribuir força normativa ao tema.",
-    "referencia": "Tema 1351",
-    "fonte": "Repetitivo - Penal",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Penal",
-      "Repetitivo - Penal"
-    ]
-  },
-  {
-    "id": "stj-sem-ano-repetitivo-repetitivo-penal-q064",
-    "modulo": "Repetitivo - Penal",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito Penal",
-    "tema": "Tema 1361",
-    "enunciado": "O Tema 1361 ainda não foi decidido em órgão colegiado, de forma que não há enunciado consolidado extraído dele com eficácia vinculante.",
-    "respostaCorreta": "C",
-    "explicacao": "Tratando‑se de tema pendente, não existe decisão definitiva a produzir efeitos de uniformização jurisprudencial, razão pela qual se mantém a ausência de orientação vinculante.",
-    "referencia": "Tema 1361",
-    "fonte": "Repetitivo - Penal",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Penal",
-      "Repetitivo - Penal"
-    ]
-  },
-  {
-    "id": "stj-sem-ano-repetitivo-repetitivo-penal-q065",
-    "modulo": "Repetitivo - Penal",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito Penal",
-    "tema": "Tema 1374",
-    "enunciado": "O Tema 1374 aguarda julgamento de mérito, de modo que não se pode afirmar que já haja conclusão jurisprudencial do STJ sobre o ponto por ele suscitados.",
-    "respostaCorreta": "C",
-    "explicacao": "A indicação de \"aguardando julgamento de mérito\" impede a pretensão de vinculação até que o Tribunal profira decisão colegiada e enuncie tese.",
-    "referencia": "Tema 1374",
-    "fonte": "Repetitivo - Penal",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Penal",
-      "Repetitivo - Penal"
-    ]
-  },
-  {
-    "id": "stj-sem-ano-repetitivo-repetitivo-penal-q066",
-    "modulo": "Repetitivo - Penal",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito Penal",
-    "tema": "Tema 1376",
-    "enunciado": "O Tema 1376 não possui ainda decisão de mérito consolidada no âmbito do STJ, inexistindo, por ora, enunciado vinculante sobre a matéria.",
-    "respostaCorreta": "C",
-    "explicacao": "A pendência de julgamento implica ausência de tese consolidada, impedindo o uso do tema como norma interpretativa obrigatória.",
-    "referencia": "Tema 1376",
-    "fonte": "Repetitivo - Penal",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Penal",
-      "Repetitivo - Penal"
-    ]
-  },
-  {
     "id": "stj-sem-ano-repetitivo-repetitivo-penal-q067",
     "modulo": "Repetitivo - Penal",
     "tribunal": "STJ",
@@ -68144,98 +66672,6 @@
     "respostaCorreta": "C",
     "explicacao": "A Corte entendeu que a conduta descrita no começo do art. 54 é formal: a potencialidade do risco à saúde humana é suficiente para a tipicidade, dispensando‑se, em regra, a necessidade de comprovação do dano efetivo por perícia técnica quando outros meios de prova idôneos demonstrem a potencialidade lesiva.",
     "referencia": "Tema 1377",
-    "fonte": "Repetitivo - Penal",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Penal",
-      "Repetitivo - Penal"
-    ]
-  },
-  {
-    "id": "stj-sem-ano-repetitivo-repetitivo-penal-q068",
-    "modulo": "Repetitivo - Penal",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito Penal",
-    "tema": "Tema 1381",
-    "enunciado": "O Tema 1381 ainda não foi julgado em mérito pelo Tribunal, razão pela qual as questões submetidas a ele carecem de enunciado jurisprudencial vinculante.",
-    "respostaCorreta": "C",
-    "explicacao": "A afirmação decorre do caráter pendente do tema; enquanto não houver decisão colegiada, não há tese consolidada aplicável como precedente.",
-    "referencia": "Tema 1381",
-    "fonte": "Repetitivo - Penal",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Penal",
-      "Repetitivo - Penal"
-    ]
-  },
-  {
-    "id": "stj-sem-ano-repetitivo-repetitivo-penal-q069",
-    "modulo": "Repetitivo - Penal",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito Penal",
-    "tema": "Tema 1389",
-    "enunciado": "O Tema 1389 encontra‑se pendente de julgamento de mérito, pelo que não se pode extrair dele orientação pacífica do STJ.",
-    "respostaCorreta": "C",
-    "explicacao": "A indicação de aguardo de julgamento evidencia inexistência de decisão colegiada definitiva, impedindo a extração de enunciado vinculante.",
-    "referencia": "Tema 1389",
-    "fonte": "Repetitivo - Penal",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Penal",
-      "Repetitivo - Penal"
-    ]
-  },
-  {
-    "id": "stj-sem-ano-repetitivo-repetitivo-penal-q070",
-    "modulo": "Repetitivo - Penal",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito Penal",
-    "tema": "Tema 1394",
-    "enunciado": "O Tema 1394 permanece sem deliberação final; assim, não existe, até o momento, consolidação jurisprudencial do STJ referente ao seu objeto.",
-    "respostaCorreta": "C",
-    "explicacao": "Tema ainda pendente de julgamento não produz tese consolidada; só após apreciação colegiada é que suas conclusões podem vincular a doutrina jurisprudencial.",
-    "referencia": "Tema 1394",
-    "fonte": "Repetitivo - Penal",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Penal",
-      "Repetitivo - Penal"
-    ]
-  },
-  {
-    "id": "stj-sem-ano-repetitivo-repetitivo-penal-q071",
-    "modulo": "Repetitivo - Penal",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito Penal",
-    "tema": "Tema 1407",
-    "enunciado": "O Tema 1407 ainda não recebeu julgamento de mérito pelo Tribunal, de forma que não se pode afirmar a existência de enunciado vinculante decorrente daquele tema.",
-    "respostaCorreta": "C",
-    "explicacao": "A indicação de que o tema aguarda julgamento demonstra que não há decisão colegiada concluída; portanto, nenhuma orientação vinculante dele advém até eventual deliberação.",
-    "referencia": "Tema 1407",
     "fonte": "Repetitivo - Penal",
     "nivel": "medio",
     "tags": [
@@ -74778,52 +73214,6 @@
     ]
   },
   {
-    "id": "stj-sem-ano-repetitivo-repetitivo-processo-penal-q018",
-    "modulo": "Repetitivo - Processo Penal",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito Penal",
-    "tema": "Tema 1126",
-    "enunciado": "Enquanto aguarda-se julgamento de mérito em temas repetitivos assinalados como \"Aguardando julgamento de mérito\", tais enunciados já produzem efeito vinculante e podem ser usados pelo julgador de ofício para firmar entendimento definitivo nos autos.",
-    "respostaCorreta": "E",
-    "explicacao": "Temas marcados como \"Aguardando julgamento de mérito\" significam ausência de tese consolidada; não possuem efeito vinculante. O julgador pode, em cada caso concreto, decidir conforme normas e precedentes, mas não há obrigação de observância de tese ainda não julgada.",
-    "referencia": "Tema 1126",
-    "fonte": "Repetitivo - Processo Penal",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Processo Penal",
-      "Repetitivo - Processo Penal"
-    ]
-  },
-  {
-    "id": "stj-sem-ano-repetitivo-repetitivo-processo-penal-q019",
-    "modulo": "Repetitivo - Processo Penal",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito Penal",
-    "tema": "Tema 1138",
-    "enunciado": "Aguardando julgamento de mérito não impede que o magistrado utilize precedentes parciais e argumentos doutrinários vinculados para fundamentar decisão interlocutória na execução penal; contudo, não há conteúdo normativo consolidado aplicável compulsoriamente.",
-    "respostaCorreta": "C",
-    "explicacao": "A ausência de tese definitiva não obsta o uso de precedentes e fundamentação jurídica pelo julgador, mas tais elementos não gozam do status de súmula vinculante ou do caráter obrigatório de tese repetitiva já julgada, devendo isso ser reconhecido na motivação.",
-    "referencia": "Tema 1138",
-    "fonte": "Repetitivo - Processo Penal",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Processo Penal",
-      "Repetitivo - Processo Penal"
-    ]
-  },
-  {
     "id": "stj-sem-ano-repetitivo-repetitivo-processo-penal-q020",
     "modulo": "Repetitivo - Processo Penal",
     "tribunal": "STJ",
@@ -74837,29 +73227,6 @@
     "respostaCorreta": "E",
     "explicacao": "A tese afirma que a avaliação do requisito subjetivo (bom comportamento) deve abarcar todo o histórico prisional do sentenciado e não ficar limitada ao período de 12 meses referido na alínea b do inciso III do art. 83 do CP; assim, o contexto histórico deve compor a análise subjetiva.",
     "referencia": "Tema 1161",
-    "fonte": "Repetitivo - Processo Penal",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Processo Penal",
-      "Repetitivo - Processo Penal"
-    ]
-  },
-  {
-    "id": "stj-sem-ano-repetitivo-repetitivo-processo-penal-q021",
-    "modulo": "Repetitivo - Processo Penal",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito Penal",
-    "tema": "Tema 1152",
-    "enunciado": "Em matéria ainda pendente de julgamento de mérito, a parte não pode invocar entendimento consolidado para fins de obtenção de efeito transpositivo, o que implica que decisões individuais devem aguardar a definição do STJ para uniformização.",
-    "respostaCorreta": "C",
-    "explicacao": "Quando há menção \"Aguardando julgamento de mérito\", não há tese consolidada a ser aplicada como vinculante; portanto, a utilização imediata de tal entendimento para alterar situação jurídica ainda não consolidada é prematura, cabendo ao juiz fundamentar sua decisão em normas vigentes e precedentes anteriores.",
-    "referencia": "Tema 1152",
     "fonte": "Repetitivo - Processo Penal",
     "nivel": "medio",
     "tags": [
@@ -75146,29 +73513,6 @@
     ]
   },
   {
-    "id": "stj-sem-ano-repetitivo-repetitivo-processo-penal-q034",
-    "modulo": "Repetitivo - Processo Penal",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito Penal",
-    "tema": "Tema 1256",
-    "enunciado": "Enquanto um tema repetitivo estiver indicado como \"Aguardando julgamento de mérito\", sua utilização pelas partes em petição é juridicamente impossível, por inexistência de qualquer efeito processual do enunciado.",
-    "respostaCorreta": "E",
-    "explicacao": "Embora sem efeito vinculante, as matérias pendentes podem ser invocadas pelas partes como argumento de convencimento, para fins persuasivos, ou para pedir uniformização, não sendo juridicamente impossível sua utilização; apenas não há obrigação de observância do enunciado pelo julgador.",
-    "referencia": "Tema 1256",
-    "fonte": "Repetitivo - Processo Penal",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Processo Penal",
-      "Repetitivo - Processo Penal"
-    ]
-  },
-  {
     "id": "stj-sem-ano-repetitivo-repetitivo-processo-penal-q035",
     "modulo": "Repetitivo - Processo Penal",
     "tribunal": "STJ",
@@ -75307,29 +73651,6 @@
     ]
   },
   {
-    "id": "stj-sem-ano-repetitivo-repetitivo-processo-penal-q041",
-    "modulo": "Repetitivo - Processo Penal",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito Penal",
-    "tema": "Tema 1260",
-    "enunciado": "Enquanto aguarda julgamento de mérito em tema repetitivo, não há risco de aplicação imediata de entendimento diverso pelo juízo de execução penal que, por competência própria, pode decidir contrariamente sem necessidade de motivação.",
-    "respostaCorreta": "E",
-    "explicacao": "Mesmo na ausência de tese consolidada, o juiz deve motivar suas decisões; não há liberdade para decidir contrariamente sem fundamentação. Além disso, a competência do juízo da execução não o exime do dever de fundamentar a decisão em razão do princípio do devido processo legal.",
-    "referencia": "Tema 1260",
-    "fonte": "Repetitivo - Processo Penal",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Processo Penal",
-      "Repetitivo - Processo Penal"
-    ]
-  },
-  {
     "id": "stj-sem-ano-repetitivo-repetitivo-processo-penal-q042",
     "modulo": "Repetitivo - Processo Penal",
     "tribunal": "STJ",
@@ -75445,52 +73766,6 @@
     ]
   },
   {
-    "id": "stj-sem-ano-repetitivo-repetitivo-processo-penal-q047",
-    "modulo": "Repetitivo - Processo Penal",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito Penal",
-    "tema": "Tema 1320",
-    "enunciado": "A expressão \"Admissibilidade normal com a observação da não suspensão\" em tema repetitivo indica que a admissibilidade do recurso está condicionada à suspensão automática do prazo recursal até julgamento do mérito do tema.",
-    "respostaCorreta": "E",
-    "explicacao": "A expressão sugere que o recurso é admitido normalmente, mas sem efeito suspensivo automático; ou seja, não há suspensão dos efeitos do ato impugnado apenas pela admissão do recurso, devendo observar-se a norma específica quanto à suspensão ou não.",
-    "referencia": "Tema 1320",
-    "fonte": "Repetitivo - Processo Penal",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Processo Penal",
-      "Repetitivo - Processo Penal"
-    ]
-  },
-  {
-    "id": "stj-sem-ano-repetitivo-repetitivo-processo-penal-q048",
-    "modulo": "Repetitivo - Processo Penal",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito Penal",
-    "tema": "Tema 1332",
-    "enunciado": "Quando se registra \"Admissibilidade normal com a observação da não suspensão\" em enunciado repetitivo, o aplicador deve entender que o incidente/recurso é processável, porém não suspende automaticamente os efeitos da decisão atacada.",
-    "respostaCorreta": "C",
-    "explicacao": "A formulação indica simplesmente que o recurso é admissível, com a ressalva de que não há suspensão automática dos efeitos; o intérprete deve aplicar a regra processual correspondente quanto aos efeitos suspensivos, quando cabíveis ou não.",
-    "referencia": "Tema 1332",
-    "fonte": "Repetitivo - Processo Penal",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Processo Penal",
-      "Repetitivo - Processo Penal"
-    ]
-  },
-  {
     "id": "stj-sem-ano-repetitivo-repetitivo-processo-penal-q049",
     "modulo": "Repetitivo - Processo Penal",
     "tribunal": "STJ",
@@ -75527,190 +73802,6 @@
     "respostaCorreta": "C",
     "explicacao": "A jurisprudência autoriza a medida cautelar de regressão quando adequadamente fundamentada, ressaltando seu caráter provisório e a possibilidade de revisão após investigação ou PAD concluso, em observância aos princípios constitucionais e de execução penal.",
     "referencia": "Tema 1347",
-    "fonte": "Repetitivo - Processo Penal",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Processo Penal",
-      "Repetitivo - Processo Penal"
-    ]
-  },
-  {
-    "id": "stj-sem-ano-repetitivo-repetitivo-processo-penal-q051",
-    "modulo": "Repetitivo - Processo Penal",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito Penal",
-    "tema": "Tema 1355",
-    "enunciado": "Aguardando julgamento de mérito indica que o tema possui tese firmada pelo STJ, logo aplicável diretamente pelos juízes de primeiro grau sem necessidade de adaptação.",
-    "respostaCorreta": "E",
-    "explicacao": "A expressão \"Aguardando julgamento de mérito\" significa ausência de tese consolidada; assim, não há enunciado vinculante a ser aplicado automaticamente pelos juízes, exigindo-se decisão fundamentada em outros precedentes e normas até a conclusão do julgamento.",
-    "referencia": "Tema 1355",
-    "fonte": "Repetitivo - Processo Penal",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Processo Penal",
-      "Repetitivo - Processo Penal"
-    ]
-  },
-  {
-    "id": "stj-sem-ano-repetitivo-repetitivo-processo-penal-q052",
-    "modulo": "Repetitivo - Processo Penal",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito Penal",
-    "tema": "Tema 1356",
-    "enunciado": "Aguardando julgamento de mérito não possibilita invocação da tese em sede de execução penal como questão vinculante, de modo que a parte que a suscitou pode sofrer preclusão se deixar de arguir o vício na primeira oportunidade.",
-    "respostaCorreta": "C",
-    "explicacao": "Enquanto o tema estiver pendente de julgamento, sua tese não tem caráter vinculante; as partes podem suscitar a matéria, mas devem arguir oportunamente para evitar preclusão. Assim, a pendência não cria direito automático à aplicação da tese.",
-    "referencia": "Tema 1356",
-    "fonte": "Repetitivo - Processo Penal",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Processo Penal",
-      "Repetitivo - Processo Penal"
-    ]
-  },
-  {
-    "id": "stj-sem-ano-repetitivo-repetitivo-processo-penal-q053",
-    "modulo": "Repetitivo - Processo Penal",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito Penal",
-    "tema": "Tema 1357",
-    "enunciado": "Aguardando julgamento de mérito significa que o tema está definitivamente rejeitado e não pode mais ser objeto de recursos ou discussões nas instâncias ordinárias.",
-    "respostaCorreta": "E",
-    "explicacao": "\"Aguardando julgamento de mérito\" indica pendência de definição, não rejeição; o tema pode continuar sendo objeto de recursos e debates até sua decisão, ao contrário do afirmado na assertiva.",
-    "referencia": "Tema 1357",
-    "fonte": "Repetitivo - Processo Penal",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Processo Penal",
-      "Repetitivo - Processo Penal"
-    ]
-  },
-  {
-    "id": "stj-sem-ano-repetitivo-repetitivo-processo-penal-q054",
-    "modulo": "Repetitivo - Processo Penal",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito Penal",
-    "tema": "Tema 1358",
-    "enunciado": "Aguardando julgamento de mérito, o enunciado de tese não oferece orientação segura ao aplicador e, portanto, recomenda‑se, para fins de coerência jurisprudencial, que magistrados e partes ressaltem a condição pendente quando a invocarem em peças ou decisões.",
-    "respostaCorreta": "C",
-    "explicacao": "Enquanto não houver julgamento de mérito, a menção \"Aguardando julgamento de mérito\" antecipa incerteza; é prudente que o aplicador registre tal condição ao invocar a matéria, para deixar clara a natureza não vinculante e evitar possíveis alegações de aplicação indevida.",
-    "referencia": "Tema 1358",
-    "fonte": "Repetitivo - Processo Penal",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Processo Penal",
-      "Repetitivo - Processo Penal"
-    ]
-  },
-  {
-    "id": "stj-sem-ano-repetitivo-repetitivo-processo-penal-q055",
-    "modulo": "Repetitivo - Processo Penal",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito Penal",
-    "tema": "Tema 1367",
-    "enunciado": "Aguardando julgamento de mérito expressa que o tema foi remetido ao órgão competente, mas já possui orientação pacífica do STJ, sendo possível invocá‑lo com força vinculante em tribunais inferiores.",
-    "respostaCorreta": "E",
-    "explicacao": "Aguardando julgamento de mérito significa justamente que não há orientação pacífica e vinculante do STJ; não se pode invocar a tese com força vinculante em tribunais inferiores enquanto não houver julgamento definitivo.",
-    "referencia": "Tema 1367",
-    "fonte": "Repetitivo - Processo Penal",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Processo Penal",
-      "Repetitivo - Processo Penal"
-    ]
-  },
-  {
-    "id": "stj-sem-ano-repetitivo-repetitivo-processo-penal-q056",
-    "modulo": "Repetitivo - Processo Penal",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito Penal",
-    "tema": "Tema 1382",
-    "enunciado": "Temas ainda pendentes de julgamento de mérito não impedem que autoridades administrativas ou defensorias produzam estudos e propostas técnicas para subsidiar o julgamento, mas tais trabalhos não têm caráter vinculante.",
-    "respostaCorreta": "C",
-    "explicacao": "Enquanto não consolidado o entendimento, pareceres técnicos e estudos podem e devem subsidiar as partes e o tribunal, porém não possuem força vinculante; o poder de decisão permanece com o órgão julgador que consolidará (ou não) a tese.",
-    "referencia": "Tema 1382",
-    "fonte": "Repetitivo - Processo Penal",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Processo Penal",
-      "Repetitivo - Processo Penal"
-    ]
-  },
-  {
-    "id": "stj-sem-ano-repetitivo-repetitivo-processo-penal-q057",
-    "modulo": "Repetitivo - Processo Penal",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito Penal",
-    "tema": "Tema 1383",
-    "enunciado": "Aguardando julgamento de mérito significa que o tribunal já editou enunciado vinculante provisório, aplicável de imediato nos processos que versem sobre a mesma matéria até o julgamento final.",
-    "respostaCorreta": "E",
-    "explicacao": "A expressão não corresponde à edição de enunciado vinculante provisório; apenas indica pendência de julgamento do mérito, sem eficácia vinculante ou aplicabilidade imediata como norma jurídica consolidada.",
-    "referencia": "Tema 1383",
-    "fonte": "Repetitivo - Processo Penal",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Processo Penal",
-      "Repetitivo - Processo Penal"
-    ]
-  },
-  {
-    "id": "stj-sem-ano-repetitivo-repetitivo-processo-penal-q058",
-    "modulo": "Repetitivo - Processo Penal",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito Penal",
-    "tema": "Tema 1403",
-    "enunciado": "Enquanto um tema estiver \"Aguardando julgamento de mérito\", não há óbice a que julgadores considerem precedentes inferiores ou argumentos contrários, desde que devidamente fundamentados e compatíveis com a legislação.",
-    "respostaCorreta": "C",
-    "explicacao": "A ausência de tese consolidada permite a livre apreciação da matéria pelo julgador, que pode fundamentar sua decisão com precedentes e princípios legais, desde que haja motivação adequada e observância das garantias processuais.",
-    "referencia": "Tema 1403",
     "fonte": "Repetitivo - Processo Penal",
     "nivel": "medio",
     "tags": [
@@ -77975,29 +76066,6 @@
     ]
   },
   {
-    "id": "stj-sem-ano-repetitivo-repetitivo-tributario-q098",
-    "modulo": "Repetitivo - Tributário",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito Penal",
-    "tema": "Tema 1041",
-    "enunciado": "O transportador de passageiros ou de carga pode ser punido com perda do veículo e multado quando transportar mercadoria sujeita à pena de perdimento sem identificação do proprietário, aplicando-se os Decretos-Leis 37/66 e 1.455/76 e a Lei 10.833/03.",
-    "respostaCorreta": "C",
-    "explicacao": "Tema 1041 levanta questão sobre aplicação das sanções previstas nos DLs mencionados e na Lei 10.833/03, podendo o transportador ser responsabilizado pela penalidade de perda ou multa ante a constatação de transporte de mercadoria sujeita a perdimento sem identificação adequada, conforme análise normativa.",
-    "referencia": "Tema 1041",
-    "fonte": "Repetitivo - Tributário",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Tributário",
-      "Repetitivo - Tributário"
-    ]
-  },
-  {
     "id": "stj-sem-ano-repetitivo-repetitivo-tributario-q099",
     "modulo": "Repetitivo - Tributário",
     "tribunal": "STJ",
@@ -78103,29 +76171,6 @@
     "respostaCorreta": "E",
     "explicacao": "Tema 1093 foi anotado como \"Tese muito grande. Buscar manualmente. Pouca relevância.\" Contudo, afirmar que é irrelevante e não merece consideração não pode ser adotado como conclusão jurídica automática; temas ainda em análise podem conter normas aplicáveis. Logo, a assertiva é improcedente.",
     "referencia": "Tema 1093",
-    "fonte": "Repetitivo - Tributário",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Tributário",
-      "Repetitivo - Tributário"
-    ]
-  },
-  {
-    "id": "stj-sem-ano-repetitivo-repetitivo-tributario-q104",
-    "modulo": "Repetitivo - Tributário",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito Tributário",
-    "tema": "Tema 1113",
-    "enunciado": "Os temas indicados como \"Aguardando julgamento de mérito\" (ex.: Tema 1113, 1209, 1263, 1276, 1334, 1335, 1363, 1364, 1369, 1372, 1393, 1401) não podem ser objeto de formulação de enunciados definitivos e, portanto, não devem ser utilizados como precedente obrigatório.",
-    "respostaCorreta": "C",
-    "explicacao": "Teses pendentes de julgamento de mérito não possuem força vinculante; enquanto aguardam decisão definitiva não se lhes pode atribuir caráter de precedente ou aplicabilidade obrigatória, sendo prudente não usá-las como fundamento jurídico definitivo.",
-    "referencia": "Tema 1113",
     "fonte": "Repetitivo - Tributário",
     "nivel": "medio",
     "tags": [
@@ -78573,29 +76618,6 @@
     ]
   },
   {
-    "id": "stj-sem-ano-repetitivo-repetitivo-tributario-q124",
-    "modulo": "Repetitivo - Tributário",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito Tributário",
-    "tema": "",
-    "enunciado": "Aguardam julgamento de mérito os temas 1113, 1209, 1263, 1276, 1334, 1335, 1363, 1364, 1369, 1372, 1393 e 1401, razão pela qual não se pode extrair deles enunciados vinculantes por ora.",
-    "respostaCorreta": "C",
-    "explicacao": "Vários temas no arquivo estão explicitamente marcados como \"Aguardando julgamento de mérito\", o que impede a formação de jurisprudência vinculante até pronunciamento final.",
-    "referencia": "Temas diversos (1100+ listados)",
-    "fonte": "Repetitivo - Tributário",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Tributário",
-      "Repetitivo - Tributário"
-    ]
-  },
-  {
     "id": "stj-sem-ano-repetitivo-repetitivo-ambiental-q001",
     "modulo": "Repetitivo - Ambiental",
     "tribunal": "STJ",
@@ -78655,29 +76677,6 @@
     "respostaCorreta": "C",
     "explicacao": "O Tema 1204 estabelece que as obrigações ambientais são propter rem, permitindo ao credor escolher entre demandar o proprietário ou o possuidor atual, ou quaisquer anteriores, inclusive cumulativamente. A exceção prevista também consta do enunciado: o alienante é isento de responsabilidade quando a sua titularidade real tiver cessado antes da causação do dano e quando não houver contribuição direta ou indireta sua para o evento danoso. A questão reflete com fidelidade essas consequências jurídicas, sem acrescentar condição diversa.",
     "referencia": "Tema 1204",
-    "fonte": "Repetitivo Ambiental",
-    "nivel": "medio",
-    "tags": [
-      "STJ",
-      "Repetitivos",
-      "Repetitivo - Ambiental",
-      "Repetitivo Ambiental"
-    ]
-  },
-  {
-    "id": "stj-sem-ano-repetitivo-repetitivo-ambiental-q004",
-    "modulo": "Repetitivo - Ambiental",
-    "tribunal": "STJ",
-    "ano": null,
-    "tipo": "repetitivo",
-    "categoria": "Repetitivos",
-    "informativo": "",
-    "disciplina": "Direito Civil",
-    "tema": "Tema 1321",
-    "enunciado": "Em face da alteração promovida pela Lei n. 13.146/2015, que deixou de incluir entre os absolutamente incapazes a pessoa que, por enfermidade ou deficiência, não tenha o necessário discernimento para os atos da vida civil, a incidência dos prazos de prescrição ou decadência contra pessoas com deficiência mental ou intelectual constitui matéria controvertida e encontra-se submetida à decisão colegiada do Superior Tribunal de Justiça.",
-    "respostaCorreta": "C",
-    "explicacao": "O Tema 1321 foi remetido ao julgamento, formulando a questão sobre a incidência de prescrição ou decadência em relação à pessoa com deficiência mental ou intelectual após a edição da Lei n. 13.146/2015, que alterou o regime de incapacidade absoluta. Assim, é correto afirmar que a matéria é controvertida e encontra‑se pendente de julgamento pelo STJ, conforme se extrai do próprio enunciado em que a questão foi submetida.",
-    "referencia": "Tema 1321",
     "fonte": "Repetitivo Ambiental",
     "nivel": "medio",
     "tags": [
@@ -111767,30 +109766,6 @@
     "espelhado_de_informativo": "stf-sem-ano-informativo-1132-q006"
   },
   {
-    "id": "tema-gerado-0006",
-    "modulo": "RG - Tributário",
-    "tribunal": "STF",
-    "ano": 2024,
-    "tipo": "informativo",
-    "categoria": "Repercussão Geral",
-    "informativo": "1135",
-    "disciplina": "Direito Tributário",
-    "tema": "Tema 574",
-    "enunciado": "A alteração no Estatuto dos Militares que eliminou a exigência de período mínimo de serviço para praça das Forças Armadas obter licenciamento a pedido impede o reconhecimento de repercussão geral na discussão sobre o desligamento voluntário antes do cumprimento do lapso temporal legalmente previsto.",
-    "respostaCorreta": "C",
-    "explicacao": "O STF afastou a repercussão geral inicialmente reconhecida para o Tema 574 porque o Estatuto dos Militares foi alterado, extinguindo a exigência de período mínimo de serviço para praça de carreira obter licenciamento a pedido, o que tornou a discussão sobre o desligamento voluntário antes do prazo legalmente previsto desprovida de relevância geral. Além disso, houve verificação de ofensa reflexa à Constituição e necessidade de reexame do caso concreto, reforçando a ausência de repercussão geral.",
-    "referencia": "STF. Plenário. RE 680.871/RS, Rel. Min. Dias Toffoli, julgado em 07/05/2024 (Repercussão Geral – Tema 574) (Info 1135).",
-    "fonte": "Info 1135 STF",
-    "nivel": "medio",
-    "tags": [
-      "STF",
-      "Informativos",
-      "Informativos STF",
-      "Info 1135 STF"
-    ],
-    "espelhado_de_informativo": "stf-sem-ano-informativo-1135-q002"
-  },
-  {
     "id": "tema-gerado-0007",
     "modulo": "RG - Constitucional",
     "tribunal": "STF",
@@ -112461,30 +110436,6 @@
       "Info 1200 STF"
     ],
     "espelhado_de_informativo": "stf-2025-informativo-1200-q003"
-  },
-  {
-    "id": "tema-gerado-0035",
-    "modulo": "RG - Geral",
-    "tribunal": "STF",
-    "ano": 2025,
-    "tipo": "informativo",
-    "categoria": "Repercussão Geral",
-    "informativo": "1200",
-    "disciplina": "Direito Penal",
-    "tema": "Tema 1102",
-    "enunciado": "No âmbito do Supremo Tribunal Federal, admite-se a instauração de incidente de assunção de competência em recurso extraordinário, desde que a controvérsia apresente relevante interesse público e repercussão social, pois a técnica de formação de precedentes obrigatórios pode ser utilizada sempre que houver multiplicidade de processos sobre a mesma questão jurídica.",
-    "respostaCorreta": "E",
-    "explicacao": "**Justificativa (robusta):**\nA assertiva está incorreta porque o incidente de assunção de competência não é cabível em sede de recurso extraordinário. A razão central é que, nessa via de impugnação, a função de uniformização da jurisprudência já é desempenhada pelo regime da repercussão geral, o que afasta a necessidade e a adequação do IAC como técnica adicional de estabilização de precedentes.\n\nO IAC é admitido no STF apenas quando houver processo pendente de julgamento em competência originária ou em competência recursal ordinária. Além disso, sua instauração exige que a controvérsia seja predominantemente jurídica, com relevante interesse público e repercussão social. Se a finalidade for prevenir ou resolver divergência entre as Turmas do Tribunal, ainda se exige a demonstração de conveniência específica para tanto.\n\nTambém é incorreto afirmar que a multiplicidade de processos, por si só, autoriza o incidente. O que distingue o IAC do IRDR não é a quantidade de feitos em tramitação, mas a importância intrínseca da questão jurídica debatida. Assim, a repetição do tema em vários processos não impede o IAC, mas tampouco o torna automaticamente cabível.",
-    "referencia": "STF. Plenário. RE 1.276.977 ED/DF, Rel. Min. Marco Aurélio, redator do acórdão Min. Alexandre de Moraes, julgado em 26/11/2025 (Repercussão Geral – tema 1.102) (Info 1200).",
-    "fonte": "Info 1200 STF",
-    "nivel": "medio",
-    "tags": [
-      "STF",
-      "Informativos",
-      "Informativos STF 2025",
-      "Info 1200 STF"
-    ],
-    "espelhado_de_informativo": "stf-2025-informativo-1200-q005"
   },
   {
     "id": "tema-gerado-0036",

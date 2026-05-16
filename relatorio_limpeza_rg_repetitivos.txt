@@ -1,0 +1,14 @@
+RELATÓRIO DE LIMPEZA RG / REPETITIVOS
+=====================================
+
+Antes: 4847
+Depois: 4847
+Intocados de outras categorias: 3491
+Mantidos RG/Repetitivos: 1356
+Removidos lixo/placeholders: 0
+Removidos sem base oficial: 0
+
+REMOVIDOS LIXO/PLACEHOLDER:
+
+
+REMOVIDOS SEM BASE OFICIAL:
