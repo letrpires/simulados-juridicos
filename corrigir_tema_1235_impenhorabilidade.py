@@ -32,6 +32,26 @@ for q in dados:
         q["explicacao"] = nova_justificativa
         corrigidas += 1
 
+    # INFO 807 - DIREITO DE RESPOSTA
+    if (
+        q.get("categoria") == "Informativos"
+        and str(q.get("informativo")) == "807"
+        and q.get("tribunal") == "STJ"
+        and "direito de resposta previsto na antiga Lei de Imprensa" in enunciado
+    ):
+
+        q["respostaCorreta"] = "C"
+
+        q["explicacao"] = """
+O caso concreto envolvia uma ação proposta com o único pedido de direito de resposta, vinculado a suposta injúria e calúnia em editorial jornalístico e fundamentado nos dispositivos da antiga Lei de Imprensa (Lei nº 5.250/67).
+
+O STJ entende que o direito de resposta previsto na antiga Lei de Imprensa possuía natureza de sanção penal, submetendo-se às normas do Código de Processo Penal e devendo a ação ser processada no Juízo Criminal. Logo, a competência para apreciá-lo – caso ainda não tenha sido julgado – é de um dos órgãos julgadores com competência criminal (5ª ou 6ª Turmas).
+
+STJ. Corte Especial. CC 195.616-DF, Rel. Min. Antonio Carlos Ferreira, julgado em 21/2/2024 (Info 807).
+""".strip()
+
+        corrigidas += 1
+
 ARQ.write_text(
     json.dumps(dados, ensure_ascii=False, indent=2),
     encoding="utf-8"
