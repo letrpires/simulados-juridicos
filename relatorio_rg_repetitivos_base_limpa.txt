@@ -1,0 +1,110 @@
+RELATÓRIO — BASE LIMPA RG / REPETITIVOS
+======================================
+
+Gerado em: 2026-05-17 14:37:10
+
+RG válidos: 816
+Repetitivos válidos: 1094
+Total válido: 1910
+
+RG ignorados: 51
+Repetitivos ignorados: 2
+
+Primeiros RG:
+- Tema 1456
+- Tema 1444
+- Tema 1428
+- Tema 1427
+- Tema 1424
+- Tema 1420
+- Tema 1419
+- Tema 1400
+- Tema 1396
+- Tema 1388
+- Tema 1386
+- Tema 1383
+- Tema 1373
+- Tema 1368
+- Tema 1367
+- Tema 1361
+- Tema 1360
+- Tema 1352
+- Tema 1347
+- Tema 1344
+
+Primeiros Repetitivos:
+- Tema Repetitivo 1405
+- Tema Repetitivo 1402
+- Tema Repetitivo 1390
+- Tema Repetitivo 1387
+- Tema Repetitivo 1385
+- Tema Repetitivo 1377
+- Tema Repetitivo 1373
+- Tema Repetitivo 1371
+- Tema Repetitivo 1368
+- Tema Repetitivo 1367
+- Tema Repetitivo 1365
+- Tema Repetitivo 1360
+- Tema Repetitivo 1350
+- Tema Repetitivo 1347
+- Tema Repetitivo 1346
+- Tema Repetitivo 1342
+- Tema Repetitivo 1338
+- Tema Repetitivo 1336
+- Tema Repetitivo 1333
+- Tema Repetitivo 1329
+
+Ignorados:
+- RG 1276: sem tese válida
+- RG 1275: sem tese válida
+- RG 1274: sem tese válida
+- RG 1271: sem tese válida
+- RG 1255: sem tese válida
+- RG 1252: sem tese válida
+- RG 1250: sem tese válida
+- RG 1242: sem tese válida
+- RG 1226: sem tese válida
+- RG 1211: sem tese válida
+- RG 1210: sem tese válida
+- RG 1205: sem tese válida
+- RG 1202: sem tese válida
+- RG 1198: sem tese válida
+- RG 1192: sem tese válida
+- RG 1185: sem tese válida
+- RG 1158: sem tese válida
+- RG 1148: sem tese válida
+- RG 1147: sem tese válida
+- RG 1141: sem tese válida
+- RG 1138: sem tese válida
+- RG 1124: sem tese válida
+- RG 1122: sem tese válida
+- RG 1121: sem tese válida
+- RG 1113: sem tese válida
+- RG 1071: sem tese válida
+- RG 1068: sem tese válida
+- RG 1067: sem tese válida
+- RG 1016: sem tese válida
+- RG 989: sem tese válida
+- RG 936: sem tese válida
+- RG 934: sem tese válida
+- RG 924: sem tese válida
+- RG 912: sem tese válida
+- RG 905: sem tese válida
+- RG 903: sem tese válida
+- RG 556: sem tese válida
+- RG 536: sem tese válida
+- RG 527: sem tese válida
+- RG 516: sem tese válida
+- RG 487: sem tese válida
+- RG 441: sem tese válida
+- RG 381: sem tese válida
+- RG 289: sem tese válida
+- RG 266: sem tese válida
+- RG 265: sem tese válida
+- RG 208: sem tese válida
+- RG 167: sem tese válida
+- RG 115: sem tese válida
+- RG 106: sem tese válida
+- RG 79: sem tese válida
+- Repetitivos 1198: sem tese válida
+- Repetitivos 579: sem tese válida
