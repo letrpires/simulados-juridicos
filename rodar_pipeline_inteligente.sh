@@ -103,5 +103,13 @@ else:
 PY
 
 echo ""
+echo "🔒 Aplicando trava final RG/Repetitivos..."
+python3 trava_final_rg_repetitivos.py
+
+echo ""
+echo "🌐 Repreparando docs após trava final..."
+./preparar_docs_pages.sh
+
+echo ""
 echo "✅ PIPELINE FINALIZADO COM SUCESSO"
 echo "Agora teste o site antes de subir para o GitHub."
