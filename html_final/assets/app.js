@@ -101,19 +101,33 @@ session = size >= 9999 ? list : list.slice(0, size); currentIndex=Math.min(start
 
 
 function referenciaFinal(q){
-  if(q.referencia && String(q.referencia).trim()){
-    return String(q.referencia).trim();
+  const ref = String(q.referencia || "").trim();
+  const fonte = String(q.fonte || "").trim();
+
+  const genericas = [
+    "Informativos STF",
+    "Informativos STJ",
+    "Informativo STF",
+    "Informativo STJ"
+  ];
+
+  if(ref && !genericas.includes(ref)){
+    return ref;
   }
 
-  if(q.categoria === "Informativos" && q.informativo){
-    return `Informativo ${q.informativo} ${q.tribunal || ""}`.trim();
+  if(fonte && !genericas.includes(fonte)){
+    return fonte;
   }
 
   if(q.tipo === "edicao_extraordinaria" && q.informativo){
-    return `Edição Extraordinária ${q.informativo} ${q.tribunal || ""}`.trim();
+    return `Ed. Extra ${q.informativo} STJ`;
   }
 
-  return q.fonte || "";
+  if(q.categoria === "Informativos" && q.informativo){
+    return `Info ${q.informativo} ${q.tribunal || ""}`.trim();
+  }
+
+  return q.modulo || "";
 }
 
 function limparExplicacaoFinal(txt){
