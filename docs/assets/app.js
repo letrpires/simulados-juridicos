@@ -706,3 +706,36 @@ filtered = function(){
     return true;
   });
 };
+
+function importProgress(){
+  const box = document.getElementById("importBox");
+  if(!box) return alert("Campo de importação não encontrado.");
+
+  try{
+    const imported = JSON.parse(box.value);
+
+    if(!imported || typeof imported !== "object"){
+      throw new Error("JSON inválido.");
+    }
+
+    state = {
+      ...defaultState(),
+      ...imported,
+      answers: imported.answers || {},
+      marked: imported.marked || {},
+      sessions: imported.sessions || [],
+      settings: imported.settings || defaultState().settings,
+      badges: imported.badges || [],
+      xp: imported.xp || 0,
+      lastSession: imported.lastSession || null,
+      studySeconds: imported.studySeconds || 0
+    };
+
+    save();
+    alert("✅ Progresso importado com sucesso.");
+    render("dashboard");
+  }catch(e){
+    alert("❌ Não foi possível importar. Verifique se você colou o JSON completo.");
+    console.error(e);
+  }
+}
